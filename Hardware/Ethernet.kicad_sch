@@ -8707,7 +8707,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "185fe158-df1c-4dbf-bb81-d6fa08ef0db9")
-		(property "Reference" "TP_VDDA1"
+		(property "Reference" "TP_VDDA_1"
 			(at 173.99 64.7699 90)
 			(effects
 				(font
@@ -8758,7 +8758,7 @@
 		(instances
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/c43afff9-f83a-4a8d-a24d-a11c71953b08"
-					(reference "TP_VDDA1")
+					(reference "TP_VDDA_1")
 					(unit 1)
 				)
 			)

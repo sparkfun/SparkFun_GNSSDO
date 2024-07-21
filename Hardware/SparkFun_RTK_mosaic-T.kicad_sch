@@ -1532,7 +1532,7 @@
 				)
 			)
 		)
-		(symbol "SparkFun-Connector:Qwiic_Right_Angle"
+		(symbol "SparkFun-Connector:Qwiic_Vertical"
 			(pin_names
 				(offset 1.016) hide)
 			(exclude_from_sim no)
@@ -1546,7 +1546,7 @@
 					)
 				)
 			)
-			(property "Value" "Qwiic_RA"
+			(property "Value" "Qwiic_Vertical"
 				(at 0 -7.62 0)
 				(effects
 					(font
@@ -1554,7 +1554,7 @@
 					)
 				)
 			)
-			(property "Footprint" "SparkFun-Connector:JST_SMD_1.0mm-4_RA"
+			(property "Footprint" "SparkFun-Connector:JST_SMD_1.0mm-4_Vertical"
 				(at 0 -12.7 0)
 				(effects
 					(font
@@ -1581,7 +1581,7 @@
 					(hide yes)
 				)
 			)
-			(property "PROD_ID" "CONN-13694"
+			(property "PROD_ID" "CONN-14483"
 				(at 0 -10.16 0)
 				(effects
 					(font
@@ -1608,7 +1608,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "Qwiic_Right_Angle_0_0"
+			(symbol "Qwiic_Vertical_0_0"
 				(polyline
 					(pts
 						(xy 5.6514 -4.1459) (xy 5.6299 -4.0654) (xy 5.5924 -3.9985) (xy 5.5373 -3.9428) (xy 5.4632 -3.8962)
@@ -1708,7 +1708,7 @@
 					)
 				)
 			)
-			(symbol "Qwiic_Right_Angle_1_1"
+			(symbol "Qwiic_Vertical_1_1"
 				(rectangle
 					(start -1.27 -4.953)
 					(end -0.508 -5.207)
@@ -2455,127 +2455,6 @@
 					(at 0 0 90)
 					(length 0) hide
 					(name "3.3V"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "SparkFun-PowerSymbol:3.3V_P"
-			(power)
-			(pin_names
-				(offset 0)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "#PWR"
-				(at 0 -3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Value" "3.3V_P"
-				(at 0 3.81 0)
-				(do_not_autoplace)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "SparkFun global power"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "3.3V_P_0_1"
-				(polyline
-					(pts
-						(xy 0 0) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 2.54) (xy 0.762 1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "3.3V_P_1_1"
-				(polyline
-					(pts
-						(xy -0.762 1.27) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin power_in line
-					(at 0 0 90)
-					(length 0) hide
-					(name "3.3V_P"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -7101,6 +6980,71 @@
 		)
 	)
 	(symbol
+		(lib_id "SparkFun-PowerSymbol:3.3V")
+		(at 222.25 36.83 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "67d7199e-5a38-4d3d-a351-06d5e389c566")
+		(property "Reference" "#PWR0101"
+			(at 222.25 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "3.3V"
+			(at 222.25 33.274 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 222.25 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 222.25 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"3.3V\""
+			(at 222.25 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d3d14e83-7a99-48d3-85c5-30dff9b3a388")
+		)
+		(instances
+			(project "SparkFun_RTK_mosaic-T"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
+					(reference "#PWR0101")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "SparkFun-Resistor:2.2k_0402")
 		(at 219.71 72.39 270)
 		(mirror x)
@@ -7180,97 +7124,6 @@
 			(project "SparkFun_RTK_Facet_mosaic"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(reference "R4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "SparkFun-Connector:Qwiic_Right_Angle")
-		(at 228.6 40.64 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a481cd81-73e7-41b0-9d8d-51257cf2698f")
-		(property "Reference" "J3"
-			(at 237.49 40.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Qwiic_RA"
-			(at 237.49 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "SparkFun-Connector:JST_SMD_1.0mm-4_RA"
-			(at 228.6 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.jst-mfg.com/product/pdf/eng/eSH.pdf"
-			(at 228.6 55.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "4 pin JST 1mm polarized connector for I2C"
-			(at 228.6 40.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PROD_ID" "CONN-13694"
-			(at 228.6 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f5873c59-b7c4-4d7c-bfaa-0215507c47a5")
-		)
-		(pin "2"
-			(uuid "44d6589e-2bce-42ff-b055-41ad88f7275d")
-		)
-		(pin "3"
-			(uuid "7122d5af-7cce-4e75-b42b-0dd0a5553824")
-		)
-		(pin "4"
-			(uuid "ed39970e-92e3-40e8-920b-4e22953718d4")
-		)
-		(pin "NC1"
-			(uuid "bb06956e-1a0c-42ce-ab97-da9108a381f3")
-		)
-		(pin "NC2"
-			(uuid "7fa8ebee-a368-4de2-9666-ebc53b662852")
-		)
-		(instances
-			(project "SparkFun_RTK_Facet_mosaic"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
-					(reference "J3")
 					(unit 1)
 				)
 			)
@@ -7399,6 +7252,97 @@
 			(project "SparkFun_RTK_Facet_mosaic"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(reference "FID2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-Connector:Qwiic_Vertical")
+		(at 228.6 40.64 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b4af0a42-af80-474e-84f7-2808eb08ac05")
+		(property "Reference" "J7"
+			(at 237.49 40.6399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Qwiic_Vertical"
+			(at 237.49 43.1799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "SparkFun-Connector:JST_SMD_1.0mm-4_Vertical"
+			(at 228.6 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.jst-mfg.com/product/pdf/eng/eSH.pdf"
+			(at 228.6 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "4 pin JST 1mm polarized connector for I2C"
+			(at 228.6 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PROD_ID" "CONN-14483"
+			(at 228.6 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "aad52e1d-6f4a-48ed-ac0a-c130a13d7d2b")
+		)
+		(pin "2"
+			(uuid "c64108f2-7cad-4f1a-b884-18dbdda42f30")
+		)
+		(pin "4"
+			(uuid "ac6a7ecb-edb2-4247-9be5-8e8209ac8aa1")
+		)
+		(pin "NC2"
+			(uuid "60bddf0a-13ba-4941-af65-9c7a39c02bb8")
+		)
+		(pin "NC1"
+			(uuid "f990a325-2198-46c9-a70a-0e1ec8f9d132")
+		)
+		(pin "1"
+			(uuid "3a87f4e7-bacb-45d4-a4ce-e0071248e40f")
+		)
+		(instances
+			(project ""
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
+					(reference "J7")
 					(unit 1)
 				)
 			)
@@ -8122,71 +8066,6 @@
 			(project "SparkFun_RTK_Facet_mosaic"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(reference "#PWR035")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "SparkFun-PowerSymbol:3.3V_P")
-		(at 222.25 36.83 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "f4f7335b-1e12-4160-ac58-31ab9fbcdadc")
-		(property "Reference" "#PWR0101"
-			(at 222.25 40.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "3.3V_P"
-			(at 222.25 33.274 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 222.25 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 222.25 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
-			(at 222.25 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ab1bfe7b-1f41-4387-9ffb-df4fc349c44f")
-		)
-		(instances
-			(project "SparkFun_RTK_Facet_mosaic"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
-					(reference "#PWR0101")
 					(unit 1)
 				)
 			)
