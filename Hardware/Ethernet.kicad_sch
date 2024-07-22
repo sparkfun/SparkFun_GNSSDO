@@ -6480,7 +6480,7 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 78.74) (xy 68.58 78.74)
+			(xy 66.04 78.74) (xy 69.85 78.74)
 		)
 		(stroke
 			(width 0)
@@ -6720,7 +6720,7 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 83.82) (xy 87.63 83.82)
+			(xy 87.63 83.82) (xy 88.9 83.82)
 		)
 		(stroke
 			(width 0)
@@ -6910,7 +6910,7 @@
 	)
 	(wire
 		(pts
-			(xy 76.2 83.82) (xy 78.74 83.82)
+			(xy 77.47 83.82) (xy 80.01 83.82)
 		)
 		(stroke
 			(width 0)
@@ -6960,7 +6960,7 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 83.82) (xy 68.58 83.82)
+			(xy 66.04 83.82) (xy 69.85 83.82)
 		)
 		(stroke
 			(width 0)
@@ -7060,7 +7060,7 @@
 	)
 	(wire
 		(pts
-			(xy 76.2 78.74) (xy 78.74 78.74)
+			(xy 77.47 78.74) (xy 80.01 78.74)
 		)
 		(stroke
 			(width 0)
@@ -7130,7 +7130,7 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 78.74) (xy 87.63 78.74)
+			(xy 87.63 78.74) (xy 88.9 78.74)
 		)
 		(stroke
 			(width 0)
@@ -7765,7 +7765,7 @@
 	)
 	(global_label "LINK"
 		(shape input)
-		(at 87.63 83.82 0)
+		(at 88.9 83.82 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7775,7 +7775,7 @@
 		)
 		(uuid "61813434-d303-4c03-b1f2-6ae5f54a46ce")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 94.8486 83.82 0)
+			(at 96.1186 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7963,7 +7963,7 @@
 	)
 	(global_label "SPEED"
 		(shape input)
-		(at 87.63 78.74 0)
+		(at 88.9 78.74 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7973,7 +7973,7 @@
 		)
 		(uuid "ca1bbc4b-6b7a-435c-bddb-797b65a273fc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 96.6627 78.74 0)
+			(at 97.9327 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8707,7 +8707,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "185fe158-df1c-4dbf-bb81-d6fa08ef0db9")
-		(property "Reference" "TP_VDDA_1"
+		(property "Reference" "TP23"
 			(at 173.99 64.7699 90)
 			(effects
 				(font
@@ -8758,7 +8758,7 @@
 		(instances
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/c43afff9-f83a-4a8d-a24d-a11c71953b08"
-					(reference "TP_VDDA_1")
+					(reference "TP23")
 					(unit 1)
 				)
 			)
@@ -8932,7 +8932,7 @@
 	)
 	(symbol
 		(lib_id "SparkFun-Resistor:1k_0603")
-		(at 82.55 83.82 0)
+		(at 83.82 83.82 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8940,7 +8940,7 @@
 		(dnp no)
 		(uuid "1f496530-847f-4ab8-b72a-ecbf4ea644a5")
 		(property "Reference" "R18"
-			(at 81.28 81.28 0)
+			(at 82.55 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8948,7 +8948,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 85.09 81.28 0)
+			(at 86.36 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8956,7 +8956,7 @@
 			)
 		)
 		(property "Footprint" "SparkFun-Resistor:R_0603_1608Metric"
-			(at 82.55 88.392 0)
+			(at 83.82 88.392 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8965,7 +8965,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
-			(at 81.28 92.71 0)
+			(at 82.55 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8974,7 +8974,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 82.55 95.25 0)
+			(at 83.82 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8983,7 +8983,7 @@
 			)
 		)
 		(property "PROD_ID" "RES-07856"
-			(at 82.55 90.678 0)
+			(at 83.82 90.678 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10295,14 +10295,14 @@
 	)
 	(symbol
 		(lib_id "SparkFun-Jumper:SolderJumper_2_Bridged")
-		(at 72.39 83.82 0)
+		(at 73.66 83.82 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "81c152c9-5112-4133-a7d0-44a13ca49395")
-		(property "Reference" "JP_LINK1"
+		(property "Reference" "JP13"
 			(at 73.66 81.28 0)
 			(effects
 				(font
@@ -10311,7 +10311,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 72.39 81.28 0)
+			(at 73.66 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10319,7 +10319,7 @@
 			)
 		)
 		(property "Footprint" "SparkFun-Jumper:Jumper_2_NC_Trace"
-			(at 72.136 88.392 0)
+			(at 73.406 88.392 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10328,7 +10328,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 72.39 91.44 0)
+			(at 73.66 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10337,7 +10337,7 @@
 			)
 		)
 		(property "Description" "Solder Jumper, 2-pole, closed/bridged"
-			(at 72.39 83.82 0)
+			(at 73.66 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10354,7 +10354,7 @@
 		(instances
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/c43afff9-f83a-4a8d-a24d-a11c71953b08"
-					(reference "JP_LINK1")
+					(reference "JP13")
 					(unit 1)
 				)
 			)
@@ -10564,7 +10564,7 @@
 	)
 	(symbol
 		(lib_id "SparkFun-Resistor:1k_0603")
-		(at 82.55 78.74 0)
+		(at 83.82 78.74 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10572,7 +10572,7 @@
 		(dnp no)
 		(uuid "a54e6599-7b61-40da-895b-b45d1a805ad1")
 		(property "Reference" "R17"
-			(at 81.28 76.2 0)
+			(at 82.55 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10580,7 +10580,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 85.09 76.2 0)
+			(at 86.36 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10588,7 +10588,7 @@
 			)
 		)
 		(property "Footprint" "SparkFun-Resistor:R_0603_1608Metric"
-			(at 82.55 83.312 0)
+			(at 83.82 83.312 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10597,7 +10597,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
-			(at 81.28 87.63 0)
+			(at 82.55 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10606,7 +10606,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 82.55 90.17 0)
+			(at 83.82 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10615,7 +10615,7 @@
 			)
 		)
 		(property "PROD_ID" "RES-07856"
-			(at 82.55 85.598 0)
+			(at 83.82 85.598 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11452,14 +11452,14 @@
 	)
 	(symbol
 		(lib_id "SparkFun-Jumper:SolderJumper_2_Bridged")
-		(at 72.39 78.74 0)
+		(at 73.66 78.74 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "d30f0b63-26f1-4121-8142-9e27ce244256")
-		(property "Reference" "JP_SPEED1"
+		(property "Reference" "JP12"
 			(at 73.66 76.2 0)
 			(effects
 				(font
@@ -11468,7 +11468,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 72.39 76.2 0)
+			(at 73.66 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11476,7 +11476,7 @@
 			)
 		)
 		(property "Footprint" "SparkFun-Jumper:Jumper_2_NC_Trace"
-			(at 72.136 83.312 0)
+			(at 73.406 83.312 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11485,7 +11485,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 72.39 86.36 0)
+			(at 73.66 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11494,7 +11494,7 @@
 			)
 		)
 		(property "Description" "Solder Jumper, 2-pole, closed/bridged"
-			(at 72.39 78.74 0)
+			(at 73.66 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11511,7 +11511,7 @@
 		(instances
 			(project ""
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/c43afff9-f83a-4a8d-a24d-a11c71953b08"
-					(reference "JP_SPEED1")
+					(reference "JP12")
 					(unit 1)
 				)
 			)

@@ -1,0 +1,18 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "9ac2426f-96d9-4f86-83ba-59c02144179a")
+	(paper "A4")
+	(lib_symbols)
+	(text "Oscillator"
+		(exclude_from_sim no)
+		(at 146.05 20.32 0)
+		(effects
+			(font
+				(size 3 3)
+			)
+		)
+		(uuid "6c204ce5-4d59-49de-9bf1-2f89f894599f")
+	)
+)
