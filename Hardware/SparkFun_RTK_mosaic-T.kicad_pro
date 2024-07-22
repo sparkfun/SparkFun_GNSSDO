@@ -893,10 +893,6 @@
       "Ethernet"
     ],
     [
-      "0e1ed6ae-ebb5-4961-9134-e1b8e5fb8356",
-      "Oscillator"
-    ],
-    [
       "d9a77ac1-2999-4329-b708-8e6cc1b00c22",
       "Level_Shifting"
     ]

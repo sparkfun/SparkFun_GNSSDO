@@ -4991,7 +4991,7 @@
 	)
 	(text "Buttons"
 		(exclude_from_sim no)
-		(at 214.63 113.03 0)
+		(at 214.63 111.76 0)
 		(effects
 			(font
 				(size 3 3)

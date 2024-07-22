@@ -5913,6 +5913,12 @@
 		(uuid "29295711-83d0-4a4d-b27f-81e83196bb59")
 	)
 	(junction
+		(at 179.07 113.03)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2d6eba0c-84f3-4919-82d0-36cf6b20826e")
+	)
+	(junction
 		(at 229.87 129.54)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5923,12 +5929,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "31f9a2da-3d3d-4681-a31c-8cdbd0655933")
-	)
-	(junction
-		(at 175.26 110.49)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "3a86f0db-792b-4064-a5dc-6a7ed405cd73")
 	)
 	(junction
 		(at 232.41 129.54)
@@ -6063,10 +6063,10 @@
 		(uuid "edb7be1e-fe0b-4d40-86c5-ef1a1c98f333")
 	)
 	(junction
-		(at 179.07 113.03)
+		(at 175.26 110.49)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "f6664e43-f814-4af3-a6d4-0dfb1a6c9b0b")
+		(uuid "f04770ef-1fff-4048-b06f-010da97d5127")
 	)
 	(wire
 		(pts
@@ -6410,16 +6410,6 @@
 	)
 	(wire
 		(pts
-			(xy 173.99 110.49) (xy 175.26 110.49)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "47e64758-f404-49e1-9441-251573a8f3ed")
-	)
-	(wire
-		(pts
 			(xy 228.6 97.79) (xy 229.87 97.79)
 		)
 		(stroke
@@ -6437,6 +6427,16 @@
 			(type default)
 		)
 		(uuid "48dc740b-bcbc-474a-979c-de1d304ae9b4")
+	)
+	(wire
+		(pts
+			(xy 173.99 113.03) (xy 179.07 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "48eb9874-122f-4718-8b66-ebcfdc0f7dbd")
 	)
 	(wire
 		(pts
@@ -6757,6 +6757,16 @@
 			(type default)
 		)
 		(uuid "89d63211-cab1-4bbe-9751-07eb9f622a9a")
+	)
+	(wire
+		(pts
+			(xy 173.99 110.49) (xy 175.26 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8a29e65a-c623-40d3-894e-f31590234253")
 	)
 	(wire
 		(pts
@@ -7370,16 +7380,6 @@
 	)
 	(wire
 		(pts
-			(xy 173.99 113.03) (xy 179.07 113.03)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f31cc0d7-0f8d-459d-bf1a-c4561cb781bf")
-	)
-	(wire
-		(pts
 			(xy 85.09 96.52) (xy 85.09 100.33)
 		)
 		(stroke
@@ -7478,6 +7478,16 @@
 		)
 		(uuid "fed050e4-ea80-4898-af71-eac43a75a9ff")
 	)
+	(text "50MHz"
+		(exclude_from_sim no)
+		(at 232.41 114.935 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "0454f428-d934-4e93-a8ce-3a8571d083fd")
+	)
 	(text "Ethernet"
 		(exclude_from_sim no)
 		(at 144.78 20.32 0)
@@ -7487,17 +7497,6 @@
 			)
 		)
 		(uuid "d6acd040-5eb1-4006-a6c5-6c0141e02381")
-	)
-	(label "50MHz"
-		(at 229.87 115.57 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ebd75707-f557-4dc8-8fb4-43b2fde1ea88")
 	)
 	(global_label "TD+"
 		(shape input)
@@ -7545,7 +7544,7 @@
 	)
 	(global_label "SPEED"
 		(shape input)
-		(at 173.99 113.03 180)
+		(at 173.99 110.49 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7555,7 +7554,7 @@
 		)
 		(uuid "210d4ce8-5c9d-4115-a921-a162135afb8f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 164.9573 113.03 0)
+			(at 164.9573 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7831,7 +7830,7 @@
 	)
 	(global_label "LINK"
 		(shape input)
-		(at 173.99 110.49 180)
+		(at 173.99 113.03 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7841,7 +7840,7 @@
 		)
 		(uuid "9398a589-6732-4d1b-b509-01145ba4b751")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 166.7714 110.49 0)
+			(at 166.7714 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
