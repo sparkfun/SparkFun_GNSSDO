@@ -8348,6 +8348,17 @@
 		)
 		(uuid "14f9c2da-2b26-41f2-8e54-aea6ea6c9fce")
 	)
+	(text "I/O Screw Terminals\n(via level-shifters)"
+		(exclude_from_sim no)
+		(at 115.57 101.6 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2e6b996a-f695-4821-b9c5-1e556e17a74c")
+	)
 	(text "Dielectric thickness (layer 1 to 2): 0.2mm"
 		(exclude_from_sim no)
 		(at 179.578 78.486 0)

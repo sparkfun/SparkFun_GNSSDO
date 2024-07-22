@@ -4606,6 +4606,16 @@
 	)
 	(polyline
 		(pts
+			(xy 137.16 59.69) (xy 12.7 59.69)
+		)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(uuid "a6341f4e-d5ab-49ab-92ba-5cdbb460f853")
+	)
+	(polyline
+		(pts
 			(xy 12.7 171.45) (xy 158.75 171.45)
 		)
 		(stroke

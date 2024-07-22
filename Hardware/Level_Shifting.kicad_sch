@@ -2,7 +2,7 @@
 	(version 20231120)
 	(generator "eeschema")
 	(generator_version "8.0")
-	(uuid "c65396d1-6a1d-4143-b43e-395e68e46005")
+	(uuid "d62a9c09-2214-432b-afd9-6d0242d50b13")
 	(paper "A4")
 	(lib_symbols
 		(symbol "SparkFun-Capacitor:0.1uF_0603_25V_20%"

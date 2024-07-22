@@ -343,6 +343,10 @@
 	(net 202 "Net-(D12-PadANODE_1)")
 	(net 203 "Net-(D12-PadANODE_2)")
 	(net 204 "Net-(D12-PadANODE_3)")
+	(net 205 "unconnected-(U13-NC-Pad3)")
+	(net 206 "unconnected-(U13-NC-Pad7)")
+	(net 207 "unconnected-(U13-NC-Pad8)")
+	(net 208 "unconnected-(U13-CLK-Pad6)")
 	(footprint "SparkFun-Capacitor:C_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "00e9c73a-31ac-4841-8d1e-f99efe9dd369")
@@ -20053,7 +20057,7 @@
 				(justify bottom)
 			)
 		)
-		(property "Value" "STAND-OFF"
+		(property "Value" "Standoff"
 			(at 0 2.032 0)
 			(layer "F.Fab")
 			(uuid "93c3fb8b-887a-47e9-8bc9-1e06b916a86e")
@@ -23462,7 +23466,7 @@
 				)
 			)
 		)
-		(property "Value" "Val**"
+		(property "Value" "SMA_Edge"
 			(at 0 3.4 0)
 			(layer "F.Fab")
 			(uuid "953c2d25-5d36-4699-9090-5bd49c5d15d2")
@@ -24163,6 +24167,248 @@
 			(uuid "2e56c873-4f39-40de-8ac8-805981a19c99")
 		)
 	)
+	(footprint "SparkFun-Capacitor:C_0603_1608Metric"
+		(layer "F.Cu")
+		(uuid "482f3a85-8ac5-42d4-9f2c-d0d266e14d94")
+		(at 423.82 125.795)
+		(tags "SparkFun capacitor")
+		(property "Reference" "C47"
+			(at 0 -1.43 0)
+			(layer "F.Fab")
+			(uuid "38f6793f-e9be-4ed4-bbf6-c0720991eadc")
+			(effects
+				(font
+					(size 0.5 0.5)
+					(thickness 0.1)
+					(bold yes)
+				)
+			)
+		)
+		(property "Value" "0.1uF"
+			(at 0 1.43 0)
+			(layer "F.Fab")
+			(uuid "4a1da9dc-7393-47fb-bd41-abd490f9de94")
+			(effects
+				(font
+					(size 0.5 0.5)
+					(thickness 0.1)
+					(bold yes)
+				)
+			)
+		)
+		(property "Footprint" "SparkFun-Capacitor:C_0603_1608Metric"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "446af0fb-4a71-44da-90cf-0095c0fd97b4")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c34c9652-55f1-46ee-ade8-68de9ff19bbe")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4aeb7252-748b-4f7e-96e6-0706295bda7f")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PROD_ID" "CAP-00810"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3b858ca6-2192-4c72-84a3-f7d9682f1dc8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Voltage" "25V"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cde42967-d71e-4edf-be12-1affeee9482c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Tolerance" "20%"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a60ed86c-9229-484b-abaf-8c42cfce89ad")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "C_*")
+		(path "/0e1ed6ae-ebb5-4961-9134-e1b8e5fb8356/2f74ca91-e1cd-4371-b631-0825e1dd069d")
+		(sheetname "Oscillator")
+		(sheetfile "Oscillator.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start -0.14058 -0.51)
+			(end 0.14058 -0.51)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "4ab2a1b9-2f91-440b-ac15-a523a5ccde6d")
+		)
+		(fp_line
+			(start -0.14058 0.51)
+			(end 0.14058 0.51)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "ac80c0f9-5c3d-480f-a335-8710a40f0bca")
+		)
+		(fp_line
+			(start -1.48 -0.73)
+			(end 1.48 -0.73)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "e1d26752-7ddd-462a-b243-8c1f779a4ca4")
+		)
+		(fp_line
+			(start -1.48 0.73)
+			(end -1.48 -0.73)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "f693b22f-f88a-41de-8064-6275de19302f")
+		)
+		(fp_line
+			(start 1.48 -0.73)
+			(end 1.48 0.73)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "e1251063-6653-4ab1-bb38-6c57568ad844")
+		)
+		(fp_line
+			(start 1.48 0.73)
+			(end -1.48 0.73)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "742877b3-e9cf-423c-850d-e857807368aa")
+		)
+		(fp_line
+			(start -0.8 -0.4)
+			(end 0.8 -0.4)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "cc07434b-76d7-4ce9-a58b-d229cb887c29")
+		)
+		(fp_line
+			(start -0.8 0.4)
+			(end -0.8 -0.4)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "6bf85308-1d6f-4e80-9e7e-bc2f04a955e0")
+		)
+		(fp_line
+			(start 0.8 -0.4)
+			(end 0.8 0.4)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "098cb7eb-2a49-443c-8d9e-3b372b7b8151")
+		)
+		(fp_line
+			(start 0.8 0.4)
+			(end -0.8 0.4)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "66e18a02-bc4c-4aca-89de-b9b05e4a2e5f")
+		)
+		(pad "1" smd roundrect
+			(at -0.775 0)
+			(size 0.9 0.95)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(roundrect_rratio 0.25)
+			(net 22 "3.3V_P")
+			(pintype "passive")
+			(uuid "fa7e23c5-1f91-4685-940a-7917b75c232d")
+		)
+		(pad "2" smd roundrect
+			(at 0.775 0)
+			(size 0.9 0.95)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(roundrect_rratio 0.25)
+			(net 1 "GND")
+			(pintype "passive")
+			(uuid "a738808b-b125-42d7-9942-4caa017583ff")
+		)
+		(model "${KICAD6_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
 	(footprint "SparkFun-Capacitor:PANASONIC_D"
 		(layer "F.Cu")
 		(uuid "48716871-1336-40f2-81a4-2cfa78e810e6")
@@ -24754,7 +25000,7 @@
 				(justify bottom)
 			)
 		)
-		(property "Value" "Val**"
+		(property "Value" "U.FL"
 			(at 0 2.2 0)
 			(layer "F.Fab")
 			(uuid "a122b194-0939-4f5c-90f5-e8bfa8926dba")
@@ -26457,6 +26703,281 @@
 			)
 		)
 	)
+	(footprint "SparkFun-Semiconductor-Standard:Ceramic_QFN_5.0x3.2mm-10"
+		(layer "F.Cu")
+		(uuid "57dcc32d-c9fb-4175-bd1d-e29914232c29")
+		(at 425.965 122.015)
+		(descr "Ceramic QFN 5032 10pins")
+		(property "Reference" "U13"
+			(at 0 -2.5 0)
+			(layer "F.Fab")
+			(uuid "3847c602-6d5e-4c6f-bbe4-434f660eb1a6")
+			(effects
+				(font
+					(size 0.5 0.5)
+					(thickness 0.1)
+					(bold yes)
+				)
+			)
+		)
+		(property "Value" "SiT5358AI-FS033IT-10.000000"
+			(at 0 2.5 0)
+			(layer "F.Fab")
+			(uuid "28afdd67-ec11-469c-8b4e-e7f68fab7058")
+			(effects
+				(font
+					(size 0.5 0.5)
+					(thickness 0.1)
+					(bold yes)
+				)
+			)
+		)
+		(property "Footprint" "SparkFun-Semiconductor-Standard:Ceramic_QFN_5.0x3.2mm-10"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b2416eee-d9c0-4fcc-9856-65ce3407efac")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.sitime.com/support/resource-library/datasheets/sit5358-datasheet"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e27b601a-26ea-4476-8ae7-1104d36112c2")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "The SiT5358 is a precision MEMS Super-TCXO optimized for ±50 ppb stability from -40°C to 105°C."
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "934f914d-2e1e-4ea7-aba6-d016cc54f47a")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PROD_ID" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "baceb200-2314-4e91-8a35-1f00552e1537")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/0e1ed6ae-ebb5-4961-9134-e1b8e5fb8356/bd2db63f-e0ba-4452-9215-0acd83fc9f88")
+		(sheetname "Oscillator")
+		(sheetfile "Oscillator.kicad_sch")
+		(fp_circle
+			(center -3.25 1.25)
+			(end -2.9 1.25)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(fill solid)
+			(layer "F.SilkS")
+			(uuid "73bd83a7-c6f0-4acd-9a9e-19ae961eed2a")
+		)
+		(fp_rect
+			(start -3 -2)
+			(end 3 2)
+			(stroke
+				(width 0.05)
+				(type default)
+			)
+			(fill none)
+			(layer "F.CrtYd")
+			(uuid "88599a8b-bed5-4f80-9f29-8da599fd1132")
+		)
+		(fp_line
+			(start -2.5 -1.6)
+			(end 2.5 -1.6)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "096acd9a-4dac-44a0-9b9b-54999c6f401d")
+		)
+		(fp_line
+			(start -2.5 1.6)
+			(end -2.5 -1.6)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "c92b9bd1-32ab-4b2b-ab21-aabbfba24df7")
+		)
+		(fp_line
+			(start -1.7 0.7)
+			(end -1.5 0.9)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.Fab")
+			(uuid "dd77f348-c962-4860-935d-30a446d95e89")
+		)
+		(fp_line
+			(start 2.5 -1.6)
+			(end 2.5 1.6)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "0984d1e4-7a9f-47e7-9e2f-c0fec2614cd2")
+		)
+		(fp_line
+			(start 2.5 1.6)
+			(end -2.5 1.6)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "b6abf53b-2b18-484a-b6b4-abffeaa7c3df")
+		)
+		(fp_circle
+			(center -2 1.1)
+			(end -1.75 1.1)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(fill solid)
+			(layer "F.Fab")
+			(uuid "5a327d47-659c-4d42-98eb-982104c4d6c8")
+		)
+		(pad "1" smd rect
+			(at -2.025 1.175)
+			(size 1.15 1.05)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 22 "3.3V_P")
+			(pinfunction "OE")
+			(pintype "input")
+			(solder_mask_margin 0.1016)
+			(thermal_bridge_angle 0)
+			(uuid "8ab7d6d2-7b1a-4565-8e9a-f73f50dc0f52")
+		)
+		(pad "2" smd rect
+			(at -0.6 1.025 90)
+			(size 1.35 0.7)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 39 "ESP22{slash}SCL")
+			(pinfunction "SCL")
+			(pintype "bidirectional")
+			(solder_mask_margin 0.1016)
+			(thermal_bridge_angle 0)
+			(uuid "8edc5726-c7d5-48c6-ac05-bba12a8ae1fa")
+		)
+		(pad "3" smd rect
+			(at 0.6 1.025 90)
+			(size 1.35 0.7)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 205 "unconnected-(U13-NC-Pad3)")
+			(pinfunction "NC")
+			(pintype "no_connect")
+			(solder_mask_margin 0.1016)
+			(thermal_bridge_angle 0)
+			(uuid "7153cb20-8903-4265-a914-fc083a35d9c0")
+		)
+		(pad "4" smd rect
+			(at 2.025 1.175)
+			(size 1.15 1.05)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 1 "GND")
+			(pinfunction "GND")
+			(pintype "power_in")
+			(solder_mask_margin 0.1016)
+			(thermal_bridge_angle 0)
+			(uuid "1c1ca63f-3529-4e71-b9b0-0c4b8dd36df7")
+		)
+		(pad "5" smd rect
+			(at 2.025 0)
+			(size 1.15 0.7)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 1 "GND")
+			(pinfunction "A0")
+			(pintype "input")
+			(solder_mask_margin 0.1016)
+			(thermal_bridge_angle 0)
+			(uuid "5dbe86c1-7b47-4eed-bd02-9a5a544b819c")
+		)
+		(pad "6" smd rect
+			(at 2.025 -1.175)
+			(size 1.15 1.05)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 208 "unconnected-(U13-CLK-Pad6)")
+			(pinfunction "CLK")
+			(pintype "output")
+			(solder_mask_margin 0.1016)
+			(thermal_bridge_angle 0)
+			(uuid "71ded18c-8141-452f-b17c-04b01e4d196c")
+		)
+		(pad "7" smd rect
+			(at 0.6 -1.025 90)
+			(size 1.35 0.7)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 206 "unconnected-(U13-NC-Pad7)")
+			(pinfunction "NC")
+			(pintype "no_connect")
+			(solder_mask_margin 0.1016)
+			(thermal_bridge_angle 0)
+			(uuid "861af437-03b7-424d-b4de-6938a2982612")
+		)
+		(pad "8" smd rect
+			(at -0.6 -1.025 90)
+			(size 1.35 0.7)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 207 "unconnected-(U13-NC-Pad8)")
+			(pinfunction "NC")
+			(pintype "no_connect")
+			(solder_mask_margin 0.1016)
+			(thermal_bridge_angle 0)
+			(uuid "c8932e8d-d625-4abf-8abd-2061726aeae4")
+		)
+		(pad "9" smd rect
+			(at -2.025 -1.175)
+			(size 1.15 1.05)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 22 "3.3V_P")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(solder_mask_margin 0.1016)
+			(thermal_bridge_angle 0)
+			(uuid "de59fc91-9d58-41b5-ad37-558ad1a12912")
+		)
+		(pad "10" smd rect
+			(at -2.025 0)
+			(size 1.15 0.7)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 40 "ESP21{slash}SDA")
+			(pinfunction "SDA")
+			(pintype "bidirectional")
+			(solder_mask_margin 0.1016)
+			(thermal_bridge_angle 0)
+			(uuid "07897be1-1564-40ba-b61a-c1aff2db9d94")
+		)
+	)
 	(footprint "SparkFun-Connector:Screw_Cage_3.5mm-10"
 		(layer "F.Cu")
 		(uuid "587cdf8b-d3fb-4fb0-bf2d-48b637a8a5be")
@@ -27856,7 +28377,7 @@
 				(justify bottom)
 			)
 		)
-		(property "Value" "STAND-OFF"
+		(property "Value" "Standoff"
 			(at 0 2.032 0)
 			(layer "F.Fab")
 			(uuid "bde22615-3ab6-4c2b-91c3-8a2cc402af66")
@@ -30974,7 +31495,7 @@
 				(justify bottom)
 			)
 		)
-		(property "Value" "STAND-OFF"
+		(property "Value" "Standoff"
 			(at 0 2.032 0)
 			(layer "F.Fab")
 			(uuid "b057224f-39c7-4873-92a8-86c8f6715ba2")
@@ -34774,6 +35295,248 @@
 			)
 		)
 	)
+	(footprint "SparkFun-Capacitor:C_0603_1608Metric"
+		(layer "F.Cu")
+		(uuid "7b53b4c8-006e-4b60-9aac-e2a98aaa47bd")
+		(at 423.82 128.305)
+		(tags "SparkFun capacitor")
+		(property "Reference" "C48"
+			(at 0 -1.43 0)
+			(layer "F.Fab")
+			(uuid "7ba3775d-204e-43ce-b45c-eb1be7cad219")
+			(effects
+				(font
+					(size 0.5 0.5)
+					(thickness 0.1)
+					(bold yes)
+				)
+			)
+		)
+		(property "Value" "10uF"
+			(at 0 1.43 0)
+			(layer "F.Fab")
+			(uuid "d36e783b-9d0c-42c1-9535-554e6407e3c1")
+			(effects
+				(font
+					(size 0.5 0.5)
+					(thickness 0.1)
+					(bold yes)
+				)
+			)
+		)
+		(property "Footprint" "SparkFun-Capacitor:C_0603_1608Metric"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "34c2b733-1f1b-4515-ba9e-b0a5b4cfa72c")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "15434168-40f2-43ae-aee0-c041f102798e")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "09f79fc8-8cb8-492e-9462-35dec051cc6a")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PROD_ID" "CAP-20155"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8a30b98f-c4a6-4025-8ce4-d81945af8fea")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Voltage" "10V"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3740f100-15bd-4850-a55f-88903755b269")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Tolerance" "20%"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "af09d5e8-5035-455a-babb-3184feb6a472")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "C_*")
+		(path "/0e1ed6ae-ebb5-4961-9134-e1b8e5fb8356/e914ce8e-13e0-4c0e-bfb1-996308390dd6")
+		(sheetname "Oscillator")
+		(sheetfile "Oscillator.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start -0.14058 -0.51)
+			(end 0.14058 -0.51)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "fb85f11f-1433-4532-908a-a2f3616af7e3")
+		)
+		(fp_line
+			(start -0.14058 0.51)
+			(end 0.14058 0.51)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "72e1ff50-2f7c-4dd0-8c22-166e04fb678d")
+		)
+		(fp_line
+			(start -1.48 -0.73)
+			(end 1.48 -0.73)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "f0bf0623-21a7-4d63-915c-49b5f793bc2c")
+		)
+		(fp_line
+			(start -1.48 0.73)
+			(end -1.48 -0.73)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "bd7238a6-039c-47dd-82f3-0dd281188279")
+		)
+		(fp_line
+			(start 1.48 -0.73)
+			(end 1.48 0.73)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "5441da4e-5ba9-4099-bfc7-706f1bdc0364")
+		)
+		(fp_line
+			(start 1.48 0.73)
+			(end -1.48 0.73)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "0a4f1d09-794b-47df-b97e-6079e29d5c60")
+		)
+		(fp_line
+			(start -0.8 -0.4)
+			(end 0.8 -0.4)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "ba1fcf9d-153e-4c88-8b7d-56a0c074fb52")
+		)
+		(fp_line
+			(start -0.8 0.4)
+			(end -0.8 -0.4)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "a3291629-9073-4f3b-8465-c353ad982664")
+		)
+		(fp_line
+			(start 0.8 -0.4)
+			(end 0.8 0.4)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "7872bc81-c531-453e-ac8a-707dedb211a6")
+		)
+		(fp_line
+			(start 0.8 0.4)
+			(end -0.8 0.4)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "6a147904-a36b-4fd2-a535-cd8b05fd6ba2")
+		)
+		(pad "1" smd roundrect
+			(at -0.775 0)
+			(size 0.9 0.95)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(roundrect_rratio 0.25)
+			(net 22 "3.3V_P")
+			(pintype "passive")
+			(uuid "cb217714-28b7-41ff-b1eb-53a5962c48ba")
+		)
+		(pad "2" smd roundrect
+			(at 0.775 0)
+			(size 0.9 0.95)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(roundrect_rratio 0.25)
+			(net 1 "GND")
+			(pintype "passive")
+			(uuid "cbd8dd99-2422-4561-86fe-ad4dd6119ea4")
+		)
+		(model "${KICAD6_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
 	(footprint "SparkFun-Connector:1x01"
 		(layer "F.Cu")
 		(uuid "7cd6b114-b0ca-4343-8a2c-c148a9db9e85")
@@ -35591,7 +36354,7 @@
 				(justify bottom)
 			)
 		)
-		(property "Value" "STAND-OFF"
+		(property "Value" "Standoff"
 			(at 0 2.032 0)
 			(layer "F.Fab")
 			(uuid "0804f46c-e562-45cd-b8dd-5fe419aa907e")
@@ -39061,7 +39824,7 @@
 				)
 			)
 		)
-		(property "Value" "Val**"
+		(property "Value" "RP-SMA_Edge"
 			(at 0 3.3 0)
 			(layer "F.Fab")
 			(uuid "23ae118c-cb72-4b24-a08e-f8922ffc7556")
@@ -44480,7 +45243,7 @@
 				)
 			)
 		)
-		(property "Value" "Val**"
+		(property "Value" "RFCMF1220100M4T"
 			(at 0 1.2 0)
 			(layer "F.Fab")
 			(uuid "ec2baa21-852a-499e-aa5f-ee086f91c4fa")
