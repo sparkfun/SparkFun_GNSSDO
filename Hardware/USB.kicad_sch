@@ -3944,6 +3944,12 @@
 		)
 	)
 	(junction
+		(at 91.44 129.54)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1532ba9b-f2a6-4f5c-8209-4a19eb1172cf")
+	)
+	(junction
 		(at 80.01 52.07)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3968,10 +3974,28 @@
 		(uuid "4aeca2f7-5f04-45b7-a1db-07e01291fce9")
 	)
 	(junction
+		(at 149.86 125.73)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "51c44a7a-246d-45dc-b6ca-5707c5100d43")
+	)
+	(junction
+		(at 91.44 132.08)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a0d75935-c8f2-4ead-8444-972655ff189f")
+	)
+	(junction
 		(at 201.93 55.88)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b3b9caf6-0d31-457f-8a91-4515e65c86ec")
+	)
+	(junction
+		(at 149.86 152.4)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b497e1ee-33d4-43aa-96ff-03fe621e50c8")
 	)
 	(junction
 		(at 77.47 123.19)
@@ -4026,6 +4050,16 @@
 			(type default)
 		)
 		(uuid "01f71c9c-c536-4f0c-b6b5-ca85895765db")
+	)
+	(wire
+		(pts
+			(xy 148.59 152.4) (xy 149.86 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "03516794-2a40-436d-b670-976afbc8df79")
 	)
 	(wire
 		(pts
@@ -4349,6 +4383,26 @@
 	)
 	(wire
 		(pts
+			(xy 91.44 129.54) (xy 92.71 129.54)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6f4acc9c-e65f-4b6a-ac3a-f94e53b07492")
+	)
+	(wire
+		(pts
+			(xy 91.44 133.35) (xy 91.44 132.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "70247d6d-ad6a-42f0-a602-846f1bef6475")
+	)
+	(wire
+		(pts
 			(xy 149.86 151.13) (xy 149.86 152.4)
 		)
 		(stroke
@@ -4419,6 +4473,16 @@
 	)
 	(wire
 		(pts
+			(xy 91.44 128.27) (xy 91.44 129.54)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7a724571-cefd-4e8f-88c0-cead54e13ba3")
+	)
+	(wire
+		(pts
 			(xy 142.24 132.08) (xy 140.97 132.08)
 		)
 		(stroke
@@ -4486,6 +4550,16 @@
 			(type default)
 		)
 		(uuid "84a6fb50-3487-4d54-aa14-2cab4ed907d4")
+	)
+	(wire
+		(pts
+			(xy 132.08 130.81) (xy 132.08 132.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "86fb49df-0413-4de7-b3a8-730d170b9560")
 	)
 	(wire
 		(pts
@@ -4619,7 +4693,7 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 129.54) (xy 88.9 129.54)
+			(xy 87.63 129.54) (xy 91.44 129.54)
 		)
 		(stroke
 			(width 0)
@@ -4706,6 +4780,16 @@
 			(type default)
 		)
 		(uuid "b9b02f19-924f-411d-aaba-1465975f03b9")
+	)
+	(wire
+		(pts
+			(xy 148.59 125.73) (xy 149.86 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bbeccb6a-54c5-48fe-855c-2dec9e378562")
 	)
 	(wire
 		(pts
@@ -4809,6 +4893,16 @@
 	)
 	(wire
 		(pts
+			(xy 91.44 132.08) (xy 92.71 132.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e08d54f6-19e9-4961-a5ec-f604a052ffe3")
+	)
+	(wire
+		(pts
 			(xy 195.58 44.45) (xy 196.85 44.45)
 		)
 		(stroke
@@ -4849,7 +4943,7 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 132.08) (xy 88.9 132.08)
+			(xy 87.63 132.08) (xy 91.44 132.08)
 		)
 		(stroke
 			(width 0)
@@ -4906,6 +5000,16 @@
 			(type default)
 		)
 		(uuid "f120f846-234d-44d9-af20-d14fd0773fc3")
+	)
+	(wire
+		(pts
+			(xy 130.81 146.05) (xy 130.81 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f29c41b4-05f3-41e0-8856-3f1c89df8e1a")
 	)
 	(wire
 		(pts
@@ -5101,7 +5205,7 @@
 	)
 	(global_label "ESP3{slash}CH340-TX"
 		(shape input)
-		(at 88.9 129.54 0)
+		(at 92.71 129.54 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5111,7 +5215,7 @@
 		)
 		(uuid "3f083a86-a48e-4cf9-9058-286802b6e49c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 108.0322 129.54 0)
+			(at 111.8422 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5189,7 +5293,7 @@
 	)
 	(global_label "ESP1{slash}CH340-RX"
 		(shape input)
-		(at 88.9 132.08 0)
+		(at 92.71 132.08 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5199,7 +5303,7 @@
 		)
 		(uuid "7527d715-d349-44b2-a0ef-2e7319603e40")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 108.3346 132.08 0)
+			(at 112.1446 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5445,6 +5549,205 @@
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
 					(reference "#PWR028")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-Connector:TestPoint_PTH")
+		(at 148.59 152.4 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "0de42dee-7b87-4fed-b401-339965b5838b")
+		(property "Reference" "TP36"
+			(at 140.97 152.4 90)
+			(do_not_autoplace yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PTH"
+			(at 152.4 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "SparkFun-Connector:1x01"
+			(at 154.94 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 156.21 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point"
+			(at 148.59 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d88cf275-aec7-42a6-8b69-585c01dcb180")
+		)
+		(instances
+			(project ""
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
+					(reference "TP36")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-Connector:TestPoint_PTH")
+		(at 91.44 133.35 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "11478aff-e9f6-4db2-ae4e-e9c06bdb26f6")
+		(property "Reference" "TP35"
+			(at 91.44 138.43 0)
+			(do_not_autoplace yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PTH"
+			(at 91.44 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "SparkFun-Connector:1x01"
+			(at 92.71 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 91.44 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point"
+			(at 91.44 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f6c62dee-dab5-450a-b787-8efe68594b90")
+		)
+		(instances
+			(project "SparkFun_RTK_mosaic-T"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
+					(reference "TP35")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-Connector:TestPoint_PTH")
+		(at 148.59 125.73 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "14af6f73-a04d-47ec-a9c6-797b80bdde23")
+		(property "Reference" "TP37"
+			(at 140.97 125.73 90)
+			(do_not_autoplace yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PTH"
+			(at 152.4 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "SparkFun-Connector:1x01"
+			(at 154.94 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 156.21 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point"
+			(at 148.59 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0c569587-c974-460b-99e3-33ef2d823edb")
+		)
+		(instances
+			(project "SparkFun_RTK_mosaic-T"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
+					(reference "TP37")
 					(unit 1)
 				)
 			)
@@ -6810,6 +7113,73 @@
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
 					(reference "#PWR015")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-Connector:TestPoint_PTH")
+		(at 91.44 128.27 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5f1c3304-b728-4767-ab8f-bc2b29ba7804")
+		(property "Reference" "TP34"
+			(at 91.44 123.19 0)
+			(do_not_autoplace yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PTH"
+			(at 91.44 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "SparkFun-Connector:1x01"
+			(at 90.17 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 91.44 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point"
+			(at 91.44 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "13177b3c-4073-42f5-94aa-4711cb1ba581")
+		)
+		(instances
+			(project ""
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
+					(reference "TP34")
 					(unit 1)
 				)
 			)
@@ -8259,6 +8629,73 @@
 		)
 	)
 	(symbol
+		(lib_id "SparkFun-Connector:TestPoint_PTH")
+		(at 130.81 147.32 0)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c610d7c8-07b6-4208-bff1-20b6a1a04322")
+		(property "Reference" "TP39"
+			(at 130.81 152.4 0)
+			(do_not_autoplace yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PTH"
+			(at 130.81 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "SparkFun-Connector:1x01"
+			(at 129.54 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 130.81 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point"
+			(at 130.81 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4d9d2fdd-5ee7-490f-92e3-bdf78ead1a4c")
+		)
+		(instances
+			(project "SparkFun_RTK_mosaic-T"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
+					(reference "TP39")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "SparkFun-PowerSymbol:3.3V")
 		(at 77.47 121.92 0)
 		(unit 1)
@@ -8721,6 +9158,73 @@
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
 					(reference "D3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-Connector:TestPoint_PTH")
+		(at 132.08 130.81 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f1d88f66-7973-43f2-9275-dda0ccd78aff")
+		(property "Reference" "TP38"
+			(at 132.08 125.73 0)
+			(do_not_autoplace yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PTH"
+			(at 132.08 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "SparkFun-Connector:1x01"
+			(at 130.81 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 132.08 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point"
+			(at 132.08 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "cdb998e1-22fc-42f2-a2d7-dd9d28cf6844")
+		)
+		(instances
+			(project ""
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
+					(reference "TP38")
 					(unit 1)
 				)
 			)
