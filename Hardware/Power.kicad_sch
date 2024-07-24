@@ -5586,7 +5586,7 @@
 		(fields_autoplaced yes)
 		(uuid "18f61374-4b12-4fa7-96d5-6fcceba40701")
 		(property "Reference" "C33"
-			(at 107.95 40.6399 0)
+			(at 107.95 39.3699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5595,7 +5595,7 @@
 			)
 		)
 		(property "Value" "10uF"
-			(at 107.95 43.1799 0)
+			(at 107.95 41.9099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5640,13 +5640,12 @@
 			)
 		)
 		(property "Voltage" "10V"
-			(at 107.95 43.1799 0)
+			(at 107.95 44.4499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
 		(property "Tolerance" "20%"
@@ -7238,7 +7237,7 @@
 		(fields_autoplaced yes)
 		(uuid "673aadd6-0f86-4825-b6d1-4b77a6c3536f")
 		(property "Reference" "C38"
-			(at 247.65 40.6399 0)
+			(at 247.65 39.3699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7247,7 +7246,7 @@
 			)
 		)
 		(property "Value" "10uF"
-			(at 247.65 43.1799 0)
+			(at 247.65 41.9099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7292,13 +7291,12 @@
 			)
 		)
 		(property "Voltage" "10V"
-			(at 247.65 43.1799 0)
+			(at 247.65 44.4499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
 		(property "Tolerance" "20%"
@@ -7912,7 +7910,7 @@
 		(fields_autoplaced yes)
 		(uuid "8ea8a1b6-97f2-4284-8145-58aa7ea05875")
 		(property "Reference" "C20"
-			(at 91.44 99.0599 0)
+			(at 91.44 97.7899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7921,7 +7919,7 @@
 			)
 		)
 		(property "Value" "1.0uF"
-			(at 91.44 101.5999 0)
+			(at 91.44 100.3299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7966,13 +7964,12 @@
 			)
 		)
 		(property "Voltage" "16V"
-			(at 91.44 101.5999 0)
+			(at 91.44 102.8699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
 		(property "Tolerance" "10%"
@@ -8389,7 +8386,7 @@
 		(fields_autoplaced yes)
 		(uuid "99a548b1-929f-4f74-bf89-050bd8ce909b")
 		(property "Reference" "C34"
-			(at 120.65 40.6399 0)
+			(at 120.65 39.3699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8398,7 +8395,7 @@
 			)
 		)
 		(property "Value" "10uF"
-			(at 120.65 43.1799 0)
+			(at 120.65 41.9099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8443,13 +8440,12 @@
 			)
 		)
 		(property "Voltage" "10V"
-			(at 120.65 43.1799 0)
+			(at 120.65 44.4499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
 		(property "Tolerance" "20%"
@@ -8620,21 +8616,21 @@
 		(fields_autoplaced yes)
 		(uuid "a0be8ad1-3cdf-480d-afcb-90e7aea8f87e")
 		(property "Reference" "C7"
-			(at 154.94 99.0599 0)
+			(at 147.32 97.7899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Value" "1.0uF"
-			(at 154.94 101.5999 0)
+			(at 147.32 100.3299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Footprint" "SparkFun-Capacitor:C_0603_1608Metric"
@@ -8674,13 +8670,12 @@
 			)
 		)
 		(property "Voltage" "16V"
-			(at 154.94 101.5999 0)
+			(at 147.32 102.8699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
-				(hide yes)
+				(justify right)
 			)
 		)
 		(property "Tolerance" "10%"
@@ -9718,7 +9713,7 @@
 		(fields_autoplaced yes)
 		(uuid "e7c0b87f-eb23-4d48-8964-4820c9105ab3")
 		(property "Reference" "C37"
-			(at 234.95 40.6399 0)
+			(at 234.95 39.3699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9727,7 +9722,7 @@
 			)
 		)
 		(property "Value" "10uF"
-			(at 234.95 43.1799 0)
+			(at 234.95 41.9099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9772,13 +9767,12 @@
 			)
 		)
 		(property "Voltage" "10V"
-			(at 234.95 43.1799 0)
+			(at 234.95 44.4499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
 		(property "Tolerance" "20%"

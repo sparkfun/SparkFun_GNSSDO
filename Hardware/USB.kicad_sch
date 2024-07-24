@@ -5,7 +5,7 @@
 	(uuid "bf435ad2-f960-4d52-ab74-9a7a66fa8ec0")
 	(paper "USLetter")
 	(lib_symbols
-		(symbol "SparkFun-Capacitor:0.1uF_0402_6.3V_10%"
+		(symbol "SparkFun-Capacitor:0.1uF_0603_25V_20%"
 			(pin_numbers hide)
 			(pin_names
 				(offset 0.254)
@@ -31,7 +31,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "SparkFun-Capacitor:C_0402_1005Metric"
+			(property "Footprint" "SparkFun-Capacitor:C_0603_1608Metric"
 				(at 0 -11.43 0)
 				(effects
 					(font
@@ -58,7 +58,7 @@
 					(hide yes)
 				)
 			)
-			(property "PROD_ID" "CAP-14993"
+			(property "PROD_ID" "CAP-00810"
 				(at 0 -16.51 0)
 				(effects
 					(font
@@ -67,7 +67,7 @@
 					(hide yes)
 				)
 			)
-			(property "Voltage" "6.3V"
+			(property "Voltage" "25V"
 				(at 0 -6.35 0)
 				(effects
 					(font
@@ -75,7 +75,7 @@
 					)
 				)
 			)
-			(property "Tolerance" "10%"
+			(property "Tolerance" "20%"
 				(at 0 -8.89 0)
 				(effects
 					(font
@@ -101,7 +101,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "0.1uF_0402_6.3V_10%_0_1"
+			(symbol "0.1uF_0603_25V_20%_0_1"
 				(polyline
 					(pts
 						(xy -2.032 -0.762) (xy 2.032 -0.762)
@@ -127,7 +127,7 @@
 					)
 				)
 			)
-			(symbol "0.1uF_0402_6.3V_10%_1_1"
+			(symbol "0.1uF_0603_25V_20%_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 2.794)
@@ -166,7 +166,7 @@
 				)
 			)
 		)
-		(symbol "SparkFun-Capacitor:2.2uF_0402_10V_10%"
+		(symbol "SparkFun-Capacitor:2.2uF_0603_10V_20%"
 			(pin_numbers hide)
 			(pin_names
 				(offset 0.254)
@@ -192,7 +192,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "SparkFun-Capacitor:C_0402_1005Metric"
+			(property "Footprint" "SparkFun-Capacitor:C_0603_1608Metric"
 				(at 0 -11.43 0)
 				(effects
 					(font
@@ -219,7 +219,7 @@
 					(hide yes)
 				)
 			)
-			(property "PROD_ID" "CAP-14232"
+			(property "PROD_ID" "CAP-07888"
 				(at -1.27 -13.97 0)
 				(effects
 					(font
@@ -236,7 +236,7 @@
 					)
 				)
 			)
-			(property "Tolerance" "10%"
+			(property "Tolerance" "20%"
 				(at 0 -8.89 0)
 				(effects
 					(font
@@ -262,7 +262,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "2.2uF_0402_10V_10%_0_1"
+			(symbol "2.2uF_0603_10V_20%_0_1"
 				(polyline
 					(pts
 						(xy -2.032 -0.762) (xy 2.032 -0.762)
@@ -288,7 +288,7 @@
 					)
 				)
 			)
-			(symbol "2.2uF_0402_10V_10%_1_1"
+			(symbol "2.2uF_0603_10V_20%_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 2.794)
@@ -3109,7 +3109,7 @@
 				)
 			)
 		)
-		(symbol "SparkFun-Resistor:10k_0402"
+		(symbol "SparkFun-Resistor:10k_0603"
 			(pin_numbers hide)
 			(pin_names
 				(offset 0)
@@ -3133,8 +3133,8 @@
 					)
 				)
 			)
-			(property "Footprint" "SparkFun-Resistor:R_0402_1005Metric"
-				(at 0 -4.064 0)
+			(property "Footprint" "SparkFun-Resistor:R_0603_1608Metric"
+				(at 0 -4.318 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3143,7 +3143,7 @@
 				)
 			)
 			(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
-				(at 0 -7.62 0)
+				(at 0 -8.89 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3152,7 +3152,7 @@
 				)
 			)
 			(property "Description" "Resistor"
-				(at 0 -10.16 0)
+				(at 0 -11.43 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3160,8 +3160,8 @@
 					(hide yes)
 				)
 			)
-			(property "PROD_ID" "RES-14241"
-				(at 0 -6.096 0)
+			(property "PROD_ID" "RES-00824"
+				(at 0 -6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3187,7 +3187,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "10k_0402_0_1"
+			(symbol "10k_0603_0_1"
 				(polyline
 					(pts
 						(xy -2.286 0) (xy -2.54 0)
@@ -3249,7 +3249,7 @@
 					)
 				)
 			)
-			(symbol "10k_0402_1_1"
+			(symbol "10k_0603_1_1"
 				(pin passive line
 					(at 3.81 0 180)
 					(length 1.27)
@@ -5555,6 +5555,105 @@
 		)
 	)
 	(symbol
+		(lib_id "SparkFun-Capacitor:0.1uF_0603_25V_20%")
+		(at 40.64 139.7 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0223f06f-e809-4670-960b-a9c4aabd1fe0")
+		(property "Reference" "C5"
+			(at 44.45 138.4299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0.1uF"
+			(at 44.45 140.9699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "SparkFun-Capacitor:C_0603_1608Metric"
+			(at 40.64 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+			(at 40.64 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 40.64 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PROD_ID" "CAP-00810"
+			(at 40.64 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Voltage" "25V"
+			(at 44.45 140.9699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Tolerance" "20%"
+			(at 44.45 143.5099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6e7fd468-0f8d-4662-951f-f1b9140e853c")
+		)
+		(pin "2"
+			(uuid "ffdcf67a-6c05-4440-838e-7cf06a143dd4")
+		)
+		(instances
+			(project ""
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
+					(reference "C5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "SparkFun-Connector:TestPoint_PTH")
 		(at 148.59 152.4 90)
 		(unit 1)
@@ -6073,83 +6172,6 @@
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
 					(reference "#PWR0125")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "SparkFun-Resistor:10k_0402")
-		(at 137.16 146.05 0)
-		(mirror x)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "32e472af-32d8-4481-9dc9-13446e5d4109")
-		(property "Reference" "R3"
-			(at 137.16 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10k"
-			(at 137.16 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "SparkFun-Resistor:R_0402_1005Metric"
-			(at 137.16 141.986 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
-			(at 137.16 138.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 137.16 146.05 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PROD_ID" "RES-14241"
-			(at 137.16 139.954 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "9167a374-e109-4323-9445-0e0c3e3a6d53")
-		)
-		(pin "2"
-			(uuid "cb13d0ec-3188-44cb-8647-63883ad2a7f4")
-		)
-		(instances
-			(project "SparkFun_RTK_Facet_mosaic"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
-					(reference "R3")
 					(unit 1)
 				)
 			)
@@ -6957,103 +6979,6 @@
 		)
 	)
 	(symbol
-		(lib_id "SparkFun-Capacitor:0.1uF_0402_6.3V_10%")
-		(at 40.64 139.7 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "5ba6bc08-ec68-4853-99ca-8540c9a9dbb6")
-		(property "Reference" "C5"
-			(at 44.45 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "0.1uF"
-			(at 44.45 138.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "SparkFun-Capacitor:C_0402_1005Metric"
-			(at 40.64 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
-			(at 40.64 153.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 40.64 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PROD_ID" "CAP-14993"
-			(at 40.64 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Voltage" "6.3V"
-			(at 44.45 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Tolerance" "10%"
-			(at 44.45 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "1"
-			(uuid "ecb48aed-6fd4-4e7c-9fa2-fb848dfee587")
-		)
-		(pin "2"
-			(uuid "e4ba4a8e-6775-468d-a6a9-f26e93a8ac2a")
-		)
-		(instances
-			(project "SparkFun_RTK_Facet_mosaic"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
-					(reference "C5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 45.72 82.55 0)
 		(unit 1)
@@ -7854,103 +7779,6 @@
 		)
 	)
 	(symbol
-		(lib_id "SparkFun-Capacitor:2.2uF_0402_10V_10%")
-		(at 27.94 139.7 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "81d6de7d-cf8b-415d-9a7b-29d6dbe097bc")
-		(property "Reference" "C4"
-			(at 31.75 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "2.2uF"
-			(at 31.75 138.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "SparkFun-Capacitor:C_0402_1005Metric"
-			(at 27.94 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
-			(at 29.21 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 27.94 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PROD_ID" "CAP-14232"
-			(at 26.67 153.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Voltage" "10V"
-			(at 31.75 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Tolerance" "10%"
-			(at 31.75 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "1"
-			(uuid "4d6ddf0c-fba5-421e-a1d6-8a12facf249c")
-		)
-		(pin "2"
-			(uuid "1fb4b5ea-fe08-4c99-bbc8-a129ed836014")
-		)
-		(instances
-			(project "SparkFun_RTK_Facet_mosaic"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
-					(reference "C4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "SparkFun-DiscreteSemi:Q_NPN_DUAL")
 		(at 147.32 132.08 0)
 		(unit 2)
@@ -8154,6 +7982,105 @@
 		)
 	)
 	(symbol
+		(lib_id "SparkFun-Capacitor:2.2uF_0603_10V_20%")
+		(at 27.94 139.7 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "94644607-d841-4806-81ca-b6f74ac25863")
+		(property "Reference" "C4"
+			(at 31.75 138.4299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "2.2uF"
+			(at 31.75 140.9699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "SparkFun-Capacitor:C_0603_1608Metric"
+			(at 27.94 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+			(at 29.21 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 27.94 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PROD_ID" "CAP-07888"
+			(at 26.67 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Voltage" "10V"
+			(at 31.75 140.9699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Tolerance" "20%"
+			(at 31.75 143.5099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "72fc3319-ab8e-4219-a03a-bb93fb19a84c")
+		)
+		(pin "2"
+			(uuid "23c5ea89-1084-4e9b-a631-c9f904593053")
+		)
+		(instances
+			(project ""
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
+					(reference "C4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "SparkFun-Connector:TestPoint_PTH")
 		(at 233.68 40.64 270)
 		(unit 1)
@@ -8214,6 +8141,82 @@
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
 					(reference "TP9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-Resistor:10k_0603")
+		(at 137.16 132.08 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9c733a7a-99bc-4e71-8393-c37db3e2a5ab")
+		(property "Reference" "R2"
+			(at 134.62 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 139.7 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "SparkFun-Resistor:R_0603_1608Metric"
+			(at 137.16 136.398 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+			(at 137.16 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 137.16 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PROD_ID" "RES-00824"
+			(at 137.16 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "01951f5a-e8b1-4ed0-8118-0f8f4a87d5f0")
+		)
+		(pin "2"
+			(uuid "6b4c41dd-6369-4eef-ac49-40dd093f7ff9")
+		)
+		(instances
+			(project ""
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
+					(reference "R2")
 					(unit 1)
 				)
 			)
@@ -8356,6 +8359,82 @@
 			(project ""
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
 					(reference "R37")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-Resistor:10k_0603")
+		(at 137.16 146.05 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b05c6c90-55ef-44d1-89e4-d283e9a9e566")
+		(property "Reference" "R3"
+			(at 134.62 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 139.7 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "SparkFun-Resistor:R_0603_1608Metric"
+			(at 137.16 150.368 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+			(at 137.16 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 137.16 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PROD_ID" "RES-00824"
+			(at 137.16 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "85546721-a3e3-4f74-9c45-d0de478efcdc")
+		)
+		(pin "2"
+			(uuid "87c60d94-e3f7-454f-b2dd-b9c8ad7729ce")
+		)
+		(instances
+			(project "SparkFun_RTK_mosaic-T"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
+					(reference "R3")
 					(unit 1)
 				)
 			)
@@ -9290,83 +9369,6 @@
 			(project "SparkFun_RTK_Facet_mosaic"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
 					(reference "#PWR074")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "SparkFun-Resistor:10k_0402")
-		(at 137.16 132.08 0)
-		(mirror x)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "f38d3d07-0648-4b8b-85fd-c65f1cf96888")
-		(property "Reference" "R2"
-			(at 137.16 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10k"
-			(at 137.16 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "SparkFun-Resistor:R_0402_1005Metric"
-			(at 137.16 128.016 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
-			(at 137.16 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 137.16 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PROD_ID" "RES-14241"
-			(at 137.16 125.984 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "7125f909-428d-44ed-ad25-5e0d8ca02f82")
-		)
-		(pin "2"
-			(uuid "8f32437e-44ad-437f-a54d-8a7ed6af857e")
-		)
-		(instances
-			(project "SparkFun_RTK_Facet_mosaic"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
-					(reference "R2")
 					(unit 1)
 				)
 			)

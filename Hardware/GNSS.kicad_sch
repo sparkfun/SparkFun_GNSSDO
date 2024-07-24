@@ -6849,7 +6849,7 @@
 				)
 			)
 		)
-		(symbol "SparkFun-Resistor:2.2k_0402"
+		(symbol "SparkFun-Resistor:2.2k_0603"
 			(pin_numbers hide)
 			(pin_names
 				(offset 0)
@@ -6873,7 +6873,7 @@
 					)
 				)
 			)
-			(property "Footprint" "SparkFun-Resistor:R_0402_1005Metric"
+			(property "Footprint" "SparkFun-Resistor:R_0603_1608Metric"
 				(at 0 -4.318 0)
 				(effects
 					(font
@@ -6900,7 +6900,7 @@
 					(hide yes)
 				)
 			)
-			(property "PROD_ID" "RES-14341"
+			(property "PROD_ID" "RES-08272"
 				(at 0 -6.858 0)
 				(effects
 					(font
@@ -6927,7 +6927,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "2.2k_0402_0_1"
+			(symbol "2.2k_0603_0_1"
 				(polyline
 					(pts
 						(xy -2.286 0) (xy -2.54 0)
@@ -6989,7 +6989,7 @@
 					)
 				)
 			)
-			(symbol "2.2k_0402_1_1"
+			(symbol "2.2k_0603_1_1"
 				(pin passive line
 					(at 3.81 0 180)
 					(length 1.27)
@@ -11611,85 +11611,6 @@
 		)
 	)
 	(symbol
-		(lib_id "SparkFun-Resistor:2.2k_0402")
-		(at 191.77 154.94 270)
-		(mirror x)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "1d39a879-6383-40d8-91d9-2964fa0fc3dd")
-		(property "Reference" "R46"
-			(at 190.5 153.67 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "2.2k"
-			(at 190.5 156.21 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "SparkFun-Resistor:R_0402_1005Metric"
-			(at 187.452 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
-			(at 182.88 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 191.77 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PROD_ID" "RES-14341"
-			(at 184.912 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "1bd87b59-fcfd-4dbe-9051-0096944a1720")
-		)
-		(pin "2"
-			(uuid "d7ffc4b5-6ce3-4aca-9e57-bb49c7243ec2")
-		)
-		(instances
-			(project "SparkFun_RTK_mosaic-T"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
-					(reference "R46")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "SparkFun-DiscreteSemi:D_TVS_ESD_4_HS")
 		(at 60.96 187.96 0)
 		(unit 1)
@@ -12254,6 +12175,85 @@
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR0173")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-Resistor:2.2k_0603")
+		(at 204.47 154.94 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2e2fce77-4c5e-4998-9e56-372a39c36c7d")
+		(property "Reference" "R32"
+			(at 207.01 153.6699 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "2.2k"
+			(at 207.01 156.2099 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "SparkFun-Resistor:R_0603_1608Metric"
+			(at 208.788 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+			(at 213.36 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 215.9 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PROD_ID" "RES-08272"
+			(at 211.328 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "d125a741-aac0-419c-8788-e5b2e99b366c")
+		)
+		(pin "1"
+			(uuid "6dfad51d-abf6-4448-b9de-37e5587aeead")
+		)
+		(instances
+			(project "SparkFun_RTK_mosaic-T"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
+					(reference "R32")
 					(unit 1)
 				)
 			)
@@ -13134,34 +13134,35 @@
 		)
 	)
 	(symbol
-		(lib_id "SparkFun-Resistor:2.2k_0402")
-		(at 204.47 154.94 90)
+		(lib_id "SparkFun-Resistor:2.2k_0603")
+		(at 191.77 154.94 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "4a748249-74e1-4a19-a144-9e2c44d376a9")
-		(property "Reference" "R47"
-			(at 205.74 153.67 90)
+		(fields_autoplaced yes)
+		(uuid "5107c851-9b52-4190-b4d9-fc4e88342e7d")
+		(property "Reference" "R31"
+			(at 189.23 153.6699 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "2.2k"
-			(at 205.74 156.21 90)
+			(at 189.23 156.2099 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
-		(property "Footprint" "SparkFun-Resistor:R_0402_1005Metric"
-			(at 208.788 154.94 0)
+		(property "Footprint" "SparkFun-Resistor:R_0603_1608Metric"
+			(at 196.088 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13170,7 +13171,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
-			(at 213.36 154.94 0)
+			(at 200.66 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13179,7 +13180,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 204.47 154.94 0)
+			(at 203.2 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13187,25 +13188,25 @@
 				(hide yes)
 			)
 		)
-		(property "PROD_ID" "RES-14341"
-			(at 211.328 154.94 0)
+		(property "PROD_ID" "RES-08272"
+			(at 198.628 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
-		)
-		(pin "1"
-			(uuid "aa4648de-be45-4e7a-9000-320502836489")
 		)
 		(pin "2"
-			(uuid "42e87169-4fc8-4915-aabc-848322fee9ad")
+			(uuid "ed8cc26a-c1ef-45a1-a603-58c970dba19d")
+		)
+		(pin "1"
+			(uuid "415d466a-5285-491e-90cc-be11f587eb15")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project ""
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
-					(reference "R47")
+					(reference "R31")
 					(unit 1)
 				)
 			)
