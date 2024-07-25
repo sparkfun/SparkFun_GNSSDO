@@ -7498,6 +7498,17 @@
 		)
 		(uuid "d6acd040-5eb1-4006-a6c5-6c0141e02381")
 	)
+	(text "Ethernet Track Impedance: Differential Pair\nhttps://saturnpcb.com/saturn-pcb-toolkit/\nPrepreg thickness: 8.3 mil (JLC7628). Er = 4.6\n9.0 mil track with 11.0 mil gap (20 mil center to center) = 100 Ohms\nEach pair should match in length to better than 0.5mm"
+		(exclude_from_sim no)
+		(at 16.51 193.04 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e0f4c0bb-bcc4-4ddb-8e72-4e5f2f35f3e4")
+	)
 	(global_label "TD+"
 		(shape input)
 		(at 130.81 86.36 0)
