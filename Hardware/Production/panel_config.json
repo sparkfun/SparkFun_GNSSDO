@@ -1,0 +1,15 @@
+{
+  "dimensionsInchesBtn": true,
+  "dimensionsMmBtn": false,
+  "panelSizeSmallerBtn": true,
+  "panelSizeLargerBtn": false,
+  "panelSizeXCtrl": "7.5",
+  "panelSizeYCtrl": "5.5",
+  "gapsVerticalCtrl": "0.0",
+  "gapsHorizontalCtrl": "0.2",
+  "removeRightVerticalCheck": false,
+  "productionBordersCheck": true,
+  "productionFiducialsCheck": true,
+  "productionExposeCheck": false,
+  "vScoreLayer": "User.Comments"
+}

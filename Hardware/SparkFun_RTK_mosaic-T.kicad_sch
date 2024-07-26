@@ -6,7 +6,7 @@
 	(paper "USLetter")
 	(title_block
 		(title "RTK mosaic-T")
-		(date "2024-07-22")
+		(date "2024-07-26")
 		(rev "v01")
 		(comment 1 "Designed by: P.C.")
 	)
@@ -14806,7 +14806,7 @@
 			)
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkFun_RTK_mosaic-T_panelized"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(page "3")
 				)
@@ -14844,7 +14844,7 @@
 			)
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkFun_RTK_mosaic-T_panelized"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(page "4")
 				)
@@ -14882,7 +14882,7 @@
 			)
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkFun_RTK_mosaic-T_panelized"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(page "2")
 				)
@@ -14920,7 +14920,7 @@
 			)
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkFun_RTK_mosaic-T_panelized"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(page "5")
 				)
@@ -14958,7 +14958,7 @@
 			)
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkFun_RTK_mosaic-T_panelized"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(page "6")
 				)
