@@ -696,7 +696,7 @@
 					(hide yes)
 				)
 			)
-			(property "PROD_ID" ""
+			(property "PROD_ID" "XTAL-22764"
 				(at 0 -19.05 0)
 				(effects
 					(font
@@ -2148,7 +2148,7 @@
 				)
 			)
 		)
-		(symbol "SparkFun-GPS:mosaic-X5"
+		(symbol "SparkFun-GPS:mosaic-T"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -2160,7 +2160,7 @@
 					)
 				)
 			)
-			(property "Value" "mosaic-X5"
+			(property "Value" "mosaic-T"
 				(at -1.27 -58.42 0)
 				(effects
 					(font
@@ -2177,8 +2177,8 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "~"
-				(at -12.7 -66.04 0)
+			(property "Datasheet" "https://docs.sparkfun.com/SparkFun_RTK_mosaic-X5/assets/component_documentation/Mosaic%20Hardware%20Manual_v1.8.0.pdf"
+				(at 0 -68.58 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2187,7 +2187,7 @@
 				)
 			)
 			(property "Description" "Tri-band GNSS receiver"
-				(at 0 0 0)
+				(at 0 -66.04 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2195,7 +2195,7 @@
 					(hide yes)
 				)
 			)
-			(property "PROD_ID" "GPS-19395"
+			(property "PROD_ID" "GPS-22762"
 				(at -1.27 -63.5 0)
 				(effects
 					(font
@@ -2213,7 +2213,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "mosaic-X5_1_1"
+			(symbol "mosaic-T_1_1"
 				(rectangle
 					(start -13.97 43.18)
 					(end 13.97 -55.88)
@@ -10785,7 +10785,7 @@
 		)
 	)
 	(symbol
-		(lib_id "SparkFun-GPS:mosaic-X5")
+		(lib_id "SparkFun-GPS:mosaic-T")
 		(at 81.28 72.39 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -10802,7 +10802,7 @@
 				)
 			)
 		)
-		(property "Value" "mosaic-X5"
+		(property "Value" "mosaic-T"
 			(at 81.28 26.67 0)
 			(effects
 				(font
@@ -10819,8 +10819,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 68.58 138.43 0)
+		(property "Datasheet" "https://docs.sparkfun.com/SparkFun_RTK_mosaic-X5/assets/component_documentation/Mosaic%20Hardware%20Manual_v1.8.0.pdf"
+			(at 81.28 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10829,7 +10829,7 @@
 			)
 		)
 		(property "Description" "Tri-band GNSS receiver"
-			(at 81.28 72.39 0)
+			(at 81.28 138.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10837,7 +10837,7 @@
 				(hide yes)
 			)
 		)
-		(property "PROD_ID" "GPS-19395"
+		(property "PROD_ID" "GPS-22762"
 			(at 80.01 135.89 0)
 			(effects
 				(font
@@ -12609,7 +12609,7 @@
 				(hide yes)
 			)
 		)
-		(property "PROD_ID" ""
+		(property "PROD_ID" "XTAL-22764"
 			(at 212.09 142.24 0)
 			(effects
 				(font

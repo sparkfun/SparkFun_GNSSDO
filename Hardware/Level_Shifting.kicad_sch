@@ -1034,7 +1034,7 @@
 					(hide yes)
 				)
 			)
-			(property "PROD_ID" ""
+			(property "PROD_ID" "NDUC-22763"
 				(at 0 -6.35 0)
 				(effects
 					(font
@@ -1052,7 +1052,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "SparkFun inductor choke coil reactor magnetic"
+			(property "ki_keywords" "SparkFun inductor choke coil reactor magnetic LQW18ANR13G00D"
 				(at 0 0 0)
 				(effects
 					(font
@@ -9643,7 +9643,7 @@
 				(hide yes)
 			)
 		)
-		(property "PROD_ID" ""
+		(property "PROD_ID" "NDUC-22763"
 			(at 142.24 177.8 0)
 			(effects
 				(font
@@ -14271,7 +14271,7 @@
 				(hide yes)
 			)
 		)
-		(property "PROD_ID" ""
+		(property "PROD_ID" "NDUC-22763"
 			(at 106.68 177.8 0)
 			(effects
 				(font
