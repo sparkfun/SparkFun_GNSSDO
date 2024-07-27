@@ -1,8 +1,8 @@
-2024-07-26 12:58:35,159 - cammer_logger - INFO - Running CAMmer
-2024-07-26 12:58:35,160 - cammer_logger - INFO - ['-l', 'F.Cu,In1.Cu,In2.Cu,B.Cu,F.Paste,B.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask', '-e', 'Edge.Cuts,User.Comments,User.1']
-2024-07-26 12:58:35,161 - cammer_logger - INFO - CAMMER START: 2024-07-26T12:58:35.161222
-2024-07-26 12:58:37,470 - cammer_logger - INFO - 
-START: 2024-07-26T12:58:35.161222
+2024-07-27 11:25:48,465 - cammer_logger - INFO - Running CAMmer
+2024-07-27 11:25:48,465 - cammer_logger - INFO - ['-l', 'F.Cu,In1.Cu,In2.Cu,B.Cu,F.Paste,B.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask', '-e', 'Edge.Cuts,User.Comments,User.1']
+2024-07-27 11:25:48,465 - cammer_logger - INFO - CAMMER START: 2024-07-27T11:25:48.465091
+2024-07-27 11:25:51,394 - cammer_logger - INFO - 
+START: 2024-07-27T11:25:48.465091
 Deleting existing C:/Users/pc235/Documents/GitHub/SparkFun_RTK_mosaic-T/Hardware/Production/SparkFun_RTK_mosaic-T_panelized.GTL
 Renaming C:/Users/pc235/Documents/GitHub/SparkFun_RTK_mosaic-T/Hardware/Production/SparkFun_RTK_mosaic-T_panelized-F_Cu.gbr to C:/Users/pc235/Documents/GitHub/SparkFun_RTK_mosaic-T/Hardware/Production/SparkFun_RTK_mosaic-T_panelized.GTL
 Deleting existing C:/Users/pc235/Documents/GitHub/SparkFun_RTK_mosaic-T/Hardware/Production/SparkFun_RTK_mosaic-T_panelized.GL2
@@ -27,4 +27,4 @@ Deleting existing C:/Users/pc235/Documents/GitHub/SparkFun_RTK_mosaic-T/Hardware
 Renaming C:/Users/pc235/Documents/GitHub/SparkFun_RTK_mosaic-T/Hardware/Production/SparkFun_RTK_mosaic-T_panelized-Edge_Cuts.gbr to C:/Users/pc235/Documents/GitHub/SparkFun_RTK_mosaic-T/Hardware/Production/SparkFun_RTK_mosaic-T_panelized.GKO
 Drill report: C:\Users\pc235\Documents\GitHub\SparkFun_RTK_mosaic-T\Hardware\Production\drill_report.rpt
 
-2024-07-26 12:58:37,495 - cammer_logger - INFO - CAMmer complete
+2024-07-27 11:25:51,425 - cammer_logger - INFO - CAMmer complete

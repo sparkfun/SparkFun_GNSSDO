@@ -191,7 +191,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "SparkFun-Capacitor:PANASONIC_D"
+			(property "Footprint" "SparkFun-Capacitor:Panasonic_D"
 				(at 0 -17.78 0)
 				(effects
 					(font
@@ -536,7 +536,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "SparkFun-Capacitor:PANASONIC_D"
+			(property "Footprint" "SparkFun-Capacitor:Panasonic_D"
 				(at 0 -17.78 0)
 				(effects
 					(font
@@ -1485,7 +1485,7 @@
 					)
 				)
 			)
-			(property "Footprint" "SparkFun-Semiconductor-Standard:Ag9900M"
+			(property "Footprint" "SparkFun-Semiconductor-Nonstandard:Ag9900M"
 				(at 0 -18.0975 0)
 				(effects
 					(font
@@ -1550,6 +1550,15 @@
 			)
 			(property "PROD_ID" "IC-16251"
 				(at 0 -20.0025 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "SparkFun PoE module"
+				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1915,7 +1924,7 @@
 					)
 				)
 			)
-			(property "Footprint" "SparkFun-Semiconductor-Standard:REC15E"
+			(property "Footprint" "SparkFun-Semiconductor-Nonstandard:REC15E"
 				(at 0 -18.0975 0)
 				(effects
 					(font
@@ -1971,6 +1980,15 @@
 			)
 			(property "PROD_ID" "COMP-19263"
 				(at 0 -20.0025 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "SparkFun DC DC Converter 9-36V Input"
+				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -5354,7 +5372,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "SparkFun-Capacitor:PANASONIC_D"
+		(property "Footprint" "SparkFun-Capacitor:Panasonic_D"
 			(at 46.99 59.69 0)
 			(effects
 				(font
@@ -6779,7 +6797,7 @@
 				)
 			)
 		)
-		(property "Footprint" "SparkFun-Semiconductor-Standard:Ag9900M"
+		(property "Footprint" "SparkFun-Semiconductor-Nonstandard:Ag9900M"
 			(at 184.15 57.4675 0)
 			(effects
 				(font
@@ -6974,7 +6992,7 @@
 				)
 			)
 		)
-		(property "Footprint" "SparkFun-Semiconductor-Standard:REC15E"
+		(property "Footprint" "SparkFun-Semiconductor-Nonstandard:REC15E"
 			(at 71.12 57.4675 0)
 			(effects
 				(font
@@ -8797,7 +8815,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "SparkFun-Capacitor:PANASONIC_D"
+		(property "Footprint" "SparkFun-Capacitor:Panasonic_D"
 			(at 63.5 114.3 0)
 			(effects
 				(font
@@ -9436,7 +9454,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "SparkFun-Capacitor:PANASONIC_D"
+		(property "Footprint" "SparkFun-Capacitor:Panasonic_D"
 			(at 91.44 59.69 0)
 			(effects
 				(font
@@ -10393,7 +10411,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "SparkFun-Capacitor:PANASONIC_D"
+		(property "Footprint" "SparkFun-Capacitor:Panasonic_D"
 			(at 204.47 59.69 0)
 			(effects
 				(font
