@@ -3,7 +3,7 @@ SparkFun RTK mosaic-T
 
 [![SparkFun RTK mosaic-T](https://cdn.sparkfun.com/r/600-600/assets/parts/2/4/0/7/2/23748-RTK-Mosaic-X5-Kit-All-Feature.jpg)](https://cdn.sparkfun.com/assets/parts/2/4/0/7/2/23748-RTK-Mosaic-X5-Kit-All-Feature.jpg)
 
-[*SparkFun RTK mosaic-T (GPS-23748)*](https://www.sparkfun.com/products/23748)
+[*SparkFun RTK mosaic-T (GPS-26289)*](https://www.sparkfun.com/products/26289)
 
 Designed and manufactured in Boulder, Colorado, USA, the SparkFun RTK mosaic-T is the perfect solution for your high-precision timing needs. Based around the multi-constellation, multi-frequency, L5-ready mosaic-T from Septentrio, this is our most accurate GNSS timing product to date. It features a disciplined 10MHz Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO). The mosaic-T also has built-in on-module support for the Fugro AtomiChron L-band timing service.
 
@@ -45,22 +45,20 @@ Repository Contents
         * [board_files](/docs/assets/board_files/) - Files for the product design
             * [Schematic](/docs/assets/board_files/schematic.pdf) (.pdf)
             * [Dimensions](/docs/assets/board_files/dimensions.png) (.png)
-            * [Eagle files](/docs/assets/board_files/eagle_files.zip) (.zip)
+            * [KiCad files](/docs/assets/board_files/kicad_files.zip) (.zip)
         * [img/hookup_guide/](/docs/assets/img/hookup_guide/) - Images for hookup guide documentation
-* **[/Hardware](/Hardware/)** - Eagle design files (.brd, .sch)
-* **[/Production](/Production/)** - PCB panel production files
-* **[/Front_Panel](/Front_Panel/)** - Eagle design files (.brd, .sch) for the prototype (PCB) enclosure panel used to validate the dimensions
-* **[/Rear_Panel](/Rear_Panel/)** - Eagle design files (.brd, .sch) for the prototype (PCB) enclosure panel used to validate the dimensions
+* **[/Hardware](/Hardware/)** - KiCad design files
+* **[/Hardware/Production](/Hardware/Production/)** - PCB panel production files
 * **[/Front_Sticker](/Front_Sticker/)** - DXF and PDF files for the front sticker
 * **[/Rear_Sticker](/Rear_Sticker/)** - DXF and PDF files for the rear sticker
-* **[/Firmware](/Firmware/)** - ESP IDF source code and binaries for the firmware which runs on the ESP32-WROVER
+* **[/Firmware](/Firmware/)** - Arduino source code and binaries for the firmware which runs on the ESP32-WROVER
 * **[/Test_Sketches](/Test_Sketches/)** - Additional code used to validate and test the RTK mosaic-T
 * **[/Documents](/Documents/)** - Component datasheets etc.
 
 Product Variants
 ----------------
 
-* [GPS-23748](https://www.sparkfun.com/products/23748)- v1.0, Initial Release
+* [GPS-26289](https://www.sparkfun.com/products/26289)- v1.0, Initial Release
 
 Version History
 ---------------

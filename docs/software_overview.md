@@ -3,27 +3,24 @@ icon: fontawesome/solid/computer
 ---
 
 !!! code "ESP32 Firmware"
-	We have intentionally kept the ESP32 firmware as simple as possible - supporting only two modes: Ethernet (mode **1**) and WiFi (mode **2**). The intention is that you can easily develop your own firmware for the RTK mosaic-X5 using the Espressif ESP IDF if the SparkFun firmware does not meet your needs.
+	We have intentionally kept the ESP32 firmware as simple as possible - its only tasks are to: discipline the TCXO oscillator; control the OLED display. The intention is that you can easily develop your own firmware for the RTK mosaic-T if the SparkFun firmware does not meet your needs.
 
 	You can of course modify the hardware too, should you want to. The design is completely open-source.
 
-	!!! warning "Limitations"
-		The ESP32 firmware we provide is only compatible with basic `SSID` and `Password` WiFi authentication. The firmware is not compatible with networks that implement other provisioning methods such as a QR code or a [captive portal](https://en.wikipedia.org/wiki/Captive_portal).
-
 !!! note
-	The mosaic-X5 module has numerous capabilities and a multitude of ways to configure and interface with them. Without regurgitating all the information that is documented in Septentrio's user manuals and videos, we have tried to highlight a good majority of the module's aspects.
+	The mosaic-T module has numerous capabilities and a multitude of ways to configure and interface with them. Without regurgitating all the information that is documented in Septentrio's user manuals and videos, we have tried to highlight a good majority of the module's aspects.
 
 	With that said, please feel free to [file an issue](../github/file_issue/#discrepancies-in-the-documentation) if you feel we have missed something that may benefit other users. *(Don't forget to provide us with a link to the documentation and what section the information is located.)*
 
 
-## :septentrio-logo:&nbsp;mosaic-X5
+## :septentrio-logo:&nbsp;mosaic-T
 
 ### RxTools Software Suite
 
 !!! tip
 	Even if you aren't necessarily interested in it, we highly recommend that users install the [RXTools software suite](https://www.septentrio.com/en/products/gps-gnss-receiver-software/rxtools) before plugging in their board. For Windows PCs, it also includes the USB driver for the module that enables the Ethernet-over-USB support and virtual `COM` ports.
 
-Users should install the [RXTools software suite](https://www.septentrio.com/en/products/gps-gnss-receiver-software/rxtools) on their computer to interact with the mosaic-X5 module through the USB interface. The software package includes the USB-IP driver[^1] necessary to recognize the board as an ethernet device on Windows PCs (1).
+Users should install the [RXTools software suite](https://www.septentrio.com/en/products/gps-gnss-receiver-software/rxtools) on their computer to interact with the mosaic-T module through the USB interface. The software package includes the USB-IP driver[^1] necessary to recognize the board as an ethernet device on Windows PCs (1).
 { .annotate }
 
 1. On Linux, the standard Linux CDC-ACM driver is suitable.
@@ -158,14 +155,14 @@ Users should install the [RXTools software suite](https://www.septentrio.com/en/
 
 ### USB Driver
 === "Windows"
-	If users haven't already installed the [RxTools software suite](https://www.septentrio.com/en/products/gps-gnss-receiver-software/rxtools) on their Windows PC, they will need to install the USB driver[^1] necessary to recognize and interact with the mosaic-X5 module through the USB interface.
+	If users haven't already installed the [RxTools software suite](https://www.septentrio.com/en/products/gps-gnss-receiver-software/rxtools) on their Windows PC, they will need to install the USB driver[^1] necessary to recognize and interact with the mosaic-T module through the USB interface.
 
-	A Windows USB driver for the mosaic-X5 can be installed through two methods:
+	A Windows USB driver for the mosaic-T can be installed through two methods:
 
 	<div class="annotate" markdown>
 
 	* RxTools Software Suite (1)
-	* mosaic-X5 GNSS Receiver Module (2)
+	* mosaic-T GNSS Receiver Module (2)
 
 	</div>
 
@@ -184,23 +181,23 @@ Users should install the [RXTools software suite](https://www.septentrio.com/en/
 		* Flow Control: None
 
 	??? tip "Having Trouble?"
-		For users who are having trouble installing the USB driver, we have an archived version *(v3.0.2[^9])* of the installation file. Users can download [**version 3.0.2**](https://docs.sparkfun.com/SparkFun_GNSS_mosaic-X5/assets/component_documentation/driver/USB_driver_3_0_2_Installer.exe) of the driver, by clicking on the button below.
+		For users who are having trouble installing the USB driver, we have an archived version *(v3.0.2[^9])* of the installation file. Users can download [**version 3.0.2**](https://docs.sparkfun.com/SparkFun_GNSS_mosaic-T/assets/component_documentation/driver/USB_driver_3_0_2_Installer.exe) of the driver, by clicking on the button below.
 
 		[^9]:
 			For the latest USB driver from Septentrio, please install their driver through the [RxTools software suite](../rxtools).<br>
-			*This driver version was archived at the time that the [mosaic-X5 hookup guide](https://docs.sparkfun.com/SparkFun_GNSS_mosaic-X5/) was written. Please do not request for the file to be updated.*
+			*This driver version was archived at the time that the [mosaic-T hookup guide](https://docs.sparkfun.com/SparkFun_GNSS_mosaic-T/) was written. Please do not request for the file to be updated.*
 
 		<center>
-		[:octicons-download-16:{ .heart } Download USB Driver *(v3.0.2)*](https://docs.sparkfun.com/SparkFun_GNSS_mosaic-X5/assets/component_documentation/driver/USB_driver_3_0_2_Installer.exe){ .md-button .md-button--primary target="blank" }
+		[:octicons-download-16:{ .heart } Download USB Driver *(v3.0.2)*](https://docs.sparkfun.com/SparkFun_GNSS_mosaic-T/assets/component_documentation/driver/USB_driver_3_0_2_Installer.exe){ .md-button .md-button--primary target="blank" }
 		</center>
 
 
 === "Linux"
-	On Linux, the standard Linux CDC-ACM driver is suitable for the mosaic-X5 module.
+	On Linux, the standard Linux CDC-ACM driver is suitable for the mosaic-T module.
 
 
 ### Web Interface
-With the USB driver installed, the mosaic-X5 module supports Ethernet-over-USB. The default IP address allocated for the Ethernet-over-USB interface is `192.168.3.1`. This IP can be entered in any browser to open a connection to the receiver's Web Interface as shown below.
+With the USB driver installed, the mosaic-T module supports Ethernet-over-USB. The default IP address allocated for the Ethernet-over-USB interface is `192.168.3.1`. This IP can be entered in any browser to open a connection to the receiver's Web Interface as shown below.
 
 <div class="grid" markdown>
 
@@ -274,7 +271,7 @@ Users will need to install a USB driver for the CH340 serial-to-USB chip, in ord
 
 
 ### Terminal Emulator
-In order to configure the WiFi settings on the ESP32, users will need to install a [serial terminal emulator](https://learn.sparkfun.com/tutorials/terminal-basics) on their computer.
+In order to configure the firmware settings on the ESP32, users will need to install a [serial terminal emulator](https://learn.sparkfun.com/tutorials/terminal-basics) on their computer.
 
 === "Windows"
 	For Windows computers, we highly recommend [TeraTerm](https://teratermproject.github.io/index-en.html).
@@ -297,26 +294,4 @@ In order to configure the WiFi settings on the ESP32, users will need to install
 		**Serial Terminal Basics**</a>
 
 	</div>
-
-### WiFi Credentials for the Network Bridge
-With the CH340 USB driver and a terminal emulator installed, users will now be able to configure the WiFi credentials on the ESP32. In order for the firmware to operate properly, users should have their RTK mosaic-X5 assembled with the network bridge in *WiFi Mode*.
-
---8<-- "./docs/quick_start.md:140:145"
-
-
-`1` - **Open a Serial Terminal**
-: Open the connection to the CH340 using a baud rate of **115200bps**
-
-`2` - **Put the ESP32 firmware into WiFi mode**
---8<-- "./docs/quick_start.md:186:265"
-
-
-Once the mosaic-X5 has acquired a satellite signal and is connected to the WiFi network, the OLED will display the antenna's position as Latitude (Lat), Longitude (Long) and Altitude (Alt); the WiFi IP (Internet Protocol) network address. The firmware mode, SSID and password are stored in flash (non-volatile) memory. After changing them, you can disconnect the computer and power the RTK mosaic-X5 using the supplied wall adapter.
-
---8<-- "./docs/quick_start.md:276:281"
-
-!!! info
-	When powering the RTK mosaic-X5 on for the first time, you may see the firmware restart (reboot) several times while it waits for the mosaic-X5 to initialize. This is not an error or anything to be concerned about.
-
-With the RTK mosaic-X5 operating with the configured WiFi network bridge, users should be able to open a web browser on any connected device and navigate to the IP address shown on the OLED display. The browser should be able to access the mosaic-X5's internal web page, where users can configure the mosaic-X5.
 

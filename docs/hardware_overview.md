@@ -4,14 +4,12 @@ icon: material/cog
 
 !!! warning "Read Before Handling PCB!"
 	!!! danger "ESD Sensitivity"
-		The mosaic-X5 module is sensitive to [ESD](https://en.wikipedia.org/wiki/Electrostatic_discharge "Electrostatic Discharge"). Use a proper grounding system to make sure that the working surface and the components are at the same electric potential.
+		The mosaic-T module is sensitive to [ESD](https://en.wikipedia.org/wiki/Electrostatic_discharge "Electrostatic Discharge"). Use a proper grounding system to make sure that the working surface and the components are at the same electric potential.
 
 	??? info "ESD Precaution"
 		As recommended by the manufacturer, we highly encourage users to take the necessary precautions to avoid damaging their module.
 
-		- The RTK mosaic-X5 features ESD protection on the USB-C connectors and ethernet jacks.
-		- The mosaic-X5 module features internal ESD protection to the `ANT_1` antenna input.
-
+		- The RTK mosaic-T features ESD protection on the USB-C connectors, ethernet jack, I/O terminals and antenna connections.
 
 		<div class="grid cards" markdown>
 
@@ -38,23 +36,16 @@ icon: material/cog
 		</div>
 
 !!! code "ESP32 Firmware"
-	We have intentionally kept the ESP32 firmware as simple as possible - supporting only two modes: Ethernet *(**Mode: `1`**)* and WiFi *(**Mode: `2`**)*. The intention is that you can easily develop your own firmware for the RTK mosaic-X5 using the Espressif ESP IDF if the SparkFun firmware does not meet your needs.
+	We have intentionally kept the ESP32 firmware as simple as possible - it only disciplines the TCXO oscillator and controls the OLED display. The SparkFun RTK Firmware or SparkFun RTK Everywhere firmware will not run on this product. The intention is that you can easily develop your own firmware for the RTK mosaic-T if the SparkFun firmware does not meet your needs.
 
 	You can of course modify the hardware too, should you want to. The design is completely open-source.
-
-	!!! warning "Limitations"
-		The ESP32 firmware we provide is only compatible with basic `SSID` and `Password` WiFi authentication. The firmware is not compatible with networks that implement other provisioning methods such as a [captive portal](https://en.wikipedia.org/wiki/Captive_portal), a QR code, or [Wi-Fi protected setup](https://en.wikipedia.org/wiki/Wi-Fi_Protected_Setup "WPS").
-
 
 # Hardware Overview
 
 In this section, we walk you through the hardware design, interfaces, I/O connections, power options and more.
 
-!!! info
-	The RTK mosaic-X5 is inspired by the [Septentrio mowi (mosaic wireless) open-source design](https://github.com/septentrio-gnss/mowi). The SparkFun design builds upon [mowi](https://github.com/septentrio-gnss/mowi "mosaic wireless"), adding: separate Ethernet ports with mag jacks and Power-over-Ethernet; robust I/O headers with screw cage connections and configurable I/O voltage (3.3V or 5V); &micro;SD data storage; and an OLED display.
-
 ## Schematic
-Users can download the [full schematic for the RTK mosaic-X5](./assets/board_files/schematic.pdf) in `*.pdf` format.
+Users can download the [full schematic for the RTK mosaic-T](./assets/board_files/schematic.pdf) in `*.pdf` format.
 
 ## Dimensions
 
@@ -64,7 +55,7 @@ Users can download the [full schematic for the RTK mosaic-X5](./assets/board_fil
 	<figure markdown>
 	[![Enclosure Dimensions](./assets/board_files/dimensions-enclosure.png){ width="700" }](./assets/board_files/dimensions-enclosure.png "Click to enlarge")
 	<figcaption markdown>
-	[Dimensions (PDF)](./assets/board_files/dimensions-enclosure.pdf) of the RTK mosaic-X5 aluminum enclosure and the front/rear panels, in millimeters.
+	[Dimensions (PDF)](./assets/board_files/dimensions-enclosure.pdf) of the RTK mosaic-T aluminum enclosure and the front/rear panels, in millimeters.
 	</figcaption>
 	</figure>
 
@@ -74,27 +65,12 @@ Users can download the [full schematic for the RTK mosaic-X5](./assets/board_fil
 	<figure markdown>
 	[![Board Dimensions](./assets/board_files/dimensions.png){ width="400" }](./assets/board_files/dimensions.png "Click to enlarge")
 	<figcaption markdown>
-	[Dimensions (PDF)](./assets/board_files/dimensions.pdf) of the RTK mosaic-X5 PCB, in inches.
+	[Dimensions (PDF)](./assets/board_files/dimensions.pdf) of the RTK mosaic-T PCB, in inches.
 	</figcaption>
 	</figure>
 
 	??? tip "Need more measurements?"
-		For more information about the board's dimensions, users can download the [**Eagle files**](./assets/board_files/eagle_files.zip) for the board. These files can be opened in Eagle and additional measurements can be made with the dimensions tool.
-
-		??? info ":octicons-download-16:{ .heart } Eagle - Free Download!"
-			Eagle is a [CAD]("computer-aided design") program for electronics that is free to use for hobbyists and students. However, it does require an account registration to utilize the software.
-
-			<center>
-			[Download from<br>:autodesk-primary:{ .autodesk }](https://www.autodesk.com/products/eagle/free-download "Go to downloads page"){ .md-button .md-button--primary width="250px" }
-			</center>
-
-		??? info ":straight_ruler: Dimensions Tool"
-			This video from Autodesk demonstrates how to utilize the dimensions tool in Eagle, to include additional measurements:
-
-			<center>
-			<div class="video-500px">
-			<iframe src="https://www.youtube.com/embed/dZLNd1FtNB8" title="EAGLE Dimension Tool" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			</center>
+		For more information about the board's dimensions, users can download the [**KiCad files**](./assets/board_files/kicad_files.zip) for the board. These files can be opened in KiCad 8 and additional measurements can be made with the dimensions tool.
 
 === ":material-video-input-antenna: Antenna"
 	The dimensions and technical specifications of the GNSS antenna can be found on the [GNSS Multi-Band L1/L2/L5 Surveying Antenna - TNC (SPK6618H)](https://www.sparkfun.com/products/21801) product page.
@@ -109,14 +85,14 @@ Users can download the [full schematic for the RTK mosaic-X5](./assets/board_fil
 
 
 ## Power Options
-The mosaic-X5 and the ESP32 both required 3.3V power. To simplify the power circuitry, the four power sources are combined into a common 5V rail which then feeds individual 3.3V 1A regulators for the mosaic-X5 and the ESP32.
+The mosaic-T and the ESP32 both required 3.3V power. To simplify the power circuitry, the four power sources are combined into a common 5V rail which then feeds individual 3.3V regulators for the mosaic-T and the ESP32.
 
 <figure markdown>
 [![Power connections](./assets/img/hookup_guide/Power.png){ width="400" }](./assets/img/hookup_guide/Power.png "Click to enlarge")
-<figcaption markdown>Power connections on the RTK mosaic-X5 PCB.</figcaption>
+<figcaption markdown>Power connections on the RTK mosaic-T PCB.</figcaption>
 </figure>
 
-The RTK mosaic-X5 can be powered individually or in combination, with any of the following:
+The RTK mosaic-T can be powered individually or in combination, with any of the following:
 
 * **`USB Ports`** - **5V**; delivered via the `MOSAIC CONFIG` and/or `ESP32 CONFIG` USB-C connectors.
 * **`Power-over-Ethernet`** - **Range: 36 to 57V**; delivered via the `MOSAIC ETHERNET` RJ45 MagJack connector.
@@ -133,7 +109,7 @@ The RTK mosaic-X5 can be powered individually or in combination, with any of the
 
 
 === ":material-usb-port: USB-C Connectors"
-	The mosaic-X5 and ESP32 both have USB-C connections. These USB ports can be used to power the RTK mosaic-X5 during the initial configuration when the mosaic-X5 or ESP32 are connected to a computer.
+	The mosaic-T and ESP32 both have USB-C connections. These USB ports can be used to power the RTK mosaic-T during the initial configuration when the mosaic-T or ESP32 are connected to a computer.
 
 	<div class="grid" markdown>
 
@@ -141,7 +117,7 @@ The RTK mosaic-X5 can be powered individually or in combination, with any of the
 
 	<figure markdown>
 	[![USB-C Connectors](./assets/img/hookup_guide/USB.png){ width="750" }](./assets/img/hookup_guide/USB.png "Click to enlarge")
-	<figcaption markdown>USB-C connectors on the RTK mosaic-X5.</figcaption>
+	<figcaption markdown>USB-C connectors on the RTK mosaic-T.</figcaption>
 	</figure>
 
 	</div>
@@ -150,7 +126,7 @@ The RTK mosaic-X5 can be powered individually or in combination, with any of the
 
 	<figure markdown>
 	[![USB-C Power Connections](./assets/img/hookup_guide/USB-PCB.png){ width="400" }](./assets/img/hookup_guide/USB-PCB.png "Click to enlarge")
-	<figcaption markdown>The USB-C device connections on the RTK mosaic-X5 PCB.</figcaption>
+	<figcaption markdown>The USB-C device connections on the RTK mosaic-T PCB.</figcaption>
 	</figure>
 
 	</div>
@@ -163,7 +139,7 @@ The RTK mosaic-X5 can be powered individually or in combination, with any of the
 
 
 === ":material-ethernet: Power-over-Ethernet (PoE)"
-	The mosaic-X5 Ethernet port supports Power-over-Ethernet ([PoE](https://en.wikipedia.org/wiki/Power_over_Ethernet "Power Over Ethernet")), allowing the RTK mosaic-X5 to be powered by the network. This is very useful when the RTK mosaic-X5 is mounted remotely - perhaps in a weatherproof box up on the roof. Data and power can be delivered through a single cable, avoiding the need for a separate power connection.
+	The mosaic-T Ethernet port supports Power-over-Ethernet ([PoE](https://en.wikipedia.org/wiki/Power_over_Ethernet "Power Over Ethernet")), allowing the RTK mosaic-T to be powered by the network. This is very useful when the RTK mosaic-T is mounted remotely - perhaps in a weatherproof box up on the roof. Data and power can be delivered through a single cable, avoiding the need for a separate power connection.
 
 	<div class="grid" markdown>
 
@@ -171,7 +147,7 @@ The RTK mosaic-X5 can be powered individually or in combination, with any of the
 
 	<figure markdown>
 	[![Power over Ethernet Jack](./assets/img/hookup_guide/POE.png){ width="750" }](./assets/img/hookup_guide/POE.png "Click to enlarge")
-	<figcaption markdown>The Power-over-Ethernet (PoE) jack on the RTK mosaic-X5.</figcaption>
+	<figcaption markdown>The Power-over-Ethernet (PoE) jack on the RTK mosaic-T.</figcaption>
 	</figure>
 
 	</div>
@@ -180,7 +156,7 @@ The RTK mosaic-X5 can be powered individually or in combination, with any of the
 
 	<figure markdown>
 	[![Power over Ethernet Circuit](./assets/img/hookup_guide/POE-PCB.png){ width="400" }](./assets/img/hookup_guide/POE-PCB.png "Click to enlarge")
-	<figcaption markdown>The PoE power input circuit on the RTK mosaic-X5 PCB.</figcaption>
+	<figcaption markdown>The PoE power input circuit on the RTK mosaic-T PCB.</figcaption>
 	</figure>
 
 	</div>
@@ -188,7 +164,7 @@ The RTK mosaic-X5 can be powered individually or in combination, with any of the
 	</div>
 
 === ":material-car-battery: External DC Power (VIN)"
-	The RTK mosaic-X5 includes a fully-isolated DC-DC converter, for applications where you may want to power the unit from a vehicle. The DC-DC converter accepts DC voltages between **9V and 36V**, regulating this down to 5V. The converter is fully isolated to 1.5kV and operates with ~90% efficiency.
+	The RTK mosaic-T includes a fully-isolated DC-DC converter, for applications where you may want to power the unit from a vehicle. The DC-DC converter accepts DC voltages between **9V and 36V**, regulating this down to 5V. The converter is fully isolated to 1.5kV and operates with ~90% efficiency.
 
 	<div class="grid" markdown>
 
@@ -205,7 +181,7 @@ The RTK mosaic-X5 can be powered individually or in combination, with any of the
 
 	<figure markdown>
 	[![External DC Power Input](./assets/img/hookup_guide/VIN-PCB.png){ width="400" }](./assets/img/hookup_guide/VIN-PCB.png "Click to enlarge")
-	<figcaption markdown>The DC-DC power converter and external power inputs on the RTK mosaic-X5 PCB.</figcaption>
+	<figcaption markdown>The DC-DC power converter and external power inputs on the RTK mosaic-T PCB.</figcaption>
 	</figure>
 
 	</div>
@@ -219,7 +195,7 @@ The RTK mosaic-X5 can be powered individually or in combination, with any of the
 		* Connect 0V (chassis) to the `VIN-` screw cage terminal
 
 		!!! warning "Power Source"
-			Additionally, make sure that the power source from the vehicle is not directly tied to the vehicle's battery, `Always On`, or accessory circuits. Otherwise, users will risk killing the battery while the engine is off.
+			Additionally, make sure that the power source from the vehicle is not directly tied to the vehicle's battery, `Always On`, or accessory circuits. Otherwise, users will risk draining the battery while the engine is off.
 
 			We recommend locating the *ignition on* or *switched power* circuit, which is only powered when the key is in the `On` position *and the engine is running*.
 
@@ -232,62 +208,32 @@ The RTK mosaic-X5 can be powered individually or in combination, with any of the
 		If desired, users can link `VIN-` to the adjacent `GND` screw cage terminal. However, this will bypass the voltage isolation and could introduce an unwanted ground loop, particularly if the GNSS antenna ground (shield, 0V) is also connected to the chassis.
 
 
-## :septentrio-logo:&nbsp;mosaic-X5
-The heart of our product is of course the mosaic-X5 GNSS module from Septentrio. It is a _very_ sophisticated chip with multiple interfaces: UARTS, USB and Ethernet. The `COM2` and `COM3` UART pins, plus `GPIO1` and `GPIO2`, are available as 0.1" test points should you need access to them.
+## :septentrio-logo:&nbsp;mosaic-T
+The heart of our product is of course the mosaic-T GNSS module from Septentrio. It is a _very_ sophisticated chip with multiple interfaces: UARTS, USB and Ethernet. The `COM3` UART pins, plus `GPIO1` and `GPIO2`, are available as 0.1" test points should you need access to them.
 
 <figure markdown>
-[![mosaic X5](./assets/img/hookup_guide/X5.png){ width="400" }](./assets/img/hookup_guide/X5.png "Click to enlarge")
-<figcaption markdown>The Septentrio mosaic-X5 GNSS module.</figcaption>
+[![mosaic T](./assets/img/hookup_guide/X5.png){ width="400" }](./assets/img/hookup_guide/X5.png "Click to enlarge")
+<figcaption markdown>The Septentrio mosaic-T GNSS module.</figcaption>
 </figure>
 
 ## :espressif-logo:&nbsp;ESP32-WROVER
-The only interface the mosaic-X5 doesn't offer is WiFi and that's why we've included an Espressif ESP32-WROVER processor (16MB flash, 8MB PSRAM) with its own Ethernet connection. You can connect the mosaic-X5 directly to your Ethernet network - our product supports Power-over-Ethernet too. Or you can link the mosaic-X5 Ethernet port to the ESP32 Ethernet port and have the ESP32 provide WiFi connectivity. In that mode, the ESP32 becomes an Ethernet to WiFi Bridge, seamlessly passing WiFi traffic to and from the mosaic-X5 via Ethernet.
+The ESP32 processor is there to control (discipline) the 10 MHz TCXO oscillator and the OLED display. We have deliberately kept the ESP32 firmware as simple as possible. The intention is that you can write your own firmware using the Espressif IDF or Arduino IDE if you need to. The ESP32-WROVER-IE antenna is connected to the **ESP32** RP SMA connector on the rear panel but it is unused by the SparkFun firmware.
 
 <figure markdown>
 [![Espressif ESP32](./assets/img/hookup_guide/ESP32.png){ width="400" }](./assets/img/hookup_guide/ESP32.png "Click to enlarge")
 <figcaption markdown>The Espressif ESP32-WROVER processor.</figcaption>
 </figure>
 
-Think of the ESP32 as a co-processor, or riding shotgun... The mosaic-X5 `COM4` UART is linked to the ESP32, allowing the two to communicate directly without needing the Ethernet link. In our firmware, the ESP32 requests NMEA GGA data over this link and then displays it on the I<sup>2</sup>C OLED display.
-
-!!! warning "WiFi Network Compatibility"
-	The ESP32 is only compatible with 2.4GHz bands and cannot access the 5GHz band.
+Think of the ESP32 as a co-processor, or riding shotgun... The mosaic-T `COM1` and `COM4` UARTs are linked to the ESP32, allowing the two to communicate directly without needing an Ethernet link. In our firmware, the PVTGeodetic and ReceiverTime messages are output on COM1. The ESP32 displays some of their content on the I<sup>2</sup>C OLED display, and then uses the content to discipline the TCXO oscillator. See [Oscillator](./oscillator.md) for more details.
 
 ??? code "ESP32 Firmware"
-	We have intentionally kept the ESP32 firmware as simple as possible - supporting only two modes: Ethernet *(**Mode: `1`**)* and WiFi *(**Mode: `2`**)*. The intention is that users can easily develop their, own firmware for the RTK mosaic-X5 using the Espressif ESP IDF if the SparkFun firmware does not meet their needs.
+	We have intentionally kept the ESP32 firmware as simple as possible. The intention is that users can easily develop their, own firmware for the RTK mosaic-T using the Espressif ESP IDF or the Arduino IDE if the SparkFun firmware does not meet their needs.
 
-	!!! info "Provisioning Limitations"
-		* The ESP32 firmware we provide is only compatible with basic `SSID` and `Password` WiFi authentication.
-		* The firmware is not compatible with networks that implement other provisioning methods such as a [captive portal](https://en.wikipedia.org/wiki/Captive_portal), a QR code, or [Wi-Fi protected setup](https://en.wikipedia.org/wiki/Wi-Fi_Protected_Setup "WPS").
-
-## Ethernet PHY Interfaces
-The mosaic-X5 and ESP32 have identical KSZ8041NLI Ethernet PHY interfaces, both connected using Reduced Media-Independent Interfaces (RMII). These allow the mosaic-X5 and ESP32 to be linked directly to your Ethernet network or router, or to each other when the ESP32 is acting as an Ethernet-to-WiFi Bridge.
-
-<div class="grid" markdown>
-
-<div markdown>
-
-<figure markdown>
-[![KSZ8041NLI Ethernet PHY](./assets/img/hookup_guide/PHY.png){ width="750" }](./assets/img/hookup_guide/PHY.png "Click to enlarge")
-<figcaption markdown>Ethernet connections: ESP32 (left) and mosaic-X5 (right).</figcaption>
-</figure>
-
-</div>
-
-<div markdown>
-
-<figure markdown>
-[![KSZ8041NLI Ethernet PHY](./assets/img/hookup_guide/PHY-PCB.png){ width="400" }](./assets/img/hookup_guide/PHY-PCB.png "Click to enlarge")
-<figcaption markdown>The two Ethernet physical layer interfaces and connections.</figcaption>
-</figure>
-
-</div>
-
-</div>
-
+## Ethernet PHY Interface
+The mosaic-T has a KSZ8041NLI Ethernet PHY interfaces, connected using a Reduced Media-Independent Interface (RMII).
 
 ## USB-C Connectors
-The mosaic-X5 and ESP32 both have USB-C connections. The MOSAIC USB port is high-speed and connected to the X5 through a balancing transformer. The ESP32 USB port is connected through a CH340 USB-UART IC.
+The mosaic-T and ESP32 both have USB-C connections. The MOSAIC USB port is high-speed and connected to the T through a balancing transformer. The ESP32 USB port is connected through a CH340 USB-UART IC.
 
 <div class="grid" markdown>
 
@@ -295,7 +241,7 @@ The mosaic-X5 and ESP32 both have USB-C connections. The MOSAIC USB port is high
 
 <figure markdown>
 [![USB-C Connectors](./assets/img/hookup_guide/USB.png){ width="750" }](./assets/img/hookup_guide/USB.png "Click to enlarge")
-<figcaption markdown>USB-C connections: mosaic-X5 (left) and ESP32 (right).</figcaption>
+<figcaption markdown>USB-C connections: mosaic-T (left) and ESP32 (right).</figcaption>
 </figure>
 
 </div>
@@ -304,7 +250,7 @@ The mosaic-X5 and ESP32 both have USB-C connections. The MOSAIC USB port is high
 
 <figure markdown>
 [![USB-C Power Connections](./assets/img/hookup_guide/USB-PCB.png){ width="400" }](./assets/img/hookup_guide/USB-PCB.png "Click to enlarge")
-<figcaption markdown>The USB-C data connections on the RTK mosaic-X5 PCB.</figcaption>
+<figcaption markdown>The USB-C data connections on the RTK mosaic-T PCB.</figcaption>
 </figure>
 
 </div>
@@ -312,14 +258,14 @@ The mosaic-X5 and ESP32 both have USB-C connections. The MOSAIC USB port is high
 </div>
 
 !!! info
-	The RTK mosaic-X5 can draw power from either or both USB ports, in addition to Power-over-Ethernet and the DC-DC external input described above.
+	The RTK mosaic-T can draw power from either or both USB ports, in addition to Power-over-Ethernet and the DC-DC external input described above.
 
 !!! info "CH340 Driver"
 	The CH340 allows the ESP32-WROVER to communicate with a computer/host device through the USB-C connection. This allows the ESP32 to show up as a device on the serial (or COM) port of the computer. Users will need to install the latest drivers for the computer to recognize the CH340 *(see **[USB Driver](../software_overview/#espressif-logoesp32)** section)*.
 
 
 ## &micro;SD Socket
-The &micro;SD socket is connected directly to the mosaic-X5 via a one-bit SDIO interface for fast data logging. The mosaic-X5 supports &micro;SD cards with a **FAT32** file system *(i.e. only cards **up to 32GB** in size)*.
+The &micro;SD socket is connected directly to the mosaic-T via a one-bit SDIO interface for fast data logging. The mosaic-T supports &micro;SD cards with a **FAT32** file system *(i.e. only cards **up to 32GB** in size)*.
 
 <div class="grid" markdown>
 
@@ -333,7 +279,7 @@ The &micro;SD socket is connected directly to the mosaic-X5 via a one-bit SDIO i
 <div markdown>
 <figure markdown>
 [![micro SD socket and log button](./assets/img/hookup_guide/Log-PCB.png){ width="400" }](./assets/img/hookup_guide/Log-PCB.png "Click to enlarge")
-<figcaption markdown>&micro;SD socket and ++"Log"++ button on the RTK mosaic-X5 PCB.</figcaption>
+<figcaption markdown>&micro;SD socket and ++"Log"++ button on the RTK mosaic-T PCB.</figcaption>
 </figure>
 </div>
 
@@ -364,7 +310,7 @@ The &micro;SD socket is connected directly to the mosaic-X5 via a one-bit SDIO i
 
 
 ## SMA Connectors
-The RTK mosaic-X5 has robust SMA connectors for the mosaic-X5 GNSS antenna and the ESP32 WiFi / BT antenna.
+The RTK mosaic-T has robust SMA connectors for the mosaic-T GNSS antenna, 50 Ohm Pulse-Per-Second, 10 MHz disciplined sine wave, and the ESP32 WiFi / BT antenna.
 
 <div class="grid" markdown>
 
@@ -376,10 +322,38 @@ The RTK mosaic-X5 has robust SMA connectors for the mosaic-X5 GNSS antenna and t
 
 <figure markdown>
 [![SMA RF Connections](./assets/img/hookup_guide/RF-GNSS.png){ width="400" }](./assets/img/hookup_guide/RF-GNSS.png "Click to enlarge")
-<figcaption markdown>The connection for the GNSS antenna to the mosaic-X5.</figcaption>
+<figcaption markdown>The connection for the GNSS antenna to the mosaic-T.</figcaption>
 </figure>
 
-The mosaic-X5 SMA connector is standard polarity and provides 5V power for an active antenna.
+The mosaic-T SMA connector is standard polarity and provides 5V power for an active antenna.
+</div>
+
+<div markdown>
+<figure markdown>
+[![SMA RF Connections](./assets/img/hookup_guide/Ant-GNSS.png){ width="750" }](./assets/img/hookup_guide/Ant-GNSS.png "Click to enlarge")
+<figcaption markdown>The SMA connector for the 50 Ohm Pulse-Per-Second output.</figcaption>
+</figure>
+
+<figure markdown>
+[![SMA RF Connections](./assets/img/hookup_guide/RF-GNSS.png){ width="400" }](./assets/img/hookup_guide/RF-GNSS.png "Click to enlarge")
+<figcaption markdown>The connection for the 50 Ohm Pulse-Per-Second output.</figcaption>
+</figure>
+
+The Pulse-Per-Second SMA connector is standard polarity. The output impedance is 50 Ohm. The voltage is selectable via the VCCIO switch: 3.3V or 5V. The output is DC-coupled.
+</div>
+
+<div markdown>
+<figure markdown>
+[![SMA RF Connections](./assets/img/hookup_guide/Ant-GNSS.png){ width="750" }](./assets/img/hookup_guide/Ant-GNSS.png "Click to enlarge")
+<figcaption markdown>The SMA connector for the 50 Ohm disciplined 10 MHz sine wave output.</figcaption>
+</figure>
+
+<figure markdown>
+[![SMA RF Connections](./assets/img/hookup_guide/RF-GNSS.png){ width="400" }](./assets/img/hookup_guide/RF-GNSS.png "Click to enlarge")
+<figcaption markdown>The connection for the 50 Ohm disciplined 10 MHz sine wave output.</figcaption>
+</figure>
+
+The 10 MHz sine wave SMA connector is standard polarity. The output impedance is 50 Ohm. The voltage is selectable via the VCCIO switch: 3.3V or 5V. The output is AC-coupled.
 </div>
 
 <div markdown>
@@ -394,16 +368,18 @@ The mosaic-X5 SMA connector is standard polarity and provides 5V power for an ac
 </figure>
 
 The ESP32 WiFi / BT SMA connector is reverse-polarity (RP). A short u.FL cable connects the SMA connector to the ESP32-WROVER itself.
+
+**Note:** this connector is not used by the current RTK mosaic-T firmware. It is there in case you want to develop your own firmware with WiFi / BT connectivity.
 </div>
 
 </div>
 
 !!! tip "Connector Polarity"
-	When selecting antennas and/or cables for the RTK mosaic-X5, double-check the polarity for the connections.
+	When selecting antennas and/or cables for the RTK mosaic-T, double-check the polarity for the connections.
 
 
 ## I/O Terminals
-The RTK moasic-X5 is equipped with two [10-way 3.5mm screw cage terminal connectors](https://www.sparkfun.com/products/22461).
+The RTK moasic-T is equipped with a [10-way 3.5mm screw cage terminal connectors](https://www.sparkfun.com/products/22461).
 
 <div class="grid" markdown>
 
@@ -420,7 +396,7 @@ The RTK moasic-X5 is equipped with two [10-way 3.5mm screw cage terminal connect
 
 <figure markdown>
 [![IO Connections](./assets/img/hookup_guide/IO-PCB.png){ width="400" }](./assets/img/hookup_guide/IO-PCB.png "Click to enlarge")
-<figcaption markdown>I/O Screw Terminal Connections on the RTK mosaic-X5 PCB.</figcaption>
+<figcaption markdown>I/O Screw Terminal Connections on the RTK mosaic-T PCB.</figcaption>
 </figure>
 
 </div>
@@ -431,7 +407,7 @@ These terminals are described in the tabs below. For more information on the I/O
 
 === "External Power"
 
-	The `VIN+` and `VIN-` terminals allow the RTK mosaic-X5 to be powered by an external DC power source - typically a 12V / 24V vehicle battery.
+	The `VIN+` and `VIN-` terminals allow the RTK mosaic-T to be powered by an external DC power source - typically a 12V / 24V vehicle battery.
 
 	<center>
 
@@ -443,59 +419,77 @@ These terminals are described in the tabs below. For more information on the I/O
 	</center>
 
 	!!! info
-		The DC-DC converter in the RTK mosaic-X5 provides 1.5kV isolation between `VIN+`/`VIN-` and **5V**/**GND**. There is no direct electrical connection between `VIN-` and `GND`.
+		The DC-DC converter in the RTK mosaic-T provides 1.5kV isolation between `VIN+`/`VIN-` and **5V**/**GND**. There is no direct electrical connection between `VIN-` and `GND`.
 
 	!!! warning "Ground Loop"
 		If desired, users can link `VIN-` to the adjacent `GND` screw cage terminal. However, this will bypass the voltage isolation and could introduce an unwanted ground loop, particularly if the GNSS antenna ground (shield, 0V) is also connected to the chassis.
 
 
-=== "VIO & GND"
-	The I/O terminal voltage can be set to 3.3V or 5V via the small internal slide switch highlighted below:
-
-	<figure markdown>
-	[![VIO selection switch](./assets/img/hookup_guide/VCCIO.png){ width="400" }](./assets/img/hookup_guide/VCCIO.png "Click to enlarge")
-	<figcaption markdown>I/O voltage selection switch.</figcaption>
-	</figure>
-
-	The `VIO` terminals can be used as power outputs or logic-high references. Likewise, the `GND` terminals can be used for power return or as logic-low references.
-
-	<center>
-
-	| **Terminal** | <center>**Function**</center>                   |
-	| :----------: | :---------------------------------------------- |
-	| **VIO**      | 3.3V or 5V power output or logic-high reference |
-	| **GND**      | Ground / 0V or logic-low reference              |
-
-	</center>
+=== "GND"
+	Ground / 0V or logic-low reference.
 
 	!!! info
-		The default position of the `VIO` switch is **3.3V**.
+		The DC-DC converter in the RTK mosaic-T provides 1.5kV isolation between `VIN+`/`VIN-` and **5V**/**GND**. There is no direct electrical connection between `GND` and `VIN-`.
 
-	!!! tip
-		The `VIO` and `GND` pins could be used to power (e.g.) a LoRa module. We recommend limiting the current draw from `VIO` to **200mA** and never drawing more than 500mA peak. The upstream 3.3V regulator is rated at 1A but it also provides power for the ESP32 processor.
+	!!! warning "Ground Loop"
+		If desired, users can link `GND` to the adjacent `VIN-` screw cage terminal. However, this will bypass the voltage isolation and could introduce an unwanted ground loop, particularly if the GNSS antenna ground (shield, 0V) is also connected to the chassis.
 
-=== "mosaic-X5 `COM1`"
-	The mosaic-X5 UART COM1 connections are adjacent to the **EVENTA** and **EVENTB** terminals and are connected as follows:
+
+=== "mosaic-T `COM2`"
+	The mosaic-T UART COM2 connections are connected as follows:
 
 	<center>
 
 	| **Terminal** | <center>**Function**</center>          | **Notes**                                                     |
 	| :----------: | :------------------------------------- | :------------------------------------------------------------ |
-	| **RX**       | COM1 UART Receive - **Input**          |                                                               |
-	| **TX**       | COM1 UART Transmit - **Output**        |                                                               |
-	| **RTS**      | COM1 UART Request To Send - **Output** | The module drives this pin low when ready to receive data     |
-	| **CTS**      | COM1 UART Clear To Send - **Input**    | Must be driven low when ready to receive data from the module |
+	| **RX**       | COM2 UART Receive - **Input**          |                                                               |
+	| **TX**       | COM2 UART Transmit - **Output**        |                                                               |
+	| **RTS**      | COM2 UART Request To Send - **Output** | The module drives this pin low when ready to receive data     |
+	| **CTS**      | COM2 UART Clear To Send - **Input**    | Must be driven low when ready to receive data from the module |
 
 	</center>
 
 	!!! tip
-		The COM1 I/O voltage is set by the I/O voltage selection switch.
+		The COM2 I/O voltage is set by the VCCIO voltage selection switch.
 
 	!!! tip
-		The **CTS** input floats low. Pull CTS up to VIO to disable UART Transmit.
+		The **RX** and **CTS** inputs have weak (100K) pull-ups to VCCIO.
+
+	!!! tip
+		The **CTS** terminal can be configured as a **VCCIO** power output by soldering the jumper closed on the PCB.
+
+=== "CTS"
+	The CTS terminal can be configured as a **VCCIO** power output by soldering the jumper closed on the PCB.
+	
+	!!! tip
+		Soldering the jumper closed will place the mosaic-T COM2 CTS into the high (not ready) state. Flow control (hardware handshaking) is not possible when the jumper is closed. Flow control is disabled by default. If needed, flow control can be (re)disabled through the web interface or by sending (e.g) **scs, COM2, baud115200, bits8, No, bit1, none**
+
+	The VCCIO voltage can be set to 3.3V or 5V via the small internal slide switch highlighted below:
+
+	<figure markdown>
+	[![VCCIO selection switch](./assets/img/hookup_guide/VCCIO.png){ width="400" }](./assets/img/hookup_guide/VCCIO.png "Click to enlarge")
+	<figcaption markdown>VCCIO voltage selection switch.</figcaption>
+	</figure>
+
+	The `CTS` terminal can then be used as a power output or logic-high references. Likewise, the `GND` terminal can be used for power return or as logic-low references.
+
+	<center>
+
+	| **Terminal** | <center>**Function**</center>                   |
+	| :----------: | :---------------------------------------------- |
+	| **CTS**      | 3.3V or 5V power output or logic-high reference |
+	| **GND**      | Ground / 0V or logic-low reference              |
+
+	</center>
+
+	!!! info
+		The default position of the `VCCIO` switch is **3.3V**.
+
+	!!! tip
+		The `CTS` and `GND` pins could be used to power (e.g.) a LoRa module. When VCCIO is 3.3V, we recommend limiting the current draw from `VCCIO` to **200mA** maximum. The upstream 3.3V regulator is rated at 600mA but it also provides power for the mosaic-T and Ethernet PHY. When VCCIO is set to 5V, the current draw can be higher - the suggested maximum is **500mA**.
 
 === "EVENT A & B"
-	The mosaic-X5 **EVENTA** and **EVENTB** inputs can be used to mark or timestamp external events:
+	The mosaic-T **EVENTA** and **EVENTB** inputs can be used to mark or timestamp external events:
 
 	<center>
 
@@ -507,10 +501,10 @@ These terminals are described in the tabs below. For more information on the I/O
 	</center>
 
 	!!! tip
-		The EVENT voltage level is set by the I/O voltage selection switch.
+		The EVENT voltage level is set by the VCCIO voltage selection switch.
 
 	!!! tip
-		The EVENT inputs are pulled low internally. Pull up to VIO to trigger an event.
+		The EVENT inputs are pulled low internally. Pull up to VCCIO to trigger an event.
 
 	!!! tip
 		An easy way to observe the events is with **RxTools** \ **RxControl** \ **Expert Console** (under **Tools**) \ **ExEvent** tab:
@@ -520,122 +514,25 @@ These terminals are described in the tabs below. For more information on the I/O
 		<figcaption markdown>Capturing external events from EVENTA and EVENTB.</figcaption>
 		</figure>
 
-=== "PPSO"
-	The mosaic-X5 **PPSO** is a configurable Pulse-Per-Second output. By default, PPSO is high for 5ms at 1Hz. The polarity, frequency and pulse width can be adjusted with the **`setPPSParameters`** command.
+=== "PPS"
+	The mosaic-T **PPS** is a configurable Pulse-Per-Second output. By default, PPS is high for 5ms at 1Hz. The polarity, frequency and pulse width can be adjusted through the ESP32 firmware settings.
+
+	!!! tip
+		The PPS pulses are disabled initially and only enabled when the TCXO oscillator is locked to the correct frequency. See [Oscillator](./oscillator.md) for more details.
 
 	<center>
 
 	| **Terminal** | **Function**              |
 	| :----------: | :-----------------------: |
-	| **PPSO**     | Pulse-Per-Second : Output |
+	| **PPS**      | Pulse-Per-Second : Output |
 
 	</center>
 
 	!!! tip
-		The PPSO voltage is set by the I/O voltage selection switch.
-
-=== "LOG"
-	The mosaic-X5 **LOG** input starts and stops &micro;SD logging. It is also used to mount and dismount the &micro;SD card.
-
-	<center>
-
-	| **Terminal** | **Function** |
-	| :----------: | :----------: |
-	| **LOG**      | Log : Input  |
-
-	</center>
-
-	!!! tip
-		The LOG voltage level is set by the I/O voltage selection switch.
-
-	!!! tip
-		The LOG input is pulled up to VIO internally. Pull low to GND to start or stop logging.
-
-	!!! tip
-		Internal resistors allow the `LOG` I/O terminal and ++"Log"++ button to be used simultaneously. It is OK to press the ++"Log"++ button while the `LOG` terminal is being driven high (VIO).
-
-=== "ESP32 `UART`"
-	Four ESP32 GPIO pins are connected to I/O screw terminals as follows. These pins are not used by version 1.0.0 of the RTK mosaic-X5 ESP32 firmware. They are available for you to use if you are developing your own firmware.
-
-	<center>
-
-	| **Terminal** | <center>**Suggested Function**</center> | **Notes**                                                     |
-	| :----------: | :-------------------------------------- | :------------------------------------------------------------ |
-	| **RX**       | UART Receive                            | **Input** - connected to GPIO pin 34 through a level-shifter  |
-	| **TX**       | UART Transmit                           | **Output** - connected to GPIO pin 32 through a level-shifter |
-	| **RTS**      | UART Request To Send                    | **Output** - connected to GPIO pin 33 through a level-shifter |
-	| **CTS**      | UART Clear To Send                      | **Input** - connected to GPIO pin 35 through a level-shifter  |
-
-	</center>
-
-	!!! tip
-		The I/O voltage is set by the I/O voltage selection switch.
-
-	!!! info
-		These pins are not used by version 1.0.0 of the ESP32 firmware.
-
-=== "SDA & SCL"
-	The ESP32 I<sup>2</sup>C (`Wire`) bus **SDA** and **SCL** signals are available via the I/O terminals. Internally, the I<sup>2</sup>C bus is used to configure the Qwiic OLED display. If you connect a logic analyzer to the SDA and SCL I/O terminals, you will be able to see the OLED traffic (address 0x3D). We made the SDA and SCL signals accessible in case you are developing your own firmware for the RTK mosaic-X5. The I/O terminals are fully level-shifted. It is OK to have a 5V I<sup>2</sup>C peripheral connected while also using the internal 3.3V Qwiic bus for the OLED.
-
-	<center>
-
-	| **Terminal** | **Function**         |
-	| :----------: | :------------------: |
-	| **SDA**      | I<sup>2</sup>C Data  |
-	| **SCL**      | I<sup>2</sup>C Clock |
-
-	</center>
-
-	!!! tip
-		The I/O voltage is set by the I/O voltage selection switch.
-
-	??? tip "What is Qwiic?"
-
-		<!-- Qwiic Banner -->
-		<center>
-		[![Qwiic Logo - light theme](./assets/img/qwiic_logo-light.png#only-light){ width=400 }](https://www.sparkfun.com/qwiic)
-		[![Qwiic Logo - dark theme](./assets/img/qwiic_logo-dark.png#only-dark){ width=400 }](https://www.sparkfun.com/qwiic)
-		</center>
-
-		---
-
-		The [Qwiic connect system](https://www.sparkfun.com/qwiic) is a solderless, polarized connection system that allows users to seamlessly daisy chain I<sup>2</sup>C boards together. Play the video below to learn more about the Qwiic connect system or click on the banner above to learn more about [Qwiic products](https://www.sparkfun.com/qwiic).
-
-
-		<center>
-		<div class="video-500px">
-		<iframe src="https://www.youtube.com/embed/x0RDEHqFIF8" title="SparkFun's Qwiic Connect System" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		</div>
-		</center>
-
-
-		!!! info "Features of the Qwiic System"
-
-			=== "No Soldering"
-
-				![no soldering - light theme](./assets/img/no_soldering-light.png#only-light){ align="left" width="90" }
-				![no soldering - dark theme](./assets/img/no_soldering-dark.png#only-dark){ align="left" width="90" }
-
-				Qwiic cables (4-pin JST) plug easily from development boards to sensors, shields, accessory boards and more, making easy work of setting up a new prototype.
-
-			=== "Polarized Connector"
-
-				![polarized connector - light theme](./assets/img/polarized_connector-light.png#only-light){ align="left" width="90" }
-				![polarized connector - dark theme](./assets/img/polarized_connector-dark.png#only-dark){ align="left" width="90" }
-
-				There's no need to worry about accidentally swapping the SDA and SCL wires on your breadboard. The Qwiic connector is polarized so you know you’ll have it wired correctly every time, right from the start.
-
-				The PCB connector is part number SM04B-SRSS ([Datasheet](https://cdn.sparkfun.com/assets/parts/1/2/2/8/9/Qwiic_Connector_Datasheet.pdf)) or equivalent. The mating connector used on cables is part number SHR04V-S-B or an equivalent *(1mm pitch, 4-pin JST connector)*.
-
-			=== "Daisy Chain-able"
-
-				![daisy chainable - light theme](./assets/img/daisy_chainable-light.png#only-light){ align="left" width="90" }
-				![daisy chainable - dark theme](./assets/img/daisy_chainable-dark.png#only-dark){ align="left" width="90" }
-
-				It’s time to leverage the power of the I<sup>2</sup>C bus! Most Qwiic boards will have two or more connectors on them, allowing multiple devices to be connected.
+		The PPS voltage is set by the VCCIO voltage selection switch.
 
 ## Status LEDs
-There are six status LEDs on the RTK mosaic-X5:
+There are six status LEDs on the RTK mosaic-T:
 
 <div class="grid" markdown>
 
@@ -647,19 +544,18 @@ There are six status LEDs on the RTK mosaic-X5:
 	* Solid Red - &micro;SD card is mounted
 	* Blinking Red - Data is being logged
 	* Off - &micro;SD is dismounted or not present
-* `WiFi` - WiFi *(Green)*
-	* The ESP32 firmware is using WiFi
-	* Connected to ESP32 GPIO pin 12
+* `LOCK` - Oscillator Lock *(Green)*
+	* The TCXO is locked to the correct frequency - as reported by **PVTGeodetic RxClkBias**
+	* Connected to ESP32 GPIO pin 33
 * `PVT` - Position Velocity Time *(Green)*
-	* Solid Green - The mosaic-X5 has valid Position, Velocity and Time
+	* Solid Green - The mosaic-T has valid Position, Velocity and Time
 	* Off - Satellite signal not present or acquired
-* `BT` - Bluetooth *(Yellow)*
-	* The ESP32 firmware is using BT
-	* Connected to ESP32 GPIO pin 13
-	* *Not used by firmware v1.0.0*
+* `ERROR` - GNSS Error *(Yellow)*
+	* The GNSS Error status - as reported by **PVTGeodetic Error**
+	* Connected to ESP32 GPIO pin 32
 * `RTK` - Real-Time Kinematic *(Yellow)*
-	* Solid Yellow - The mosaic-X5 has an RTK Fixed solution
-	* Blinking Yellow - The mosaic-X5 has an RTK Float solution
+	* Solid Yellow - The mosaic-T has an RTK Fixed solution
+	* Blinking Yellow - The mosaic-T has an RTK Float solution
 	* Off - No RTK solution
 
 </div>
@@ -669,14 +565,14 @@ There are six status LEDs on the RTK mosaic-X5:
 <figure markdown>
 [![LEDs](./assets/img/hookup_guide/LEDs.png){ width="400" }](./assets/img/hookup_guide/LEDs.png "Click to enlarge")
 <figcaption markdown>
-The status indicator LEDs on the RTK mosaic-X5.
+The status indicator LEDs on the RTK mosaic-T.
 </figcaption>
 </figure>
 
 <figure markdown>
 [![LEDs](./assets/img/hookup_guide/LEDs-PCB.png){ width="400" }](./assets/img/hookup_guide/LEDs-PCB.png "Click to enlarge")
 <figcaption markdown>
-The status indicator LEDs on the RTK mosaic-X5 PCB.
+The status indicator LEDs on the RTK mosaic-T PCB.
 </figcaption>
 </figure>
 
@@ -686,31 +582,29 @@ The status indicator LEDs on the RTK mosaic-X5 PCB.
 
 
 ## OLED Display
-The RTK mosaic-X5 has a 128x64 pixel OLED display, controlled by the ESP32 via I<sup>2</sup>C. After some initial diagnostic messages, the display will show position, time and other data from the mosaic-X5 NMEA **GGA** message, plus the Ethernet / WiFi IP address.
+The RTK mosaic-T has a 128x64 pixel OLED display, controlled by the ESP32 via I<sup>2</sup>C. After some initial diagnostic messages, the display will show position, time and other data from the mosaic-T **PVTGeodetic**, **ReceiverTime** and **IPStatus** SBF blocks.
 
 <figure markdown>
 [![LEDs](./assets/img/hookup_guide/OLED3.png){ width="750" }](./assets/img/hookup_guide/OLED3.png "Click to enlarge")
 <figcaption markdown>
-The OLED display on the RTK mosaic-X5.
+The OLED display on the RTK mosaic-T.
 </figcaption>
 </figure>
 
-* **Time:** - Universal Time Coordinate (UTC) in `HHMMSS.SS` format
-	* Note: the display is updated approximately every 2 seconds. The time shown may not be precise.
-* **Lat:** - Latitude in `DDMM.MMMMMMM` `N`/`S` format (this is the format used by the GGA message)
-* **Long:** - Longitude in `DDDMM.MMMMMMM` `E`/`W` format (this is the format used by the GGA message)
-* **Fix:** - the GNSS fix type
-* **Sat:** - the number of satellites used in the navigation solution
-	* Note: this is not the same as "Satellites In View"
-* **HDOP:** - Horizontal Dilution Of Precision
-	* Note: this is a dimensionless number indicating the horizontal position accuracy
-* **Alt:** - the Altitude in meters
-	* Note: this is the altitude above Mean Sea Level, not Geoid
-* **IP:** - the mosaic-X5 IP address, obtained via Ethernet or WiFi
-	* The X5's internal configuration page can be viewed at this address
+* **IP**    : nnn.nnn.nnn.nnn from IPStatus IPAddress
+* **Time**  : YYYY/MM/DD HH:MM:SS from ReceiverTime
+* **Lat**   : Latitude from PVTGeodetic (Degrees)
+* **Long**  : Longitude from PVTGeodetic (Degrees)
+* **Sys**   : TimeSystem from ReceiverTime
+	* GPS, Galileo, GLONASS, BeiDou, QZSS, Fugro
+* **Error** : Error from PVTGeodetic
+	* None, Measurements, Ephemerides, DOP, Residuals, Convergence, Outliers, Export, Differential, Base, Ambiguities
+* **Fine**  : FINETIME from ReceiverTime
+	* False, True
+* **Bias**  : RxClkBias from PVTGeodetic (ms/us/ns)
 
 ??? example "Example Data"
-	Below, is an example data set recorded on the RTK mosaic-X5 at SparkFun HQ; where the antenna was located on the roof of the building. The antenna was above the loading dock, just about where it is displayed on the map. The table, below, is an example of how to convert the information on the display into the time and coordinate values.
+	Below, is an example data set recorded on the RTK mosaic-T at SparkFun HQ; where the antenna was located on the roof of the building. The antenna was above the loading dock, just about where it is displayed on the map. The table, below, is an example of how to convert the information on the display into the time and coordinate values.
 
 	<div class="grid">
 
@@ -719,7 +613,7 @@ The OLED display on the RTK mosaic-X5.
 	<figure markdown>
 	[![LEDs](./assets/img/hookup_guide/OLED-sparkfun.png){ width="500" }](./assets/img/hookup_guide/OLED-sparkfun.png "Click to enlarge")
 	<figcaption markdown>
-	Example information on the OLED display of the RTK mosaic-X5.
+	Example information on the OLED display of the RTK mosaic-T.
 	</figcaption>
 	</figure>
 
@@ -750,7 +644,7 @@ The OLED display on the RTK mosaic-X5.
 
 
 ## Buttons
-There are three buttons on the RTK mosaic-X5: ++"RESET"++, ++"BOOT"++, and ++"LOG"++.
+There are three buttons on the RTK mosaic-T: ++"RESET"++, ++"BOOT"++, and ++"LOG"++.
 
 <div class="grid" markdown>
 
@@ -758,7 +652,7 @@ There are three buttons on the RTK mosaic-X5: ++"RESET"++, ++"BOOT"++, and ++"LO
 
 <figure markdown>
 [![Buttons](./assets/img/hookup_guide/Buttons.png){ width="750" }](./assets/img/hookup_guide/Buttons.png "Click to enlarge")
-<figcaption markdown>Buttons on the RTK mosaic-X5.</figcaption>
+<figcaption markdown>Buttons on the RTK mosaic-T.</figcaption>
 </figure>
 
 </div>
@@ -767,7 +661,7 @@ There are three buttons on the RTK mosaic-X5: ++"RESET"++, ++"BOOT"++, and ++"LO
 
 <figure markdown>
 [![Buttons](./assets/img/hookup_guide/Buttons-PCB.png){ width="400" }](./assets/img/hookup_guide/Buttons-PCB.png "Click to enlarge")
-<figcaption markdown>Buttons on the RTK mosaic-X5 PCB.</figcaption>
+<figcaption markdown>Buttons on the RTK mosaic-T PCB.</figcaption>
 </figure>
 
 </div>
@@ -775,7 +669,7 @@ There are three buttons on the RTK mosaic-X5: ++"RESET"++, ++"BOOT"++, and ++"LO
 </div>
 
 
-=== ":septentrio-logo:&nbsp;mosaic-X5: Data Logging"
+=== ":septentrio-logo:&nbsp;mosaic-T: Data Logging"
 	Once a [logging stream](#sd-socket) is defined, users can control the data logging operation through the ++"LOG"++ button.
 
 	* A short press of the ++"LOG"++ button *(< 5s)* toggles data logging to the SD card on and off.
@@ -791,7 +685,7 @@ There are three buttons on the RTK mosaic-X5: ++"RESET"++, ++"BOOT"++, and ++"LO
 	The ++"RESET"++ button allows users to reset the firmware running on the ESP32-WROVER module without disconnecting the power.
 
 === ":espressif-logo:&nbsp;ESP32: Boot Control"
-	The ++"BOOT"++ button can be used to force the ESP32 into the serial bootloader. Holding down the ++"BOOT"++ button, while connecting the RTK mosaic-X5 to a computer through its USB-C connector or resetting the board will cause it to enter the <a href="https://docs.espressif.com/projects/esptool/en/latest/esp32/advanced-topics/boot-mode-selection.html#manual-bootloader">Firmware Download mode</a>. The ESP32 will remain in this mode until it power cycles (happens automatically after uploading new firmware) or the ++"RESET"++ button is pressed.
+	The ++"BOOT"++ button can be used to force the ESP32 into the serial bootloader. Holding down the ++"BOOT"++ button, while connecting the RTK mosaic-T to a computer through its USB-C connector or resetting the board will cause it to enter the <a href="https://docs.espressif.com/projects/esptool/en/latest/esp32/advanced-topics/boot-mode-selection.html#manual-bootloader">Firmware Download mode</a>. The ESP32 will remain in this mode until it power cycles (happens automatically after uploading new firmware) or the ++"RESET"++ button is pressed.
 
 	1. Hold the ++"BOOT"++ button down.
 	2. Reset the MCU.
@@ -805,7 +699,7 @@ There are three buttons on the RTK mosaic-X5: ++"RESET"++, ++"BOOT"++, and ++"LO
 	!!! info "BOOT and GPIO0"
 		The ESP32 GPIO pin 0 is connected to the BOOT button. But is also used by the firmware to generate the 50MHz clock for the RMII Ethernet PHY interface.
 
-		Pressing the BOOT button while the firmware is running in mode 2 (WiFi) will interrupt the clock and cause Ethernet communication with the mosaic-X5 to fail.
+		Pressing the BOOT button while the firmware is running in mode 2 (WiFi) will interrupt the clock and cause Ethernet communication with the mosaic-T to fail.
 
 
 ## Jumpers
@@ -826,7 +720,7 @@ There are three buttons on the RTK mosaic-X5: ++"RESET"++, ++"BOOT"++, and ++"LO
 
 	</div>
 
-There are several jumpers on the RTK moasic-X5 PCB which can be used to (e.g.) disable the LEDs or allow measurement of the board's current draw.
+There are several jumpers on the RTK moasic-T PCB which can be used to (e.g.) disable the LEDs or allow measurement of the board's current draw.
 
 <div class="grid" markdown>
 
@@ -835,7 +729,7 @@ There are several jumpers on the RTK moasic-X5 PCB which can be used to (e.g.) d
 <figure markdown>
 [![Jumpers](./assets/img/hookup_guide/Jumpers-top.png){ width="400" }](./assets/img/hookup_guide/Jumpers-top.png "Click to enlarge")
 <figcaption markdown>
-The jumpers on the top of the RTK mosaic-X5 PCB.
+The jumpers on the top of the RTK mosaic-T PCB.
 </figcaption>
 </figure>
 
@@ -846,7 +740,7 @@ The jumpers on the top of the RTK mosaic-X5 PCB.
 <figure markdown>
 [![Jumpers](./assets/img/hookup_guide/Jumpers-bottom.png){ width="400" }](./assets/img/hookup_guide/Jumpers-bottom.png "Click to enlarge")
 <figcaption markdown>
-The jumpers on the bottom of the RTK mosaic-X5 PCB.
+The jumpers on the bottom of the RTK mosaic-T PCB.
 </figcaption>
 </figure>
 
@@ -856,29 +750,31 @@ The jumpers on the bottom of the RTK mosaic-X5 PCB.
 
 
 === "Top"
-	* **POE LOAD** - This jumper can be used to disconnect the Power-over-Ethernet (PoE) module 50&ohm; load.
-		* The PoE module has a minimum load of 100mA. We included the 50&ohm; load to ensure this is met. If you can ensure this by other means, open this jumper to disconnect the load.
+	* **POE** - This jumper can be used to disconnect the Power-over-Ethernet (PoE) module 50&ohm; load.
+		* The PoE module has a minimum load of 200mA. We included the 50&ohm; load to ensure this is met. If you can ensure this by other means, open this jumper to disconnect the load.
 
 === "Bottom"
 	* LED Jumpers
-		* **LINK** (x2) - open these jumpers to disable the Ethernet Link LEDs.
-		* **SPEED** (x2) - open these jumpers to disable the Ethernet Speed LEDs.
-		* **RTK** - open this jumper to disable the mosaic-X5 Real-Time Kinetic LED.
-		* **PVT** - open this jumper to disable the mosaic-X5 Position Velocity Time LED.
-		* **LOG** - open this jumper to disable the mosaic-X5 Log LED.
-		* **BT** - open this jumper to disable the ESP32 BT LED.
-		* **WiFi** - open this jumper to disable the ESP32 WiFi LED.
+		* **LINK** - open this jumper to disable the Ethernet Link LED.
+		* **SPEED** - open this jumper to disable the Ethernet Speed LED.
+		* **RTK** - open this jumper to disable the mosaic-T Real-Time Kinetic LED.
+		* **PVT** - open this jumper to disable the mosaic-T Position Velocity Time LED.
+		* **LOG** - open this jumper to disable the mosaic-T Log LED.
+		* **ERROR** - open this jumper to disable the GNSS error LED.
+		* **LOCK** - open this jumper to disable the TCXO lock LED.
 		* **PWR** - open this jumper to disable the Power LED.
 	* Button Jumpers
 		* **BOOT** - open this jumper to disconnect the ESP32 BOOT pushbutton.
 		* **RESET** - open this jumper to disconnect the ESP32 RESET pushbutton.
 	* **SHLD** (x2) - open these jumpers to isolate the USB-C connector shield from GND.
-	* **I<sup>2</sup>C** - open this dual jumper to disconnect the pull-ups for the SDA and SCL I/O terminals.
-		* Note: the internal 3.3V Qwiic bus has its own pull-ups which are disconnected by default. These can be enabled by closing the dual jumper under the OLED Qwiic connector. We suggest you only do this if you are disconnecting the OLED.
+	* **I<sup>2</sup>C** (x2) - open these dual jumpers to disconnect the pull-ups for the I<sup>2</sup>C buses.
+		* Note: there are separate jumpers for the two I<sup>2</sup>C buses: OLED (Qwiic); and the SiTime TCXO.
 	* **VIN+** and **VIN-**
 		* Open these jumpers if you wish to isolate (disconnect) the external DC power terminals. The breakout pads can then be used to feed in power from an alternate source.
-	* **PW+** and **PW-**
+	* **POE+** and **POE-**
 		* Open these jumpers if you wish to isolate (disconnect) the Power-over-Ethernet pins on the MOSAIC Ethernet magjack. The breakout pads can then be used to feed in power from an alternate source.
 	* **MEAS**
-		* Open the **MEAS** jumper if you wish to measure the total current drawn by the RTK mosaic-X5, or (e.g.) wish to add an ON/OFF switch. The breakout pads can then be used to attach a multimeter or a mechanical power switch.
+		* Open the **MEAS** jumper if you wish to measure the total current drawn by the RTK mosaic-T, or (e.g.) wish to add an ON/OFF switch. The breakout pads can then be used to attach a multimeter or a mechanical power switch.
 		* **MEAS** is _upstream_ of the two 3.3V regulators and _downstream_ of the four power source combination and protection diodes.
+	* **VCCIO**
+		* The **VCCIO** jumper can be soldered closed to connect the **CTS** screw terminal to VCCIO. **CTS** can then be used as a power output. The voltage is set by the VCCIO slide switch.

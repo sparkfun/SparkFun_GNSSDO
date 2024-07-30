@@ -298,7 +298,7 @@ extra:
   # Configures social icons in the footer
   social:
     - icon: sfe-logo
-      link: https://www.sparkfun.com/products/23748
+      link: https://www.sparkfun.com/products/26289
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/sparkfun
     - icon: fontawesome/brands/instagram
@@ -340,11 +340,7 @@ nav:
     - Hardware Overview: hardware_overview.md
     - Hardware Assembly: hardware_assembly.md
     - Software Setup: software_overview.md
-    - RTK Configurations:
-      - RTK Base: base.md
-      - NTRIP Server: ntrip_server.md
-      - NTRIP Client: ntrip_client.md
-    - RTK Correction Services: correction_service.md
+    - Oscillator: oscillator.md
     - Enable the L5 Band: L5.md
   - Resources:
     - Hardware Resources: resources.md

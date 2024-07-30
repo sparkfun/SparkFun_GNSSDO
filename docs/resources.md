@@ -4,16 +4,16 @@ icon: material/book-open-page-variant
 
 ## Product Resources
 
-* :sfe-logo: [Product Page](https://www.sparkfun.com/products/23748)
+* :sfe-logo: [Product Page](https://www.sparkfun.com/products/26289)
 * [Quick Start Guide](./assets/quick_start_guide-v10.pdf)
 * :material-folder-cog: Design Files:
 	* :fontawesome-solid-file-pdf: [Schematic](./assets/board_files/schematic.pdf)
 	* :fontawesome-solid-file-pdf: [Board Dimensions](./assets/board_files/dimensions.pdf)
 	* :fontawesome-solid-file-pdf: [Enclosure Dimensions](./assets/board_files/dimensions-enclosure.pdf)
-	* :fontawesome-solid-file-code: [ESP32 Firmware](https://github.com/sparkfun/SparkFun_RTK_mosaic-X5/tree/main/Firmware/RTK_mosaic-X5_Firmware)
-* :fontawesome-solid-file-pdf: [mosaic-X5 Datasheet](./assets/component_documentation/Mosaic%20Hardware%20Manual_v1.8.0.pdf)
+	* :fontawesome-solid-file-code: [ESP32 Firmware](https://github.com/sparkfun/SparkFun_RTK_mosaic-T/tree/main/Firmware/RTK_mosaic-T_Firmware)
+* :fontawesome-solid-file-pdf: [mosaic-T Datasheet](./assets/component_documentation/Mosaic%20Hardware%20Manual_v1.8.0.pdf)
 * :material-youtube: [SFE Product Showcase](https://www.youtube.com/watch?v=HwKxq9ChazQ)
-* :material-github: [Hardware Repo](https://github.com/sparkfun/SparkFun_RTK_mosaic-X5)
+* :material-github: [Hardware Repo](https://github.com/sparkfun/SparkFun_RTK_mosaic-T)
 
 
 ### :sfe-logo: Additional Resources
@@ -24,19 +24,14 @@ icon: material/book-open-page-variant
 
 
 ### 🏭&nbsp;Manufacturer's Resources
-Septentrio also provides great resources for the mosaic-X5:
+Septentrio also provides great resources for the mosaic-T:
 
 <div class="annotate" markdown>
 
-* [mosaic-X5 Product Page](https://www.septentrio.com/en/products/gps/gnss-receiver-modules/mosaic-x5)
-	* :material-file-document-multiple: [Resources: Datasheet, firmware, manual, software tools, USB driver, etc.](https://www.septentrio.com/en/products/gps/gnss-receiver-modules/mosaic-x5#resources)
+* [mosaic-T Product Page](https://www.septentrio.com/en/products/gnss-receivers/gnss-receiver-modules/mosaic-t)
+	* :material-file-document-multiple: [Resources: Datasheet, firmware, manual, software tools, USB driver, etc.](https://www.septentrio.com/en/products/gnss-receivers/gnss-receiver-modules/mosaic-t#resources)
 * :material-help-box: [Support Portal](https://customersupport.septentrio.com/s/):
 	* :material-file-document-multiple: [Septentrio Knowledge Base](https://customersupport.septentrio.com/s/topiccatalog) (1)
-* :material-github: [GitHub](https://github.com/septentrio-gnss):
-	* [Set Up Guide to use Third Party OSR and SSR correction services](https://github.com/septentrio-gnss/Septentrio_AgnosticCorrectionsProgram)
-		* [Using Septentrio's Receiver and uBlox's Pointperfect correction services for precise positioning](https://github.com/septentrio-gnss/uBloxCorrectionsWithSeptentrio)
-		* [Using Septentrio's Receiver and Swift Navigation's Skylark correction services for precise positioning](https://github.com/septentrio-gnss/SwiftCorrectionsWithSeptentrio)
-	* [mowi (mosaic wireless) open-source design](https://github.com/septentrio-gnss/mowi)
 * :material-youtube: [YouTube Channel](https://www.youtube.com/@SeptentrioGNSS) (2)
 * [JammerTest 2023 - Anti-Jamming and Anti-Spoofing Performance](https://www.septentrio.com/en/learn-more/insights/most-resilient-gnss-receiver-results-jammertest-norway)
 
