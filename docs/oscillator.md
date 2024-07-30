@@ -70,7 +70,7 @@ The 128x64 OLED will display eight lines of text:
 * **Time**  : YYYY/MM/DD HH:MM:SS from ReceiverTime
 * **Lat**   : Latitude from PVTGeodetic (Degrees)
 * **Long**  : Longitude from PVTGeodetic (Degrees)
-* **Sys**   : TimeSystem from ReceiverTime (GPS, Galileo, GLONASS, BeiDou, QZSS, Fugro)
+* **Sys**   : TimeSystem from PVTGeodetic (GPS, Galileo, GLONASS, BeiDou, QZSS, Fugro)
 * **Error** : Error from PVTGeodetic (None, Measurements, Ephemerides, DOP, Residuals, Convergence, Outliers, Export, Differential, Base, Ambiguities)
 * **Fine**  : FINETIME from ReceiverTime (False, True)
 * **Bias**  : RxClkBias from PVTGeodetic (ms/us/ns)

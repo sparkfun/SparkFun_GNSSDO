@@ -595,7 +595,7 @@ The OLED display on the RTK mosaic-T.
 * **Time**  : YYYY/MM/DD HH:MM:SS from ReceiverTime
 * **Lat**   : Latitude from PVTGeodetic (Degrees)
 * **Long**  : Longitude from PVTGeodetic (Degrees)
-* **Sys**   : TimeSystem from ReceiverTime
+* **Sys**   : TimeSystem from PVTGeodetic
 	* GPS, Galileo, GLONASS, BeiDou, QZSS, Fugro
 * **Error** : Error from PVTGeodetic
 	* None, Measurements, Ephemerides, DOP, Residuals, Convergence, Outliers, Export, Differential, Base, Ambiguities
