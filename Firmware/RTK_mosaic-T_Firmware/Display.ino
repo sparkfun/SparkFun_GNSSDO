@@ -233,6 +233,12 @@ void displaySerialConfig()
     displayMessage("Serial Config", 0);
 }
 
+// When user does a factory reset, let us know
+void displaySytemReset()
+{
+    displayMessage("System Reset", 0);
+}
+
 // Displays a small error message then hard freeze
 // Text wraps and is small but legible
 void displayError(const char *errorMessage)

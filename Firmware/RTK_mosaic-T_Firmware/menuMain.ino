@@ -47,8 +47,8 @@ void menuMain()
         uptimeMilliseconds %= MILLISECONDS_IN_A_SECOND;
 
         systemPrint("System Uptime: ");
-        systemPrintf("%d %02d:%02d:%02d.%03lld (Resets: %d)\r\n", uptimeDays, uptimeHours, uptimeMinutes, uptimeSeconds,
-                     uptimeMilliseconds, settings.resetCount);
+        systemPrintf("%d %02d:%02d:%02d.%03lld\r\n", uptimeDays, uptimeHours, uptimeMinutes, uptimeSeconds,
+                     uptimeMilliseconds);
 
         systemPrintf("Filtered by parser: %d NMEA / %d RTCM / %d UBX / %d SBF\r\n", failedParserMessages_NMEA,
                      failedParserMessages_RTCM, failedParserMessages_UBX, failedParserMessages_SBF);
