@@ -3,45 +3,25 @@
 // If we are printing to all endpoints, BT gets priority
 int systemAvailable()
 {
-    if (printEndpoint == PRINT_ENDPOINT_BLUETOOTH || printEndpoint == PRINT_ENDPOINT_ALL)
-        return (bluetoothRxDataAvailable());
     return (Serial.available());
 }
 
 // If we are printing to all endpoints, BT gets priority
 int systemRead()
 {
-    if (printEndpoint == PRINT_ENDPOINT_BLUETOOTH || printEndpoint == PRINT_ENDPOINT_ALL)
-        return (bluetoothRead());
     return (Serial.read());
 }
 
 // Output a buffer of the specified length to the serial port
 void systemWrite(const uint8_t *buffer, uint16_t length)
 {
-    if (printEndpoint == PRINT_ENDPOINT_ALL)
-    {
-        Serial.write(buffer, length);
-        bluetoothWrite(buffer, length);
-    }
-    else if (printEndpoint == PRINT_ENDPOINT_BLUETOOTH)
-        bluetoothWrite(buffer, length);
-    else
-        Serial.write(buffer, length);
+    Serial.write(buffer, length);
 }
 
 // Ensure all serial output has been transmitted, FIFOs are empty
 void systemFlush()
 {
-    if (printEndpoint == PRINT_ENDPOINT_ALL)
-    {
-        Serial.flush();
-        bluetoothFlush();
-    }
-    else if (printEndpoint == PRINT_ENDPOINT_BLUETOOTH)
-        bluetoothFlush();
-    else
-        Serial.flush();
+    Serial.flush();
 }
 
 // Output a byte to the serial port
@@ -846,4 +826,79 @@ void verifyTables()
         reportFatalError("Fix platformPrefixTable to match ProductVariant");
     if (mosaicTimeSystemIndexTableEntries != mosaicTimeSystemTableEntries)
         reportFatalError("Fix mosaicTimeSystemIndexTable to match mosaicTimeSystemTable");
+
+    tasksValidateTables();
+}
+
+const uint32_t SFE_DAYS_FROM_1970_TO_2020 = 18262; // Jan 1st 2020 Epoch = 1577836800 seconds
+const uint16_t SFE_DAYS_SINCE_2020[80] =
+    {
+        0, 366, 731, 1096, 1461, 1827, 2192, 2557, 2922, 3288,
+        3653, 4018, 4383, 4749, 5114, 5479, 5844, 6210, 6575, 6940,
+        7305, 7671, 8036, 8401, 8766, 9132, 9497, 9862, 10227, 10593,
+        10958, 11323, 11688, 12054, 12419, 12784, 13149, 13515, 13880, 14245,
+        14610, 14976, 15341, 15706, 16071, 16437, 16802, 17167, 17532, 17898,
+        18263, 18628, 18993, 19359, 19724, 20089, 20454, 20820, 21185, 21550,
+        21915, 22281, 22646, 23011, 23376, 23742, 24107, 24472, 24837, 25203,
+        25568, 25933, 26298, 26664, 27029, 27394, 27759, 28125, 28490, 28855};
+const uint16_t SFE_DAYS_SINCE_MONTH[2][12] =
+    {
+        {0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335}, // Leap Year (Year % 4 == 0)
+        {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334}  // Normal Year
+};
+
+const uint32_t SFE_JAN_1ST_2020_WEEK = 2086; // GPS Week Number for Jan 1st 2020
+const uint32_t SFE_EPOCH_WEEK_2086 = 1577836800 - 259200; // Epoch for the start of GPS week 2086
+const uint32_t SFE_SECS_PER_WEEK = 60 * 60 * 24 * 7; // Seconds per week
+
+// Helper method to convert GNSS time and date into Unix Epoch
+void convertGnssTimeToEpoch(uint32_t *epochSecs, uint32_t *epochMillis)
+{
+    uint32_t t = SFE_DAYS_FROM_1970_TO_2020;             // Jan 1st 2020 as days from Jan 1st 1970
+    t += (uint32_t)SFE_DAYS_SINCE_2020[gnssYear - 2020]; // Add on the number of days since 2020
+    t += (uint32_t)
+        SFE_DAYS_SINCE_MONTH[gnssYear % 4 == 0 ? 0 : 1][gnssMonth - 1]; // Add on the number of days since Jan 1st
+    t += (uint32_t)gnssDay - 1; // Add on the number of days since the 1st of the month
+    t *= 24;                    // Convert to hours
+    t += (uint32_t)gnssHour;    // Add on the hour
+    t *= 60;                    // Convert to minutes
+    t += (uint32_t)gnssMinute;  // Add on the minute
+    t *= 60;                    // Convert to seconds
+    t += (uint32_t)gnssSecond;  // Add on the second
+
+    *epochSecs = t;
+    *epochMillis = gnssTOW_ms % 1000;
+}
+
+// Format the firmware version
+void formatFirmwareVersion(uint8_t major, uint8_t minor, char *buffer, int bufferLength, bool includeDate)
+{
+  char prefix;
+
+  // Construct the full or release candidate version number
+  prefix = 'd';
+  //    if (enableRCFirmware && (bufferLength >= 21))
+  //        // 123456789012345678901
+  //        // pxxx.yyy-dd-mmm-yyyy0
+  //        snprintf(buffer, bufferLength, "%c%d.%d-%s", prefix, major, minor, __DATE__);
+
+  // Construct a truncated version number
+  if (bufferLength >= 9)
+    // 123456789
+    // pxxx.yyy0
+    snprintf(buffer, bufferLength, "%c%d.%d", prefix, major, minor);
+
+  // The buffer is too small for the version number
+  else
+  {
+    Serial.printf("ERROR: Buffer too small for version number!\r\n");
+    if (bufferLength > 0)
+      *buffer = 0;
+  }
+}
+
+// Get the current firmware version
+void getFirmwareVersion(char *buffer, int bufferLength, bool includeDate)
+{
+  formatFirmwareVersion(FIRMWARE_VERSION_MAJOR, FIRMWARE_VERSION_MINOR, buffer, bufferLength, includeDate);
 }

@@ -6,8 +6,9 @@ typedef enum
 {
     STATE_GNSS_NOT_CONFIGURED = 0,
     STATE_GNSS_CONFIGURED, // GNSS has been configured: PVTGeodetic+ReceiverTime+IPStatus enabled on COM1
+    STATE_GNSS_ERROR_BEFORE_FINETIME, // Error is non-zero before FineTime is true
     STATE_GNSS_FINETIME, // GNSS FINETIME bit is set. Oscillator control can begin
-    STATE_GNSS_ERROR, // PVTGeodetic Error is non-zero. Oscillator updates are paused
+    STATE_GNSS_ERROR_AFTER_FINETIME, // PVTGeodetic Error is non-zero. Oscillator updates are paused
     STATE_NOT_SET, // Must be last on list
 } SystemState;
 volatile SystemState systemState = STATE_GNSS_NOT_CONFIGURED;
@@ -43,6 +44,20 @@ const char *const platformPrefixTable[] = {
     "Unknown",
 };
 const int platformPrefixTableEntries = sizeof(platformPrefixTable) / sizeof(platformPrefixTable[0]);
+
+typedef enum
+{
+    RTCM_TRANSPORT_STATE_WAIT_FOR_PREAMBLE_D3 = 0,
+    RTCM_TRANSPORT_STATE_READ_LENGTH_1,
+    RTCM_TRANSPORT_STATE_READ_LENGTH_2,
+    RTCM_TRANSPORT_STATE_READ_MESSAGE_1,
+    RTCM_TRANSPORT_STATE_READ_MESSAGE_2,
+    RTCM_TRANSPORT_STATE_READ_DATA,
+    RTCM_TRANSPORT_STATE_READ_CRC_1,
+    RTCM_TRANSPORT_STATE_READ_CRC_2,
+    RTCM_TRANSPORT_STATE_READ_CRC_3,
+    RTCM_TRANSPORT_STATE_CHECK_CRC
+} RtcmTransportState;
 
 typedef enum
 {
@@ -87,7 +102,7 @@ const char * mosaicTimeSystemNameFromId(uint8_t id) {
     uint8_t index = mosaicTimeSystemIndexFromId(id);
     static const char unknown[] = "Unknown";
     if (index >= mosaicTimeSystemIndexTableEntries)
-        return &unknown;
+        return unknown;
     return mosaicTimeSystemTable[index];
 }
 
@@ -109,7 +124,7 @@ const int mosaicPVTErrorTableEntries = sizeof(mosaicPVTErrorTable) / sizeof(mosa
 const char * mosaicPVTErrorNameFromId(uint8_t id) {
     static const char unknown[] = "Unknown";
     if (id >= mosaicPVTErrorTableEntries)
-        return &unknown;
+        return unknown;
     return mosaicPVTErrorTable[id];
 }
 
@@ -165,27 +180,18 @@ typedef enum
     INPUT_RESPONSE_VALID = 1,
 } InputResponse;
 
-// Define the periodic display values
-typedef uint32_t PeriodicDisplay_t;
+// Display
 
-enum PeriodDisplayValues
+typedef enum
 {
-    PD_IP = 0, //  0
-    PD_TIME,   //  1
-    PD_LAT,    //  2
-    PD_LONG,   //  3
-    PD_SYS,    //  4
-    PD_ERROR,  //  5
-    PD_FINE,   //  6
-    PD_BIAS,   //  7
-    // Add new values before this line
-};
+    DISPLAY_64x48,
+    DISPLAY_128x64,
+    // Add new displays above this line
+    DISPLAY_MAX_NONE // This represents the maximum numbers of display and also "no display"
+} DisplayType;
 
-#define PERIODIC_MASK(x) (1 << x)
-#define PERIODIC_DISPLAY(x) (periodicDisplay & PERIODIC_MASK(x))
-#define PERIODIC_CLEAR(x) periodicDisplay &= ~PERIODIC_MASK(x)
-#define PERIODIC_SETTING(x) (settings.periodicDisplay & PERIODIC_MASK(x))
-#define PERIODIC_TOGGLE(x) settings.periodicDisplay ^= PERIODIC_MASK(x)
+const uint8_t DisplayWidth[DISPLAY_MAX_NONE] = { 64, 128 }; // We could get these from the oled, but this is const
+const uint8_t DisplayHeight[DISPLAY_MAX_NONE] = { 48, 64 };
 
 // These are the allowable messages to broadcast and log (if enabled)
 
@@ -198,10 +204,8 @@ typedef struct
     bool enableDisplay = true;
     bool enableHeapReport = false; // Turn on to display free heap
     bool enableTaskReports = false; // Turn on to display task high water marks
-    SystemState lastState = STATE_GNSS_NOT_CONFIGURED; // Start unit in default state
+    SystemState lastState = STATE_NOT_SET; // Start unit in default state
     bool enablePrintBufferOverrun = false;
-    PeriodicDisplay_t periodicDisplay = (PeriodicDisplay_t)0; // Turn off all periodic debug displays by default.
-    uint32_t periodicDisplayInterval = 15 * 1000;
 
     int gnssHandlerBufferSize =
         1024 * 4; // This buffer is filled from the UART receive buffer
@@ -213,6 +217,24 @@ typedef struct
     uint8_t gnssReadTaskCore = 1;           // Core where task should run, 0=core, 1=Arduino
     uint8_t gnssReadTaskPriority =
         1; // Read from ZED-F9x and Write to circular buffer (SD, TCP, BT). 3 being the highest, and 0 being the lowest
+    uint8_t gnssUartInterruptsCore =
+        1; // Core where hardware is started and interrupts are assigned to, 0=core, 1=Arduino
+
+    int16_t serialTimeoutGNSS = 1; // In ms - used during SerialGNSS.begin. Number of ms to pass of no data before
+                                   // hardware serial reports data available.
+    uint32_t dataPortBaud = 115200; // Default to 115200
+
+    bool enablePrintBadMessages = false;
+    bool enablePrintStates = true;
+    bool enablePrintDuplicateStates = false;
+    bool enablePrintRtcSync = false;
+    bool enablePrintConditions = true;
+    bool enablePrintConsumers = true;
+    uint32_t periodicPrintInterval_ms = 5000;
+    bool enablePrintIdleTime = false;
+    bool enablePrintGNSSMessages = false;
+    bool enablePrintRingBufferOffsets = false;
+    bool disableSetupButton = true;
 
     int ppsInterval = 8; // sec1
     int ppsPolarity = 0; // Low2High

@@ -59,8 +59,6 @@ void menuMain()
 
         systemPrintln("o) Configure operation");
 
-        systemPrintln("p) Configure periodic print messages");
-
         systemPrintln("r) Reset all settings to default");
 
         systemPrintln("x) Exit");
@@ -71,8 +69,6 @@ void menuMain()
             menuDebugSoftware();
         else if (incoming == 'o')
             menuOperation();
-        else if (incoming == 'p')
-            menuPeriodicPrint();
         else if (incoming == 'r')
         {
             systemPrintln("\r\nResetting to factory defaults. Press 'y' to confirm:");

@@ -85,32 +85,32 @@ ESP32Time rtc;
 unsigned long syncRTCInterval = 1000; // To begin, sync RTC every second. Interval can be increased once sync'd.
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-#define platformFilePrefix      platformFilePrefixTable[productVariant] // Sets the prefix for logs and settings files
+#define platformPrefix      platformPrefixTable[productVariant] // Sets the prefix for broadcast names
+#define platformFilePrefix  platformFilePrefixTable[productVariant] // Sets the prefix for logs and settings files
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 // These globals are updated regularly via the storePVTdata callback
-* **IP**    : nnn.nnn.nnn.nnn from IPStatus IPAddress
-* **Time**  : YYYY/MM/DD HH:MM:SS from ReceiverTime
-* **Lat**   : Latitude from PVTGeodetic (Degrees)
-* **Long**  : Longitude from PVTGeodetic (Degrees)
-* **Sys**   : TimeSystem from PVTGeodetic (GPS, Galileo, GLONASS, BeiDou, QZSS, Fugro)
-* **Error** : Error from PVTGeodetic (None, Measurements, Ephemerides, DOP, Residuals, Convergence, Outliers, Export, Differential, Base, Ambiguities)
-* **Fine**  : FINETIME from ReceiverTime (False, True)
-* **Bias**  : RxClkBias from PVTGeodetic (ms/us/ns)
-unsigned long pvtArrivalMillis = 0;
-bool pvtUpdated = false;
-double latitude = 0.0;
-double longitude = 0.0;
-float altitude = 0.0;
+unsigned long gnssPVTArrivalMillis = 0;
+bool gnssPVTUpdated = false;
+unsigned long gnssTimeArrivalMillis = 0;
+bool gnssTimeUpdated = false;
+double gnssLatitude_d = 0.0;
+double gnssLongitude_d = 0.0;
+float gnssAltitude_m = 0.0;
+uint32_t gnssTOW_ms = 0;
 uint8_t gnssDay = 0;
 uint8_t gnssMonth = 0;
 uint16_t gnssYear = 0;
 uint8_t gnssHour = 0;
 uint8_t gnssMinute = 0;
 uint8_t gnssSecond = 0;
+uint8_t gnssTimeSys = 255; // Unknown
+uint8_t gnssError = 255; // Unknown
+bool gnssToWSet = false;
 bool gnssFineTime = false;
-IPAddress localIP = IPAddress((uint32_t)0);
+double gnssClockBias_ms = 0.0;
+IPAddress gnssIP = IPAddress((uint32_t)0);
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -154,14 +154,25 @@ const int handleGnssDataTaskStackSize = 3000;
 TaskHandle_t pinUART2TaskHandle = nullptr; // Dummy task to start hardware on an assigned core
 volatile bool uart2pinned = false; // This variable is touched by core 0 but checked by core 1. Must be volatile.
 
-TaskHandle_t pinI2CTaskHandle = nullptr; // Dummy task to start hardware on an assigned core
-volatile bool i2cPinned = false; // This variable is touched by core 0 but checked by core 1. Must be volatile.
+TaskHandle_t pinI2C1TaskHandle = nullptr; // Dummy task to start hardware on an assigned core
+volatile bool i2c1Pinned = false; // This variable is touched by core 0 but checked by core 1. Must be volatile.
+
+TaskHandle_t pinI2C2TaskHandle = nullptr; // Dummy task to start hardware on an assigned core
+volatile bool i2c2Pinned = false; // This variable is touched by core 0 but checked by core 1. Must be volatile.
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 // External Display
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 #include <SparkFun_Qwiic_OLED.h> //http://librarymanager/All#SparkFun_Qwiic_Graphic_OLED
+
+TwoWire *i2c_1 = nullptr; // OLED (400kHz)
+TwoWire *i2c_2 = nullptr; // Oscillator (100kHz)
+TwoWire *i2cDisplay = nullptr;
+TwoWire *i2cTCXO = nullptr;
+
+DisplayType displayType = DISPLAY_MAX_NONE;
+
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 // Low frequency tasks
@@ -191,13 +202,15 @@ bool inMainMenu = false;              // Set true when in the serial config menu
 
 uint32_t lastDisplayUpdate = 0;
 bool forceDisplayUpdate = false;
+uint32_t lastSystemStateUpdate = 0;
+bool forceSystemStateUpdate = false; // Set true to avoid update wait
 uint32_t lastErrorLEDUpdate = 0;
 uint32_t lastLockLEDupdate = 0;
+uint32_t lastPrintConditions = 0;
 
 long lastStackReport = 0;         // Controls the report rate of stack highwater mark within a task
 uint32_t lastHeapReport = 0;      // Report heap every 1s if option enabled
 uint32_t lastTaskHeapReport = 0;  // Report task heap every 1s if option enabled
-bool rtcSyncd = false;            // Set to true when the RTC has been sync'd via TP pulse
 
 uint32_t rtcmLastReceived = 0;
 
@@ -212,8 +225,9 @@ static RtcmTransportState rtcmParsingState = RTCM_TRANSPORT_STATE_WAIT_FOR_PREAM
 uint16_t failedParserMessages_UBX = 0;
 uint16_t failedParserMessages_RTCM = 0;
 uint16_t failedParserMessages_NMEA = 0;
+uint16_t failedParserMessages_SBF = 0;
 
-volatile PeriodicDisplay_t periodicDisplay;
+bool rtcSyncd = false;        // Set to true when the RTC has been sync'd
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -242,7 +256,7 @@ volatile bool deadManWalking;
     settings.enableHeapReport = true;                   \
     settings.enableTaskReports = true;                  \
     settings.enablePrintState = true;                   \
-    settings.enablePrintPosition = true;                \
+    settings.enablePrintConditions = true;              \
     settings.enablePrintIdleTime = true;                \
     settings.enablePrintBadMessages = true;             \
     settings.enablePrintRingBufferOffsets = true;       \
@@ -250,7 +264,6 @@ volatile bool deadManWalking;
     settings.enablePrintDuplicateStates = true;         \
     settings.enablePrintRtcSync = true;                 \
     settings.enablePrintBufferOverrun = true;           \
-    settings.periodicDisplay = (PeriodicDisplay_t)-1;   \
 }
 
 #else   // 0
@@ -281,6 +294,8 @@ void setup()
     initializeGlobals(); // Initialize any global variables that can't be given default values
 
     Serial.begin(115200); // UART0 for programming and debugging
+    systemPrintln();
+    systemPrintln();
 
     DMW_c("verifyTables");
     verifyTables (); // Verify the consistency of the internal tables
@@ -288,11 +303,14 @@ void setup()
     DMW_c("identifyBoard");
     identifyBoard(); // Determine what hardware platform we are running on
 
-    DMW_c("beginI2C");
-    beginI2C();
+    DMW_c("beginI2C1");
+    beginI2C1();
+
+    DMW_c("beginI2C2");
+    beginI2C2();
 
     DMW_c("beginDisplay");
-    beginDisplay(); // Start display to be able to display any errors
+    beginDisplay(i2cDisplay); // Start display to be able to display any errors
 
     DMW_c("findSpiffsPartition");
     if (!findSpiffsPartition())
@@ -325,8 +343,8 @@ void setup()
     DMW_c("beginUART2");
     beginUART2(); // Start UART2 on core 0, used to receive serial from GNSS
 
-    DMW_c("beginOscillator");
-    beginOscillator(); // Configure SiTime oscillator
+    DMW_c("beginTCXO");
+    beginTCXO(i2cTCXO); // Configure SiTime oscillator
 
     DMW_c("configureGNSS");
     configureGNSS(); // Configure GNSS module
@@ -341,17 +359,6 @@ void setup()
 
 void loop()
 {
-    static uint32_t lastPeriodicDisplay;
-
-    // Determine which items are periodically displayed
-    if ((millis() - lastPeriodicDisplay) >= settings.periodicDisplayInterval)
-    {
-        lastPeriodicDisplay = millis();
-        periodicDisplay = settings.periodicDisplay;
-    }
-    if (deadManWalking)
-        periodicDisplay = (PeriodicDisplay_t)-1;
-
     DMW_c("updateSystemState");
     updateSystemState();
 
@@ -367,11 +374,8 @@ void loop()
     DMW_c("updateSerial");
     updateSerial(); // Menu system via ESP32 USB connection
 
-    DMW_c("printPosition");
-    printPosition(); // Periodically print GNSS coordinates if enabled
-
-    DMW_c("printRTKState");
-    printRTKState(); // Periodically print RTK state (solution) if enabled
+    DMW_c("printConditions");
+    printConditions(); // Periodically print GNSS coordinates etc. if enabled
 
     // A small delay prevents panic if no other I2C or functions are called
     delay(10);
@@ -384,53 +388,24 @@ void updateRTC()
     {
         if (online.gnss == true) // Only do this if the GNSS is online
         {
-            if (millis() - lastRTCAttempt > syncRTCInterval) // Only attempt this once per second
+            if ((gnssToWSet == true) && (gnssTimeUpdated))
             {
-                lastRTCAttempt = millis();
+                // To perform the time zone adjustment correctly, it's easiest if we convert the GNSS time and date
+                // into Unix epoch first and then correct for the arrival time
+                uint32_t epochSecs;
+                uint32_t epochMillis;
+                convertGnssTimeToEpoch(&epochSecs, &epochMillis);
+                
+                epochMillis += millis() - gnssTimeArrivalMillis;
 
-                // theGNSS.checkUblox and theGNSS.checkCallbacks are called in the loop but updateRTC
-                // can also be called duing begin. To be safe, check for fresh PVT data here.
-                theGNSS.checkUblox();     // Poll to get latest data
-                theGNSS.checkCallbacks(); // Process any callbacks: ie, storePVTdata
+                // Set the internal system time
+                rtc.setTime(epochSecs, epochMillis * 1000);
 
-                bool timeValid = false;
-                if (validTime == true &&
-                    validDate == true) // Will pass if ZED's RTC is reporting (regardless of GNSS fix)
-                    timeValid = true;
-                if (confirmedTime == true && confirmedDate == true) // Requires GNSS fix
-                    timeValid = true;
-                if (timeValid &&
-                    (millis() - pvtArrivalMillis > 999)) // If the GNSS time is over a second old, don't use it
-                    timeValid = false;
+                online.rtc = true;
 
-                if (timeValid == true)
-                {
-                    // To perform the time zone adjustment correctly, it's easiest if we convert the GNSS time and date
-                    // into Unix epoch first and then apply the timeZone offset
-                    uint32_t epochSecs;
-                    uint32_t epochMicros;
-                    convertGnssTimeToEpoch(&epochSecs, &epochMicros);
-                    epochSecs += settings.timeZoneSeconds;
-                    epochSecs += settings.timeZoneMinutes * 60;
-                    epochSecs += settings.timeZoneHours * 60 * 60;
-
-                    // Set the internal system time
-                    rtc.setTime(epochSecs, epochMicros);
-
-                    online.rtc = true;
-                    lastRTCSync = millis();
-
-                    systemPrint("System time set to: ");
-                    systemPrintln(rtc.getDateTime(true));
-
-                    recordSystemSettingsToFileSD(
-                        settingsFileName); // This will re-record the setting file with current date/time.
-                }
-                else
-                {
-                    systemPrintln("No GNSS date/time available for system RTC.");
-                } // End timeValid
-            }     // End lastRTCAttempt
+                systemPrint("System time set to: ");
+                systemPrintln(rtc.getDateTime(true));
+            }
         }         // End online.gnss
     }             // End online.rtc
 }

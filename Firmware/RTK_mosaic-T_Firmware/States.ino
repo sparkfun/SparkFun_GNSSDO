@@ -30,12 +30,6 @@ void updateSystemState()
         DMW_st(changeState, systemState);
         switch (systemState)
         {
-    STATE_GNSS_NOT_CONFIGURED = 0,
-    STATE_GNSS_CONFIGURED, // GNSS has been configured: PVTGeodetic+ReceiverTime+IPStatus enabled on COM1
-    STATE_GNSS_FINETIME, // GNSS FINETIME bit is set. Oscillator control can begin
-    STATE_GNSS_ERROR, // PVTGeodetic Error is non-zero. Oscillator updates are paused
-    STATE_NOT_SET, // Must be last on list
-
         // Code is starting for the first time. The mosaic-T needs to be configured to output messages on COM1
         case (STATE_GNSS_NOT_CONFIGURED): {
 
@@ -55,46 +49,18 @@ void updateSystemState()
         break;
 
         case (STATE_GNSS_CONFIGURED): {
-            if (fixType == 3 || fixType == 4) // 3D, 3D+DR
-                changeState(STATE_ROVER_FIX);
         }
         break;
 
-        case (STATE_ROVER_FIX): {
-            updateAccuracyLEDs();
-
-            if (carrSoln == 1) // RTK Float
-            {
-                lbandTimeFloatStarted =
-                    millis(); // Restart timer for L-Band. Don't immediately reset ZED to achieve fix.
-                changeState(STATE_ROVER_RTK_FLOAT);
-            }
-            else if (carrSoln == 2) // RTK Fix
-                changeState(STATE_ROVER_RTK_FIX);
+        case (STATE_GNSS_ERROR_BEFORE_FINETIME): {
         }
         break;
 
-        case (STATE_ROVER_RTK_FLOAT): {
-            updateAccuracyLEDs();
-
-            if (carrSoln == 0) // No RTK
-                changeState(STATE_ROVER_FIX);
-            if (carrSoln == 2) // RTK Fix
-                changeState(STATE_ROVER_RTK_FIX);
+        case (STATE_GNSS_FINETIME): {
         }
         break;
 
-        case (STATE_ROVER_RTK_FIX): {
-            updateAccuracyLEDs();
-
-            if (carrSoln == 0) // No RTK
-                changeState(STATE_ROVER_FIX);
-            if (carrSoln == 1) // RTK Float
-            {
-                lbandTimeFloatStarted =
-                    millis(); // Restart timer for L-Band. Don't immediately reset ZED to achieve fix.
-                changeState(STATE_ROVER_RTK_FLOAT);
-            }
+        case (STATE_GNSS_ERROR_AFTER_FINETIME): {
         }
         break;
 
@@ -121,8 +87,16 @@ const char *getState(SystemState state, char *buffer)
 {
     switch (state)
     {
-    case (STATE_ROVER_NOT_STARTED):
-        return "STATE_ROVER_NOT_STARTED";
+    case (STATE_GNSS_NOT_CONFIGURED):
+        return "STATE_GNSS_NOT_CONFIGURED";
+    case (STATE_GNSS_CONFIGURED):
+        return "STATE_GNSS_NOT_CONFIGURED";
+    case (STATE_GNSS_ERROR_BEFORE_FINETIME):
+        return "STATE_GNSS_ERROR_BEFORE_FINETIME";
+    case (STATE_GNSS_FINETIME):
+        return "STATE_GNSS_NOT_CONFIGURED";
+    case (STATE_GNSS_ERROR_AFTER_FINETIME):
+        return "STATE_GNSS_ERROR_AFTER_FINETIME";
     case (STATE_NOT_SET):
         return "STATE_NOT_SET";
     }

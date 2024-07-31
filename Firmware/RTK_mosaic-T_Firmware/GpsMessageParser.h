@@ -25,6 +25,7 @@ enum
     SENTENCE_TYPE_NMEA,
     SENTENCE_TYPE_RTCM,
     SENTENCE_TYPE_UBX,
+    SENTENCE_TYPE_SBF,
 };
 
 //----------------------------------------
