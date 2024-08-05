@@ -123,22 +123,20 @@ void changeState(SystemState newState)
     if ((!settings.enablePrintDuplicateStates) && (newState == systemState))
         return;
 
-    if (settings.enablePrintStates)
+    arrow = "";
+    asterisk = "";
+    initialState = "";
+    if (newState == systemState)
+        asterisk = "*";
+    else
     {
-        arrow = "";
-        asterisk = "";
-        initialState = "";
-        if (newState == systemState)
-            asterisk = "*";
-        else
-        {
-            initialState = getState(systemState, string1);
-            arrow = " --> ";
-        }
+        initialState = getState(systemState, string1);
+        arrow = " --> ";
     }
 
     // Set the new state
     systemState = newState;
+
     if (settings.enablePrintStates)
     {
         endingState = getState(newState, string2);

@@ -45,7 +45,7 @@ Consider this example:
 * The RxClkBias reports that receiver time is ahead of system time by 200 nanoseconds (+200ns).
 * The TCXO clock period is 100ns.
 * The 200ns bias corresponds to 2 clock cycles.
-* To remove that bias in one second, the oscillator frequency would need to be reduced to 9.99998 MHz.
+* To remove that bias in one second, the oscillator frequency would need to be reduced to 9.999998 MHz.
 * That is a change of 2 parts in 10000000, or 0.2ppm, or 200ppb.
 * The fastest the frequency can be changed is 3ppb per second.
 * Since the SiT5358 has a default Pull Range of 6.25ppm, and the Pull Register is 26-bit signed, 3ppb corresponds to 16106 LSB.

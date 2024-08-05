@@ -3,7 +3,7 @@ void updateSerial()
 {
     if (systemAvailable())
     {
-        byte incoming = systemRead();
+        systemRead();
 
         menuMain(); // Present user menu
     }

@@ -62,7 +62,6 @@ void recordSystemSettingsToFile(File *settingsFile)
     settingsFile->printf("%s=%s\r\n", "rtkFirmwareVersion", firmwareVersion);
 
     settingsFile->printf("%s=%d\r\n", "printDebugMessages", settings.printDebugMessages);
-    settingsFile->printf("%s=%d\r\n", "enableDisplay", settings.enableDisplay);
     settingsFile->printf("%s=%d\r\n", "enableHeapReport", settings.enableHeapReport);
     settingsFile->printf("%s=%d\r\n", "enableTaskReports", settings.enableTaskReports);
     settingsFile->printf("%s=%d\r\n", "lastState", settings.lastState);
@@ -90,10 +89,10 @@ void recordSystemSettingsToFile(File *settingsFile)
     settingsFile->printf("%s=%d\r\n", "enablePrintConditions", settings.enablePrintConditions);
     settingsFile->printf("%s=%d\r\n", "enablePrintConsumers", settings.enablePrintConsumers);
     settingsFile->printf("%s=%d\r\n", "periodicPrintInterval_ms", settings.periodicPrintInterval_ms);
-    settingsFile->printf("%s=%d\r\n", "enablePrintIdleTime", settings.enablePrintIdleTime);
     settingsFile->printf("%s=%d\r\n", "enablePrintGNSSMessages", settings.enablePrintGNSSMessages);
     settingsFile->printf("%s=%d\r\n", "enablePrintRingBufferOffsets", settings.enablePrintRingBufferOffsets);
     settingsFile->printf("%s=%d\r\n", "disableSetupButton", settings.disableSetupButton);
+    settingsFile->printf("%s=%d\r\n", "echoUserInput", settings.echoUserInput);
 
     settingsFile->printf("%s=%d\r\n", "ppsInterval", settings.ppsInterval);
     settingsFile->printf("%s=%d\r\n", "ppsPolarity", settings.ppsPolarity);
@@ -279,8 +278,6 @@ bool parseLine(char *str, Settings *settings)
 
     else if (strcmp(settingName, "printDebugMessages") == 0)
         settings->printDebugMessages = d;
-    else if (strcmp(settingName, "enableDisplay") == 0)
-        settings->enableDisplay = d;
     else if (strcmp(settingName, "enableHeapReport") == 0)
         settings->enableHeapReport = d;
     else if (strcmp(settingName, "enableTaskReports") == 0)
@@ -333,14 +330,14 @@ bool parseLine(char *str, Settings *settings)
         settings->enablePrintConsumers = d;
     else if (strcmp(settingName, "periodicPrintInterval_ms") == 0)
         settings->periodicPrintInterval_ms = d;
-    else if (strcmp(settingName, "enablePrintIdleTime") == 0)
-        settings->enablePrintIdleTime = d;
     else if (strcmp(settingName, "enablePrintGNSSMessages") == 0)
         settings->enablePrintGNSSMessages = d;
     else if (strcmp(settingName, "enablePrintRingBufferOffsets") == 0)
         settings->enablePrintRingBufferOffsets = d;
     else if (strcmp(settingName, "disableSetupButton") == 0)
         settings->disableSetupButton = d;
+    else if (strcmp(settingName, "echoUserInput") == 0)
+        settings->echoUserInput = d;
 
     else if (strcmp(settingName, "ppsInterval") == 0)
         settings->ppsInterval = d;

@@ -126,7 +126,7 @@ void beginBoard()
 
         pin_setupButton = 0;
 
-        displayType == DISPLAY_128x64;
+        displayType = DISPLAY_128x64;
     }
 
     char versionString[21];
@@ -472,5 +472,42 @@ void pinI2C2Task(void *pvParameters)
     online.i2c2 = i2cBusAvailable;
     i2c2Pinned = true;
     vTaskDelete(nullptr); // Delete task once it has run once
+}
+
+void beginTCXO(TwoWire *i2cBus)
+{
+    if (i2cBus == nullptr)
+        reportFatalError("Illegal TCXO i2cBus");
+
+    if (!myTCXO.begin(*i2cTCXO, 0x60)) // Initialize the SiT5358
+        return;
+
+    myTCXO.setBaseFrequencyHz(10000000.0); // Pass the oscillator base frequency into the driver
+
+    systemPrint("TCXO base frequency set to ");
+    systemPrint(myTCXO.getBaseFrequencyHz());
+    systemPrintln(" Hz");
+
+    myTCXO.setPullRangeControl(SiT5358_PULL_RANGE_6ppm25); // Set the pull range control to 6.25ppm
+
+    systemPrint("TCXO pull range control set to ");
+    systemPrintln(myTCXO.getPullRangeControlText(myTCXO.getPullRangeControl()));
+
+    myTCXO.setMaxFrequencyChangePPB(3.0); // Set the maximum frequency change in PPB
+
+    systemPrint("TCXO maximum frequency change set to ");
+    systemPrint(myTCXO.getMaxFrequencyChangePPB());
+    systemPrintln(" PPB");
+
+    online.tcxo = true;
+}
+
+// This function updates the TCXO to discipline the frequency
+void updateTCXO()
+{
+    if (online.tcxo)
+    {
+        myTCXO.setFrequencyByBiasMillis(gnssClockBias_ms);
+    }
 }
 

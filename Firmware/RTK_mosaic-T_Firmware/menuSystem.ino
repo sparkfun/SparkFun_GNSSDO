@@ -6,32 +6,54 @@ void menuDebugSoftware()
         systemPrintln();
         systemPrintln("Menu: Debug Software");
 
-        // Heap
         systemPrint("1) Heap Reporting: ");
         systemPrintf("%s\r\n", settings.enableHeapReport ? "Enabled" : "Disabled");
 
-        // Ring buffer - ZED Tx
-        systemPrint("10) Print ring buffer offsets: ");
-        systemPrintf("%s\r\n", settings.enablePrintRingBufferOffsets ? "Enabled" : "Disabled");
-
-        systemPrint("11) Print ring buffer overruns: ");
-        systemPrintf("%s\r\n", settings.enablePrintBufferOverrun ? "Enabled" : "Disabled");
-
-        // RTK
-        systemPrint("30) Print states: ");
-        systemPrintf("%s\r\n", settings.enablePrintStates ? "Enabled" : "Disabled");
-
-        systemPrint("31) Print duplicate states: ");
-        systemPrintf("%s\r\n", settings.enablePrintDuplicateStates ? "Enabled" : "Disabled");
-
-        systemPrintf("34) Print partition table\r\n");
-
-        // Tasks
-        systemPrint("50) Task Highwater Reporting: ");
+        systemPrint("2) Task Reporting: ");
         if (settings.enableTaskReports == true)
             systemPrintln("Enabled");
         else
             systemPrintln("Disabled");
+
+        systemPrint("3) Print messages with bad checksums or CRCs: ");
+        systemPrintf("%s\r\n", settings.enablePrintBadMessages ? "Enabled" : "Disabled");
+
+        systemPrint("4) Print states: ");
+        systemPrintf("%s\r\n", settings.enablePrintStates ? "Enabled" : "Disabled");
+
+        systemPrint("5) Print duplicate states: ");
+        systemPrintf("%s\r\n", settings.enablePrintDuplicateStates ? "Enabled" : "Disabled");
+
+        systemPrint("6) Print RTC resyncs: ");
+        systemPrintf("%s\r\n", settings.enablePrintRtcSync ? "Enabled" : "Disabled");
+
+        systemPrint("7) Print conditions: ");
+        systemPrintf("%s\r\n", settings.enablePrintConditions ? "Enabled" : "Disabled");
+
+        systemPrint("8) Print consumers: ");
+        systemPrintf("%s\r\n", settings.enablePrintConsumers ? "Enabled" : "Disabled");
+
+        systemPrint("9) Periodic print interval (ms): ");
+        systemPrintln(settings.periodicPrintInterval_ms);
+
+        systemPrint("10) Print idle time: ");
+        systemPrintf("%s\r\n", settings.enablePrintIdleTime ? "Enabled" : "Disabled");
+
+        systemPrint("11) Print GNSS messages: ");
+        systemPrintf("%s\r\n", settings.enablePrintGNSSMessages ? "Enabled" : "Disabled");
+
+        systemPrint("12) Print ring buffer offsets: ");
+        systemPrintf("%s\r\n", settings.enablePrintRingBufferOffsets ? "Enabled" : "Disabled");
+
+        systemPrint("13) Print ring buffer overruns: ");
+        systemPrintf("%s\r\n", settings.enablePrintBufferOverrun ? "Enabled" : "Disabled");
+
+        systemPrint("14) Echo user input: ");
+        systemPrintf("%s\r\n", settings.echoUserInput ? "Enabled" : "Disabled");
+
+        systemPrintf("15) Print partition table\r\n");
+
+        // Tasks
 
         systemPrintln("e) Erase LittleFS");
 
@@ -43,18 +65,48 @@ void menuDebugSoftware()
 
         if (incoming == 1)
             settings.enableHeapReport ^= 1;
-        else if (incoming == 10)
-            settings.enablePrintRingBufferOffsets ^= 1;
-        else if (incoming == 11)
-            settings.enablePrintBufferOverrun ^= 1;
-        else if (incoming == 30)
-            settings.enablePrintStates ^= 1;
-        else if (incoming == 31)
-            settings.enablePrintDuplicateStates ^= 1;
-        else if (incoming == 34)
-            printPartitionTable();
-        else if (incoming == 50)
+        else if (incoming == 2)
             settings.enableTaskReports ^= 1;
+        else if (incoming == 3)
+            settings.enablePrintBadMessages ^= 1;
+        else if (incoming == 4)
+            settings.enablePrintStates ^= 1;
+        else if (incoming == 5)
+            settings.enablePrintDuplicateStates ^= 1;
+        else if (incoming == 6)
+            settings.enablePrintRtcSync ^= 1;
+        else if (incoming == 7)
+            settings.enablePrintConditions ^= 1;
+        else if (incoming == 8)
+            settings.enablePrintConsumers ^= 1;
+        else if (incoming == 9)
+        {
+            systemPrint("Enter periodic print interval in milliseconds: ");
+            int printInterval = getNumber(); // Returns EXIT, TIMEOUT, or long
+            if ((printInterval != INPUT_RESPONSE_GETNUMBER_EXIT) && (printInterval != INPUT_RESPONSE_GETNUMBER_TIMEOUT))
+            {
+                if (printInterval < 1000 || printInterval > 60000)
+                {
+                    systemPrintln("Invalid interval");
+                }
+                else
+                {
+                    settings.periodicPrintInterval_ms = printInterval;
+                }
+            }
+        }
+        else if (incoming == 10)
+            settings.enablePrintIdleTime ^= 1;
+        else if (incoming == 11)
+            settings.enablePrintGNSSMessages ^= 1;
+        else if (incoming == 12)
+            settings.enablePrintRingBufferOffsets ^= 1;
+        else if (incoming == 13)
+            settings.enablePrintBufferOverrun ^= 1;
+        else if (incoming == 14)
+            settings.echoUserInput ^= 1;
+        else if (incoming == 15)
+            printPartitionTable();
         else if (incoming == 'e')
         {
             systemPrintln("Erasing LittleFS and resetting");
@@ -88,42 +140,125 @@ void menuOperation()
     while (1)
     {
         systemPrintln();
-        systemPrintln("Menu: Operation");
+        systemPrintln("Menu: Operation\r\n");
 
-        systemPrint("2) GNSS Serial Timeout: ");
+        systemPrint("1) RX Clock Bias Lock Limit (ms): ");
+        systemPrintln(settings.rxClkBiasLockLimit_ms);
+
+        systemPrint("2) Pulse-Per-Second Interval: ");
+        systemPrintln(mosaicPPSParametersInterval[settings.ppsInterval]);
+
+        systemPrint("3) Pulse-Per-Second Polarity: ");
+        systemPrintln(mosaicPPSParametersPolarity[settings.ppsPolarity]);
+
+        systemPrint("4) Pulse-Per-Second Delay (ns): ");
+        systemPrintln(settings.ppsDelay_ns);
+
+        systemPrint("5) Pulse-Per-Second Time Scale: ");
+        systemPrintln(mosaicPPSParametersTimeScale[settings.ppsTimeScale]);
+
+        systemPrint("6) Pulse-Per-Second Max Sync Age (s): ");
+        systemPrintln(settings.ppsMaxSyncAge_s);
+
+        systemPrint("7) Pulse-Per-Second Pulse Width (ms): ");
+        systemPrintln(settings.ppsPulseWidth_ms);
+
+        systemPrintln("-------  UART  ------\r\n");
+
+        systemPrint("10) GNSS Serial Timeout: ");
         systemPrintln(settings.serialTimeoutGNSS);
 
-        systemPrint("3) GNSS Handler Buffer Size: ");
+        systemPrint("11) GNSS Handler Buffer Size: ");
         systemPrintln(settings.gnssHandlerBufferSize);
 
-        systemPrint("4) GNSS Serial RX Full Threshold: ");
+        systemPrint("12) GNSS Serial RX Full Threshold: ");
         systemPrintln(settings.serialGNSSRxFullThreshold);
 
-        // UART
-        systemPrint("9) UART Receive Buffer Size: ");
+        systemPrint("13) UART Receive Buffer Size: ");
         systemPrintln(settings.uartReceiveBufferSize);
 
-        systemPrint("32) I2C Interrupts Core: ");
+        systemPrint("14) I2C Interrupts Core: ");
         systemPrintln(settings.i2cInterruptsCore);
+
+        systemPrint("15) GNSS UART Interrupts Core: ");
+        systemPrintln(settings.gnssUartInterruptsCore);
 
         // Tasks
         systemPrintln("-------  Tasks  ------");
 
-        systemPrint("52) GNSS Data Handler Core: ");
+        systemPrint("20) GNSS Data Handler Core: ");
         systemPrintln(settings.handleGnssDataTaskCore);
-        systemPrint("53) GNSS Data Handler Task Priority: ");
+        systemPrint("21) GNSS Data Handler Task Priority: ");
         systemPrintln(settings.handleGnssDataTaskPriority);
 
-        systemPrint("54) GNSS Read Task Core: ");
+        systemPrint("22) GNSS Read Task Core: ");
         systemPrintln(settings.gnssReadTaskCore);
-        systemPrint("55) GNSS Read Task Priority: ");
+        systemPrint("23) GNSS Read Task Priority: ");
         systemPrintln(settings.gnssReadTaskPriority);
 
-        systemPrintln("x) Exit");
+        systemPrintln("\r\nx) Exit");
 
         byte incoming = getCharacterNumber();
 
-        if (incoming == 2)
+        if (incoming == 1)
+        {
+            systemPrint("Enter RX Clock Bias Lock Limit in milliseconds: ");
+            double lockLimit = getDouble();
+            if (lockLimit <= 0.0 || lockLimit > 1000.0) // Arbitrary 1s limit
+                systemPrintln("Error: Lock Limit is out of range");
+            else
+                settings.rxClkBiasLockLimit_ms = lockLimit; // Recorded to NVM at main menu exit
+        }
+        else if (incoming == 2)
+        {
+            settings.ppsInterval++;
+            if ((settings.ppsInterval >= mosaicPPSParametersIntervalEntries) || (settings.ppsInterval < 0))
+                settings.ppsInterval = 0;
+        }
+        else if (incoming == 3)
+        {
+            settings.ppsPolarity++;
+            if ((settings.ppsPolarity >= mosaicPPSParametersPolarityEntries) || (settings.ppsPolarity < 0))
+                settings.ppsPolarity = 0;
+        }
+        else if (incoming == 4)
+        {
+            systemPrint("Enter Pulse-Per-Second Delay in nanoseconds: ");
+            double dly = getDouble();
+            if (dly < -1000000.00 || dly > 1000000.00)
+                systemPrintln("Error: Delay is out of range");
+            else
+                settings.ppsDelay_ns = dly;
+        }
+        else if (incoming == 5)
+        {
+            settings.ppsTimeScale++;
+            if ((settings.ppsTimeScale >= mosaicPPSParametersTimeScaleEntries) || (settings.ppsTimeScale < 0))
+                settings.ppsPolarity = 0;
+        }
+        else if (incoming == 6)
+        {
+            systemPrint("Enter Max Sync Age in seconds (0 to 3600): ");
+            int syncAge = getNumber(); // Returns EXIT, TIMEOUT, or long
+            if ((syncAge != INPUT_RESPONSE_GETNUMBER_EXIT) &&
+                (syncAge != INPUT_RESPONSE_GETNUMBER_TIMEOUT))
+            {
+                if (syncAge < 0 || syncAge > 3600)
+                    systemPrintln("Error: Max Sync Age is out of range");
+                else
+                    settings.ppsMaxSyncAge_s = syncAge;
+            }
+        }
+        else if (incoming == 7)
+        {
+            systemPrint("Enter Pulse Width in milliseconds: ");
+            double width = getDouble();
+            if (width <= 0.000001 || width > 1000.000000)
+                systemPrintln("Error: Pulse Width is out of range");
+            else
+                settings.ppsPulseWidth_ms = width;
+        }
+        else if (incoming == 10)
         {
             systemPrint("Enter GNSS Serial Timeout in milliseconds (0 to 1000): ");
             int serialTimeoutGNSS = getNumber(); // Returns EXIT, TIMEOUT, or long
@@ -136,7 +271,7 @@ void menuOperation()
                     settings.serialTimeoutGNSS = serialTimeoutGNSS; // Recorded to NVM and file at main menu exit
             }
         }
-        else if (incoming == 3)
+        else if (incoming == 11)
         {
             systemPrintln("Warning: changing the Handler Buffer Size will restart the RTK. Enter 0 to abort");
             systemPrint("Enter GNSS Handler Buffer Size in Bytes (32 to 65535): ");
@@ -159,7 +294,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 4)
+        else if (incoming == 12)
         {
             systemPrint("Enter Serial GNSS RX Full Threshold (1 to 127): ");
             int serialGNSSRxFullThreshold = getNumber(); // Returns EXIT, TIMEOUT, or long
@@ -174,7 +309,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 9)
+        else if (incoming == 13)
         {
             systemPrintln("Warning: changing the Receive Buffer Size will restart the RTK. Enter 0 to abort");
             systemPrint("Enter UART Receive Buffer Size in Bytes (32 to 16384): ");
@@ -191,7 +326,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 32)
+        else if (incoming == 14)
         {
             systemPrint("Enter Core used for I2C Interrupts (0 or 1): ");
             int i2cInterruptsCore = getNumber(); // Returns EXIT, TIMEOUT, or long
@@ -206,8 +341,23 @@ void menuOperation()
                 }
             }
         }
+        else if (incoming == 15)
+        {
+            systemPrint("Enter Core used for GNSS UART Interrupts (0 or 1): ");
+            int gnssUartInterruptsCore = getNumber(); // Returns EXIT, TIMEOUT, or long
+            if ((gnssUartInterruptsCore != INPUT_RESPONSE_GETNUMBER_EXIT) &&
+                (gnssUartInterruptsCore != INPUT_RESPONSE_GETNUMBER_TIMEOUT))
+            {
+                if (gnssUartInterruptsCore < 0 || gnssUartInterruptsCore > 1)
+                    systemPrintln("Error: Core out of range");
+                else
+                {
+                    settings.gnssUartInterruptsCore = gnssUartInterruptsCore; // Recorded to NVM and file
+                }
+            }
+        }
 
-        else if (incoming == 52)
+        else if (incoming == 20)
         {
             systemPrint("Enter GNSS Data Handler Task Core (0 or 1): ");
             int handleGnssDataTaskCore = getNumber(); // Returns EXIT, TIMEOUT, or long
@@ -222,7 +372,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 53)
+        else if (incoming == 21)
         {
             systemPrint("Enter GNSS Data Handle Task Priority (0 to 3): ");
             int handleGnssDataTaskPriority = getNumber(); // Returns EXIT, TIMEOUT, or long
@@ -237,7 +387,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 54)
+        else if (incoming == 22)
         {
             systemPrint("Enter GNSS Read Task Core (0 or 1): ");
             int gnssReadTaskCore = getNumber(); // Returns EXIT, TIMEOUT, or long
@@ -252,7 +402,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 55)
+        else if (incoming == 23)
         {
             systemPrint("Enter GNSS Read Task Priority (0 to 3): ");
             int gnssReadTaskPriority = getNumber(); // Returns EXIT, TIMEOUT, or long
@@ -313,7 +463,7 @@ void printCurrentConditions()
                 (float)gnssClockBias_ms);
         else if ((gnssClockBias_ms >= 0.001) || (gnssClockBias_ms <= -0.001))
             systemPrintf(", Bias: %.3f%cs",
-                (float)(gnssClockBias_ms * 1000.0, char(181)));
+                (float)(gnssClockBias_ms * 1000.0), char(181));
         else
             systemPrintf(", Bias: %.3fns",
                 (float)(gnssClockBias_ms * 1000000.0));

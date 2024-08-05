@@ -113,7 +113,7 @@ void updateDisplay()
 
             oled->erase();
 
-            char textLine[22];
+            char textLine[30];
             snprintf(textLine, sizeof(textLine), "IP    %s",
                     gnssIP.toString().c_str());
             oled->setFont(QW_FONT_5X7); // Set font to smallest
@@ -155,7 +155,7 @@ void updateDisplay()
                     (float)gnssClockBias_ms);
             else if ((gnssClockBias_ms >= 0.001) || (gnssClockBias_ms <= -0.001))
                 snprintf(textLine, sizeof(textLine), "Bias  %.3f%cs",
-                    (float)(gnssClockBias_ms * 1000.0, char(181)));
+                    (float)(gnssClockBias_ms * 1000.0), char(181));
             else
                 snprintf(textLine, sizeof(textLine), "Bias  %.3fns",
                     (float)(gnssClockBias_ms * 1000000.0));

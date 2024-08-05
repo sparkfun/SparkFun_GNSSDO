@@ -201,11 +201,23 @@ typedef struct
     int sizeOfSettings = 0; // sizeOfSettings **must** be the first entry and must be int
     int rtkIdentifier = RTK_IDENTIFIER; // rtkIdentifier **must** be the second entry
     bool printDebugMessages = false;
-    bool enableDisplay = true;
     bool enableHeapReport = false; // Turn on to display free heap
     bool enableTaskReports = false; // Turn on to display task high water marks
-    SystemState lastState = STATE_NOT_SET; // Start unit in default state
+    bool enablePrintBadMessages = false;
+    bool enablePrintStates = true;
+    bool enablePrintDuplicateStates = false;
+    bool enablePrintRtcSync = false;
+    bool enablePrintConditions = true;
+    bool enablePrintConsumers = true;
+    uint32_t periodicPrintInterval_ms = 5000;
+    bool enablePrintIdleTime = false;
+    bool enablePrintGNSSMessages = false;
+    bool enablePrintRingBufferOffsets = false;
     bool enablePrintBufferOverrun = false;
+    bool disableSetupButton = true;
+    bool echoUserInput = true;
+
+    SystemState lastState = STATE_NOT_SET; // Start unit in default state
 
     int gnssHandlerBufferSize =
         1024 * 4; // This buffer is filled from the UART receive buffer
@@ -224,24 +236,14 @@ typedef struct
                                    // hardware serial reports data available.
     uint32_t dataPortBaud = 115200; // Default to 115200
 
-    bool enablePrintBadMessages = false;
-    bool enablePrintStates = true;
-    bool enablePrintDuplicateStates = false;
-    bool enablePrintRtcSync = false;
-    bool enablePrintConditions = true;
-    bool enablePrintConsumers = true;
-    uint32_t periodicPrintInterval_ms = 5000;
-    bool enablePrintIdleTime = false;
-    bool enablePrintGNSSMessages = false;
-    bool enablePrintRingBufferOffsets = false;
-    bool disableSetupButton = true;
-
     int ppsInterval = 8; // sec1
     int ppsPolarity = 0; // Low2High
     float ppsDelay_ns = 0.0;
     int ppsTimeScale = 0; // GPS
     int ppsMaxSyncAge_s = 60;
     float ppsPulseWidth_ms = 5.0;
+
+    double rxClkBiasLockLimit_ms = 10.0e-6; // Consider the clock locked when the bias is <= this many ms. Default: 10.0ns (10.0e-6ms)
 
     // Add new settings above <------------------------------------------------------------>
 
@@ -257,6 +259,7 @@ struct struct_online
     bool rtc = false;
     bool i2c1 = false;
     bool i2c2 = false;
+    bool tcxo = false;
 } online;
 
 #endif // __SETTINGS_H__

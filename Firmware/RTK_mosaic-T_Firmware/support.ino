@@ -372,7 +372,7 @@ double getDouble()
 
     InputResponse response = getString(userEntry, sizeof(userEntry));
     if (response == INPUT_RESPONSE_VALID)
-        sscanf(userEntry, "%lf", &userFloat);
+        sscanf(userEntry, "%lg", &userFloat); // Allow both scientific and floating point format
     else if (response == INPUT_RESPONSE_TIMEOUT)
     {
         systemPrintln("No user response - Do you have line endings turned on?");
@@ -422,119 +422,6 @@ void printTimeStamp()
         // Select the next time to display the timestamp
         previousMilliseconds = currentMilliseconds;
     }
-}
-
-// Parse the RTCM transport data
-// Called by processRTCM in Base.ino - defines whether the data is passed to the NTRIP server
-bool checkRtcmMessage(uint8_t data)
-{
-    static uint16_t bytesRemaining;
-    static uint16_t length;
-    static uint16_t message;
-    static bool sendMessage = false;
-
-    //    RTCM Standard 10403.2 - Chapter 4, Transport Layer
-    //
-    //    |<------------- 3 bytes ------------>|<----- length ----->|<- 3 bytes ->|
-    //    |                                    |                    |             |
-    //    +----------+--------+----------------+---------+----------+-------------+
-    //    | Preamble |  Fill  | Message Length | Message |   Fill   |   CRC-24Q   |
-    //    |  8 bits  | 6 bits |    10 bits     |  n-bits | 0-7 bits |   24 bits   |
-    //    |   0xd3   | 000000 |   (in bytes)   |         |   zeros  |             |
-    //    +----------+--------+----------------+---------+----------+-------------+
-    //    |                                                         |
-    //    |<------------------------ CRC -------------------------->|
-    //
-
-    switch (rtcmParsingState)
-    {
-    // Read the upper two bits of the length
-    case RTCM_TRANSPORT_STATE_READ_LENGTH_1:
-        // Verify the length byte - check the 6 MS bits are all zero
-        if (!(data & (~3)))
-        {
-            length = data << 8;
-            rtcmParsingState = RTCM_TRANSPORT_STATE_READ_LENGTH_2;
-            break;
-        }
-
-        // Wait for the preamble byte
-        rtcmParsingState = RTCM_TRANSPORT_STATE_WAIT_FOR_PREAMBLE_D3;
-
-    // Fall through
-    //      |
-    //      |
-    //      V
-
-    // Wait for the preamble byte (0xd3)
-    case RTCM_TRANSPORT_STATE_WAIT_FOR_PREAMBLE_D3:
-        sendMessage = false;
-        if (data == 0xd3)
-        {
-            rtcmParsingState = RTCM_TRANSPORT_STATE_READ_LENGTH_1;
-            sendMessage = true;
-        }
-        break;
-
-    // Read the lower 8 bits of the length
-    case RTCM_TRANSPORT_STATE_READ_LENGTH_2:
-        length |= data;
-        bytesRemaining = length;
-        rtcmParsingState = RTCM_TRANSPORT_STATE_READ_MESSAGE_1;
-        break;
-
-    // Read the upper 8 bits of the message number
-    case RTCM_TRANSPORT_STATE_READ_MESSAGE_1:
-        message = data << 4;
-        bytesRemaining -= 1;
-        rtcmParsingState = RTCM_TRANSPORT_STATE_READ_MESSAGE_2;
-        break;
-
-    // Read the lower 4 bits of the message number
-    case RTCM_TRANSPORT_STATE_READ_MESSAGE_2:
-        message |= data >> 4;
-        bytesRemaining -= 1;
-        rtcmParsingState = RTCM_TRANSPORT_STATE_READ_DATA;
-        break;
-
-    // Read the rest of the message
-    case RTCM_TRANSPORT_STATE_READ_DATA:
-        bytesRemaining -= 1;
-        if (bytesRemaining <= 0)
-            rtcmParsingState = RTCM_TRANSPORT_STATE_READ_CRC_1;
-        break;
-
-    // Read the upper 8 bits of the CRC
-    case RTCM_TRANSPORT_STATE_READ_CRC_1:
-        rtcmParsingState = RTCM_TRANSPORT_STATE_READ_CRC_2;
-        break;
-
-    // Read the middle 8 bits of the CRC
-    case RTCM_TRANSPORT_STATE_READ_CRC_2:
-        rtcmParsingState = RTCM_TRANSPORT_STATE_READ_CRC_3;
-        break;
-
-    // Read the lower 8 bits of the CRC
-    case RTCM_TRANSPORT_STATE_READ_CRC_3:
-        rtcmParsingState = RTCM_TRANSPORT_STATE_CHECK_CRC;
-        break;
-    }
-
-    // Check the CRC. Note: this doesn't actually check the CRC!
-    if (rtcmParsingState == RTCM_TRANSPORT_STATE_CHECK_CRC)
-    {
-        rtcmParsingState = RTCM_TRANSPORT_STATE_WAIT_FOR_PREAMBLE_D3;
-
-        // Display the RTCM message header
-        if (settings.debugNtripServerRtcm && (!inMainMenu))
-        {
-            printTimeStamp();
-            systemPrintf("    Tx RTCM %d, %2d bytes\r\n", message, 3 + length + 3);
-        }
-    }
-
-    // Let the upper layer know if this message should be sent
-    return sendMessage;
 }
 
 const double WGS84_A = 6378137;           // https://geographiclib.sourceforge.io/html/Constants_8hpp_source.html
