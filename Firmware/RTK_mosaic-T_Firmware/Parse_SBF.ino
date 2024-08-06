@@ -174,7 +174,7 @@ uint8_t sbfLength2(PARSE_STATE *parse, uint8_t data)
     // Save the second length byte (MSB)
     parse->length |= ((uint16_t)data) << 8;
 
-    parse->bytesRemaining = parse->length;
+    parse->bytesRemaining = parse->length - 8;
 
     parse->state = sbfPayload;
     return SENTENCE_TYPE_SBF;

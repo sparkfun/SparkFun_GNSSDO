@@ -81,25 +81,25 @@ typedef struct _PARSE_STATE
 #define RTCM_PREAMBLE
 #endif  // PARSE_RTCM_MESSAGES
 
-#ifdef  PARSE_UBLOX_MESSAGES
-#define UBLOX_PREAMBLE      ubloxPreamble,
-#else
-#define UBLOX_PREAMBLE
-#endif  // PARSE_UBLOX_MESSAGES
-
 #ifdef  PARSE_SBF_MESSAGES
 #define SBF_PREAMBLE        sbfPreamble,
 #else
 #define SBF_PREAMBLE
 #endif  // PARSE_SBF_MESSAGES
 
+#ifdef  PARSE_UBLOX_MESSAGES
+#define UBLOX_PREAMBLE      ubloxPreamble,
+#else
+#define UBLOX_PREAMBLE
+#endif  // PARSE_UBLOX_MESSAGES
+
 #define GPS_PARSE_TABLE                 \
 PARSE_ROUTINE const gpsParseTable[] =   \
 {                                       \
     NMEA_PREAMBLE                       \
     RTCM_PREAMBLE                       \
-    UBLOX_PREAMBLE                      \
     SBF_PREAMBLE                        \
+    UBLOX_PREAMBLE                      \
 };                                      \
                                         \
 const int gpsParseTableEntries = sizeof(gpsParseTable) / sizeof(gpsParseTable[0]);
