@@ -737,7 +737,7 @@
 				)
 			)
 			(property "Description" "Inductor"
-				(at 0 0 0)
+				(at 0 -13.97 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -904,7 +904,7 @@
 				)
 			)
 			(property "Description" "Test Point"
-				(at 0 0 0)
+				(at 0 -10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -997,7 +997,7 @@
 				)
 			)
 			(property "Description" "Schottky diode"
-				(at 0 0 0)
+				(at 0 -20.32 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1175,7 +1175,7 @@
 				)
 			)
 			(property "Description" "Schottky diode"
-				(at 0 0 0)
+				(at 0 -20.32 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1354,7 +1354,7 @@
 				)
 			)
 			(property "Description" "Resettable fuse 2A"
-				(at 0 0 0)
+				(at 0 -12.7 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2340,7 +2340,7 @@
 				)
 			)
 			(property "Description" "Solder Jumper, 2-pole, closed/bridged"
-				(at 0 0 0)
+				(at 0 -10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2532,7 +2532,7 @@
 				)
 			)
 			(property "Description" "Solder Jumper, 2-pole, closed/bridged"
-				(at 0 0 0)
+				(at 0 -10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2727,7 +2727,7 @@
 				)
 			)
 			(property "Description" "Power symbol creates a global label with name \"3.3V\""
-				(at 0 0 0)
+				(at 0 -6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2848,7 +2848,7 @@
 				)
 			)
 			(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
-				(at 0 0 0)
+				(at 0 -6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2969,7 +2969,7 @@
 				)
 			)
 			(property "Description" "Power symbol creates a global label with name \"5V\""
-				(at 0 0 0)
+				(at 0 -6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3090,7 +3090,7 @@
 				)
 			)
 			(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-				(at 0 0 0)
+				(at 0 -8.89 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3187,7 +3187,7 @@
 				)
 			)
 			(property "Description" "Power symbol creates a global label with name \"VIN\""
-				(at 0 0 0)
+				(at 0 -6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3308,7 +3308,7 @@
 				)
 			)
 			(property "Description" "Power symbol creates a global label with name \"VUSB\""
-				(at 0 0 0)
+				(at 0 -6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3426,7 +3426,7 @@
 				)
 			)
 			(property "Description" "600mA low dropout linear regulator, with enable pin, 3.8V-6V input voltage range, 3.3V fixed positive output, SOT-23-5"
-				(at 0 0 0)
+				(at 0 -27.94 0)
 				(effects
 					(font
 						(size 1.27 1.27)

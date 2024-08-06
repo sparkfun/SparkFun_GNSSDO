@@ -943,7 +943,7 @@
 				)
 			)
 			(property "Description" "Inductor"
-				(at 0 0 0)
+				(at 0 -13.97 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1263,7 +1263,7 @@
 				)
 			)
 			(property "Description" "Test Point"
-				(at 0 0 0)
+				(at 0 -10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1337,7 +1337,7 @@
 				)
 			)
 			(property "Footprint" "SparkFun-Connector:microSD_External_Pin"
-				(at 0 -19.05 0)
+				(at 0 -15.24 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1346,7 +1346,7 @@
 				)
 			)
 			(property "Datasheet" "https://datasheet.lcsc.com/lcsc/2110151630_XKB-Connectivity-XKTF-015-N_C381082.pdf"
-				(at 0 -22.86 0)
+				(at 0 -17.78 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1355,7 +1355,7 @@
 				)
 			)
 			(property "Description" "Micro SD socket External Pin"
-				(at 0 0 0)
+				(at 0 -22.86 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1364,7 +1364,7 @@
 				)
 			)
 			(property "PROD_ID" "CONN-16110"
-				(at 0 -26.67 0)
+				(at 0 -20.32 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1608,7 +1608,7 @@
 				)
 			)
 			(property "Footprint" "SparkFun-Capacitor:C_0402_1005Metric"
-				(at 0 -4.064 0)
+				(at 0 -3.81 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1635,7 +1635,7 @@
 				)
 			)
 			(property "PROD_ID" "DIO-15359"
-				(at 0 -5.842 0)
+				(at 0 -6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -5595,7 +5595,7 @@
 				)
 			)
 			(property "Datasheet" "~"
-				(at 0 -7.62 0)
+				(at 0 -8.89 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -5604,7 +5604,7 @@
 				)
 			)
 			(property "Description" "Solder Jumper, 3-pole, pins 1+2+3 closed/bridged"
-				(at 0 0 0)
+				(at 0 -11.43 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -5875,7 +5875,7 @@
 				)
 			)
 			(property "Description" "Power symbol creates a global label with name \"1.8V\""
-				(at 0 0 0)
+				(at 0 -6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -5996,7 +5996,7 @@
 				)
 			)
 			(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
-				(at 0 0 0)
+				(at 0 -6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -6117,7 +6117,7 @@
 				)
 			)
 			(property "Description" "Power symbol creates a global label with name \"5V\""
-				(at 0 0 0)
+				(at 0 -6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -6238,7 +6238,7 @@
 				)
 			)
 			(property "Description" "Power symbol creates a global label with name \"VUSB\""
-				(at 0 0 0)
+				(at 0 -6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -6356,7 +6356,7 @@
 				)
 			)
 			(property "Description" "SMA PCB Edge Mount connector"
-				(at 0 -14.9225 0)
+				(at 0 -15.24 0)
 				(effects
 					(font
 						(size 1.27 1.27)

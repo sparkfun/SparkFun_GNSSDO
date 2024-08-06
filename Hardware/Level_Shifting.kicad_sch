@@ -852,7 +852,7 @@
 				)
 			)
 			(property "Description" "Inductor"
-				(at 0 0 0)
+				(at 0 -11.43 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1203,7 +1203,7 @@
 				)
 			)
 			(property "Description" "Test Point"
-				(at 0 0 0)
+				(at 0 -10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2101,7 +2101,7 @@
 				)
 			)
 			(property "Description" "Power symbol creates a global label with name \"1.8V\""
-				(at 0 0 0)
+				(at 0 -6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2222,7 +2222,7 @@
 				)
 			)
 			(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
-				(at 0 0 0)
+				(at 0 -6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2343,7 +2343,7 @@
 				)
 			)
 			(property "Description" "Power symbol creates a global label with name \"5V\""
-				(at 0 0 0)
+				(at 0 -6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2464,7 +2464,7 @@
 				)
 			)
 			(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-				(at 0 0 0)
+				(at 0 -8.89 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2561,7 +2561,7 @@
 				)
 			)
 			(property "Description" "Power symbol creates a global label with name \"VCC\""
-				(at 0 0 0)
+				(at 0 -6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2679,7 +2679,7 @@
 				)
 			)
 			(property "Description" "SMA PCB Edge Mount connector"
-				(at 0 -14.9225 0)
+				(at 0 -15.24 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3410,7 +3410,7 @@
 				)
 			)
 			(property "Description" "Switch, single pole double throw"
-				(at 0 0 0)
+				(at 0 -17.78 0)
 				(effects
 					(font
 						(size 1.27 1.27)

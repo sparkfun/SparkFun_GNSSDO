@@ -369,8 +369,8 @@
 					(hide yes)
 				)
 			)
-			(property "Description" ""
-				(at 0 0 0)
+			(property "Description" "USB Transformer"
+				(at 0 -13.97 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -663,7 +663,7 @@
 				)
 			)
 			(property "Description" "Test Point"
-				(at 0 0 0)
+				(at 0 -10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -758,7 +758,7 @@
 				)
 			)
 			(property "Description" "USB 2.0-only Type-C Receptacle connector"
-				(at 0 0 0)
+				(at 0 -33.02 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2066,7 +2066,7 @@
 				)
 			)
 			(property "Description" "100mA IC, 65V Vce, Dual NPN/NPN Transistors, SOT-363"
-				(at 0 0 0)
+				(at 0 -16.51 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2336,7 +2336,7 @@
 				)
 			)
 			(property "Description" "USB serial converter, UART, SOIC-16"
-				(at 0 0 0)
+				(at 0 -27.94 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2717,7 +2717,7 @@
 				)
 			)
 			(property "Description" "Solder Jumper, 2-pole, closed/bridged"
-				(at 0 0 0)
+				(at 0 -10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2912,7 +2912,7 @@
 				)
 			)
 			(property "Description" "Power symbol creates a global label with name \"3.3V\""
-				(at 0 0 0)
+				(at 0 -6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3033,7 +3033,7 @@
 				)
 			)
 			(property "Description" "Power symbol creates a global label with name \"VUSB\""
-				(at 0 0 0)
+				(at 0 -6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3688,7 +3688,7 @@
 				)
 			)
 			(property "Description" "Single Pole Single Throw (SPST) switch"
-				(at 0 0 0)
+				(at 0 -15.24 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -6951,7 +6951,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "USB Transformer"
 			(at 91.44 53.34 0)
 			(effects
 				(font
