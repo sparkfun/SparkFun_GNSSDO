@@ -54,7 +54,7 @@ void identifyBoard()
     // Use ADC to check the resistor divider
     int pin_deviceID = 35;
     uint16_t idValue = analogReadMilliVolts(pin_deviceID);
-    log_d("Board ADC ID (mV): %d", idValue);
+    systemPrintf("Board ADC ID (mV): %d\r\n", idValue);
 
     // Order the following ID checks, by millivolt values high to low
 
@@ -64,8 +64,9 @@ void identifyBoard()
 
     else
     {
-        log_d("Out of band or nonexistent resistor IDs");
+        systemPrintln("Out of band or nonexistent resistor IDs");
         productVariant = RTK_UNKNOWN;
+        productVariant = RTK_MOSAIC_X5; // For code development only - TODO delete this
     }
 }
 
@@ -129,14 +130,69 @@ void beginBoard()
         displayType = DISPLAY_128x64;
     }
 
+    // For code development only - TODO delete this
+    else if (productVariant == RTK_MOSAIC_X5)
+    {
+        // ESP32-WROVER-IE Pin Allocations:
+        // D0  : Boot + Boot Button + Ethernet REFCLK
+        // D1  : Serial TX (CH340 RX)
+        // D2  : Serial TX (mosaic-X5 COM4 RX)
+        // D3  : Serial RX (CH340 TX)
+        // D4  : Serial RX (mosaic-X5 COM4 TX)
+        // D5  : Ethernet ERST
+        // D12 : LED WiFi
+        // D13 : LED BT
+        // D14 : I2C SCL
+        // D15 : I2C SDA
+        // D16 : N/C
+        // D17 : N/C
+        // D18 : Ethernet MDIO
+        // D19 : Ethernet TXD0
+        // D21 : Ethernet TXEN
+        // D22 : Ethernet TXD1
+        // D23 : Ethernet MDC
+        // D25 : Ethernet RXD0
+        // D26 : Ethernet RXD1
+        // D27 : Ethernet CRSDV
+        // D32 : Serial TX (IO header)  - ** Link to X5 COM1 RX (IO header) **
+        // D33 : Serial RTS (IO header) - ** Link to X5 COM1 CTS (IO header) **
+        // A34 : Serial RX (IO header)  - ** Link to X5 COM1 TX (IO header) **
+        // A35 : Serial CTS (IO header) - ** Link to X5 COM1 RTS (IO header) **
+        // A36 : N/C
+        // A39 : N/C
+
+        // ** Ensure RTK mosaic-X5 VIO is set to 3.3V **
+        // ** Link SiT5358 Enulator to VIO, GND, SDA and SCL (IO header) **
+        // ** The SiT5358 will share the I2C bus with the OLED. On mosaic-T, the OLED has its own I2C bus **
+
+        pin_errorLED = 13;
+        pin_lockLED = 12;
+
+        pin_serial1TX = 32;
+        pin_serial1RX = 34;
+        pin_serial1CTS = 35;
+        pin_serial1RTS = 33;
+
+        pin_serial2TX = 2;
+        pin_serial2RX = 4;
+
+        pin_SDA1 = 15;
+        pin_SCL1 = 14;
+
+        pin_SDA2 = -1;
+        pin_SCL2 = -1;
+
+        pin_setupButton = 0;
+
+        displayType = DISPLAY_128x64;
+    }
+
     char versionString[21];
     getFirmwareVersion(versionString, sizeof(versionString), true);
     systemPrintf("SparkFun RTK %s %s\r\n", platformPrefix, versionString);
 
     // Get unit MAC address
     esp_read_mac(wifiMACAddress, ESP_MAC_WIFI_STA);
-
-    loadSettings(); // Loads settings from LFS
 
     systemPrint("Reset reason: ");
     switch (esp_reset_reason())
@@ -176,11 +232,11 @@ void beginBoard()
     }
 }
 
-// We want the UART2 interrupts to be pinned to core 0 to avoid competing with I2C interrupts
-// We do not start the UART2 for GNSS->BT reception here because the interrupts would be pinned to core 1
+// We want the UART1 interrupts to be pinned to core 0 to avoid competing with I2C interrupts
+// We do not start the UART1 here because the interrupts would be pinned to core 1
 // We instead start a task that runs on core 0, that then begins serial
 // See issue: https://github.com/espressif/arduino-esp32/issues/3386
-void beginUART2()
+void beginUART1()
 {
     size_t length;
 
@@ -200,47 +256,30 @@ void beginUART2()
     {
         ringBuffer = (uint8_t *)&rbOffsetArray[rbOffsetEntries];
         rbOffsetArray[0] = 0;
-        if (pinUART2TaskHandle == nullptr)
+        if (pinUART1TaskHandle == nullptr)
             xTaskCreatePinnedToCore(
-                pinUART2Task,
-                "UARTStart", // Just for humans
+                pinUART1Task,
+                "UART1Start", // Just for humans
                 2000,        // Stack Size
                 nullptr,     // Task input parameter
                 0,           // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest
-                &pinUART2TaskHandle,              // Task handle
+                &pinUART1TaskHandle,              // Task handle
                 settings.gnssUartInterruptsCore); // Core where task should run, 0=core, 1=Arduino
 
-        while (uart2pinned == false) // Wait for task to run once
+        while (uart1pinned == false) // Wait for task to run once
             delay(1);
     }
 }
 
-// Assign UART2 interrupts to the core that started the task. See:
+// Assign UART1 interrupts to the core that started the task. See:
 // https://github.com/espressif/arduino-esp32/issues/3386
-void pinUART2Task(void *pvParameters)
+void pinUART1Task(void *pvParameters)
 {
-    // Note: ESP32 2.0.6 does some strange auto-bauding thing here which takes 20s to complete if there is no data for
-    // it to auto-baud.
-    //       That's fine for most RTK products, but causes the Ref Stn to stall for 20s. However, it doesn't stall with
-    //       ESP32 2.0.2... Uncomment these lines to prevent the stall if/when we upgrade to ESP32 ~2.0.6.
-    // #if defined(REF_STN_GNSS_DEBUG)
-    //   if (ENABLE_DEVELOPER && productVariant == REFERENCE_STATION)
-    // #else   // REF_STN_GNSS_DEBUG
-    //   if (USE_I2C_GNSS)
-    // #endif  // REF_STN_GNSS_DEBUG
-    {
-        serialGNSS.setRxBufferSize(
-            settings.uartReceiveBufferSize); // TODO: work out if we can reduce or skip this when using SPI GNSS
-        serialGNSS.setTimeout(settings.serialTimeoutGNSS); // Requires serial traffic on the UART pins for detection
-        serialGNSS.begin(settings.dataPortBaud);
+    serialGNSS.setRxBufferSize(settings.uartReceiveBufferSize);
+    serialGNSS.begin(settings.dataPortBaud, SERIAL_8N1, pin_serial1RX, pin_serial1TX,
+                    false, settings.serialTimeoutGNSS, settings.serialGNSSRxFullThreshold);
 
-        // Reduce threshold value above which RX FIFO full interrupt is generated
-        // Allows more time between when the UART interrupt occurs and when the FIFO buffer overruns
-        // serialGNSS.setRxFIFOFull(50); //Available in >v2.0.5
-        uart_set_rx_full_threshold(2, settings.serialGNSSRxFullThreshold); // uart_num, threshold
-    }
-
-    uart2pinned = true;
+    uart1pinned = true;
 
     vTaskDelete(nullptr); // Delete task once it has run once
 }
@@ -257,30 +296,21 @@ void beginFS()
         {
             systemPrintln("LittleFS Started");
             online.fs = true;
+
+            // Set the settingsFileName used many places
+            setSettingsFileName();
         }
     }
-}
-
-// Connect to ZED module and identify particulars
-void beginGNSS()
-{
-    online.gnss = true;
-}
-
-// Configuration can take >1s so configure during splash
-void configureGNSS()
-{
-    systemPrintln("GNSS configuration complete");
 }
 
 // Set LEDs for output and configure PWM
 void beginLEDs()
 {
-    if (productVariant == RTK_MOSAIC_T)
+    if ((productVariant == RTK_MOSAIC_T) || (productVariant == RTK_MOSAIC_X5))
     {
         pinMode(pin_errorLED, OUTPUT);
         pinMode(pin_lockLED, OUTPUT);
-        pinMode(pin_setupButton, INPUT_PULLUP); // HIGH = rover, LOW = base
+        pinMode(pin_setupButton, INPUT_PULLUP);
 
         digitalWrite(pin_errorLED, HIGH);
         digitalWrite(pin_lockLED, LOW);
@@ -296,7 +326,7 @@ void beginSystemState()
         factoryReset(false); // We do not have the SD semaphore
     }
 
-    if (productVariant == RTK_MOSAIC_T)
+    if ((productVariant == RTK_MOSAIC_T) || (productVariant == RTK_MOSAIC_X5))
     {
         if (settings.lastState == STATE_NOT_SET) // Default
         {
@@ -391,6 +421,12 @@ void pinI2C1Task(void *pvParameters)
                     i2cDisplay = i2c_1;
                     break;
                 }
+
+                case 0x60: { // For code development only - TODO delete this
+                    systemPrintf("0x%02x - SiT5358 TCXO\r\n", addr);
+                    i2cTCXO = i2c_1;
+                    break;
+                }
             }
         }
         else if ((millis() - timer) > 3)
@@ -400,6 +436,9 @@ void pinI2C1Task(void *pvParameters)
             break;
         }
     }
+
+    // For code development only - TODO uncomment this
+    //i2c_1->setClock(400000); // Set clock to 400kHz for OLED
 
     // Update the I2C status
     online.i2c1 = i2cBusAvailable;
@@ -479,7 +518,7 @@ void beginTCXO(TwoWire *i2cBus)
     if (i2cBus == nullptr)
         reportFatalError("Illegal TCXO i2cBus");
 
-    if (!myTCXO.begin(*i2cTCXO, 0x60)) // Initialize the SiT5358
+    if (!myTCXO.begin(*i2cBus, 0x60)) // Initialize the SiT5358
         return;
 
     myTCXO.setBaseFrequencyHz(10000000.0); // Pass the oscillator base frequency into the driver

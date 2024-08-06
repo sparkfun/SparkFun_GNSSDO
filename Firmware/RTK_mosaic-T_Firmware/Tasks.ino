@@ -79,14 +79,6 @@ void feedWdt()
 }
 
 //----------------------------------------------------------------------
-// The ESP32<->ZED-F9P serial connection is default 230,400bps to facilitate
-// 10Hz fix rate with PPP Logging Defaults (NMEAx5 + RXMx2) messages enabled.
-// ESP32 UART2 is begun with settings.uartReceiveBufferSize size buffer. The circular buffer
-// is 1024*6. At approximately 46.1K characters/second, a 6144 * 2
-// byte buffer should hold 267ms worth of serial data. Assuming SD writes are
-// 250ms worst case, we should record incoming all data. Bluetooth congestion
-// or conflicts with the SD card semaphore should clear within this time.
-//
 // Ring buffer empty when all the tails == dataHead
 //
 //        +---------+
@@ -122,7 +114,7 @@ void gnssReadTask(void *e)
 
     while (true)
     {
-        if (settings.enableTaskReports == true)
+        if ((settings.enableTaskReports == true) && !inMainMenu)
             systemPrintf("SerialReadTask High watermark: %d\r\n", uxTaskGetStackHighWaterMark(nullptr));
 
         while (serialGNSS.available())
@@ -175,13 +167,13 @@ void processUart1Message(PARSE_STATE *parse, uint8_t type)
             systemPrintf("%s RTCM %d, %2d bytes\r\n", parse->parserName, parse->message, parse->length);
             break;
 
+        case SENTENCE_TYPE_SBF:
+            systemPrintf("%s SBF %d, %2d bytes\r\n", parse->parserName, parse->message, parse->length);
+            break;
+
         case SENTENCE_TYPE_UBX:
             systemPrintf("%s UBX %d.%d, %2d bytes\r\n", parse->parserName, parse->message >> 8, parse->message & 0xff,
                          parse->length);
-            break;
-
-        case SENTENCE_TYPE_SBF:
-            systemPrintf("%s SBF %d, %2d bytes\r\n", parse->parserName, parse->message, parse->length);
             break;
 
         }
@@ -567,7 +559,7 @@ void ButtonCheckTask(void *e)
 
     while (true)
     {
-        if (productVariant == RTK_MOSAIC_T)
+        if ((productVariant == RTK_MOSAIC_T) || (productVariant == RTK_MOSAIC_X5))
         {
             if (setupBtn &&
                 (settings.disableSetupButton == false)) // Allow check of the setup button if not overridden by settings
@@ -640,7 +632,7 @@ void idleTask(void *e)
 
 // Serial Read/Write tasks for the F9P must be started after BT is up and running otherwise SerialBT->available will
 // cause reboot
-bool tasksStartUART2()
+bool tasksStartUART1()
 {
     // Verify that the ring buffer was successfully allocated
     if (!ringBuffer)
@@ -677,7 +669,7 @@ bool tasksStartUART2()
 }
 
 // Stop tasks - useful when running firmware update or WiFi AP is running
-void tasksStopUART2()
+void tasksStopUART1()
 {
     // Delete tasks if running
     if (gnssReadTaskHandle != nullptr)

@@ -1,6 +1,5 @@
 void loadSettings()
 {
-    // If we have a profile in both LFS and SD, the SD settings will overwrite LFS
     loadSystemSettingsFromFileLFS(settingsFileName, &settings);
 }
 
@@ -8,16 +7,6 @@ void loadSettings()
 void setSettingsFileName()
 {
     snprintf(settingsFileName, sizeof(settingsFileName), "/%s_Settings.txt", platformFilePrefix);
-}
-
-// Load only LFS settings without recording
-// Used at very first boot to test for resetCounter
-void loadSettingsPartial()
-{
-    // Set the settingsFileName used many places
-    setSettingsFileName();
-
-    loadSystemSettingsFromFileLFS(settingsFileName, &settings);
 }
 
 void recordSystemSettings()
@@ -34,19 +23,19 @@ void recordSystemSettingsToFileLFS(char *fileName)
         if (LittleFS.exists(fileName))
         {
             LittleFS.remove(fileName);
-            log_d("Removing LittleFS: %s", fileName);
+            systemPrintf("Removing LittleFS: %s\r\n", fileName);
         }
 
         File settingsFile = LittleFS.open(fileName, FILE_WRITE);
         if (!settingsFile)
         {
-            log_d("Failed to write to settings file %s", fileName);
+            systemPrintf("Failed to write to settings file %s\r\n", fileName);
         }
         else
         {
             recordSystemSettingsToFile(&settingsFile); // Record all the settings via strings to file
             settingsFile.close();
-            log_d("Settings recorded to LittleFS: %s", fileName);
+            systemPrintf("Settings recorded to LittleFS: %s\r\n", fileName);
         }
     }
 }
@@ -111,12 +100,15 @@ void recordSystemSettingsToFile(File *settingsFile)
 // Returns false if a file was not opened/loaded
 bool loadSystemSettingsFromFileLFS(char *fileName, Settings *settings)
 {
-    // log_d("reading setting fileName: %s", fileName);
+    if (online.fs == false)
+        return false;
+        
+    systemPrintf("Reading setting fileName: %s\r\n", fileName);
 
     File settingsFile = LittleFS.open(fileName, FILE_READ);
     if (!settingsFile)
     {
-        // log_d("settingsFile not found in LittleFS\r\n");
+        systemPrintf("settingsFile not found in LittleFS\r\n");
         return (false);
     }
 
@@ -157,7 +149,7 @@ bool loadSystemSettingsFromFileLFS(char *fileName, Settings *settings)
         lineNumber++;
         if (lineNumber > 400) // Arbitrary limit. Catch corrupt files.
         {
-            log_d("Giving up reading file: %s", fileName);
+            systemPrintf("Giving up reading file: %s\r\n", fileName);
             break;
         }
     }
@@ -176,7 +168,7 @@ bool parseLine(char *str, Settings *settings)
     str = strtok(str, "=");
     if (!str)
     {
-        log_d("Fail");
+        systemPrintln("parseLine Fail");
         return false;
     }
 
@@ -247,7 +239,7 @@ bool parseLine(char *str, Settings *settings)
         }
     }
 
-    // log_d("settingName: %s - value: %s - d: %0.9f", settingName, settingString, d);
+    //systemPrintf("settingName: %s - value: %s - d: %0.9f\r\n", settingName, settingString, d);
 
     // Get setting name
     if (strcmp(settingName, "sizeOfSettings") == 0)
@@ -262,7 +254,7 @@ bool parseLine(char *str, Settings *settings)
 
         // Check to see if this setting file is compatible with this version of RTK Surveyor
         if (d != sizeof(Settings))
-            log_d("Settings size is %d but current firmware expects %d. Attempting to use settings from file.", (int)d,
+            systemPrintf("Settings size is %d but current firmware expects %d. Attempting to use settings from file.\r\n", (int)d,
                   sizeof(Settings));
     }
 
@@ -403,19 +395,19 @@ void recordFile(const char *fileID, char *fileContents, uint32_t fileSize)
     if (LittleFS.exists(fileName))
     {
         LittleFS.remove(fileName);
-        log_d("Removing LittleFS: %s", fileName);
+        systemPrintf("Removing LittleFS: %s\r\n", fileName);
     }
 
     File fileToWrite = LittleFS.open(fileName, FILE_WRITE);
     if (!fileToWrite)
     {
-        log_d("Failed to write to file %s", fileName);
+        systemPrintf("Failed to write to file %s\r\n", fileName);
     }
     else
     {
         fileToWrite.write((uint8_t *)fileContents, fileSize); // Store cert into file
         fileToWrite.close();
-        log_d("File recorded to LittleFS: %s", fileName);
+        systemPrintf("File recorded to LittleFS: %s\r\n", fileName);
     }
 }
 
@@ -430,10 +422,10 @@ void loadFile(const char *fileID, char *fileContents)
     {
         fileToRead.read((uint8_t *)fileContents, fileToRead.size()); // Read contents into pointer
         fileToRead.close();
-        log_d("File loaded from LittleFS: %s", fileName);
+        systemPrintf("File loaded from LittleFS: %s\r\n", fileName);
     }
     else
     {
-        log_d("Failed to read from LittleFS: %s", fileName);
+        systemPrintf("Failed to read from LittleFS: %s\r\n", fileName);
     }
 }

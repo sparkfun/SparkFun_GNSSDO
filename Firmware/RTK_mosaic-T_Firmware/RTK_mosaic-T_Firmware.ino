@@ -130,8 +130,9 @@ GPS_PARSE_TABLE;
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-#include <driver/uart.h>      //Required for uart_set_rx_full_threshold() on cores <v2.0.5
-HardwareSerial serialGNSS(2); // TX on 17, RX on 16
+#include <driver/uart.h>      // Required for uart_set_rx_full_threshold() on cores <v2.0.5
+HardwareSerial serialGNSS(1); // Use UART1 for GNSS
+HardwareSerial serialGNSSConfig(2); // Use UART2 for GNSS configuration
 
 #define SERIAL_SIZE_TX 512
 uint8_t wBuffer[SERIAL_SIZE_TX]; // Buffer for writing from incoming SPP to F9P
@@ -151,8 +152,8 @@ const int gnssReadTaskStackSize = 2500;
 TaskHandle_t handleGnssDataTaskHandle = nullptr;
 const int handleGnssDataTaskStackSize = 3000;
 
-TaskHandle_t pinUART2TaskHandle = nullptr; // Dummy task to start hardware on an assigned core
-volatile bool uart2pinned = false; // This variable is touched by core 0 but checked by core 1. Must be volatile.
+TaskHandle_t pinUART1TaskHandle = nullptr; // Dummy task to start hardware on an assigned core
+volatile bool uart1pinned = false; // This variable is touched by core 0 but checked by core 1. Must be volatile.
 
 TaskHandle_t pinI2C1TaskHandle = nullptr; // Dummy task to start hardware on an assigned core
 volatile bool i2c1Pinned = false; // This variable is touched by core 0 but checked by core 1. Must be volatile.
@@ -167,7 +168,7 @@ volatile bool i2c2Pinned = false; // This variable is touched by core 0 but chec
 #include <SparkFun_Qwiic_OLED.h> //http://librarymanager/All#SparkFun_Qwiic_Graphic_OLED
 
 TwoWire *i2c_1 = nullptr; // OLED (400kHz)
-TwoWire *i2c_2 = nullptr; // Oscillator (100kHz)
+TwoWire *i2c_2 = nullptr; // TCXO (100kHz)
 TwoWire *i2cDisplay = nullptr;
 TwoWire *i2cTCXO = nullptr;
 
@@ -311,6 +312,12 @@ void setup()
     DMW_c("identifyBoard");
     identifyBoard(); // Determine what hardware platform we are running on
 
+    DMW_c("beginBoard");
+    beginBoard();
+
+    DMW_c("beginLEDs");
+    beginLEDs(); // LED setup
+
     DMW_c("beginI2C1");
     beginI2C1();
 
@@ -327,42 +334,33 @@ void setup()
         reportFatalError("spiffs partition not found!");
     }
 
-    DMW_c("beginFS");
-    beginFS(); // Start LittleFS file system for settings
-
-    DMW_c("beginGNSS");
-    beginGNSS(); // Connect to GNSS to get module type
-
-    DMW_c("beginBoard");
-    beginBoard(); // Now finish setting up the board and check the on button
-
     DMW_c("displaySplash");
     displaySplash(); // Display the RTK product name and firmware version
 
-    DMW_c("beginLEDs");
-    beginLEDs(); // LED and PWM setup
+    DMW_c("beginFS");
+    beginFS(); // Start LittleFS file system for settings
 
     DMW_c("loadSettings");
-    loadSettings(); // Attempt to load settings after SD is started so we can read the settings file if available
+    loadSettings();
 
     DMW_c("beginIdleTasks");
     beginIdleTasks(); // Enable processor load calculations
 
-    DMW_c("beginUART2");
-    beginUART2(); // Start UART2 on core 0, used to receive serial from GNSS
+    DMW_c("beginUART1");
+    beginUART1(); // Start UART1 on core 0, used to receive serial from GNSS
 
     DMW_c("beginTCXO");
     beginTCXO(i2cTCXO); // Configure SiTime oscillator
 
-    DMW_c("configureGNSS");
-    configureGNSS(); // Configure GNSS module
+    DMW_c("beginGNSS");
+    beginGNSS(); // Connect to GNSS
 
     DMW_c("updateRTC");
     updateRTC(); // The GNSS likely has time/date. Update ESP32 RTC to match.
 
     Serial.flush(); // Complete any previous prints
 
-    log_d("Boot time: %d", millis());
+    systemPrintf("Boot time: %d\r\n", millis());
 }
 
 void loop()

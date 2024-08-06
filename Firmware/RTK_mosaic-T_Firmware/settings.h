@@ -19,6 +19,7 @@ bool newSystemStateRequested = false;
 typedef enum
 {
     RTK_MOSAIC_T = 0,
+    RTK_MOSAIC_X5, // For code development only - TODO delete this
     // Add new values just above this line
     RTK_UNKNOWN,
 } ProductVariant;
@@ -26,6 +27,7 @@ ProductVariant productVariant = RTK_UNKNOWN;
 
 const char *const productDisplayNames[] = {
     "mosaic-T",
+    "mosaic-X5", // For code development only - TODO delete this
     // Add new values just above this line
     "Unknown",
 };
@@ -33,6 +35,7 @@ const int productDisplayNamesEntries = sizeof(productDisplayNames) / sizeof(prod
 
 const char *const platformFilePrefixTable[] = {
     "SFE_mosaic-T",
+    "SFE_mosaic-X5", // For code development only - TODO delete this
     // Add new values just above this line
     "SFE_Unknown",
 };
@@ -40,6 +43,7 @@ const int platformFilePrefixTableEntries = sizeof(platformFilePrefixTable) / siz
 
 const char *const platformPrefixTable[] = {
     "mosaic-T",
+    "mosaic-X5", // For code development only - TODO delete this
     // Add new values just above this line
     "Unknown",
 };
@@ -221,7 +225,7 @@ typedef struct
 
     int gnssHandlerBufferSize =
         1024 * 4; // This buffer is filled from the UART receive buffer
-    uint16_t serialGNSSRxFullThreshold = 50; // RX FIFO full interrupt. Max of ~128. See pinUART2Task().
+    uint16_t serialGNSSRxFullThreshold = 50; // RX FIFO full interrupt. Max of ~128. See pinUART1Task().
     int uartReceiveBufferSize = 1024 * 2; // This buffer is filled automatically as the UART receives characters.
     uint8_t i2cInterruptsCore = 1; // Core where hardware is started and interrupts are assigned to, 0=core, 1=Arduino
     uint8_t handleGnssDataTaskCore = 1;     // Core where task should run, 0=core, 1=Arduino

@@ -24,8 +24,8 @@ enum
     // Add new sentence types below in alphabetical order
     SENTENCE_TYPE_NMEA,
     SENTENCE_TYPE_RTCM,
-    SENTENCE_TYPE_UBX,
     SENTENCE_TYPE_SBF,
+    SENTENCE_TYPE_UBX,
 };
 
 //----------------------------------------
@@ -53,7 +53,7 @@ typedef struct _PARSE_STATE
     uint16_t bytesRemaining;             // Bytes remaining in RTCM CRC calculation
     uint16_t length;                     // Message length including line termination
     uint16_t maxLength;                  // Maximum message length including line termination
-    uint16_t message;                    // RTCM message number
+    uint16_t message;                    // RTCM message number. UBX Class & ID. SBF ID
     uint16_t nmeaLength;                 // Length of the NMEA message without line termination
     uint8_t buffer[PARSE_BUFFER_LENGTH]; // Buffer containing the message
     uint8_t nmeaMessageName[16];         // Message name
@@ -61,6 +61,8 @@ typedef struct _PARSE_STATE
     uint8_t ck_a;                        // U-blox checksum byte 1
     uint8_t ck_b;                        // U-blox checksum byte 2
     bool computeCrc;                     // Compute the CRC when true
+    uint16_t sbfCrcExpected;             // Expected SBF CRC - from the block header
+    uint16_t sbfCrcComputed;             // SBF CRC - calculated from the ID to the end of the block
 } PARSE_STATE;
 
 //----------------------------------------
@@ -85,12 +87,19 @@ typedef struct _PARSE_STATE
 #define UBLOX_PREAMBLE
 #endif  // PARSE_UBLOX_MESSAGES
 
+#ifdef  PARSE_SBF_MESSAGES
+#define SBF_PREAMBLE        sbfPreamble,
+#else
+#define SBF_PREAMBLE
+#endif  // PARSE_SBF_MESSAGES
+
 #define GPS_PARSE_TABLE                 \
 PARSE_ROUTINE const gpsParseTable[] =   \
 {                                       \
     NMEA_PREAMBLE                       \
     RTCM_PREAMBLE                       \
     UBLOX_PREAMBLE                      \
+    SBF_PREAMBLE                        \
 };                                      \
                                         \
 const int gpsParseTableEntries = sizeof(gpsParseTable) / sizeof(gpsParseTable[0]);
@@ -137,11 +146,24 @@ uint8_t ubloxPayload(PARSE_STATE *parse, uint8_t data);
 uint8_t ubloxCkA(PARSE_STATE *parse, uint8_t data);
 uint8_t ubloxCkB(PARSE_STATE *parse, uint8_t data);
 
+// SBF parse routines
+uint8_t sbfPreamble(PARSE_STATE *parse, uint8_t data);
+uint8_t sbfSync2(PARSE_STATE *parse, uint8_t data);
+uint8_t sbfCRC1(PARSE_STATE *parse, uint8_t data);
+uint8_t sbfCRC2(PARSE_STATE *parse, uint8_t data);
+uint8_t sbfID1(PARSE_STATE *parse, uint8_t data);
+uint8_t sbfID2(PARSE_STATE *parse, uint8_t data);
+uint8_t sbfLength1(PARSE_STATE *parse, uint8_t data);
+uint8_t sbfLength2(PARSE_STATE *parse, uint8_t data);
+uint8_t sbfPayload(PARSE_STATE *parse, uint8_t data);
+
 // External print routines
 void printNmeaChecksumError(PARSE_STATE *parse);
 void printRtcmChecksumError(PARSE_STATE *parse);
 void printRtcmMaxLength(PARSE_STATE *parse);
 void printUbloxChecksumError(PARSE_STATE *parse);
 void printUbloxInvalidData(PARSE_STATE *parse);
+void printSbfChecksumError(PARSE_STATE *parse);
+void printSbfInvalidData(PARSE_STATE *parse);
 
 #endif  // __GPS_MESSAGE_PARSER_H__

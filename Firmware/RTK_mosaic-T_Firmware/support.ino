@@ -647,6 +647,22 @@ void printUbloxInvalidData(PARSE_STATE *parse)
     systemPrintf("    %s Invalid UBX data, %d bytes\r\n", parse->parserName, parse->length - 1);
 }
 
+// Print the SBF checksum error
+void printSbfChecksumError(PARSE_STATE *parse)
+{
+    printTimeStamp();
+    systemPrintf("    %s SBF 0x%04X, %d bytes, bad checksum, expecting 0x%04X, computed: 0x%04X\r\n",
+                 parse->parserName, parse->message, parse->length,
+                 parse->sbfCrcExpected, parse->sbfCrcComputed);
+}
+
+// Print the SBF invalid data error
+void printSbfInvalidData(PARSE_STATE *parse)
+{
+    dumpBuffer(parse->buffer, parse->length - 1);
+    systemPrintf("    %s Invalid SBF data, %d bytes\r\n", parse->parserName, parse->length - 1);
+}
+
 void printPartitionTable(void)
 {
     systemPrintln("ESP32 Partition table:\n");

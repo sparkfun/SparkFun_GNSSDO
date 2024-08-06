@@ -36,7 +36,7 @@ void updateSystemState()
             digitalWrite(pin_errorLED, HIGH); // Turn the error LED on
             digitalWrite(pin_lockLED, LOW); // Turn the lock LED off
 
-            if (!tasksStartUART2()) // Start monitoring the UART from GNSS
+            if (!tasksStartUART1()) // Start monitoring the UART from GNSS
                 displayGNSSFail(1000);
             else
             {
@@ -79,7 +79,7 @@ void requestChangeState(SystemState requestedState)
 {
     newSystemStateRequested = true;
     requestedSystemState = requestedState;
-    log_d("Requested System State: %d", requestedSystemState);
+    systemPrintf("Requested System State: %d\r\n", requestedSystemState);
 }
 
 // Print the current state

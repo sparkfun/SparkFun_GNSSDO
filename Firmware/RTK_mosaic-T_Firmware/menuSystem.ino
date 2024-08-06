@@ -163,7 +163,7 @@ void menuOperation()
         systemPrint("7) Pulse-Per-Second Pulse Width (ms): ");
         systemPrintln(settings.ppsPulseWidth_ms);
 
-        systemPrintln("-------  UART  ------\r\n");
+        systemPrintln("\r\n-------  UART  ------\r\n");
 
         systemPrint("10) GNSS Serial Timeout: ");
         systemPrintln(settings.serialTimeoutGNSS);
@@ -184,7 +184,7 @@ void menuOperation()
         systemPrintln(settings.gnssUartInterruptsCore);
 
         // Tasks
-        systemPrintln("-------  Tasks  ------");
+        systemPrintln("\r\n-------  Tasks  ------\r\n");
 
         systemPrint("20) GNSS Data Handler Core: ");
         systemPrintln(settings.handleGnssDataTaskCore);
@@ -282,8 +282,8 @@ void menuOperation()
                     systemPrintln("Error: Queue size out of range");
                 else
                 {
-                    // Stop the UART2 tssks to prevent the system from crashing
-                    tasksStopUART2();
+                    // Stop the UART1 tssks to prevent the system from crashing
+                    tasksStopUART1();
 
                     // Update the buffer size
                     settings.gnssHandlerBufferSize = queSize; // Recorded to NVM and file

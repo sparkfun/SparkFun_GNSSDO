@@ -102,7 +102,7 @@ void factoryReset(bool alreadyHasSemaphore)
 {
     displaySytemReset(); // Display friendly message on OLED
 
-    tasksStopUART2();
+    tasksStopUART1();
 
     systemPrintln("Formatting internal file system...");
     LittleFS.format();

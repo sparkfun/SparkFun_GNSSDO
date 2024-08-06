@@ -113,42 +113,44 @@ void updateDisplay()
 
             oled->erase();
 
-            char textLine[30];
-            snprintf(textLine, sizeof(textLine), "IP    %s",
-                    gnssIP.toString().c_str());
-            oled->setFont(QW_FONT_5X7); // Set font to smallest
-            oled->setCursor(0, 0);
-            oled->print(textLine);
+            int yPos = 0;
 
+            char textLine[30];
             snprintf(textLine, sizeof(textLine), "%04d/%02d/%02d   %02d:%02d:%02d",
                     gnssYear, gnssMonth, gnssDay, gnssHour, gnssMinute, gnssSecond);
-            oled->setCursor(0, 8);
+            oled->setCursor(0, yPos);
             oled->print(textLine);
+            yPos += 8;
 
             snprintf(textLine, sizeof(textLine), "Lat   %.7f",
                     gnssLatitude_d);
-            oled->setCursor(0, 16);
+            oled->setCursor(0, yPos);
             oled->print(textLine);
+            yPos += 8;
 
             snprintf(textLine, sizeof(textLine), "Long  %.7f",
                     gnssLongitude_d);
-            oled->setCursor(0, 24);
+            oled->setCursor(0, yPos);
             oled->print(textLine);
+            yPos += 8;
 
             snprintf(textLine, sizeof(textLine), "Sys   %s",
                     mosaicTimeSystemNameFromId(gnssTimeSys));
-            oled->setCursor(0, 32);
+            oled->setCursor(0, yPos);
             oled->print(textLine);
+            yPos += 8;
 
             snprintf(textLine, sizeof(textLine), "Error %s",
                     mosaicPVTErrorNameFromId(gnssError));
-            oled->setCursor(0, 40);
+            oled->setCursor(0, yPos);
             oled->print(textLine);
+            yPos += 8;
 
             snprintf(textLine, sizeof(textLine), "Fine  %s",
                     gnssFineTime ? "True" : "False");
-            oled->setCursor(0, 48);
+            oled->setCursor(0, yPos);
             oled->print(textLine);
+            yPos += 8;
 
             if ((gnssClockBias_ms >= 1.0) || (gnssClockBias_ms <= -1.0))
                 snprintf(textLine, sizeof(textLine), "Bias  %.3fms",
@@ -159,7 +161,14 @@ void updateDisplay()
             else
                 snprintf(textLine, sizeof(textLine), "Bias  %.3fns",
                     (float)(gnssClockBias_ms * 1000000.0));
-            oled->setCursor(0, 56);
+            oled->setCursor(0, yPos);
+            oled->print(textLine);
+            yPos += 8;
+
+            snprintf(textLine, sizeof(textLine), "IP    %s",
+                    gnssIP.toString().c_str());
+            oled->setFont(QW_FONT_5X7); // Set font to smallest
+            oled->setCursor(0, yPos);
             oled->print(textLine);
 
             oled->display(); // Push internal buffer to display
@@ -171,7 +180,7 @@ void displaySplash()
 {
     if (online.display == true)
     {
-        // Display SparkFun Logo for at least 1/10 of a second
+        // Display SparkFun Logo for at least 1 second
         unsigned long minSplashFor = 1000;
         while ((millis() - splashStart) < minSplashFor)
             delay(10);
