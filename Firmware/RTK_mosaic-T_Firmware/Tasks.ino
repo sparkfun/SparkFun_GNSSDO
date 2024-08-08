@@ -438,7 +438,6 @@ void discardRingBufferBytes(RING_BUFFER_OFFSET *tail, RING_BUFFER_OFFSET previou
 }
 
 // If new data is in the ringBuffer, dole it out to appropriate consumers
-// Send data out Bluetooth, record to SD, or send to network clients
 // Each consumer gets its own tail.
 // If the consumer is running too slowly then data for that consumer is dropped.
 // The usedSpace variable tracks the total space in use in the buffer.
@@ -453,6 +452,9 @@ void handleGnssDataTask(void *e)
 
     // Initialize the tails
     parserRingBufferTail = 0;
+
+    // Parser
+    static PARSE_STATE consumer = {gpsMessageParserFirstByte, processConsumerMessage, "Consume"};
 
     while (true)
     {
@@ -472,10 +474,17 @@ void handleGnssDataTask(void *e)
                 if ((parserRingBufferTail + bytesToSend) > settings.gnssHandlerBufferSize)
                     bytesToSend = settings.gnssHandlerBufferSize - parserRingBufferTail;
 
-                
-                // TODO - add the actual parser here....
-                // bytesToSend = bluetoothWrite(&ringBuffer[btRingBufferTail], bytesToSend);
-                
+                // Consume the data                
+                for (int32_t x = 0; x < bytesToSend; x++)
+                {
+                    // Save the data byte
+                    consumer.buffer[consumer.length++] = ringBuffer[parserRingBufferTail + x];
+                    consumer.length %= PARSE_BUFFER_LENGTH;
+
+                    // Update the parser state based on the incoming byte
+                    consumer.state(&consumer, ringBuffer[parserRingBufferTail + x]);
+                }
+
                 // Account for the data that was sent
                 if (bytesToSend > 0)
                 {
@@ -544,6 +553,74 @@ void handleGnssDataTask(void *e)
 
         delay(1);
         taskYIELD();
+    }
+}
+
+// Consume messages
+void processConsumerMessage(PARSE_STATE *parse, uint8_t type)
+{
+    if (type == SENTENCE_TYPE_SBF) // SBF
+    {
+        if ((parse->message & 0x1FFF) == 5914) // ReceiverTime
+        {
+            gnssTimeUpdated = true;
+            gnssTimeArrivalMillis = millis();
+            
+            gnssTOW_ms = ((uint32_t)parse->buffer[8]) << 0;
+            gnssTOW_ms |= ((uint32_t)parse->buffer[9]) << 8;
+            gnssTOW_ms |= ((uint32_t)parse->buffer[10]) << 16;
+            gnssTOW_ms |= ((uint32_t)parse->buffer[11]) << 24;
+            gnssYear = parse->buffer[14] + 2000;
+            gnssMonth = parse->buffer[15];
+            gnssDay = parse->buffer[16];
+            gnssHour = parse->buffer[17];
+            gnssMinute = parse->buffer[18];
+            gnssSecond = parse->buffer[19];
+            gnssToWSet = (parse->buffer[21] >> 1) & 0x01;
+            gnssFineTime = (parse->buffer[21] >> 2) & 0x01;
+        }
+        else if ((parse->message & 0x1FFF) == 4007) // PVTGeodetic
+        {
+            gnssPVTUpdated = true;
+            gnssPVTArrivalMillis = millis();
+
+            gnssError = parse->buffer[15];
+
+            union {
+                double dbl;
+                uint64_t unsigned64;
+            } dblUnsigned64;
+
+            dblUnsigned64.unsigned64 = 0;
+            for (int i = 0; i < 8; i++)
+                dblUnsigned64.unsigned64 |= ((uint64_t)parse->buffer[16 + i]) << (i * 8);
+            gnssLatitude_d = dblUnsigned64.dbl * 90.0 / (PI / 2.0);
+
+            dblUnsigned64.unsigned64 = 0;
+            for (int i = 0; i < 8; i++)
+                dblUnsigned64.unsigned64 |= ((uint64_t)parse->buffer[24 + i]) << (i * 8);
+            gnssLongitude_d = dblUnsigned64.dbl * 180.0 / PI;
+
+            dblUnsigned64.unsigned64 = 0;
+            for (int i = 0; i < 8; i++)
+                dblUnsigned64.unsigned64 |= ((uint64_t)parse->buffer[32 + i]) << (i * 8);
+            gnssAltitude_m = dblUnsigned64.dbl;
+
+            dblUnsigned64.unsigned64 = 0;
+            for (int i = 0; i < 8; i++)
+                dblUnsigned64.unsigned64 |= ((uint64_t)parse->buffer[60 + i]) << (i * 8);
+            gnssClockBias_ms = dblUnsigned64.dbl;
+
+            gnssTimeSys = parse->buffer[72];
+        }
+        else if ((parse->message & 0x1FFF) == 4058) // IPStatus
+        {
+            uint32_t theIP = ((uint32_t)parse->buffer[32]) << 0;
+            theIP |= ((uint32_t)parse->buffer[33]) << 8;
+            theIP |= ((uint32_t)parse->buffer[34]) << 16;
+            theIP |= ((uint32_t)parse->buffer[35]) << 24;
+            gnssIP = IPAddress(theIP);
+        }
     }
 }
 

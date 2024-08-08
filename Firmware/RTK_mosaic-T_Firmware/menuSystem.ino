@@ -462,8 +462,8 @@ void printCurrentConditions()
             systemPrintf(", Bias: %.3fms",
                 (float)gnssClockBias_ms);
         else if ((gnssClockBias_ms >= 0.001) || (gnssClockBias_ms <= -0.001))
-            systemPrintf(", Bias: %.3f%cs",
-                (float)(gnssClockBias_ms * 1000.0), char(181));
+            systemPrintf(", Bias: %.3fus",
+                (float)(gnssClockBias_ms * 1000.0));
         else
             systemPrintf(", Bias: %.3fns",
                 (float)(gnssClockBias_ms * 1000000.0));

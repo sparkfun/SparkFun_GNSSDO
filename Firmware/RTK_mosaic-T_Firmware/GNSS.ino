@@ -124,6 +124,12 @@ void beginGNSS()
             return;
         }
 
+        if (!sendWithResponse("exeSBFOnce, COM1, IPStatus\n\r", "SBFOnce"))
+        {
+            systemPrintln("FAIL");
+            return;
+        }
+
         systemPrintln("Success");
         online.gnss = true;
     }

@@ -113,11 +113,19 @@ void updateDisplay()
 
             oled->erase();
 
+            oled->setFont(QW_FONT_5X7); // Set font to smallest
+
             int yPos = 0;
 
             char textLine[30];
             snprintf(textLine, sizeof(textLine), "%04d/%02d/%02d   %02d:%02d:%02d",
                     gnssYear, gnssMonth, gnssDay, gnssHour, gnssMinute, gnssSecond);
+            oled->setCursor(0, yPos);
+            oled->print(textLine);
+            yPos += 8;
+
+            snprintf(textLine, sizeof(textLine), "IP    %s",
+                    gnssIP.toString().c_str());
             oled->setCursor(0, yPos);
             oled->print(textLine);
             yPos += 8;
@@ -156,20 +164,14 @@ void updateDisplay()
                 snprintf(textLine, sizeof(textLine), "Bias  %.3fms",
                     (float)gnssClockBias_ms);
             else if ((gnssClockBias_ms >= 0.001) || (gnssClockBias_ms <= -0.001))
-                snprintf(textLine, sizeof(textLine), "Bias  %.3f%cs",
-                    (float)(gnssClockBias_ms * 1000.0), char(181));
+                snprintf(textLine, sizeof(textLine), "Bias  %.3fus",
+                    (float)(gnssClockBias_ms * 1000.0));
             else
                 snprintf(textLine, sizeof(textLine), "Bias  %.3fns",
                     (float)(gnssClockBias_ms * 1000000.0));
             oled->setCursor(0, yPos);
             oled->print(textLine);
             yPos += 8;
-
-            snprintf(textLine, sizeof(textLine), "IP    %s",
-                    gnssIP.toString().c_str());
-            oled->setFont(QW_FONT_5X7); // Set font to smallest
-            oled->setCursor(0, yPos);
-            oled->print(textLine);
 
             oled->display(); // Push internal buffer to display
         }
