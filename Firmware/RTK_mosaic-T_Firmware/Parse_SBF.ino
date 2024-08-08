@@ -56,11 +56,6 @@ static const uint16_t ccitt_crc_table[256] = {
     0x6e17, 0x7e36, 0x4e55, 0x5e74, 0x2e93, 0x3eb2, 0x0ed1, 0x1ef0
 };
 
-uint16_t ccitt_crc_init(void)
-{
-    return 0x1d0f;
-}
-
 uint16_t ccitt_crc_update(uint16_t crc, const uint8_t data)
 {
     uint8_t tbl_idx = ((crc >> 8) ^ data) & 0xff;
@@ -70,6 +65,45 @@ uint16_t ccitt_crc_update(uint16_t crc, const uint8_t data)
     return crc;
 }
 
+// Check for the NMEA or SBF preamble
+uint8_t nmeaSbfPreamble1(PARSE_STATE *parse, uint8_t data)
+{
+    if (data == '$')
+    {
+        parse->crc = 0; // Needed for NMEA
+        parse->nmeaMessageNameLength = 0; // Needed for NMEA
+        parse->state = nmeaSbfPreamble2;
+        return SENTENCE_TYPE_NMEA_SBF;
+    }
+    return SENTENCE_TYPE_NONE;
+}
+
+// Check for the SBF preamble Byte 2
+uint8_t nmeaSbfPreamble2(PARSE_STATE *parse, uint8_t data)
+{
+    if (data == '@') // SBF
+    {
+        parse->state = sbfCRC1;
+        return SENTENCE_TYPE_SBF;
+    }
+    else if ((data >= 'A') && (data <= 'Z')) // NMEA
+    {
+        parse->crc ^= data;
+
+        // Save the message name
+        parse->nmeaMessageName[parse->nmeaMessageNameLength++] = data;
+
+        parse->state = nmeaFindFirstComma;
+        return SENTENCE_TYPE_NMEA;
+    }
+
+    // Not SBF or NMEA. Must be invalid
+    parse->length = 0;
+    parse->buffer[parse->length++] = data;
+    return gpsMessageParserFirstByte(parse, data);
+}
+
+/*
 // Check for the preamble
 uint8_t sbfPreamble(PARSE_STATE *parse, uint8_t data)
 {
@@ -102,6 +136,7 @@ uint8_t sbfSync2(PARSE_STATE *parse, uint8_t data)
     parse->state = sbfCRC1;
     return SENTENCE_TYPE_SBF;
 }
+*/
 
 // Read the first CRC byte (LSB)
 uint8_t sbfCRC1(PARSE_STATE *parse, uint8_t data)
@@ -120,7 +155,7 @@ uint8_t sbfCRC2(PARSE_STATE *parse, uint8_t data)
     parse->sbfCrcExpected |= ((uint16_t)data) << 8;
 
     // Zero the computed checksum
-    parse->sbfCrcComputed = ccitt_crc_init();
+    parse->sbfCrcComputed = 0;
 
     parse->state = sbfID1;
     return SENTENCE_TYPE_SBF;
@@ -159,7 +194,7 @@ uint8_t sbfLength1(PARSE_STATE *parse, uint8_t data)
     parse->sbfCrcComputed = ccitt_crc_update(parse->sbfCrcComputed, data);
 
     // Save the first length byte (LSB)
-    parse->length = data;
+    parse->bytesRemaining = data;
 
     parse->state = sbfLength2;
     return SENTENCE_TYPE_SBF;
@@ -172,9 +207,9 @@ uint8_t sbfLength2(PARSE_STATE *parse, uint8_t data)
     parse->sbfCrcComputed = ccitt_crc_update(parse->sbfCrcComputed, data);
 
     // Save the second length byte (MSB)
-    parse->length |= ((uint16_t)data) << 8;
+    parse->bytesRemaining |= ((uint16_t)data) << 8;
 
-    parse->bytesRemaining = parse->length - 8;
+    parse->bytesRemaining -= 8; // Subtract the header bytes
 
     parse->state = sbfPayload;
     return SENTENCE_TYPE_SBF;
@@ -199,7 +234,7 @@ uint8_t sbfPayload(PARSE_STATE *parse, uint8_t data)
     bool badChecksum;
 
     // Validate the checksum
-    badChecksum = parse->sbfCrcComputed != parse->sbfCrcExpected;
+    badChecksum = (parse->sbfCrcComputed != parse->sbfCrcExpected);
 
     if (settings.enablePrintBadMessages && badChecksum && (!inMainMenu))
         printSbfChecksumError(parse);

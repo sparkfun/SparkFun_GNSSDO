@@ -20,12 +20,12 @@ GpsMessageParser.h
 enum
 {
     SENTENCE_TYPE_NONE = 0,
-
-    // Add new sentence types below in alphabetical order
+    SENTENCE_TYPE_NMEA_SBF,
     SENTENCE_TYPE_NMEA,
     SENTENCE_TYPE_RTCM,
     SENTENCE_TYPE_SBF,
     SENTENCE_TYPE_UBX,
+    // Add new sentence types above this line
 };
 
 //----------------------------------------
@@ -60,7 +60,6 @@ typedef struct _PARSE_STATE
     uint8_t nmeaMessageNameLength;       // Length of the message name
     uint8_t ck_a;                        // U-blox checksum byte 1
     uint8_t ck_b;                        // U-blox checksum byte 2
-    bool computeCrc;                     // Compute the CRC when true
     uint16_t sbfCrcExpected;             // Expected SBF CRC - from the block header
     uint16_t sbfCrcComputed;             // SBF CRC - calculated from the ID to the end of the block
 } PARSE_STATE;
@@ -69,23 +68,17 @@ typedef struct _PARSE_STATE
 // Macros
 //----------------------------------------
 
-#ifdef  PARSE_NMEA_MESSAGES
-#define NMEA_PREAMBLE       nmeaPreamble,
+#if defined(PARSE_NMEA_MESSAGES) || defined(PARSE_SBF_MESSAGES)
+#define NMEA_SBF_PREAMBLE   nmeaSbfPreamble1,
 #else
-#define NMEA_PREAMBLE
-#endif  // PARSE_NMEA_MESSAGES
+#define NMEA_SBF_PREAMBLE
+#endif  // PARSE_NMEA_MESSAGES || PARSE_SBF_MESSAGES
 
 #ifdef  PARSE_RTCM_MESSAGES
 #define RTCM_PREAMBLE       rtcmPreamble,
 #else
 #define RTCM_PREAMBLE
 #endif  // PARSE_RTCM_MESSAGES
-
-#ifdef  PARSE_SBF_MESSAGES
-#define SBF_PREAMBLE        sbfPreamble,
-#else
-#define SBF_PREAMBLE
-#endif  // PARSE_SBF_MESSAGES
 
 #ifdef  PARSE_UBLOX_MESSAGES
 #define UBLOX_PREAMBLE      ubloxPreamble,
@@ -96,9 +89,8 @@ typedef struct _PARSE_STATE
 #define GPS_PARSE_TABLE                 \
 PARSE_ROUTINE const gpsParseTable[] =   \
 {                                       \
-    NMEA_PREAMBLE                       \
+    NMEA_SBF_PREAMBLE                   \
     RTCM_PREAMBLE                       \
-    SBF_PREAMBLE                        \
     UBLOX_PREAMBLE                      \
 };                                      \
                                         \
@@ -118,13 +110,28 @@ extern const int gpsParseTableEntries;
 // Main parser routine
 uint8_t gpsMessageParserFirstByte(PARSE_STATE *parse, uint8_t data);
 
+// Common NMEA and SBF parse routines
+uint8_t nmeaSbfPreamble1(PARSE_STATE *parse, uint8_t data);
+uint8_t nmeaSbfPreamble2(PARSE_STATE *parse, uint8_t data);
+
 // NMEA parse routines
-uint8_t nmeaPreamble(PARSE_STATE *parse, uint8_t data);
+//uint8_t nmeaPreamble(PARSE_STATE *parse, uint8_t data);
 uint8_t nmeaFindFirstComma(PARSE_STATE *parse, uint8_t data);
 uint8_t nmeaFindAsterisk(PARSE_STATE *parse, uint8_t data);
 uint8_t nmeaChecksumByte1(PARSE_STATE *parse, uint8_t data);
 uint8_t nmeaChecksumByte2(PARSE_STATE *parse, uint8_t data);
 uint8_t nmeaLineTermination(PARSE_STATE *parse, uint8_t data);
+
+// SBF parse routines
+//uint8_t sbfPreamble(PARSE_STATE *parse, uint8_t data);
+//uint8_t sbfSync2(PARSE_STATE *parse, uint8_t data);
+uint8_t sbfCRC1(PARSE_STATE *parse, uint8_t data);
+uint8_t sbfCRC2(PARSE_STATE *parse, uint8_t data);
+uint8_t sbfID1(PARSE_STATE *parse, uint8_t data);
+uint8_t sbfID2(PARSE_STATE *parse, uint8_t data);
+uint8_t sbfLength1(PARSE_STATE *parse, uint8_t data);
+uint8_t sbfLength2(PARSE_STATE *parse, uint8_t data);
+uint8_t sbfPayload(PARSE_STATE *parse, uint8_t data);
 
 // RTCM parse routines
 uint8_t rtcmPreamble(PARSE_STATE *parse, uint8_t data);
@@ -145,17 +152,6 @@ uint8_t ubloxLength2(PARSE_STATE *parse, uint8_t data);
 uint8_t ubloxPayload(PARSE_STATE *parse, uint8_t data);
 uint8_t ubloxCkA(PARSE_STATE *parse, uint8_t data);
 uint8_t ubloxCkB(PARSE_STATE *parse, uint8_t data);
-
-// SBF parse routines
-uint8_t sbfPreamble(PARSE_STATE *parse, uint8_t data);
-uint8_t sbfSync2(PARSE_STATE *parse, uint8_t data);
-uint8_t sbfCRC1(PARSE_STATE *parse, uint8_t data);
-uint8_t sbfCRC2(PARSE_STATE *parse, uint8_t data);
-uint8_t sbfID1(PARSE_STATE *parse, uint8_t data);
-uint8_t sbfID2(PARSE_STATE *parse, uint8_t data);
-uint8_t sbfLength1(PARSE_STATE *parse, uint8_t data);
-uint8_t sbfLength2(PARSE_STATE *parse, uint8_t data);
-uint8_t sbfPayload(PARSE_STATE *parse, uint8_t data);
 
 // External print routines
 void printNmeaChecksumError(PARSE_STATE *parse);

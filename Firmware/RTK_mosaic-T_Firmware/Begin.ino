@@ -276,8 +276,9 @@ void beginUART1()
 void pinUART1Task(void *pvParameters)
 {
     serialGNSS.setRxBufferSize(settings.uartReceiveBufferSize);
-    serialGNSS.begin(settings.dataPortBaud, SERIAL_8N1, pin_serial1RX, pin_serial1TX,
-                    false, settings.serialTimeoutGNSS, settings.serialGNSSRxFullThreshold);
+    serialGNSS.setTimeout(settings.serialTimeoutGNSS); // Requires serial traffic on the UART pins for detection
+    serialGNSS.begin(settings.dataPortBaud, SERIAL_8N1, pin_serial1RX, pin_serial1TX);
+    serialGNSS.setRxFIFOFull(settings.serialGNSSRxFullThreshold);
 
     uart1pinned = true;
 

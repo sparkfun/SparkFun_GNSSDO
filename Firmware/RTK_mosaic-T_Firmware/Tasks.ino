@@ -129,10 +129,6 @@ void gnssReadTask(void *e)
                 parse.buffer[parse.length++] = incomingData[x];
                 parse.length %= PARSE_BUFFER_LENGTH;
 
-                // Compute the CRC value for the message
-                if (parse.computeCrc)
-                    parse.crc = COMPUTE_CRC24Q(&parse, incomingData[x]);
-
                 // Update the parser state based on the incoming byte
                 parse.state(&parse, incomingData[x]);
             }
@@ -154,7 +150,7 @@ void processUart1Message(PARSE_STATE *parse, uint8_t type)
     int32_t use;
 
     // Display the message
-    if ((settings.enablePrintGNSSMessages) && (!parse->crc) && (!inMainMenu))
+    if ((settings.enablePrintGNSSMessages) && (!inMainMenu))
     {
         systemPrint("GNSS RX: ");
         switch (type)
@@ -168,7 +164,7 @@ void processUart1Message(PARSE_STATE *parse, uint8_t type)
             break;
 
         case SENTENCE_TYPE_SBF:
-            systemPrintf("%s SBF %d, %2d bytes\r\n", parse->parserName, parse->message, parse->length);
+            systemPrintf("%s SBF %d, %2d bytes\r\n", parse->parserName, parse->message & 0x1FFF, parse->length);
             break;
 
         case SENTENCE_TYPE_UBX:

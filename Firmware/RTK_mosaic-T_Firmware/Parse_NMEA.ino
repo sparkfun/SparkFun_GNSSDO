@@ -16,25 +16,26 @@ Parse_NMEA.ino
 //               |<-------- Checksum -------->|
 //
 
+/*
 // Check for the preamble
 uint8_t nmeaPreamble(PARSE_STATE *parse, uint8_t data)
 {
     if (data == '$')
     {
         parse->crc = 0;
-        parse->computeCrc = false;
         parse->nmeaMessageNameLength = 0;
         parse->state = nmeaFindFirstComma;
         return SENTENCE_TYPE_NMEA;
     }
     return SENTENCE_TYPE_NONE;
 }
+*/
 
 // Read the message name
 uint8_t nmeaFindFirstComma(PARSE_STATE *parse, uint8_t data)
 {
     parse->crc ^= data;
-    if ((data != ',') || (parse->nmeaMessageNameLength == 0))
+    if ((data != ',')) // || (parse->nmeaMessageNameLength == 0))
     {
         if ((data < 'A') || (data > 'Z'))
         {
