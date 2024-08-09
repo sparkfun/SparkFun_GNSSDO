@@ -94,7 +94,7 @@ unsigned long syncRTCInterval = 1000; // To begin, sync RTC every second. Interv
 unsigned long gnssPVTArrivalMillis = 0;
 bool gnssPVTUpdated = false;
 unsigned long gnssTimeArrivalMillis = 0;
-bool gnssTimeUpdated = false;
+bool gnssTimeUpdated[2] = { false, false }; // RTC, TCXO
 double gnssLatitude_d = 0.0;
 double gnssLongitude_d = 0.0;
 float gnssAltitude_m = 0.0;
@@ -107,6 +107,7 @@ uint8_t gnssMinute = 0;
 uint8_t gnssSecond = 0;
 uint8_t gnssTimeSys = 255; // Unknown
 uint8_t gnssError = 255; // Unknown
+bool gnssWNSet = false;
 bool gnssToWSet = false;
 bool gnssFineTime = false;
 double gnssClockBias_ms = 0.0;
@@ -214,8 +215,6 @@ uint32_t lastDisplayUpdate = 0;
 bool forceDisplayUpdate = false;
 uint32_t lastSystemStateUpdate = 0;
 bool forceSystemStateUpdate = false; // Set true to avoid update wait
-uint32_t lastErrorLEDUpdate = 0;
-uint32_t lastLockLEDupdate = 0;
 uint32_t lastPrintConditions = 0;
 
 long lastStackReport = 0;         // Controls the report rate of stack highwater mark within a task
@@ -236,7 +235,9 @@ uint16_t failedParserMessages_RTCM = 0;
 uint16_t failedParserMessages_NMEA = 0;
 uint16_t failedParserMessages_SBF = 0;
 
-bool rtcSyncd = false;        // Set to true when the RTC has been sync'd
+bool rtcSyncd = false;      // Set to true when the RTC has been sync'd
+bool ppsStarted = false;    // Set to true when PPS have started. Cleared by menu changes.
+int tcxoUpdates = 0;        // Keep count of TCXO control word updates. Save the control word every hour
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -346,17 +347,20 @@ void setup()
     DMW_c("beginIdleTasks");
     beginIdleTasks(); // Enable processor load calculations
 
-    DMW_c("beginUART1");
-    beginUART1(); // Start UART1 on core 0, used to receive serial from GNSS
+    DMW_c("beginUARTs");
+    beginUARTs(); // Start UART1 on core 0, used to receive serial from GNSS
+
+    DMW_c("tasksStartUART1");
+    tasksStartUART1();
 
     DMW_c("beginTCXO");
     beginTCXO(i2cTCXO); // Configure SiTime oscillator
 
+    DMW_c("beginSystemState");
+    beginSystemState(); // Determine initial system state. Configure GNSS messages.
+
     DMW_c("beginGNSS");
     beginGNSS(); // Connect to GNSS
-
-    DMW_c("updateRTC");
-    updateRTC(); // The GNSS likely has time/date. Update ESP32 RTC to match.
 
     Serial.flush(); // Complete any previous prints
 
@@ -394,7 +398,7 @@ void updateRTC()
     {
         if (online.gnss == true) // Only do this if the GNSS is online
         {
-            if ((gnssToWSet == true) && (gnssTimeUpdated))
+            if (gnssWNSet && gnssToWSet && gnssFineTime && gnssTimeUpdated[0])
             {
                 // To perform the time zone adjustment correctly, it's easiest if we convert the GNSS time and date
                 // into Unix epoch first and then correct for the arrival time
@@ -402,7 +406,7 @@ void updateRTC()
                 uint32_t epochMillis;
                 convertGnssTimeToEpoch(&epochSecs, &epochMillis);
                 
-                epochMillis += millis() - gnssTimeArrivalMillis;
+                epochMillis += millis() - gnssTimeArrivalMillis; // Remove the lag
 
                 // Set the internal system time
                 rtc.setTime(epochSecs, epochMillis * 1000);

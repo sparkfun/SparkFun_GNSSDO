@@ -236,13 +236,14 @@ void beginBoard()
 // We do not start the UART1 here because the interrupts would be pinned to core 1
 // We instead start a task that runs on core 0, that then begins serial
 // See issue: https://github.com/espressif/arduino-esp32/issues/3386
-void beginUART1()
+void beginUARTs()
 {
-    size_t length;
+    if ((pin_serial1RX < 0) || (pin_serial1TX < 0))
+        reportFatalError("No Serial2 pins");
 
     // Determine the length of data to be retained in the ring buffer
     // after discarding the oldest data
-    length = settings.gnssHandlerBufferSize;
+    size_t length = settings.gnssHandlerBufferSize;
     rbOffsetEntries = (length >> 1) / AVERAGE_SENTENCE_LENGTH_IN_BYTES;
     length = settings.gnssHandlerBufferSize + (rbOffsetEntries * sizeof(RING_BUFFER_OFFSET));
     ringBuffer = nullptr;
@@ -269,6 +270,11 @@ void beginUART1()
         while (uart1pinned == false) // Wait for task to run once
             delay(1);
     }
+
+    if ((pin_serial2RX < 0) || (pin_serial2TX < 0))
+        reportFatalError("No Serial2 pins");
+
+    serialGNSSConfig.begin(settings.dataPortBaud, SERIAL_8N1, pin_serial2RX, pin_serial2TX);
 }
 
 // Assign UART1 interrupts to the core that started the task. See:
@@ -318,6 +324,16 @@ void beginLEDs()
     }
 }
 
+void updateErrorLED()
+{
+    digitalWrite(pin_errorLED, (gnssError > 0) ? HIGH : LOW);
+}
+
+void updateLockLED()
+{
+    digitalWrite(pin_lockLED, (fabs(gnssClockBias_ms) < settings.rxClkBiasLockLimit_ms) ? HIGH : LOW);
+}
+
 // Depending on platform and previous power down state, set system state
 void beginSystemState()
 {
@@ -329,11 +345,10 @@ void beginSystemState()
 
     if ((productVariant == RTK_MOSAIC_T) || (productVariant == RTK_MOSAIC_X5))
     {
-        if (settings.lastState == STATE_NOT_SET) // Default
-        {
-            systemState = STATE_GNSS_NOT_CONFIGURED;
-            settings.lastState = systemState;
-        }
+        if (settings.lastState == STATE_NOT_SET) // Default after factory reset
+            settings.lastState = STATE_GNSS_NOT_CONFIGURED;
+
+        systemState = settings.lastState;
 
         setupBtn = new Button(pin_setupButton); // Create the button in memory
         // Allocation failure handled in ButtonCheckTask
@@ -538,6 +553,15 @@ void beginTCXO(TwoWire *i2cBus)
     systemPrint("TCXO maximum frequency change set to ");
     systemPrint(myTCXO.getMaxFrequencyChangePPB());
     systemPrintln(" PPB");
+
+    myTCXO.setFrequencyControlWord(settings.tcxoControl);
+
+    systemPrint("TCXO frequency control word set to ");
+    systemPrintln(myTCXO.getFrequencyControlWord());
+
+    systemPrint("TCXO frequency is ");
+    systemPrint(myTCXO.getFrequencyHz());
+    systemPrintln(" Hz");
 
     online.tcxo = true;
 }

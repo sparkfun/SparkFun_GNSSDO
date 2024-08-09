@@ -103,7 +103,8 @@ void updateDisplay()
     // Update the display if connected
     if (online.display == true)
     {
-        if (millis() - lastDisplayUpdate > 500 || forceDisplayUpdate == true) // Update display at 2Hz
+        // Update display at ~2Hz. forceDisplayUpdate from ReceiverTime controls the timing.
+        if (millis() - lastDisplayUpdate > 550 || forceDisplayUpdate == true)
         {
             lastDisplayUpdate = millis();
             forceDisplayUpdate = false;
@@ -154,8 +155,8 @@ void updateDisplay()
             oled->print(textLine);
             yPos += 8;
 
-            snprintf(textLine, sizeof(textLine), "Fine  %s",
-                    gnssFineTime ? "True" : "False");
+            snprintf(textLine, sizeof(textLine), "Fine  %s   PPS %s",
+                    gnssFineTime ? "True " : "False", ppsStarted ? "On" : "Off");
             oled->setCursor(0, yPos);
             oled->print(textLine);
             yPos += 8;
@@ -171,7 +172,6 @@ void updateDisplay()
                     (float)(gnssClockBias_ms * 1000000.0));
             oled->setCursor(0, yPos);
             oled->print(textLine);
-            yPos += 8;
 
             oled->display(); // Push internal buffer to display
         }
@@ -334,7 +334,7 @@ void printTextCenter(const char *text, uint8_t yPos, QwiicFont &fontType, uint8_
             if (xBoxEnd > oled->getWidth() - 1)
                 xBoxEnd = oled->getWidth() - 1;
 
-            oled->rectangleFill(xBoxStart, yPos, xBoxEnd, 12, 1); // x, y, width, height, color
+            oled->rectangleFill(xBoxStart, yPos, xBoxEnd, yPos + fontType.height, 1); // x, y, width, height, color
         }
     }
 }

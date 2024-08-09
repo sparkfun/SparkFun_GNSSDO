@@ -90,6 +90,9 @@ void recordSystemSettingsToFile(File *settingsFile)
     settingsFile->printf("%s=%d\r\n", "ppsMaxSyncAge_s", settings.ppsMaxSyncAge_s);
     settingsFile->printf("%s=%0.6f\r\n", "ppsPulseWidth_ms", settings.ppsPulseWidth_ms);
 
+    settingsFile->printf("%s=%d\r\n", "tcxoControl", settings.tcxoControl);
+    settingsFile->printf("%s=%0.3e\r\n", "rxClkBiasLockLimit_ms", settings.rxClkBiasLockLimit_ms);
+
     //settingsFile->printf("%s=%d\r\n", "", settings.);
 
     // Add new settings above <------------------------------------------------------------>
@@ -200,27 +203,25 @@ bool parseLine(char *str, Settings *settings)
         // Check if string is mixed: 8a011EF, 192.168.1.1, -102.4, t6-h4$, etc.
         bool hasSymbol = false;
         int decimalCount = 0;
+        int minusCount = 0;
+        int eCount = 0;
         for (int x = 0; x < strlen(settingString); x++)
         {
             if (settingString[x] == '.')
                 decimalCount++;
-            else if (x == 0 && settingString[x] == '-')
-            {
-                ; // Do nothing
-            }
+            else if (settingString[x] == '-')
+                minusCount++; // Multiple -'s are good (scientific notation)
+            else if (settingString[x] == 'e')
+                eCount++; // e's are good (scientific notation)
             else if (isAlpha(settingString[x]))
                 hasSymbol = true;
             else if (isDigit(settingString[x]) == false)
                 hasSymbol = true;
         }
 
-        // See issue: https://github.com/sparkfun/SparkFun_RTK_Firmware/issues/274
-        if (hasSymbol || decimalCount > 1)
+        if (hasSymbol || decimalCount > 1 || minusCount > 2 || eCount > 1)
         {
-            // It's a mix. Skip strtod.
-
-            // if (strcmp(settingName, "ntripServer_CasterHost") == 0) //Debug
-            //   systemPrintf("Skipping strtod - settingString: %s\r\n", settingString);
+            // It's a mess. Skip strtod.
         }
         else
         {
@@ -264,9 +265,6 @@ bool parseLine(char *str, Settings *settings)
     else if (strcmp(settingName, "rtkFirmwareVersion") == 0)
     {
     } // Do nothing. Just read it to avoid 'Unknown setting' error
-    else if (strcmp(settingName, "zedFirmwareVersion") == 0)
-    {
-    } // Do nothing. Just read it to avoid 'Unknown setting' error
 
     else if (strcmp(settingName, "printDebugMessages") == 0)
         settings->printDebugMessages = d;
@@ -287,6 +285,7 @@ bool parseLine(char *str, Settings *settings)
         settings->gnssHandlerBufferSize = d;
     else if (strcmp(settingName, "enablePrintBufferOverrun") == 0)
         settings->enablePrintBufferOverrun = d;
+
     else if (strcmp(settingName, "serialGNSSRxFullThreshold") == 0)
         settings->serialGNSSRxFullThreshold = d;
     else if (strcmp(settingName, "gnssReadTaskPriority") == 0)
@@ -301,6 +300,7 @@ bool parseLine(char *str, Settings *settings)
         settings->i2cInterruptsCore = d;
     else if (strcmp(settingName, "gnssUartInterruptsCore") == 0)
         settings->gnssUartInterruptsCore = d;
+
     else if (strcmp(settingName, "serialTimeoutGNSS") == 0)
         settings->serialTimeoutGNSS = d;
     else if (strcmp(settingName, "dataPortBaud") == 0)
@@ -344,11 +344,22 @@ bool parseLine(char *str, Settings *settings)
     else if (strcmp(settingName, "ppsPulseWidth_ms") == 0)
         settings->ppsPulseWidth_ms = d;
 
+    else if (strcmp(settingName, "tcxoControl") == 0)
+        settings->tcxoControl = d;
+    else if (strcmp(settingName, "rxClkBiasLockLimit_ms") == 0)
+        settings->rxClkBiasLockLimit_ms = d;
+
     //else if (strcmp(settingName, "") == 0)
     //    settings-> = d;
 
     // Add new settings above
     //<------------------------------------------------------------>
+
+    else
+    {
+        systemPrintf("Bad setting: %s - value: %s\r\n", settingName, settingString);
+        return false;
+    }
 
     return (true);
 }

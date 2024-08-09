@@ -563,21 +563,57 @@ void processConsumerMessage(PARSE_STATE *parse, uint8_t type)
     {
         if ((parse->message & 0x1FFF) == 5914) // ReceiverTime
         {
-            gnssTimeUpdated = true;
+            gnssTimeUpdated[0] = gnssTimeUpdated[1] = true;
             gnssTimeArrivalMillis = millis();
             
             gnssTOW_ms = ((uint32_t)parse->buffer[8]) << 0;
             gnssTOW_ms |= ((uint32_t)parse->buffer[9]) << 8;
             gnssTOW_ms |= ((uint32_t)parse->buffer[10]) << 16;
             gnssTOW_ms |= ((uint32_t)parse->buffer[11]) << 24;
-            gnssYear = parse->buffer[14] + 2000;
-            gnssMonth = parse->buffer[15];
-            gnssDay = parse->buffer[16];
-            gnssHour = parse->buffer[17];
-            gnssMinute = parse->buffer[18];
-            gnssSecond = parse->buffer[19];
+            if (gnssTOW_ms > 700000000)
+                gnssTOW_ms = 0;
+
+            union {
+                int8_t signed8;
+                uint8_t unsigned8;
+            } signedUnsigned8;
+
+            signedUnsigned8.unsigned8 = parse->buffer[14];
+            if (signedUnsigned8.signed8 >= 0)
+                gnssYear = signedUnsigned8.signed8 + 2000;
+            else
+                gnssYear = 0;
+            signedUnsigned8.unsigned8 = parse->buffer[15];
+            if (signedUnsigned8.signed8 >= 0)
+                gnssMonth = signedUnsigned8.signed8;
+            else
+                gnssMonth = 0;
+            signedUnsigned8.unsigned8 = parse->buffer[16];
+            if (signedUnsigned8.signed8 >= 0)
+                gnssDay = signedUnsigned8.signed8;
+            else
+                gnssDay = 0;
+            signedUnsigned8.unsigned8 = parse->buffer[17];
+            if (signedUnsigned8.signed8 >= 0)
+                gnssHour = signedUnsigned8.signed8;
+            else
+                gnssHour = 0;
+            signedUnsigned8.unsigned8 = parse->buffer[18];
+            if (signedUnsigned8.signed8 >= 0)
+                gnssMinute = signedUnsigned8.signed8;
+            else
+                gnssMinute = 0;
+            signedUnsigned8.unsigned8 = parse->buffer[19];
+            if (signedUnsigned8.signed8 >= 0)
+                gnssSecond = signedUnsigned8.signed8;
+            else
+                gnssSecond = 0;
+
+            gnssWNSet = (parse->buffer[21] >> 0) & 0x01;
             gnssToWSet = (parse->buffer[21] >> 1) & 0x01;
             gnssFineTime = (parse->buffer[21] >> 2) & 0x01;
+
+            forceDisplayUpdate = true;
         }
         else if ((parse->message & 0x1FFF) == 4007) // PVTGeodetic
         {
@@ -595,21 +631,31 @@ void processConsumerMessage(PARSE_STATE *parse, uint8_t type)
             for (int i = 0; i < 8; i++)
                 dblUnsigned64.unsigned64 |= ((uint64_t)parse->buffer[16 + i]) << (i * 8);
             gnssLatitude_d = dblUnsigned64.dbl * 90.0 / (PI / 2.0);
+            if ((gnssLatitude_d < -91.0) || (gnssLatitude_d > 91.0))
+                gnssLatitude_d = 0.0;
 
             dblUnsigned64.unsigned64 = 0;
             for (int i = 0; i < 8; i++)
                 dblUnsigned64.unsigned64 |= ((uint64_t)parse->buffer[24 + i]) << (i * 8);
             gnssLongitude_d = dblUnsigned64.dbl * 180.0 / PI;
+            if ((gnssLongitude_d < -181.0) || (gnssLongitude_d > 181.0))
+                gnssLongitude_d = 0.0;
 
             dblUnsigned64.unsigned64 = 0;
             for (int i = 0; i < 8; i++)
                 dblUnsigned64.unsigned64 |= ((uint64_t)parse->buffer[32 + i]) << (i * 8);
             gnssAltitude_m = dblUnsigned64.dbl;
+            if ((gnssAltitude_m < -1000.0) || (gnssAltitude_m > 50000.0))
+                gnssAltitude_m = 0.0;
 
             dblUnsigned64.unsigned64 = 0;
             for (int i = 0; i < 8; i++)
                 dblUnsigned64.unsigned64 |= ((uint64_t)parse->buffer[60 + i]) << (i * 8);
             gnssClockBias_ms = dblUnsigned64.dbl;
+            if (gnssClockBias_ms < -999.999)
+                gnssClockBias_ms = -999.999;
+            if (gnssClockBias_ms > 999.999)
+                gnssClockBias_ms = 999.999;
 
             gnssTimeSys = parse->buffer[72];
         }

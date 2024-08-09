@@ -33,10 +33,7 @@ void updateSystemState()
         // Code is starting for the first time. The mosaic-T needs to be configured to output messages on COM1
         case (STATE_GNSS_NOT_CONFIGURED): {
 
-            digitalWrite(pin_errorLED, HIGH); // Turn the error LED on
-            digitalWrite(pin_lockLED, LOW); // Turn the lock LED off
-
-            if (!tasksStartUART1()) // Start monitoring the UART from GNSS
+            if (!initializeGNSS()) // Configure GNSS PPS, messages etc.
                 displayGNSSFail(1000);
             else
             {
@@ -48,19 +45,103 @@ void updateSystemState()
         }
         break;
 
+        // GNSS has begun and has been configured
+        // Wait for gnssWNSet, gnssToWSet and gnssFineTime to go true, then go into STATE_GNSS_FINETIME
+        // Monitor gnssError. If it becomes non-zero, go into STATE_GNSS_ERROR_BEFORE_FINETIME
         case (STATE_GNSS_CONFIGURED): {
+            if (gnssPVTUpdated) // Wait for PVT to be updated. It contains Error.
+            {
+                gnssPVTUpdated = false;
+
+                updateErrorLED();
+
+                if (gnssError)
+                    changeState(STATE_GNSS_ERROR_BEFORE_FINETIME);
+            }
+            else if (gnssTimeUpdated[1]) // Wait for the time to be updated
+            {
+                gnssTimeUpdated[1] = false;
+
+                if (gnssWNSet && gnssToWSet && gnssFineTime)
+                    changeState(STATE_GNSS_FINETIME);
+            }
         }
         break;
 
+        // Wait for error to clear before checking FineTime
         case (STATE_GNSS_ERROR_BEFORE_FINETIME): {
+            if (gnssPVTUpdated) // Wait for PVT to be updated
+            {
+                gnssPVTUpdated = false;
+
+                updateErrorLED();
+
+                if (!gnssError)
+                    changeState(STATE_GNSS_CONFIGURED);
+            }
         }
         break;
 
+        // Discipline the TCXO
+        // Monitor gnssError. If it becomes non-zero, go into STATE_GNSS_ERROR_AFTER_FINETIME
         case (STATE_GNSS_FINETIME): {
+            if (gnssPVTUpdated) // Wait for PVT to be updated. It contains Error.
+            {
+                gnssPVTUpdated = false;
+
+                updateLockLED();
+                updateErrorLED();
+
+                // If the clock bias is < the lock limit, start PPS
+                if ((fabs(gnssClockBias_ms) < settings.rxClkBiasLockLimit_ms)
+                    && !ppsStarted && !gnssError)
+                {
+                    if (configureGNSSPPS())
+                        ppsStarted = true;
+                }
+
+                if (gnssError)
+                    changeState(STATE_GNSS_ERROR_AFTER_FINETIME);
+            }
+            else if (gnssTimeUpdated[1]) // Wait for the time to be updated
+            {
+                gnssTimeUpdated[1] = false;
+
+                // The message rate limits this to 1Hz
+                updateTCXO();
+
+                if (ppsStarted)
+                {
+                    tcxoUpdates++;
+
+                    // Save the TCXO control word once per hour only - to protect the LittleFS flash memory
+                    if (tcxoUpdates > 3600)
+                    {
+                        tcxoUpdates = 0;
+                        settings.tcxoControl = myTCXO.getFrequencyControlWord();
+                        recordSystemSettings();
+
+                        systemPrint("TCXO Control Word saved to LFS: ");
+                        systemPrintln(settings.tcxoControl);
+                    }
+                }
+                else
+                    tcxoUpdates = 0;
+            }
         }
         break;
 
+        // Wait for error to clear before resuming TCXO discipline
         case (STATE_GNSS_ERROR_AFTER_FINETIME): {
+            if (gnssPVTUpdated) // Wait for PVT to be updated
+            {
+                gnssPVTUpdated = false;
+
+                updateErrorLED();
+
+                if (!gnssError)
+                    changeState(STATE_GNSS_FINETIME);
+            }
         }
         break;
 
@@ -90,11 +171,11 @@ const char *getState(SystemState state, char *buffer)
     case (STATE_GNSS_NOT_CONFIGURED):
         return "STATE_GNSS_NOT_CONFIGURED";
     case (STATE_GNSS_CONFIGURED):
-        return "STATE_GNSS_NOT_CONFIGURED";
+        return "STATE_GNSS_CONFIGURED";
     case (STATE_GNSS_ERROR_BEFORE_FINETIME):
         return "STATE_GNSS_ERROR_BEFORE_FINETIME";
     case (STATE_GNSS_FINETIME):
-        return "STATE_GNSS_NOT_CONFIGURED";
+        return "STATE_GNSS_FINETIME";
     case (STATE_GNSS_ERROR_AFTER_FINETIME):
         return "STATE_GNSS_ERROR_AFTER_FINETIME";
     case (STATE_NOT_SET):

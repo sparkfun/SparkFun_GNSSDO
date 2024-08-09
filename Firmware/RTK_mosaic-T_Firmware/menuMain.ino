@@ -50,14 +50,14 @@ void menuMain()
         systemPrintf("%d %02d:%02d:%02d.%03lld\r\n", uptimeDays, uptimeHours, uptimeMinutes, uptimeSeconds,
                      uptimeMilliseconds);
 
-        systemPrintf("Filtered by parser: %d NMEA / %d RTCM / %d UBX / %d SBF\r\n", failedParserMessages_NMEA,
+        systemPrintf("Rejected by parser: %d NMEA / %d RTCM / %d UBX / %d SBF\r\n", failedParserMessages_NMEA,
                      failedParserMessages_RTCM, failedParserMessages_UBX, failedParserMessages_SBF);
 
         systemPrintln("Menu: Main");
 
-        systemPrintln("d) Debug software");
+        systemPrintln("c) Configure operation");
 
-        systemPrintln("o) Configure operation");
+        systemPrintln("d) Debug software");
 
         systemPrintln("r) Reset all settings to default");
 
@@ -65,10 +65,10 @@ void menuMain()
 
         byte incoming = getCharacterNumber();
 
-        if (incoming == 'd')
-            menuDebugSoftware();
-        else if (incoming == 'o')
+        if (incoming == 'c')
             menuOperation();
+        else if (incoming == 'd')
+            menuDebugSoftware();
         else if (incoming == 'r')
         {
             systemPrintln("\r\nResetting to factory defaults. Press 'y' to confirm:");

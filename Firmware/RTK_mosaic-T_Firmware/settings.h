@@ -11,9 +11,9 @@ typedef enum
     STATE_GNSS_ERROR_AFTER_FINETIME, // PVTGeodetic Error is non-zero. Oscillator updates are paused
     STATE_NOT_SET, // Must be last on list
 } SystemState;
-volatile SystemState systemState = STATE_GNSS_NOT_CONFIGURED;
-SystemState lastSystemState = STATE_GNSS_NOT_CONFIGURED;
-SystemState requestedSystemState = STATE_GNSS_NOT_CONFIGURED;
+volatile SystemState systemState = STATE_NOT_SET;
+SystemState lastSystemState = STATE_NOT_SET;
+SystemState requestedSystemState = STATE_NOT_SET;
 bool newSystemStateRequested = false;
 
 typedef enum
@@ -204,41 +204,43 @@ typedef struct
 {
     int sizeOfSettings = 0; // sizeOfSettings **must** be the first entry and must be int
     int rtkIdentifier = RTK_IDENTIFIER; // rtkIdentifier **must** be the second entry
+
     bool printDebugMessages = false;
     bool enableHeapReport = false; // Turn on to display free heap
     bool enableTaskReports = false; // Turn on to display task high water marks
-    bool enablePrintBadMessages = false;
-    bool enablePrintStates = true;
-    bool enablePrintDuplicateStates = false;
-    bool enablePrintRtcSync = false;
-    bool enablePrintConditions = true;
-    bool enablePrintConsumers = true;
-    uint32_t periodicPrintInterval_ms = 5000;
-    bool enablePrintIdleTime = false;
-    bool enablePrintGNSSMessages = false;
-    bool enablePrintRingBufferOffsets = false;
-    bool enablePrintBufferOverrun = false;
-    bool disableSetupButton = true;
-    bool echoUserInput = true;
-
     SystemState lastState = STATE_NOT_SET; // Start unit in default state
 
+    int uartReceiveBufferSize = 1024 * 2; // This buffer is filled automatically as the UART receives characters.
     int gnssHandlerBufferSize =
         1024 * 4; // This buffer is filled from the UART receive buffer
+    bool enablePrintBufferOverrun = false;
+
     uint16_t serialGNSSRxFullThreshold = 50; // RX FIFO full interrupt. Max of ~128. See pinUART1Task().
-    int uartReceiveBufferSize = 1024 * 2; // This buffer is filled automatically as the UART receives characters.
-    uint8_t i2cInterruptsCore = 1; // Core where hardware is started and interrupts are assigned to, 0=core, 1=Arduino
-    uint8_t handleGnssDataTaskCore = 1;     // Core where task should run, 0=core, 1=Arduino
-    uint8_t handleGnssDataTaskPriority = 1; // Read from the cicular buffer and dole out to end points (SD, TCP, BT).
-    uint8_t gnssReadTaskCore = 1;           // Core where task should run, 0=core, 1=Arduino
     uint8_t gnssReadTaskPriority =
         1; // Read from ZED-F9x and Write to circular buffer (SD, TCP, BT). 3 being the highest, and 0 being the lowest
+    uint8_t handleGnssDataTaskPriority = 1; // Read from the cicular buffer and dole out to end points (SD, TCP, BT).
+    uint8_t gnssReadTaskCore = 1;           // Core where task should run, 0=core, 1=Arduino
+    uint8_t handleGnssDataTaskCore = 1;     // Core where task should run, 0=core, 1=Arduino
+    uint8_t i2cInterruptsCore = 1; // Core where hardware is started and interrupts are assigned to, 0=core, 1=Arduino
     uint8_t gnssUartInterruptsCore =
         1; // Core where hardware is started and interrupts are assigned to, 0=core, 1=Arduino
 
     int16_t serialTimeoutGNSS = 1; // In ms - used during SerialGNSS.begin. Number of ms to pass of no data before
                                    // hardware serial reports data available.
     uint32_t dataPortBaud = 115200; // Default to 115200
+
+    bool enablePrintBadMessages = false;
+    bool enablePrintStates = true;
+    bool enablePrintDuplicateStates = false;
+    bool enablePrintRtcSync = false;
+    bool enablePrintIdleTime = false;
+    bool enablePrintConditions = true;
+    bool enablePrintConsumers = true;
+    uint32_t periodicPrintInterval_ms = 5000;
+    bool enablePrintGNSSMessages = false;
+    bool enablePrintRingBufferOffsets = false;
+    bool disableSetupButton = true;
+    bool echoUserInput = true;
 
     int ppsInterval = 8; // sec1
     int ppsPolarity = 0; // Low2High
@@ -247,6 +249,7 @@ typedef struct
     int ppsMaxSyncAge_s = 60;
     float ppsPulseWidth_ms = 5.0;
 
+    int32_t tcxoControl = 0; // Store the TCXO control word - to aid locking after power off
     double rxClkBiasLockLimit_ms = 10.0e-6; // Consider the clock locked when the bias is <= this many ms. Default: 10.0ns (10.0e-6ms)
 
     // Add new settings above <------------------------------------------------------------>

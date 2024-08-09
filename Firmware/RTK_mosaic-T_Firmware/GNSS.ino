@@ -68,104 +68,124 @@ bool sendWithResponse(String message, const char *reply, unsigned long timeout, 
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-// Connect to GNSS
+// Begin GNSS
+// Ensure GNSS is communicating on COM4. Request IPStatus
 void beginGNSS()
 {
-    if ((pin_serial2RX >= 0) && (pin_serial2TX >= 0))
+    systemPrintln("Begin GNSS - requesting IPStatus");
+
+    int retries = 20; // The mosaic takes a few seconds to wake up after power on
+
+    while (!sendWithResponse("exeSBFOnce, COM1, IPStatus\n\r", "SBFOnce") && (retries > 0))
     {
-        systemPrint("Begin GNSS - ");
-
-        serialGNSSConfig.begin(settings.dataPortBaud, SERIAL_8N1, pin_serial2RX, pin_serial2TX);
-
-        flushRX(250);
-
-        int retries = 3;
-
-        while (!sendWithResponse("setPPSParameters, off\n\r", "PPSParameters") && (retries > 0)) // Disable PPS initially
-        {
-            Serial.println("No response from mosaic. Retrying - with escape sequence...");
-            sendWithResponse("SSSSSSSSSSSSSSSSSSSS\n\r", "COM4>"); // Send escape sequence
-            retries--;
-        }
-
-        if (retries == 0)
-        {
-            systemPrintln("FAIL");
-            return;
-        }
-
-        if (!sendWithResponse("setClockSyncThreshold, usec500, on\n\r", "ClockSyncThreshold"))
-        {
-            systemPrintln("FAIL");
-            return;
-        }
-
-        if (!sendWithResponse("setSBFGroups, Group1, PVTGeodetic+ReceiverTime\n\r", "SBFGroups"))
-        {
-            systemPrintln("FAIL");
-            return;
-        }
-
-        if (!sendWithResponse("setSBFOutput, Stream1, COM1, Group1, sec1\n\r", "SBFOutput"))
-        {
-            systemPrintln("FAIL");
-            return;
-        }
-
-        if (!sendWithResponse("setSBFOutput, Stream2, COM1, IPStatus, OnChange\n\r", "SBFOutput"))
-        {
-            systemPrintln("FAIL");
-            return;
-        }
-
-        if (!sendWithResponse("exeCopyConfigFile, Current, Boot\n\r", "CopyConfigFile"))
-        {
-            systemPrintln("FAIL");
-            return;
-        }
-
-        if (!sendWithResponse("exeSBFOnce, COM1, IPStatus\n\r", "SBFOnce"))
-        {
-            systemPrintln("FAIL");
-            return;
-        }
-
-        systemPrintln("Success");
-        online.gnss = true;
+        Serial.println("No response from mosaic. Retrying - with escape sequence...");
+        sendWithResponse("SSSSSSSSSSSSSSSSSSSS\n\r", "COM4>"); // Send escape sequence
+        retries--;
     }
+
+    if (retries == 0)
+    {
+        systemPrintln("GNSS FAIL (SBFOnce)");
+        return;
+    }
+
+    systemPrintln("GNSS online. IPStatus requested");
+    online.gnss = true;
 }
 
-void configureGNSSPPS()
+// Initialize GNSS
+// Disable PPS. Set clock sync threshold. Set output messages. Copy config file.
+// This only needs to be done once.
+bool initializeGNSS()
 {
-    if (online.gnss == true)
+    if (!online.gnss)
+        return false;
+
+    systemPrintln("Initialize GNSS");
+
+    flushRX(250);
+
+    int retries = 3; // GNSS is already begun. We shouldn't need to retry.
+
+    while (!sendWithResponse("setPPSParameters, off\n\r", "PPSParameters") && (retries > 0)) // Disable PPS initially
     {
-        systemPrintln("Configuring mosaic PPS - ");
-
-        String ppsParams = String("setPPSParameters, ");
-        ppsParams += String(mosaicPPSParametersInterval[settings.ppsInterval]) + String(", ");
-        ppsParams += String(mosaicPPSParametersPolarity[settings.ppsPolarity]) + String(", ");
-        ppsParams += String(settings.ppsDelay_ns) + String(", ");
-        ppsParams += String(mosaicPPSParametersTimeScale[settings.ppsTimeScale]) + String(", ");
-        ppsParams += String(settings.ppsMaxSyncAge_s) + String(", ");
-        ppsParams += String(settings.ppsPulseWidth_ms);
-        ppsParams += String("\n\r");
-
-        int retries = 3;
-
-        while (!sendWithResponse(ppsParams, "PPSParameters") && (retries > 0)) // Disable PPS initially
-        {
-            Serial.println("No response from mosaic. Retrying - with escape sequence...");
-            sendWithResponse("SSSSSSSSSSSSSSSSSSSS\n\r", "COM4>"); // Send escape sequence
-            retries--;
-        }
-
-        if (retries == 0)
-        {
-            systemPrintln("FAIL");
-            return;
-        }
-
-        systemPrintln("Success");
+        Serial.println("No response from mosaic. Retrying - with escape sequence...");
+        sendWithResponse("SSSSSSSSSSSSSSSSSSSS\n\r", "COM4>"); // Send escape sequence
+        retries--;
     }
+
+    if (retries == 0)
+    {
+        systemPrintln("GNSS FAIL (PPSParameters)");
+        return false;
+    }
+
+    if (!sendWithResponse("setClockSyncThreshold, usec500, on\n\r", "ClockSyncThreshold"))
+    {
+        systemPrintln("GNSS FAIL (ClockSyncThreshold)");
+        return false;
+    }
+
+    if (!sendWithResponse("setSBFGroups, Group1, PVTGeodetic+ReceiverTime\n\r", "SBFGroups"))
+    {
+        systemPrintln("GNSS FAIL (SBFGroups)");
+        return false;
+    }
+
+    if (!sendWithResponse("setSBFOutput, Stream1, COM1, Group1, sec1\n\r", "SBFOutput"))
+    {
+        systemPrintln("GNSS FAIL (SBFOutput Stream1)");
+        return false;
+    }
+
+    if (!sendWithResponse("setSBFOutput, Stream2, COM1, IPStatus, OnChange\n\r", "SBFOutput"))
+    {
+        systemPrintln("GNSS FAIL (SBFOutput Stream2)");
+        return false;
+    }
+
+    if (!sendWithResponse("exeCopyConfigFile, Current, Boot\n\r", "CopyConfigFile"))
+    {
+        systemPrintln("GNSS FAIL (CopyConfigFile)");
+        return false;
+    }
+
+    systemPrintln("GNSS initialized");
+    return true;
+}
+
+bool configureGNSSPPS()
+{
+    if (!online.gnss)
+        return false;
+
+    systemPrintln("Configuring GNSS PPS");
+
+    String ppsParams = String("setPPSParameters, ");
+    ppsParams += String(mosaicPPSParametersInterval[settings.ppsInterval]) + String(", ");
+    ppsParams += String(mosaicPPSParametersPolarity[settings.ppsPolarity]) + String(", ");
+    ppsParams += String(settings.ppsDelay_ns) + String(", ");
+    ppsParams += String(mosaicPPSParametersTimeScale[settings.ppsTimeScale]) + String(", ");
+    ppsParams += String(settings.ppsMaxSyncAge_s) + String(", ");
+    ppsParams += String(settings.ppsPulseWidth_ms);
+    ppsParams += String("\n\r");
+
+    int retries = 3;
+
+    while (!sendWithResponse(ppsParams, "PPSParameters") && (retries > 0)) // Disable PPS initially
+    {
+        Serial.println("No response from mosaic. Retrying - with escape sequence...");
+        sendWithResponse("SSSSSSSSSSSSSSSSSSSS\n\r", "COM4>"); // Send escape sequence
+        retries--;
+    }
+
+    if (retries == 0)
+    {
+        systemPrintln("GNSS FAIL (PPSParameters)");
+        return false;
+    }
+
+    systemPrintln("GNSS PPS configured");
+    return true;
 }
 
