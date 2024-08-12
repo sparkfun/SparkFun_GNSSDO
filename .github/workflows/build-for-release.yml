@@ -80,7 +80,6 @@ jobs:
         run: arduino-cli lib install --git-url
           https://github.com/sparkfun/SparkFun_SiT5358_DCTCXO_Arduino_Library.git          
 
-
       - name: Copy custom app3M_fat9M_16MB.csv
         run:
           cp Firmware/app3M_fat9M_16MB.csv /home/runner/.arduino15/packages/esp32/hardware/esp32/${{ env.CORE_VERSION }}/tools/partitions/app3M_fat9M_16MB.csv

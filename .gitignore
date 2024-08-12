@@ -2,6 +2,12 @@
 ## SparkFun Useful stuff
 #################
 
+*.bootloader.bin
+*.merged.bin
+*.partitions.bin
+
+*backups*
+
 ## AVR Development
 *.eep
 *.elf
