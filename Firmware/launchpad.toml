@@ -1,0 +1,19 @@
+esp_toml_version = 1.0
+
+# This should be a publicly accessible URL of the file server where your firmware binaries are available for download
+firmware_images_url = "https://github.com/sparkfun/SparkFun_RTK_mosaic-T/tree/main/Firmware/Binaries"
+
+# Apps that you support and for which the binaries are available to publish. You can have multiple apps as a comma separated list
+# The launch pad UI will automatically show these Apps in the available apps dropdown
+# There should be a config section per listed App
+supported_apps = ["SparkFun_RTK_mosaic-T"]
+
+[SparkFun_RTK_mosaic-T]
+# ESP32 Chipsets for which you have a supported Firmware App. Define a property for each supported chipset in the given format.
+chipsets = ["ESP32"]
+# Configure the name of the binary file
+image.esp32 = "RTK_mosaic-T_Firmware_v1_0.bin"
+# Optional: A brief introduction to this app.
+description = "Firmware for the SparkFun RTK mosaic-T"
+# Optional: Supported console baudrate for app firmware (default value is 115200)
+console_baudrate = 115200
