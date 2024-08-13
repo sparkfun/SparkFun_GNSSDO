@@ -30,6 +30,12 @@ icon: material/book-open-page-variant
 
 -	Designed and manufactured in Boulder, Colorado, USA, the SparkFun RTK mosaic-T is the perfect solution for your high-precision timing needs. Based around the multi-constellation, multi-frequency, L5-ready mosaic-T from Septentrio, this is our most accurate GNSS timing product to date. It features a SiTime SiT5358 disciplined 10MHz Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO) providing excellent clock accuracy, stability and holdover. The mosaic-T also has built-in on-module support for the Fugro AtomiChron L-band timing service.
 
+	Under the hood, the RTK mosaic-T is based on the mosaic-T GNSS module from Septentrio, plus the Espressif ESP32-WROVER processor (16MB flash, 8MB PSRAM). The mosaic-T has USB-C connectivity (with Ethernet-over-USB), multiple UARTs and supports full Ethernet connectivity. You can connect the mosaic-T directly to your Ethernet network - our product supports Power-over-Ethernet too. The ESP32 rides shotgun, disciplining the DCTCXO and controlling the OLED display. The RTK mosaic-T has multiple power options including USB-C, PoE and 9V-36V DC, making it easy to connect it to a battery-backed supply. Robust SMA connections and screw cage terminals provide access to the Pulse-Per-Second and 10MHz clock signals.
+
+</div>
+
+## :material/tools:&nbsp;Connectivity
+
 -	SMA Connections:
     - GNSS Antenna (L1/L2/L5/L-Band) - provides 5V for an active antenna
     - 10MHz Sine Wave - disciplined, 50Ohm, 3.3V / 5V switchable
@@ -46,10 +52,6 @@ icon: material/book-open-page-variant
     - USB-C
     - Power-over-Ethernet (PoE)
     - 9V-36V DC input (fully isolated)
-
--	Under the hood, the RTK mosaic-T is based on the mosaic-T GNSS module from Septentrio, plus the Espressif ESP32-WROVER processor (16MB flash, 8MB PSRAM). The mosaic-T has USB-C connectivity (with Ethernet-over-USB), multiple UARTs and supports full Ethernet connectivity. You can connect the mosaic-T directly to your Ethernet network - our product supports Power-over-Ethernet too. The ESP32 rides shotgun, disciplining the DCTCXO and controlling the OLED display. The RTK mosaic-T has multiple power options including USB-C, PoE and 9V-36V DC, making it easy to connect it to a battery-backed supply. Robust SMA connections and screw cage terminals provide access to the Pulse-Per-Second and 10MHz clock signals.
-
-</div>
 
 ??? question "Product Comparison"
 	Below is a simple comparison table between our breakout board and Septentrio's development and evaluation kits:
