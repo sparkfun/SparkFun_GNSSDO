@@ -40,11 +40,9 @@ Documentation
 Firmware Update
 -------------------
 
-The RTK mosaic-T firmware can be updated using ESP Launchpad:
+The **[/Firmware/Binaries](/Firmware/Binaries/)** folder contains the firmware binaries.
 
-<a href="https://espressif.github.io/esp-launchpad/?flashConfigURL=https://github.com/sparkfun/SparkFun_RTK_mosaic-T/tree/main/Firmware/launchpad.toml">
-    <img alt="Try it with ESP Launchpad" src="https://espressif.github.io/esp-launchpad/assets/try_with_launchpad.png" width="250" height="70">
-</a>
+You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
 
 Repository Contents
 -------------------
