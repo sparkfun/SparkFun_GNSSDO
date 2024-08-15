@@ -8244,7 +8244,7 @@
 			(uuid "7d02cbaf-e2d4-4064-8f61-3fe3ed2039dc")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/c43afff9-f83a-4a8d-a24d-a11c71953b08"
 					(reference "R25")
 					(unit 1)
@@ -8717,7 +8717,7 @@
 			(uuid "89c804d4-adb0-4d77-9080-10d4d184400f")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/c43afff9-f83a-4a8d-a24d-a11c71953b08"
 					(reference "C10")
 					(unit 1)
@@ -8950,7 +8950,7 @@
 			(uuid "34c5f37b-b0c1-420d-976e-03d4a2776172")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/c43afff9-f83a-4a8d-a24d-a11c71953b08"
 					(reference "C25")
 					(unit 1)
@@ -9176,7 +9176,7 @@
 			(uuid "32a351eb-0353-4cf1-884e-2e0db6444d1d")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/c43afff9-f83a-4a8d-a24d-a11c71953b08"
 					(reference "L2")
 					(unit 1)
@@ -9308,7 +9308,7 @@
 			(uuid "a36249f7-6173-4381-9ab9-db5b32a043ca")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/c43afff9-f83a-4a8d-a24d-a11c71953b08"
 					(reference "#PWR051")
 					(unit 1)
@@ -10150,7 +10150,7 @@
 			(uuid "4bab6404-2170-4207-9144-c6043b0fab7e")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/c43afff9-f83a-4a8d-a24d-a11c71953b08"
 					(reference "C13")
 					(unit 1)
@@ -10479,7 +10479,7 @@
 			(uuid "da4ea4d4-df3c-49ec-a521-671d67c95358")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/c43afff9-f83a-4a8d-a24d-a11c71953b08"
 					(reference "C15")
 					(unit 1)
@@ -10583,7 +10583,7 @@
 			(uuid "d9886a6d-f2ce-4c26-8414-df28384f6f22")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/c43afff9-f83a-4a8d-a24d-a11c71953b08"
 					(reference "C9")
 					(unit 1)
@@ -10659,7 +10659,7 @@
 			(uuid "eb047060-0e5e-4265-b4e8-e7c0f38a92e0")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/c43afff9-f83a-4a8d-a24d-a11c71953b08"
 					(reference "R17")
 					(unit 1)
@@ -10873,7 +10873,7 @@
 			(uuid "fd004856-1e90-4e7a-80a6-349774a809b2")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/c43afff9-f83a-4a8d-a24d-a11c71953b08"
 					(reference "C14")
 					(unit 1)
@@ -10952,7 +10952,7 @@
 			(uuid "5b6d87eb-5d1f-4332-9d8b-4f3c66ae86d5")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/c43afff9-f83a-4a8d-a24d-a11c71953b08"
 					(reference "R23")
 					(unit 1)
@@ -11116,7 +11116,7 @@
 			(uuid "bed897ac-621d-4ccd-ad22-3f14fd8f1c2f")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/c43afff9-f83a-4a8d-a24d-a11c71953b08"
 					(reference "R19")
 					(unit 1)
@@ -11538,7 +11538,7 @@
 			(uuid "e33959a6-f4d0-4857-b4a0-c2db0ca2cc52")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/c43afff9-f83a-4a8d-a24d-a11c71953b08"
 					(reference "JP12")
 					(unit 1)
@@ -12250,7 +12250,7 @@
 			(uuid "07216459-899f-48a5-b761-7e09634bf642")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/c43afff9-f83a-4a8d-a24d-a11c71953b08"
 					(reference "R33")
 					(unit 1)
