@@ -6680,7 +6680,7 @@
 			(uuid "0d5776ab-dbd1-47a5-b3c2-059dd7a74083")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/d9a77ac1-2999-4329-b708-8e6cc1b00c22"
 					(reference "C62")
 					(unit 1)
@@ -8605,7 +8605,7 @@
 			(uuid "319ed596-a1b7-49a6-8148-a8721fb52b29")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/d9a77ac1-2999-4329-b708-8e6cc1b00c22"
 					(reference "SW4")
 					(unit 1)
@@ -8746,7 +8746,7 @@
 			(uuid "d4718b03-3756-4717-847d-47c1105360d2")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/d9a77ac1-2999-4329-b708-8e6cc1b00c22"
 					(reference "R16")
 					(unit 1)
@@ -11300,7 +11300,7 @@
 			(uuid "d798dfc5-6ec8-4c4e-997c-b51313196554")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/d9a77ac1-2999-4329-b708-8e6cc1b00c22"
 					(reference "L5")
 					(unit 1)
@@ -11542,7 +11542,7 @@
 			(uuid "c12aecbe-7fab-453b-921c-c90277278313")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/d9a77ac1-2999-4329-b708-8e6cc1b00c22"
 					(reference "U8")
 					(unit 1)
@@ -11751,7 +11751,7 @@
 			(uuid "d6eef5bb-a117-4499-a10c-952d68ff112e")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/d9a77ac1-2999-4329-b708-8e6cc1b00c22"
 					(reference "#PWR0134")
 					(unit 1)
@@ -12950,7 +12950,7 @@
 			(uuid "3ae2b8a4-d2f2-4cbb-aed5-ed281b698faa")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/d9a77ac1-2999-4329-b708-8e6cc1b00c22"
 					(reference "C59")
 					(unit 1)
@@ -14296,7 +14296,7 @@
 			(uuid "b76f8f87-1629-42be-9926-fa75b6119525")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/d9a77ac1-2999-4329-b708-8e6cc1b00c22"
 					(reference "L6")
 					(unit 1)
@@ -14915,7 +14915,7 @@
 			(uuid "d85e68fc-1358-4c41-9ac8-5e6d657b9e7a")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/d9a77ac1-2999-4329-b708-8e6cc1b00c22"
 					(reference "C55")
 					(unit 1)
@@ -15046,7 +15046,7 @@
 			(uuid "6130d828-b7a0-4891-ad7e-57033667f62a")
 		)
 		(instances
-			(project ""
+			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/d9a77ac1-2999-4329-b708-8e6cc1b00c22"
 					(reference "TP40")
 					(unit 1)
