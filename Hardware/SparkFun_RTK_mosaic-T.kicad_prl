@@ -84,11 +84,11 @@
         "open": true,
         "window": {
           "display": 0,
-          "maximized": true,
-          "pos_x": -8,
-          "pos_y": -8,
-          "size_x": 1936,
-          "size_y": 1056
+          "maximized": false,
+          "pos_x": 26,
+          "pos_y": 9,
+          "size_x": 1918,
+          "size_y": 1038
         }
       }
     ]
