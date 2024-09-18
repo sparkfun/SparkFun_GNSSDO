@@ -66,7 +66,6 @@ void identifyBoard()
     {
         systemPrintln("Out of band or nonexistent resistor IDs");
         productVariant = RTK_UNKNOWN;
-        productVariant = RTK_MOSAIC_X5; // For code development only - TODO delete this
     }
 }
 
@@ -124,63 +123,6 @@ void beginBoard()
 
         pin_SDA2 = 18;
         pin_SCL2 = 19;
-
-        pin_setupButton = 0;
-
-        displayType = DISPLAY_128x64;
-    }
-
-    // For code development only - TODO delete this
-    else if (productVariant == RTK_MOSAIC_X5)
-    {
-        // ESP32-WROVER-IE Pin Allocations:
-        // D0  : Boot + Boot Button + Ethernet REFCLK
-        // D1  : Serial TX (CH340 RX)
-        // D2  : Serial TX (mosaic-X5 COM4 RX)
-        // D3  : Serial RX (CH340 TX)
-        // D4  : Serial RX (mosaic-X5 COM4 TX)
-        // D5  : Ethernet ERST
-        // D12 : LED WiFi
-        // D13 : LED BT
-        // D14 : I2C SCL
-        // D15 : I2C SDA
-        // D16 : N/C
-        // D17 : N/C
-        // D18 : Ethernet MDIO
-        // D19 : Ethernet TXD0
-        // D21 : Ethernet TXEN
-        // D22 : Ethernet TXD1
-        // D23 : Ethernet MDC
-        // D25 : Ethernet RXD0
-        // D26 : Ethernet RXD1
-        // D27 : Ethernet CRSDV
-        // D32 : Serial TX (IO header)  - ** Link to X5 COM1 RX (IO header) **
-        // D33 : Serial RTS (IO header) - ** Link to X5 COM1 CTS (IO header) **
-        // A34 : Serial RX (IO header)  - ** Link to X5 COM1 TX (IO header) **
-        // A35 : Serial CTS (IO header) - ** Link to X5 COM1 RTS (IO header) **
-        // A36 : N/C
-        // A39 : N/C
-
-        // ** Ensure RTK mosaic-X5 VIO is set to 3.3V **
-        // ** Link SiT5358 Enulator to VIO, GND, SDA and SCL (IO header) **
-        // ** The SiT5358 will share the I2C bus with the OLED. On mosaic-T, the OLED has its own I2C bus **
-
-        pin_errorLED = 13;
-        pin_lockLED = 12;
-
-        pin_serial1TX = 32;
-        pin_serial1RX = 34;
-        pin_serial1CTS = 35;
-        pin_serial1RTS = 33;
-
-        pin_serial2TX = 2;
-        pin_serial2RX = 4;
-
-        pin_SDA1 = 15;
-        pin_SCL1 = 14;
-
-        pin_SDA2 = -1;
-        pin_SCL2 = -1;
 
         pin_setupButton = 0;
 
@@ -313,7 +255,7 @@ void beginFS()
 // Set LEDs for output and configure PWM
 void beginLEDs()
 {
-    if ((productVariant == RTK_MOSAIC_T) || (productVariant == RTK_MOSAIC_X5))
+    if (productVariant == RTK_MOSAIC_T)
     {
         pinMode(pin_errorLED, OUTPUT);
         pinMode(pin_lockLED, OUTPUT);
@@ -343,7 +285,7 @@ void beginSystemState()
         factoryReset(false); // We do not have the SD semaphore
     }
 
-    if ((productVariant == RTK_MOSAIC_T) || (productVariant == RTK_MOSAIC_X5))
+    if (productVariant == RTK_MOSAIC_T)
     {
         if (settings.lastState == STATE_NOT_SET) // Default after factory reset
             settings.lastState = STATE_GNSS_NOT_CONFIGURED;
@@ -435,12 +377,6 @@ void pinI2C1Task(void *pvParameters)
                 case 0x3d: {
                     systemPrintf("0x%02x - SSD1306 (64x48) OLED Driver\r\n", addr);
                     i2cDisplay = i2c_1;
-                    break;
-                }
-
-                case 0x60: { // For code development only - TODO delete this
-                    systemPrintf("0x%02x - SiT5358 TCXO\r\n", addr);
-                    i2cTCXO = i2c_1;
                     break;
                 }
             }
@@ -571,7 +507,6 @@ void updateTCXO()
 {
     if (online.tcxo)
     {
-        myTCXO.setFrequencyByBiasMillis(gnssClockBias_ms);
+        myTCXO.setFrequencyByBiasMillis(gnssClockBias_ms, settings.Pk, settings.Ik);
     }
 }
-

@@ -19,7 +19,6 @@ bool newSystemStateRequested = false;
 typedef enum
 {
     RTK_MOSAIC_T = 0,
-    RTK_MOSAIC_X5, // For code development only - TODO delete this
     // Add new values just above this line
     RTK_UNKNOWN,
 } ProductVariant;
@@ -27,7 +26,6 @@ ProductVariant productVariant = RTK_UNKNOWN;
 
 const char *const productDisplayNames[] = {
     "mosaic-T",
-    "mosaic-X5", // For code development only - TODO delete this
     // Add new values just above this line
     "Unknown",
 };
@@ -35,7 +33,6 @@ const int productDisplayNamesEntries = sizeof(productDisplayNames) / sizeof(prod
 
 const char *const platformFilePrefixTable[] = {
     "SFE_mosaic-T",
-    "SFE_mosaic-X5", // For code development only - TODO delete this
     // Add new values just above this line
     "SFE_Unknown",
 };
@@ -43,7 +40,6 @@ const int platformFilePrefixTableEntries = sizeof(platformFilePrefixTable) / siz
 
 const char *const platformPrefixTable[] = {
     "mosaic-T",
-    "mosaic-X5", // For code development only - TODO delete this
     // Add new values just above this line
     "Unknown",
 };
@@ -251,6 +247,8 @@ typedef struct
 
     int32_t tcxoControl = 0; // Store the TCXO control word - to aid locking after power off
     double rxClkBiasLockLimit_ms = 10.0e-6; // Consider the clock locked when the bias is <= this many ms. Default: 10.0ns (10.0e-6ms)
+    double Pk = -0.25; // PI P term
+    double Ik = -0.01; // PI I term
 
     // Add new settings above <------------------------------------------------------------>
 

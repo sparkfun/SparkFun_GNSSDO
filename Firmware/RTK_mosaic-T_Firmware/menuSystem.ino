@@ -356,6 +356,12 @@ void menuOperation()
         systemPrint("7) Pulse-Per-Second Pulse Width (ms): ");
         systemPrintln(settings.ppsPulseWidth_ms);
 
+        systemPrint("8) Pk (PI P term): ");
+        systemPrintf("%.3e\r\n", settings.Pk);
+
+        systemPrint("9) Ik (PI I term): ");
+        systemPrintf("%.3e\r\n", settings.Ik);
+
         systemPrintln("\r\nx) Exit");
 
         byte incoming = getCharacterNumber();
@@ -430,6 +436,30 @@ void menuOperation()
             else
             {
                 settings.ppsPulseWidth_ms = width;
+                ppsStarted = false; // Restart PPS afterwards
+            }
+        }
+        else if (incoming == 8)
+        {
+            systemPrint("Enter the PI P term: ");
+            double p = getDouble();
+            if (p >= 0.0 || p <= -1000.0) // Arbitrary limits
+                systemPrintln("Error: term is out of range");
+            else
+            {
+                settings.Pk = p; // Recorded to NVM at main menu exit
+                ppsStarted = false; // Restart PPS afterwards
+            }
+        }
+        else if (incoming == 9)
+        {
+            systemPrint("Enter the PI I term: ");
+            double i = getDouble();
+            if (i >= 0.0 || i <= -1000.0) // Arbitrary limits
+                systemPrintln("Error: term is out of range");
+            else
+            {
+                settings.Ik = i; // Recorded to NVM at main menu exit
                 ppsStarted = false; // Restart PPS afterwards
             }
         }

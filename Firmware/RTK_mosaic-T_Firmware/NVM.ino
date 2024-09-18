@@ -92,6 +92,8 @@ void recordSystemSettingsToFile(File *settingsFile)
 
     settingsFile->printf("%s=%d\r\n", "tcxoControl", settings.tcxoControl);
     settingsFile->printf("%s=%0.3e\r\n", "rxClkBiasLockLimit_ms", settings.rxClkBiasLockLimit_ms);
+    settingsFile->printf("%s=%0.3e\r\n", "Pk", settings.Pk);
+    settingsFile->printf("%s=%0.3e\r\n", "Ik", settings.Ik);
 
     //settingsFile->printf("%s=%d\r\n", "", settings.);
 
@@ -348,6 +350,10 @@ bool parseLine(char *str, Settings *settings)
         settings->tcxoControl = d;
     else if (strcmp(settingName, "rxClkBiasLockLimit_ms") == 0)
         settings->rxClkBiasLockLimit_ms = d;
+    else if (strcmp(settingName, "Pk") == 0)
+        settings->Pk = d;
+    else if (strcmp(settingName, "Ik") == 0)
+        settings->Ik = d;
 
     //else if (strcmp(settingName, "") == 0)
     //    settings-> = d;

@@ -678,7 +678,7 @@ void ButtonCheckTask(void *e)
 
     while (true)
     {
-        if ((productVariant == RTK_MOSAIC_T) || (productVariant == RTK_MOSAIC_X5))
+        if (productVariant == RTK_MOSAIC_T)
         {
             if (setupBtn &&
                 (settings.disableSetupButton == false)) // Allow check of the setup button if not overridden by settings
