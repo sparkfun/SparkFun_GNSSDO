@@ -31,6 +31,23 @@ void menuDebugSoftware()
         systemPrintf("%s\r\n", settings.enablePrintRtcSync ? "Enabled" : "Disabled");
 
         systemPrint("8) Print conditions: ");
+        {
+            switch (settings.enablePrintConditions)
+            {
+                default:
+                    systemPrintln("Unknown");
+                    break;
+                case 0:
+                    systemPrintln("Disabled");
+                    break;
+                case 1:
+                    systemPrintln("Enabled (Text)");
+                    break;
+                case 2:
+                    systemPrintln("Enabled (CSV)");
+                    break;
+            }
+        }
         systemPrintf("%s\r\n", settings.enablePrintConditions ? "Enabled" : "Disabled");
 
         systemPrint("9) Print consumers: ");
@@ -124,13 +141,23 @@ void menuDebugSoftware()
         else if (incoming == 7)
             settings.enablePrintRtcSync ^= 1;
         else if (incoming == 8)
-            settings.enablePrintConditions ^= 1;
+        {
+            settings.enablePrintConditions += 1;
+            if (settings.enablePrintConditions > 2)
+                settings.enablePrintConditions = 0;
+        }
         else if (incoming == 9)
             settings.enablePrintConsumers ^= 1;
         else if (incoming == 10)
             settings.enablePrintIdleTime ^= 1;
         else if (incoming == 11)
+        {
             settings.enablePrintGNSSMessages ^= 1;
+            if (settings.enablePrintGNSSMessages)
+                myTCXO.enableDebug(&Serial);
+            else
+                myTCXO.disableDebug();
+        }
         else if (incoming == 12)
             settings.enablePrintRingBufferOffsets ^= 1;
         else if (incoming == 13)
@@ -443,7 +470,7 @@ void menuOperation()
         {
             systemPrint("Enter the PI P term: ");
             double p = getDouble();
-            if (p >= 0.0 || p <= -1000.0) // Arbitrary limits
+            if (p <= 0.0 || p >= 10.0) // Arbitrary limits
                 systemPrintln("Error: term is out of range");
             else
             {
@@ -455,7 +482,7 @@ void menuOperation()
         {
             systemPrint("Enter the PI I term: ");
             double i = getDouble();
-            if (i >= 0.0 || i <= -1000.0) // Arbitrary limits
+            if (i <= 0.0 || i >= 10.0) // Arbitrary limits
                 systemPrintln("Error: term is out of range");
             else
             {
@@ -478,48 +505,99 @@ void menuOperation()
 }
 
 // Print the current long/lat/alt
-void printCurrentConditions()
+void printCurrentConditions(bool CSV)
 {
+    static bool firstTime = true;
+
     if (online.gnss == true)
     {
-        systemPrintf("%04d/%02d/%02d %02d:%02d:%02d",
-            gnssYear, gnssMonth, gnssDay, gnssHour, gnssMinute, gnssSecond);
-        
-        systemPrint(", Lat: ");
-        systemPrint(gnssLatitude_d, 7);
+        if (CSV)
+        {
+            if (firstTime)
+            {
+                systemPrintln("YYYY/MM/DD,HH:MM:SS,TOW(ms),Lat,Lon,Alt,TimeSys,Error,Fine,PPS,Bias,TCXO,Pk,Ik");
+                firstTime = false;
+            }
 
-        systemPrint(", Lon: ");
-        systemPrint(gnssLongitude_d, 7);
+            systemPrintf("%04d/%02d/%02d,%02d:%02d:%02d",
+                gnssYear, gnssMonth, gnssDay, gnssHour, gnssMinute, gnssSecond);
+            
+            systemPrintf(",%lu", gnssTOW_ms);
+            
+            systemPrint(",");
+            systemPrint(gnssLatitude_d, 7);
 
-        systemPrint(", Alt: ");
-        systemPrint(gnssAltitude_m, 4);
+            systemPrint(",");
+            systemPrint(gnssLongitude_d, 7);
 
-        systemPrint(", Sys: ");
-        systemPrint(mosaicTimeSystemNameFromId(gnssTimeSys));
+            systemPrint(",");
+            systemPrint(gnssAltitude_m, 4);
 
-        systemPrint(", Error: ");
-        systemPrint(mosaicPVTErrorNameFromId(gnssError));
+            systemPrint(",");
+            systemPrint(mosaicTimeSystemNameFromId(gnssTimeSys));
 
-        systemPrint(", Fine: ");
-        systemPrint(gnssFineTime ? "True" : "False");
+            systemPrint(",");
+            systemPrint(gnssError);
 
-        systemPrint(", PPS: ");
-        systemPrint(ppsStarted ? "On" : "Off");
+            systemPrint(",");
+            systemPrint(gnssFineTime);
 
-        if ((gnssClockBias_ms >= 1.0) || (gnssClockBias_ms <= -1.0))
-            systemPrintf(", Bias: %.3fms",
-                (float)gnssClockBias_ms);
-        else if ((gnssClockBias_ms >= 0.001) || (gnssClockBias_ms <= -0.001))
-            systemPrintf(", Bias: %.3fus",
-                (float)(gnssClockBias_ms * 1000.0));
+            systemPrint(",");
+            systemPrint(ppsStarted);
+
+            systemPrintf(",%.3e", gnssClockBias_ms / 1000.0); // Display clock bias in seconds
+
+            systemPrintf(",%ld", myTCXO.getFrequencyControlWord());
+            
+            systemPrint(",");
+            systemPrint(settings.Pk, 3);
+            
+            systemPrint(",");
+            systemPrint(settings.Ik, 3);
+            
+            systemPrintln();
+        }
         else
-            systemPrintf(", Bias: %.3fns",
-                (float)(gnssClockBias_ms * 1000000.0));
+        {
+            systemPrintf("%04d/%02d/%02d %02d:%02d:%02d",
+                gnssYear, gnssMonth, gnssDay, gnssHour, gnssMinute, gnssSecond);
+            
+            systemPrint(", Lat: ");
+            systemPrint(gnssLatitude_d, 7);
 
-        systemPrint(", TCXO Control: ");
-        systemPrint(myTCXO.getFrequencyControlWord());
-        
-        systemPrintln();
+            systemPrint(", Lon: ");
+            systemPrint(gnssLongitude_d, 7);
+
+            systemPrint(", Alt: ");
+            systemPrint(gnssAltitude_m, 4);
+
+            systemPrint(", Sys: ");
+            systemPrint(mosaicTimeSystemNameFromId(gnssTimeSys));
+
+            systemPrint(", Error: ");
+            systemPrint(mosaicPVTErrorNameFromId(gnssError));
+
+            systemPrint(", Fine: ");
+            systemPrint(gnssFineTime ? "True" : "False");
+
+            systemPrint(", PPS: ");
+            systemPrint(ppsStarted ? "On" : "Off");
+
+            if ((gnssClockBias_ms >= 1.0) || (gnssClockBias_ms <= -1.0))
+                systemPrintf(", Bias: %.3fms",
+                    (float)gnssClockBias_ms);
+            else if ((gnssClockBias_ms >= 0.001) || (gnssClockBias_ms <= -0.001))
+                systemPrintf(", Bias: %.3fus",
+                    (float)(gnssClockBias_ms * 1000.0));
+            else
+                systemPrintf(", Bias: %.3fns",
+                    (float)(gnssClockBias_ms * 1000000.0));
+
+            systemPrint(", TCXO Control: ");
+            systemPrint(myTCXO.getFrequencyControlWord());
+            
+            systemPrintln();
+        }
     }
 }
 

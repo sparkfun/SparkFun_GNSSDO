@@ -230,10 +230,10 @@ typedef struct
     bool enablePrintDuplicateStates = false;
     bool enablePrintRtcSync = false;
     bool enablePrintIdleTime = false;
-    bool enablePrintConditions = true;
+    uint8_t enablePrintConditions = 2; // 0 : disabled; 1 : enabled (text); 2 : enabled (CSV)
     bool enablePrintConsumers = true;
-    uint32_t periodicPrintInterval_ms = 5000;
-    bool enablePrintGNSSMessages = false;
+    uint32_t periodicPrintInterval_ms = 1000; // TODO: 5000;
+    bool enablePrintGNSSMessages = true; // TODO: false;
     bool enablePrintRingBufferOffsets = false;
     bool disableSetupButton = true;
     bool echoUserInput = true;
@@ -247,8 +247,8 @@ typedef struct
 
     int32_t tcxoControl = 0; // Store the TCXO control word - to aid locking after power off
     double rxClkBiasLockLimit_ms = 10.0e-6; // Consider the clock locked when the bias is <= this many ms. Default: 10.0ns (10.0e-6ms)
-    double Pk = -0.25; // PI P term
-    double Ik = -0.01; // PI I term
+    double Pk = 0.5; // PI P term
+    double Ik = 0.0; // PI I term
 
     // Add new settings above <------------------------------------------------------------>
 

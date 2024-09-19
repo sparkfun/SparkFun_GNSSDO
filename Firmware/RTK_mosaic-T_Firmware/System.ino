@@ -34,7 +34,7 @@ void printConditions()
     // Periodically print the position etc.
     if (settings.enablePrintConditions && ((millis() - lastPrintConditions) > settings.periodicPrintInterval_ms))
     {
-        printCurrentConditions();
+        printCurrentConditions(settings.enablePrintConditions == 2);
         lastPrintConditions = millis();
     }
 }
