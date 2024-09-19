@@ -630,23 +630,6 @@ void printRtcmMaxLength(PARSE_STATE *parse)
     systemPrintf("RTCM parser error maxLength: %d bytes\r\n", parse->maxLength);
 }
 
-// Print the u-blox checksum error
-void printUbloxChecksumError(PARSE_STATE *parse)
-{
-    printTimeStamp();
-    systemPrintf("    %s u-blox %d.%d, %2d bytes, bad checksum, expecting 0x%02X%02X, computed: 0x%02X%02X\r\n",
-                 parse->parserName, parse->message >> 8, parse->message & 0xff, parse->length,
-                 parse->buffer[parse->nmeaLength - 2], parse->buffer[parse->nmeaLength - 1], parse->ck_a,
-                 parse->ck_b);
-}
-
-// Print the u-blox invalid data error
-void printUbloxInvalidData(PARSE_STATE *parse)
-{
-    dumpBuffer(parse->buffer, parse->length - 1);
-    systemPrintf("    %s Invalid UBX data, %d bytes\r\n", parse->parserName, parse->length - 1);
-}
-
 // Print the SBF checksum error
 void printSbfChecksumError(PARSE_STATE *parse)
 {

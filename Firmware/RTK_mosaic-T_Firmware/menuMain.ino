@@ -50,8 +50,8 @@ void menuMain()
         systemPrintf("%d %02d:%02d:%02d.%03lld\r\n", uptimeDays, uptimeHours, uptimeMinutes, uptimeSeconds,
                      uptimeMilliseconds);
 
-        systemPrintf("Rejected by parser: %d NMEA / %d RTCM / %d UBX / %d SBF\r\n", failedParserMessages_NMEA,
-                     failedParserMessages_RTCM, failedParserMessages_UBX, failedParserMessages_SBF);
+        systemPrintf("Rejected by parser: %d NMEA / %d RTCM / %d SBF\r\n", failedParserMessages_NMEA,
+                     failedParserMessages_RTCM, failedParserMessages_SBF);
 
         systemPrintln("Menu: Main");
 

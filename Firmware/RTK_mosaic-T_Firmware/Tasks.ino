@@ -140,7 +140,7 @@ void gnssReadTask(void *e)
 }
 
 // Process a complete message incoming from parser
-// If we get a complete NMEA/UBX/RTCM message, pass it on to the consumers
+// If we get a complete NMEA/RTCM message, pass it on to the consumers
 void processUart1Message(PARSE_STATE *parse, uint8_t type)
 {
     int32_t bytesToCopy;
@@ -166,12 +166,6 @@ void processUart1Message(PARSE_STATE *parse, uint8_t type)
         case SENTENCE_TYPE_SBF:
             systemPrintf("%s SBF %d, %2d bytes\r\n", parse->parserName, parse->message & 0x1FFF, parse->length);
             break;
-
-        case SENTENCE_TYPE_UBX:
-            systemPrintf("%s UBX %d.%d, %2d bytes\r\n", parse->parserName, parse->message >> 8, parse->message & 0xff,
-                         parse->length);
-            break;
-
         }
     }
 

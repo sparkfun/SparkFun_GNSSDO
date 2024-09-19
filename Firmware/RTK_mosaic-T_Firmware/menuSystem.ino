@@ -478,7 +478,7 @@ void menuOperation()
         {
             systemPrint("Enter the PI I term: ");
             double i = getDouble();
-            if (i <= 0.0 || i >= 10.0) // Arbitrary limits
+            if (i < 0.0 || i >= 10.0) // Arbitrary limits
                 systemPrintln("Error: term is out of range");
             else
             {

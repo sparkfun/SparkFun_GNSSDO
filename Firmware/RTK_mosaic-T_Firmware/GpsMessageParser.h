@@ -24,7 +24,6 @@ enum
     SENTENCE_TYPE_NMEA,
     SENTENCE_TYPE_RTCM,
     SENTENCE_TYPE_SBF,
-    SENTENCE_TYPE_UBX,
     // Add new sentence types above this line
 };
 
@@ -53,13 +52,11 @@ typedef struct _PARSE_STATE
     uint16_t bytesRemaining;             // Bytes remaining in RTCM CRC calculation
     uint16_t length;                     // Message length including line termination
     uint16_t maxLength;                  // Maximum message length including line termination
-    uint16_t message;                    // RTCM message number. UBX Class & ID. SBF ID
+    uint16_t message;                    // RTCM message number. SBF ID
     uint16_t nmeaLength;                 // Length of the NMEA message without line termination
     uint8_t buffer[PARSE_BUFFER_LENGTH]; // Buffer containing the message
     uint8_t nmeaMessageName[16];         // Message name
     uint8_t nmeaMessageNameLength;       // Length of the message name
-    uint8_t ck_a;                        // U-blox checksum byte 1
-    uint8_t ck_b;                        // U-blox checksum byte 2
     uint16_t sbfCrcExpected;             // Expected SBF CRC - from the block header
     uint16_t sbfCrcComputed;             // SBF CRC - calculated from the ID to the end of the block
 } PARSE_STATE;
@@ -80,18 +77,11 @@ typedef struct _PARSE_STATE
 #define RTCM_PREAMBLE
 #endif  // PARSE_RTCM_MESSAGES
 
-#ifdef  PARSE_UBLOX_MESSAGES
-#define UBLOX_PREAMBLE      ubloxPreamble,
-#else
-#define UBLOX_PREAMBLE
-#endif  // PARSE_UBLOX_MESSAGES
-
 #define GPS_PARSE_TABLE                 \
 PARSE_ROUTINE const gpsParseTable[] =   \
 {                                       \
     NMEA_SBF_PREAMBLE                   \
     RTCM_PREAMBLE                       \
-    UBLOX_PREAMBLE                      \
 };                                      \
                                         \
 const int gpsParseTableEntries = sizeof(gpsParseTable) / sizeof(gpsParseTable[0]);
@@ -142,23 +132,10 @@ uint8_t rtcmReadMessage2(PARSE_STATE *parse, uint8_t data);
 uint8_t rtcmReadData(PARSE_STATE *parse, uint8_t data);
 uint8_t rtcmReadCrc(PARSE_STATE *parse, uint8_t data);
 
-// u-blox parse routines
-uint8_t ubloxPreamble(PARSE_STATE *parse, uint8_t data);
-uint8_t ubloxSync2(PARSE_STATE *parse, uint8_t data);
-uint8_t ubloxClass(PARSE_STATE *parse, uint8_t data);
-uint8_t ubloxId(PARSE_STATE *parse, uint8_t data);
-uint8_t ubloxLength1(PARSE_STATE *parse, uint8_t data);
-uint8_t ubloxLength2(PARSE_STATE *parse, uint8_t data);
-uint8_t ubloxPayload(PARSE_STATE *parse, uint8_t data);
-uint8_t ubloxCkA(PARSE_STATE *parse, uint8_t data);
-uint8_t ubloxCkB(PARSE_STATE *parse, uint8_t data);
-
 // External print routines
 void printNmeaChecksumError(PARSE_STATE *parse);
 void printRtcmChecksumError(PARSE_STATE *parse);
 void printRtcmMaxLength(PARSE_STATE *parse);
-void printUbloxChecksumError(PARSE_STATE *parse);
-void printUbloxInvalidData(PARSE_STATE *parse);
 void printSbfChecksumError(PARSE_STATE *parse);
 void printSbfInvalidData(PARSE_STATE *parse);
 

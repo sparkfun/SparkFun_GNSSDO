@@ -120,7 +120,6 @@ IPAddress gnssIP = IPAddress((uint32_t)0);
 // Define the parsers that get included
 #define PARSE_NMEA_MESSAGES
 #define PARSE_RTCM_MESSAGES
-#define PARSE_UBLOX_MESSAGES
 #define PARSE_SBF_MESSAGES
 
 // Build the GPS_PARSE_TABLE macro
@@ -230,7 +229,6 @@ unsigned long startTime = 0;           // Used for checking longest running func
 TaskHandle_t idleTaskHandle[MAX_CPU_CORES];
 uint32_t max_idle_count = MAX_IDLE_TIME_COUNT;
 
-uint16_t failedParserMessages_UBX = 0;
 uint16_t failedParserMessages_RTCM = 0;
 uint16_t failedParserMessages_NMEA = 0;
 uint16_t failedParserMessages_SBF = 0;
