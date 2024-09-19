@@ -247,8 +247,8 @@ typedef struct
 
     int32_t tcxoControl = 0; // Store the TCXO control word - to aid locking after power off
     double rxClkBiasLockLimit_ms = 10.0e-6; // Consider the clock locked when the bias is <= this many ms. Default: 10.0ns (10.0e-6ms)
-    double Pk = 0.5; // PI P term
-    double Ik = 0.0; // PI I term
+    double Pk = 0.25; // PI P term
+    double Ik = 0.01; // PI I term
 
     // Add new settings above <------------------------------------------------------------>
 
