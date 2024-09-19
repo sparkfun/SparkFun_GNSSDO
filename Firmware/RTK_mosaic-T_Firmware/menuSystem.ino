@@ -153,10 +153,6 @@ void menuDebugSoftware()
         else if (incoming == 11)
         {
             settings.enablePrintGNSSMessages ^= 1;
-            if (settings.enablePrintGNSSMessages)
-                myTCXO.enableDebug(&Serial);
-            else
-                myTCXO.disableDebug();
         }
         else if (incoming == 12)
             settings.enablePrintRingBufferOffsets ^= 1;
