@@ -68,7 +68,7 @@ void recordSystemSettingsToFile(File *settingsFile)
     settingsFile->printf("%s=%d\r\n", "gnssUartInterruptsCore", settings.gnssUartInterruptsCore);
 
     settingsFile->printf("%s=%d\r\n", "serialTimeoutGNSS", settings.serialTimeoutGNSS);
-    settingsFile->printf("%s=%d\r\n", "dataPortBaud", settings.dataPortBaud);
+    settingsFile->printf("%s=%lu\r\n", "dataPortBaud", settings.dataPortBaud);
 
     settingsFile->printf("%s=%d\r\n", "enablePrintBadMessages", settings.enablePrintBadMessages);
     settingsFile->printf("%s=%d\r\n", "enablePrintStates", settings.enablePrintStates);
@@ -77,7 +77,7 @@ void recordSystemSettingsToFile(File *settingsFile)
     settingsFile->printf("%s=%d\r\n", "enablePrintIdleTime", settings.enablePrintIdleTime);
     settingsFile->printf("%s=%d\r\n", "enablePrintConditions", settings.enablePrintConditions);
     settingsFile->printf("%s=%d\r\n", "enablePrintConsumers", settings.enablePrintConsumers);
-    settingsFile->printf("%s=%d\r\n", "periodicPrintInterval_ms", settings.periodicPrintInterval_ms);
+    settingsFile->printf("%s=%lu\r\n", "periodicPrintInterval_ms", settings.periodicPrintInterval_ms);
     settingsFile->printf("%s=%d\r\n", "enablePrintGNSSMessages", settings.enablePrintGNSSMessages);
     settingsFile->printf("%s=%d\r\n", "enablePrintRingBufferOffsets", settings.enablePrintRingBufferOffsets);
     settingsFile->printf("%s=%d\r\n", "disableSetupButton", settings.disableSetupButton);
@@ -90,7 +90,7 @@ void recordSystemSettingsToFile(File *settingsFile)
     settingsFile->printf("%s=%d\r\n", "ppsMaxSyncAge_s", settings.ppsMaxSyncAge_s);
     settingsFile->printf("%s=%0.6f\r\n", "ppsPulseWidth_ms", settings.ppsPulseWidth_ms);
 
-    settingsFile->printf("%s=%d\r\n", "tcxoControl", settings.tcxoControl);
+    settingsFile->printf("%s=%ld\r\n", "tcxoControl", settings.tcxoControl);
     settingsFile->printf("%s=%0.3e\r\n", "rxClkBiasLockLimit_ms", settings.rxClkBiasLockLimit_ms);
     settingsFile->printf("%s=%0.3e\r\n", "Pk", settings.Pk);
     settingsFile->printf("%s=%0.3e\r\n", "Ik", settings.Ik);
