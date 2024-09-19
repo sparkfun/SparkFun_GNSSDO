@@ -8,12 +8,20 @@ void flushRX(unsigned long timeout)
     unsigned long startTime = millis();
     while (millis() < (startTime + timeout))
       if (serialGNSSConfig.available())
-        serialGNSSConfig.read();
+      {
+        uint8_t chr = serialGNSSConfig.read();
+        if (settings.enablePrintGNSSMessages)
+          systemWrite(chr);
+      }
   }
   else
   {
     while (serialGNSSConfig.available())
-      serialGNSSConfig.read();
+    {
+      uint8_t chr = serialGNSSConfig.read();
+      if (settings.enablePrintGNSSMessages)
+        systemWrite(chr);
+    }
   }
 }
 
@@ -24,7 +32,11 @@ bool sendWithResponse(const char *message, const char *reply, unsigned long time
     return false;
 
   if (strlen(message) > 0)
+  {
     serialGNSSConfig.write(message, strlen(message)); // Send the message
+    if (settings.enablePrintGNSSMessages)
+      systemWrite((const uint8_t *)message, strlen(message));
+  }
 
   unsigned long startTime = millis();
   size_t replySeen = 0;
@@ -39,6 +51,9 @@ bool sendWithResponse(const char *message, const char *reply, unsigned long time
         replySeen++;
       else
         replySeen = 0; // Reset replySeen on an unexpected char
+
+      if (settings.enablePrintGNSSMessages)
+        systemWrite(chr);
     }
 
     // If the reply has started to arrive at the timeout, allow extra time
@@ -76,9 +91,9 @@ void beginGNSS()
 
     int retries = 20; // The mosaic takes a few seconds to wake up after power on
 
-    while (!sendWithResponse("exeSBFOnce, COM1, IPStatus\n\r", "SBFOnce") && (retries > 0))
+    while (!sendWithResponse("esoc, COM1, IPStatus\n\r", "SBFOnce") && (retries > 0))
     {
-        Serial.println("No response from mosaic. Retrying - with escape sequence...");
+        systemPrintln("No response from mosaic. Retrying - with escape sequence...");
         sendWithResponse("SSSSSSSSSSSSSSSSSSSS\n\r", "COM4>"); // Send escape sequence
         retries--;
     }
@@ -107,44 +122,50 @@ bool initializeGNSS()
 
     int retries = 3; // GNSS is already begun. We shouldn't need to retry.
 
-    while (!sendWithResponse("setPPSParameters, off\n\r", "PPSParameters") && (retries > 0)) // Disable PPS initially
+    while (!sendWithResponse("eccf, RxDefault, Current\n\r", "CopyConfigFile") && (retries > 0)) // Restore defaults
     {
-        Serial.println("No response from mosaic. Retrying - with escape sequence...");
+        systemPrintln("No response from mosaic. Retrying - with escape sequence...");
         sendWithResponse("SSSSSSSSSSSSSSSSSSSS\n\r", "COM4>"); // Send escape sequence
         retries--;
     }
 
     if (retries == 0)
     {
+        systemPrintln("GNSS FAIL (CopyConfigFile RxDefault)");
+        return false;
+    }
+
+    if (!sendWithResponse("spps, off\n\r", "PPSParameters"))
+    {
         systemPrintln("GNSS FAIL (PPSParameters)");
         return false;
     }
 
-    if (!sendWithResponse("setClockSyncThreshold, usec500, on\n\r", "ClockSyncThreshold"))
+    if (!sendWithResponse("scst, usec500, on\n\r", "ClockSyncThreshold"))
     {
         systemPrintln("GNSS FAIL (ClockSyncThreshold)");
         return false;
     }
 
-    if (!sendWithResponse("setSBFGroups, Group1, PVTGeodetic+ReceiverTime\n\r", "SBFGroups"))
+    if (!sendWithResponse("ssgp, Group1, PVTGeodetic+ReceiverTime\n\r", "SBFGroups"))
     {
         systemPrintln("GNSS FAIL (SBFGroups)");
         return false;
     }
 
-    if (!sendWithResponse("setSBFOutput, Stream1, COM1, Group1, sec1\n\r", "SBFOutput"))
+    if (!sendWithResponse("sso, Stream1, COM1, Group1, sec1\n\r", "SBFOutput"))
     {
         systemPrintln("GNSS FAIL (SBFOutput Stream1)");
         return false;
     }
 
-    if (!sendWithResponse("setSBFOutput, Stream2, COM1, IPStatus, OnChange\n\r", "SBFOutput"))
+    if (!sendWithResponse("sso, Stream2, COM1, IPStatus, OnChange\n\r", "SBFOutput"))
     {
         systemPrintln("GNSS FAIL (SBFOutput Stream2)");
         return false;
     }
 
-    if (!sendWithResponse("exeCopyConfigFile, Current, Boot\n\r", "CopyConfigFile"))
+    if (!sendWithResponse("eccf, Current, Boot\n\r", "CopyConfigFile"))
     {
         systemPrintln("GNSS FAIL (CopyConfigFile)");
         return false;
@@ -174,7 +195,7 @@ bool configureGNSSPPS()
 
     while (!sendWithResponse(ppsParams, "PPSParameters") && (retries > 0)) // Disable PPS initially
     {
-        Serial.println("No response from mosaic. Retrying - with escape sequence...");
+        systemPrintln("No response from mosaic. Retrying - with escape sequence...");
         sendWithResponse("SSSSSSSSSSSSSSSSSSSS\n\r", "COM4>"); // Send escape sequence
         retries--;
     }
