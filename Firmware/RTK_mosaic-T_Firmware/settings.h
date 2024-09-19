@@ -232,8 +232,8 @@ typedef struct
     bool enablePrintIdleTime = false;
     uint8_t enablePrintConditions = 2; // 0 : disabled; 1 : enabled (text); 2 : enabled (CSV)
     bool enablePrintConsumers = true;
-    uint32_t periodicPrintInterval_ms = 1000; // TODO: 5000;
-    bool enablePrintGNSSMessages = true; // TODO: false;
+    uint32_t periodicPrintInterval_ms = 1000;
+    bool enablePrintGNSSMessages = false;
     bool enablePrintRingBufferOffsets = false;
     bool disableSetupButton = true;
     bool echoUserInput = true;
