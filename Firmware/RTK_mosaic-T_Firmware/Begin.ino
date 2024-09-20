@@ -273,7 +273,7 @@ void updateErrorLED()
 
 void updateLockLED()
 {
-    digitalWrite(pin_lockLED, (fabs(gnssClockBias_ms) < settings.rxClkBiasLockLimit_ms) ? HIGH : LOW);
+    digitalWrite(pin_lockLED, (fabs(tcxoClockBias_ms) < settings.rxClkBiasLockLimit_ms) ? HIGH : LOW);
 }
 
 // Depending on platform and previous power down state, set system state
@@ -507,6 +507,45 @@ void updateTCXO()
 {
     if (online.tcxo)
     {
-        myTCXO.setFrequencyByBiasMillis(gnssClockBias_ms, settings.Pk, settings.Ik);
+        myTCXO.setFrequencyByBiasMillis(tcxoClockBias_ms, settings.Pk, settings.Ik);
     }
+}
+
+// This function updates the tcxoClockBias_ms used to discipline the TCXO frequency
+// updateTCXOClockBias is only called by STATE_GNSS_FINETIME when gnssPVTUpdated was true
+// So we know that gnssClockBias_ms is valid
+// Use gnssClockBias_ms as the default
+// If we have Fugro from FugroTimeOffset, use that
+// If we have Galileo from FugroTimeOffset, use that
+void updateTCXOClockBias()
+{
+    tcxoClockBias_ms = gnssClockBias_ms; // Default to the PVTGeodetic RxClkBias
+    snprintf(rxClkBiasSource, sizeof(rxClkBiasSource), "PVT");
+
+    int ts = getFugroTimeSystemFromName("Fugro");
+    if (fugroClkBiases[ts].updated) // If we have the Fugro bias, use that
+    {
+        tcxoClockBias_ms = fugroClkBiases[ts].RxClkBias_ms;
+        fugroClkBiases[ts].updated = false;
+        snprintf(rxClkBiasSource, sizeof(rxClkBiasSource), "Fugro");
+    }
+
+    ts = getFugroTimeSystemFromName("Galileo");
+    if (fugroClkBiases[ts].updated) // If we have the Galileo bias, use that
+    {
+        tcxoClockBias_ms = fugroClkBiases[ts].RxClkBias_ms;
+        fugroClkBiases[ts].updated = false;
+        snprintf(rxClkBiasSource, sizeof(rxClkBiasSource), "Galileo");
+    }
+}
+
+int getFugroTimeSystemFromName(const char *name)
+{
+    for (int i = 0; i < NUM_FUGRO_CLK_BIASES; i++)
+    {
+        if (strcmp(name, fugroClkBiases[i].name) == 0)
+            return i;
+    }
+
+    return 0; // Should never happen!
 }

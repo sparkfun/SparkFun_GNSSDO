@@ -246,7 +246,9 @@ typedef struct
     float ppsPulseWidth_ms = 5.0;
 
     int32_t tcxoControl = 0; // Store the TCXO control word - to aid locking after power off
+    double rxClkBiasInitialLimit_ms = 1.0e-3; // Consider the clock bias 'bad' when > this many ms. Default: 1.0us (1.0e-3ms)
     double rxClkBiasLockLimit_ms = 10.0e-6; // Consider the clock locked when the bias is <= this many ms. Default: 10.0ns (10.0e-6ms)
+    int rxClkBiasLimitCount = 3; // Consider the clock locked when the bias is <= rxClkBiasLockLimit_ms for this many successive readings. Default: 3
     double Pk = 0.25; // PI P term
     double Ik = 0.01; // PI I term
 

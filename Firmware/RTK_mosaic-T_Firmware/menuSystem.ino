@@ -361,29 +361,35 @@ void menuOperation()
         systemPrint("1) RX Clock Bias Lock Limit (ms): ");
         systemPrintf("%.3e\r\n", settings.rxClkBiasLockLimit_ms);
 
-        systemPrint("2) Pulse-Per-Second Interval: ");
-        systemPrintln(mosaicPPSParametersInterval[settings.ppsInterval]);
+        systemPrint("2) RX Clock Bias Initial Limit (ms): ");
+        systemPrintf("%.3e\r\n", settings.rxClkBiasInitialLimit_ms);
 
-        systemPrint("3) Pulse-Per-Second Polarity: ");
-        systemPrintln(mosaicPPSParametersPolarity[settings.ppsPolarity]);
+        systemPrint("3) RX Clock Bias Limit Count: ");
+        systemPrintf("%d\r\n", settings.rxClkBiasLimitCount);
 
-        systemPrint("4) Pulse-Per-Second Delay (ns): ");
-        systemPrintln(settings.ppsDelay_ns);
-
-        systemPrint("5) Pulse-Per-Second Time Scale: ");
-        systemPrintln(mosaicPPSParametersTimeScale[settings.ppsTimeScale]);
-
-        systemPrint("6) Pulse-Per-Second Max Sync Age (s): ");
-        systemPrintln(settings.ppsMaxSyncAge_s);
-
-        systemPrint("7) Pulse-Per-Second Pulse Width (ms): ");
-        systemPrintln(settings.ppsPulseWidth_ms);
-
-        systemPrint("8) Pk (PI P term): ");
+        systemPrint("4) Pk (PI P term): ");
         systemPrintf("%.3e\r\n", settings.Pk);
 
-        systemPrint("9) Ik (PI I term): ");
+        systemPrint("5) Ik (PI I term): ");
         systemPrintf("%.3e\r\n", settings.Ik);
+
+        systemPrint("6) Pulse-Per-Second Interval: ");
+        systemPrintln(mosaicPPSParametersInterval[settings.ppsInterval]);
+
+        systemPrint("7) Pulse-Per-Second Polarity: ");
+        systemPrintln(mosaicPPSParametersPolarity[settings.ppsPolarity]);
+
+        systemPrint("8) Pulse-Per-Second Delay (ns): ");
+        systemPrintln(settings.ppsDelay_ns);
+
+        systemPrint("9) Pulse-Per-Second Time Scale: ");
+        systemPrintln(mosaicPPSParametersTimeScale[settings.ppsTimeScale]);
+
+        systemPrint("10) Pulse-Per-Second Max Sync Age (s): ");
+        systemPrintln(settings.ppsMaxSyncAge_s);
+
+        systemPrint("11) Pulse-Per-Second Pulse Width (ms): ");
+        systemPrintln(settings.ppsPulseWidth_ms);
 
         systemPrintln("\r\nx) Exit");
 
@@ -392,30 +398,79 @@ void menuOperation()
         if (incoming == 1)
         {
             systemPrint("Enter RX Clock Bias Lock Limit in milliseconds: ");
-            double lockLimit = getDouble();
-            if (lockLimit <= 0.0 || lockLimit >= 1000.0) // Arbitrary 1s limit
+            double limit = getDouble();
+            if (limit <= 0.0 || limit >= 1000.0) // Arbitrary 1s limit
                 systemPrintln("Error: Lock Limit is out of range");
             else
             {
-                settings.rxClkBiasLockLimit_ms = lockLimit; // Recorded to NVM at main menu exit
-                ppsStarted = false; // Restart PPS afterwards
+                settings.rxClkBiasLockLimit_ms = limit; // Recorded to NVM at main menu exit
             }
         }
         else if (incoming == 2)
+        {
+            systemPrint("Enter RX Clock Bias Initial Limit in milliseconds: ");
+            double limit = getDouble();
+            if (limit <= 0.0 || limit >= 1000.0) // Arbitrary 1s limit
+                systemPrintln("Error: Initial Limit is out of range");
+            else
+            {
+                settings.rxClkBiasInitialLimit_ms = limit; // Recorded to NVM at main menu exit
+            }
+        }
+        else if (incoming == 3)
+        {
+            systemPrint("Enter the RX Clock Bias Limit Count: ");
+            int count = getNumber(); // Returns EXIT, TIMEOUT, or long
+            if ((count != INPUT_RESPONSE_GETNUMBER_EXIT) &&
+                (count != INPUT_RESPONSE_GETNUMBER_TIMEOUT))
+            {
+                if (count < 1 || count > 3600)
+                    systemPrintln("Error: Count is out of range");
+                else
+                {
+                    settings.rxClkBiasLimitCount = count;
+                }
+            }
+        }
+        else if (incoming == 4)
+        {
+            systemPrint("Enter the PI P term: ");
+            double p = getDouble();
+            if (p <= 0.0 || p >= 10.0) // Arbitrary limits
+                systemPrintln("Error: term is out of range");
+            else
+            {
+                settings.Pk = p; // Recorded to NVM at main menu exit
+                ppsStarted = false; // Restart PPS afterwards
+            }
+        }
+        else if (incoming == 5)
+        {
+            systemPrint("Enter the PI I term: ");
+            double i = getDouble();
+            if (i < 0.0 || i >= 10.0) // Arbitrary limits
+                systemPrintln("Error: term is out of range");
+            else
+            {
+                settings.Ik = i; // Recorded to NVM at main menu exit
+                ppsStarted = false; // Restart PPS afterwards
+            }
+        }
+        else if (incoming == 6)
         {
             settings.ppsInterval++;
             if ((settings.ppsInterval >= mosaicPPSParametersIntervalEntries) || (settings.ppsInterval < 0))
                 settings.ppsInterval = 0;
             ppsStarted = false; // Restart PPS afterwards
         }
-        else if (incoming == 3)
+        else if (incoming == 7)
         {
             settings.ppsPolarity++;
             if ((settings.ppsPolarity >= mosaicPPSParametersPolarityEntries) || (settings.ppsPolarity < 0))
                 settings.ppsPolarity = 0;
             ppsStarted = false; // Restart PPS afterwards
         }
-        else if (incoming == 4)
+        else if (incoming == 8)
         {
             systemPrint("Enter Pulse-Per-Second Delay in nanoseconds: ");
             double dly = getDouble();
@@ -427,14 +482,14 @@ void menuOperation()
                 ppsStarted = false; // Restart PPS afterwards
             }
         }
-        else if (incoming == 5)
+        else if (incoming == 9)
         {
             settings.ppsTimeScale++;
             if ((settings.ppsTimeScale >= mosaicPPSParametersTimeScaleEntries) || (settings.ppsTimeScale < 0))
                 settings.ppsPolarity = 0;
             ppsStarted = false; // Restart PPS afterwards
         }
-        else if (incoming == 6)
+        else if (incoming == 10)
         {
             systemPrint("Enter Max Sync Age in seconds (0 to 3600): ");
             int syncAge = getNumber(); // Returns EXIT, TIMEOUT, or long
@@ -450,7 +505,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 7)
+        else if (incoming == 11)
         {
             systemPrint("Enter Pulse Width in milliseconds: ");
             double width = getDouble();
@@ -459,30 +514,6 @@ void menuOperation()
             else
             {
                 settings.ppsPulseWidth_ms = width;
-                ppsStarted = false; // Restart PPS afterwards
-            }
-        }
-        else if (incoming == 8)
-        {
-            systemPrint("Enter the PI P term: ");
-            double p = getDouble();
-            if (p <= 0.0 || p >= 10.0) // Arbitrary limits
-                systemPrintln("Error: term is out of range");
-            else
-            {
-                settings.Pk = p; // Recorded to NVM at main menu exit
-                ppsStarted = false; // Restart PPS afterwards
-            }
-        }
-        else if (incoming == 9)
-        {
-            systemPrint("Enter the PI I term: ");
-            double i = getDouble();
-            if (i < 0.0 || i >= 10.0) // Arbitrary limits
-                systemPrintln("Error: term is out of range");
-            else
-            {
-                settings.Ik = i; // Recorded to NVM at main menu exit
                 ppsStarted = false; // Restart PPS afterwards
             }
         }
@@ -511,14 +542,17 @@ void printCurrentConditions(bool CSV)
         {
             if (firstTime)
             {
-                systemPrintln("YYYY/MM/DD,HH:MM:SS,TOW(ms),Lat,Lon,Alt,TimeSys,Error,Fine,PPS,Bias,TCXO,Pk,Ik");
+                systemPrintln("YYYY/MM/DD,HH:MM:SS,Epoch,Lat,Lon,Alt,TimeSys,Error,Fine,PPS,Bias,Source,TCXO,Pk,Ik");
                 firstTime = false;
             }
 
             systemPrintf("%04d/%02d/%02d,%02d:%02d:%02d",
                 gnssYear, gnssMonth, gnssDay, gnssHour, gnssMinute, gnssSecond);
             
-            systemPrintf(",%lu", gnssTOW_ms);
+            uint32_t epochSecs;
+            uint32_t epochMillis;
+            convertGnssTimeToEpoch(&epochSecs, &epochMillis);
+            systemPrintf(",%lu.%03lu", epochSecs, epochMillis);
             
             systemPrint(",");
             systemPrint(gnssLatitude_d, 7);
@@ -541,7 +575,10 @@ void printCurrentConditions(bool CSV)
             systemPrint(",");
             systemPrint(ppsStarted);
 
-            systemPrintf(",%.3e", gnssClockBias_ms / 1000.0); // Display clock bias in seconds
+            systemPrintf(",%.3e", tcxoClockBias_ms / 1000.0); // Display clock bias in seconds
+
+            systemPrint(",");
+            systemPrint((const char *)rxClkBiasSource),
 
             systemPrintf(",%ld", myTCXO.getFrequencyControlWord());
             
@@ -579,15 +616,18 @@ void printCurrentConditions(bool CSV)
             systemPrint(", PPS: ");
             systemPrint(ppsStarted ? "On" : "Off");
 
-            if ((gnssClockBias_ms >= 1.0) || (gnssClockBias_ms <= -1.0))
+            if ((tcxoClockBias_ms >= 1.0) || (tcxoClockBias_ms <= -1.0))
                 systemPrintf(", Bias: %.3fms",
-                    (float)gnssClockBias_ms);
-            else if ((gnssClockBias_ms >= 0.001) || (gnssClockBias_ms <= -0.001))
+                    (float)tcxoClockBias_ms);
+            else if ((tcxoClockBias_ms >= 0.001) || (tcxoClockBias_ms <= -0.001))
                 systemPrintf(", Bias: %.3fus",
-                    (float)(gnssClockBias_ms * 1000.0));
+                    (float)(tcxoClockBias_ms * 1000.0));
             else
                 systemPrintf(", Bias: %.3fns",
-                    (float)(gnssClockBias_ms * 1000000.0));
+                    (float)(tcxoClockBias_ms * 1000000.0));
+
+            systemPrint(", Source: ");
+            systemPrint((const char *)rxClkBiasSource),
 
             systemPrint(", TCXO Control: ");
             systemPrint(myTCXO.getFrequencyControlWord());

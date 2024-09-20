@@ -661,6 +661,35 @@ void processConsumerMessage(PARSE_STATE *parse, uint8_t type)
             theIP |= ((uint32_t)parse->buffer[35]) << 24;
             gnssIP = IPAddress(theIP);
         }
+        else if ((parse->message & 0x1FFF) == 4255) // FugroTimeOffset
+        {
+            int N = parse->buffer[14]; // Number of FugroTOSub sub-blocks in this block
+            int SBLength = parse->buffer[15]; // Length of a FugroTOSub sub-block
+
+            for (int b = 0; b < N; b++) // For each block
+            {
+                uint8_t TimeSystem = parse->buffer[20 + (b * SBLength) + 2];
+
+                union {
+                    double dbl;
+                    uint64_t unsigned64;
+                } dblUnsigned64;
+
+                dblUnsigned64.unsigned64 = 0;
+                for (int i = 0; i < 8; i++)
+                    dblUnsigned64.unsigned64 |= ((uint64_t)parse->buffer[20 + (b * SBLength) + 4 + i]) << (i * 8);
+
+                for (int TS = 0; TS < NUM_FUGRO_CLK_BIASES; TS++)
+                {
+                    if (fugroClkBiases[TS].TimeSystem == TimeSystem)
+                    {
+                        fugroClkBiases[TS].RxClkBias_ms = dblUnsigned64.dbl;
+                        fugroClkBiases[TS].updated = true;
+                        break;
+                    }
+                }
+            }
+        }
     }
 }
 

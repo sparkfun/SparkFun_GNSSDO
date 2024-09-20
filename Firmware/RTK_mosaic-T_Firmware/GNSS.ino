@@ -108,6 +108,24 @@ void beginGNSS()
     online.gnss = true;
 }
 
+// Kickstart the GNSS timing system - e.g. to resync on bad bias
+bool setTimingSystem()
+{
+    if (!online.gnss)
+        return false;
+
+    int retries = 3; // GNSS is already begun. We shouldn't need to retry.
+
+    while (!sendWithResponse("sts,auto\n\r", "TimingSystem") && (retries > 0)) // Set timing system to auto
+    {
+        systemPrintln("No response from mosaic. Retrying - with escape sequence...");
+        sendWithResponse("SSSSSSSSSSSSSSSSSSSS\n\r", "COM4>"); // Send escape sequence
+        retries--;
+    }
+
+    return (retries > 0);
+}
+
 // Initialize GNSS
 // Disable PPS. Set clock sync threshold. Set output messages. Copy config file.
 // This only needs to be done once.
@@ -159,7 +177,7 @@ bool initializeGNSS()
         return false;
     }
 
-    if (!sendWithResponse("sso, Stream2, COM1, IPStatus, OnChange\n\r", "SBFOutput"))
+    if (!sendWithResponse("sso, Stream2, COM1, IPStatus+FugroTimeOffset, OnChange\n\r", "SBFOutput"))
     {
         systemPrintln("GNSS FAIL (SBFOutput Stream2)");
         return false;

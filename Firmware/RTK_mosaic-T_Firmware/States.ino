@@ -89,26 +89,54 @@ void updateSystemState()
             {
                 gnssPVTUpdated = false;
 
-                updateLockLED();
+                updateTCXOClockBias(); // Update the tcxoClockBias_ms from the best source
+
+                updateLockLED(); // Update Lock LED based on tcxoClockBias_ms
                 updateErrorLED();
 
+                static uint8_t clkBiasLimitCount = 0;
+
                 // If the clock bias is < the lock limit, start PPS
-                if ((fabs(gnssClockBias_ms) < settings.rxClkBiasLockLimit_ms)
-                    && !ppsStarted && !gnssError)
+                if (fabs(tcxoClockBias_ms) < settings.rxClkBiasLockLimit_ms)
                 {
-                    if (configureGNSSPPS())
+                    if (clkBiasLimitCount < settings.rxClkBiasLimitCount)
+                        clkBiasLimitCount++;
+                    if (!ppsStarted && !gnssError && (clkBiasLimitCount >= settings.rxClkBiasLimitCount) && configureGNSSPPS())
+                    {
                         ppsStarted = true;
+                    }
+                }
+                else
+                {
+                    clkBiasLimitCount = 0;
                 }
 
-                if (gnssError)
-                    changeState(STATE_GNSS_ERROR_AFTER_FINETIME);
-            }
-            else if (gnssTimeUpdated[1]) // Wait for the time to be updated
-            {
-                gnssTimeUpdated[1] = false;
+                static uint8_t badBiasCount = 0;
 
-                // The message rate limits this to 1Hz
-                updateTCXO();
+                // If the clock bias is > rxClkBiasInitialLimit_ms, reinitialize
+                if (fabs(tcxoClockBias_ms) > settings.rxClkBiasInitialLimit_ms)
+                {
+                    if (badBiasCount < settings.rxClkBiasLimitCount)
+                        badBiasCount++;
+                    if (badBiasCount >= settings.rxClkBiasLimitCount)
+                    {
+                        clkBiasLimitCount = 0; // Reset the counts before changing state
+                        badBiasCount = 0;
+                        displayBadBias(1000);
+                        setTimingSystem(); // Kickstart the timing system
+                        changeState(STATE_GNSS_CONFIGURED);
+                    }
+                }
+                else
+                {
+                    badBiasCount = 0;
+                }
+
+                // Update the TCXO if the bias is OK. The message rate limits this to 1Hz
+                if (badBiasCount == 0)
+                    updateTCXO();
+
+                static int tcxoUpdates = 0; // Keep count of TCXO control word updates. Save the control word every hour
 
                 if (ppsStarted)
                 {
@@ -126,7 +154,18 @@ void updateSystemState()
                     }
                 }
                 else
+                {
                     tcxoUpdates = 0;
+                }
+
+                // Change state on error - stop updating the TCXO
+                if (gnssError)
+                {
+                    clkBiasLimitCount = 0; // Reset the counts before changing state
+                    badBiasCount = 0;
+                    tcxoUpdates = 0;
+                    changeState(STATE_GNSS_ERROR_AFTER_FINETIME);
+                }
             }
         }
         break;

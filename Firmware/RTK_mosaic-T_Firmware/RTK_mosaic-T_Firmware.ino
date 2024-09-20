@@ -90,14 +90,11 @@ unsigned long syncRTCInterval = 1000; // To begin, sync RTC every second. Interv
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-// These globals are updated regularly via the storePVTdata callback
-unsigned long gnssPVTArrivalMillis = 0;
-bool gnssPVTUpdated = false;
+// These globals are updated regularly via the SBF parser
+
+// ReceiverTime 5914
 unsigned long gnssTimeArrivalMillis = 0;
 bool gnssTimeUpdated[2] = { false, false }; // RTC, TCXO
-double gnssLatitude_d = 0.0;
-double gnssLongitude_d = 0.0;
-float gnssAltitude_m = 0.0;
 uint32_t gnssTOW_ms = 0;
 uint8_t gnssDay = 0;
 uint8_t gnssMonth = 0;
@@ -105,13 +102,42 @@ uint16_t gnssYear = 0;
 uint8_t gnssHour = 0;
 uint8_t gnssMinute = 0;
 uint8_t gnssSecond = 0;
-uint8_t gnssTimeSys = 255; // Unknown
-uint8_t gnssError = 255; // Unknown
 bool gnssWNSet = false;
 bool gnssToWSet = false;
 bool gnssFineTime = false;
+
+// PVTGeodetic 4007
+unsigned long gnssPVTArrivalMillis = 0;
+bool gnssPVTUpdated = false;
+double gnssLatitude_d = 0.0;
+double gnssLongitude_d = 0.0;
+float gnssAltitude_m = 0.0;
+uint8_t gnssTimeSys = 255; // Unknown
+uint8_t gnssError = 255; // Unknown
 double gnssClockBias_ms = 0.0;
+
+// IPStatus 4058
 IPAddress gnssIP = IPAddress((uint32_t)0);
+
+// FugroTimeOffset 4255
+typedef struct {
+    const uint8_t TimeSystem;
+    const char name[8];
+    double RxClkBias_ms;
+    bool updated;
+} fugroClkBias;
+fugroClkBias fugroClkBiases[] = {
+    { 0, "GPS", 0.0, false },
+    { 1, "Galileo", 0.0, false },
+    { 3, "GLONASS", 0.0, false },
+    { 4, "BeiDou", 0.0, false },
+    { 5, "QZSS", 0.0, false },
+    { 100, "Fugro", 0.0, false },
+};
+#define NUM_FUGRO_CLK_BIASES (sizeof(fugroClkBiases) / sizeof(fugroClkBias))
+
+double tcxoClockBias_ms; // Updated by updateTCXOClockBias
+char rxClkBiasSource[8]; // PVT or Fugro or Galileo
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -235,7 +261,6 @@ uint16_t failedParserMessages_SBF = 0;
 
 bool rtcSyncd = false;      // Set to true when the RTC has been sync'd
 bool ppsStarted = false;    // Set to true when PPS have started. Cleared by menu changes.
-int tcxoUpdates = 0;        // Keep count of TCXO control word updates. Save the control word every hour
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -264,7 +289,7 @@ volatile bool deadManWalking;
     settings.enableHeapReport = true;                   \
     settings.enableTaskReports = true;                  \
     settings.enablePrintState = true;                   \
-    settings.enablePrintConditions = 1;                 \
+    settings.enablePrintConditions = 2;                 \
     settings.enablePrintIdleTime = true;                \
     settings.enablePrintBadMessages = true;             \
     settings.enablePrintRingBufferOffsets = true;       \

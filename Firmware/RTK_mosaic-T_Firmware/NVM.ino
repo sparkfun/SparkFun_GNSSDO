@@ -91,7 +91,9 @@ void recordSystemSettingsToFile(File *settingsFile)
     settingsFile->printf("%s=%0.6f\r\n", "ppsPulseWidth_ms", settings.ppsPulseWidth_ms);
 
     settingsFile->printf("%s=%ld\r\n", "tcxoControl", settings.tcxoControl);
+    settingsFile->printf("%s=%0.3e\r\n", "rxClkBiasInitialLimit_ms", settings.rxClkBiasInitialLimit_ms);
     settingsFile->printf("%s=%0.3e\r\n", "rxClkBiasLockLimit_ms", settings.rxClkBiasLockLimit_ms);
+    settingsFile->printf("%s=%d\r\n", "rxClkBiasLimitCount", settings.rxClkBiasLimitCount);
     settingsFile->printf("%s=%0.3e\r\n", "Pk", settings.Pk);
     settingsFile->printf("%s=%0.3e\r\n", "Ik", settings.Ik);
 
@@ -348,8 +350,12 @@ bool parseLine(char *str, Settings *settings)
 
     else if (strcmp(settingName, "tcxoControl") == 0)
         settings->tcxoControl = d;
+    else if (strcmp(settingName, "rxClkBiasInitialLimit_ms") == 0)
+        settings->rxClkBiasInitialLimit_ms = d;
     else if (strcmp(settingName, "rxClkBiasLockLimit_ms") == 0)
         settings->rxClkBiasLockLimit_ms = d;
+    else if (strcmp(settingName, "rxClkBiasLimitCount") == 0)
+        settings->rxClkBiasLimitCount = d;
     else if (strcmp(settingName, "Pk") == 0)
         settings->Pk = d;
     else if (strcmp(settingName, "Ik") == 0)

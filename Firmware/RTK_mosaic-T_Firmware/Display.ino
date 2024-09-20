@@ -161,15 +161,15 @@ void updateDisplay()
             oled->print(textLine);
             yPos += 8;
 
-            if ((gnssClockBias_ms >= 1.0) || (gnssClockBias_ms <= -1.0))
+            if ((tcxoClockBias_ms >= 1.0) || (tcxoClockBias_ms <= -1.0))
                 snprintf(textLine, sizeof(textLine), "Bias  %.3fms",
-                    (float)gnssClockBias_ms);
-            else if ((gnssClockBias_ms >= 0.001) || (gnssClockBias_ms <= -0.001))
+                    (float)tcxoClockBias_ms);
+            else if ((tcxoClockBias_ms >= 0.001) || (tcxoClockBias_ms <= -0.001))
                 snprintf(textLine, sizeof(textLine), "Bias  %.3fus",
-                    (float)(gnssClockBias_ms * 1000.0));
+                    (float)(tcxoClockBias_ms * 1000.0));
             else
                 snprintf(textLine, sizeof(textLine), "Bias  %.3fns",
-                    (float)(gnssClockBias_ms * 1000000.0));
+                    (float)(tcxoClockBias_ms * 1000000.0));
             oled->setCursor(0, yPos);
             oled->print(textLine);
 
@@ -215,6 +215,11 @@ void displaySplash()
 void displayGNSSFail(uint16_t displayTime)
 {
     displayMessage("GNSS Failed", displayTime);
+}
+
+void displayBadBias(uint16_t displayTime)
+{
+    displayMessage("Bad RxClkBias Restarting", displayTime);
 }
 
 void displayNoRingBuffer(uint16_t displayTime)
