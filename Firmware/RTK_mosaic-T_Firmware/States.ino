@@ -138,7 +138,7 @@ void updateSystemState()
 
                 static int tcxoUpdates = 0; // Keep count of TCXO control word updates. Save the control word every hour
 
-                if (ppsStarted)
+                if (ppsStarted && (badBiasCount == 0))
                 {
                     tcxoUpdates++;
 

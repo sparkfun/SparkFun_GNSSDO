@@ -219,7 +219,7 @@ void displayGNSSFail(uint16_t displayTime)
 
 void displayBadBias(uint16_t displayTime)
 {
-    displayMessage("Bad RxClkBias  Restarting...", displayTime);
+    displayMessage("Bad RxClkBias. Restarting...", displayTime);
 }
 
 void displayNoRingBuffer(uint16_t displayTime)
@@ -344,12 +344,12 @@ void printTextCenter(const char *text, uint8_t yPos, QwiicFont &fontType, uint8_
     }
 }
 
-// Given a message (one or two words) display centered
+// Given a message (one-four words) display centered
 void displayMessage(const char *message, uint16_t displayTime)
 {
     if (online.display == true)
     {
-        char temp[21];
+        char temp[41];
         uint8_t fontHeight = 15; // Assume fontsize 1
 
         // Count words based on spaces

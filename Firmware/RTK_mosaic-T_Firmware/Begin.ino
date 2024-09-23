@@ -496,7 +496,7 @@ void beginTCXO(TwoWire *i2cBus)
     systemPrintln(myTCXO.getFrequencyControlWord());
 
     systemPrint("TCXO frequency is ");
-    systemPrint(myTCXO.getFrequencyHz());
+    systemPrint(myTCXO.getFrequencyHz(), 6);
     systemPrintln(" Hz");
 
     online.tcxo = true;

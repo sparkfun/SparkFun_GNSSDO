@@ -119,8 +119,7 @@ uint8_t mosaicTimeSystemIndexFromName(const char *name)
             return i;
     }
 
-    reportFatalError("mosaicTimeSystemIndexFromName: invalid name");
-    return 0;
+    return 0; // This should never happen
 }
 double tcxoClockBias_ms; // Updated by updateTCXOClockBias
 char rxClkBiasSource[8];
@@ -268,8 +267,10 @@ typedef struct
     double rxClkBiasInitialLimit_ms = 1.0e-3; // Consider the clock bias 'bad' when > this many ms. Default: 1.0us (1.0e-3ms)
     double rxClkBiasLockLimit_ms = 10.0e-6; // Consider the clock locked when the bias is <= this many ms. Default: 10.0ns (10.0e-6ms)
     int rxClkBiasLimitCount = 3; // Consider the clock locked when the bias is <= rxClkBiasLockLimit_ms for this many successive readings. Default: 3
-    double Pk = 0.25; // PI P term
-    double Ik = 0.01; // PI I term
+    // The default values for Pk and Ik come from very approximate Ziegler-Nichols tuning of the SiT5358:
+    //   oscillation starts when Pk is ~1.4; with a period of ~5 seconds.
+    double Pk = 0.63; // PI P term
+    double Ik = 0.151; // PI I term
     bool preferNonCompositeGPSBias = false; // Prefer non-composite GPS bias - if available. Mutex with preferNonCompositeGalileoBias
     bool preferNonCompositeGalileoBias = false; // Prefer non-composite Galileo bias - if available. Mutex with preferNonCompositeGPSBias
 
