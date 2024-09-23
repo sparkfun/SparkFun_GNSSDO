@@ -119,26 +119,6 @@ double gnssClockBias_ms = 0.0;
 // IPStatus 4058
 IPAddress gnssIP = IPAddress((uint32_t)0);
 
-// FugroTimeOffset 4255
-typedef struct {
-    const uint8_t TimeSystem;
-    const char name[8];
-    double RxClkBias_ms;
-    bool updated;
-} fugroClkBias;
-fugroClkBias fugroClkBiases[] = {
-    { 0, "GPS", 0.0, false },
-    { 1, "Galileo", 0.0, false },
-    { 3, "GLONASS", 0.0, false },
-    { 4, "BeiDou", 0.0, false },
-    { 5, "QZSS", 0.0, false },
-    { 100, "Fugro", 0.0, false },
-};
-#define NUM_FUGRO_CLK_BIASES (sizeof(fugroClkBiases) / sizeof(fugroClkBias))
-
-double tcxoClockBias_ms; // Updated by updateTCXOClockBias
-char rxClkBiasSource[8]; // PVT or Fugro or Galileo
-
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 // GPS parse table

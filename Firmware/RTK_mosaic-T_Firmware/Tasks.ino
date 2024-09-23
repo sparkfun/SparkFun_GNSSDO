@@ -668,6 +668,7 @@ void processConsumerMessage(PARSE_STATE *parse, uint8_t type)
 
             for (int b = 0; b < N; b++) // For each block
             {
+                uint8_t SysUsage = parse->buffer[20 + (b * SBLength) + 0];
                 uint8_t TimeSystem = parse->buffer[20 + (b * SBLength) + 2];
 
                 union {
@@ -679,12 +680,13 @@ void processConsumerMessage(PARSE_STATE *parse, uint8_t type)
                 for (int i = 0; i < 8; i++)
                     dblUnsigned64.unsigned64 |= ((uint64_t)parse->buffer[20 + (b * SBLength) + 4 + i]) << (i * 8);
 
+                // If this block contains a non-composite clock indicator, store it
                 for (int TS = 0; TS < NUM_FUGRO_CLK_BIASES; TS++)
                 {
-                    if (fugroClkBiases[TS].TimeSystem == TimeSystem)
+                    if (fugroTimeSystems[TS].SysUsage == SysUsage)
                     {
-                        fugroClkBiases[TS].RxClkBias_ms = dblUnsigned64.dbl;
-                        fugroClkBiases[TS].updated = true;
+                        fugroTimeSystems[TS].RxClkBias_ms = dblUnsigned64.dbl;
+                        fugroTimeSystems[TS].updated = true;
                         break;
                     }
                 }

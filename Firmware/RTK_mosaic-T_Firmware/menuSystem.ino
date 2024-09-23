@@ -373,22 +373,28 @@ void menuOperation()
         systemPrint("5) Ik (PI I term): ");
         systemPrintf("%.3e\r\n", settings.Ik);
 
-        systemPrint("6) Pulse-Per-Second Interval: ");
+        systemPrint("6) Prefer non-composite GPS bias - if available: ");
+        systemPrintf("%s\r\n", settings.preferNonCompositeGPSBias ? "Enabled" : "Disabled");
+
+        systemPrint("7) Prefer non-composite Galileo bias - if available: ");
+        systemPrintf("%s\r\n", settings.preferNonCompositeGalileoBias ? "Enabled" : "Disabled");
+
+        systemPrint("8) Pulse-Per-Second Interval: ");
         systemPrintln(mosaicPPSParametersInterval[settings.ppsInterval]);
 
-        systemPrint("7) Pulse-Per-Second Polarity: ");
+        systemPrint("9) Pulse-Per-Second Polarity: ");
         systemPrintln(mosaicPPSParametersPolarity[settings.ppsPolarity]);
 
-        systemPrint("8) Pulse-Per-Second Delay (ns): ");
+        systemPrint("10) Pulse-Per-Second Delay (ns): ");
         systemPrintln(settings.ppsDelay_ns);
 
-        systemPrint("9) Pulse-Per-Second Time Scale: ");
+        systemPrint("11) Pulse-Per-Second Time Scale: ");
         systemPrintln(mosaicPPSParametersTimeScale[settings.ppsTimeScale]);
 
-        systemPrint("10) Pulse-Per-Second Max Sync Age (s): ");
+        systemPrint("12) Pulse-Per-Second Max Sync Age (s): ");
         systemPrintln(settings.ppsMaxSyncAge_s);
 
-        systemPrint("11) Pulse-Per-Second Pulse Width (ms): ");
+        systemPrint("13) Pulse-Per-Second Pulse Width (ms): ");
         systemPrintln(settings.ppsPulseWidth_ms);
 
         systemPrintln("\r\nx) Exit");
@@ -441,7 +447,6 @@ void menuOperation()
             else
             {
                 settings.Pk = p; // Recorded to NVM at main menu exit
-                ppsStarted = false; // Restart PPS afterwards
             }
         }
         else if (incoming == 5)
@@ -453,24 +458,35 @@ void menuOperation()
             else
             {
                 settings.Ik = i; // Recorded to NVM at main menu exit
-                ppsStarted = false; // Restart PPS afterwards
             }
         }
         else if (incoming == 6)
+        {
+            settings.preferNonCompositeGPSBias ^= 1;
+            if (settings.preferNonCompositeGPSBias)
+                settings.preferNonCompositeGalileoBias = false;
+        }
+        else if (incoming == 7)
+        {
+            settings.preferNonCompositeGalileoBias ^= 1;
+            if (settings.preferNonCompositeGalileoBias)
+                settings.preferNonCompositeGPSBias = false;
+        }
+        else if (incoming == 8)
         {
             settings.ppsInterval++;
             if ((settings.ppsInterval >= mosaicPPSParametersIntervalEntries) || (settings.ppsInterval < 0))
                 settings.ppsInterval = 0;
             ppsStarted = false; // Restart PPS afterwards
         }
-        else if (incoming == 7)
+        else if (incoming == 9)
         {
             settings.ppsPolarity++;
             if ((settings.ppsPolarity >= mosaicPPSParametersPolarityEntries) || (settings.ppsPolarity < 0))
                 settings.ppsPolarity = 0;
             ppsStarted = false; // Restart PPS afterwards
         }
-        else if (incoming == 8)
+        else if (incoming == 10)
         {
             systemPrint("Enter Pulse-Per-Second Delay in nanoseconds: ");
             double dly = getDouble();
@@ -482,14 +498,14 @@ void menuOperation()
                 ppsStarted = false; // Restart PPS afterwards
             }
         }
-        else if (incoming == 9)
+        else if (incoming == 11)
         {
             settings.ppsTimeScale++;
             if ((settings.ppsTimeScale >= mosaicPPSParametersTimeScaleEntries) || (settings.ppsTimeScale < 0))
                 settings.ppsPolarity = 0;
             ppsStarted = false; // Restart PPS afterwards
         }
-        else if (incoming == 10)
+        else if (incoming == 12)
         {
             systemPrint("Enter Max Sync Age in seconds (0 to 3600): ");
             int syncAge = getNumber(); // Returns EXIT, TIMEOUT, or long
@@ -505,7 +521,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 11)
+        else if (incoming == 13)
         {
             systemPrint("Enter Pulse Width in milliseconds: ");
             double width = getDouble();

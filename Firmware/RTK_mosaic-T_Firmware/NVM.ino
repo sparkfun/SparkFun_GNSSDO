@@ -96,6 +96,8 @@ void recordSystemSettingsToFile(File *settingsFile)
     settingsFile->printf("%s=%d\r\n", "rxClkBiasLimitCount", settings.rxClkBiasLimitCount);
     settingsFile->printf("%s=%0.3e\r\n", "Pk", settings.Pk);
     settingsFile->printf("%s=%0.3e\r\n", "Ik", settings.Ik);
+    settingsFile->printf("%s=%d\r\n", "preferNonCompositeGPSBias", settings.preferNonCompositeGPSBias);
+    settingsFile->printf("%s=%d\r\n", "preferNonCompositeGalileoBias", settings.preferNonCompositeGalileoBias);
 
     //settingsFile->printf("%s=%d\r\n", "", settings.);
 
@@ -360,6 +362,10 @@ bool parseLine(char *str, Settings *settings)
         settings->Pk = d;
     else if (strcmp(settingName, "Ik") == 0)
         settings->Ik = d;
+    else if (strcmp(settingName, "preferNonCompositeGPSBias") == 0)
+        settings->preferNonCompositeGPSBias = d;
+    else if (strcmp(settingName, "preferNonCompositeGalileoBias") == 0)
+        settings->preferNonCompositeGalileoBias = d;
 
     //else if (strcmp(settingName, "") == 0)
     //    settings-> = d;

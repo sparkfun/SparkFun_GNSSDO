@@ -515,37 +515,21 @@ void updateTCXO()
 // updateTCXOClockBias is only called by STATE_GNSS_FINETIME when gnssPVTUpdated was true
 // So we know that gnssClockBias_ms is valid
 // Use gnssClockBias_ms as the default
-// If we have Fugro from FugroTimeOffset, use that
-// If we have Galileo from FugroTimeOffset, use that
+// If we have non-composite GPS from FugroTimeOffset, use that - if enabled
+// If we have non-composite Galileo from FugroTimeOffset, use that - if enabled
 void updateTCXOClockBias()
 {
     tcxoClockBias_ms = gnssClockBias_ms; // Default to the PVTGeodetic RxClkBias
     snprintf(rxClkBiasSource, sizeof(rxClkBiasSource), "PVT");
 
-    int ts = getFugroTimeSystemFromName("Fugro");
-    if (fugroClkBiases[ts].updated) // If we have the Fugro bias, use that
+    if (settings.preferNonCompositeGPSBias || settings.preferNonCompositeGalileoBias) // These are mutex
     {
-        tcxoClockBias_ms = fugroClkBiases[ts].RxClkBias_ms;
-        fugroClkBiases[ts].updated = false;
-        snprintf(rxClkBiasSource, sizeof(rxClkBiasSource), "Fugro");
+        uint8_t index = mosaicTimeSystemIndexFromName(settings.preferNonCompositeGPSBias ? "GPS" : "Galileo");
+        if (fugroTimeSystems[index].updated) // If we have the preferred non-composite bias, use that
+        {
+            tcxoClockBias_ms = fugroTimeSystems[index].RxClkBias_ms;
+            fugroTimeSystems[index].updated = false;
+            snprintf(rxClkBiasSource, sizeof(rxClkBiasSource), fugroTimeSystems[index].name);
+        }
     }
-
-    ts = getFugroTimeSystemFromName("Galileo");
-    if (fugroClkBiases[ts].updated) // If we have the Galileo bias, use that
-    {
-        tcxoClockBias_ms = fugroClkBiases[ts].RxClkBias_ms;
-        fugroClkBiases[ts].updated = false;
-        snprintf(rxClkBiasSource, sizeof(rxClkBiasSource), "Galileo");
-    }
-}
-
-int getFugroTimeSystemFromName(const char *name)
-{
-    for (int i = 0; i < NUM_FUGRO_CLK_BIASES; i++)
-    {
-        if (strcmp(name, fugroClkBiases[i].name) == 0)
-            return i;
-    }
-
-    return 0; // Should never happen!
 }

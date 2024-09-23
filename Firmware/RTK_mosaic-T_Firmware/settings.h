@@ -69,42 +69,55 @@ typedef enum
     MOSAIC_TIME_SYSTEM_FUGRO = 100,
 } mosaicTimeSystemIds;
 
-const uint8_t mosaicTimeSystemIndexTable[] = {
-    MOSAIC_TIME_SYSTEM_GPS,
-    MOSAIC_TIME_SYSTEM_GALILEO,
-    MOSAIC_TIME_SYSTEM_GLONASS,
-    MOSAIC_TIME_SYSTEM_BEIDOU,
-    MOSAIC_TIME_SYSTEM_QZSS,
-    MOSAIC_TIME_SYSTEM_FUGRO,
+// FugroTimeOffset 4255
+typedef struct {
+    const uint8_t TimeSystem;
+    const uint8_t SysUsage;
+    const char name[8];
+    double RxClkBias_ms;
+    bool updated;
+} fugroTimeSystem;
+
+fugroTimeSystem fugroTimeSystems[] = {
+    { MOSAIC_TIME_SYSTEM_GPS, 0x01, "GPS", 0.0, false },
+    { MOSAIC_TIME_SYSTEM_GALILEO, 0x02, "Galileo", 0.0, false },
+    { MOSAIC_TIME_SYSTEM_GLONASS, 0x04, "GLONASS", 0.0, false },
+    { MOSAIC_TIME_SYSTEM_BEIDOU, 0x08, "BeiDou", 0.0, false },
+    { MOSAIC_TIME_SYSTEM_QZSS, 0, "QZSS", 0.0, false },
+    { MOSAIC_TIME_SYSTEM_FUGRO, 0, "Fugro", 0.0, false },
 };
-const int mosaicTimeSystemIndexTableEntries = sizeof(mosaicTimeSystemIndexTable) / sizeof(mosaicTimeSystemIndexTable[0]);
+
+#define NUM_FUGRO_CLK_BIASES (sizeof(fugroTimeSystems) / sizeof(fugroTimeSystem))
 
 uint8_t mosaicTimeSystemIndexFromId(uint8_t id) {
     int i = 0;
-    for (; i < mosaicTimeSystemIndexTableEntries; i++) {
-        if (mosaicTimeSystemIndexTable[i] == id)
+    for (; i < NUM_FUGRO_CLK_BIASES; i++) {
+        if (fugroTimeSystems[i].TimeSystem == id)
             break;
     }
     return (uint8_t)i;
 }
 
-const char *const mosaicTimeSystemTable[] = {
-    "GPS",
-    "Galileo",
-    "GLONASS",
-    "BeiDou",
-    "QZSS",
-    "Fugro",
-};
-const int mosaicTimeSystemTableEntries = sizeof(mosaicTimeSystemTable) / sizeof(mosaicTimeSystemTable[0]);
-
 const char * mosaicTimeSystemNameFromId(uint8_t id) {
     uint8_t index = mosaicTimeSystemIndexFromId(id);
     static const char unknown[] = "Unknown";
-    if (index >= mosaicTimeSystemIndexTableEntries)
+    if (index >= NUM_FUGRO_CLK_BIASES)
         return unknown;
-    return mosaicTimeSystemTable[index];
+    return fugroTimeSystems[index].name;
 }
+
+uint8_t mosaicTimeSystemIndexFromName(const char *name)
+{
+    for (uint8_t i = 0; i < NUM_FUGRO_CLK_BIASES; i++)
+    {
+        if (strcmp(name, fugroTimeSystems[i].name) == 0)
+            return i;
+    }
+
+    return 0; // Should never happen!
+}
+double tcxoClockBias_ms; // Updated by updateTCXOClockBias
+char rxClkBiasSource[8];
 
 const char *const mosaicPVTErrorTable[] = {
     "None",
@@ -251,6 +264,8 @@ typedef struct
     int rxClkBiasLimitCount = 3; // Consider the clock locked when the bias is <= rxClkBiasLockLimit_ms for this many successive readings. Default: 3
     double Pk = 0.25; // PI P term
     double Ik = 0.01; // PI I term
+    bool preferNonCompositeGPSBias = false; // Prefer non-composite GPS bias - if available. Mutex with preferNonCompositeGalileoBias
+    bool preferNonCompositeGalileoBias = false; // Prefer non-composite Galileo bias - if available. Mutex with preferNonCompositeGPSBias
 
     // Add new settings above <------------------------------------------------------------>
 

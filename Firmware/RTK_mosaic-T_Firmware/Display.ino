@@ -219,7 +219,7 @@ void displayGNSSFail(uint16_t displayTime)
 
 void displayBadBias(uint16_t displayTime)
 {
-    displayMessage("Bad RxClkBias Restarting", displayTime);
+    displayMessage("Bad RxClkBias  Restarting...", displayTime);
 }
 
 void displayNoRingBuffer(uint16_t displayTime)
@@ -362,9 +362,7 @@ void displayMessage(const char *message, uint16_t displayTime)
             token = strtok(nullptr, " ");
         }
 
-        uint8_t yPos = (oled->getHeight() / 2) - (fontHeight / 2);
-        if (wordCount == 2)
-            yPos -= (fontHeight / 2);
+        uint8_t yPos = (oled->getHeight() / 2) - ((fontHeight / 2) * wordCount);
 
         oled->erase();
 

@@ -691,8 +691,6 @@ void verifyTables()
         reportFatalError("Fix platformFilePrefixTable to match ProductVariant");
     if (platformPrefixTableEntries != (RTK_UNKNOWN + 1))
         reportFatalError("Fix platformPrefixTable to match ProductVariant");
-    if (mosaicTimeSystemIndexTableEntries != mosaicTimeSystemTableEntries)
-        reportFatalError("Fix mosaicTimeSystemIndexTable to match mosaicTimeSystemTable");
 
     tasksValidateTables();
 }
