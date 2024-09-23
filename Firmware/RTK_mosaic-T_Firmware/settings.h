@@ -89,6 +89,7 @@ fugroTimeSystem fugroTimeSystems[] = {
 
 #define NUM_FUGRO_CLK_BIASES (sizeof(fugroTimeSystems) / sizeof(fugroTimeSystem))
 
+// Convert id (0,1,3,4,5,100) to index (0-5). Return NUM_FUGRO_CLK_BIASES (6) if id is invalid
 uint8_t mosaicTimeSystemIndexFromId(uint8_t id) {
     int i = 0;
     for (; i < NUM_FUGRO_CLK_BIASES; i++) {
@@ -98,14 +99,18 @@ uint8_t mosaicTimeSystemIndexFromId(uint8_t id) {
     return (uint8_t)i;
 }
 
+// Return the time system name for the given id. Return "Unknown" if id is invalid
 const char * mosaicTimeSystemNameFromId(uint8_t id) {
     uint8_t index = mosaicTimeSystemIndexFromId(id);
+
     static const char unknown[] = "Unknown";
     if (index >= NUM_FUGRO_CLK_BIASES)
         return unknown;
+
     return fugroTimeSystems[index].name;
 }
 
+// Return the time system index (0-5) for the given name
 uint8_t mosaicTimeSystemIndexFromName(const char *name)
 {
     for (uint8_t i = 0; i < NUM_FUGRO_CLK_BIASES; i++)
@@ -114,7 +119,8 @@ uint8_t mosaicTimeSystemIndexFromName(const char *name)
             return i;
     }
 
-    return 0; // Should never happen!
+    reportFatalError("mosaicTimeSystemIndexFromName: invalid name");
+    return 0;
 }
 double tcxoClockBias_ms; // Updated by updateTCXOClockBias
 char rxClkBiasSource[8];

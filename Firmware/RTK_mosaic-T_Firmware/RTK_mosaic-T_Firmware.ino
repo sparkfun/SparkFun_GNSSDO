@@ -119,6 +119,9 @@ double gnssClockBias_ms = 0.0;
 // IPStatus 4058
 IPAddress gnssIP = IPAddress((uint32_t)0);
 
+// FugroTimeOffset 4255
+// fugroTimeSystem fugroTimeSystems[] is in settings.h
+
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 // GPS parse table
