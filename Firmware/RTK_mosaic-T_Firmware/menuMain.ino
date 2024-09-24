@@ -102,6 +102,8 @@ void factoryReset(bool alreadyHasSemaphore)
 {
     displaySytemReset(); // Display friendly message on OLED
 
+    gnssHardReset(); // Probably redundant as initializeGNSS() will be called on restart
+
     tasksStopUART1();
 
     systemPrintln("Formatting internal file system...");

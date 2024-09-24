@@ -219,7 +219,7 @@ void displayGNSSFail(uint16_t displayTime)
 
 void displayBadBias(uint16_t displayTime)
 {
-    displayMessage("Bad RxClkBias. Restarting...", displayTime);
+    displayMessage("Bad RxClkBias ---------- Restarting", displayTime);
 }
 
 void displayNoRingBuffer(uint16_t displayTime)

@@ -335,6 +335,8 @@ void menuDebugSoftware()
         {
             recordSystemSettings();
 
+            gnssHardReset();
+
             ESP.restart();
         }
         else if (incoming == 'x')

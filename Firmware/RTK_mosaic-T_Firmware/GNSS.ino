@@ -108,15 +108,33 @@ void beginGNSS()
     online.gnss = true;
 }
 
-// Kickstart the GNSS timing system - e.g. to resync on bad bias
-bool setTimingSystem()
+// Kickstart the GNSS - e.g. to resync on bad bias
+bool gnssSoftReset()
 {
     if (!online.gnss)
         return false;
 
     int retries = 3; // GNSS is already begun. We shouldn't need to retry.
 
-    while (!sendWithResponse("sts,auto\n\r", "TimingSystem") && (retries > 0)) // Set timing system to auto
+    while (!sendWithResponse("erst,Soft,PVTData\n\r", "ResetReceiver") && (retries > 0)) // Soft reset - erase PVT data
+    {
+        systemPrintln("No response from mosaic. Retrying - with escape sequence...");
+        sendWithResponse("SSSSSSSSSSSSSSSSSSSS\n\r", "COM4>"); // Send escape sequence
+        retries--;
+    }
+
+    return (retries > 0);
+}
+
+// Revert to boot configuration
+bool gnssHardReset()
+{
+    if (!online.gnss)
+        return false;
+
+    int retries = 3; // GNSS is already begun. We shouldn't need to retry.
+
+    while (!sendWithResponse("erst,Hard\n\r", "ResetReceiver") && (retries > 0)) // Hard reset - revert to boot configuration
     {
         systemPrintln("No response from mosaic. Retrying - with escape sequence...");
         sendWithResponse("SSSSSSSSSSSSSSSSSSSS\n\r", "COM4>"); // Send escape sequence

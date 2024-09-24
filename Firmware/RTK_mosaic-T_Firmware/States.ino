@@ -122,8 +122,8 @@ void updateSystemState()
                     {
                         clkBiasLimitCount = 0; // Reset the counts before changing state
                         badBiasCount = 0;
-                        displayBadBias(1000);
-                        setTimingSystem(); // Kickstart the timing system
+                        displayBadBias(2000);
+                        gnssSoftReset(); // Kickstart the timing system
                         changeState(STATE_GNSS_CONFIGURED);
                     }
                 }
