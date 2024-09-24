@@ -130,7 +130,7 @@ void beginBoard()
     }
 
     char versionString[21];
-    getFirmwareVersion(versionString, sizeof(versionString), true);
+    getFirmwareVersion(versionString, sizeof(versionString));
     systemPrintf("SparkFun RTK %s %s\r\n", platformPrefix, versionString);
 
     // Get unit MAC address

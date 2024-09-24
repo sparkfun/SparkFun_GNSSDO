@@ -46,8 +46,8 @@ void recordSystemSettingsToFile(File *settingsFile)
     settingsFile->printf("%s=%d\r\n", "sizeOfSettings", settings.sizeOfSettings);
     settingsFile->printf("%s=%d\r\n", "rtkIdentifier", settings.rtkIdentifier);
 
-    char firmwareVersion[30]; // v1.3 December 31 2021
-    getFirmwareVersion(firmwareVersion, sizeof(firmwareVersion), true);
+    char firmwareVersion[30]; // v1.3
+    getFirmwareVersion(firmwareVersion, sizeof(firmwareVersion));
     settingsFile->printf("%s=%s\r\n", "rtkFirmwareVersion", firmwareVersion);
 
     settingsFile->printf("%s=%d\r\n", "printDebugMessages", settings.printDebugMessages);

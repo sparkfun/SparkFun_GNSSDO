@@ -20,7 +20,7 @@ void menuMain()
     {
         systemPrintln();
         char versionString[21];
-        getFirmwareVersion(versionString, sizeof(versionString), true);
+        getFirmwareVersion(versionString, sizeof(versionString));
         systemPrintf("SparkFun RTK %s %s\r\n", platformPrefix, versionString);
 
         systemPrint("ESP32 WiFi MAC Address: ");

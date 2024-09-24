@@ -736,17 +736,8 @@ void convertGnssTimeToEpoch(uint32_t *epochSecs, uint32_t *epochMillis)
 }
 
 // Format the firmware version
-void formatFirmwareVersion(uint8_t major, uint8_t minor, char *buffer, int bufferLength, bool includeDate)
+void formatFirmwareVersion(char prefix, uint8_t major, uint8_t minor, char *buffer, int bufferLength)
 {
-  char prefix;
-
-  // Construct the full or release candidate version number
-  prefix = 'd';
-  //    if (enableRCFirmware && (bufferLength >= 21))
-  //        // 123456789012345678901
-  //        // pxxx.yyy-dd-mmm-yyyy0
-  //        snprintf(buffer, bufferLength, "%c%d.%d-%s", prefix, major, minor, __DATE__);
-
   // Construct a truncated version number
   if (bufferLength >= 9)
     // 123456789
@@ -763,7 +754,8 @@ void formatFirmwareVersion(uint8_t major, uint8_t minor, char *buffer, int buffe
 }
 
 // Get the current firmware version
-void getFirmwareVersion(char *buffer, int bufferLength, bool includeDate)
+void getFirmwareVersion(char *buffer, int bufferLength)
 {
-  formatFirmwareVersion(FIRMWARE_VERSION_MAJOR, FIRMWARE_VERSION_MINOR, buffer, bufferLength, includeDate);
+    char prefix = ((FIRMWARE_VERSION_MAJOR == 9) && (FIRMWARE_VERSION_MINOR == 9)) ? 'd' : 'v';
+    formatFirmwareVersion(prefix, FIRMWARE_VERSION_MAJOR, FIRMWARE_VERSION_MINOR, buffer, bufferLength);
 }
