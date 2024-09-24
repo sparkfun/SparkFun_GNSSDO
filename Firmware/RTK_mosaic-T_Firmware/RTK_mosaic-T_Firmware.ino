@@ -14,8 +14,10 @@
 */
 
 // This is passed in from compiler extra flags
+#ifndef FIRMWARE_VERSION_MAJOR
 #define FIRMWARE_VERSION_MAJOR 9
 #define FIRMWARE_VERSION_MINOR 9
+#endif
 
 // Define the RTK board identifier:
 //  This is an int which is unique to this variant of the RTK Surveyor hardware which allows us
