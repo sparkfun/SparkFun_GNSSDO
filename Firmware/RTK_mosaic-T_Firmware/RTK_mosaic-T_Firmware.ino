@@ -94,7 +94,7 @@ unsigned long syncRTCInterval = 1000; // To begin, sync RTC every second. Interv
 
 // ReceiverTime 5914
 unsigned long gnssTimeArrivalMillis = 0;
-bool gnssTimeUpdated[2] = { false, false }; // RTC, TCXO
+bool gnssTimeUpdated[3] = { false, false, false }; // RTC, TCXO, printConditions
 uint32_t gnssTOW_ms = 0;
 uint8_t gnssDay = 0;
 uint8_t gnssMonth = 0;
@@ -400,27 +400,39 @@ void loop()
 // Once we have a fix, sync system clock to GNSS
 void updateRTC()
 {
+    static bool firstTime = true;
+    if (firstTime)
+    {
+        gnssTimeUpdated[0] = false; // This ensures gnssTimeUpdated[0] isn't stale
+        firstTime = false;
+    }
+
     if (online.rtc == false) // Only do this if the rtc has not been sync'd previously
     {
         if (online.gnss == true) // Only do this if the GNSS is online
         {
-            if (gnssWNSet && gnssToWSet && gnssFineTime && gnssTimeUpdated[0])
+            if (gnssTimeUpdated[0])
             {
-                // To perform the time zone adjustment correctly, it's easiest if we convert the GNSS time and date
-                // into Unix epoch first and then correct for the arrival time
-                uint32_t epochSecs;
-                uint32_t epochMillis;
-                convertGnssTimeToEpoch(&epochSecs, &epochMillis);
-                
-                epochMillis += millis() - gnssTimeArrivalMillis; // Remove the lag
+                gnssTimeUpdated[0] = false;
 
-                // Set the internal system time
-                rtc.setTime(epochSecs, epochMillis * 1000);
+                if (gnssWNSet && gnssToWSet && gnssFineTime)
+                {
+                    // To perform the time zone adjustment correctly, it's easiest if we convert the GNSS time and date
+                    // into Unix epoch first and then correct for the arrival time
+                    uint32_t epochSecs;
+                    uint32_t epochMillis;
+                    convertGnssTimeToEpoch(&epochSecs, &epochMillis);
+                    
+                    epochMillis += millis() - gnssTimeArrivalMillis; // Remove the lag
 
-                online.rtc = true;
+                    // Set the internal system time
+                    rtc.setTime(epochSecs, epochMillis * 1000);
 
-                systemPrint("System time set to: ");
-                systemPrintln(rtc.getDateTime(true));
+                    online.rtc = true;
+
+                    systemPrint("System time set to: ");
+                    systemPrintln(rtc.getDateTime(true));
+                }
             }
         }         // End online.gnss
     }             // End online.rtc

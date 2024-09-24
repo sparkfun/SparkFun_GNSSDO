@@ -31,12 +31,19 @@ void settingsToDefaults()
 // Periodically print conditions if enabled
 void printConditions()
 {
-    // Periodically print the position etc.
-    if (settings.enablePrintConditions && ((millis() - lastPrintConditions) > settings.periodicPrintInterval_ms))
+    // Periodically print the position etc. each time a ReceiverTime message is received
+    if (settings.enablePrintConditions && gnssTimeUpdated[2])
     {
+        gnssTimeUpdated[2] = false;
         printCurrentConditions(settings.enablePrintConditions == 2);
-        lastPrintConditions = millis();
     }
+
+    // Periodically print the position etc.
+    //if (settings.enablePrintConditions && ((millis() - lastPrintConditions) > settings.periodicPrintInterval_ms))
+    //{
+    //    printCurrentConditions(settings.enablePrintConditions == 2);
+    //    lastPrintConditions = millis();
+    //}
 }
 
 // Print the error message every 15 seconds

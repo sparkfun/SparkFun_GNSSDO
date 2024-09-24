@@ -48,7 +48,6 @@ void menuDebugSoftware()
                     break;
             }
         }
-        systemPrintf("%s\r\n", settings.enablePrintConditions ? "Enabled" : "Disabled");
 
         systemPrint("9) Print consumers: ");
         systemPrintf("%s\r\n", settings.enablePrintConsumers ? "Enabled" : "Disabled");

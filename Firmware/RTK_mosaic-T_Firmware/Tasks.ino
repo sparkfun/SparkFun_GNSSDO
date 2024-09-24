@@ -557,7 +557,7 @@ void processConsumerMessage(PARSE_STATE *parse, uint8_t type)
     {
         if ((parse->message & 0x1FFF) == 5914) // ReceiverTime
         {
-            gnssTimeUpdated[0] = gnssTimeUpdated[1] = true;
+            gnssTimeUpdated[0] = gnssTimeUpdated[1] = gnssTimeUpdated[2] = true;
             gnssTimeArrivalMillis = millis();
             
             gnssTOW_ms = ((uint32_t)parse->buffer[8]) << 0;
