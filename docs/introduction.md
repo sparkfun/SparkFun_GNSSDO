@@ -34,10 +34,10 @@ icon: material/book-open-page-variant
 
 </div>
 
-!!! RTK Base
-	The mosaic-T is a superb GNSS module designed for highly accurate timing applications. It can be configured as a RTK Rover and will make use of incoming RTCM corrections. **But it can not be configured as a RTK Base - RTCM output is not supported.**
+!!! warning "RTK Base"
+	The mosaic-T is a superb GNSS module designed for highly accurate timing applications. It can be configured as a RTK Rover and will make use of incoming RTCM corrections. **But it can not be configured as a RTK Base. RTCM output is not supported.**
 
-## :fontawesome-solid-gear:&nbsp;Connectivity
+## :fontawesome-solid-screwdriver-wrench:&nbsp;Connectivity
 
 -	SMA Connections:
     - GNSS Antenna (L1/L2/L5/L-Band) - provides 5V for an active antenna
