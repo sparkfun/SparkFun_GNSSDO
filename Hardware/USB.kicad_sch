@@ -1118,7 +1118,7 @@
 					)
 				)
 				(pin no_connect line
-					(at 3.81 -15.24 90)
+					(at 2.54 -15.24 90)
 					(length 5.08) hide
 					(name "NC"
 						(effects
@@ -1226,7 +1226,7 @@
 					)
 				)
 				(pin no_connect line
-					(at -2.54 -15.24 90)
+					(at -5.08 -15.24 90)
 					(length 5.08) hide
 					(name "NC"
 						(effects
@@ -1244,7 +1244,7 @@
 					)
 				)
 				(pin no_connect line
-					(at -2.54 -15.24 90)
+					(at -3.81 -15.24 90)
 					(length 5.08) hide
 					(name "NC"
 						(effects
@@ -1297,7 +1297,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin power_out line
 					(at 15.24 8.89 180)
 					(length 5.08)
 					(name "VBUS"

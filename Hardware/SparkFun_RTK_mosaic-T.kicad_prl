@@ -78,19 +78,6 @@
     "version": 3
   },
   "project": {
-    "files": [
-      {
-        "name": "SparkFun_RTK_mosaic-T.kicad_pcb",
-        "open": true,
-        "window": {
-          "display": 0,
-          "maximized": false,
-          "pos_x": 26,
-          "pos_y": 9,
-          "size_x": 1918,
-          "size_y": 1038
-        }
-      }
-    ]
+    "files": []
   }
 }

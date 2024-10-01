@@ -2958,7 +2958,7 @@
 					)
 				)
 			)
-			(property "Value" " PESD0402"
+			(property "Value" "PESD0402"
 				(at 0 -2.54 0)
 				(effects
 					(font
@@ -12169,7 +12169,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" " PESD0402"
+		(property "Value" "PESD0402"
 			(at 39.37 57.15 90)
 			(effects
 				(font
