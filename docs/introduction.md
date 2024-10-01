@@ -34,7 +34,10 @@ icon: material/book-open-page-variant
 
 </div>
 
-## :material/tools:&nbsp;Connectivity
+!!! RTK Base
+	The mosaic-T is a superb GNSS module designed for highly accurate timing applications. It can be configured as a RTK Rover and will make use of incoming RTCM corrections. **But it can not be configured as a RTK Base - RTCM output is not supported.**
+
+## :fontawesome-solid-gear:&nbsp;Connectivity
 
 -	SMA Connections:
     - GNSS Antenna (L1/L2/L5/L-Band) - provides 5V for an active antenna
@@ -88,6 +91,29 @@ icon: material/book-open-page-variant
 		![Product Thumbnail](./assets/img/product_comparison/rtk_mosaic-x5.png){ width="200" }
 		</figure>
 	</th>
+	<th markdown style="text-align:center">
+		RTK mosaic-T<br>
+		<hr>
+		<figure markdown>
+		![Product Thumbnail](./assets/img/product_comparison/rtk_mosaic-x5.png){ width="200" }
+		</figure>
+	</th>
+	</tr>
+	<tr>
+		<td>RTK Rover</td>
+		<td style="text-align:center">Yes</td>
+		<td style="text-align:center">Yes</td>
+		<td style="text-align:center">Yes</td>
+		<td style="text-align:center">Yes</td>
+		<td style="text-align:center">Yes</td>
+	</tr>
+	<tr>
+		<td>RTK Base</td>
+		<td style="text-align:center">Yes</td>
+		<td style="text-align:center">Yes</td>
+		<td style="text-align:center">Yes</td>
+		<td style="text-align:center">Yes</td>
+		<td style="text-align:center">**No**</td>
 	</tr>
 	<tr>
 		<td style="vertical-align:middle;">GNSS Antenna</td>
@@ -98,11 +124,13 @@ icon: material/book-open-page-variant
 		</td>
 		<td style="text-align:center; vertical-align:middle;">Single</td>
 		<td style="text-align:center; vertical-align:middle;">Single</td>
+		<td style="text-align:center; vertical-align:middle;">Single</td>
 	</tr>
 	<tr>
 		<td>USB Connector</td>
 		<td style="text-align:center">micro-B</td>
 		<td style="text-align:center">micro-B</td>
+		<td style="text-align:center">Type-C</td>
 		<td style="text-align:center">Type-C</td>
 		<td style="text-align:center">Type-C</td>
 	</tr>
@@ -118,6 +146,10 @@ icon: material/book-open-page-variant
 			Yes<br>
 			<i>10/100 Base-T</i>
 		</td>
+		<td style="text-align:center">
+			Yes<br>
+			<i>10/100 Base-T</i>
+		</td>
 	</tr>
 	<tr>
 		<td style="vertical-align:middle;">WiFi</td>
@@ -128,6 +160,7 @@ icon: material/book-open-page-variant
 			Yes - Network Bridge<br>
 			<i>10 Base-T</i>
 		</td>
+		<td style="text-align:center; vertical-align:middle;">No</td>
 	</tr>
 	<tr>
 		<td style="vertical-align:middle;">COM Ports</td>
@@ -138,9 +171,14 @@ icon: material/book-open-page-variant
 			1 - mosaic-X5<br>
 			1 - ESP32
 		</td>
+		<td style="text-align:center">
+			1 - mosaic-T<br>
+			1 - ESP32
+		</td>
 	</tr>
 	<tr>
 		<td>&micro;SD Card Slot</td>
+		<td style="text-align:center">Yes</td>
 		<td style="text-align:center">Yes</td>
 		<td style="text-align:center">Yes</td>
 		<td style="text-align:center">Yes</td>
@@ -150,6 +188,7 @@ icon: material/book-open-page-variant
 		<td style="vertical-align:middle;">Reset/Log Buttons</td>
 		<td style="text-align:center; vertical-align:middle;">Yes</td>
 		<td style="text-align:center; vertical-align:middle;">No*</td>
+		<td style="text-align:center; vertical-align:middle;">Yes</td>
 		<td style="text-align:center; vertical-align:middle;">Yes</td>
 		<td style="text-align:center; vertical-align:middle;">Yes</td>
 	</tr>
@@ -165,6 +204,10 @@ icon: material/book-open-page-variant
 			3.3V<br>
 			5V
 		</td>
+		<td style="text-align:center">
+			3.3V<br>
+			5V
+		</td>
 	</tr>
 	<tr>
 		<td>PPS Signal</td>
@@ -172,6 +215,20 @@ icon: material/book-open-page-variant
 		<td style="text-align:center">6-Pin JST Connector</td>
 		<td style="text-align:center">SMA Connector</td>
 		<td style="text-align:center">Screw Terminal</td>
+		<td style="text-align:center">
+			Screw Terminal<br>
+			SMA Connector
+		</td>
+	</tr>
+	<tr>
+		<td>10MHz Signal</td>
+		<td style="text-align:center">No</td>
+		<td style="text-align:center">No</td>
+		<td style="text-align:center">No</td>
+		<td style="text-align:center">No</td>
+		<td style="text-align:center">
+			SMA Connector
+		</td>
 	</tr>
 	<tr>
 		<td>Enclosure Material</td>
@@ -313,7 +370,7 @@ Everything that is included in the RTK mosaic-T kit.
 		CAB-22038</a>
 
 		!!! tip
-			Use this extension cable for the WiFi/BLE antenna. This cable will not work with the GNSS antenna due to the polarity of the connectors.
+			Use this extension cable for the ESP32 WiFi/BLE antenna. This cable will not work with the GNSS antenna due to the polarity of the connectors. **WiFi/BLE is not supported by the current firmware.**
 
 	</div>
 

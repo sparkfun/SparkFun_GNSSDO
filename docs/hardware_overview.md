@@ -53,7 +53,7 @@ Users can download the [full schematic for the RTK mosaic-T](./assets/board_file
 	Details about the aluminum enclosure can be found on the [Metal Enclosure - Custom Aluminum Extrusion (6in. x 4in. PCB)](https://www.sparkfun.com/products/22640) product page.
 
 	<figure markdown>
-	[![Enclosure Dimensions](./assets/board_files/dimensions-enclosure.png){ width="700" }](./assets/board_files/dimensions-enclosure.png "Click to enlarge")
+	[![Enclosure Dimensions](./assets/board_files/dimensions-enclosure.pdf){ width="700" }](./assets/board_files/dimensions-enclosure.pdf "Click to enlarge")
 	<figcaption markdown>
 	[Dimensions (PDF)](./assets/board_files/dimensions-enclosure.pdf) of the RTK mosaic-T aluminum enclosure and the front/rear panels, in millimeters.
 	</figcaption>
@@ -212,7 +212,7 @@ The RTK mosaic-T can be powered individually or in combination, with any of the 
 The heart of our product is of course the mosaic-T GNSS module from Septentrio. It is a _very_ sophisticated chip with multiple interfaces: UARTS, USB and Ethernet. The `COM3` UART pins, plus `GPIO1` and `GPIO2`, are available as 0.1" test points should you need access to them.
 
 <figure markdown>
-[![mosaic T](./assets/img/hookup_guide/X5.png){ width="400" }](./assets/img/hookup_guide/X5.png "Click to enlarge")
+[![mosaic T](./assets/img/hookup_guide/T.png){ width="400" }](./assets/img/hookup_guide/T.png "Click to enlarge")
 <figcaption markdown>The Septentrio mosaic-T GNSS module.</figcaption>
 </figure>
 
@@ -231,6 +231,28 @@ Think of the ESP32 as a co-processor, or riding shotgun... The mosaic-T `COM1` a
 
 ## Ethernet PHY Interface
 The mosaic-T has a KSZ8041NLI Ethernet PHY interfaces, connected using a Reduced Media-Independent Interface (RMII).
+
+<div class="grid" markdown>
+
+<div markdown>
+
+<figure markdown>
+[![Ethernet Connector](./assets/img/hookup_guide/POE.png){ width="750" }](./assets/img/hookup_guide/POE.png "Click to enlarge")
+<figcaption markdown>Ethernet (PoE) conection.</figcaption>
+</figure>
+
+</div>
+
+<div markdown>
+
+<figure markdown>
+[![Ethernet PHY](./assets/img/hookup_guide/PHY-PCB.png){ width="400" }](./assets/img/hookup_guide/PHY-PCB.png "Click to enlarge")
+<figcaption markdown>The Ethernet PHY on the RTK mosaic-T PCB.</figcaption>
+</figure>
+
+</div>
+
+</div>
 
 ## USB-C Connectors
 The mosaic-T and ESP32 both have USB-C connections. The MOSAIC USB port is high-speed and connected to the T through a balancing transformer. The ESP32 USB port is connected through a CH340 USB-UART IC.
@@ -325,17 +347,17 @@ The RTK mosaic-T has robust SMA connectors for the mosaic-T GNSS antenna, 50 Ohm
 <figcaption markdown>The connection for the GNSS antenna to the mosaic-T.</figcaption>
 </figure>
 
-The mosaic-T SMA connector is standard polarity and provides 5V power for an active antenna.
+The mosaic-T GNSS SMA connector is standard polarity and provides 5V power for an active antenna.
 </div>
 
 <div markdown>
 <figure markdown>
-[![SMA RF Connections](./assets/img/hookup_guide/Ant-GNSS.png){ width="750" }](./assets/img/hookup_guide/Ant-GNSS.png "Click to enlarge")
+[![SMA PPS Connections](./assets/img/hookup_guide/PPS.png){ width="750" }](./assets/img/hookup_guide/PPS.png "Click to enlarge")
 <figcaption markdown>The SMA connector for the 50 Ohm Pulse-Per-Second output.</figcaption>
 </figure>
 
 <figure markdown>
-[![SMA RF Connections](./assets/img/hookup_guide/RF-GNSS.png){ width="400" }](./assets/img/hookup_guide/RF-GNSS.png "Click to enlarge")
+[![SMA PPS Connections](./assets/img/hookup_guide/PPS-PCB.png){ width="400" }](./assets/img/hookup_guide/PPS-PCB.png "Click to enlarge")
 <figcaption markdown>The connection for the 50 Ohm Pulse-Per-Second output.</figcaption>
 </figure>
 
@@ -344,26 +366,26 @@ The Pulse-Per-Second SMA connector is standard polarity. The output impedance is
 
 <div markdown>
 <figure markdown>
-[![SMA RF Connections](./assets/img/hookup_guide/Ant-GNSS.png){ width="750" }](./assets/img/hookup_guide/Ant-GNSS.png "Click to enlarge")
+[![SMA 10MHz Connections](./assets/img/hookup_guide/10MHz.png){ width="750" }](./assets/img/hookup_guide/10MHz.png "Click to enlarge")
 <figcaption markdown>The SMA connector for the 50 Ohm disciplined 10 MHz sine wave output.</figcaption>
 </figure>
 
 <figure markdown>
-[![SMA RF Connections](./assets/img/hookup_guide/RF-GNSS.png){ width="400" }](./assets/img/hookup_guide/RF-GNSS.png "Click to enlarge")
+[![SMA 10MHz Connections](./assets/img/hookup_guide/10Mhz-PCB.png){ width="400" }](./assets/img/hookup_guide/10Mhz-PCB.png "Click to enlarge")
 <figcaption markdown>The connection for the 50 Ohm disciplined 10 MHz sine wave output.</figcaption>
 </figure>
 
-The 10 MHz sine wave SMA connector is standard polarity. The output impedance is 50 Ohm. The voltage is selectable via the VCCIO switch: 3.3V or 5V. The output is AC-coupled.
+The 10 MHz sine wave SMA connector is standard polarity. The output impedance is 50 Ohm. The voltage is adjustable via the VCCIO switch. The output is AC-coupled and is approximately 1V<sub>PP</sub>.
 </div>
 
 <div markdown>
 <figure markdown>
-[![SMA RF Connections](./assets/img/hookup_guide/Ant-WiFi.png){ width="750" }](./assets/img/hookup_guide/Ant-WiFi.png "Click to enlarge")
+[![SMA WiFi Connections](./assets/img/hookup_guide/Ant-WiFi.png){ width="750" }](./assets/img/hookup_guide/Ant-WiFi.png "Click to enlarge")
 <figcaption markdown>The RP-SMA connector for the WiFi/BLE antenna.</figcaption>
 </figure>
 
 <figure markdown>
-[![SMA RF Connections](./assets/img/hookup_guide/RF-WiFi.png){ width="400" }](./assets/img/hookup_guide/RF-WiFi.png "Click to enlarge")
+[![SMA WiFi Connections](./assets/img/hookup_guide/Ant-WiFi-PCB.png){ width="400" }](./assets/img/hookup_guide/Ant-WiFi-PCB.png "Click to enlarge")
 <figcaption markdown>The connection for the WiFi / BLE antenna to the ESP32.</figcaption>
 </figure>
 
@@ -379,7 +401,7 @@ The ESP32 WiFi / BT SMA connector is reverse-polarity (RP). A short u.FL cable c
 
 
 ## I/O Terminals
-The RTK moasic-T is equipped with a [10-way 3.5mm screw cage terminal connectors](https://www.sparkfun.com/products/22461).
+The RTK moasic-T is equipped with a [10-way 3.5mm screw cage terminal connector](https://www.sparkfun.com/products/22461).
 
 <div class="grid" markdown>
 
@@ -591,57 +613,17 @@ The OLED display on the RTK mosaic-T.
 </figcaption>
 </figure>
 
-* **IP**    : nnn.nnn.nnn.nnn from IPStatus IPAddress
-* **Time**  : YYYY/MM/DD HH:MM:SS from ReceiverTime
-* **Lat**   : Latitude from PVTGeodetic (Degrees)
-* **Long**  : Longitude from PVTGeodetic (Degrees)
-* **Sys**   : TimeSystem from PVTGeodetic
+* Date & Time : YYYY/MM/DD HH:MM:SS from ReceiverTime
+* **IP**        : nnn.nnn.nnn.nnn from IPStatus IPAddress
+* **Lat**       : Latitude from PVTGeodetic (Degrees)
+* **Long**      : Longitude from PVTGeodetic (Degrees)
+* **Sys**       : TimeSystem from PVTGeodetic
 	* GPS, Galileo, GLONASS, BeiDou, QZSS, Fugro
-* **Error** : Error from PVTGeodetic
+* **Error**     : Error from PVTGeodetic
 	* None, Measurements, Ephemerides, DOP, Residuals, Convergence, Outliers, Export, Differential, Base, Ambiguities
-* **Fine**  : FINETIME from ReceiverTime
+* **Fine**      : FINETIME from ReceiverTime
 	* False, True
-* **Bias**  : RxClkBias from PVTGeodetic (ms/us/ns)
-
-??? example "Example Data"
-	Below, is an example data set recorded on the RTK mosaic-T at SparkFun HQ; where the antenna was located on the roof of the building. The antenna was above the loading dock, just about where it is displayed on the map. The table, below, is an example of how to convert the information on the display into the time and coordinate values.
-
-	<div class="grid">
-
-	<div markdown>
-
-	<figure markdown>
-	[![LEDs](./assets/img/hookup_guide/OLED-sparkfun.png){ width="500" }](./assets/img/hookup_guide/OLED-sparkfun.png "Click to enlarge")
-	<figcaption markdown>
-	Example information on the OLED display of the RTK mosaic-T.
-	</figcaption>
-	</figure>
-
-	</div>
-
-	<div markdown>
-
-	<center>
-
-	|    | Data | Format | Value |
-	| :- | :--- | :----- | :---- |
-	| Time | `191525.90` | `HHMMSS.SS` | 7:15:25.90 PM (UTC)<br>12:15:25.90 PM (MST) |
-	| Latitude | `4005.4192485 N` | `DDMM.MMMMMMM` `N`/`S` | 40&deg; 5.4162485' N<br>40&deg; 5' 24.97491" N<br>40.090270808&deg; N |
-	| Longitude | `10511.0873663 W` | `DDDMM.MMMMMMM` `E`/`W` | 105&deg; 11.0873663' W<br>105&deg; 11' 5.241978" W<br>105.184789438&deg; W |
-
-	</center>
-
-	</div>
-
-	</div>
-
-	<figure markdown>
-	<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d642.644955184578!2d-105.18511963541232!3d40.0903902657445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDDCsDA1JzI1LjAiTiAxMDXCsDExJzA1LjIiVw!5e1!3m2!1sen!2sus!4v1700260975996!5m2!1sen!2sus" width="800" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-	<figcaption markdown>
-	The location of the antenna on Google Maps, as determined from the coordinates on the OLED display. Source: [Google Maps](https://www.google.com/maps/@40.0838666,-105.18528,15z?entry=ttu)
-	</figcaption>
-	</figure>
-
+* **Bias**      : RxClkBias from PVTGeodetic (ms/us/ns)
 
 ## Buttons
 There are three buttons on the RTK mosaic-T: ++"RESET"++, ++"BOOT"++, and ++"LOG"++.
@@ -696,12 +678,6 @@ There are three buttons on the RTK mosaic-T: ++"RESET"++, ++"BOOT"++, and ++"LOG
 		* Press the ++"RESET"++ button.
 		* Power cycle the board.
 
-	!!! info "BOOT and GPIO0"
-		The ESP32 GPIO pin 0 is connected to the BOOT button. But is also used by the firmware to generate the 50MHz clock for the RMII Ethernet PHY interface.
-
-		Pressing the BOOT button while the firmware is running in mode 2 (WiFi) will interrupt the clock and cause Ethernet communication with the mosaic-T to fail.
-
-
 ## Jumpers
 
 ??? note "Never modified a jumper before?"
@@ -752,6 +728,9 @@ The jumpers on the bottom of the RTK mosaic-T PCB.
 === "Top"
 	* **POE** - This jumper can be used to disconnect the Power-over-Ethernet (PoE) module 50&ohm; load.
 		* The PoE module has a minimum load of 200mA. We included the 50&ohm; load to ensure this is met. If you can ensure this by other means, open this jumper to disconnect the load.
+	* **MEAS**
+		* Open the **MEAS** jumper if you wish to measure the total current drawn by the RTK mosaic-T, or (e.g.) wish to add an ON/OFF switch. The breakout pads can then be used to attach a multimeter or a mechanical power switch.
+		* **MEAS** is _upstream_ of the two 3.3V regulators and _downstream_ of the four power source combination and protection diodes.
 
 === "Bottom"
 	* LED Jumpers
@@ -773,8 +752,5 @@ The jumpers on the bottom of the RTK mosaic-T PCB.
 		* Open these jumpers if you wish to isolate (disconnect) the external DC power terminals. The breakout pads can then be used to feed in power from an alternate source.
 	* **POE+** and **POE-**
 		* Open these jumpers if you wish to isolate (disconnect) the Power-over-Ethernet pins on the MOSAIC Ethernet magjack. The breakout pads can then be used to feed in power from an alternate source.
-	* **MEAS**
-		* Open the **MEAS** jumper if you wish to measure the total current drawn by the RTK mosaic-T, or (e.g.) wish to add an ON/OFF switch. The breakout pads can then be used to attach a multimeter or a mechanical power switch.
-		* **MEAS** is _upstream_ of the two 3.3V regulators and _downstream_ of the four power source combination and protection diodes.
 	* **VCCIO**
 		* The **VCCIO** jumper can be soldered closed to connect the **CTS** screw terminal to VCCIO. **CTS** can then be used as a power output. The voltage is set by the VCCIO slide switch.
