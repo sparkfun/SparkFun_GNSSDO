@@ -231,9 +231,6 @@ With the USB driver installed, the mosaic-T module supports Ethernet-over-USB. T
 ??? failure "Invalid IP Address *(WiFi Only)*"
 	[One of the documentation pages on Septentrio's website](https://customersupport.septentrio.com/s/article/What-is-the-default-IP-address-to-connect-via-WiFi), specifies a default IP address of `192.168.20.1` for the web interface. However, that address is for a WiFi enabled product and cannot be used with this product.
 
-
-
-
 ## :espressif-logo:&nbsp;ESP32
 
 ### USB Driver
