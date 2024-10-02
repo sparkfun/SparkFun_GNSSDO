@@ -38,7 +38,9 @@ icon: material/cog
 !!! code "ESP32 Firmware"
 	We have intentionally kept the ESP32 firmware as simple as possible - it only disciplines the TCXO oscillator and controls the OLED display. The SparkFun RTK Firmware or SparkFun RTK Everywhere firmware will not run on this product. The intention is that you can easily develop your own firmware for the RTK mosaic-T if the SparkFun firmware does not meet your needs.
 
-	The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_RTK_mosaic-T/tree/main/Firmware/Binaries)** folder contains the firmware binaries. You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
+	The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_RTK_mosaic-T/tree/main/Firmware/Binaries)** folder contains the firmware binaries.
+	
+	You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
 
 	You can of course modify the hardware too, should you want to. The design is completely open-source.
 
@@ -55,7 +57,7 @@ Users can download the [full schematic for the RTK mosaic-T](./assets/board_file
 	Details about the aluminum enclosure can be found on the [Metal Enclosure - Custom Aluminum Extrusion (6in. x 4in. PCB)](https://www.sparkfun.com/products/22640) product page.
 
 	<figure markdown>
-	[![Enclosure Dimensions](./assets/board_files/Enclosure-Dimensions.png){ width="700" }](./assets/board_files/dimensions-enclosure.pdf "Click to enlarge")
+	[![Enclosure Dimensions](./assets/img/hookup_guide/Enclosure-Dimensions.png){ width="700" }](./assets/board_files/dimensions-enclosure.pdf "Click to enlarge")
 	<figcaption markdown>
 	[Dimensions (PDF)](./assets/board_files/dimensions-enclosure.pdf) of the RTK mosaic-T aluminum enclosure and the front/rear panels, in millimeters.
 	</figcaption>
@@ -137,7 +139,7 @@ The RTK mosaic-T can be powered individually or in combination, with any of the 
 
 
 	!!! info "CH340 Driver"
-		The CH340 allows the ESP32-WROVER to communicate with a computer/host device through the USB-C connection. This allows the ESP32 to show up as a device on the serial (or COM) port of the computer. Users will need to install the latest drivers for the computer to recognize the CH340 *(see **[USB Driver](./software_overview.md#usb-driver-1)** section)*.
+		The CH340 allows the ESP32-WROVER to communicate with a computer/host device through the USB-C connection. This allows the ESP32 to show up as a device on the serial (or COM) port of the computer. Users will need to install the latest drivers for the computer to recognize the CH340 *(see **[USB Driver](./software_overview.md#usb-driver_1)** section)*.
 
 
 === ":material-ethernet: Power-over-Ethernet (PoE)"
@@ -231,7 +233,9 @@ Think of the ESP32 as a co-processor, or riding shotgun... The mosaic-T `COM1` a
 ??? code "ESP32 Firmware"
 	We have intentionally kept the ESP32 firmware as simple as possible. The intention is that users can easily develop their, own firmware for the RTK mosaic-T using the Espressif ESP IDF or the Arduino IDE if the SparkFun firmware does not meet their needs.
 
-	The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_RTK_mosaic-T/tree/main/Firmware/Binaries)** folder contains the firmware binaries. You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
+	The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_RTK_mosaic-T/tree/main/Firmware/Binaries)** folder contains the firmware binaries.
+	
+	You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
 
 ## Ethernet PHY Interface
 The mosaic-T has a KSZ8041NLI Ethernet PHY interface, connected using a Reduced Media-Independent Interface (RMII).
@@ -310,7 +314,7 @@ The mosaic-T and ESP32 both have USB-C connections. The MOSAIC USB port is high-
 	The RTK mosaic-T can draw power from either or both USB ports, in addition to Power-over-Ethernet and the DC-DC external input described above.
 
 !!! info "CH340 Driver"
-	The CH340 allows the ESP32-WROVER to communicate with a computer/host device through the USB-C connection. This allows the ESP32 to show up as a device on the serial (or COM) port of the computer. Users will need to install the latest drivers for the computer to recognize the CH340 *(see **[USB Driver](./software_overview.md#usb-driver-1)** section)*.
+	The CH340 allows the ESP32-WROVER to communicate with a computer/host device through the USB-C connection. This allows the ESP32 to show up as a device on the serial (or COM) port of the computer. Users will need to install the latest drivers for the computer to recognize the CH340 *(see **[USB Driver](./software_overview.md#usb-driver_1)** section)*.
 
 
 ## &micro;SD Socket

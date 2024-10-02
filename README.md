@@ -44,7 +44,7 @@ Documentation
 Firmware Update
 -------------------
 
-The **[/Firmware/Binaries](/Firmware/Binaries/)** folder contains the firmware binaries.
+The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_RTK_mosaic-T/tree/main/Firmware/Binaries)** folder contains the firmware binaries.
 
 You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
 

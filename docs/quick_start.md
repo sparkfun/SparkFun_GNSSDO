@@ -43,7 +43,7 @@ hide: toc
 		For users who have lost the pamphlet in their kit, please check out the links below to download the `*.pdf` file:
 
 		<figure markdown>
-		[![Scan QR Code to Download PDF File](./assets/img/qr_code/quick_start_guide.png){ width="150" }]( "Click to enlarge")
+		[![Scan QR Code to Download PDF File](./assets/img/qr_code/quick_start_guide.png){ width="150" }](./assets/img/qr_code/quick_start_guide.png "Click to enlarge")
 		<figcaption markdown>
 		[:octicons-download-16:{ .heart } Download the Quick Start Guide :fontawesome-solid-file-pdf:](./assets/quick_start_guide-v10.pdf "Click to Download"){ .md-button .md-button--primary }
 		</figcaption>
@@ -83,7 +83,7 @@ hide: toc
 	Connect your computer, tablet or phone to the same network, open a web browser and navigate to the IP address shown on the OLED display. You should see the mosaic-T's internal web page. The web page displays a lot of helpful information and can also be used to fully configure the mosaic-T.
 
 	<figure markdown>
-	[![mosaic-T web page](./assets/img/hookup_guide/T-web-page.png){ width="400" }]( "Click to enlarge")
+	[![mosaic-T web page](./assets/img/hookup_guide/T-web-page.png){ width="400" }](./assets/img/hookup_guide/T-web-page.png "Click to enlarge")
 	<figcaption markdown>
 	[mosaic T web page (PNG)](./assets/img/hookup_guide/T-web-page.png) for the RTK mosaic-T.
 	</figcaption>

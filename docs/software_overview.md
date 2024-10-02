@@ -5,7 +5,9 @@ icon: fontawesome/solid/computer
 !!! code "ESP32 Firmware"
 	We have intentionally kept the ESP32 firmware as simple as possible - its only tasks are to: discipline the TCXO oscillator; control the OLED display. The intention is that you can easily develop your own firmware for the RTK mosaic-T if the SparkFun firmware does not meet your needs.
 
-	The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_RTK_mosaic-T/tree/main/Firmware/Binaries)** folder contains the firmware binaries. You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
+	The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_RTK_mosaic-T/tree/main/Firmware/Binaries)** folder contains the firmware binaries.
+	
+	You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
 
 	You can of course modify the hardware too, should you want to. The design is completely open-source.
 
@@ -294,6 +296,24 @@ In order to configure the firmware settings on the ESP32, users will need to ins
 
 	</div>
 
+## Fugro AtomiChron<sup>Ⓡ</sup>
+
+For the ultimate in clock accuracy, you can subscribe to Fugro's AtomiChron service. Corrections can be delivered via L-Band or IP (Ethernet). AtomiChron allows the mosaic-T to achieve better than 1ns timing accuracy.
+
+Without an AtomiChron subscription, the firmware will use the composite GNSS **RxClkBias** from **PVTGeodetic** to discipline the TCXO frequency.
+
+<figure markdown>
+[![Fugro AtomiChron expired](./assets/img/hookup_guide/AtomiChron-Expired.png){ width="400" }](./assets/img/hookup_guide/AtomiChron-Expired.png "Click to enlarge")
+<figcaption markdown>By default, the Fugro AtomiChron subscription shows as "expired".</figcaption>
+</figure>
+
+With AtomiChron, you have the option to use the individual GPS or Galileo clock bias from **FugroTimeOffset** over the Fugro composite bias. Activation takes place over L-Band and is very, very quick.
+
+<figure markdown>
+[![Fugro AtomiChron active](./assets/img/hookup_guide/AtomiChron-Active.png){ width="400" }](./assets/img/hookup_guide/AtomiChron-Active.png "Click to enlarge")
+<figcaption markdown>The mosaic-T with an active Fugro AtomiChron subscription.</figcaption>
+</figure>
+
 ## :fontawesome-solid-screwdriver-wrench:&nbsp;Software Settings
 
 When connected to the ESP32 CH340 COM port at 115200 baud, pressing any key in the terminal emulator will open the firmware Main Menu:
@@ -371,3 +391,4 @@ To reset all settings to their default values, select "r", "Enter", "y", "Enter"
 The settings are saved to non-volatile memory (NVM, LittleFS) on exiting the menu. Ensure you fully exit the menu ("x", "Enter", "x", "Enter") to save any modified settings.
 
 The TCXO frequency control word is saved to NVM once per hour, to allow a quicker startup at the next power-on.
+

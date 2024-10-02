@@ -35,7 +35,9 @@ Septentrio also provides great resources for the mosaic-T:
 * :material-youtube: [YouTube Channel](https://www.youtube.com/@SeptentrioGNSS) (2)
 * [JammerTest 2023 - Anti-Jamming and Anti-Spoofing Performance](https://www.septentrio.com/en/learn-more/insights/most-resilient-gnss-receiver-results-jammertest-norway)
 
-1. !!! info "Recommended Articles"
+</div>
+
+1.	!!! info "Recommended Articles"
 
 		**General Knowledge**
 
@@ -63,7 +65,7 @@ Septentrio also provides great resources for the mosaic-T:
 		:material-file-document:[Antenna calibration](https://customersupport.septentrio.com/s/article/Antenna-calibration)<br>
 		:material-file-document:[Applying ARP/APC offsets](https://customersupport.septentrio.com/s/article/ARP-APC-offsets)
 
-2. 	!!! info "Recommended Videos"
+2.	!!! info "Recommended Videos"
 
 		:material-youtube: [Getting started with the mosaic receiver module](https://youtu.be/hrL5J6Q5gX8)<br>
 		:material-youtube: [Output NMEA data on the mosaic receiver module](https://youtu.be/ArtePkC58-o)<br>
@@ -75,14 +77,9 @@ Septentrio also provides great resources for the mosaic-T:
 		:material-youtube: [Test-run for Septentrio's anti-jamming feature](https://youtu.be/SzI0skGHKEw)<br>
 		:material-youtube: [mosaic - GNSS module receiver range from Septentrio](https://youtu.be/Co8hrVeklAA)
 
-</div>
-
 ### 🏭&nbsp;Fugro AtomiChron<sup>Ⓡ</sup>
 Full details about Fugro's AtomiChron time synchronisation service can be found on their website:
-
-<div class="annotate" markdown>
 
 * [Fugro AtomiChron<sup>Ⓡ</sup>](https://www.fugro.com/expertise/other-expertise/atomichron)
 * :material-file-document-multiple: [Mastering time: the challenge of time synchronisation](https://www.fugro.com/news/podcasts/2024/mastering-time-the-challenge-of-time-synchronisation)
 
-</div>
