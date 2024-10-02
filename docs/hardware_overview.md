@@ -135,7 +135,7 @@ The RTK mosaic-T can be powered individually or in combination, with any of the 
 
 
 	!!! info "CH340 Driver"
-		The CH340 allows the ESP32-WROVER to communicate with a computer/host device through the USB-C connection. This allows the ESP32 to show up as a device on the serial (or COM) port of the computer. Users will need to install the latest drivers for the computer to recognize the CH340 *(see **[USB Driver](../software_overview/#espressif-logoesp32)** section)*.
+		The CH340 allows the ESP32-WROVER to communicate with a computer/host device through the USB-C connection. This allows the ESP32 to show up as a device on the serial (or COM) port of the computer. Users will need to install the latest drivers for the computer to recognize the CH340 *(see **[USB Driver](../software_overview/#espressif-logo-esp32)** section)*.
 
 
 === ":material-ethernet: Power-over-Ethernet (PoE)"
@@ -230,7 +230,7 @@ Think of the ESP32 as a co-processor, or riding shotgun... The mosaic-T `COM1` a
 	We have intentionally kept the ESP32 firmware as simple as possible. The intention is that users can easily develop their, own firmware for the RTK mosaic-T using the Espressif ESP IDF or the Arduino IDE if the SparkFun firmware does not meet their needs.
 
 ## Ethernet PHY Interface
-The mosaic-T has a KSZ8041NLI Ethernet PHY interfaces, connected using a Reduced Media-Independent Interface (RMII).
+The mosaic-T has a KSZ8041NLI Ethernet PHY interface, connected using a Reduced Media-Independent Interface (RMII).
 
 <div class="grid" markdown>
 
@@ -283,7 +283,7 @@ The mosaic-T and ESP32 both have USB-C connections. The MOSAIC USB port is high-
 	The RTK mosaic-T can draw power from either or both USB ports, in addition to Power-over-Ethernet and the DC-DC external input described above.
 
 !!! info "CH340 Driver"
-	The CH340 allows the ESP32-WROVER to communicate with a computer/host device through the USB-C connection. This allows the ESP32 to show up as a device on the serial (or COM) port of the computer. Users will need to install the latest drivers for the computer to recognize the CH340 *(see **[USB Driver](../software_overview/#espressif-logoesp32)** section)*.
+	The CH340 allows the ESP32-WROVER to communicate with a computer/host device through the USB-C connection. This allows the ESP32 to show up as a device on the serial (or COM) port of the computer. Users will need to install the latest drivers for the computer to recognize the CH340 *(see **[USB Driver](./software_overview/#usb-driver_1)** section)*.
 
 
 ## &micro;SD Socket
@@ -483,6 +483,11 @@ These terminals are described in the tabs below. For more information on the I/O
 === "CTS"
 	The CTS terminal can be configured as a **VCCIO** power output by soldering the jumper closed on the PCB.
 	
+	<figure markdown>
+	[![VCCIO jumper](./assets/img/hookup_guide/VCCIO-jumper.png){ width="400" }](./assets/img/hookup_guide/VCCIO-jumper.png "Click to enlarge")
+	<figcaption markdown>VCCIO jumper.</figcaption>
+	</figure>
+
 	!!! tip
 		Soldering the jumper closed will place the mosaic-T COM2 CTS into the high (not ready) state. Flow control (hardware handshaking) is not possible when the jumper is closed. Flow control is disabled by default. If needed, flow control can be (re)disabled through the web interface or by sending (e.g) **scs, COM2, baud115200, bits8, No, bit1, none**
 
@@ -623,6 +628,9 @@ The OLED display on the RTK mosaic-T.
 	* None, Measurements, Ephemerides, DOP, Residuals, Convergence, Outliers, Export, Differential, Base, Ambiguities
 * **Fine**      : FINETIME from ReceiverTime
 	* False, True
+* **PPS**      : Indicates if the Pulse-Per-Second signal is being generated
+	* Off, On
+	* PPS is only generated once the RxClkBias has achieved the required accuracy
 * **Bias**      : RxClkBias from PVTGeodetic (ms/us/ns)
 
 ## Buttons

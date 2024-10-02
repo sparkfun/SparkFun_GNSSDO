@@ -78,7 +78,7 @@ hide: toc
 		* Use the supplied USB-C cable to connect the power supply to either the **CONFIG MOSAIC** or the **CONFIG ESP32** USB-C port. It does not matter which.
 		* You should see the red power (PWR) LED light up and text start to scroll up the OLED display.
 
-	Once the mosaic-T has acquired a satellite signal and is connected to the Ethernet network, the OLED will display: the date and time; the antenna's position as Latitude (Lat) and Longitude (Lon); the Ethernet IP (Internet Protocol) network address.
+	Once the mosaic-T has acquired a satellite signal and is connected to the Ethernet network, the OLED will display: the date and time; the antenna's position as Latitude (Lat) and Longitude (Long); the Ethernet IP (Internet Protocol) network address.
 
 	Connect your computer, tablet or phone to the same network, open a web browser and navigate to the IP address shown on the OLED display. You should see the mosaic-T's internal web page. The web page displays a lot of helpful information and can also be used to fully configure the mosaic-T.
 
@@ -177,7 +177,7 @@ hide: toc
 	`4` - **Open the terminal emulator**
 	: * Open the terminal emulator and connect to the CH340 COM port. Select **115200** as the baud rate.
 		* Once connected, you will see a debug message from the ESP32 every second. The message contains the date, time, Lat, Long and other information about the clock accuracy.
-		* Pressing any key will open the configuration menu, allowing you to change the firmware settings if needed.
+		* Pressing any key will open the [configuration menu](./software_overview.md), allowing you to change the firmware settings if needed.
 
 	!!! tip "Not working?"
 		The following sections will help if your RTK mosaic-T is not working as expected:

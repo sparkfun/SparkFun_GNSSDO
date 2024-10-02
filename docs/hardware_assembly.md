@@ -62,7 +62,7 @@ The USB port to the mosaic-T can be used to configure the module through an IP p
 
 <div markdown>
 
-With the default firmware, the USB port for the ESP32 is used for serial communication to tune the parameters for the TCXO oscillator and the Pulse-Per-Second output. To configure the settings, users only need to plug a USB-C cable into the `CONFIG ESP32` USB port and their computer.
+With the default firmware, the USB port for the ESP32 is used for serial communication to tune the parameters for the TCXO oscillator and the Pulse-Per-Second output. To configure the settings, users only need to plug a USB-C cable into the `CONFIG ESP32` USB port and their computer, and then open a terminal emulator at 115200 baud.
 
 <figure markdown>
 [![ESP32 USB connection](./assets/img/hookup_guide/assembly-usb-esp32.jpg){ width="400" }](./assets/img/hookup_guide/assembly-usb-esp32.jpg "Click to enlarge")
@@ -114,13 +114,13 @@ In order to receive [GNSS](https://en.wikipedia.org/wiki/Satellite_navigation "G
 ## Ethernet Jack
 There is a single ethernet jack on the RTK mosaic-T, which can be used to provide network access to the mosaic-T module. It supports [power over ethernet (PoE)](https://en.wikipedia.org/wiki/Power_over_Ethernet "PoE") to power the device.
 
-The jack to the mosaic-T allows users to provide internet access and power; it supports [PoE](https://en.wikipedia.org/wiki/Power_over_Ethernet "Power over Ethernet"). To provide network access, users should connect the RTK mosaic-T from the `MOSAIC ETHERNET (PoE)` jack to their local network with the (CAT-6) ethernet cable provided in the kit.
+The jack to the mosaic-T allows users to provide internet access and power; it supports [PoE](https://en.wikipedia.org/wiki/Power_over_Ethernet "Power over Ethernet"). To provide network access, users should connect the RTK mosaic-T from the `ETHERNET (PoE)` jack to their local network with the (CAT-6) ethernet cable provided in the kit.
 
 * To power the device, a PoE network switch or PoE injector should be installed in between the network connection to the RTK mosaic-T.
 
 <figure markdown>
 [![mosaic-T PoE connection](./assets/img/hookup_guide/assembly-ethernet-mosaic.jpg){ width="400" }](./assets/img/hookup_guide/assembly-ethernet-mosaic.jpg "Click to enlarge")
-<figcaption markdown>The RTK mosaic-T with ethernet cable being attached to the `MOSAIC ETHERNET (PoE)` jack.</figcaption>
+<figcaption markdown>The RTK mosaic-T with ethernet cable being attached to the `ETHERNET (PoE)` jack.</figcaption>
 </figure>
 
 ??? tip "Configuration: mosaic-T Settings"

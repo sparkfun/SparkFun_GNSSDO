@@ -295,3 +295,12 @@ In order to configure the firmware settings on the ESP32, users will need to ins
 
 	</div>
 
+## :fontawesome-solid-screwdriver-wrench:&nbsp;Software Settings
+
+<figure markdown>
+[![ESP32 firmware main menu](./assets/img/hookup_guide/Main-Menu.png){ width="600" }](./assets/img/hookup_guide/Main-Menu.png "Click to enlarge")
+<figcaption markdown>The ESP32 firmware main menu.</figcaption>
+</figure>
+
+
+

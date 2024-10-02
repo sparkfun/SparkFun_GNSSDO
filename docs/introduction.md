@@ -41,7 +41,7 @@ icon: material/book-open-page-variant
 
 -	SMA Connections:
     - GNSS Antenna (L1/L2/L5/L-Band) - provides 5V for an active antenna
-    - 10MHz Sine Wave - disciplined, 50Ohm, 3.3V / 5V switchable
+    - 10MHz Sine Wave - disciplined, 50Ohm, approx. 1V<sub>PP</sub>
     - Pulse-Per-Second Square Wave - 50Ohm, 3.3V / 5V switchable
     - ESP32 WiFi/BT - reverse polarity (RP), unused by the current firmware
 -	3.5mm Screw Cage Connections:
@@ -236,6 +236,7 @@ icon: material/book-open-page-variant
 		<td style="text-align:center; vertical-align:middle;">Metal</td>
 		<td style="text-align:center; vertical-align:middle;">N/A</td>
 		<td style="text-align:center; vertical-align:middle;">Aluminum</td>
+		<td style="text-align:center; vertical-align:middle;">Aluminum</td>
 	</tr>
 	<tr>
 		<td style="vertical-align:middle;">Dimensions</td>
@@ -246,12 +247,20 @@ icon: material/book-open-page-variant
 			180.6 x 101.8 x 41mm<br>
 			<i>Enclosure Only</i>
 		</td>
+		<td style="text-align:center">
+			180.6 x 101.8 x 41mm<br>
+			<i>Enclosure Only</i>
+		</td>
 	</tr>
 	<tr>
 		<td style="vertical-align:middle;">Weight</td>
 		<td style="text-align:center; vertical-align:middle;">N/A</td>
 		<td style="text-align:center; vertical-align:middle;">58g  ± 1g</td>
 		<td style="text-align:center; vertical-align:middle;">22.6g</td>
+		<td style="text-align:center">
+			415.15g<br>
+			<i>Enclosure Only</i>
+		</td>
 		<td style="text-align:center">
 			415.15g<br>
 			<i>Enclosure Only</i>

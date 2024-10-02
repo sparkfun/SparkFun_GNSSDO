@@ -4,6 +4,11 @@ icon: material/tools
 
 ## SiTime SiT5358 Disciplined Oscillator
 
+<figure markdown>
+[![SiT5358 TCXO Oscillator](./assets/img/hookup_guide/TCXO-PCB.png){ width="750" }](./assets/img/hookup_guide/TCXO-PCB.png "Click to enlarge")
+<figcaption markdown>SiT5358 TCXO Oscillator.</figcaption>
+</figure>
+
 For the best frequency accuracy, stability and holdover, the RTK mosaic-T utilizes a SiTime SiT5358 Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO).
 The SiT5358 is a precision MEMS Super-TCXO optimized for ±50 ppb stability from -40°C to 105°C. Engineered for best dynamic performance, it is ideal for high reliability telecom, wireless and networking, industrial, precision GNSS and audio/video applications.
 
@@ -28,10 +33,10 @@ When the firmware boots, the mosaic-T is configured as follows:
 * **setClockSyncThreshold, usec500, on**
 * **setSBFGroups, Group1, PVTGeodetic+ReceiverTime**
 * **setSBFOutput, Stream1, COM1, Group1, sec1**
-* **setSBFOutput, Stream2, COM1, IPStatus, OnChange**
+* **setSBFOutput, Stream2, COM1, IPStatus+FugroTimeOffset, OnChange**
 * **exeCopyConfigFile, Current, Boot**
 
-These commands configure the mosaic so that it: starts-up with the PPS pulses disabled; performs an initial precise synchronization to GNSS time; and outputs the **PVTGeodetic** and **ReceiverTime** blocks on COM1 at 1Hz. **IPStatus** is output each time one or more IP parameters change.
+These commands configure the mosaic so that it: starts-up with the PPS pulses disabled; performs an initial precise synchronization to GNSS time; and outputs the **PVTGeodetic** and **ReceiverTime** blocks on COM1 at 1Hz. **IPStatus** is output each time one or more IP parameters change. With a Fugro Atomichron subscription, the **FugroTimeOffset** message will be generated each time one of the clock biases changes.
 
 The firmware monitors the message blocks on COM1. The **ERROR** LED follows the **PVTGeodetic Error** code. The LED is extinguished when **Error** is zero.
 
@@ -39,20 +44,9 @@ The firmware waits until the **ReceiverTime SyncLevel FINETIME** bit is set, ind
 
 The firmware then monitors the **PVTGeodetic RxClkBias** (as 64-bit float in milliseconds). When **RxClkBias** is positive, receiver time is ahead of system time and the oscillator frequency should be reduced. When **RxClkBias** is negative, receiver time is behind system time and the oscillator frequency should be increased. The firmware will adjust the SiT5358 oscillator frequency via the 26-bit Digital Frequency Control register accordingly. As per Appendix D, the frequency will be changed by no more than 3ppb per second.
 
-Consider this example:
+The Proportional (P) and Integral (I) terms can be adjusted via the ESP32 firmware settings.
 
-* The TCXO frequency has not yet been changed. It is running at the default 10.000000 MHz.
-* The RxClkBias reports that receiver time is ahead of system time by 200 nanoseconds (+200ns).
-* The TCXO clock period is 100ns.
-* The 200ns bias corresponds to 2 clock cycles.
-* To remove that bias in one second, the oscillator frequency would need to be reduced to 9.999998 MHz.
-* That is a change of 2 parts in 10000000, or 0.2ppm, or 200ppb.
-* The fastest the frequency can be changed is 3ppb per second.
-* Since the SiT5358 has a default Pull Range of 6.25ppm, and the Pull Register is 26-bit signed, 3ppb corresponds to 16106 LSB.
-* The firmware writes the value -16106 to the Pull Register, reducing the frequency to 9.99999997 MHz.
-* The loop repeats.
-
-The **LOCK** LED will illuminate and PPS pulses will be generated when RxClkBias is less than 10ns.
+The **LOCK** LED will illuminate and PPS pulses will be generated when RxClkBias is less than 10ns. The OLED will show **PPS On** when pulses are being generated.
 
 * **setPPSParameters, Interval, Polarity, Delay, TimeScale, MaxSyncAge, PulseWidth**
 
@@ -62,17 +56,26 @@ The Pulse-Per-Second parameters can also be configured by the user through the U
 
 Should **PVTGeodetic Error** indicate an error (i.e. become non-zero), the loop will continue but no changes will be made to the oscillator frequency until the error is cleared.
 
+Occasionally, the initial mosaic-T clock bias can be excessive - microseconds rather than nanoseconds. The firmware detects this and will restart the GNSS to achieve a better lock. You will see **Bad RxClkBias --- Restarting** appear on the OLED when this happens. The threshold for this can be adjusted via the ESP32 firmware settings.
+
+## Fugro AtomiChron<sup>Ⓡ</sup>
+
+For the ultimate in clock accuracy, you can subscribe to Fugro's AtomiChron service. Corrections can be delivered via L-Band or IP (Ethernet). AtomiChron allows the mosaic-T to achieve better than 1ns timing accuracy.
+
+Without an AtomiChron subscription, the firmware will use the composite GNSS **RxClkBias** from **PVTGeodetic** to discipline the TCXO frequency. With AtomiChron, you have the option to use the individual GPS or Galileo clock bias from **FugroTimeOffset** over the Fugro composite bias.
+
 ## OLED Display
 
 The 128x64 OLED will display eight lines of text:
 
-* **IP**    : nnn.nnn.nnn.nnn from IPStatus IPAddress
-* **Time**  : YYYY/MM/DD HH:MM:SS from ReceiverTime
-* **Lat**   : Latitude from PVTGeodetic (Degrees)
-* **Long**  : Longitude from PVTGeodetic (Degrees)
-* **Sys**   : TimeSystem from PVTGeodetic (GPS, Galileo, GLONASS, BeiDou, QZSS, Fugro)
-* **Error** : Error from PVTGeodetic (None, Measurements, Ephemerides, DOP, Residuals, Convergence, Outliers, Export, Differential, Base, Ambiguities)
-* **Fine**  : FINETIME from ReceiverTime (False, True)
-* **Bias**  : RxClkBias from PVTGeodetic (ms/us/ns)
+* Date & Time : YYYY/MM/DD HH:MM:SS from ReceiverTime
+* **IP**        : nnn.nnn.nnn.nnn from IPStatus IPAddress
+* **Lat**       : Latitude from PVTGeodetic (Degrees)
+* **Long**      : Longitude from PVTGeodetic (Degrees)
+* **Sys**       : TimeSystem from PVTGeodetic (GPS, Galileo, GLONASS, BeiDou, QZSS, Fugro)
+* **Error**     : Error from PVTGeodetic (None, Measurements, Ephemerides, DOP, Residuals, Convergence, Outliers, Export, Differential, Base, Ambiguities)
+* **Fine**      : FINETIME from ReceiverTime (False, True)
+* **PPS**       : Indicates if PPS is active (Off, On)
+* **Bias**      : RxClkBias from PVTGeodetic / FugroTimeOffset (ms/us/ns)
 
 The display is updated on arrival of the **ReceiverTime** message. You may see a small lag between the display and the actual time system time, but it will be minimal.
