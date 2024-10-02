@@ -55,7 +55,7 @@ Users can download the [full schematic for the RTK mosaic-T](./assets/board_file
 	Details about the aluminum enclosure can be found on the [Metal Enclosure - Custom Aluminum Extrusion (6in. x 4in. PCB)](https://www.sparkfun.com/products/22640) product page.
 
 	<figure markdown>
-	[![Enclosure Dimensions](./assets/board_files/dimensions-enclosure.pdf){ width="700" }](./assets/board_files/dimensions-enclosure.pdf "Click to enlarge")
+	[![Enclosure Dimensions](./assets/board_files/Enclosure-Dimensions.png){ width="700" }](./assets/board_files/dimensions-enclosure.pdf "Click to enlarge")
 	<figcaption markdown>
 	[Dimensions (PDF)](./assets/board_files/dimensions-enclosure.pdf) of the RTK mosaic-T aluminum enclosure and the front/rear panels, in millimeters.
 	</figcaption>
@@ -137,7 +137,7 @@ The RTK mosaic-T can be powered individually or in combination, with any of the 
 
 
 	!!! info "CH340 Driver"
-		The CH340 allows the ESP32-WROVER to communicate with a computer/host device through the USB-C connection. This allows the ESP32 to show up as a device on the serial (or COM) port of the computer. Users will need to install the latest drivers for the computer to recognize the CH340 *(see **[USB Driver](../software_overview/#espressif-logo-esp32)** section)*.
+		The CH340 allows the ESP32-WROVER to communicate with a computer/host device through the USB-C connection. This allows the ESP32 to show up as a device on the serial (or COM) port of the computer. Users will need to install the latest drivers for the computer to recognize the CH340 *(see **[USB Driver](./software_overview.md#usb-driver-1)** section)*.
 
 
 === ":material-ethernet: Power-over-Ethernet (PoE)"
@@ -262,14 +262,14 @@ The mosaic-T has a KSZ8041NLI Ethernet PHY interface, connected using a Reduced 
 	Check the Ethernet interface is enabled. It may be disabled. Connect via the CONFIG MOSAIC USB-C port and open 192.168.3.1 on a web browser. Check the **Communication \ Ethernet** sub-page.
 
 	<figure markdown>
-	[![mosaic-T web page](./assets/img/hookup_guide/Ethernet-disabled.png){ width="150" }]( "Click to enlarge")
+	[![mosaic-T web page](./assets/img/hookup_guide/Ethernet-disabled.png){ width="150" }](./assets/img/hookup_guide/Ethernet-disabled.png "Click to enlarge")
 	<figcaption markdown>
 	[mosaic-T web page (PNG)](./assets/img/hookup_guide/Ethernet-disabled.png) with Ethernet disabled.
 	</figcaption>
 	</figure>
 
 	<figure markdown>
-	[![mosaic-T web page](./assets/img/hookup_guide/Ethernet-enabled.png){ width="150" }]( "Click to enlarge")
+	[![mosaic-T web page](./assets/img/hookup_guide/Ethernet-enabled.png){ width="150" }](./assets/img/hookup_guide/Ethernet-enabled.png "Click to enlarge")
 	<figcaption markdown>
 	[mosaic-T web page (PNG)](./assets/img/hookup_guide/Ethernet-enabled.png) with Ethernet enabled.
 	</figcaption>
@@ -310,7 +310,7 @@ The mosaic-T and ESP32 both have USB-C connections. The MOSAIC USB port is high-
 	The RTK mosaic-T can draw power from either or both USB ports, in addition to Power-over-Ethernet and the DC-DC external input described above.
 
 !!! info "CH340 Driver"
-	The CH340 allows the ESP32-WROVER to communicate with a computer/host device through the USB-C connection. This allows the ESP32 to show up as a device on the serial (or COM) port of the computer. Users will need to install the latest drivers for the computer to recognize the CH340 *(see **[USB Driver](./software_overview/#usb-driver_1)** section)*.
+	The CH340 allows the ESP32-WROVER to communicate with a computer/host device through the USB-C connection. This allows the ESP32 to show up as a device on the serial (or COM) port of the computer. Users will need to install the latest drivers for the computer to recognize the CH340 *(see **[USB Driver](./software_overview.md#usb-driver-1)** section)*.
 
 
 ## &micro;SD Socket
@@ -645,6 +645,13 @@ The OLED display on the RTK mosaic-T.
 </figcaption>
 </figure>
 
+<figure markdown>
+[![OLED display](./assets/img/hookup_guide/OLED-Fugro.png){ width="250" }](./assets/img/hookup_guide/OLED-Fugro.png "Click to enlarge")
+<figcaption markdown>
+[OLED display (PNG)](./assets/img/hookup_guide/OLED-Fugro.png) for the RTK mosaic-T.
+</figcaption>
+</figure>
+
 * Date & Time : YYYY/MM/DD HH:MM:SS from ReceiverTime
 * **IP**        : nnn.nnn.nnn.nnn from IPStatus IPAddress
 * **Lat**       : Latitude from PVTGeodetic (Degrees)
@@ -659,6 +666,8 @@ The OLED display on the RTK mosaic-T.
 	* Off, On
 	* PPS is only generated once the RxClkBias has achieved the required accuracy
 * **Bias**      : RxClkBias from PVTGeodetic (ms/us/ns)
+
+The display is updated on arrival of the **ReceiverTime** message. You may see a small lag between the display and the actual time system time, but it will be minimal.
 
 ## Buttons
 There are three buttons on the RTK mosaic-T: ++"RESET"++, ++"BOOT"++, and ++"LOG"++.

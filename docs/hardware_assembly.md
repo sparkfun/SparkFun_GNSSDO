@@ -6,7 +6,7 @@ icon: material/tools
 	When assembling the RTK mosaic-T, users should attach any power connections last. While there shouldn't be any issues with hot-swapping peripherals, it is common practice to power electronics as the last step of the assembly process *(and the power should be disconnected before removing components)*.
 
 ??? info "What is in the Box?"
-	The RTK mosaic-T comes packaged as a complete kit, with all the accessories you'd need to set up an RTK base station.
+	The RTK mosaic-T comes packaged as a complete kit, with all the accessories you'd need to set it up.
 
 	<figure markdown>
 	[![Kit contents](https://cdn.sparkfun.com//assets/parts/2/4/0/7/2/23748-RTK-Mosaic-X5-Kit-All-Feature.jpg){ width="300" }](https://cdn.sparkfun.com//assets/parts/2/4/0/7/2/23748-RTK-Mosaic-X5-Kit-All-Feature.jpg "Click to enlarge")
@@ -130,14 +130,14 @@ The jack to the mosaic-T allows users to provide internet access and power; it s
 		Check the Ethernet interface is enabled. It may be disabled. Connect via the CONFIG MOSAIC USB-C port and open 192.168.3.1 on a web browser. Check the **Communication \ Ethernet** sub-page.
 
 		<figure markdown>
-		[![mosaic-T web page](./assets/img/hookup_guide/Ethernet-disabled.png){ width="150" }]( "Click to enlarge")
+		[![mosaic-T web page](./assets/img/hookup_guide/Ethernet-disabled.png){ width="150" }](./assets/img/hookup_guide/Ethernet-disabled.png "Click to enlarge")
 		<figcaption markdown>
 		[mosaic-T web page (PNG)](./assets/img/hookup_guide/Ethernet-disabled.png) with Ethernet disabled.
 		</figcaption>
 		</figure>
 
 		<figure markdown>
-		[![mosaic-T web page](./assets/img/hookup_guide/Ethernet-enabled.png){ width="150" }]( "Click to enlarge")
+		[![mosaic-T web page](./assets/img/hookup_guide/Ethernet-enabled.png){ width="150" }](./assets/img/hookup_guide/Ethernet-enabled.png "Click to enlarge")
 		<figcaption markdown>
 		[mosaic-T web page (PNG)](./assets/img/hookup_guide/Ethernet-enabled.png) with Ethernet enabled.
 		</figcaption>

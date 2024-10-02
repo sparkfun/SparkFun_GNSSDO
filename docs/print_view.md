@@ -19,17 +19,8 @@ icon: material/printer
 # Software Overview
 --8<-- "./docs/software_overview.md:5"
 
-# RTK Configurations - Base Station
---8<-- "./docs/base.md:5"
-
-# RTK Configurations - NTRIP Server
---8<-- "./docs/ntrip_server.md:5"
-
-# RTK Configurations - NTRIP Client
---8<-- "./docs/ntrip_client.md:5"
-
-# RTK Correction Service
---8<-- "./docs/correction_service.md:5"
+# TCXO Oscillator
+--8<-- "./docs/oscillator.md:5"
 
 # Enable the L5 Band
 --8<-- "./docs/L5.md:5"

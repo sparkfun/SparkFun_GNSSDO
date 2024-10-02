@@ -76,25 +76,3 @@ With AtomiChron, you have the option to use the individual GPS or Galileo clock 
 <figcaption markdown>The mosaic-T with an active Fugro AtomiChron subscription.</figcaption>
 </figure>
 
-## OLED Display
-
-<figure markdown>
-[![OLED display](./assets/img/hookup_guide/OLED-Fugro.png){ width="250" }](./assets/img/hookup_guide/OLED-Fugro.png "Click to enlarge")
-<figcaption markdown>
-[OLED display (PNG)](./assets/img/hookup_guide/OLED-Fugro.png) for the RTK mosaic-T.
-</figcaption>
-</figure>
-
-The 128x64 OLED will display eight lines of text:
-
-* Date & Time : YYYY/MM/DD HH:MM:SS from ReceiverTime
-* **IP**        : nnn.nnn.nnn.nnn from IPStatus IPAddress
-* **Lat**       : Latitude from PVTGeodetic (Degrees)
-* **Long**      : Longitude from PVTGeodetic (Degrees)
-* **Sys**       : TimeSystem from PVTGeodetic (GPS, Galileo, GLONASS, BeiDou, QZSS, Fugro)
-* **Error**     : Error from PVTGeodetic (None, Measurements, Ephemerides, DOP, Residuals, Convergence, Outliers, Export, Differential, Base, Ambiguities)
-* **Fine**      : FINETIME from ReceiverTime (False, True)
-* **PPS**       : Indicates if PPS is active (Off, On)
-* **Bias**      : RxClkBias from PVTGeodetic / FugroTimeOffset (ms/us/ns)
-
-The display is updated on arrival of the **ReceiverTime** message. You may see a small lag between the display and the actual time system time, but it will be minimal.

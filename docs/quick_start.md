@@ -83,7 +83,7 @@ hide: toc
 	Connect your computer, tablet or phone to the same network, open a web browser and navigate to the IP address shown on the OLED display. You should see the mosaic-T's internal web page. The web page displays a lot of helpful information and can also be used to fully configure the mosaic-T.
 
 	<figure markdown>
-	![mosaic T web page](./assets/img/hookup_guide/T-web-page.png)
+	[![mosaic-T web page](./assets/img/hookup_guide/T-web-page.png){ width="400" }]( "Click to enlarge")
 	<figcaption markdown>
 	[mosaic T web page (PNG)](./assets/img/hookup_guide/T-web-page.png) for the RTK mosaic-T.
 	</figcaption>
@@ -103,19 +103,23 @@ hide: toc
 		??? info "No IP address?"
 			Check the Ethernet interface is enabled. It may be disabled. Connect via the CONFIG MOSAIC USB-C port and open 192.168.3.1 on a web browser. Check the **Communication \ Ethernet** sub-page.
 
+			<div markdown>
+
 			<figure markdown>
-			[![mosaic-T web page](./assets/img/hookup_guide/Ethernet-disabled.png){ width="150" }]( "Click to enlarge")
+			[![mosaic-T web page](./assets/img/hookup_guide/Ethernet-disabled.png){ width="150" }](./assets/img/hookup_guide/Ethernet-disabled.png "Click to enlarge")
 			<figcaption markdown>
 			[mosaic-T web page (PNG)](./assets/img/hookup_guide/Ethernet-disabled.png) with Ethernet disabled.
 			</figcaption>
 			</figure>
 
 			<figure markdown>
-			[![mosaic-T web page](./assets/img/hookup_guide/Ethernet-enabled.png){ width="150" }]( "Click to enlarge")
+			[![mosaic-T web page](./assets/img/hookup_guide/Ethernet-enabled.png){ width="150" }](./assets/img/hookup_guide/Ethernet-enabled.png "Click to enlarge")
 			<figcaption markdown>
 			[mosaic-T web page (PNG)](./assets/img/hookup_guide/Ethernet-enabled.png) with Ethernet enabled.
 			</figcaption>
 			</figure>
+
+			</div>
 
 			By default, the mosaic-T Ethernet port is configured for Dynamic Host Configuration Protocol (DHCP). It expects the router / Ethernet switch to provide it with an IP address. If the IP address is all zeros (0.0.0.0), check that your router has DHCP enabled. Most do.
 
