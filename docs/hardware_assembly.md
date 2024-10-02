@@ -126,6 +126,29 @@ The jack to the mosaic-T allows users to provide internet access and power; it s
 ??? tip "Configuration: mosaic-T Settings"
 	Users can configure the mosaic-T module through the network connection.
 
+	??? info "No IP address?"
+		Check the Ethernet interface is enabled. It may be disabled. Connect via the CONFIG MOSAIC USB-C port and open 192.168.3.1 on a web browser. Check the **Communication \ Ethernet** sub-page.
+
+		<figure markdown>
+		[![mosaic-T web page](./assets/img/hookup_guide/Ethernet-disabled.png){ width="150" }]( "Click to enlarge")
+		<figcaption markdown>
+		[mosaic-T web page (PNG)](./assets/img/hookup_guide/Ethernet-disabled.png) with Ethernet disabled.
+		</figcaption>
+		</figure>
+
+		<figure markdown>
+		[![mosaic-T web page](./assets/img/hookup_guide/Ethernet-enabled.png){ width="150" }]( "Click to enlarge")
+		<figcaption markdown>
+		[mosaic-T web page (PNG)](./assets/img/hookup_guide/Ethernet-enabled.png) with Ethernet enabled.
+		</figcaption>
+		</figure>
+
+		By default, the mosaic-T Ethernet port is configured for Dynamic Host Configuration Protocol (DHCP). It expects the router / Ethernet switch to provide it with an IP address. If the IP address is all zeros (0.0.0.0), check that your router has DHCP enabled. Most do.
+
+		If you need a static IP address, you can configure this through the mosaic-T's **Communication \ Ethernet** sub-page.
+
+		Subnet 3 is reserved for the mosaic-T's USB-C connection (Ethernet-over-USB). If your router / switch is allocating addresses using subnet 3 (192.168.3.***), please change its settings so it uses a different subnet.
+
 
 ## SD Card Slot
 An &micro;SD card slot is available for users to log and store data, locally on the board. Users will need to insert a compatible SD card and configure the mosaic-T module for data logging.

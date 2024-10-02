@@ -38,7 +38,7 @@ icon: material/cog
 !!! code "ESP32 Firmware"
 	We have intentionally kept the ESP32 firmware as simple as possible - it only disciplines the TCXO oscillator and controls the OLED display. The SparkFun RTK Firmware or SparkFun RTK Everywhere firmware will not run on this product. The intention is that you can easily develop your own firmware for the RTK mosaic-T if the SparkFun firmware does not meet your needs.
 
-	The **[/Firmware/Binaries](/Firmware/Binaries/)** folder contains the firmware binaries. You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
+	The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_RTK_mosaic-T/tree/main/Firmware/Binaries)** folder contains the firmware binaries. You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
 
 	You can of course modify the hardware too, should you want to. The design is completely open-source.
 
@@ -231,7 +231,7 @@ Think of the ESP32 as a co-processor, or riding shotgun... The mosaic-T `COM1` a
 ??? code "ESP32 Firmware"
 	We have intentionally kept the ESP32 firmware as simple as possible. The intention is that users can easily develop their, own firmware for the RTK mosaic-T using the Espressif ESP IDF or the Arduino IDE if the SparkFun firmware does not meet their needs.
 
-	The **[/Firmware/Binaries](/Firmware/Binaries/)** folder contains the firmware binaries. You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
+	The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_RTK_mosaic-T/tree/main/Firmware/Binaries)** folder contains the firmware binaries. You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
 
 ## Ethernet PHY Interface
 The mosaic-T has a KSZ8041NLI Ethernet PHY interface, connected using a Reduced Media-Independent Interface (RMII).
@@ -257,6 +257,29 @@ The mosaic-T has a KSZ8041NLI Ethernet PHY interface, connected using a Reduced 
 </div>
 
 </div>
+
+??? info "No IP address?"
+	Check the Ethernet interface is enabled. It may be disabled. Connect via the CONFIG MOSAIC USB-C port and open 192.168.3.1 on a web browser. Check the **Communication \ Ethernet** sub-page.
+
+	<figure markdown>
+	[![mosaic-T web page](./assets/img/hookup_guide/Ethernet-disabled.png){ width="150" }]( "Click to enlarge")
+	<figcaption markdown>
+	[mosaic-T web page (PNG)](./assets/img/hookup_guide/Ethernet-disabled.png) with Ethernet disabled.
+	</figcaption>
+	</figure>
+
+	<figure markdown>
+	[![mosaic-T web page](./assets/img/hookup_guide/Ethernet-enabled.png){ width="150" }]( "Click to enlarge")
+	<figcaption markdown>
+	[mosaic-T web page (PNG)](./assets/img/hookup_guide/Ethernet-enabled.png) with Ethernet enabled.
+	</figcaption>
+	</figure>
+
+	By default, the mosaic-T Ethernet port is configured for Dynamic Host Configuration Protocol (DHCP). It expects the router / Ethernet switch to provide it with an IP address. If the IP address is all zeros (0.0.0.0), check that your router has DHCP enabled. Most do.
+
+	If you need a static IP address, you can configure this through the mosaic-T's **Communication \ Ethernet** sub-page.
+
+	Subnet 3 is reserved for the mosaic-T's USB-C connection (Ethernet-over-USB). If your router / switch is allocating addresses using subnet 3 (192.168.3.***), please change its settings so it uses a different subnet.
 
 ## USB-C Connectors
 The mosaic-T and ESP32 both have USB-C connections. The MOSAIC USB port is high-speed and connected to the T through a balancing transformer. The ESP32 USB port is connected through a CH340 USB-UART IC.
