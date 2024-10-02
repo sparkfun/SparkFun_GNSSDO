@@ -62,9 +62,28 @@ Occasionally, the initial mosaic-T clock bias can be excessive - microseconds ra
 
 For the ultimate in clock accuracy, you can subscribe to Fugro's AtomiChron service. Corrections can be delivered via L-Band or IP (Ethernet). AtomiChron allows the mosaic-T to achieve better than 1ns timing accuracy.
 
-Without an AtomiChron subscription, the firmware will use the composite GNSS **RxClkBias** from **PVTGeodetic** to discipline the TCXO frequency. With AtomiChron, you have the option to use the individual GPS or Galileo clock bias from **FugroTimeOffset** over the Fugro composite bias.
+Without an AtomiChron subscription, the firmware will use the composite GNSS **RxClkBias** from **PVTGeodetic** to discipline the TCXO frequency.
+
+<figure markdown>
+[![Fugro AtomiChron expired](./assets/img/hookup_guide/AtomiChron-Expired.png){ width="750" }](./assets/img/hookup_guide/AtomiChron-Expired.png "Click to enlarge")
+<figcaption markdown>By default, the Fugro AtomiChron subscription shows as "expired".</figcaption>
+</figure>
+
+With AtomiChron, you have the option to use the individual GPS or Galileo clock bias from **FugroTimeOffset** over the Fugro composite bias. Activation takes place over L-Band and is very, very quick.
+
+<figure markdown>
+[![Fugro AtomiChron active](./assets/img/hookup_guide/AtomiChron-Active.png){ width="750" }](./assets/img/hookup_guide/AtomiChron-Active.png "Click to enlarge")
+<figcaption markdown>The mosaic-T with an active Fugro AtomiChron subscription.</figcaption>
+</figure>
 
 ## OLED Display
+
+<figure markdown>
+[![OLED display](./assets/img/hookup_guide/OLED-Fugro.png){ width="250" }](./assets/img/hookup_guide/OLED-Fugro.png "Click to enlarge")
+<figcaption markdown>
+[OLED display (PNG)](./assets/img/hookup_guide/OLED-Fugro.png) for the RTK mosaic-T.
+</figcaption>
+</figure>
 
 The 128x64 OLED will display eight lines of text:
 

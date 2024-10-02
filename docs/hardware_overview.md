@@ -38,6 +38,8 @@ icon: material/cog
 !!! code "ESP32 Firmware"
 	We have intentionally kept the ESP32 firmware as simple as possible - it only disciplines the TCXO oscillator and controls the OLED display. The SparkFun RTK Firmware or SparkFun RTK Everywhere firmware will not run on this product. The intention is that you can easily develop your own firmware for the RTK mosaic-T if the SparkFun firmware does not meet your needs.
 
+	The **[/Firmware/Binaries](/Firmware/Binaries/)** folder contains the firmware binaries. You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
+
 	You can of course modify the hardware too, should you want to. The design is completely open-source.
 
 # Hardware Overview
@@ -228,6 +230,8 @@ Think of the ESP32 as a co-processor, or riding shotgun... The mosaic-T `COM1` a
 
 ??? code "ESP32 Firmware"
 	We have intentionally kept the ESP32 firmware as simple as possible. The intention is that users can easily develop their, own firmware for the RTK mosaic-T using the Espressif ESP IDF or the Arduino IDE if the SparkFun firmware does not meet their needs.
+
+	The **[/Firmware/Binaries](/Firmware/Binaries/)** folder contains the firmware binaries. You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
 
 ## Ethernet PHY Interface
 The mosaic-T has a KSZ8041NLI Ethernet PHY interface, connected using a Reduced Media-Independent Interface (RMII).

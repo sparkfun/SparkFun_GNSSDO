@@ -5,6 +5,8 @@ icon: fontawesome/solid/computer
 !!! code "ESP32 Firmware"
 	We have intentionally kept the ESP32 firmware as simple as possible - its only tasks are to: discipline the TCXO oscillator; control the OLED display. The intention is that you can easily develop your own firmware for the RTK mosaic-T if the SparkFun firmware does not meet your needs.
 
+	The **[/Firmware/Binaries](/Firmware/Binaries/)** folder contains the firmware binaries. You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
+
 	You can of course modify the hardware too, should you want to. The design is completely open-source.
 
 !!! note
@@ -297,10 +299,78 @@ In order to configure the firmware settings on the ESP32, users will need to ins
 
 ## :fontawesome-solid-screwdriver-wrench:&nbsp;Software Settings
 
+When connected to the ESP32 CH340 COM port at 115200 baud, pressing any key in the terminal emulator will open the firmware Main Menu:
+
 <figure markdown>
 [![ESP32 firmware main menu](./assets/img/hookup_guide/Main-Menu.png){ width="600" }](./assets/img/hookup_guide/Main-Menu.png "Click to enlarge")
 <figcaption markdown>The ESP32 firmware main menu.</figcaption>
 </figure>
 
+Select option **c** ("c" followed by "Enter") to configure the firmware:
 
+<figure markdown>
+[![ESP32 firmware configuration menu](./assets/img/hookup_guide/Main-Configure.png){ width="600" }](./assets/img/hookup_guide/Main-Configure.png "Click to enlarge")
+<figcaption markdown>The ESP32 firmware configuration menu.</figcaption>
+</figure>
 
+* **1) RX Clock Bias Lock Limit**
+	* This allows the clock bias limit to be set. The units are milliseconds.
+	* The **LOCK** LED will illuminate when the bias is below this limit.
+	* PPS output will begin when the bias has been below this limit for **RX Clock Bias Limit Count** seconds.
+* **2) RX Clock Bias Initial Limit**
+	* This allows the initial clock bias limit to be set. The units are milliseconds.
+	* The firmware will soft-reset the GNSS if the clock bias is above this limit for **RX Clock Bias Limit Count** seconds.
+	* This allows the firmware to restart the GNSS and re-sync the TCXO if the initial bias is excessive.
+* **3) RX Clock Bias Limit Count**
+	* This defines how many consecutive 1Hz samples are needed to trigger the two clock bias limits.
+* **4) Pk (PI P term)**
+	* This defines the Proportional term for the TCXO frequency PI control loop. Default is 0.63
+	* This value was determined using approximate Ziegler-Nichols tuning of the SiT5358 loop.
+* **5) Ik (PI I term)**
+	* This defines the Integral term for the TCXO frequency PI control loop. Default is 0.151
+	* This value was determined using approximate Ziegler-Nichols tuning of the SiT5358 loop.
+* **6) Prefer non-composite GPS bias**
+	* With a subscription to Fugro AtomiChron, this option allows the individual GPS clock bias to be preferred over the composite Fugro bias.
+	* You can enable a preference for either GPS or Galileo. Enabling GPS will disable Galileo.
+* **7) Prefer non-composite Galileo bias**
+	* With a subscription to Fugro AtomiChron, this option allows the individual Galileo clock bias to be preferred over the composite Fugro bias.
+	* You can enable a preference for either GPS or Galileo. Enabling Galileo will disable GPS.
+* **8) Pulse-Per-Second Interval**
+	* This defines the interval of the PPS signal. The intervals are defined by the mosiac-T firmware. Use "8" and "Enter" to scroll through the intervals.
+	* "off"
+    * "msec10"
+    * "msec20"
+    * "msec50"
+    * "msec100"
+    * "msec200"
+    * "msec250"
+    * "msec500"
+    * "sec1"
+    * "sec2"
+    * "sec4"
+    * "sec5"
+    * "sec10"
+    * "sec30"
+    * "sec60"
+* **9) Pulse-Per-Second Polarity**
+	* This defines the PPS signal polarity: Low2High or High2Low
+* **10) Pulse-Per-Second Delay**
+	* This allows the timing of the PPS signal to be advanced or retarded. The units are nanoseconds.
+* **11) Pulse-Per-Second Time Scale**
+	* This defines which time scale is used to generate the PPS signal.
+	* "GPS"
+    * "Galileo"
+    * "BeiDou"
+    * "GLONASS"
+    * "UTC"
+    * "RxClock"
+* **12) Pulse-Per-Second Max Sync Age**
+	* This defines how long PPS pulses will be produced when the GNSS signal is lost or jammed: 0 to 3600 seconds.
+* **13) Pulse-Per-Second Pulse Width**
+	* This defines the width of the PPS signal. The units are milliseconds: 0.000001 to 1000.000000.
+
+To reset all settings to their default values, select "r", "Enter", "y", "Enter"
+
+The settings are saved to non-volatile memory (NVM, LittleFS) on exiting the menu. Ensure you fully exit the menu ("x", "Enter", "x", "Enter") to save any modified settings.
+
+The TCXO frequency control word is saved to NVM once per hour, to allow a quicker startup at the next power-on.

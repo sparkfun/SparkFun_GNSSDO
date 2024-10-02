@@ -83,9 +83,9 @@ hide: toc
 	Connect your computer, tablet or phone to the same network, open a web browser and navigate to the IP address shown on the OLED display. You should see the mosaic-T's internal web page. The web page displays a lot of helpful information and can also be used to fully configure the mosaic-T.
 
 	<figure markdown>
-	![mosaic T web page](./assets/img/hookup_guide/x5_web_page.gif)
+	![mosaic T web page](./assets/img/hookup_guide/T-web-page.png)
 	<figcaption markdown>
-	[mosaic T web page (GIF)](./assets/img/hookup_guide/x5_web_page.gif) for the RTK mosaic-T.
+	[mosaic T web page (PNG)](./assets/img/hookup_guide/T-web-page.png) for the RTK mosaic-T.
 	</figcaption>
 	</figure>
 
