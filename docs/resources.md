@@ -35,17 +35,13 @@ Septentrio also provides great resources for the mosaic-T:
 * :material-youtube: [YouTube Channel](https://www.youtube.com/@SeptentrioGNSS) (2)
 * [JammerTest 2023 - Anti-Jamming and Anti-Spoofing Performance](https://www.septentrio.com/en/learn-more/insights/most-resilient-gnss-receiver-results-jammertest-norway)
 
-### 🏭&nbsp;Fugro AtomiChron
-Septentrio also provides great resources for the mosaic-T:
+### 🏭&nbsp;Fugro AtomiChron<sup>Ⓡ</sup>
+Full details about Fugro's AtomiChron time synchronisation service can be found on their website:
 
 <div class="annotate" markdown>
 
-* [mosaic-T Product Page](https://www.septentrio.com/en/products/gnss-receivers/gnss-receiver-modules/mosaic-t)
-	* :material-file-document-multiple: [Resources: Datasheet, firmware, manual, software tools, USB driver, etc.](https://www.septentrio.com/en/products/gnss-receivers/gnss-receiver-modules/mosaic-t#resources)
-* :material-help-box: [Support Portal](https://customersupport.septentrio.com/s/):
-	* :material-file-document-multiple: [Septentrio Knowledge Base](https://customersupport.septentrio.com/s/topiccatalog) (1)
-* :material-youtube: [YouTube Channel](https://www.youtube.com/@SeptentrioGNSS) (2)
-* [JammerTest 2023 - Anti-Jamming and Anti-Spoofing Performance](https://www.septentrio.com/en/learn-more/insights/most-resilient-gnss-receiver-results-jammertest-norway)
+* [Fugro AtomiChron<sup>Ⓡ</sup>](https://www.fugro.com/expertise/other-expertise/atomichron)
+* :material-file-document-multiple: [Mastering time: the challenge of time synchronisation](https://www.fugro.com/news/podcasts/2024/mastering-time-the-challenge-of-time-synchronisation)
 
 </div>
 
