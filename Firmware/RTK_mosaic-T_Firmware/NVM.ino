@@ -98,6 +98,9 @@ void recordSystemSettingsToFile(File *settingsFile)
     settingsFile->printf("%s=%0.3e\r\n", "Ik", settings.Ik);
     settingsFile->printf("%s=%d\r\n", "preferNonCompositeGPSBias", settings.preferNonCompositeGPSBias);
     settingsFile->printf("%s=%d\r\n", "preferNonCompositeGalileoBias", settings.preferNonCompositeGalileoBias);
+    settingsFile->printf("%s=%d\r\n", "enableTCPServer", settings.enableTCPServer);
+    settingsFile->printf("%s=%d\r\n", "tcpServerPort", settings.tcpServerPort);
+    
 
     //settingsFile->printf("%s=%d\r\n", "", settings.);
 
@@ -366,6 +369,10 @@ bool parseLine(char *str, Settings *settings)
         settings->preferNonCompositeGPSBias = d;
     else if (strcmp(settingName, "preferNonCompositeGalileoBias") == 0)
         settings->preferNonCompositeGalileoBias = d;
+    else if (strcmp(settingName, "enableTCPServer") == 0)
+        settings->enableTCPServer = d;
+    else if (strcmp(settingName, "tcpServerPort") == 0)
+        settings->tcpServerPort = d;
 
     //else if (strcmp(settingName, "") == 0)
     //    settings-> = d;

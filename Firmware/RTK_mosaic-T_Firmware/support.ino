@@ -1,27 +1,25 @@
 // Helper functions to support printing to eiter the serial port or bluetooth connection
 
-// If we are printing to all endpoints, BT gets priority
 int systemAvailable()
 {
-    return (Serial.available());
+    return (serialConsole.available());
 }
 
-// If we are printing to all endpoints, BT gets priority
 int systemRead()
 {
-    return (Serial.read());
+    return (serialConsole.read());
 }
 
 // Output a buffer of the specified length to the serial port
 void systemWrite(const uint8_t *buffer, uint16_t length)
 {
-    Serial.write(buffer, length);
+    serialConsole.write(buffer, length);
 }
 
 // Ensure all serial output has been transmitted, FIFOs are empty
 void systemFlush()
 {
-    Serial.flush();
+    serialConsole.flush();
 }
 
 // Output a byte to the serial port
@@ -747,7 +745,7 @@ void formatFirmwareVersion(char prefix, uint8_t major, uint8_t minor, char *buff
   // The buffer is too small for the version number
   else
   {
-    Serial.printf("ERROR: Buffer too small for version number!\r\n");
+    serialConsole.printf("ERROR: Buffer too small for version number!\r\n");
     if (bufferLength > 0)
       *buffer = 0;
   }

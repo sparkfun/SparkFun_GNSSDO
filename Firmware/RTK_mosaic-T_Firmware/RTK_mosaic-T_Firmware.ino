@@ -49,6 +49,12 @@
 int pin_errorLED = -1;
 int pin_lockLED = -1;
 
+const int pin_serial0TX = 1;
+const int pin_serial0RX = 3;
+
+int pin_serial0TX_Alt = -1;
+int pin_serial0RX_Alt = -1;
+
 int pin_serial1TX = -1;
 int pin_serial1RX = -1;
 int pin_serial1CTS = -1;
@@ -142,6 +148,7 @@ GPS_PARSE_TABLE;
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 #include <driver/uart.h>      // Required for uart_set_rx_full_threshold() on cores <v2.0.5
+HardwareSerial serialConsole(0); // Use UART0 for Console
 HardwareSerial serialGNSS(1); // Use UART1 for GNSS
 HardwareSerial serialGNSSConfig(2); // Use UART2 for GNSS configuration
 
@@ -311,7 +318,7 @@ void setup()
 {
     initializeGlobals(); // Initialize any global variables that can't be given default values
 
-    Serial.begin(115200); // UART0 for programming and debugging
+    beginConsole(false); // UART0 for programming and debugging. Don't allow Alt pins to be used yet
     systemPrintln();
     systemPrintln();
 
@@ -370,9 +377,13 @@ void setup()
     DMW_c("beginGNSS");
     beginGNSS(); // Connect to GNSS
 
-    Serial.flush(); // Complete any previous prints
+    DMW_c("configureGNSSTCPServer");
+    configureGNSSTCPServer(); // Configure TCP
 
     systemPrintf("Boot time: %d\r\n", millis());
+
+    serialConsole.flush(); // Complete any previous prints
+    beginConsole(true); // Swap to Alt pins if TCP is enabled
 }
 
 void loop()

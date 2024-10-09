@@ -189,6 +189,13 @@ bool initializeGNSS()
         return false;
     }
 
+    // Configure COM3 for daisy chain to IPS1
+    if (!sendWithResponse("sdio, COM3, DC1, DC2\n\r", "DataInOut"))
+    {
+        systemPrintln("GNSS FAIL (DataInOut COM3)");
+        return false;
+    }
+
     if (!sendWithResponse("sso, Stream1, COM1, Group1, sec1\n\r", "SBFOutput"))
     {
         systemPrintln("GNSS FAIL (SBFOutput Stream1)");
@@ -218,7 +225,7 @@ bool configureGNSSPPS()
 
     systemPrintln("Configuring GNSS PPS");
 
-    String ppsParams = String("setPPSParameters, ");
+    String ppsParams = String("spps, ");
     ppsParams += String(mosaicPPSParametersInterval[settings.ppsInterval]) + String(", ");
     ppsParams += String(mosaicPPSParametersPolarity[settings.ppsPolarity]) + String(", ");
     ppsParams += String(settings.ppsDelay_ns) + String(", ");
@@ -246,3 +253,57 @@ bool configureGNSSPPS()
     return true;
 }
 
+bool configureGNSSTCPServer()
+{
+    if (!online.gnss)
+        return false;
+
+    systemPrintln("Configuring GNSS TCP Server");
+
+    String tcpParams = String("siss, IPS1, ");
+
+    if (settings.enableTCPServer)
+    {      
+      tcpParams += String(settings.tcpServerPort) + String(", TCP2Way\n\r");
+    }
+    else
+    {
+      tcpParams += String("0\n\r");
+    }
+
+    int retries = 3;
+
+    while (!sendWithResponse(tcpParams, "IPServerSettings") && (retries > 0))
+    {
+        systemPrintln("No response from mosaic. Retrying - with escape sequence...");
+        sendWithResponse("SSSSSSSSSSSSSSSSSSSS\n\r", "COM4>"); // Send escape sequence
+        retries--;
+    }
+
+    if (retries == 0)
+    {
+        systemPrintln("GNSS FAIL (IPServerSettings)");
+        return false;
+    }
+
+    // Configure IPS1
+    if (settings.enableTCPServer)
+    {      
+      if (!sendWithResponse("sdio, IPS1, DC2, DC1\n\r", "DataInOut"))
+      {
+          systemPrintln("GNSS FAIL (DataInOut IPS1)");
+          return false;
+      }
+    }
+    else
+    {
+      if (!sendWithResponse("sdio, IPS1, none, none\n\r", "DataInOut"))
+      {
+          systemPrintln("GNSS FAIL (DataInOut IPS1)");
+          return false;
+      }
+    }
+
+    systemPrintln("GNSS TCP Server configured");
+    return true;
+}

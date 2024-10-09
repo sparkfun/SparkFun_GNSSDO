@@ -91,6 +91,8 @@ void menuMain()
             printUnknown(incoming);
     }
 
+    configureGNSSTCPServer(); // Configure TCP
+
     recordSystemSettings(); // Once all menus have exited, record the new settings to LittleFS and config file
 
     clearBuffer();           // Empty buffer of any newline chars

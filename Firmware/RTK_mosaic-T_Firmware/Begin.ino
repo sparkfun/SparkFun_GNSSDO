@@ -110,6 +110,8 @@ void beginBoard()
         pin_errorLED = 32;
         pin_lockLED = 33;
 
+        pin_serial0TX_Alt = 23;
+        pin_serial0RX_Alt = 34;
         pin_serial1TX = 14;
         pin_serial1RX = 13;
         pin_serial1CTS = 26;
@@ -172,6 +174,30 @@ void beginBoard()
     default:
         systemPrintln("Unknown");
     }
+}
+
+void beginConsole(bool allowAlt)
+{
+    if ((!allowAlt) || (!settings.enableTCPServer))
+    {
+        serialConsole.begin(115200, SERIAL_8N1, pin_serial0RX, pin_serial0TX);
+    }
+    else
+    {
+        if ((pin_serial0RX_Alt < 0) || (pin_serial0TX_Alt < 0))
+        {
+            reportFatalError("No Serial0 Alt pins");
+        }
+        else
+        {
+            serialConsole.begin(115200, SERIAL_8N1, pin_serial0RX_Alt, pin_serial0TX_Alt);
+        }
+    }
+
+    delay(10);
+
+    while (serialConsole.available())
+        serialConsole.read();
 }
 
 // We want the UART1 interrupts to be pinned to core 0 to avoid competing with I2C interrupts
