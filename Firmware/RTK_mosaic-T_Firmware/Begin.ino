@@ -176,11 +176,13 @@ void beginBoard()
     }
 }
 
-void beginConsole(bool allowAlt)
+void beginConsole(uint32_t baud, bool allowAlt)
 {
+    // Don't try to print here. serialConsole may not have been initialized
+
     if ((!allowAlt) || (!settings.enableTCPServer))
     {
-        serialConsole.begin(115200, SERIAL_8N1, pin_serial0RX, pin_serial0TX);
+        serialConsole.begin(baud, SERIAL_8N1, pin_serial0RX, pin_serial0TX);
     }
     else
     {
@@ -190,7 +192,7 @@ void beginConsole(bool allowAlt)
         }
         else
         {
-            serialConsole.begin(115200, SERIAL_8N1, pin_serial0RX_Alt, pin_serial0TX_Alt);
+            serialConsole.begin(baud, SERIAL_8N1, pin_serial0RX_Alt, pin_serial0TX_Alt);
         }
     }
 

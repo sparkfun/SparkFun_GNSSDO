@@ -115,7 +115,14 @@ void gnssReadTask(void *e)
     while (true)
     {
         if ((settings.enableTaskReports == true) && !inMainMenu)
-            systemPrintf("SerialReadTask High watermark: %d\r\n", uxTaskGetStackHighWaterMark(nullptr));
+        {
+            static unsigned long lastPrint = 0;
+            if (millis() > (lastPrint + settings.periodicPrintInterval_ms))
+            {
+                systemPrintf("SerialReadTask High watermark: %d\r\n", uxTaskGetStackHighWaterMark(nullptr));
+                lastPrint = millis();
+            }
+        }
 
         while (serialGNSS.available())
         {
@@ -710,11 +717,11 @@ void ButtonCheckTask(void *e)
             {
                 setupBtn->read();
 
-                if (setupBtn->isPressed()) // Switch is set to base mode
+                if (setupBtn->isPressed())
                 {
                     // Do stuff... Maybe change the display?
                 }
-                else if (setupBtn->wasReleased()) // Switch is set to Rover
+                else if (setupBtn->wasReleased())
                 {
                     // Do stuff... Maybe change the display?
                 }

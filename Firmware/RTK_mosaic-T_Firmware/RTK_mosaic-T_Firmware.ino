@@ -11,6 +11,14 @@
   Set the board to "ESP32 Wrover Module"
 
   Settings are pulled from ESP32's file system LittleFS.
+
+  Version history:
+  1.0: Initial release
+  1.1: Add TCP support
+       The console can be accessed via TCP (COM3 is daisy chained to IPS1)
+       On the v1.0 PCB, link:
+       mosaic COM3 TX (TX3) to ESP32 GPIO 34
+       mosaic COM3 RX (RX3) to ESP32 GPIO 23
 */
 
 // This is passed in from compiler extra flags
@@ -318,7 +326,7 @@ void setup()
 {
     initializeGlobals(); // Initialize any global variables that can't be given default values
 
-    beginConsole(false); // UART0 for programming and debugging. Don't allow Alt pins to be used yet
+    beginConsole(115200, false); // UART0 for programming and debugging. Don't allow Alt pins to be used yet
     systemPrintln();
     systemPrintln();
 
@@ -382,8 +390,10 @@ void setup()
 
     systemPrintf("Boot time: %d\r\n", millis());
 
-    serialConsole.flush(); // Complete any previous prints
-    beginConsole(true); // Swap to Alt pins if TCP is enabled
+    if (settings.enableTCPServer)
+        systemPrintf("TCP Server is enabled. Please connect on port %d to view the console\r\n", settings.tcpServerPort);
+
+    beginConsole(115200, true); // Swap to Alt pins if TCP is enabled
 }
 
 void loop()
@@ -413,6 +423,8 @@ void loop()
 // Once we have a fix, sync system clock to GNSS
 void updateRTC()
 {
+    static uint16_t syncAge = 0;
+
     static bool firstTime = true;
     if (firstTime)
     {
@@ -420,15 +432,21 @@ void updateRTC()
         firstTime = false;
     }
 
-    if (online.rtc == false) // Only do this if the rtc has not been sync'd previously
+    if (online.gnss == true) // Only do this if the GNSS is online
     {
-        if (online.gnss == true) // Only do this if the GNSS is online
+        if (gnssTimeUpdated[0]) // Only do this if we have fresh time
         {
-            if (gnssTimeUpdated[0])
-            {
-                gnssTimeUpdated[0] = false;
+            gnssTimeUpdated[0] = false;
 
-                if (gnssWNSet && gnssToWSet && gnssFineTime)
+            syncAge++; // Update syncAge every second
+            if (syncAge == 3600) // Wrap every hour
+                syncAge = 0;
+
+            if (gnssWNSet && gnssToWSet && gnssFineTime) // Only do this if FineTime is set
+            {
+                // Only do this if the rtc has not been sync'd previously
+                // or if it is an hour since the last sync
+                if ((online.rtc == false) || (syncAge == 0))
                 {
                     // To perform the time zone adjustment correctly, it's easiest if we convert the GNSS time and date
                     // into Unix epoch first and then correct for the arrival time
@@ -443,11 +461,14 @@ void updateRTC()
 
                     online.rtc = true;
 
-                    systemPrint("System time set to: ");
-                    systemPrintln(rtc.getDateTime(true));
+                    if (settings.enablePrintRtcSync)
+                    {
+                        systemPrint("System time set to: ");
+                        systemPrintln(rtc.getDateTime(true));
+                    }
                 }
             }
-        }         // End online.gnss
-    }             // End online.rtc
+        }
+    }
 }
 
