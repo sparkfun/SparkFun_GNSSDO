@@ -273,6 +273,8 @@ typedef struct
     double Ik = 0.151; // PI I term
     bool preferNonCompositeGPSBias = false; // Prefer non-composite GPS bias - if available. Mutex with preferNonCompositeGalileoBias
     bool preferNonCompositeGalileoBias = false; // Prefer non-composite Galileo bias - if available. Mutex with preferNonCompositeGPSBias
+    bool enableTCPServer = false; // Enable and configure mosaic-T IPS1 for TCP2way for the ESP32 console
+    uint16_t tcpServerPort = 28785;
 
     // Add new settings above <------------------------------------------------------------>
 

@@ -398,6 +398,12 @@ void menuOperation()
         systemPrint("13) Pulse-Per-Second Pulse Width (ms): ");
         systemPrintln(settings.ppsPulseWidth_ms);
 
+        systemPrint("14) TCP Server (IPS1): ");
+        systemPrintf("%s\r\n", settings.enableTCPServer ? "Enabled" : "Disabled");
+
+        systemPrint("15) TCP Server Port: ");
+        systemPrintln(settings.tcpServerPort);
+
         systemPrintln("\r\nx) Exit");
 
         byte incoming = getCharacterNumber();
@@ -534,6 +540,25 @@ void menuOperation()
                 ppsStarted = false; // Restart PPS afterwards
             }
         }
+        else if (incoming == 14)
+        {
+            settings.enableTCPServer ^= 1;
+        }
+        else if (incoming == 15)
+        {
+            systemPrint("Enter the TCP Server Port: ");
+            int port = getNumber(); // Returns EXIT, TIMEOUT, or long
+            if ((port != INPUT_RESPONSE_GETNUMBER_EXIT) &&
+                (port != INPUT_RESPONSE_GETNUMBER_TIMEOUT))
+            {
+                if (port < 1 || port > 65534)
+                    systemPrintln("Error: Port is out of range");
+                else
+                {
+                    settings.tcpServerPort = port;
+                }
+            }
+        }
         // Menu exit control
         else if (incoming == 'x')
             break;
@@ -563,12 +588,13 @@ void printCurrentConditions(bool CSV)
                 firstTime = false;
             }
 
-            systemPrintf("%04d/%02d/%02d,%02d:%02d:%02d",
-                gnssYear, gnssMonth, gnssDay, gnssHour, gnssMinute, gnssSecond);
-            
             uint32_t epochSecs;
             uint32_t epochMillis;
             convertGnssTimeToEpoch(&epochSecs, &epochMillis);
+
+            systemPrintf("%04d/%02d/%02d,%02d:%02d:%02d",
+                gnssYear, gnssMonth, gnssDay, gnssHour, gnssMinute, gnssSecond);
+            
             systemPrintf(",%lu.%03lu", epochSecs, epochMillis);
             
             systemPrint(",");

@@ -14,7 +14,7 @@ void reportHeap()
 {
     if (settings.enableHeapReport == true)
     {
-        if (millis() - lastHeapReport > 1000)
+        if (millis() - lastHeapReport >= settings.periodicPrintInterval_ms)
         {
             reportHeapNow(false);
         }

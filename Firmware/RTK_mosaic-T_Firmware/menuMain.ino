@@ -91,6 +91,13 @@ void menuMain()
             printUnknown(incoming);
     }
 
+    configureGNSSTCPServer(); // Configure TCP
+
+    if (settings.enableTCPServer)
+        systemPrintf("TCP Server is enabled. Please connect on port %d to view the console\r\n", settings.tcpServerPort);
+        
+    beginConsole(115200, true); // Swap to Alt pins if TCP is enabled
+
     recordSystemSettings(); // Once all menus have exited, record the new settings to LittleFS and config file
 
     clearBuffer();           // Empty buffer of any newline chars

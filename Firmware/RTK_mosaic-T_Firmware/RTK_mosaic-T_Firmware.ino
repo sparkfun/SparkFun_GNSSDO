@@ -11,6 +11,14 @@
   Set the board to "ESP32 Wrover Module"
 
   Settings are pulled from ESP32's file system LittleFS.
+
+  Version history:
+  1.0: Initial release
+  1.1: Add TCP support
+       The console can be accessed via TCP (COM3 is daisy chained to IPS1)
+       On the v1.0 PCB, link:
+       mosaic COM3 TX (TX3) to ESP32 GPIO 34
+       mosaic COM3 RX (RX3) to ESP32 GPIO 23
 */
 
 // This is passed in from compiler extra flags
@@ -48,6 +56,12 @@
 // These pins are set in beginBoard()
 int pin_errorLED = -1;
 int pin_lockLED = -1;
+
+const int pin_serial0TX = 1;
+const int pin_serial0RX = 3;
+
+int pin_serial0TX_Alt = -1;
+int pin_serial0RX_Alt = -1;
 
 int pin_serial1TX = -1;
 int pin_serial1RX = -1;
@@ -142,6 +156,7 @@ GPS_PARSE_TABLE;
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 #include <driver/uart.h>      // Required for uart_set_rx_full_threshold() on cores <v2.0.5
+HardwareSerial serialConsole(0); // Use UART0 for Console
 HardwareSerial serialGNSS(1); // Use UART1 for GNSS
 HardwareSerial serialGNSSConfig(2); // Use UART2 for GNSS configuration
 
@@ -311,7 +326,7 @@ void setup()
 {
     initializeGlobals(); // Initialize any global variables that can't be given default values
 
-    Serial.begin(115200); // UART0 for programming and debugging
+    beginConsole(115200, false); // UART0 for programming and debugging. Don't allow Alt pins to be used yet
     systemPrintln();
     systemPrintln();
 
@@ -370,9 +385,15 @@ void setup()
     DMW_c("beginGNSS");
     beginGNSS(); // Connect to GNSS
 
-    Serial.flush(); // Complete any previous prints
+    DMW_c("configureGNSSTCPServer");
+    configureGNSSTCPServer(); // Configure TCP
 
     systemPrintf("Boot time: %d\r\n", millis());
+
+    if (settings.enableTCPServer)
+        systemPrintf("TCP Server is enabled. Please connect on port %d to view the console\r\n", settings.tcpServerPort);
+
+    beginConsole(115200, true); // Swap to Alt pins if TCP is enabled
 }
 
 void loop()
@@ -402,6 +423,8 @@ void loop()
 // Once we have a fix, sync system clock to GNSS
 void updateRTC()
 {
+    static uint16_t syncAge = 0;
+
     static bool firstTime = true;
     if (firstTime)
     {
@@ -409,15 +432,21 @@ void updateRTC()
         firstTime = false;
     }
 
-    if (online.rtc == false) // Only do this if the rtc has not been sync'd previously
+    if (online.gnss == true) // Only do this if the GNSS is online
     {
-        if (online.gnss == true) // Only do this if the GNSS is online
+        if (gnssTimeUpdated[0]) // Only do this if we have fresh time
         {
-            if (gnssTimeUpdated[0])
-            {
-                gnssTimeUpdated[0] = false;
+            gnssTimeUpdated[0] = false;
 
-                if (gnssWNSet && gnssToWSet && gnssFineTime)
+            syncAge++; // Update syncAge every second
+            if (syncAge == 3600) // Wrap every hour
+                syncAge = 0;
+
+            if (gnssWNSet && gnssToWSet && gnssFineTime) // Only do this if FineTime is set
+            {
+                // Only do this if the rtc has not been sync'd previously
+                // or if it is an hour since the last sync
+                if ((online.rtc == false) || (syncAge == 0))
                 {
                     // To perform the time zone adjustment correctly, it's easiest if we convert the GNSS time and date
                     // into Unix epoch first and then correct for the arrival time
@@ -432,11 +461,14 @@ void updateRTC()
 
                     online.rtc = true;
 
-                    systemPrint("System time set to: ");
-                    systemPrintln(rtc.getDateTime(true));
+                    if (settings.enablePrintRtcSync)
+                    {
+                        systemPrint("System time set to: ");
+                        systemPrintln(rtc.getDateTime(true));
+                    }
                 }
             }
-        }         // End online.gnss
-    }             // End online.rtc
+        }
+    }
 }
 

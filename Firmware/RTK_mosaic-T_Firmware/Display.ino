@@ -125,8 +125,16 @@ void updateDisplay()
             oled->print(textLine);
             yPos += 8;
 
-            snprintf(textLine, sizeof(textLine), "IP    %s",
-                    gnssIP.toString().c_str());
+            if ((settings.enableTCPServer) && ((gnssSecond % 4) > 1)) // Print TCP Port for two seconds
+            {
+                snprintf(textLine, sizeof(textLine), "IP    TCP Port %d",
+                        settings.tcpServerPort);
+            }
+            else
+            {
+                snprintf(textLine, sizeof(textLine), "IP    %s",
+                        gnssIP.toString().c_str());
+            }
             oled->setCursor(0, yPos);
             oled->print(textLine);
             yPos += 8;
