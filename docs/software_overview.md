@@ -385,10 +385,47 @@ Select option **c** ("c" followed by "Enter") to configure the firmware:
 	* This defines how long PPS pulses will be produced when the GNSS signal is lost or jammed: 0 to 3600 seconds.
 * **13) Pulse-Per-Second Pulse Width**
 	* This defines the width of the PPS signal. The units are milliseconds: 0.000001 to 1000.000000.
+* **14) TCP Server (IPS1)**
+	* When enabled, the ESP32 serial console is diverted from the CH340 (USB) interface to the mosaic-T COM3 and from there to the IPS1 TCP server.
+	* When enabled, the configuration menu and debug messages can be accessed over TCP / Telnet on the chosen port. The CH340 (USB) interface is no longer active.
+	* TCP is supported over both Ethernet and the Ethernet-over-USB (CONFIG MOSAIC) connection. Only one TCP2Way connection is supported.
+* **15) TCP Server Port**
+	* The port for the TCP connection. Default is 28785.
 
 To reset all settings to their default values, select "r", "Enter", "y", "Enter"
 
 The settings are saved to non-volatile memory (NVM, LittleFS) on exiting the menu. Ensure you fully exit the menu ("x", "Enter", "x", "Enter") to save any modified settings.
 
 The TCXO frequency control word is saved to NVM once per hour, to allow a quicker startup at the next power-on.
+
+Select option **d** ("d" followed by "Enter") to configure the software debug options:
+
+<figure markdown>
+[![ESP32 firmware debug menu](./assets/img/hookup_guide/Menu-Debug.png){ width="600" }](./assets/img/hookup_guide/Menu-Debug.png "Click to enlarge")
+<figcaption markdown>The ESP32 firmware debug menu.</figcaption>
+</figure>
+
+The debug options are what we use at SparkFun to check that the firmware is running correctly. You should not need change any of the options, except perhaps option 8 ** Print conditions**. This option controls the periodic CSV messages seen in the console when the menu is closed. The format can be changed to human-readable text, or the messages can be disabled if desired.
+
+The format of the CSV data is:
+
+**YYYY/MM/DD,HH:MM:SS,Epoch,Lat,Lon,Alt,TimeSys,Error,Fine,PPS,Bias,Source,TCXO,Pk,Ik**
+
+* **YYYY/MM/DD** is the date from the ReceiverTime SBF message
+* **HH:MM:SS** is the time from the ReceiverTime SBF message
+* **Epoch** is the date and time in Unix epoch format: seconds.milliseconds from midnight UTC January 1st 1970. This is useful when plotting the data against time.
+* **Lat** is the Latitude in degrees from the PVTGeodetic SBF message (7 decimal places)
+* **Lon** is the Longitude in degrees from the PVTGeodetic SBF message (7 decimal places)
+* **Alt** is the Altitude in metres from the PVTGeodetic SBF message (0.1mm resolution)
+* **TimeSys** is the named TimeSystem from the PVTGeodetic SBF message
+* **Error** is the Error byte from the PVTGeodetic SBF message. 0 indicates no error
+* **Fine** is the FINETIME bit from the SyncLevel byte from the ReceiverTime SBF message
+* **PPS** indicates if the Pulse-Per-Second output is enabled. PPS is enabled when the RxClkBias reaches the required accuracy
+* **Bias** is the receiver clock bias in seconds
+* **Source** is the source of the receiver clock bias reported in **Bias**
+	* By default, this is the composite RxClkBias reported in the PVTGeodetic SBF message. "PVT" indicates the source is RxClkBias from PVTGeodetic
+	* If AtomiChron is enabled and if **Prefer non-composite GPS bias** or **Prefer non-composite Galileo bias** has been selected, this will change to "GPS" or "Galileo" indicating that the individual non-composite bias from the FugroTimeOffset SBF message is being used
+* **TCXO** is the 26-bit signed frequency control word written to the SiT5358 TCXO
+* **Pk** is the PI control loop Proportional term - set in the configuration menu
+* **Ik** is the PI control loop Integral term - set in the configuration menu
 
