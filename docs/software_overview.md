@@ -323,6 +323,8 @@ When connected to the ESP32 CH340 COM port at 115200 baud, pressing any key in t
 <figcaption markdown>The ESP32 firmware main menu.</figcaption>
 </figure>
 
+### Configure Operation
+
 Select option **c** ("c" followed by "Enter") to configure the firmware:
 
 <figure markdown>
@@ -386,9 +388,7 @@ Select option **c** ("c" followed by "Enter") to configure the firmware:
 * **13) Pulse-Per-Second Pulse Width**
 	* This defines the width of the PPS signal. The units are milliseconds: 0.000001 to 1000.000000.
 * **14) TCP Server (IPS1)**
-	* When enabled, the ESP32 serial console is diverted from the CH340 (USB) interface to the mosaic-T COM3 and from there to the IPS1 TCP server.
-	* When enabled, the configuration menu and debug messages can be accessed over TCP / Telnet on the chosen port. The CH340 (USB) interface is no longer active.
-	* TCP is supported over both Ethernet and the Ethernet-over-USB (CONFIG MOSAIC) connection. Only one TCP2Way connection is supported.
+	* See [TCP Server (IPS1)](#tcp-server-ips1) below for more details
 * **15) TCP Server Port**
 	* The port for the TCP connection. Default is 28785.
 
@@ -398,6 +398,30 @@ The settings are saved to non-volatile memory (NVM, LittleFS) on exiting the men
 
 The TCXO frequency control word is saved to NVM once per hour, to allow a quicker startup at the next power-on.
 
+### TCP Server (IPS1)
+
+When **TCP Server (IPS1)** is enabled, the ESP32 serial console is diverted from the CH340 (USB) interface to the mosaic-T COM3 UART interface.
+The serial data is then daisy chained from COM3 to the IPS1 TCP server.
+
+When **TCP Server (IPS1)** is enabled, the configuration menu and debug messages can be accessed over TCP / Telnet on the chosen port. The CH340 (USB) interface is then no longer active.
+
+TCP / Telnet is supported over both Ethernet and the Ethernet-over-USB connection. Only one TCP2Way connection is supported.
+
+If you are using Tera Term:
+
+* Select **TCP/IP** and **Telnet**
+* Enter the mosaic-T's IP address in **Host**
+	* If you are connected via the CONFIG MOSAIC Ethernet-over-USB interface, the IP address is 192.168.3.1
+* Enter the TCP Server Port number in **TCP port#**
+	* The default port is 28785
+
+<figure markdown>
+[![Tera Term configuration for TCP](./assets/img/hookup_guide/Tera_Term_TCP_Server.png){ width="600" }](./assets/img/hookup_guide/Tera_Term_TCP_Server.png "Click to enlarge")
+<figcaption markdown>Tera Term configuration for TCP.</figcaption>
+</figure>
+
+### Debug Software
+
 Select option **d** ("d" followed by "Enter") to configure the software debug options:
 
 <figure markdown>
@@ -405,9 +429,11 @@ Select option **d** ("d" followed by "Enter") to configure the software debug op
 <figcaption markdown>The ESP32 firmware debug menu.</figcaption>
 </figure>
 
-The debug options are what we use at SparkFun to check that the firmware is running correctly. You should not need change any of the options, except perhaps option 8 ** Print conditions**. This option controls the periodic CSV messages seen in the console when the menu is closed. The format can be changed to human-readable text, or the messages can be disabled if desired.
+The debug options are what we use at SparkFun to check that the firmware is running correctly. You should not need change any of the options, except perhaps option 8 **Print conditions**. This option controls the periodic CSV messages seen in the console when the menu is closed. The format can be changed to human-readable text, or the messages can be disabled if desired.
 
-The format of the CSV data is:
+### Print Conditions (Periodic messages)
+
+The format of the **Print conditions** CSV data is:
 
 **YYYY/MM/DD,HH:MM:SS,Epoch,Lat,Lon,Alt,TimeSys,Error,Fine,PPS,Bias,Source,TCXO,Pk,Ik**
 
@@ -420,11 +446,12 @@ The format of the CSV data is:
 * **TimeSys** is the named TimeSystem from the PVTGeodetic SBF message
 * **Error** is the Error byte from the PVTGeodetic SBF message. 0 indicates no error
 * **Fine** is the FINETIME bit from the SyncLevel byte from the ReceiverTime SBF message
-* **PPS** indicates if the Pulse-Per-Second output is enabled. PPS is enabled when the RxClkBias reaches the required accuracy
+* **PPS** indicates if the Pulse-Per-Second output is enabled
+	* PPS is enabled when the RxClkBias reaches the required accuracy, set by **RX Clock Bias Lock Limit**
 * **Bias** is the receiver clock bias in seconds
 * **Source** is the source of the receiver clock bias reported in **Bias**
-	* By default, this is the composite RxClkBias reported in the PVTGeodetic SBF message. "PVT" indicates the source is RxClkBias from PVTGeodetic
-	* If AtomiChron is enabled and if **Prefer non-composite GPS bias** or **Prefer non-composite Galileo bias** has been selected, this will change to "GPS" or "Galileo" indicating that the individual non-composite bias from the FugroTimeOffset SBF message is being used
+	* By default, this is **PVT** indicating the source is the composite RxClkBias from the PVTGeodetic SBF message
+	* If AtomiChron is enabled and if **Prefer non-composite GPS bias** or **Prefer non-composite Galileo bias** has been selected, this will change to **GPS** or **Galileo** indicating that the individual non-composite bias from the FugroTimeOffset SBF message is available and is being used
 * **TCXO** is the 26-bit signed frequency control word written to the SiT5358 TCXO
 * **Pk** is the PI control loop Proportional term - set in the configuration menu
 * **Ik** is the PI control loop Integral term - set in the configuration menu
