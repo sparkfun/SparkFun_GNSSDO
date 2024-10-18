@@ -431,7 +431,7 @@ Select option **d** ("d" followed by "Enter") to configure the software debug op
 
 The debug options are what we use at SparkFun to check that the firmware is running correctly. You should not need change any of the options, except perhaps option 8 **Print conditions**. This option controls the periodic CSV messages seen in the console when the menu is closed. The format can be changed to human-readable text, or the messages can be disabled if desired.
 
-### Print Conditions (Periodic messages)
+### Print Conditions (periodic messages)
 
 The format of the **Print conditions** CSV data is:
 

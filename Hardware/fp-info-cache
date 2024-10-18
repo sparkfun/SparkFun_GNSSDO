@@ -1,4 +1,4 @@
-24448383747515752
+24488825233006967
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -89768,6 +89768,76 @@ SparkFun
 0
 0
 SparkFun-Aesthetic
+SparkPNT_Logo_2.5mm
+
+
+0
+0
+0
+SparkFun-Aesthetic
+SparkPNT_Logo_2mm
+
+
+0
+0
+0
+SparkFun-Aesthetic
+SparkPNT_Logo_3mm
+
+
+0
+0
+0
+SparkFun-Aesthetic
+SparkPNT_Logo_4mm
+
+
+0
+0
+0
+SparkFun-Aesthetic
+SparkPNT_Logo_5mm
+
+
+0
+0
+0
+SparkFun-Aesthetic
+SparkPNT_Logo_6mm
+
+
+0
+0
+0
+SparkFun-Aesthetic
+SparkPNT_Logo_7mm
+
+
+0
+0
+0
+SparkFun-Aesthetic
+SparkPNT_Logo_8mm
+
+
+0
+0
+0
+SparkFun-Aesthetic
+SparkPNT_Logo_9mm
+
+
+0
+0
+0
+SparkFun-Aesthetic
+SparkPNT_Logo_10mm
+
+
+0
+0
+0
+SparkFun-Aesthetic
 SparkX_Logo_5mm
 
 SparkFun
@@ -90055,8 +90125,15 @@ SparkFun
 4
 4
 SparkFun-Coil
+0805
+Inductor SMD 0805 (2012 Metric)
+SparkFun inductor
+0
+2
+2
+SparkFun-Coil
 0806
-<h3>2.2uH, 1.2A, Shielded 0806 Inductor</h3>{return}{return}Physical Characteristics: {return}<ul>{return}<li>0806 Package (2016 metric)</li>{return}<li>Landing Pads: 1.8 X .8mm</li>{return}</ul>
+
 SparkFun
 0
 2
@@ -90085,6 +90162,13 @@ SparkFun
 SparkFun-Coil
 Inductor_4x4mm
 4x4mm Inductor - https://www.bourns.com/docs/Product-Datasheets/SRN4018.pdf
+SparkFun
+0
+2
+2
+SparkFun-Coil
+Inductor_7.3x6.6mm
+https://productfinder.pulseelectronics.com/api/open/part-attachments/datasheet/BMRA000606306R8MA1
 SparkFun
 0
 2
@@ -90205,6 +90289,13 @@ SparkFun-Connector
 1x06_Locking
 See our tutorial: https://www.sparkfun.com/tutorials/114
 SparkFun Locking Friction Fit PTH Male headers
+0
+6
+6
+SparkFun-Connector
+1x06_SMD_RA_Female
+
+SparkFun SMD Right Angle 6-pin
 0
 6
 6
@@ -90650,6 +90741,13 @@ SparkFun
 18
 18
 SparkFun-Connector
+FPC_0.5mm-16_Reversed_Numbering
+Reversed pinout to match RPi PCIe ribbon
+SparkFun Raspberry Pi PCIe Pinout
+0
+18
+18
+SparkFun-Connector
 FPC_0.5mm-24
 24 Pin FPC 0.5mm with contacts both sides.
 SparkFun
@@ -90754,6 +90852,27 @@ SparkFun
 0
 6
 6
+SparkFun-Connector
+JST_SMD_1.0mm-6_Vertical
+https://www.jst-mfg.com/product/pdf/eng/eSH.pdf
+SparkFun
+0
+8
+8
+SparkFun-Connector
+JST_SMD_1.0mm-12_RA
+
+SparkFun
+0
+14
+14
+SparkFun-Connector
+JST_SMD_1.0mm-14_RA
+
+SparkFun
+0
+16
+16
 SparkFun-Connector
 JST_SMD_1.25mm-4_Locking
 
@@ -90873,6 +90992,13 @@ SparkFun
 0
 3
 2
+SparkFun-Connector
+Raspberry_Pi_Shield_Bottom_Entry_No_Mounting_Holes
+
+SparkFun Raspberry Pi Hat Connector SMD Passthrough
+0
+40
+40
 SparkFun-Connector
 SMA_Edge
 SMA Antenna Connector
@@ -91352,14 +91478,14 @@ SparkFun
 SparkFun-LED
 APA102_2020-6Pin
 
-SparkFun Two Wire  Data/Clock Addressable LED
+SparkFun Two Wire  Data/Clock RGB Addressable LED
 0
 6
 6
 SparkFun-LED
 APA104_1010
 
-SparkFun One Wire Addressable LED
+SparkFun One Wire RGB Addressable LED
 0
 4
 4
@@ -91471,21 +91597,21 @@ SparkFun SMD LED 5mm Light Pipe Circuit Board Indicator CBI
 SparkFun-LED
 WS2812B_CBI
 
-SparkFun
+SparkFun RGB LED Indicator Right angle
 0
 4
 4
 SparkFun-LED
 WS2812_2020
-<h3>WS2812-2020 - 2020 package for the WS2812</h3>{return}<p>Specifications:{return}<ul><li>Pin count: 4</li>{return}<li>Pin pitch: 1 mm</li>{return}<li>Area: 2.2 mm x 2.0 mm</li>{return}</ul></p>{return}<p><a href=https://www.aliexpress.com/store/product/WS2812-2020-Intelligent-control-LED-integrated-light-source-2020-SMD-RGB-LED-with-built-in-WS2811/701799_32879024689.html?spm=2114.12010612.8148356.3.67626848TBx3Ev>Datasheet referenced for footprint</a></p>
-SparkFun
+
+SparkFun RGB LED Tri-color Addressabble 2x2mm
 0
 4
 4
 SparkFun-LED
 WS2812_5050-4Pin
-<h3>WS2812B</h3>{return}{return}<p>Specifications:{return}<ul><li>Pin count: 4</li>{return}<li>Size: 5.0 x 5.0 mm</li>{return}</ul></p>{return}<p><b>Datasheet referenced for footprint:</b> <a href="http://cdn.sparkfun.com/datasheets/BreakoutBoards/WS2812B.pdf">WS2812B</a></p>{return}<p>Example device:{return}<ul><li>WS2812B</li>
-SparkFun
+SparkFun RGB Addressable Tri-color LED 5x5mm
+SparkFun RGB Addressable Tri-color LED 5x5mm
 0
 4
 4
@@ -91602,6 +91728,13 @@ SparkFun PoE Power Module
 8
 8
 SparkFun-Semiconductor-Nonstandard
+MPM3630GQV
+
+SparkFun DC Buck Module
+0
+19
+16
+SparkFun-Semiconductor-Nonstandard
 REC15E
 
 SparkFun DC DC Power Converter
@@ -91671,6 +91804,13 @@ SparkFun PowerFlat
 0
 5
 5
+SparkFun-Semiconductor-Standard
+PowerVFDFN-13
+https://www.diodes.com/assets/Datasheets/AP63356-AP63357.pdf
+SparkFun
+0
+9
+9
 SparkFun-Semiconductor-Standard
 QFN-16
 16 pin QFN 0.5mm Pitch 4x4mm
@@ -91868,12 +92008,26 @@ SparkFun UDFN-8 U-DFN3030-8 (Type E)
 9
 9
 SparkFun-Semiconductor-Standard
+UFDFN-10_2.5x1.0mm_P0.5mm
+UFDFN USON-10 2.5x1.0mm_ Pitch 0.5mm
+UFDFN USON 1.0mm
+0
+10
+10
+SparkFun-Semiconductor-Standard
 USON-8_3x2mm-SkinnyCenterPad
 https://www.mouser.com/datasheet/2/1127/APM_PSRAM_QSPI_APS6404L_3SQR_v2_3_PKG-1954826.pdf
 SparkFun
 0
 9
 9
+SparkFun-Semiconductor-Standard
+VQFN-56
+https://www.infineon.com/cms/en/product/packages/PG-VQFN/PG-VQFN-56-5/
+SparkFun
+0
+61
+56
 SparkFun-Semiconductor-Standard
 VSSOP8_SOT765-1
 VSSOP8 (SOT765-1)
@@ -91912,6 +92066,13 @@ SparkFun WSON
 SparkFun-Sensor
 LG-MLGA-14-1_Z8B00206105
 
+SparkFun
+0
+14
+14
+SparkFun-Sensor
+LGA-14L
+https://www.st.com/resource/en/datasheet/lsm6dsox.pdf
 SparkFun
 0
 14

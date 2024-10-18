@@ -3,7 +3,7 @@ Panel dimensions: 165.60 x 125.46 mm.
 Controlled Impedance: JLC7628
 Material: TG155
 Solder Mask: Red
-Silkscreen: White
+Silkscreen: White (Default)
 Layers: 4
 Finish: ENIG
 Thickness: 1.6mm

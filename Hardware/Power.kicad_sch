@@ -4,6 +4,9 @@
 	(generator_version "8.0")
 	(uuid "78125830-26fb-4df1-9322-9491c6e09753")
 	(paper "USLetter")
+	(title_block
+		(title "Power")
+	)
 	(lib_symbols
 		(symbol "SparkFun-Capacitor:1.0uF_0603_16V_10%"
 			(pin_numbers hide)
@@ -760,6 +763,15 @@
 					(font
 						(size 1.27 1.27)
 					)
+				)
+			)
+			(property "ki_keywords" "SparkFun"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
 				)
 			)
 			(property "ki_fp_filters" "Choke_* *Coil* Inductor_* L_*"
@@ -3384,14 +3396,14 @@
 				)
 			)
 		)
-		(symbol "SparkFun-Regulator:AP2112K-3.3"
+		(symbol "SparkFun-Regulator:AP7361C-3.3V"
 			(pin_names
 				(offset 0.254)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U3"
+			(property "Reference" "U"
 				(at 0 8.89 0)
 				(effects
 					(font
@@ -3399,7 +3411,7 @@
 					)
 				)
 			)
-			(property "Value" "AP2112K-3.3"
+			(property "Value" "AP7361C-3.3V"
 				(at 0 6.35 0)
 				(effects
 					(font
@@ -3407,8 +3419,8 @@
 					)
 				)
 			)
-			(property "Footprint" "SparkFun-Semiconductor-Standard:SOT23-5"
-				(at 0 -11.43 0)
+			(property "Footprint" "SparkFun-Semiconductor-Standard:UDFN-8"
+				(at -0.254 -21.336 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3416,43 +3428,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "https://www.diodes.com/assets/Datasheets/AP2112.pdf"
-				(at 0 -13.97 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "600mA low dropout linear regulator, with enable pin, 3.8V-6V input voltage range, 3.3V fixed positive output, SOT-23-5"
-				(at 0 -27.94 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "PROD_ID" "VREG-12457"
-				(at -1.27 -16.51 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "VMax" "6V"
-				(at 0 -19.05 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Imax" "600mA"
+			(property "Datasheet" "https://www.diodes.com/assets/Datasheets/AP7361C.pdf"
 				(at 0 -24.13 0)
 				(effects
 					(font
@@ -3461,8 +3437,8 @@
 					(hide yes)
 				)
 			)
-			(property "Iq" "55µA"
-				(at 0 -21.59 0)
+			(property "Description" "1A low dropout linear regulator, with enable pin, 2.2-6.0V input, 3.3V output, UDFN-8"
+				(at -1.016 -18.542 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3470,7 +3446,52 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "SparkFun linear regulator ldo fixed positive"
+			(property "PROD_ID" "VREG-14094"
+				(at -1.27 -26.67 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "VMax" "6V"
+				(at 0 -29.21 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Ityp" "1.0A"
+				(at 0 -31.75 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Imax" "1.5A"
+				(at 0 -34.29 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Iq" "60µA"
+				(at 0 -36.83 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "SparkFun linear regulator ldo fixed 3.3V"
 				(at 0 0 0)
 				(effects
 					(font
@@ -3488,9 +3509,9 @@
 					(hide yes)
 				)
 			)
-			(symbol "AP2112K-3.3_1_1"
+			(symbol "AP7361C-3.3V_1_1"
 				(rectangle
-					(start -5.08 4.445)
+					(start -5.08 3.81)
 					(end 5.08 -5.08)
 					(stroke
 						(width 0.254)
@@ -3500,10 +3521,10 @@
 						(type background)
 					)
 				)
-				(pin power_in line
-					(at -7.62 2.54 0)
+				(pin power_out line
+					(at 7.62 2.54 180)
 					(length 2.54)
-					(name "VIN"
+					(name "VOUT"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3511,6 +3532,42 @@
 						)
 					)
 					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin no_connect line
+					(at 5.08 -2.54 180)
+					(length 2.54) hide
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin no_connect line
+					(at 5.08 -2.54 180)
+					(length 2.54) hide
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3528,7 +3585,7 @@
 							)
 						)
 					)
-					(number "2"
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3546,7 +3603,7 @@
 							)
 						)
 					)
-					(number "3"
+					(number "5"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3555,7 +3612,7 @@
 					)
 				)
 				(pin no_connect line
-					(at 5.08 0 180)
+					(at 5.08 -2.54 180)
 					(length 2.54) hide
 					(name "NC"
 						(effects
@@ -3564,7 +3621,7 @@
 							)
 						)
 					)
-					(number "4"
+					(number "6"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3572,17 +3629,53 @@
 						)
 					)
 				)
-				(pin power_out line
-					(at 7.62 2.54 180)
-					(length 2.54)
-					(name "VOUT"
+				(pin no_connect line
+					(at 5.08 -2.54 180)
+					(length 2.54) hide
+					(name "NC"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "5"
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -7.62 2.54 0)
+					(length 2.54)
+					(name "VIN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -2.54 -7.62 90)
+					(length 2.54)
+					(name "EP"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3905,6 +3998,12 @@
 		(uuid "1c157272-ec4f-4e3e-a7cc-ab09e080ee8f")
 	)
 	(junction
+		(at 166.37 105.41)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2678efd2-3337-4e60-b8c6-ec220bb2c0b9")
+	)
+	(junction
 		(at 204.47 36.83)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3915,6 +4014,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "42cf020a-90ff-4066-8e0a-0418b241922f")
+	)
+	(junction
+		(at 102.87 105.41)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5b676561-e69d-4928-b61e-7de8facce9eb")
 	)
 	(junction
 		(at 157.48 93.98)
@@ -4354,6 +4459,16 @@
 	)
 	(wire
 		(pts
+			(xy 100.33 104.14) (xy 100.33 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5d077cd7-4226-41f3-88fb-0b49eca3b4c2")
+	)
+	(wire
+		(pts
 			(xy 87.63 93.98) (xy 87.63 96.52)
 		)
 		(stroke
@@ -4361,6 +4476,16 @@
 			(type default)
 		)
 		(uuid "5f39f634-c689-411f-913b-cdca42bc62b3")
+	)
+	(wire
+		(pts
+			(xy 166.37 105.41) (xy 166.37 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "641c457d-0d44-41b0-98f7-33084bc8df23")
 	)
 	(wire
 		(pts
@@ -4411,6 +4536,16 @@
 			(type default)
 		)
 		(uuid "6ee73662-479a-48dc-996a-f326761baaef")
+	)
+	(wire
+		(pts
+			(xy 163.83 105.41) (xy 166.37 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6f4f0525-97c7-48c6-8b2b-3333b65d6776")
 	)
 	(wire
 		(pts
@@ -4481,6 +4616,16 @@
 			(type dash)
 		)
 		(uuid "862c499d-0938-4888-bf18-b0e96a7f40fc")
+	)
+	(wire
+		(pts
+			(xy 163.83 104.14) (xy 163.83 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "86a1d6b0-842e-484a-81dd-18dab7a5588e")
 	)
 	(wire
 		(pts
@@ -4734,6 +4879,16 @@
 	)
 	(wire
 		(pts
+			(xy 102.87 105.41) (xy 102.87 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bec10670-b229-4e3e-957d-1eb4babc3a35")
+	)
+	(wire
+		(pts
 			(xy 27.94 36.83) (xy 29.21 36.83)
 		)
 		(stroke
@@ -4851,6 +5006,16 @@
 			(type default)
 		)
 		(uuid "db6bb5b9-200e-4977-b340-22baba72c006")
+	)
+	(wire
+		(pts
+			(xy 100.33 105.41) (xy 102.87 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dea0da54-a896-4fba-9ca9-3f056e055648")
 	)
 	(wire
 		(pts
@@ -5509,6 +5674,140 @@
 		)
 	)
 	(symbol
+		(lib_id "SparkFun-Regulator:AP7361C-3.3V")
+		(at 102.87 96.52 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "12fe44a0-fb54-4751-a212-772e6e4872c3")
+		(property "Reference" "U11"
+			(at 102.87 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "AP7361C-3.3V"
+			(at 102.87 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "SparkFun-Semiconductor-Standard:UDFN-8"
+			(at 102.616 117.856 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/AP7361C.pdf"
+			(at 102.87 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "1A low dropout linear regulator, with enable pin, 2.2-6.0V input, 3.3V output, UDFN-8"
+			(at 101.854 115.062 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PROD_ID" "VREG-14094"
+			(at 101.6 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "VMax" "6V"
+			(at 102.87 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Ityp" "1.0A"
+			(at 102.87 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Imax" "1.5A"
+			(at 102.87 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Iq" "60µA"
+			(at 102.87 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "013ae870-c1dd-401c-9fc7-52115535c507")
+		)
+		(pin "4"
+			(uuid "f2141f51-ab26-4c66-9058-a51d74b41930")
+		)
+		(pin "2"
+			(uuid "d44795d8-f0f0-431d-afc3-3af4361cbd3c")
+		)
+		(pin "6"
+			(uuid "2c7364f9-50ed-4b9c-8f51-4afbcefdec39")
+		)
+		(pin "8"
+			(uuid "3c988961-2bd2-4a21-a30f-1a1251c77732")
+		)
+		(pin "7"
+			(uuid "f9d468ed-a518-4b3b-81bf-0186ff2889a6")
+		)
+		(pin "3"
+			(uuid "28373cdc-6e87-4216-bd4b-58274c999ec4")
+		)
+		(pin "5"
+			(uuid "82d44711-f0e7-4adf-a9d7-0c63c013b4de")
+		)
+		(pin "9"
+			(uuid "97b7bba7-15c4-417e-93ed-2e6db3e537bc")
+		)
+		(instances
+			(project ""
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/476b4701-5340-4853-910a-2af933cad777"
+					(reference "U11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "SparkFun-Coil:4.7uH_1008_1.4A")
 		(at 237.49 36.83 0)
 		(unit 1)
@@ -5754,6 +6053,140 @@
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/476b4701-5340-4853-910a-2af933cad777"
 					(reference "JP6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-Regulator:AP7361C-3.3V")
+		(at 166.37 96.52 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2b4b962e-3a73-4bbc-a049-fcc21e3547ad")
+		(property "Reference" "U5"
+			(at 166.37 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "AP7361C-3.3V"
+			(at 166.37 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "SparkFun-Semiconductor-Standard:UDFN-8"
+			(at 166.116 117.856 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/AP7361C.pdf"
+			(at 166.37 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "1A low dropout linear regulator, with enable pin, 2.2-6.0V input, 3.3V output, UDFN-8"
+			(at 165.354 115.062 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PROD_ID" "VREG-14094"
+			(at 165.1 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "VMax" "6V"
+			(at 166.37 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Ityp" "1.0A"
+			(at 166.37 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Imax" "1.5A"
+			(at 166.37 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Iq" "60µA"
+			(at 166.37 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "46f039b1-205f-4299-9f92-1c2ded45821e")
+		)
+		(pin "8"
+			(uuid "d459547f-7919-45ba-a21a-3da1c69f8038")
+		)
+		(pin "9"
+			(uuid "52c0b0cf-469d-48d4-b6d3-19d586859571")
+		)
+		(pin "7"
+			(uuid "c5c6b638-de62-4d9a-abab-e5a07014a484")
+		)
+		(pin "6"
+			(uuid "82b5adc9-7308-4f12-8838-53b80e797dce")
+		)
+		(pin "2"
+			(uuid "b4b63e40-59ac-46d0-bbd4-372051e3b613")
+		)
+		(pin "4"
+			(uuid "199aeef3-9977-4303-8da7-7d84c1e2062f")
+		)
+		(pin "3"
+			(uuid "fc9fb29d-cc7d-4d4c-ac52-8edd87dff9af")
+		)
+		(pin "5"
+			(uuid "521e6097-ad7a-4d2d-88a7-4f06245a9adf")
+		)
+		(instances
+			(project ""
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/476b4701-5340-4853-910a-2af933cad777"
+					(reference "U5")
 					(unit 1)
 				)
 			)
@@ -7540,119 +7973,6 @@
 		)
 	)
 	(symbol
-		(lib_id "SparkFun-Regulator:AP2112K-3.3")
-		(at 166.37 96.52 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "798d7f5d-122a-41b4-9941-a7f3f48a6bba")
-		(property "Reference" "U5"
-			(at 166.37 87.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "AP2112K-3.3"
-			(at 166.37 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "SparkFun-Semiconductor-Standard:SOT23-5"
-			(at 166.37 107.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/AP2112.pdf"
-			(at 166.37 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "600mA low dropout linear regulator, with enable pin, 3.8V-6V input voltage range, 3.3V fixed positive output, SOT-23-5"
-			(at 166.37 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PROD_ID" "VREG-12457"
-			(at 165.1 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "VMax" "6V"
-			(at 166.37 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Imax" "600mA"
-			(at 166.37 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Iq" "55µA"
-			(at 166.37 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ad381713-2051-4663-8fd9-188f3d1c4e50")
-		)
-		(pin "2"
-			(uuid "b118878b-1ee8-40cb-be47-cf0da2a5e9d3")
-		)
-		(pin "3"
-			(uuid "1923ecac-1837-45b6-8eff-89bd946d9b07")
-		)
-		(pin "4"
-			(uuid "e06a9df4-4fdf-4409-a749-6eb27b2bfe90")
-		)
-		(pin "5"
-			(uuid "0e1c042b-4cf4-444b-95d2-97eb2ae21911")
-		)
-		(instances
-			(project "SparkFun_RTK_mosaic-T"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/476b4701-5340-4853-910a-2af933cad777"
-					(reference "U5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "SparkFun-Capacitor:1.0uF_0603_16V_10%")
 		(at 113.03 99.06 0)
 		(unit 1)
@@ -7753,7 +8073,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 166.37 105.41 0)
+		(at 166.37 106.68 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7761,7 +8081,7 @@
 		(dnp no)
 		(uuid "81660877-8565-4c00-9e0c-83492edc3553")
 		(property "Reference" "#PWR06"
-			(at 166.37 111.76 0)
+			(at 166.37 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7770,7 +8090,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 166.37 109.22 0)
+			(at 166.37 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7778,7 +8098,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 166.37 105.41 0)
+			(at 166.37 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7787,7 +8107,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 166.37 105.41 0)
+			(at 166.37 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7796,7 +8116,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 166.37 105.41 0)
+			(at 166.37 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8208,119 +8528,6 @@
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/476b4701-5340-4853-910a-2af933cad777"
 					(reference "#PWR0114")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "SparkFun-Regulator:AP2112K-3.3")
-		(at 102.87 96.52 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "931033fc-d7e2-4330-88ef-a637fb134e13")
-		(property "Reference" "U11"
-			(at 102.87 87.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "AP2112K-3.3"
-			(at 102.87 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "SparkFun-Semiconductor-Standard:SOT23-5"
-			(at 102.87 107.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/AP2112.pdf"
-			(at 102.87 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "600mA low dropout linear regulator, with enable pin, 3.8V-6V input voltage range, 3.3V fixed positive output, SOT-23-5"
-			(at 102.87 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PROD_ID" "VREG-12457"
-			(at 101.6 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "VMax" "6V"
-			(at 102.87 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Imax" "600mA"
-			(at 102.87 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Iq" "55µA"
-			(at 102.87 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "0641d06f-5609-490f-a0c5-66c32f82b7eb")
-		)
-		(pin "2"
-			(uuid "b0357bd7-4cc2-401c-bd5e-f3068d2b2855")
-		)
-		(pin "3"
-			(uuid "eaab7011-f1b5-4eb7-a1f9-2e98f3d732f7")
-		)
-		(pin "4"
-			(uuid "43d62013-f912-435d-a94d-28e1fddf730d")
-		)
-		(pin "5"
-			(uuid "5be59baa-20cc-4d24-96dd-988acbd2c17f")
-		)
-		(instances
-			(project "SparkFun_RTK_mosaic-T"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/476b4701-5340-4853-910a-2af933cad777"
-					(reference "U11")
 					(unit 1)
 				)
 			)
@@ -9657,7 +9864,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 102.87 105.41 0)
+		(at 102.87 106.68 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9665,7 +9872,7 @@
 		(dnp no)
 		(uuid "e23f3e38-a7ad-476e-8c4d-c50f98e10bde")
 		(property "Reference" "#PWR032"
-			(at 102.87 111.76 0)
+			(at 102.87 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9674,7 +9881,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 102.87 109.22 0)
+			(at 102.87 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9682,7 +9889,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 102.87 105.41 0)
+			(at 102.87 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9691,7 +9898,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 102.87 105.41 0)
+			(at 102.87 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9700,7 +9907,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 102.87 105.41 0)
+			(at 102.87 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)

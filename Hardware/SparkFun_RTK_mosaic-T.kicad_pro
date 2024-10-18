@@ -37,9 +37,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.0,
-          "height": 0.5,
-          "width": 0.5
+          "drill": 1.016,
+          "height": 1.8796,
+          "width": 1.8796
         },
         "silk_line_width": 0.15,
         "silk_text_italic": false,
@@ -182,8 +182,10 @@
       "track_widths": [
         0.0,
         0.1778,
+        0.3048,
         0.4064,
-        0.5588
+        0.5588,
+        0.8128
       ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
@@ -893,6 +895,10 @@
     [
       "d9a77ac1-2999-4329-b708-8e6cc1b00c22",
       "Level_Shifting"
+    ],
+    [
+      "e788e229-99ae-40ff-993c-e79a627e85af",
+      "Level_Shifting_10MHz"
     ]
   ],
   "text_variables": {}

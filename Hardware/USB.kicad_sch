@@ -4,6 +4,9 @@
 	(generator_version "8.0")
 	(uuid "bf435ad2-f960-4d52-ab74-9a7a66fa8ec0")
 	(paper "USLetter")
+	(title_block
+		(title "USB")
+	)
 	(lib_symbols
 		(symbol "SparkFun-Capacitor:0.1uF_0603_25V_20%"
 			(pin_numbers hide)
@@ -380,6 +383,15 @@
 			)
 			(property "PROD_ID" "COMP-19495"
 				(at -1.27 -11.43 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "SparkFun "
+				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
