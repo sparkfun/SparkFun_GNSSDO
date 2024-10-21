@@ -1,8 +1,8 @@
-2024-10-18 17:06:43,540 - panelizer_logger - INFO - Running Panelizer
-2024-10-18 17:06:43,541 - panelizer_logger - INFO - ['--panelx', '190.500000', '--panely', '139.700000', '--smaller', '--vscorelayer', 'User.Comments', '--vscoretextlayer', 'User.Comments', '--gapx', '0.000000', '--gapy', '5.080000', '--hrail', '6.35', '--vrail', '6.35', '--fiducialslr']
-2024-10-18 17:06:43,542 - panelizer_logger - INFO - PANELIZER START: 2024-10-18T17:06:43.542721
-2024-10-18 17:06:46,599 - panelizer_logger - WARNING - 
-START: 2024-10-18T17:06:43.542721
+2024-10-21 14:01:38,255 - panelizer_logger - INFO - Running Panelizer
+2024-10-21 14:01:38,255 - panelizer_logger - INFO - ['--panelx', '190.500000', '--panely', '139.700000', '--smaller', '--vscorelayer', 'User.Comments', '--vscoretextlayer', 'User.Comments', '--gapx', '0.000000', '--gapy', '5.080000', '--hrail', '6.35', '--vrail', '6.35', '--fiducialslr']
+2024-10-21 14:01:38,255 - panelizer_logger - INFO - PANELIZER START: 2024-10-21T14:01:38.255208
+2024-10-21 14:01:42,277 - panelizer_logger - WARNING - 
+START: 2024-10-21T14:01:38.255208
 Board saved by user.
 
 Board: C:\Users\pc235\Documents\GitHub\SparkFun_RTK_mosaic-T\Hardware\Production\SparkFun_RTK_mosaic-T_panelized.kicad_pcb
@@ -10,4 +10,4 @@ Board dimensions: 151.90 x 101.60 mm.
 You can fit 1 x 1 boards on the panel.
 Warning: Ordering Instructions contains default values.
 
-2024-10-18 17:06:48,257 - panelizer_logger - INFO - Panelizer complete
+2024-10-21 14:01:48,736 - panelizer_logger - INFO - Panelizer complete

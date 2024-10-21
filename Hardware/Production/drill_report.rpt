@@ -1,5 +1,5 @@
 Drill report for SparkFun_RTK_mosaic-T_panelized.kicad_pcb
-Created on 2024-10-18T17:19:45+0100
+Created on 2024-10-21T14:05:23+0100
 
 Copper Layer Stackup:
     =============================================================
@@ -12,7 +12,7 @@ Copper Layer Stackup:
 Drill file 'SparkFun_RTK_mosaic-T_panelized.drl' contains
     plated through holes:
     =============================================================
-    T1  0.300mm  0.0118"  (676 holes)
+    T1  0.300mm  0.0118"  (683 holes)
     T2  0.600mm  0.0236"  (8 holes)  (with 8 slots)
     T3  0.889mm  0.0350"  (12 holes)
     T4  0.900mm  0.0354"  (14 holes)
@@ -23,7 +23,7 @@ Drill file 'SparkFun_RTK_mosaic-T_panelized.drl' contains
     T9  1.499mm  0.0590"  (6 holes)
     T10  1.700mm  0.0669"  (2 holes)
 
-    Total plated holes count 792
+    Total plated holes count 799
 
 
 Not plated through holes are merged with plated holes
