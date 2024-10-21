@@ -1,11 +1,11 @@
 # Documentation page information
-site_name: Product Manual - SparkFun RTK mosaic-T
-site_description: The product manual for the RTK mosaic-T
-site_url: https://sparkfun.github.io/SparkFun_RTK_mosaic-T
+site_name: Product Manual - SparkFun GPSDO
+site_description: The product manual for the SparkFun GPSDO
+site_url: https://sparkfun.github.io/SparkFun_GPSDO
 site_author: SparkFun Electronics
 
-repo_url: https://github.com/sparkfun/SparkFun_RTK_mosaic-T
-repo_name: sparkfun/SparkFun_RTK_mosaic-T
+repo_url: https://github.com/sparkfun/SparkFun_GPSDO
+repo_name: sparkfun/SparkFun_GPSDO
 
 copyright:
   Copyright 2024 - <a href="https://www.sparkfun.com/" target="_blank" rel="noopener">SparkFun Electronics&#174;</a><br>

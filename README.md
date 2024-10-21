@@ -1,30 +1,31 @@
-SparkFun RTK mosaic-T
+SparkFun GPSDO
 ========================================
 
-[![SparkFun RTK mosaic-T](https://cdn.sparkfun.com/r/600-600/assets/parts/2/4/0/7/2/23748-RTK-Mosaic-X5-Kit-All-Feature.jpg)](https://cdn.sparkfun.com/assets/parts/2/4/0/7/2/23748-RTK-Mosaic-X5-Kit-All-Feature.jpg)
+[![SparkFun GPSDO]()]()
 
-[*SparkFun RTK mosaic-T (GPS-26289)*](https://www.sparkfun.com/products/26289)
+[*SparkFun GPSDO (GPS-26289)*](https://www.sparkfun.com/products/26289)
 
-Designed and manufactured in Boulder, Colorado, USA, the SparkFun RTK mosaic-T is the perfect solution for your high-precision timing needs. Based around the multi-constellation, multi-frequency, L5-ready mosaic-T from Septentrio, this is our most accurate GNSS timing product to date. It features a disciplined 10MHz Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO). The mosaic-T also has built-in on-module support for the Fugro AtomiChron L-band timing service.
+Designed and manufactured in Boulder, Colorado, USA, the SparkFun GPS Disciplined Oscillator (GPSDO) is the perfect solution for your high-precision timing needs. Based around the multi-constellation, multi-frequency, L5-ready mosaic-T from Septentrio, this is our most accurate GNSS timing product to date. It features a disciplined 10MHz Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO). The mosaic-T also has built-in on-module support for the Fugro AtomiChron L-band timing service.
 
 * SMA Connections:
     * GNSS Antenna (L1/L2/L5/L-Band) - provides 5V for an active antenna
-    * 10MHz Sine Wave - disciplined, 50Ohm, 3.3V / 5V switchable
-    * Pulse-Per-Second Square Wave - 50Ohm, 3.3V / 5V switchable
-    * ESP32 WiFi/BT - reverse polarity (RP), unused by the current firmware
+    * 10MHz Output - disciplined, configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
+    * 10MHz Input - configurable
+    * Pulse-Per-Second Square Wave - configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
+    * EventA Input - configurable for 5V / 3.3V / 2.8V / 1.8V
 * 3.5mm Screw Cage Connections:
     * 9V-36V DC input
     * GND
     * mosaic-T COM2 (TX/RX/CTS/RTS) - 3.3V / 5V switchable
     * CTS can be configured as a 3.3V / 5V power output via a solder jumper
-    * EventA & EventB inputs - 3.3V / 5V switchable
-    * Pulse-Per-Second output - 3.3V / 5V switchable
+    * EventB input - 3.3V / 5V switchable
+    * Secondary I<sup>2</sup>C bus (SCL and SDA) - 3.3V / 5V switchable
 * Power Options:
     * USB-C
     * Power-over-Ethernet (PoE)
     * 9V-36V DC input (fully isolated)
 
-Under the hood, the RTK mosaic-T is based on the mosaic-T GNSS module from Septentrio, plus the Espressif ESP32-WROVER processor (16MB flash, 8MB PSRAM). The mosaic-T has USB-C connectivity (with Ethernet-over-USB), multiple UARTs and supports full Ethernet connectivity. You can connect the mosaic-T directly to your Ethernet network - our product supports Power-over-Ethernet too. The ESP32 rides shotgun: disciplining the DCTCXO and controlling the OLED display. The RTK mosaic-T has multiple power options including USB-C, PoE and 9V-36V DC, making it easy to connect it to a battery-backed supply.
+Under the hood, the GPSDO is based on the mosaic-T GNSS module from Septentrio, plus the Espressif ESP32-WROVER processor (16MB flash, 8MB PSRAM). The mosaic-T has USB-C connectivity (with Ethernet-over-USB), multiple UARTs and supports full Ethernet connectivity. You can connect the mosaic-T directly to your Ethernet network - our product supports Power-over-Ethernet too. The ESP32 rides shotgun: disciplining the DCTCXO and controlling the OLED display. Remote configuration is possible, the ESP32 console can be accessed via TCP. The GPSDO has multiple power options including USB-C, PoE and 9V-36V DC, making it easy to connect it to a battery-backed supply.
 
 RTK Base
 --------------
@@ -33,7 +34,7 @@ The mosaic-T is a superb GNSS module designed for highly accurate timing applica
 Documentation
 --------------
 
-* **[Product Manual](http://docs.sparkfun.com/SparkFun_RTK_mosaic-T/)** - Product manual for the RTK mosaic-T hosted by GitHub pages.<br>
+* **[Product Manual](http://docs.sparkfun.com/SparkFun_GPSDO/)** - Product manual for the GPSDO hosted by GitHub pages.<br>
   [![Built with Material for MkDocs](https://img.shields.io/badge/Material_for_MkDocs-526CFE?logo=MaterialForMkDocs&logoColor=white)](https://squidfunk.github.io/mkdocs-material/) [![GitHub Pages Deploy](https://github.com/sparkfun/SparkFun_RTK_mosaic-T/actions/workflows/mkdocs.yml/badge.svg)](https://github.com/sparkfun/SparkFun_RTK_mosaic-T/actions/workflows/mkdocs.yml)
 
 
@@ -63,7 +64,7 @@ Repository Contents
 * **[/Front_Sticker](/Front_Sticker/)** - DXF and PDF files for the front sticker
 * **[/Rear_Sticker](/Rear_Sticker/)** - DXF and PDF files for the rear sticker
 * **[/Firmware](/Firmware/)** - Arduino source code and binaries for the firmware which runs on the ESP32-WROVER
-* **[/Test_Sketches](/Test_Sketches/)** - Additional code used to validate and test the RTK mosaic-T
+* **[/Test_Sketches](/Test_Sketches/)** - Additional code used to validate and test the GPSDO
 * **[/Documents](/Documents/)** - Component datasheets etc.
 
 Product Variants

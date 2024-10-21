@@ -1,4 +1,4 @@
-name: Build RTK mosaic-T Firmware
+name: Build RTK GPSDO Firmware
 on: 
   workflow_dispatch:
     branches: 

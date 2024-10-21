@@ -6,7 +6,7 @@ icon: material/book-open-page-variant
 <div class="grid cards desc" markdown>
 
 -   <a href="https://www.sparkfun.com/products/26289">
-	**RTK mosaic-T**<br>
+	**GPSDO**<br>
 	**SKU:** GPS-26289
 
 	---
@@ -28,9 +28,9 @@ icon: material/book-open-page-variant
 	</center>
 
 
--	Designed and manufactured in Boulder, Colorado, USA, the SparkFun RTK mosaic-T is the perfect solution for your high-precision timing needs. Based around the multi-constellation, multi-frequency, L5-ready mosaic-T from Septentrio, this is our most accurate GNSS timing product to date. It features a SiTime SiT5358 disciplined 10MHz Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO) providing excellent clock accuracy, stability and holdover. The mosaic-T also has built-in on-module support for the Fugro AtomiChron L-band timing service.
+-	Designed and manufactured in Boulder, Colorado, USA, the SparkFun GPSDO is the perfect solution for your high-precision timing needs. Based around the multi-constellation, multi-frequency, L5-ready mosaic-T from Septentrio, this is our most accurate GNSS timing product to date. It features a SiTime SiT5358 disciplined 10MHz Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO) providing excellent clock accuracy, stability and holdover. The mosaic-T also has built-in on-module support for the Fugro AtomiChron L-band timing service.
 
-	Under the hood, the RTK mosaic-T is based on the mosaic-T GNSS module from Septentrio, plus the Espressif ESP32-WROVER processor (16MB flash, 8MB PSRAM). The mosaic-T has USB-C connectivity (with Ethernet-over-USB), multiple UARTs and supports full Ethernet connectivity. You can connect the mosaic-T directly to your Ethernet network - our product supports Power-over-Ethernet too. The ESP32 rides shotgun, disciplining the DCTCXO and controlling the OLED display. The RTK mosaic-T has multiple power options including USB-C, PoE and 9V-36V DC, making it easy to connect it to a battery-backed supply. Robust SMA connections and screw cage terminals provide access to the Pulse-Per-Second and 10MHz clock signals.
+	Under the hood, the GPSDO is based on the mosaic-T GNSS module from Septentrio, plus the Espressif ESP32-WROVER processor (16MB flash, 8MB PSRAM). The mosaic-T has USB-C connectivity (with Ethernet-over-USB), multiple UARTs and supports full Ethernet connectivity. You can connect the mosaic-T directly to your Ethernet network - our product supports Power-over-Ethernet too. The ESP32 rides shotgun, disciplining the DCTCXO and controlling the OLED display. The GPSDO has multiple power options including USB-C, PoE and 9V-36V DC, making it easy to connect it to a battery-backed supply. Robust SMA connections and screw cage terminals provide access to the Pulse-Per-Second and 10MHz clock signals.
 
 </div>
 
@@ -92,7 +92,7 @@ icon: material/book-open-page-variant
 		</figure>
 	</th>
 	<th markdown style="text-align:center">
-		RTK mosaic-T<br>
+		GPSDO<br>
 		<hr>
 		<figure markdown>
 		![Product Thumbnail](./assets/img/product_comparison/rtk_mosaic-x5.png){ width="200" }
@@ -277,7 +277,7 @@ icon: material/book-open-page-variant
 
 
 ## :fontawesome-solid-list-check:&nbsp;Required Materials
-The RTK mosaic-T comes with everything you need to get up and running.
+The GPSDO comes with everything you need to get up and running.
 
 **Kit Contents**
 
@@ -291,7 +291,7 @@ The RTK mosaic-T comes with everything you need to get up and running.
 
 [![Kit contents](https://cdn.sparkfun.com/assets/parts/2/4/0/7/2/23748-RTK-Mosaic-X5-Kit-All.jpg){ width="300" }](https://cdn.sparkfun.com/assets/parts/2/4/0/7/2/23748-RTK-Mosaic-X5-Kit-All.jpg "Click to enlarge")
 <figcaption markdown>
-Everything that is included in the RTK mosaic-T kit.
+Everything that is included in the GPSDO kit.
 </figcaption>
 </figure>
 
@@ -316,7 +316,7 @@ Everything that is included in the RTK mosaic-T kit.
 
 </div>
 
-1. The linked product does not include the front/rear panels and stickers from the RTK mosaic-T.
+1. The linked product does not include the front/rear panels and stickers from the GPSDO.
 
 </div>
 
@@ -351,7 +351,7 @@ Everything that is included in the RTK mosaic-T kit.
 	</div>
 
 ??? note "Extension Cables"
-	Your RTK mosaic-T is equally at home on your desk, lab bench or in a server rack. But you're still going to want to put the GNSS antenna outdoors, so it will have the best view of the sky. Some extra SMA extension cables may be useful and we have good quality low-loss RG58 cables available in the store. The GNSS SMA antenna connection is standard polarity.
+	Your GPSDO is equally at home on your desk, lab bench or in a server rack. But you're still going to want to put the GNSS antenna outdoors, so it will have the best view of the sky. Some extra SMA extension cables may be useful and we have good quality low-loss RG58 cables available in the store. The GNSS SMA antenna connection is standard polarity.
 
 	<div class="grid cards" markdown>
 
@@ -385,7 +385,7 @@ Everything that is included in the RTK mosaic-T kit.
 
 ??? note ":material-weather-pouring:&nbsp;Selecting an Outdoor Enclosure"
 
-	The RTK mosaic-T comes in a beautiful custom extruded aluminum enclosure, with machined end panels and matching stickers. The slotted flanges make it easy to install and secure the enclosure in many locations. But the enclosure only provides limited protection against the ingress of dust and water; it is designed to IP42. So, if you are going to permanently install it up on the roof too, you're going to need a suitable weatherproof box. We found a good one - the [Orbit 57095](https://www.orbitonline.com/products/gray-outdoor-timer-cabinet) - also available from [Amazon](https://www.amazon.com/Orbit-57095-Weather-Resistant-Outdoor-Mounted-Controller/dp/B000VYGMF2) - back when we put together our very first [DIY GNSS Reference Station](https://learn.sparkfun.com/tutorials/how-to-build-a-diy-gnss-reference-station#mini-computer-setup-option-1).
+	The GPSDO comes in a beautiful custom extruded aluminum enclosure, with machined end panels and matching stickers. The slotted flanges make it easy to install and secure the enclosure in many locations. But the enclosure only provides limited protection against the ingress of dust and water; it is designed to IP42. So, if you are going to permanently install it up on the roof too, you're going to need a suitable weatherproof box. We found a good one - the [Orbit 57095](https://www.orbitonline.com/products/gray-outdoor-timer-cabinet) - also available from [Amazon](https://www.amazon.com/Orbit-57095-Weather-Resistant-Outdoor-Mounted-Controller/dp/B000VYGMF2) - back when we put together our very first [DIY GNSS Reference Station](https://learn.sparkfun.com/tutorials/how-to-build-a-diy-gnss-reference-station#mini-computer-setup-option-1).
 
 	<div class="grid" markdown>
 
@@ -405,7 +405,7 @@ Everything that is included in the RTK mosaic-T kit.
 	<div markdown>
 
 	!!! info "AC Not Required!"
-		The Orbit enclosure comes with a built-in power outlet, but you don't need it! The RTK mosaic-T can be powered by [Power-over-Ethernet (PoE)](https://en.wikipedia.org/wiki/Power_over_Ethernet), meaning all you really need to run up to the roof is a standard 8-core CAT-6 Ethernet cable. Choose a PoE Ethernet Switch that meets your needs. We have had good experiences with the [TP-Link TL-SG1005P](https://www.tp-link.com/us/business-networking/poe-switch/tl-sg1005p/) - available from many retailers including [Amazon](https://www.amazon.com/TP-Link-Compliant-Shielded-Optimization-TL-SG1005P/dp/B076HZFY3F).
+		The Orbit enclosure comes with a built-in power outlet, but you don't need it! The GPSDO can be powered by [Power-over-Ethernet (PoE)](https://en.wikipedia.org/wiki/Power_over_Ethernet), meaning all you really need to run up to the roof is a standard 8-core CAT-6 Ethernet cable. Choose a PoE Ethernet Switch that meets your needs. We have had good experiences with the [TP-Link TL-SG1005P](https://www.tp-link.com/us/business-networking/poe-switch/tl-sg1005p/) - available from many retailers including [Amazon](https://www.amazon.com/TP-Link-Compliant-Shielded-Optimization-TL-SG1005P/dp/B076HZFY3F).
 
 	</div>
 
