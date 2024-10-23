@@ -1,8 +1,8 @@
-2024-10-21 14:05:12,154 - cammer_logger - INFO - Running CAMmer
-2024-10-21 14:05:12,156 - cammer_logger - INFO - ['-l', 'F.Cu,In1.Cu,In2.Cu,B.Cu,F.Paste,B.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask', '-e', 'Edge.Cuts,User.Comments,User.1']
-2024-10-21 14:05:12,156 - cammer_logger - INFO - CAMMER START: 2024-10-21T14:05:12.156392
-2024-10-21 14:05:23,600 - cammer_logger - INFO - 
-START: 2024-10-21T14:05:12.156392
+2024-10-23 16:11:31,569 - cammer_logger - INFO - Running CAMmer
+2024-10-23 16:11:31,569 - cammer_logger - INFO - ['-l', 'F.Cu,In1.Cu,In2.Cu,B.Cu,F.Paste,B.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask', '-e', 'Edge.Cuts,User.Comments,User.1']
+2024-10-23 16:11:31,569 - cammer_logger - INFO - CAMMER START: 2024-10-23T16:11:31.569774
+2024-10-23 16:11:40,295 - cammer_logger - INFO - 
+START: 2024-10-23T16:11:31.569774
 Zones filled by user.
 Board saved by user.
 Deleting existing C:/Users/pc235/Documents/GitHub/SparkFun_RTK_mosaic-T/Hardware/Production/SparkFun_RTK_mosaic-T_panelized.GTL
@@ -29,4 +29,4 @@ Deleting existing C:/Users/pc235/Documents/GitHub/SparkFun_RTK_mosaic-T/Hardware
 Renaming C:/Users/pc235/Documents/GitHub/SparkFun_RTK_mosaic-T/Hardware/Production/SparkFun_RTK_mosaic-T_panelized-Edge_Cuts.gbr to C:/Users/pc235/Documents/GitHub/SparkFun_RTK_mosaic-T/Hardware/Production/SparkFun_RTK_mosaic-T_panelized.GKO
 Drill report: C:\Users\pc235\Documents\GitHub\SparkFun_RTK_mosaic-T\Hardware\Production\drill_report.rpt
 
-2024-10-21 14:05:25,936 - cammer_logger - INFO - CAMmer complete
+2024-10-23 16:11:42,452 - cammer_logger - INFO - CAMmer complete

@@ -4719,6 +4719,16 @@
 	)
 	(wire
 		(pts
+			(xy 91.44 35.56) (xy 91.44 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9a0aca59-6348-4da6-a5f5-7253d1bb3991")
+	)
+	(wire
+		(pts
 			(xy 91.44 36.83) (xy 104.14 36.83)
 		)
 		(stroke
@@ -10184,6 +10194,73 @@
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/476b4701-5340-4853-910a-2af933cad777"
 					(reference "#PWR0121")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-Connector:TestPoint_PTH")
+		(at 91.44 35.56 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ef9aeafd-7a6d-4cb6-8f94-192d81f6f4d3")
+		(property "Reference" "TP45"
+			(at 95.25 33.02 0)
+			(do_not_autoplace yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PTH"
+			(at 91.44 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "SparkFun-Connector:1x01"
+			(at 92.71 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 91.44 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point"
+			(at 91.44 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2d646bc2-9ac6-44bf-b471-29206ff8af58")
+		)
+		(instances
+			(project "SparkFun_RTK_mosaic-T"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/476b4701-5340-4853-910a-2af933cad777"
+					(reference "TP45")
 					(unit 1)
 				)
 			)
