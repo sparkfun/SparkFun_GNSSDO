@@ -6386,127 +6386,6 @@
 				)
 			)
 		)
-		(symbol "SparkFun-PowerSymbol:5V"
-			(power)
-			(pin_names
-				(offset 0)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "#PWR"
-				(at 0 -3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Value" "5V"
-				(at 0 3.81 0)
-				(do_not_autoplace)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Power symbol creates a global label with name \"5V\""
-				(at 0 -6.35 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "SparkFun global power"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "5V_0_1"
-				(polyline
-					(pts
-						(xy -0.762 1.27) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 2.54) (xy 0.762 1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "5V_1_1"
-				(pin power_in line
-					(at 0 0 90)
-					(length 0) hide
-					(name "5V"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 		(symbol "SparkFun-PowerSymbol:VUSB"
 			(power)
 			(pin_names
@@ -7436,16 +7315,6 @@
 		)
 		(uuid "076d9014-756a-4b42-9150-596f65aeeccb")
 	)
-	(polyline
-		(pts
-			(xy 115.57 96.52) (xy 115.57 99.06)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "080bfeb0-8d82-462c-9b3d-2e1cd79c9034")
-	)
 	(wire
 		(pts
 			(xy 198.12 144.78) (xy 198.12 146.05)
@@ -8308,13 +8177,13 @@
 	)
 	(polyline
 		(pts
-			(xy 115.57 101.6) (xy 115.57 104.14)
+			(xy 115.57 100.33) (xy 115.57 101.6)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "77293667-a41a-4bd6-bc42-add5724695ea")
+		(uuid "78737473-b6cc-4734-a649-74e4ebfc5033")
 	)
 	(wire
 		(pts
@@ -8765,6 +8634,16 @@
 			(type default)
 		)
 		(uuid "b75b0610-d7fe-4f45-a934-a6b810e9728b")
+	)
+	(polyline
+		(pts
+			(xy 115.57 96.52) (xy 115.57 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ba70e070-8872-4b40-9248-65dccea70557")
 	)
 	(wire
 		(pts
@@ -9333,9 +9212,9 @@
 		(uuid 14dd117d-d624-4e4c-ba4a-9a459c4036f9)
 	)
 	(arc
-		(start 116.84 100.33)
-		(mid 115.942 99.958)
-		(end 115.57 99.06)
+		(start 116.84 99.06)
+		(mid 115.942 98.688)
+		(end 115.57 97.79)
 		(stroke
 			(width 0)
 			(type default)
@@ -9385,9 +9264,9 @@
 		(uuid a4db8fc1-53c6-4ff9-9137-313dbd1dc1c0)
 	)
 	(arc
-		(start 115.57 101.6)
-		(mid 115.942 100.702)
-		(end 116.84 100.33)
+		(start 115.57 100.33)
+		(mid 115.942 99.432)
+		(end 116.84 99.06)
 		(stroke
 			(width 0)
 			(type default)
@@ -9398,9 +9277,9 @@
 		(uuid c6c8710a-c7c0-4c10-9f78-5eb5a3c15a10)
 	)
 	(arc
-		(start 115.57 104.14)
-		(mid 115.198 105.038)
-		(end 114.3 105.41)
+		(start 115.57 101.6)
+		(mid 115.198 102.498)
+		(end 114.3 102.87)
 		(stroke
 			(width 0)
 			(type default)
@@ -9453,14 +9332,14 @@
 		)
 		(uuid "13f02eb8-9493-4eaa-89c8-65917c22ddaa")
 	)
-	(text "I/O Screw Terminals\n(via level-shifters)"
+	(text "SMA Connectors\n(via level-shifters)"
 		(exclude_from_sim no)
-		(at 118.11 101.6 0)
+		(at 125.73 101.6 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify bottom)
 		)
 		(uuid "2e6b996a-f695-4821-b9c5-1e556e17a74c")
 	)
@@ -9571,6 +9450,17 @@
 			(justify left bottom)
 		)
 		(uuid "a6e7658b-0466-41ae-9c2e-912e84385691")
+	)
+	(text "I/O Screw Terminal\n(via level-shifter)"
+		(exclude_from_sim no)
+		(at 125.73 107.95 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify bottom)
+		)
+		(uuid "d61a206d-d30a-49ab-9bb2-ba5827ff49b7")
 	)
 	(text "50MHz"
 		(exclude_from_sim no)
@@ -11984,73 +11874,6 @@
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "TP12")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "SparkFun-PowerSymbol:5V")
-		(at 43.18 45.72 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "1c9270ea-5d17-4a2c-8354-6bb67d937af6")
-		(property "Reference" "#PWR08"
-			(at 43.18 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "5V"
-			(at 43.18 41.91 0)
-			(do_not_autoplace yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 43.18 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 43.18 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"5V\""
-			(at 43.18 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b179a9cf-f773-4621-9782-8a50547d0b79")
-		)
-		(instances
-			(project "SparkFun_RTK_mosaic-T"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
-					(reference "#PWR08")
 					(unit 1)
 				)
 			)
@@ -14479,6 +14302,71 @@
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "TP33")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-PowerSymbol:3.3V_P")
+		(at 43.18 45.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5e68de4d-3817-4985-b8c0-67e5ddf12f26")
+		(property "Reference" "#PWR08"
+			(at 43.18 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "3.3V_P"
+			(at 43.18 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 43.18 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 43.18 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
+			(at 43.18 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3f7eea24-64c1-46b1-b797-e7af34268bfb")
+		)
+		(instances
+			(project "SparkFun_RTK_mosaic-T"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
+					(reference "#PWR08")
 					(unit 1)
 				)
 			)

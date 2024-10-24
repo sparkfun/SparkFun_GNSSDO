@@ -6585,6 +6585,17 @@
 		)
 		(uuid "1c06ab08-fd29-403a-b26a-261495acbe25")
 	)
+	(text "I/O Screw Terminals"
+		(exclude_from_sim no)
+		(at 107.95 36.83 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify bottom)
+		)
+		(uuid "28cb7384-b8cd-4f96-ad3d-d985f6854480")
+	)
 	(text "For 50 Ohm input:\nClose jumper V"
 		(exclude_from_sim no)
 		(at 105.41 147.32 0)
@@ -6606,6 +6617,17 @@
 		)
 		(uuid "628a24d9-ba39-43fc-9881-488bd6d036fa")
 	)
+	(text "I/O Screw Terminal"
+		(exclude_from_sim no)
+		(at 254 106.68 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify bottom)
+		)
+		(uuid "84114c05-24cc-4a55-b92c-0b531ce8bb7a")
+	)
 	(text "Level-Shifting"
 		(exclude_from_sim no)
 		(at 209.55 179.07 0)
@@ -6615,6 +6637,17 @@
 			)
 		)
 		(uuid "9f17b7f3-369b-4da5-8db3-9d3f0de561b7")
+	)
+	(text "I/O Screw Terminals"
+		(exclude_from_sim no)
+		(at 240.03 54.61 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify bottom)
+		)
+		(uuid "a1695c3e-9818-47f5-bbf4-a7f415c6d7c4")
 	)
 	(text "For 50 Ohm output:\nOpen jumper E\nClose jumper H"
 		(exclude_from_sim no)
@@ -6648,6 +6681,17 @@
 			(justify left)
 		)
 		(uuid "c79536fc-9dac-4be1-8e3b-0d57336437ea")
+	)
+	(text "I/O Screw Terminals"
+		(exclude_from_sim no)
+		(at 113.03 78.74 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify bottom)
+		)
+		(uuid "c9598ee0-87ff-4c88-8c37-9dde24f1be1d")
 	)
 	(text "EventB In"
 		(exclude_from_sim no)
