@@ -1,4 +1,4 @@
-SparkFun RTK mosaic-T Design Files
+SparkFun GPSDO Design Files
 =====================================
 
 The files here are the KiCad schematic and PCB design files from SparkFun Electronics.

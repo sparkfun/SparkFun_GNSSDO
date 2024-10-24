@@ -10,10 +10,10 @@ icon: material/book-open-page-variant
 	* :fontawesome-solid-file-pdf: [Schematic](./assets/board_files/schematic.pdf)
 	* :fontawesome-solid-file-pdf: [Board Dimensions](./assets/board_files/dimensions.pdf)
 	* :fontawesome-solid-file-pdf: [Enclosure Dimensions](./assets/board_files/dimensions-enclosure.pdf)
-	* :fontawesome-solid-file-code: [ESP32 Firmware](https://github.com/sparkfun/SparkFun_RTK_mosaic-T/tree/main/Firmware/RTK_mosaic-T_Firmware)
+	* :fontawesome-solid-file-code: [ESP32 Firmware](https://github.com/sparkfun/SparkFun_GPSDO/tree/main/Firmware/GPSDO_Firmware)
 * :fontawesome-solid-file-pdf: [mosaic-T Datasheet](./assets/component_documentation/Mosaic%20Hardware%20Manual_v1.8.0.pdf)
 * :material-youtube: [SFE Product Showcase](https://www.youtube.com/watch?v=HwKxq9ChazQ)
-* :material-github: [Hardware Repo](https://github.com/sparkfun/SparkFun_RTK_mosaic-T)
+* :material-github: [Hardware Repo](https://github.com/sparkfun/SparkFun_GPSDO)
 
 
 ### :sfe-logo: Additional Resources

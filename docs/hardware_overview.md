@@ -38,7 +38,7 @@ icon: material/cog
 !!! code "ESP32 Firmware"
 	We have intentionally kept the ESP32 firmware as simple as possible - it only disciplines the TCXO oscillator and controls the OLED display. The SparkFun RTK Firmware or SparkFun RTK Everywhere firmware will not run on this product. The intention is that you can easily develop your own firmware for the GPSDO if the SparkFun firmware does not meet your needs.
 
-	The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_RTK_mosaic-T/tree/main/Firmware/Binaries)** folder contains the firmware binaries.
+	The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_GPSDO/tree/main/Firmware/Binaries)** folder contains the firmware binaries.
 	
 	You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
 
@@ -233,7 +233,7 @@ Think of the ESP32 as a co-processor, or riding shotgun... The mosaic-T `COM1` a
 ??? code "ESP32 Firmware"
 	We have intentionally kept the ESP32 firmware as simple as possible. The intention is that users can easily develop their, own firmware for the GPSDO using the Espressif ESP IDF or the Arduino IDE if the SparkFun firmware does not meet their needs.
 
-	The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_RTK_mosaic-T/tree/main/Firmware/Binaries)** folder contains the firmware binaries.
+	The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_GPSDO/tree/main/Firmware/Binaries)** folder contains the firmware binaries.
 	
 	You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
 

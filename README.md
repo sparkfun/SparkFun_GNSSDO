@@ -10,7 +10,7 @@ Designed and manufactured in Boulder, Colorado, USA, the SparkFun GPS Discipline
 * SMA Connections:
     * GNSS Antenna (L1/L2/L5/L-Band) - provides 5V for an active antenna
     * 10MHz Output - disciplined, configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
-    * 10MHz Input - configurable
+    * 10MHz Input - switchable, input impedance 50Ω, detection level -14dBm, max supported level +12dBm
     * Pulse-Per-Second Square Wave - configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
     * EventA Input - configurable for 5V / 3.3V / 2.8V / 1.8V
 * 3.5mm Screw Cage Connections:
@@ -35,17 +35,17 @@ Documentation
 --------------
 
 * **[Product Manual](http://docs.sparkfun.com/SparkFun_GPSDO/)** - Product manual for the GPSDO hosted by GitHub pages.<br>
-  [![Built with Material for MkDocs](https://img.shields.io/badge/Material_for_MkDocs-526CFE?logo=MaterialForMkDocs&logoColor=white)](https://squidfunk.github.io/mkdocs-material/) [![GitHub Pages Deploy](https://github.com/sparkfun/SparkFun_RTK_mosaic-T/actions/workflows/mkdocs.yml/badge.svg)](https://github.com/sparkfun/SparkFun_RTK_mosaic-T/actions/workflows/mkdocs.yml)
+  [![Built with Material for MkDocs](https://img.shields.io/badge/Material_for_MkDocs-526CFE?logo=MaterialForMkDocs&logoColor=white)](https://squidfunk.github.io/mkdocs-material/) [![GitHub Pages Deploy](https://github.com/sparkfun/SparkFun_GPSDO/actions/workflows/mkdocs.yml/badge.svg)](https://github.com/sparkfun/SparkFun_GPSDO/actions/workflows/mkdocs.yml)
 
 
 *Need to download or print our hookup guide?*
 
-* [Print *(Print to PDF)* from Single-Page View](http://docs.sparkfun.com/SparkFun_RTK_mosaic-T/print_view)
+* [Print *(Print to PDF)* from Single-Page View](http://docs.sparkfun.com/SparkFun_GPSDO/print_view)
 
 Firmware Update
 -------------------
 
-The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_RTK_mosaic-T/tree/main/Firmware/Binaries)** folder contains the firmware binaries.
+The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_GPSDO/tree/main/Firmware/Binaries)** folder contains the firmware binaries.
 
 You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
 
@@ -75,7 +75,7 @@ Product Variants
 Version History
 ---------------
 
-* [v10](https://github.com/sparkfun/SparkFun_RTK_mosaic-T/releases/tag/v10) - Initial Release
+* [v10](https://github.com/sparkfun/SparkFun_GPSDO/releases/tag/v10) - Initial Release
 
 
 License Information

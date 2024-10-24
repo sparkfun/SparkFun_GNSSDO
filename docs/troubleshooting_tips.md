@@ -16,7 +16,7 @@ icon: sfe-logo
 
 
 ## What is in the Box?
-The RTK mosaic-T comes packaged as a complete kit, with all the accessories you'd need to set it up. Inside the box, users will find the [GNSS antenna](https://www.sparkfun.com/products/21801), RTK mosaic-T in its aluminum enclosure, and another box containing additional accessories. Inside, the accessory box, users will find the [CAT-6 Ethernet cable](https://www.sparkfun.com/products/8915), [USB cable](https://www.sparkfun.com/products/15424), [SMA to TNC cable](https://www.sparkfun.com/products/21740), [USB power supply](https://www.sparkfun.com/products/11456), [WiFi antenna](https://www.sparkfun.com/products/145), and [32GB SD card](https://www.sparkfun.com/products/19041).
+The GPSDO comes packaged as a complete kit, with all the accessories you'd need to set it up. Inside the box, users will find the [GNSS antenna](https://www.sparkfun.com/products/21801), GPSDO in its aluminum enclosure, and another box containing additional accessories. Inside, the accessory box, users will find the [CAT-6 Ethernet cable](https://www.sparkfun.com/products/8915), [USB cable](https://www.sparkfun.com/products/15424), [SMA to TNC cable](https://www.sparkfun.com/products/21740), [USB power supply](https://www.sparkfun.com/products/11456), [WiFi antenna](https://www.sparkfun.com/products/145), and [32GB SD card](https://www.sparkfun.com/products/19041).
 
 <div class="grid" markdown>
 
@@ -25,7 +25,7 @@ The RTK mosaic-T comes packaged as a complete kit, with all the accessories you'
 <figure markdown>
 [![Kit contents](https://cdn.sparkfun.com//assets/parts/2/4/0/7/2/23748-RTK-Mosaic-X5-Kit-All-Feature.jpg){ width="300" }](https://cdn.sparkfun.com//assets/parts/2/4/0/7/2/23748-RTK-Mosaic-X5-Kit-All-Feature.jpg "Click to enlarge")
 <figcaption markdown>
-Everything that is included in the RTK mosaic-T kit.
+Everything that is included in the GPSDO kit.
 </figcaption>
 </figure>
 
@@ -36,7 +36,7 @@ Everything that is included in the RTK mosaic-T kit.
 <figure markdown>
 [![Kit contents](./assets/img/hookup_guide/packaged_box.jpg){ width="300" }](./assets/img/hookup_guide/packaged_box.jpg "Click to enlarge")
 <figcaption markdown>
-The contents of the RTK mosaic-T package.
+The contents of the GPSDO package.
 </figcaption>
 </figure>
 
@@ -79,9 +79,9 @@ Got a few dead pixels on your OLED display? Please reach out to us in our forum.
 
 
 ## Vehicle Power - Dead Battery
-Is the RTK mosaic-T killing your vehicle's battery?
+Is the GPSDO killing your vehicle's battery?
 
-Make sure that the external power source for the RTK mosaic-T is not directly tied to the vehicle's battery, `Always On`, or accessory circuits. Otherwise, users will risk killing the battery while the engine is off. We recommend locating the *ignition on* or *switched power* circuit, which is only powered when the key is in the `On` position *and the engine is running*.
+Make sure that the external power source for the GPSDO is not directly tied to the vehicle's battery, `Always On`, or accessory circuits. Otherwise, users will risk killing the battery while the engine is off. We recommend locating the *ignition on* or *switched power* circuit, which is only powered when the key is in the `On` position *and the engine is running*.
 
 !!! note
 	The `On` position, is where a key normally rests after the engine is started. However, users can still move the key from the `Off` position and into the `On` position without starting the engine. In this case, the alternator is not running and keeping the battery charged.
@@ -94,14 +94,14 @@ By default, the L5 band is disabled on the mosaic-T. To enable reception of the 
 
 
 ## Reprogramming the ESP32
-In case users accidentally reprogram or corrupt the flash memory on the ESP32, the **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_RTK_mosaic-T/tree/main/Firmware/Binaries)** folder contains the firmware binaries.
+In case users accidentally reprogram or corrupt the flash memory on the ESP32, the **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_GPSDO/tree/main/Firmware/Binaries)** folder contains the firmware binaries.
 
 You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
 
-The full firmware source code is available in our [GitHub repository](https://github.com/sparkfun/SparkFun_RTK_mosaic-T/tree/main/Firmware/RTK_mosaic-T_Firmware)
+The full firmware source code is available in our [GitHub repository](https://github.com/sparkfun/SparkFun_GPSDO/tree/main/Firmware/GPSDO_Firmware)
 
 ## Enclosure Disassembly
-Due to the ESD sensitivity of the mosaic-T module, we don't recommend disassembling the RTK mosaic-T. However, if users must access the PCB to troubleshoot an issue, make a modification, or repair a component, we highly recommend that they take the necessary ESD precautions to avoid damaging the mosaic-T module.
+Due to the ESD sensitivity of the mosaic-T module, we don't recommend disassembling the GPSDO. However, if users must access the PCB to troubleshoot an issue, make a modification, or repair a component, we highly recommend that they take the necessary ESD precautions to avoid damaging the mosaic-T module.
 
 !!! warning "Read Before Disassembly!"
 	!!! danger "ESD Sensitivity"
@@ -110,7 +110,7 @@ Due to the ESD sensitivity of the mosaic-T module, we don't recommend disassembl
 	??? info "ESD Precaution"
 		As recommended by the manufacturer, we highly encourage users to take the necessary precautions to avoid damaging their module.
 
-		- The RTK mosaic-T features ESD protection on the USB-C connectors, ethernet jack, I/O terminals and SMA antenna connections.
+		- The GPSDO features ESD protection on the USB-C connectors, ethernet jack, I/O terminals and SMA antenna connections.
 
 
 		<div class="grid cards" markdown>
@@ -137,9 +137,9 @@ Due to the ESD sensitivity of the mosaic-T module, we don't recommend disassembl
 
 		</div>
 
-Before disassembling the enclosure, users should disconnect the power and all cables from the RTK mosaic-T. This will prevent users from creating any shorts and will facilitate the teardown process further on.
+Before disassembling the enclosure, users should disconnect the power and all cables from the GPSDO. This will prevent users from creating any shorts and will facilitate the teardown process further on.
 
-The RTK mosaic-T PCB is held in place by the front and rear panels of the enclosure. While users can remove the panels first, we recommend that users disconnect the screw terminal blocks first. Users may find it more difficult to separate the terminal block from the connector later in the disassembly process.
+The GPSDO PCB is held in place by the front and rear panels of the enclosure. While users can remove the panels first, we recommend that users disconnect the screw terminal blocks first. Users may find it more difficult to separate the terminal block from the connector later in the disassembly process.
 
 !!! tip "Remove the Screw Terminal Block First"
 	Users may find it easiest to remove the screw terminal blocks first; as opposed to later in the teardown process.
@@ -157,4 +157,4 @@ Once the terminal blocks have been removed, users can remove the front and rear 
 !!! tip
 	We recommend removing the front panel first to prevent the Qwiic cable from being yanked off the OLED display or main PCB. Once the front panel is free, carefully lift the panel and disconnect the Qwiic cable from the top connector on the OLED display.
 
-At this point, if users have previously disconnected all the cables and the terminal blocks from the back, the RTK mosaic-T PCB should slide out of the enclosure. Users can then, remove the rear panel from the enclosure to complete the teardown process.
+At this point, if users have previously disconnected all the cables and the terminal blocks from the back, the GPSDO PCB should slide out of the enclosure. Users can then, remove the rear panel from the enclosure to complete the teardown process.

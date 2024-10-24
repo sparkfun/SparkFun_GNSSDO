@@ -4,9 +4,9 @@ on:
     branches: 
 
 env:
-  FILENAME_PREFIX: RTK_mosaic-T_Firmware
+  FILENAME_PREFIX: GPSDO_Firmware
   FIRMWARE_VERSION_MAJOR: 1
-  FIRMWARE_VERSION_MINOR: 1
+  FIRMWARE_VERSION_MINOR: 0
   CORE_VERSION: 3.0.1
 
 jobs:
@@ -85,7 +85,7 @@ jobs:
           cp Firmware/app3M_fat9M_16MB.csv /home/runner/.arduino15/packages/esp32/hardware/esp32/${{ env.CORE_VERSION }}/tools/partitions/app3M_fat9M_16MB.csv
 
       - name: Compile Sketch
-        run: arduino-cli compile --fqbn "esp32:esp32:esp32":DebugLevel=${{ env.DEBUG_LEVEL }} ./Firmware/RTK_mosaic-T_Firmware/RTK_mosaic-T_Firmware.ino
+        run: arduino-cli compile --fqbn "esp32:esp32:esp32":DebugLevel=${{ env.DEBUG_LEVEL }} ./Firmware/GPSDO_Firmware/GPSDO_Firmware.ino
           --build-property build.partitions=app3M_fat9M_16MB
           --build-property upload.maximum_size=3145728 
           --build-property "compiler.cpp.extra_flags=-MMD -c \"-DFIRMWARE_VERSION_MAJOR=$FIRMWARE_VERSION_MAJOR\" \"-DFIRMWARE_VERSION_MINOR=$FIRMWARE_VERSION_MINOR\""
@@ -93,8 +93,8 @@ jobs:
 
       - name: Rename binary
         run: |
-          cd Firmware/RTK_mosaic-T_Firmware/build/esp32.esp32.esp32/
-          mv RTK_mosaic-T_Firmware.ino.bin ../../../Binaries/${{ env.FILENAME_PREFIX }}${{ env.FILE_ENDING_UNDERSCORE }}.bin
+          cd Firmware/GPSDO_Firmware/build/esp32.esp32.esp32/
+          mv GPSDO_Firmware.ino.bin ../../../Binaries/${{ env.FILENAME_PREFIX }}${{ env.FILE_ENDING_UNDERSCORE }}.bin
 
       - name: Commit and push binary
         uses: actions-js/push@master

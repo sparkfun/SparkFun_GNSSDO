@@ -1,5 +1,5 @@
 /*
-  SparkFun RTK mosaic-T Test Sketch
+  SparkFun GPSDO Test Sketch
 
   License: MIT. Please see LICENSE.md for more details
 

@@ -158,7 +158,7 @@ plugins:
 
   # Add git committers at the bottom of the page
   - git-committers:
-      repository: sparkfun/SparkFun_RTK_mosaic-T
+      repository: sparkfun/SparkFun_GPSDO
       branch: main
 
   # Add git authors at the bottom of the page
