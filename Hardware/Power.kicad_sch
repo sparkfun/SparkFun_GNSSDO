@@ -5188,6 +5188,16 @@
 		)
 		(uuid "4b85d48d-475e-4701-917b-0e17a62f518c")
 	)
+	(text "Provides 5V 2A\nat TCXO breakouts"
+		(exclude_from_sim no)
+		(at 91.44 29.21 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "5639bf93-b691-4d92-9845-d213c29abd2e")
+	)
 	(text "DC Power In"
 		(exclude_from_sim no)
 		(at 55.88 22.86 0)
