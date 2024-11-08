@@ -6,7 +6,7 @@
 	(paper "USLetter")
 	(title_block
 		(title "GPSDO (mosaic-T, SiT5358)")
-		(date "2024-10-24")
+		(date "2024-11-08")
 		(rev "v10")
 		(comment 1 "Designed by: P.C.")
 	)

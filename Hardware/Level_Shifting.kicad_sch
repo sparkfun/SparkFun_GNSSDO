@@ -5267,6 +5267,16 @@
 	)
 	(wire
 		(pts
+			(xy 242.57 146.05) (xy 243.84 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5d7a8bce-0325-43d8-8bb2-fa1ef9dd2a8c")
+	)
+	(wire
+		(pts
 			(xy 92.71 154.94) (xy 96.52 154.94)
 		)
 		(stroke
@@ -5604,6 +5614,16 @@
 			(type default)
 		)
 		(uuid "8035611f-2eef-4dc8-a687-1ee9ab24997e")
+	)
+	(wire
+		(pts
+			(xy 243.84 144.78) (xy 243.84 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "804049a8-834c-41a5-8dfb-ad2f5b57279e")
 	)
 	(wire
 		(pts
@@ -6596,6 +6616,16 @@
 		)
 		(uuid "28cb7384-b8cd-4f96-ad3d-d985f6854480")
 	)
+	(text "Provides VCCIO\nat TCXO breakouts"
+		(exclude_from_sim no)
+		(at 241.3 149.86 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "41575805-25f6-4ce3-a678-ede8ce72d128")
+	)
 	(text "For 50 Ohm input:\nClose jumper V"
 		(exclude_from_sim no)
 		(at 105.41 147.32 0)
@@ -7479,6 +7509,73 @@
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/d9a77ac1-2999-4329-b708-8e6cc1b00c22"
 					(reference "V.1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-PowerSymbol:VCC")
+		(at 243.84 144.78 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0ace8368-88c8-4a70-b916-5a881a8878bc")
+		(property "Reference" "#PWR0265"
+			(at 243.84 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VCCIO"
+			(at 243.84 140.97 0)
+			(do_not_autoplace yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 243.84 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 243.84 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 243.84 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4570fd8c-9538-4f11-a3d5-e9cd50c6c5bf")
+		)
+		(instances
+			(project "SparkPNT_GPSDO"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/d9a77ac1-2999-4329-b708-8e6cc1b00c22"
+					(reference "#PWR0265")
 					(unit 1)
 				)
 			)
@@ -10965,6 +11062,73 @@
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/d9a77ac1-2999-4329-b708-8e6cc1b00c22"
 					(reference "#PWR0172")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-Connector:TestPoint_PTH")
+		(at 242.57 146.05 90)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "668c75d4-5edd-4434-9673-2b4ee9c9d293")
+		(property "Reference" "TP48"
+			(at 234.95 146.05 90)
+			(do_not_autoplace yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PTH"
+			(at 246.38 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "SparkFun-Connector:1x01"
+			(at 248.92 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 250.19 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point"
+			(at 242.57 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "09e4818e-3679-4c97-ad87-f59398cca24d")
+		)
+		(instances
+			(project "SparkPNT_GPSDO"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/d9a77ac1-2999-4329-b708-8e6cc1b00c22"
+					(reference "TP48")
 					(unit 1)
 				)
 			)

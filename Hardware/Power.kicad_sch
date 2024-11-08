@@ -5188,7 +5188,7 @@
 		)
 		(uuid "4b85d48d-475e-4701-917b-0e17a62f518c")
 	)
-	(text "Provides 5V 2A\nat TCXO breakouts"
+	(text "Provides 5V 2A\nfor optional TCXO"
 		(exclude_from_sim no)
 		(at 91.44 29.21 0)
 		(effects

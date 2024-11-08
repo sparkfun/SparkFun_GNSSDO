@@ -1,5 +1,5 @@
 Drill report for SparkPNT_GPSDO_panelized.kicad_pcb
-Created on 2024-10-24T12:31:37+0100
+Created on 2024-11-08T12:55:20+0000
 
 Copper Layer Stackup:
     =============================================================
@@ -17,13 +17,13 @@ Drill file 'SparkPNT_GPSDO_panelized.drl' contains
     T3  0.889mm  0.0350"  (12 holes)
     T4  0.900mm  0.0354"  (14 holes)
     T5  1.000mm  0.0394"  (6 holes)
-    T6  1.016mm  0.0400"  (55 holes)
+    T6  1.016mm  0.0400"  (60 holes)
     T7  1.200mm  0.0472"  (6 holes)
     T8  1.400mm  0.0551"  (10 holes)
     T9  1.499mm  0.0590"  (6 holes)
     T10  1.700mm  0.0669"  (2 holes)
 
-    Total plated holes count 811
+    Total plated holes count 816
 
 
 Not plated through holes are merged with plated holes
