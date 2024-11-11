@@ -571,7 +571,7 @@ These terminals are described in the tabs below. For more information on the I/O
 		</figure>
 
 === "SCL2 & SDA2"
-	The SCL2 and SDA2 screw terminals provide access to the TCXO I<sup>2</sup>C bus, allowing the user to connect an external configurable TCXO if desired. The I<sup>2</sup>C voltage level is set by the VCCIO switch: 3.3V or 5V. The provided firmware supports the SiTime SiT5358. The ueser will need to modify the firmware to support additional osciillators.
+	The SCL2 and SDA2 screw terminals provide access to the TCXO I<sup>2</sup>C bus, allowing the user to connect an external configurable TCXO if desired. The I<sup>2</sup>C voltage level is set by the VCCIO switch: 3.3V or 5V. The provided firmware supports the SiTime SiT5358; the user will need to modify the firmware to support additional osciillators.
 
 	<center>
 
@@ -653,7 +653,8 @@ The OLED display on the GPSDO.
 </figure>
 
 * Date & Time : YYYY/MM/DD HH:MM:SS from ReceiverTime
-* **IP**        : nnn.nnn.nnn.nnn from IPStatus IPAddress. When TCP console access is enabled, the TCP port number is also displayed.
+* **IP**        : nnn.nnn.nnn.nnn from IPStatus IPAddress
+	* When [TCP console access](./software_overview.md#tcp-server-ips1) is enabled, the TCP port number is also displayed.
 * **Lat**       : Latitude from PVTGeodetic (Degrees)
 * **Long**      : Longitude from PVTGeodetic (Degrees)
 * **Sys**       : TimeSystem from PVTGeodetic

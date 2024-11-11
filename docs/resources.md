@@ -8,7 +8,7 @@ icon: material/book-open-page-variant
 * [Quick Start Guide](./assets/quick_start_guide-v10.pdf)
 * :material-folder-cog: Design Files:
 	* :fontawesome-solid-file-pdf: [Schematic](./assets/board_files/schematic.pdf)
-	* :fontawesome-solid-file-png: [Board Dimensions](./assets/board_files/dimensions.png)
+	* :fontawesome-solid-file-image: [Board Dimensions](./assets/board_files/dimensions.png)
 	* :fontawesome-solid-file-pdf: [Enclosure Dimensions](./assets/board_files/dimensions-enclosure.pdf)
 	* :fontawesome-solid-file-code: [ESP32 Firmware](https://github.com/sparkfun/SparkFun_GPSDO/tree/main/Firmware/GPSDO_Firmware)
 * :fontawesome-solid-file-pdf: [mosaic-T Datasheet](./assets/component_documentation/Mosaic%20Hardware%20Manual_v1.8.0.pdf)
