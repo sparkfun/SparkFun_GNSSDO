@@ -8,11 +8,11 @@ SparkFun GPSDO
 Designed and manufactured in Boulder, Colorado, USA, the SparkFun GPS Disciplined Oscillator (GPSDO) is the perfect solution for your high-precision timing needs. Based around the multi-constellation, multi-frequency, L5-ready mosaic-T from Septentrio, this is our most accurate GNSS timing product to date. It features a disciplined 10MHz Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO). The mosaic-T also has built-in on-module support for the Fugro AtomiChron L-band timing service.
 
 * SMA Connections:
-    * GNSS Antenna (L1/L2/L5/L-Band) - provides 5V for an active antenna
+    * GNSS Antenna (L1/L2/L5/L-Band) - provides 3.3V for an active antenna
     * 10MHz Output - disciplined, configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
     * 10MHz Input - switchable, input impedance 50Ω, detection level -14dBm, max supported level +12dBm
     * Pulse-Per-Second Square Wave - configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
-    * EventA Input - configurable for 5V / 3.3V / 2.8V / 1.8V
+    * EventA Input - configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
 * 3.5mm Screw Cage Connections:
     * 9V-36V DC input
     * GND

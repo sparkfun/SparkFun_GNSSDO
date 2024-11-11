@@ -39,11 +39,12 @@ icon: material/book-open-page-variant
 
 ## :fontawesome-solid-screwdriver-wrench:&nbsp;Connectivity
 
--	SMA Connections:
-    - GNSS Antenna (L1/L2/L5/L-Band) - provides 5V for an active antenna
-    - 10MHz Sine Wave - disciplined, 50Ohm, approx. 1V<sub>PP</sub>
-    - Pulse-Per-Second Square Wave - 50Ohm, 3.3V / 5V switchable
-    - ESP32 WiFi/BT - reverse polarity (RP), unused by the current firmware
+- SMA Connections:
+    - GNSS Antenna (L1/L2/L5/L-Band) - provides 3.3V for an active antenna
+    - 10MHz Output - disciplined, configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
+    - 10MHz Input - switchable, input impedance 50Ω, detection level -14dBm, max supported level +12dBm
+    - Pulse-Per-Second Square Wave - configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
+    - EventA Input - configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
 -	3.5mm Screw Cage Connections:
     - 9V-36V DC input
     - GND
@@ -308,11 +309,11 @@ Everything that is included in the GPSDO kit.
 	* [Qwiic 1.3" OLED Display](https://www.sparkfun.com/products/23453)
 * [L1/L2/L5 GNSS Surveying Antenna](https://www.sparkfun.com/products/21801)
 * [Reinforced RG58 TNC-SMA Cable (10m)](https://www.sparkfun.com/products/21740)
-* [SMA WiFi / Bluetooth Antenna](https://www.sparkfun.com/products/145)
 * [32GB microSD Card (Class 10)](https://www.sparkfun.com/products/19041)
-* [USB-C Power Supply (5V 1A wall adapter)](https://www.sparkfun.com/products/11456)
+* [USB A and C Power Delivery (PD) Wall Adapter - 65W](https://www.sparkfun.com/products/24059)
 * [USB-C Cable (A to C, 2m)](https://www.sparkfun.com/products/15424)
 * [Ethernet Cable (CAT-6, 1m)](https://www.sparkfun.com/products/8915)
+* SMA to BNC Cable (RG316, 1m)
 
 </div>
 
@@ -367,19 +368,6 @@ Everything that is included in the GPSDO kit.
 
 		!!! tip
 			Use this extension cable for the GNSS antenna. This cable will not work with the WiFi/BLE antenna due to the polarity of the connectors.
-
-	-   <a href="https://www.sparkfun.com/products/22038">
-		<figure markdown>
-		![Interface Cable - RP-SMA Male to RP-SMA Female (10M, RG58)](https://cdn.sparkfun.com//assets/parts/2/1/9/0/5/22038-_CAB-_01.jpg)
-		</figure>
-
-		---
-
-		**Interface Cable - RP-SMA Male to RP-SMA Female (10M, RG58)**<br>
-		CAB-22038</a>
-
-		!!! tip
-			Use this extension cable for the ESP32 WiFi/BLE antenna. This cable will not work with the GNSS antenna due to the polarity of the connectors. **WiFi/BLE is not supported by the current firmware.**
 
 	</div>
 

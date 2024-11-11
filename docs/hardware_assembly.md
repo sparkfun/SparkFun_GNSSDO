@@ -15,7 +15,7 @@ icon: material/tools
 	</figcaption>
 	</figure>
 
-	Inside the box, users will find the [GNSS antenna](https://www.sparkfun.com/products/21801), GPSDO in its aluminum enclosure, and another box containing additional accessories. Inside, the accessory box, users will find the [CAT-6 Ethernet cable](https://www.sparkfun.com/products/8915), [USB cable](https://www.sparkfun.com/products/15424), [SMA to TNC cable](https://www.sparkfun.com/products/21740), [USB power supply](https://www.sparkfun.com/products/11456) and [32GB SD card](https://www.sparkfun.com/products/19041).
+	Inside the box, users will find the [GNSS antenna](https://www.sparkfun.com/products/21801), GPSDO in its aluminum enclosure, and another box containing additional accessories. Inside, the accessory box, users will find the [CAT-6 Ethernet cable](https://www.sparkfun.com/products/8915), [USB cable](https://www.sparkfun.com/products/15424), [SMA to TNC cable](https://www.sparkfun.com/products/21740), [USB A and C Power Delivery (PD) Wall Adapter - 65W](https://www.sparkfun.com/products/24059) and [32GB SD card](https://www.sparkfun.com/products/19041).
 
 	<div class="grid" markdown>
 

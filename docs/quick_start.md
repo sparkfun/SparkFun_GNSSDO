@@ -73,7 +73,7 @@ hide: toc
 		* If your router provides Power-over-Ethernet (PoE), you're all set! You should see the red power (PWR) LED light up and text start to scroll up the OLED display.
 		* If your router does not provide PoE, move on to step 3.
 	**`3`** - **Provide power**
-	: * You can power the GPSDO using the supplied USB power supply (5V 1A wall adapter).
+	: * You can power the GPSDO using the supplied USB power supply (wall adapter).
 		* Plug the power supply into the wall.
 		* Use the supplied USB-C cable to connect the power supply to either the **CONFIG MOSAIC** or the **CONFIG ESP32** USB-C port. It does not matter which.
 		* You should see the red power (PWR) LED light up and text start to scroll up the OLED display.

@@ -69,7 +69,7 @@ Users can download the [full schematic for the GPSDO](./assets/board_files/schem
 	<figure markdown>
 	[![Board Dimensions](./assets/board_files/dimensions.png){ width="400" }](./assets/board_files/dimensions.png "Click to enlarge")
 	<figcaption markdown>
-	[Dimensions (PDF)](./assets/board_files/dimensions.pdf) of the GPSDO PCB, in inches.
+	[Dimensions (PNG)](./assets/board_files/dimensions.png) of the GPSDO PCB, in inches.
 	</figcaption>
 	</figure>
 
@@ -363,7 +363,7 @@ The &micro;SD socket is connected directly to the mosaic-T via a one-bit SDIO in
 
 
 ## SMA Connectors
-The GPSDO has robust SMA connectors for the mosaic-T GNSS antenna, 50 Ohm Pulse-Per-Second, 10 MHz disciplined sine wave, and the ESP32 WiFi / BT antenna.
+The GPSDO has robust SMA connectors for the mosaic-T GNSS antenna, Pulse-Per-Second output, 10 MHz input / output, and the Event A input.
 
 <div class="grid" markdown>
 
@@ -378,35 +378,35 @@ The GPSDO has robust SMA connectors for the mosaic-T GNSS antenna, 50 Ohm Pulse-
 <figcaption markdown>The connection for the GNSS antenna to the mosaic-T.</figcaption>
 </figure>
 
-The mosaic-T GNSS SMA connector is standard polarity and provides 5V power for an active antenna.
+The mosaic-T GNSS SMA connector is standard polarity and provides 3.3V power for an active antenna.
 </div>
 
 <div markdown>
 <figure markdown>
 [![SMA PPS Connections](./assets/img/hookup_guide/PPS.png){ width="750" }](./assets/img/hookup_guide/PPS.png "Click to enlarge")
-<figcaption markdown>The SMA connector for the 50 Ohm Pulse-Per-Second output.</figcaption>
+<figcaption markdown>The SMA connector for the Pulse-Per-Second output.</figcaption>
 </figure>
 
 <figure markdown>
 [![SMA PPS Connections](./assets/img/hookup_guide/PPS-PCB.png){ width="400" }](./assets/img/hookup_guide/PPS-PCB.png "Click to enlarge")
-<figcaption markdown>The connection for the 50 Ohm Pulse-Per-Second output.</figcaption>
+<figcaption markdown>The connection for the Pulse-Per-Second output.</figcaption>
 </figure>
 
-The Pulse-Per-Second SMA connector is standard polarity. The output impedance is 50 Ohm. The voltage is selectable via the VCCIO switch: 3.3V or 5V. The output is DC-coupled.
+The Pulse-Per-Second SMA connector is standard polarity. The voltage is selectable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The output is DC-coupled. The output can be configured for 50 Ohm output via the jumper links *(see the **[Jumpers](#jumpers)** section)*.
 </div>
 
 <div markdown>
 <figure markdown>
 [![SMA 10MHz Connections](./assets/img/hookup_guide/10MHz.png){ width="750" }](./assets/img/hookup_guide/10MHz.png "Click to enlarge")
-<figcaption markdown>The SMA connector for the 50 Ohm disciplined 10 MHz sine wave output.</figcaption>
+<figcaption markdown>The SMA connector for the 10 MHz output / input.</figcaption>
 </figure>
 
 <figure markdown>
-[![SMA 10MHz Connections](./assets/img/hookup_guide/10Mhz-PCB.png){ width="400" }](./assets/img/hookup_guide/10Mhz-PCB.png "Click to enlarge")
-<figcaption markdown>The connection for the 50 Ohm disciplined 10 MHz sine wave output.</figcaption>
+[![SMA 10MHz Connections](./assets/img/hookup_guide/10MHz-Switch-PCB.png){ width="400" }](./assets/img/hookup_guide/10MHz-Switch-PCB.png "Click to enlarge")
+<figcaption markdown>The connection for the 10 MHz output / input.</figcaption>
 </figure>
 
-The 10 MHz sine wave SMA connector is standard polarity. The output impedance is 50 Ohm. The voltage is adjustable via the VCCIO switch. The output is AC-coupled and is approximately 1V<sub>PP</sub>.
+The 10 MHz SMA connector is standard polarity. The voltage is adjustable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The output can also be configured for 50 Ohm via the jumper links *(see the **[Jumpers](#jumpers)** section)*. Output / Input is selected via the small slide switch adjacent to the connector. When configured for input: the input impedance is 50Ω; the detection level is -14dBm; the max supported input level is +12dBm.
 </div>
 
 <div markdown>
@@ -419,6 +419,8 @@ The 10 MHz sine wave SMA connector is standard polarity. The output impedance is
 [![EventA Connections](./assets/img/hookup_guide/EventA-PCB.png){ width="400" }](./assets/img/hookup_guide/EventA-PCB.png "Click to enlarge")
 <figcaption markdown>The connection for the EventA input.</figcaption>
 </figure>
+
+The Event A SMA connector is standard polarity. The voltage is adjustable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The output can also be configured for 50 Ohm via the jumper links *(see the **[Jumpers](#jumpers)** section)*.
 
 </div>
 
@@ -543,23 +545,22 @@ These terminals are described in the tabs below. For more information on the I/O
 	!!! tip
 		The `CTS` and `GND` pins could be used to power (e.g.) a LoRa module. When VCCIO is 3.3V, we recommend limiting the current draw from `VCCIO` to **200mA** maximum. The upstream 3.3V regulator is rated at 600mA but it also provides power for the mosaic-T and Ethernet PHY. When VCCIO is set to 5V, the current draw can be higher - the suggested maximum is **500mA**.
 
-=== "EVENT A & B"
-	The mosaic-T **EVENTA** and **EVENTB** inputs can be used to mark or timestamp external events:
+=== "EVENT B"
+	The mosaic-T **EVENTB** input can be used to mark or timestamp external events:
 
 	<center>
 
 	| **Terminal** | **Function**    |
 	| :----------: | :-------------: |
-	| **EVENTA**   | Event A : Input |
 	| **EVENTB**   | Event B : Input |
 
 	</center>
 
 	!!! tip
-		The EVENT voltage level is set by the VCCIO voltage selection switch.
+		The EVENT B voltage level is set by the VCCIO voltage selection switch.
 
 	!!! tip
-		The EVENT inputs are pulled low internally. Pull up to VCCIO to trigger an event.
+		The EVENT B input is pulled low internally. Pull up to VCCIO to trigger an event.
 
 	!!! tip
 		An easy way to observe the events is with **RxTools** \ **RxControl** \ **Expert Console** (under **Tools**) \ **ExEvent** tab:
@@ -569,22 +570,20 @@ These terminals are described in the tabs below. For more information on the I/O
 		<figcaption markdown>Capturing external events from EVENTA and EVENTB.</figcaption>
 		</figure>
 
-=== "PPS"
-	The mosaic-T **PPS** is a configurable Pulse-Per-Second output. By default, PPS is high for 5ms at 1Hz. The polarity, frequency and pulse width can be adjusted through the ESP32 firmware settings.
-
-	!!! tip
-		The PPS pulses are disabled initially and only enabled when the TCXO oscillator is locked to the correct frequency. See [Oscillator](./oscillator.md) for more details.
+=== "SCL2 & SDA2"
+	The SCL2 and SDA2 screw terminals provide access to the TCXO I<sup>2</sup>C bus, allowing the user to connect an external configurable TCXO if desired. The I<sup>2</sup>C voltage level is set by the VCCIO switch: 3.3V or 5V. The provided firmware supports the SiTime SiT5358. The ueser will need to modify the firmware to support additional osciillators.
 
 	<center>
 
 	| **Terminal** | **Function**              |
 	| :----------: | :-----------------------: |
-	| **PPS**      | Pulse-Per-Second : Output |
+	| **SCL2**      | I2C Clock : Bidirectional |
+	| **SDA2**      | I2C Data : Bidirectional |
 
 	</center>
 
 	!!! tip
-		The PPS voltage is set by the VCCIO voltage selection switch.
+		The I<sup>2</sup>C voltage is set by the VCCIO voltage selection switch.
 
 ## Status LEDs
 There are six status LEDs on the GPSDO:
@@ -654,7 +653,7 @@ The OLED display on the GPSDO.
 </figure>
 
 * Date & Time : YYYY/MM/DD HH:MM:SS from ReceiverTime
-* **IP**        : nnn.nnn.nnn.nnn from IPStatus IPAddress
+* **IP**        : nnn.nnn.nnn.nnn from IPStatus IPAddress. When TCP console access is enabled, the TCP port number is also displayed.
 * **Lat**       : Latitude from PVTGeodetic (Degrees)
 * **Long**      : Longitude from PVTGeodetic (Degrees)
 * **Sys**       : TimeSystem from PVTGeodetic
@@ -773,9 +772,34 @@ The jumpers on the bottom of the GPSDO PCB.
 === "Top"
 	* **POE** - This jumper can be used to disconnect the Power-over-Ethernet (PoE) module 50&ohm; load.
 		* The PoE module has a minimum load of 200mA. We included the 50&ohm; load to ensure this is met. If you can ensure this by other means, open this jumper to disconnect the load.
-	* **MEAS**
-		* Open the **MEAS** jumper if you wish to measure the total current drawn by the GPSDO, or (e.g.) wish to add an ON/OFF switch. The breakout pads can then be used to attach a multimeter or a mechanical power switch.
-		* **MEAS** is _upstream_ of the two 3.3V regulators and _downstream_ of the four power source combination and protection diodes.
+	* **Voltage Configuration: A-V**
+		* The jumper links A-V can be used to configure the voltage levels and impedance of the SMA connections. Please refer to the [schematic](./assets/board_files/schematic.pdf) for additional information.
+		* To configure the 10MHz output for 50 Ohms: open jumper **A** and close jumper **D**.
+			* Jumper **A** is closed by default. Open it to select 50 Ohms for the 10MHz output.
+			* Jumper **B** is closed by default. It could be used to isolate the gate driving the 10MHz output. Advanced use only.
+			* Jumper **C** is open by default. It could be used to select the alternate gate for the 10MHz CMOS output. Advanced use only.
+			* Jumper **D** is open by default. Close it to select 50 Ohms for the 10MHz output.
+		* To configure the PPS output for 50 Ohms: open jumper **E** and close jumper **H**.
+			* Jumper **E** is closed by default. Open it to select 50 Ohms for the PPS output.
+			* Jumper **F** is closed by default. It could be used to isolate the gate driving the PPS output. Advanced use only.
+			* Jumper **G** is open by default. It could be used to select the alternate gate for the PPS CMOS output. Advanced use only.
+			* Jumper **H** is open by default. Close it to select 50 Ohms for the PPS output.
+		* Jumpers J,K,L configure the voltage of the Event A input.
+			* Jumper **J** is closed by default. It selects VCCIO as the Event A input voltage.
+			* Jumper **K** is open by default. Open jumper J and close jumper K to configure Event A for 2.8V.
+			* Jumper **L** is open by default. Open jumper J and close jumper L to configure Event A for 1.8V.
+		* Jumpers M,N,P configure the voltage of the PPS output.
+			* Jumper **M** is closed by default. It selects VCCIO as the PPS output voltage.
+			* Jumper **N** is open by default. Open jumper M and close jumper N to configure PPS for 2.8V.
+			* Jumper **P** is open by default. Open jumper M and close jumper P to configure PPS for 1.8V.
+		* Jumpers R,S,T configure the voltage of the 10MHz output.
+			* Jumper **R** is closed by default. It selects VCCIO as the 10MHz output voltage.
+			* Jumper **S** is open by default. Open jumper R and close jumper S to configure 10MHz for 2.8V output.
+			* Jumper **T** is open by default. Open jumper R and close jumper T to configure 10MHz for 1.8V output.
+		* Jumper **U** can be used to isolate the on-board 10MHz TCXO.
+			* Open jumper U when connecting an alternate TCXO via the breakout pads on the PCB. Advanced use only.
+		* To configure the Event A input for 50 Ohms: close jumper **V**.
+			* Jumper **V** is open by default. Close it to select 50 Ohms for the Event A input.
 
 === "Bottom"
 	* LED Jumpers
@@ -799,3 +823,6 @@ The jumpers on the bottom of the GPSDO PCB.
 		* Open these jumpers if you wish to isolate (disconnect) the Power-over-Ethernet pins on the MOSAIC Ethernet magjack. The breakout pads can then be used to feed in power from an alternate source.
 	* **VCCIO**
 		* The **VCCIO** jumper can be soldered closed to connect the **CTS** screw terminal to VCCIO. **CTS** can then be used as a power output. The voltage is set by the VCCIO slide switch.
+	* **MEAS**
+		* Open the **MEAS** jumper if you wish to measure the total current drawn by the GPSDO, or (e.g.) wish to add an ON/OFF switch. The breakout pads can then be used to attach a multimeter or a mechanical power switch.
+		* **MEAS** is _upstream_ of the two 3.3V regulators and _downstream_ of the four power source combination and protection diodes.
