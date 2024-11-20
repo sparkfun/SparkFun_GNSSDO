@@ -481,12 +481,14 @@ void pinI2C2Task(void *pvParameters)
                     presentSIT5811 = true;
                     i2cTCXO = i2c_2;
                     break;
+                }
 
                 case SFE_GNSSDO_OSC_SIT5358: {
                     systemPrintf("0x%02x - SiT5358 TCXO\r\n", addr);
                     presentSIT5358 = true;
                     i2cTCXO = i2c_2;
                     break;
+                }
 
                 case SFE_GNSSDO_OSC_STP3593LF: {
                     systemPrintf("0x%02x - STP3593LF TCXO\r\n", addr);
