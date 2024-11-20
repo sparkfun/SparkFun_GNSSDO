@@ -4,7 +4,7 @@ on:
     branches: 
 
 env:
-  FILENAME_PREFIX: GPSDO_Firmware
+  FILENAME_PREFIX: GNSSDO_Firmware
   FIRMWARE_VERSION_MAJOR: 9
   FIRMWARE_VERSION_MINOR: 9
   CORE_VERSION: 3.0.1
@@ -85,7 +85,7 @@ jobs:
           cp Firmware/app3M_fat9M_16MB.csv /home/runner/.arduino15/packages/esp32/hardware/esp32/${{ env.CORE_VERSION }}/tools/partitions/app3M_fat9M_16MB.csv
 
       - name: Compile Sketch
-        run: arduino-cli compile --fqbn "esp32:esp32:esp32":DebugLevel=${{ env.DEBUG_LEVEL }} ./Firmware/GPSDO_Firmware/GPSDO_Firmware.ino
+        run: arduino-cli compile --fqbn "esp32:esp32:esp32":DebugLevel=${{ env.DEBUG_LEVEL }} ./Firmware/GNSSDO_Firmware/GNSSDO_Firmware.ino
           --build-property build.partitions=app3M_fat9M_16MB
           --build-property upload.maximum_size=3145728 
           --build-property "compiler.cpp.extra_flags=-MMD -c \"-DFIRMWARE_VERSION_MAJOR=$FIRMWARE_VERSION_MAJOR\" \"-DFIRMWARE_VERSION_MINOR=$FIRMWARE_VERSION_MINOR\""
@@ -97,13 +97,13 @@ jobs:
 
       - name: Create artifact directory
         run: |
-          cd Firmware/GPSDO_Firmware/build/esp32.esp32.esp32/
+          cd Firmware/GNSSDO_Firmware/build/esp32.esp32.esp32/
           mkdir ${{ env.ARTIFACT }}
-          mv GPSDO_Firmware.ino.bin ${{ env.ARTIFACT }}
+          mv GNSSDO_Firmware.ino.bin ${{ env.ARTIFACT }}
 
       - name: Upload artifact directory to action - avoid double-zip
         uses: actions/upload-artifact@v3
         with: 
           name: ${{ env.ARTIFACT }}
-          path: Firmware/GPSDO_Firmware/build/esp32.esp32.esp32/${{ env.ARTIFACT }}
+          path: Firmware/GNSSDO_Firmware/build/esp32.esp32.esp32/${{ env.ARTIFACT }}
           retention-days: 7

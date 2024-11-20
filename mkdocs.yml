@@ -1,11 +1,11 @@
 # Documentation page information
-site_name: Product Manual - SparkFun GPSDO
-site_description: The product manual for the SparkFun GPSDO
-site_url: https://sparkfun.github.io/SparkFun_GPSDO
+site_name: Product Manual - SparkFun GNSSDO
+site_description: The product manual for the SparkFun GNSSDO
+site_url: https://sparkfun.github.io/SparkFun_GNSSDO
 site_author: SparkFun Electronics
 
-repo_url: https://github.com/sparkfun/SparkFun_GPSDO
-repo_name: sparkfun/SparkFun_GPSDO
+repo_url: https://github.com/sparkfun/SparkFun_GNSSDO
+repo_name: sparkfun/SparkFun_GNSSDO
 
 copyright:
   Copyright 2024 - <a href="https://www.sparkfun.com/" target="_blank" rel="noopener">SparkFun Electronics&#174;</a><br>
@@ -158,7 +158,7 @@ plugins:
 
   # Add git committers at the bottom of the page
   - git-committers:
-      repository: sparkfun/SparkFun_GPSDO
+      repository: sparkfun/SparkFun_GNSSDO
       branch: main
 
   # Add git authors at the bottom of the page

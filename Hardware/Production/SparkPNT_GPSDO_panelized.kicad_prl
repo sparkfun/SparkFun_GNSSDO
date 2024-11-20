@@ -74,7 +74,7 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "SparkPNT_GPSDO_panelized.kicad_prl",
+    "filename": "SparkPNT_GNSSDO_panelized.kicad_prl",
     "version": 3
   },
   "project": {

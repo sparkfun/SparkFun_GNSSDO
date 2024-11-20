@@ -5,7 +5,7 @@
 	(uuid "e3dd3ae4-244d-4cba-9cca-5d2abf83f29a")
 	(paper "USLetter")
 	(title_block
-		(title "GPSDO (mosaic-T, SiT5358)")
+		(title "GNSSDO (mosaic-T, SiT5358)")
 		(date "2024-11-08")
 		(rev "v10")
 		(comment 1 "Designed by: P.C.")
@@ -13847,7 +13847,7 @@
 			)
 		)
 		(instances
-			(project "SparkPNT_GPSDO"
+			(project "SparkPNT_GNSSDO"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(page "3")
 				)
@@ -13885,7 +13885,7 @@
 			)
 		)
 		(instances
-			(project "SparkPNT_GPSDO"
+			(project "SparkPNT_GNSSDO"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(page "4")
 				)
@@ -13923,7 +13923,7 @@
 			)
 		)
 		(instances
-			(project "SparkPNT_GPSDO"
+			(project "SparkPNT_GNSSDO"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(page "2")
 				)
@@ -13961,7 +13961,7 @@
 			)
 		)
 		(instances
-			(project "SparkPNT_GPSDO"
+			(project "SparkPNT_GNSSDO"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(page "5")
 				)
@@ -13999,7 +13999,7 @@
 			)
 		)
 		(instances
-			(project "SparkPNT_GPSDO"
+			(project "SparkPNT_GNSSDO"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(page "6")
 				)
@@ -14037,7 +14037,7 @@
 			)
 		)
 		(instances
-			(project "SparkPNT_GPSDO"
+			(project "SparkPNT_GNSSDO"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(page "7")
 				)

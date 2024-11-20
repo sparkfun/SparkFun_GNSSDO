@@ -9,7 +9,7 @@ icon: material/tools
 <figcaption markdown>SiT5358 TCXO Oscillator.</figcaption>
 </figure>
 
-For the best frequency accuracy, stability and holdover, the GPSDO utilizes a SiTime SiT5358 Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO).
+For the best frequency accuracy, stability and holdover, the GNSSDO utilizes a SiTime SiT5358 Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO).
 The SiT5358 is a precision MEMS Super-TCXO optimized for ±50 ppb stability from -40°C to 105°C. Engineered for best dynamic performance, it is ideal for high reliability telecom, wireless and networking, industrial, precision GNSS and audio/video applications.
 
 * SiT5358AI-FS033IT-10.000000 10MHz DCTCXO

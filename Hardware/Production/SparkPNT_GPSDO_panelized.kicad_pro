@@ -635,7 +635,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "SparkPNT_GPSDO_panelized.kicad_pro",
+    "filename": "SparkPNT_GNSSDO_panelized.kicad_pro",
     "version": 1
   },
   "net_settings": {

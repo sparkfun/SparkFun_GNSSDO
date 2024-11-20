@@ -1,5 +1,5 @@
 /*
-  SparkFun GPSDO Test Sketch
+  SparkFun GNSSDO Test Sketch
 
   License: MIT. Please see LICENSE.md for more details
 

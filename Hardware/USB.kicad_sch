@@ -5900,7 +5900,7 @@
 			(uuid "8a866291-ea0c-40b9-a962-c4d0bc7487c0")
 		)
 		(instances
-			(project "SparkPNT_GPSDO"
+			(project "SparkPNT_GNSSDO"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
 					(reference "#PWR0264")
 					(unit 1)
@@ -7227,7 +7227,7 @@
 			(uuid "ea172829-d44e-4339-952b-8df85f6df6cb")
 		)
 		(instances
-			(project "SparkPNT_GPSDO"
+			(project "SparkPNT_GNSSDO"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
 					(reference "TP49")
 					(unit 1)
@@ -8603,7 +8603,7 @@
 			(uuid "5be7c311-f07b-49fa-98e9-c4481b2ada85")
 		)
 		(instances
-			(project "SparkPNT_GPSDO"
+			(project "SparkPNT_GNSSDO"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
 					(reference "TP50")
 					(unit 1)
@@ -8823,7 +8823,7 @@
 			(uuid "f3076798-6c15-45f9-ba98-964ddc8528e0")
 		)
 		(instances
-			(project "SparkPNT_GPSDO"
+			(project "SparkPNT_GNSSDO"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
 					(reference "TP47")
 					(unit 1)
@@ -9087,7 +9087,7 @@
 			(uuid "fcd4fabe-48a8-4c39-a362-8fa265e8e5d9")
 		)
 		(instances
-			(project "SparkPNT_GPSDO"
+			(project "SparkPNT_GNSSDO"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
 					(reference "#PWR0266")
 					(unit 1)
@@ -9756,7 +9756,7 @@
 			(uuid "ff798b61-70df-4b3e-9654-0c5c1fa5672d")
 		)
 		(instances
-			(project "SparkPNT_GPSDO"
+			(project "SparkPNT_GNSSDO"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
 					(reference "#PWR0263")
 					(unit 1)
@@ -9823,7 +9823,7 @@
 			(uuid "ea6028de-839d-45d5-9437-b51e30ba4aaf")
 		)
 		(instances
-			(project "SparkPNT_GPSDO"
+			(project "SparkPNT_GNSSDO"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
 					(reference "TP46")
 					(unit 1)
@@ -9888,7 +9888,7 @@
 			(uuid "f0f0296c-08d4-4ad9-adfa-d7ece6eb7d16")
 		)
 		(instances
-			(project "SparkPNT_GPSDO"
+			(project "SparkPNT_GNSSDO"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
 					(reference "#PWR0267")
 					(unit 1)

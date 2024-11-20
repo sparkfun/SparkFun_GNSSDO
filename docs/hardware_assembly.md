@@ -3,19 +3,19 @@ icon: material/tools
 ---
 
 !!! warning
-	When assembling the GPSDO, users should attach any power connections last. While there shouldn't be any issues with hot-swapping peripherals, it is common practice to power electronics as the last step of the assembly process *(and the power should be disconnected before removing components)*.
+	When assembling the GNSSDO, users should attach any power connections last. While there shouldn't be any issues with hot-swapping peripherals, it is common practice to power electronics as the last step of the assembly process *(and the power should be disconnected before removing components)*.
 
 ??? info "What is in the Box?"
-	The GPSDO comes packaged as a complete kit, with all the accessories you'd need to set it up.
+	The GNSSDO comes packaged as a complete kit, with all the accessories you'd need to set it up.
 
 	<figure markdown>
 	[![Kit contents](https://cdn.sparkfun.com//assets/parts/2/4/0/7/2/23748-RTK-Mosaic-X5-Kit-All-Feature.jpg){ width="300" }](https://cdn.sparkfun.com//assets/parts/2/4/0/7/2/23748-RTK-Mosaic-X5-Kit-All-Feature.jpg "Click to enlarge")
 	<figcaption markdown>
-	Everything that is included in the GPSDO kit.
+	Everything that is included in the GNSSDO kit.
 	</figcaption>
 	</figure>
 
-	Inside the box, users will find the [GNSS antenna](https://www.sparkfun.com/products/21801), GPSDO in its aluminum enclosure, and another box containing additional accessories. Inside, the accessory box, users will find the [CAT-6 Ethernet cable](https://www.sparkfun.com/products/8915), [USB cable](https://www.sparkfun.com/products/15424), [SMA to TNC cable](https://www.sparkfun.com/products/21740), [USB A and C Power Delivery (PD) Wall Adapter - 65W](https://www.sparkfun.com/products/24059) and [32GB SD card](https://www.sparkfun.com/products/19041).
+	Inside the box, users will find the [GNSS antenna](https://www.sparkfun.com/products/21801), GNSSDO in its aluminum enclosure, and another box containing additional accessories. Inside, the accessory box, users will find the [CAT-6 Ethernet cable](https://www.sparkfun.com/products/8915), [USB cable](https://www.sparkfun.com/products/15424), [SMA to TNC cable](https://www.sparkfun.com/products/21740), [USB A and C Power Delivery (PD) Wall Adapter - 65W](https://www.sparkfun.com/products/24059) and [32GB SD card](https://www.sparkfun.com/products/19041).
 
 	<div class="grid" markdown>
 
@@ -24,7 +24,7 @@ icon: material/tools
 	<figure markdown>
 	[![Kit contents](./assets/img/hookup_guide/packaged_box.jpg){ width="300" }](./assets/img/hookup_guide/packaged_box.jpg "Click to enlarge")
 	<figcaption markdown>
-	The contents of the GPSDO package.
+	The contents of the GNSSDO package.
 	</figcaption>
 	</figure>
 
@@ -45,7 +45,7 @@ icon: material/tools
 
 
 ## USB-C Ports
-The USB ports are utilized to configure the mosaic-T module and ESP32 firmware settings. Additionally, the USB ports can also be used as a power source for the GPSDO.
+The USB ports are utilized to configure the mosaic-T module and ESP32 firmware settings. Additionally, the USB ports can also be used as a power source for the GNSSDO.
 
 <div class="grid" markdown>
 
@@ -55,7 +55,7 @@ The USB port to the mosaic-T can be used to configure the module through an IP p
 
 <figure markdown>
 [![mosaic-T USB connection](./assets/img/hookup_guide/assembly-usb-mosaic.jpg){ width="400" }](./assets/img/hookup_guide/assembly-usb-mosaic.jpg "Click to enlarge")
-<figcaption markdown>The GPSDO with USB-C cable being attached.</figcaption>
+<figcaption markdown>The GNSSDO with USB-C cable being attached.</figcaption>
 </figure>
 
 </div>
@@ -66,7 +66,7 @@ With the default firmware, the USB port for the ESP32 is used for serial communi
 
 <figure markdown>
 [![ESP32 USB connection](./assets/img/hookup_guide/assembly-usb-esp32.jpg){ width="400" }](./assets/img/hookup_guide/assembly-usb-esp32.jpg "Click to enlarge")
-<figcaption markdown>The GPSDO with USB-C cable being attached.</figcaption>
+<figcaption markdown>The GNSSDO with USB-C cable being attached.</figcaption>
 </figure>
 
 </div>
@@ -83,7 +83,7 @@ With the default firmware, the USB port for the ESP32 is used for serial communi
 
 <div markdown>
 
-In order to receive [GNSS](https://en.wikipedia.org/wiki/Satellite_navigation "Global Navigation Satellite System") signals, users will need a compatible antenna. With the parts included in this kit, connect the L1/L2/L5 (tri-band) GNSS antenna to the GPSDO using the TNC-to-SMA cable.
+In order to receive [GNSS](https://en.wikipedia.org/wiki/Satellite_navigation "Global Navigation Satellite System") signals, users will need a compatible antenna. With the parts included in this kit, connect the L1/L2/L5 (tri-band) GNSS antenna to the GNSSDO using the TNC-to-SMA cable.
 
 <figure markdown>
 [![GNSS antenna connected to the cable](./assets/img/hookup_guide/assembly-gnss-tnc.jpg){ width="400" }](./assets/img/hookup_guide/assembly-gnss-tnc.jpg "Click to enlarge")
@@ -91,8 +91,8 @@ In order to receive [GNSS](https://en.wikipedia.org/wiki/Satellite_navigation "G
 </figure>
 
 <figure markdown>
-[![GNSS antenna connected to the GPSDO](./assets/img/hookup_guide/assembly-gnss_antenna.jpg){ width="400" }](./assets/img/hookup_guide/assembly-gnss_antenna.jpg "Click to enlarge")
-<figcaption markdown>Attaching a TNC-SMA cable to the SMA connector on the GPSDO.</figcaption>
+[![GNSS antenna connected to the GNSSDO](./assets/img/hookup_guide/assembly-gnss_antenna.jpg){ width="400" }](./assets/img/hookup_guide/assembly-gnss_antenna.jpg "Click to enlarge")
+<figcaption markdown>Attaching a TNC-SMA cable to the SMA connector on the GNSSDO.</figcaption>
 </figure>
 
 </div>
@@ -103,24 +103,24 @@ In order to receive [GNSS](https://en.wikipedia.org/wiki/Satellite_navigation "G
 	Users should mount their GNSS antenna outside, where it will have a clear, unobstructed view of the sky. Avoid areas with nearby buildings, EMF structures (i.e. radio towers or power lines), and vegetation (i.e. trees). These objects can increase errors due to signal muti-path, interference, and elevated noise plane.
 
 	<figure markdown>
-	[![GNSS antenna connected to the GPSDO](./assets/img/hookup_guide/assembly-gnss-mount_location.jpg){ width="400" }](./assets/img/hookup_guide/assembly-gnss-mount_location.jpg "Click to enlarge")
+	[![GNSS antenna connected to the GNSSDO](./assets/img/hookup_guide/assembly-gnss-mount_location.jpg){ width="400" }](./assets/img/hookup_guide/assembly-gnss-mount_location.jpg "Click to enlarge")
 	<figcaption markdown>The tri-band GPS antenna, mounted outside with an unobstructed view of the sky.</figcaption>
 	</figure>
 
 ??? tip "Connector Polarity"
-	When selecting antennas and/or cables for the GPSDO, double-check the polarity of the connection.
+	When selecting antennas and/or cables for the GNSSDO, double-check the polarity of the connection.
 
 
 ## Ethernet Jack
-There is a single ethernet jack on the GPSDO, which can be used to provide network access to the mosaic-T module. It supports [power over ethernet (PoE)](https://en.wikipedia.org/wiki/Power_over_Ethernet "PoE") to power the device.
+There is a single ethernet jack on the GNSSDO, which can be used to provide network access to the mosaic-T module. It supports [power over ethernet (PoE)](https://en.wikipedia.org/wiki/Power_over_Ethernet "PoE") to power the device.
 
-The jack to the mosaic-T allows users to provide internet access and power; it supports [PoE](https://en.wikipedia.org/wiki/Power_over_Ethernet "Power over Ethernet"). To provide network access, users should connect the GPSDO from the `ETHERNET (PoE)` jack to their local network with the (CAT-6) ethernet cable provided in the kit.
+The jack to the mosaic-T allows users to provide internet access and power; it supports [PoE](https://en.wikipedia.org/wiki/Power_over_Ethernet "Power over Ethernet"). To provide network access, users should connect the GNSSDO from the `ETHERNET (PoE)` jack to their local network with the (CAT-6) ethernet cable provided in the kit.
 
-* To power the device, a PoE network switch or PoE injector should be installed in between the network connection to the GPSDO.
+* To power the device, a PoE network switch or PoE injector should be installed in between the network connection to the GNSSDO.
 
 <figure markdown>
 [![mosaic-T PoE connection](./assets/img/hookup_guide/assembly-ethernet-mosaic.jpg){ width="400" }](./assets/img/hookup_guide/assembly-ethernet-mosaic.jpg "Click to enlarge")
-<figcaption markdown>The GPSDO with ethernet cable being attached to the `ETHERNET (PoE)` jack.</figcaption>
+<figcaption markdown>The GNSSDO with ethernet cable being attached to the `ETHERNET (PoE)` jack.</figcaption>
 </figure>
 
 ??? tip "Configuration: mosaic-T Settings"
@@ -154,8 +154,8 @@ The jack to the mosaic-T allows users to provide internet access and power; it s
 An &micro;SD card slot is available for users to log and store data, locally on the board. Users will need to insert a compatible SD card and configure the mosaic-T module for data logging.
 
 <figure markdown>
-[![GPSDO SD card slot](./assets/img/hookup_guide/assembly-sd_card.jpg){ width="400" }](./assets/img/hookup_guide/assembly-sd_card.jpg "Click to enlarge")
-<figcaption markdown>Inserting an SD card into the GPSDO.</figcaption>
+[![GNSSDO SD card slot](./assets/img/hookup_guide/assembly-sd_card.jpg){ width="400" }](./assets/img/hookup_guide/assembly-sd_card.jpg "Click to enlarge")
+<figcaption markdown>Inserting an SD card into the GNSSDO.</figcaption>
 </figure>
 
 !!! info "SD Card Compatibility"
@@ -184,7 +184,7 @@ An &micro;SD card slot is available for users to log and store data, locally on 
 
 
 ## IO Terminals
-Users can easily attach accessories to the GPSDO by wiring them into the terminal blocks on the back of the enclosure.
+Users can easily attach accessories to the GNSSDO by wiring them into the terminal blocks on the back of the enclosure.
 
 <figure markdown>
 [![Terminal Block](./assets/img/hookup_guide/assembly-terminal_block2.jpg){ width="400" }](./assets/img/hookup_guide/assembly-terminal_block2.jpg "Click to enlarge")
@@ -193,7 +193,7 @@ Users can easily attach accessories to the GPSDO by wiring them into the termina
 
 
 ??? tip "Multiple Connections"
-	For multiple connections or wiring harnesses, users can disconnect the terminal block from its socket on the GPSDO.
+	For multiple connections or wiring harnesses, users can disconnect the terminal block from its socket on the GNSSDO.
 
 	<figure markdown>
 	[![Disassembled Terminal Block](https://cdn.sparkfun.com/c/600-400/assets/parts/2/2/5/2/5/22461-_PRT_10-Way_Terminal___Socket-_01.jpg){ width="400" }](https://cdn.sparkfun.com/assets/parts/2/2/5/2/5/22461-_PRT_10-Way_Terminal___Socket-_01.jpg "Click to enlarge")
@@ -224,7 +224,7 @@ Users can easily attach accessories to the GPSDO by wiring them into the termina
 
 	<figure markdown>
 	[![Terminal Block](./assets/img/hookup_guide/assembly-terminal_block-attach.jpg){ width="400" }](./assets/img/hookup_guide/assembly-terminal_block-attach.jpg "Click to enlarge")
-	<figcaption markdown>Attaching the terminal block to its socket on the GPSDO.</figcaption>
+	<figcaption markdown>Attaching the terminal block to its socket on the GNSSDO.</figcaption>
 	</figure>
 
 	</div>
@@ -232,7 +232,7 @@ Users can easily attach accessories to the GPSDO by wiring them into the termina
 	</div>
 
 	!!! warning
-		To avoid shorts or damaging the GPSDO, verify the wiring with the labels on the back of the enclosure.
+		To avoid shorts or damaging the GNSSDO, verify the wiring with the labels on the back of the enclosure.
 
 
 

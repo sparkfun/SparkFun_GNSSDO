@@ -1,1 +1,0 @@
-arduino-cli compile --fqbn "esp32:esp32:esp32":DebugLevel=verbose GPSDO_Firmware.ino --warnings default --build-property build.partitions=app3M_fat9M_16MB --build-property upload.maximum_size=3145728 --build-property "compiler.cpp.extra_flags=-MMD -c \"-DFIRMWARE_VERSION_MAJOR=9\" \"-DFIRMWARE_VERSION_MINOR=9\"" --export-binaries
