@@ -623,7 +623,7 @@ void printCurrentConditions(bool CSV)
             systemPrint(",");
             systemPrint((const char *)rxClkBiasSource),
 
-            systemPrintf(",%ld", myTCXO.getFrequencyControlWord());
+            systemPrintf(",%lld", getFrequencyControlWord());
             
             systemPrint(",");
             systemPrint(settings.Pk, 3);
@@ -673,7 +673,7 @@ void printCurrentConditions(bool CSV)
             systemPrint((const char *)rxClkBiasSource),
 
             systemPrint(", TCXO Control: ");
-            systemPrint(myTCXO.getFrequencyControlWord());
+            systemPrint(getFrequencyControlWord());
             
             systemPrintln();
         }

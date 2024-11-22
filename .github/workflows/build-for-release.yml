@@ -6,7 +6,7 @@ on:
 env:
   FILENAME_PREFIX: GNSSDO_Firmware
   FIRMWARE_VERSION_MAJOR: 1
-  FIRMWARE_VERSION_MINOR: 0
+  FIRMWARE_VERSION_MINOR: 2
   CORE_VERSION: 3.0.1
 
 jobs:
@@ -72,13 +72,17 @@ jobs:
           "SparkFun Qwiic OLED Arduino Library"@1.0.13
           "SparkFun Toolkit"@0.9.2
       #    "SparkFun SiT5358 DCTCXO Arduino Library"@1.0.0
+      #    "SparkFun SiT5811 OCXO Arduino Library"@1.0.0
+      #    "SparkFun STP3593LF OCXO Arduino Library"@1.0.0
 
       - name: Enable external libs
         run: arduino-cli config set library.enable_unsafe_install true
 
       - name: Get Libraries
         run: arduino-cli lib install --git-url
-          https://github.com/sparkfun/SparkFun_SiT5358_DCTCXO_Arduino_Library.git          
+          https://github.com/sparkfun/SparkFun_SiT5358_DCTCXO_Arduino_Library.git
+          https://github.com/sparkfun/SparkFun_SiT5811_OCXO_Arduino_Library.git
+          https://github.com/sparkfun/SparkFun_STP3593LF_OCXO_Arduino_Library.git
 
       - name: Copy custom app3M_fat9M_16MB.csv
         run:

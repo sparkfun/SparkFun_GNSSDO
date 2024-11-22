@@ -146,11 +146,13 @@ void updateSystemState()
                     if (tcxoUpdates > 3600)
                     {
                         tcxoUpdates = 0;
-                        settings.tcxoControl = myTCXO.getFrequencyControlWord();
+                        settings.tcxoControl = getFrequencyControlWord();
                         recordSystemSettings();
 
                         systemPrint("TCXO Control Word saved to LFS: ");
                         systemPrintln(settings.tcxoControl);
+
+                        saveTCXO(); // Tell the TCXO to save its frequency control word - if supported
                     }
                 }
                 else

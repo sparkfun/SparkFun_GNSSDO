@@ -19,6 +19,7 @@
        On the v1.0 PCB, link:
        mosaic COM3 TX (TX3) to ESP32 GPIO 34
        mosaic COM3 RX (RX3) to ESP32 GPIO 23
+  1.2: Add support for SiT5811 and STP3593LF oscillators
 */
 
 // This is passed in from compiler extra flags
@@ -36,6 +37,8 @@
 //    the minor firmware version
 #define RTK_IDENTIFIER (FIRMWARE_VERSION_MAJOR * 0x10 + FIRMWARE_VERSION_MINOR)
 
+#include <Arduino.h>
+#include <Wire.h>
 #include "settings.h"
 
 #define MAX_CPU_CORES 2
@@ -204,10 +207,7 @@ DisplayType displayType = DISPLAY_MAX_NONE;
 
 // DCTCXO
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-#include <SparkFun_Toolkit.h> // Click here to get the library: http://librarymanager/All#SparkFun_Toolkit
-#include <SparkFun_SiT5358.h> // Click here to get the library: http://librarymanager/All#SparkFun_SiT5358
-
-SfeSiT5358ArdI2C myTCXO;
+GNSSDO_TCXO *myTCXO;
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 

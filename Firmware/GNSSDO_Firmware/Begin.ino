@@ -514,37 +514,42 @@ void pinI2C2Task(void *pvParameters)
 
 void beginTCXO(TwoWire *i2cBus)
 {
-    if (i2cBus == nullptr)
+    if (!i2cBus)
         reportFatalError("Illegal TCXO i2cBus");
 
-    if (!myTCXO.begin(*i2cBus, SFE_GNSSDO_OSC_SIT5358)) // Initialize the SiT5358
+    // In order of priority: use STP3593LF or SiT5811 if present
+    if (presentSTP3593LF)
+    {
+        myTCXO = (GNSSDO_TCXO *) new GNSSDO_STP3593LF();
+
+        if (!myTCXO->begin(*i2cBus, SFE_GNSSDO_OSC_STP3593LF))
+            return;
+        
+        systemPrintln("Using STP3593LF OCXO");
+    }
+    else if (presentSIT5811)
+    {
+        myTCXO = (GNSSDO_TCXO *) new GNSSDO_SIT5811();
+
+        if (!myTCXO->begin(*i2cBus, SFE_GNSSDO_OSC_SIT5811))
+            return;
+
+        systemPrintln("Using SiT5811 OCXO");
+    }
+    else if (presentSIT5358)
+    {
+        myTCXO = (GNSSDO_TCXO *) new GNSSDO_SIT5358();
+
+        if (!myTCXO->begin(*i2cBus, SFE_GNSSDO_OSC_SIT5358))
+            return;
+
+        systemPrintln("Using SiT5358 TCXO");
+    }
+    else
+    {
+        // No TCXO present!
         return;
-
-    myTCXO.setBaseFrequencyHz(10000000.0); // Pass the oscillator base frequency into the driver
-
-    systemPrint("TCXO base frequency set to ");
-    systemPrint(myTCXO.getBaseFrequencyHz());
-    systemPrintln(" Hz");
-
-    myTCXO.setPullRangeControl(SiT5358_PULL_RANGE_6ppm25); // Set the pull range control to 6.25ppm
-
-    systemPrint("TCXO pull range control set to ");
-    systemPrintln(myTCXO.getPullRangeControlText(myTCXO.getPullRangeControl()));
-
-    myTCXO.setMaxFrequencyChangePPB(3.0); // Set the maximum frequency change in PPB
-
-    systemPrint("TCXO maximum frequency change set to ");
-    systemPrint(myTCXO.getMaxFrequencyChangePPB());
-    systemPrintln(" PPB");
-
-    myTCXO.setFrequencyControlWord(settings.tcxoControl);
-
-    systemPrint("TCXO frequency control word set to ");
-    systemPrintln(myTCXO.getFrequencyControlWord());
-
-    systemPrint("TCXO frequency is ");
-    systemPrint(myTCXO.getFrequencyHz(), 6);
-    systemPrintln(" Hz");
+    }
 
     online.tcxo = true;
 }
@@ -554,8 +559,27 @@ void updateTCXO()
 {
     if (online.tcxo)
     {
-        myTCXO.setFrequencyByBiasMillis(tcxoClockBias_ms, settings.Pk, settings.Ik);
+        myTCXO->setFrequencyByBiasMillis(tcxoClockBias_ms, settings.Pk, settings.Ik);
     }
+}
+
+// This function tells the TCXO to save its control value - if supported
+void saveTCXO()
+{
+    if (online.tcxo)
+    {
+        myTCXO->saveFrequencyControlValue();
+    }
+}
+
+int64_t getFrequencyControlWord()
+{
+    if (online.tcxo)
+    {
+        return myTCXO->getFrequencyControlWord();
+    }
+
+    return 0;
 }
 
 // This function updates the tcxoClockBias_ms used to discipline the TCXO frequency

@@ -90,7 +90,7 @@ void recordSystemSettingsToFile(File *settingsFile)
     settingsFile->printf("%s=%d\r\n", "ppsMaxSyncAge_s", settings.ppsMaxSyncAge_s);
     settingsFile->printf("%s=%0.6f\r\n", "ppsPulseWidth_ms", settings.ppsPulseWidth_ms);
 
-    settingsFile->printf("%s=%ld\r\n", "tcxoControl", settings.tcxoControl);
+    settingsFile->printf("%s=%lld\r\n", "tcxoControl", settings.tcxoControl);
     settingsFile->printf("%s=%0.3e\r\n", "rxClkBiasInitialLimit_ms", settings.rxClkBiasInitialLimit_ms);
     settingsFile->printf("%s=%0.3e\r\n", "rxClkBiasLockLimit_ms", settings.rxClkBiasLockLimit_ms);
     settingsFile->printf("%s=%d\r\n", "rxClkBiasLimitCount", settings.rxClkBiasLimitCount);

@@ -1,6 +1,11 @@
 #ifndef __SETTINGS_H__
 #define __SETTINGS_H__
 
+#include "GNSSDO_TCXO.h"
+#include "SiT5358_TCXO.h"
+#include "SiT5811_OCXO.h"
+#include "STP3593LF_OCXO.h"
+
 // System can enter a variety of states
 typedef enum
 {
@@ -275,7 +280,7 @@ typedef struct
     int ppsMaxSyncAge_s = 60;
     float ppsPulseWidth_ms = 5.0;
 
-    int32_t tcxoControl = 0; // Store the TCXO control word - to aid locking after power off
+    int64_t tcxoControl = 0; // Store the TCXO control word - to aid locking after power off
     double rxClkBiasInitialLimit_ms = 1.0e-3; // Consider the clock bias 'bad' when > this many ms. Default: 1.0us (1.0e-3ms)
     double rxClkBiasLockLimit_ms = 10.0e-6; // Consider the clock locked when the bias is <= this many ms. Default: 10.0ns (10.0e-6ms)
     int rxClkBiasLimitCount = 3; // Consider the clock locked when the bias is <= rxClkBiasLockLimit_ms for this many successive readings. Default: 3
