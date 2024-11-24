@@ -266,7 +266,7 @@ typedef struct
     bool enablePrintRtcSync = false;
     bool enablePrintIdleTime = false;
     uint8_t enablePrintConditions = 2; // 0 : disabled; 1 : enabled (text); 2 : enabled (CSV)
-    bool enablePrintConsumers = true;
+    bool enablePrintConsumers = false;
     uint32_t periodicPrintInterval_ms = 1000;
     bool enablePrintGNSSMessages = false;
     bool enablePrintRingBufferOffsets = false;
