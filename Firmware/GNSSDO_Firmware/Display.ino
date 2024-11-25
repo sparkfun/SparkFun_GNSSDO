@@ -169,12 +169,21 @@ void updateDisplay()
             oled->print(textLine);
             yPos += 8;
 
-            if ((tcxoClockBias_ms >= 1.0) || (tcxoClockBias_ms <= -1.0))
+            if (tcxoClockBias_ms >= 1.0)
+                snprintf(textLine, sizeof(textLine), "Bias  +%.3fms",
+                    (float)tcxoClockBias_ms);
+            else if (tcxoClockBias_ms <= -1.0)
                 snprintf(textLine, sizeof(textLine), "Bias  %.3fms",
                     (float)tcxoClockBias_ms);
-            else if ((tcxoClockBias_ms >= 0.001) || (tcxoClockBias_ms <= -0.001))
+            else if (tcxoClockBias_ms >= 0.001)
+                snprintf(textLine, sizeof(textLine), "Bias  +%.3fus",
+                    (float)(tcxoClockBias_ms * 1000.0));
+            else if (tcxoClockBias_ms <= -0.001)
                 snprintf(textLine, sizeof(textLine), "Bias  %.3fus",
                     (float)(tcxoClockBias_ms * 1000.0));
+            else if (tcxoClockBias_ms >= 0.0)
+                snprintf(textLine, sizeof(textLine), "Bias  +%.3fns",
+                    (float)(tcxoClockBias_ms * 1000000.0));
             else
                 snprintf(textLine, sizeof(textLine), "Bias  %.3fns",
                     (float)(tcxoClockBias_ms * 1000000.0));
