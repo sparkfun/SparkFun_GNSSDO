@@ -24,6 +24,10 @@ class GNSSDO_STP3593LF : GNSSDO_TCXO
 
         // Save the frequency control word - if supported
         bool saveFrequencyControlValue(void);
+
+        // Get the default P and I terms - for the default settings
+        double getDefaultFrequencyByBiasPTerm(void) { return (1.0 / 6.25); }
+        double getDefaultFrequencyByBiasITerm(void) { return ((1.0 / 6.25) / 150.0); }
 };
 
 #endif // /__SFE_GNSSDO_STP3593LF_TCXO__

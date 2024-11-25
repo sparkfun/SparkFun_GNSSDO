@@ -10,7 +10,7 @@ bool GNSSDO_STP3593LF::begin(TwoWire &wirePort, const uint8_t &address)
 
     // Don't restore the frequency control word with the saved value from settings.
     // Assume saveFrequencyControlValue has done its job and that the control word
-    // has already been restored.
+    // has already been restored by the OCXO.
 
     return true;
 }

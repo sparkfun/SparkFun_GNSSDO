@@ -524,6 +524,15 @@ void beginTCXO(TwoWire *i2cBus)
 
         if (!myTCXO->begin(*i2cBus, SFE_GNSSDO_OSC_STP3593LF))
             return;
+
+        if (settings.lastSeenTCXO != SFE_GNSSDO_OSC_STP3593LF)
+        {
+            // Update the default P and I terms to match a new oscillator
+            settings.lastSeenTCXO = SFE_GNSSDO_OSC_STP3593LF;
+            settings.Pk = myTCXO->getDefaultFrequencyByBiasPTerm();
+            settings.Ik = myTCXO->getDefaultFrequencyByBiasITerm();
+            recordSystemSettings();
+        }
         
         systemPrintln("Using STP3593LF OCXO");
     }
@@ -534,6 +543,15 @@ void beginTCXO(TwoWire *i2cBus)
         if (!myTCXO->begin(*i2cBus, SFE_GNSSDO_OSC_SIT5811))
             return;
 
+        if (settings.lastSeenTCXO != SFE_GNSSDO_OSC_SIT5811)
+        {
+            // Update the default P and I terms to match a new oscillator
+            settings.lastSeenTCXO = SFE_GNSSDO_OSC_SIT5811;
+            settings.Pk = myTCXO->getDefaultFrequencyByBiasPTerm();
+            settings.Ik = myTCXO->getDefaultFrequencyByBiasITerm();
+            recordSystemSettings();
+        }
+        
         systemPrintln("Using SiT5811 OCXO");
     }
     else if (presentSIT5358)
@@ -543,6 +561,15 @@ void beginTCXO(TwoWire *i2cBus)
         if (!myTCXO->begin(*i2cBus, SFE_GNSSDO_OSC_SIT5358))
             return;
 
+        if (settings.lastSeenTCXO != SFE_GNSSDO_OSC_SIT5358)
+        {
+            // Update the default P and I terms to match a new oscillator
+            settings.lastSeenTCXO = SFE_GNSSDO_OSC_SIT5358;
+            settings.Pk = myTCXO->getDefaultFrequencyByBiasPTerm();
+            settings.Ik = myTCXO->getDefaultFrequencyByBiasITerm();
+            recordSystemSettings();
+        }
+        
         systemPrintln("Using SiT5358 TCXO");
     }
     else

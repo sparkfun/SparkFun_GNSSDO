@@ -24,6 +24,10 @@ class GNSSDO_SIT5358 : GNSSDO_TCXO
 
         // Save the frequency control word - if supported
         bool saveFrequencyControlValue(void);
+
+        // Get the default P and I terms - for the default settings
+        double getDefaultFrequencyByBiasPTerm(void) { return 0.63; }
+        double getDefaultFrequencyByBiasITerm(void) { return 0.151; }
 };
 
 #endif // /__SFE_GNSSDO_SIT5358_TCXO__

@@ -284,10 +284,9 @@ typedef struct
     double rxClkBiasInitialLimit_ms = 1.0e-3; // Consider the clock bias 'bad' when > this many ms. Default: 1.0us (1.0e-3ms)
     double rxClkBiasLockLimit_ms = 10.0e-6; // Consider the clock locked when the bias is <= this many ms. Default: 10.0ns (10.0e-6ms)
     int rxClkBiasLimitCount = 3; // Consider the clock locked when the bias is <= rxClkBiasLockLimit_ms for this many successive readings. Default: 3
-    // The default values for Pk and Ik come from very approximate Ziegler-Nichols tuning of the SiT5358:
-    //   oscillation starts when Pk is ~1.4; with a period of ~5 seconds.
-    double Pk = 0.63; // PI P term
-    double Ik = 0.151; // PI I term
+    double Pk = 0.63; // PI P term (default for the SiT5358 - updated if needed by beginTCXO)
+    double Ik = 0.151; // PI I term (default for the SiT5358 - updated if needed by beginTCXO)
+    uint8_t lastSeenTCXO = 0; // Use this to identify a change of oscillator (by its I2C address)
     bool preferNonCompositeGPSBias = false; // Prefer non-composite GPS bias - if available. Mutex with preferNonCompositeGalileoBias
     bool preferNonCompositeGalileoBias = false; // Prefer non-composite Galileo bias - if available. Mutex with preferNonCompositeGPSBias
     bool enableTCPServer = false; // Enable and configure mosaic-T IPS1 for TCP2way for the ESP32 console
