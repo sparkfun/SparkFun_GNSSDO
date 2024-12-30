@@ -313,7 +313,7 @@ Everything that is included in the GNSSDO kit.
 * [USB A and C Power Delivery (PD) Wall Adapter - 65W](https://www.sparkfun.com/products/24059)
 * [USB-C Cable (A to C, 2m)](https://www.sparkfun.com/products/15424)
 * [Ethernet Cable (CAT-6, 1m)](https://www.sparkfun.com/products/8915)
-* SMA to BNC Cable (RG316, 1m)
+* [SMA to BNC Cable (RG316, 1m)](https://www.sparkfun.com/products/27480)
 
 </div>
 
