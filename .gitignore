@@ -2,10 +2,7 @@
 ## SparkFun Useful stuff
 #################
 
-*.ino.bin
-*.bootloader.bin
-*.merged.bin
-*.partitions.bin
+Firmware/GNSSDO_Firmware/build/
 
 *backups*
 
