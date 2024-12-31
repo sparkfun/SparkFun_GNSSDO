@@ -407,7 +407,7 @@ void pinI2C1Task(void *pvParameters)
                 }
 
                 case 0x3d: {
-                    systemPrintf("0x%02x - SSD1306 (64x48) OLED Driver\r\n", addr);
+                    systemPrintf("0x%02x - SSD1306 OLED Driver\r\n", addr);
                     i2cDisplay = i2c_1;
                     break;
                 }

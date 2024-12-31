@@ -206,7 +206,7 @@ void displaySplash()
 
         oled->erase();
 
-        int yPos = 0;
+        uint8_t yPos = (oled->getHeight() - 36) / 2;
 
         printTextCenter("SparkPNT", yPos, QW_FONT_8X16, 1, false); // text, y, font type, kerning, inverted
 
