@@ -3,7 +3,7 @@
   SparkFun Electronics
   Paul Clark
 
-  This is the firmware for the SparkFun GNSSDO.
+  This is the firmware for the SparkFun SparkPNT GNSSDO.
   It runs on an ESP32 and communicates with the mosaic-T and SiT5358.
 
   Compiled with Arduino v1.8.19 with ESP32 core v3.0.1.
@@ -359,7 +359,7 @@ void setup()
     }
 
     DMW_c("displaySplash");
-    displaySplash(); // Display the RTK product name and firmware version
+    displaySplash(); // Display the product name and firmware version
 
     DMW_c("beginFS");
     beginFS(); // Start LittleFS file system for settings

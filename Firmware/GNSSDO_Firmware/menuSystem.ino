@@ -177,7 +177,7 @@ void menuDebugSoftware()
         }
         else if (incoming == 21)
         {
-            systemPrintln("Warning: changing the Handler Buffer Size will restart the RTK. Enter 0 to abort");
+            systemPrintln("Warning: changing the Handler Buffer Size will cause a restart. Enter 0 to abort");
             systemPrint("Enter GNSS Handler Buffer Size in Bytes (32 to 65535): ");
             int queSize = getNumber(); // Returns EXIT, TIMEOUT, or long
             if ((queSize != INPUT_RESPONSE_GETNUMBER_EXIT) && (queSize != INPUT_RESPONSE_GETNUMBER_TIMEOUT))
@@ -215,7 +215,7 @@ void menuDebugSoftware()
         }
         else if (incoming == 23)
         {
-            systemPrintln("Warning: changing the Receive Buffer Size will restart the RTK. Enter 0 to abort");
+            systemPrintln("Warning: changing the Receive Buffer Size will cause a restart. Enter 0 to abort");
             systemPrint("Enter UART Receive Buffer Size in Bytes (32 to 16384): ");
             int queSize = getNumber(); // Returns EXIT, TIMEOUT, or long
             if ((queSize != INPUT_RESPONSE_GETNUMBER_EXIT) && (queSize != INPUT_RESPONSE_GETNUMBER_TIMEOUT))

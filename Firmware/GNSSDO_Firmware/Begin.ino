@@ -133,7 +133,7 @@ void beginBoard()
 
     char versionString[21];
     getFirmwareVersion(versionString, sizeof(versionString));
-    systemPrintf("SparkFun RTK %s %s\r\n", platformPrefix, versionString);
+    systemPrintf("SparkPNT %s %s\r\n", platformPrefix, versionString);
 
     // Get unit MAC address
     esp_read_mac(wifiMACAddress, ESP_MAC_WIFI_STA);

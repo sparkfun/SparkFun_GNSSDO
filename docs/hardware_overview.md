@@ -431,7 +431,7 @@ The Event A SMA connector is standard polarity. The voltage is adjustable via th
 
 
 ## I/O Terminals
-The RTK moasic-T is equipped with a [10-way 3.5mm screw cage terminal connector](https://www.sparkfun.com/products/22461).
+The GNSSDO is equipped with a [10-way 3.5mm screw cage terminal connector](https://www.sparkfun.com/products/22461).
 
 <div class="grid" markdown>
 
@@ -741,7 +741,7 @@ There are three buttons on the GNSSDO: ++"RESET"++, ++"BOOT"++, and ++"LOG"++.
 
 	</div>
 
-There are several jumpers on the RTK moasic-T PCB which can be used to (e.g.) disable the LEDs or allow measurement of the board's current draw.
+There are several jumpers on the GNSSDO PCB which can be used to (e.g.) disable the LEDs or allow measurement of the board's current draw.
 
 <div class="grid" markdown>
 

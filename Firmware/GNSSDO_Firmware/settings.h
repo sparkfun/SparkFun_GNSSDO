@@ -230,7 +230,7 @@ const uint8_t DisplayHeight[DISPLAY_MAX_NONE] = { 48, 64 };
 
 // These are the allowable messages to broadcast and log (if enabled)
 
-// This is all the settings that can be set on RTK Surveyor. It's recorded to NVM and the config file.
+// This is all the firmware settings. It's recorded to NVM and the config file.
 typedef struct
 {
     int sizeOfSettings = 0; // sizeOfSettings **must** be the first entry and must be int

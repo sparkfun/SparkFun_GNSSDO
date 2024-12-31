@@ -263,7 +263,7 @@ bool parseLine(char *str, Settings *settings)
             factoryReset(true); // We already have the SD semaphore
         }
 
-        // Check to see if this setting file is compatible with this version of RTK Surveyor
+        // Check to see if this setting file is compatible with this version of firmware
         if (d != sizeof(Settings))
             systemPrintf("Settings size is %d but current firmware expects %d. Attempting to use settings from file.\r\n", (int)d,
                   sizeof(Settings));

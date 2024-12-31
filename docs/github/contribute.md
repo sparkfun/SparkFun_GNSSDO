@@ -1,15 +1,15 @@
 # Contribute: Make an Augmentation!
-Spot an improvement opportunity? Feel free to contribute to our open-source design and documentation. <a href="https://github.com/sparkfun/SparkFun_RTK_mosaic-X5/pulls" alt="Pull Requests"><img src="https://img.shields.io/github/issues-pr/sparkfun/SparkFun_RTK_mosaic-X5.svg" /></a>
+Spot an improvement opportunity? Feel free to contribute to our open-source design and documentation. <a href="https://github.com/sparkfun/SparkFun_GNSSDO/pulls" alt="Pull Requests"><img src="https://img.shields.io/github/issues-pr/sparkfun/SparkFun_GNSSDO.svg" /></a>
 
 ## :material-file-document-multiple:&nbsp;Improve our Documentation
 All of this documentation can be modified by you! Please help us make it better.
 
-* These pages are contained in the [`docs` folder](https://github.com/sparkfun/SparkFun_RTK_mosaic-X5/tree/main/docs) of the [SparkFun RTK mosaic-X5 repository](https://github.com/sparkfun/SparkFun_RTK_mosaic-X5).
+* These pages are contained in the [`docs` folder](https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/docs) of the [SparkFun GNSSDO repository](https://github.com/sparkfun/SparkFun_GNSSDO).
 
 <!-- ### :material-source-pull:&nbsp;Submit a Correction -->
 ### Submit a Correction
 
-1. With a GitHub account, [fork this repository](https://github.com/sparkfun/SparkFun_RTK_mosaic-X5/fork).
+1. With a GitHub account, [fork this repository](https://github.com/sparkfun/SparkFun_GNSSDO/fork).
 2. Add your corrections or improvements to the markdown file.
 3. File a pull request with your changes, and enjoy making the ~~words~~ ~~worlds~~ world a better place.
 	* Once received, the documentation specialist will automatically be notified.
@@ -18,12 +18,12 @@ All of this documentation can be modified by you! Please help us make it better.
 ## :material-cog:&nbsp;Improve our Hardware Design
 All of our designs are open-source! Please help us make it better.
 
-* Our board design files are contained in the [`Hardware` folder](https://github.com/sparkfun/SparkFun_RTK_mosaic-X5/tree/main/Hardware) of the [SparkFun RTK mosaic-X5 repository](https://github.com/sparkfun/SparkFun_RTK_mosaic-X5).
+* Our board design files are contained in the [`Hardware` folder](https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/Hardware) of the [SparkFun GNSSDO repository](https://github.com/sparkfun/SparkFun_GNSSDO).
 
 <!-- ### :material-source-pull:&nbsp;Submit a Design Enhancement -->
 ### Submit a Design Enhancement
 
-1. With a GitHub account, [fork this repository](https://github.com/sparkfun/SparkFun_RTK_mosaic-X5/fork).
+1. With a GitHub account, [fork this repository](https://github.com/sparkfun/SparkFun_GNSSDO/fork).
 2. Add your design augmentation(s)
 3. File a pull request with your changes, and enjoy making the ~~words~~ ~~worlds~~ world a better place.
 	1. Once received, the engineer in charge of the original design will automatically be notified.
@@ -36,6 +36,6 @@ All of our designs are open-source! Please help us make it better.
 ## Contributors&nbsp;:clap:
 Let's provide some recognition to the contributors for this project!
 
-![GitHub Contributors Image](https://contrib.rocks/image?repo=sparkfun/SparkFun_RTK_mosaic-X5)
+![GitHub Contributors Image](https://contrib.rocks/image?repo=sparkfun/SparkFun_GNSSDO)
 <br>
-<a href="https://github.com/sparkfun/SparkFun_RTK_mosaic-X5/pulls" alt="Pull Requests"><img src="https://img.shields.io/github/contributors/sparkfun/SparkFun_RTK_mosaic-X5.svg" /></a>
+<a href="https://github.com/sparkfun/SparkFun_GNSSDO/pulls" alt="Pull Requests"><img src="https://img.shields.io/github/contributors/sparkfun/SparkFun_GNSSDO.svg" /></a>

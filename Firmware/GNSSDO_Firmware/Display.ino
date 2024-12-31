@@ -207,17 +207,13 @@ void displaySplash()
         oled->erase();
 
         int yPos = 0;
-        int fontHeight = 8;
 
-        printTextCenter("SparkFun", yPos, QW_FONT_5X7, 1, false); // text, y, font type, kerning, inverted
+        printTextCenter("SparkPNT", yPos, QW_FONT_8X16, 1, false); // text, y, font type, kerning, inverted
 
-        yPos = yPos + fontHeight + 2;
-        printTextCenter("RTK", yPos, QW_FONT_8X16, 1, false);
-
-        yPos = yPos + fontHeight + 5;
+        yPos = yPos + 13;
         printTextCenter(productDisplayNames[productVariant], yPos, QW_FONT_8X16, 1, false);
 
-        yPos = yPos + fontHeight + 7;
+        yPos = yPos + 15;
         char unitFirmware[50];
         getFirmwareVersion(unitFirmware, sizeof(unitFirmware));
         printTextCenter(unitFirmware, yPos, QW_FONT_5X7, 1, false);
