@@ -37,6 +37,42 @@ icon: material/book-open-page-variant
 !!! warning "RTK Base"
 	The mosaic-T is a superb GNSS module designed for highly accurate timing applications. It can be configured as a RTK Rover and will make use of incoming RTCM corrections. **But it can not be configured as a RTK Base. RTCM output is not supported.**
 
+## :fontawesome-solid-screwdriver-wrench:&nbsp;Features
+
+- Septentrio mosaic-T multi-constellation, multi-frequency GNSS timing receiver
+    - Accurate and resilient with dedicated timing features
+    - Highly secure against jamming and spoofing with AIM+ unique interference mitigation technology combined with Fugro AtomiChron services
+    - Update rate of 10 Hz
+    - 448 hardware channels for simultaneous tracking of all visible supported satellite signals:
+        - GPS: L1C/A, L1PY, L2C, L2P, L5
+        - GLONASS: L1CA, L2CA, L2P, L3 CDMA
+        - Beidou: B1I, B1C, B2a, B2b, B2I, B3
+        - Galileo: E1, E5a, E5b, E5 AltBoc, E6
+        - QZSS: L1C/A, L1 C/B, L2C, L5
+        - NavIC: L5
+        - SBAS: Egnos, WAAS, GAGAN, MSAS, SDCM (L1, L5)
+        - On-module L-band
+    - Supports RTCM input for RTK Rover. **RTCM output (RTK Base) is not supported.**
+    - Time pulse precision: 5ns
+    - Time pulse precision with AtomiChron (L-Band or IP): < 1ns
+    - Event accuracy: < 20ns
+    - Operating temperature: -40 to 85 °C
+    - USB-C interface (UART and Ethernet-over-USB)
+- ESP32-WROVER processor (16MB flash, 8MB PSRAM)
+    - USB-C interface (UART via CH340)
+- SiT5358 disciplined 10MHz oscillator
+    - ±50ppb stability
+    - ±1ppb/°C frequency slope
+    - ±58ppb typical 20-year aging
+    - Digital frequency pulling via I²C
+    - [Allan Deviation](./assets/img/hookup_guide/Allan_Deviation.jpg) approaches 1E-14 at 10000 seconds with AtomiChron enabled
+    - Operating temperature: -40 to 85 °C (Industrial)
+- microSD socket
+    - Connected directly to the mosaic-T for fast data logging
+- OLED display
+    - 128x64 pixels
+- Status LEDs
+
 ## :fontawesome-solid-screwdriver-wrench:&nbsp;Connectivity
 
 - SMA Connections:
@@ -46,12 +82,15 @@ icon: material/book-open-page-variant
     - Pulse-Per-Second Square Wave - configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
     - EventA Input - configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
 -	3.5mm Screw Cage Connections:
-    - 9V-36V DC input
+    - 9V-36V DC input (isolated)
     - GND
     - mosaic-T COM2 (TX/RX/CTS/RTS) - 3.3V / 5V switchable
     - CTS can be configured as a 3.3V / 5V power output via a solder jumper
-    - EventA & EventB inputs - 3.3V / 5V switchable
-    - Pulse-Per-Second output - 3.3V / 5V switchable
+    - EventB input - 3.3V / 5V switchable
+	- I<sup>2</sup>C (SCL2 / SDA2) for an external TCXO / OCXO - 3.3V / 5V switchable
+-	Ethernet:
+	- KSZ8041NLI Ethernet PHY interface
+    - 10Base-T / 100Base-TX with auto-negotiate and Auto MDI/MDI-X
 -	Power Options:
     - USB-C
     - Power-over-Ethernet (PoE)

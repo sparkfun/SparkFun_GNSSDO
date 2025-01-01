@@ -16,6 +16,7 @@ The SiT5358 is a precision MEMS Super-TCXO optimized for ±50 ppb stability from
 * ±50ppb stability
 * ±1ppb/°C frequency slope
 * ±58ppb typical 20-year aging
+* [Allan Deviation](./assets/img/hookup_guide/Allan_Deviation.jpg) approaches 1E-14 at 10000 seconds with AtomiChron enabled
 * Digital frequency pulling via I²C
 * Operating temperature: -40 to 85 °C (Industrial)
 
@@ -44,15 +45,15 @@ The firmware waits until the **ReceiverTime SyncLevel FINETIME** bit is set, ind
 
 The firmware then monitors the **PVTGeodetic RxClkBias** (as 64-bit float in milliseconds). When **RxClkBias** is positive, receiver time is ahead of system time and the oscillator frequency should be reduced. When **RxClkBias** is negative, receiver time is behind system time and the oscillator frequency should be increased. The firmware will adjust the SiT5358 oscillator frequency via the 26-bit Digital Frequency Control register accordingly. As per Appendix D, the frequency will be changed by no more than 3ppb per second.
 
-The Proportional (P) and Integral (I) terms can be adjusted via the ESP32 firmware settings.
+The Proportional (P) and Integral (I) terms can be adjusted via the [ESP32 firmware settings](./software_overview.md#configure-operation).
 
 The **LOCK** LED will illuminate and PPS pulses will be generated when RxClkBias is less than 10ns. The OLED will show **PPS On** when pulses are being generated.
 
-* **setPPSParameters, Interval, Polarity, Delay, TimeScale, MaxSyncAge, PulseWidth**
-
 The 10ns lock threshold / limit can be changed by the user through the ESP32 USB-C interface and saved in non-volatile memory.
 
-The Pulse-Per-Second parameters can also be configured by the user through the USB-C interface: interval, polarity, delay, time scale, max sync age, pulse width.
+The Pulse-Per-Second parameters can also be configured by the user through the [ESP32 firmware settings](./software_overview.md#configure-operation): interval, polarity, delay, time scale, max sync age, pulse width.
+
+* **setPPSParameters, Interval, Polarity, Delay, TimeScale, MaxSyncAge, PulseWidth**
 
 Should **PVTGeodetic Error** indicate an error (i.e. become non-zero), the loop will continue but no changes will be made to the oscillator frequency until the error is cleared.
 

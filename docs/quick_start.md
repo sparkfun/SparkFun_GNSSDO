@@ -76,7 +76,7 @@ hide: toc
 	: * You can power the GNSSDO using the supplied USB power supply (wall adapter).
 		* Plug the power supply into the wall.
 		* Use the supplied USB-C cable to connect the power supply to either the **CONFIG MOSAIC** or the **CONFIG ESP32** USB-C port. It does not matter which.
-		* You should see the red power (PWR) LED light up and text start to scroll up the OLED display.
+		* You should see the red power (PWR) LED light up and text appear on the OLED display.
 
 	Once the mosaic-T has acquired a satellite signal and is connected to the Ethernet network, the OLED will display: the date and time; the antenna's position as Latitude (Lat) and Longitude (Long); the Ethernet IP (Internet Protocol) network address.
 
@@ -134,7 +134,7 @@ hide: toc
 
 === "<H2>:material-usb-port:&nbsp;mosaic-T USB-C</H2>"
 
-	The mosaic-T has a built-in high-speed USB port which supports Ethernet-over-USB. To take advantage of this interface, you first need to install the Septentrio drivers.
+	The mosaic-T has a built-in high-speed USB port which supports Ethernet-over-USB and two additional UART COM ports. To take advantage of this interface, you first need to install the Septentrio drivers.
 
 	<figure markdown>
 	[![USB Connections](./assets/img/hookup_guide/USB_Connections.png){ width="400" }](./assets/img/hookup_guide/USB_Connections.png "Click to enlarge")
@@ -197,7 +197,10 @@ hide: toc
 	`4` - **Open the terminal emulator**
 	: * Open the terminal emulator and connect to the CH340 COM port. Select **115200** as the baud rate.
 		* Once connected, you will see a debug message from the ESP32 every second. The message contains the date, time, Lat, Long and other information about the clock accuracy.
-		* Pressing any key will open the [configuration menu](./software_overview.md), allowing you to change the firmware settings if needed.
+		* Pressing any key will open the [configuration menu](./software_overview.md#fontawesome-solid-screwdriver-wrenchsoftware-settings), allowing you to change the firmware settings if needed.
+
+	!!! tip
+		Enabling the [**TCP Server (IPS1)**](./software_overview.md#tcp-server-ips1) option via the Configure Operation menu will allow you to access the firmware serial console via TCP. The firmware settings can then be accessed over the Ethernet or Ethernet-over-USB interfaces, instead of CONFIG ESP32 USB-C. The TCP port number can be changed via the menu; the default TCP port is 28785.
 
 	!!! tip "Not working?"
 		The following sections will help if your GNSSDO is not working as expected:

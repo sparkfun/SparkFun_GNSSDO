@@ -341,6 +341,7 @@ nav:
     - Hardware Assembly: hardware_assembly.md
     - Software Setup: software_overview.md
     - Oscillator: oscillator.md
+    - Fugro AtomiChron<sup>Ⓡ</sup>: atomichron.md
     - Enable the L5 Band: L5.md
   - Resources:
     - Hardware Resources: resources.md

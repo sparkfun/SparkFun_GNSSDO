@@ -7,24 +7,6 @@ SparkFun GNSSDO
 
 Designed and manufactured in Boulder, Colorado, USA, the SparkFun GNSS Disciplined Oscillator (GNSSDO) is the perfect solution for your high-precision timing needs. Based around the multi-constellation, multi-frequency, L5-ready mosaic-T from Septentrio, this is our most accurate GNSS timing product to date. It features a disciplined 10MHz Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO). The mosaic-T also has built-in on-module support for the Fugro AtomiChron L-band timing service.
 
-* SMA Connections:
-    * GNSS Antenna (L1/L2/L5/L-Band) - provides 3.3V for an active antenna
-    * 10MHz Output - disciplined, configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
-    * 10MHz Input - switchable, input impedance 50Ω, detection level -14dBm, max supported level +12dBm
-    * Pulse-Per-Second Square Wave - configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
-    * EventA Input - configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
-* 3.5mm Screw Cage Connections:
-    * 9V-36V DC input
-    * GND
-    * mosaic-T COM2 (TX/RX/CTS/RTS) - 3.3V / 5V switchable
-    * CTS can be configured as a 3.3V / 5V power output via a solder jumper
-    * EventB input - 3.3V / 5V switchable
-    * Secondary I<sup>2</sup>C bus (SCL and SDA) - 3.3V / 5V switchable
-* Power Options:
-    * USB-C
-    * Power-over-Ethernet (PoE)
-    * 9V-36V DC input (fully isolated)
-
 Under the hood, the GNSSDO is based on the mosaic-T GNSS module from Septentrio, plus the Espressif ESP32-WROVER processor (16MB flash, 8MB PSRAM). The mosaic-T has USB-C connectivity (with Ethernet-over-USB), multiple UARTs and supports full Ethernet connectivity. You can connect the mosaic-T directly to your Ethernet network - our product supports Power-over-Ethernet too. The ESP32 rides shotgun: disciplining the DCTCXO and controlling the OLED display. Remote configuration is possible, the ESP32 console can be accessed via TCP. The GNSSDO has multiple power options including USB-C, PoE and 9V-36V DC, making it easy to connect it to a battery-backed supply.
 
 RTK Base

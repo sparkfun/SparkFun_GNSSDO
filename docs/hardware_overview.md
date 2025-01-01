@@ -213,7 +213,7 @@ The GNSSDO can be powered individually or in combination, with any of the follow
 
 
 ## :septentrio-logo:&nbsp;mosaic-T
-The heart of our product is of course the mosaic-T GNSS module from Septentrio. It is a _very_ sophisticated chip with multiple interfaces: UARTS, USB and Ethernet. The `COM3` UART pins, plus `GPIO1` and `GPIO2`, are available as 0.1" test points should you need access to them.
+The heart of our product is of course the mosaic-T GNSS module from Septentrio. It is a _very_ sophisticated chip with multiple interfaces: UARTS, USB and Ethernet. The `GPIO1` and `GPIO2` pins are available as 0.1" test points should you need access to them.
 
 <figure markdown>
 [![mosaic T](./assets/img/hookup_guide/T.png){ width="400" }](./assets/img/hookup_guide/T.png "Click to enlarge")
@@ -221,14 +221,14 @@ The heart of our product is of course the mosaic-T GNSS module from Septentrio. 
 </figure>
 
 ## :espressif-logo:&nbsp;ESP32-WROVER
-The ESP32 processor is there to control (discipline) the 10 MHz TCXO oscillator and the OLED display. We have deliberately kept the ESP32 firmware as simple as possible. The intention is that you can write your own firmware using the Espressif IDF or Arduino IDE if you need to. The ESP32-WROVER-IE antenna is connected to the **ESP32** RP SMA connector on the rear panel but it is unused by the SparkFun firmware.
+The ESP32 processor is there to control (discipline) the 10 MHz TCXO oscillator and the OLED display. We have deliberately kept the ESP32 firmware as simple as possible. The intention is that you can write your own firmware using the Espressif IDF or Arduino IDE if you need to.
 
 <figure markdown>
 [![Espressif ESP32](./assets/img/hookup_guide/ESP32.png){ width="400" }](./assets/img/hookup_guide/ESP32.png "Click to enlarge")
 <figcaption markdown>The Espressif ESP32-WROVER processor.</figcaption>
 </figure>
 
-Think of the ESP32 as a co-processor, or riding shotgun... The mosaic-T `COM1` and `COM4` UARTs are linked to the ESP32, allowing the two to communicate directly without needing an Ethernet link. In our firmware, the PVTGeodetic and ReceiverTime messages are output on COM1. The ESP32 displays some of their content on the I<sup>2</sup>C OLED display, and then uses the content to discipline the TCXO oscillator. See [Oscillator](./oscillator.md) for more details.
+Think of the ESP32 as a co-processor, or riding shotgun... The mosaic-T `COM1`, `COM3` and `COM4` UARTs are linked to the ESP32, allowing the two to communicate directly without needing an Ethernet link. In our firmware, the PVTGeodetic and ReceiverTime messages are output on COM1. The ESP32 displays some of their content on the I<sup>2</sup>C OLED display, and then uses the content to discipline the TCXO oscillator. See [Oscillator](./oscillator.md) for more details.
 
 ??? code "ESP32 Firmware"
 	We have intentionally kept the ESP32 firmware as simple as possible. The intention is that users can easily develop their, own firmware for the GNSSDO using the Espressif ESP IDF or the Arduino IDE if the SparkFun firmware does not meet their needs.
@@ -236,6 +236,8 @@ Think of the ESP32 as a co-processor, or riding shotgun... The mosaic-T `COM1` a
 	The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/Firmware/Binaries)** folder contains the firmware binaries.
 	
 	You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
+
+	The ESP32-WROVER-IE antenna is not connected. If you write your own firmware and want to use BT/WiFi connectivity, you will need to attach your own antenna to the u.FL connector on the ESP32 module.
 
 ## Ethernet PHY Interface
 The mosaic-T has a KSZ8041NLI Ethernet PHY interface, connected using a Reduced Media-Independent Interface (RMII).
@@ -430,7 +432,7 @@ The Event A SMA connector is standard polarity. The voltage is adjustable via th
 	When selecting antennas and/or cables for the GNSSDO, double-check the polarity for the connections.
 
 
-## I/O Terminals
+## Input/Output Terminals
 The GNSSDO is equipped with a [10-way 3.5mm screw cage terminal connector](https://www.sparkfun.com/products/22461).
 
 <div class="grid" markdown>
@@ -585,6 +587,32 @@ These terminals are described in the tabs below. For more information on the I/O
 	!!! tip
 		The I<sup>2</sup>C voltage is set by the VCCIO voltage selection switch.
 
+## Switches
+There are two miniature slide switches on the GNSSDO PCB:
+
+<figure markdown>
+[![Switches](./assets/img/hookup_guide/Switches.png){ width="300" }](./assets/img/hookup_guide/Switches.png "Click to enlarge")
+<figcaption markdown>Switches.</figcaption>
+</figure>
+
+<div markdown>
+
+* `VCCIO`
+	* This switch sets the voltage of the Input Output Terminals (COM2 UART, Event B, SCL2 & SDA2)
+	* The I/O voltage can be set to 3.3V (default) or 5V.
+* `10MHz`
+	* This switch changes the function of the 10MHz SMA connector
+	* When set to `OUT` (default):
+		* The SMA connector will output a 10MHz "CMOS" disciplined clock signal
+		* The signal voltage is set by the VCCIO voltage selection switch
+	* When set to `IN`:
+		* The user can apply a clock signal from an external 10MHz oscillator
+		* The input impedance is 50Ω
+		* The detection level is -14dBm
+		* The max supported input level is +12dBm
+
+</div>
+
 ## Status LEDs
 There are six status LEDs on the GNSSDO:
 
@@ -704,6 +732,14 @@ There are three buttons on the GNSSDO: ++"RESET"++, ++"BOOT"++, and ++"LOG"++.
 	* Holding the ++"LOG"++ button for more than 5 seconds *(> 5s)* and then releasing it, will force the board to:
 		* Unmount the SD card if it was mounted
 		* Mount the SD card if it was unmounted
+	* The SD card must be mounted to allow data logging by the mosaic-T
+	* When the SD card is unmounted, it is accessible as a mass storage device via the CONFIG MOSAIC USB-C interface
+		* Files can be read and written over USB while the SD card is unmounted
+	* You can enter the commands using the `Admin \ Expert Console` to:
+		* Change what happens when the disk is full
+		* Change how the files are named
+		* Change the mounting / unmounting of the disk
+	* Consult section 3.2.20 of the [Firmware Reference Guide](https://www.septentrio.com/en/products/gnss-receivers/gnss-receiver-modules/mosaic-t#resources) for more details
 
 	!!! tip "Instructional Video"
 		:material-youtube: [How to log data to the SD card of the Septentrio mosaic receiver module](https://youtu.be/Y9tvOebnoxk)
