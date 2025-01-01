@@ -197,7 +197,7 @@ hide: toc
 	`4` - **Open the terminal emulator**
 	: * Open the terminal emulator and connect to the CH340 COM port. Select **115200** as the baud rate.
 		* Once connected, you will see a debug message from the ESP32 every second. The message contains the date, time, Lat, Long and other information about the clock accuracy.
-		* Pressing any key will open the [configuration menu](./software_overview.md#fontawesome-solid-screwdriver-wrenchsoftware-settings), allowing you to change the firmware settings if needed.
+		* Pressing any key will open the [configuration menu](./software_overview.md#software-settings), allowing you to change the firmware settings if needed.
 
 	!!! tip
 		Enabling the [**TCP Server (IPS1)**](./software_overview.md#tcp-server-ips1) option via the Configure Operation menu will allow you to access the firmware serial console via TCP. The firmware settings can then be accessed over the Ethernet or Ethernet-over-USB interfaces, instead of CONFIG ESP32 USB-C. The TCP port number can be changed via the menu; the default TCP port is 28785.

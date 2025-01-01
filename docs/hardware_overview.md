@@ -591,8 +591,8 @@ These terminals are described in the tabs below. For more information on the I/O
 There are two miniature slide switches on the GNSSDO PCB:
 
 <figure markdown>
-[![Switches](./assets/img/hookup_guide/Switches.png){ width="300" }](./assets/img/hookup_guide/Switches.png "Click to enlarge")
-<figcaption markdown>Switches.</figcaption>
+[![Switches](./assets/img/hookup_guide/Switches.png){ width="400" }](./assets/img/hookup_guide/Switches.png "Click to enlarge")
+<figcaption markdown>Switches</figcaption>
 </figure>
 
 <div markdown>
@@ -735,7 +735,7 @@ There are three buttons on the GNSSDO: ++"RESET"++, ++"BOOT"++, and ++"LOG"++.
 	* The SD card must be mounted to allow data logging by the mosaic-T
 	* When the SD card is unmounted, it is accessible as a mass storage device via the CONFIG MOSAIC USB-C interface
 		* Files can be read and written over USB while the SD card is unmounted
-	* You can enter the commands using the `Admin \ Expert Console` to:
+	* You can enter commands using the `Admin \ Expert Console` to:
 		* Change what happens when the disk is full
 		* Change how the files are named
 		* Change the mounting / unmounting of the disk

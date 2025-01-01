@@ -255,10 +255,7 @@ icon: material/book-open-page-variant
 		<td style="text-align:center">6-Pin JST Connector</td>
 		<td style="text-align:center">SMA Connector</td>
 		<td style="text-align:center">Screw Terminal</td>
-		<td style="text-align:center">
-			Screw Terminal<br>
-			SMA Connector
-		</td>
+		<td style="text-align:center">SMA Connector</td>
 	</tr>
 	<tr>
 		<td>10MHz Signal</td>
