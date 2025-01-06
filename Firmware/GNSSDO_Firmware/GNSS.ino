@@ -147,7 +147,7 @@ bool gnssHardReset()
 }
 
 // Initialize GNSS
-// Disable PPS. Set clock sync threshold. Set output messages. Copy config file.
+// Disable PPS. Set clock sync threshold. Set output messages. Enable Ethernet. Copy config file.
 // This only needs to be done once.
 bool initializeGNSS()
 {
@@ -161,7 +161,9 @@ bool initializeGNSS()
 
     int retries = 3; // GNSS is already begun. We shouldn't need to retry.
 
-    while (!sendWithResponse("eccf, RxDefault, Current\n\r", "CopyConfigFile") && (retries > 0)) // Restore defaults
+    // Restore default configuration
+    // Note: the IP settings set by the setIPSettings and setIPPortSettings commands keep their value
+    while (!sendWithResponse("eccf, RxDefault, Current\n\r", "CopyConfigFile") && (retries > 0))
     {
         systemPrintln("No response from mosaic. Retrying - with escape sequence...");
         sendWithResponse("SSSSSSSSSSSSSSSSSSSS\n\r", "COM4>"); // Send escape sequence
@@ -211,6 +213,13 @@ bool initializeGNSS()
         return false;
     }
 
+    if (!sendWithResponse("seth, on\n\r", "EthernetMode"))
+    {
+        systemPrintln("GNSS FAIL (EthernetMode)");
+        return false;
+    }
+
+    // Copy current configuration into boot
     if (!sendWithResponse("eccf, Current, Boot\n\r", "CopyConfigFile"))
     {
         systemPrintln("GNSS FAIL (CopyConfigFile)");
