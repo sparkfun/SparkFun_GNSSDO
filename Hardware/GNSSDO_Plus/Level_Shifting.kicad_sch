@@ -3736,16 +3736,6 @@
 	)
 	(wire
 		(pts
-			(xy 214.63 57.15) (xy 215.9 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2552fac2-faeb-4b2f-9adb-fd0145cfac8f")
-	)
-	(wire
-		(pts
 			(xy 92.71 128.27) (xy 92.71 127)
 		)
 		(stroke
@@ -3793,6 +3783,16 @@
 			(type default)
 		)
 		(uuid "2ff4b9db-f7d5-4868-b4c6-c99b5e44bb69")
+	)
+	(wire
+		(pts
+			(xy 214.63 57.15) (xy 215.9 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3040df5c-99b8-469b-af3d-127db4624061")
 	)
 	(wire
 		(pts
@@ -4846,6 +4846,16 @@
 	)
 	(wire
 		(pts
+			(xy 240.03 128.27) (xy 241.3 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ede4933d-daaf-4e0a-9b2e-fc090ad76f0b")
+	)
+	(wire
+		(pts
 			(xy 168.91 62.23) (xy 168.91 60.96)
 		)
 		(stroke
@@ -5044,9 +5054,9 @@
 		)
 		(uuid "fe63a52e-b6d6-40bf-9c4b-96b8617e2adb")
 	)
-	(text "I/O Screw Terminal"
+	(text "I/O Screw Terminals"
 		(exclude_from_sim no)
-		(at 237.49 53.34 0)
+		(at 238.76 54.61 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5236,6 +5246,28 @@
 			)
 		)
 	)
+	(global_label "MGP1_O"
+		(shape input)
+		(at 240.03 128.27 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "22c69e96-d853-40c2-87f4-66a956cbe1a4")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 229.5458 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "MEventB_I"
 		(shape input)
 		(at 229.87 138.43 0)
@@ -5280,6 +5312,28 @@
 			)
 		)
 	)
+	(global_label "MGP2_O"
+		(shape input)
+		(at 215.9 57.15 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "43f0c759-0da2-4f54-87d3-ca079cb76dc0")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 226.3842 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "MRTS2_O"
 		(shape input)
 		(at 101.6 54.61 180)
@@ -5302,7 +5356,7 @@
 			)
 		)
 	)
-	(global_label "MGP1_O"
+	(global_label "MGP2_O"
 		(shape input)
 		(at 240.03 120.65 180)
 		(fields_autoplaced yes)
@@ -11370,74 +11424,6 @@
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/d9a77ac1-2999-4329-b708-8e6cc1b00c22"
 					(reference "R44")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "SparkFun-Connector:TestPoint_PTH")
-		(at 215.9 57.15 270)
-		(mirror x)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ce3fcf33-987c-407a-a332-18a2a550b4da")
-		(property "Reference" "TP20"
-			(at 220.98 57.1499 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "PTH"
-			(at 212.09 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "SparkFun-Connector:1x01"
-			(at 209.55 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 208.28 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Test Point"
-			(at 215.9 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e14cfb38-5f4d-49ef-9511-0e45612e1842")
-		)
-		(instances
-			(project "SparkPNT_GNSSDO_Plus"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/d9a77ac1-2999-4329-b708-8e6cc1b00c22"
-					(reference "TP20")
 					(unit 1)
 				)
 			)

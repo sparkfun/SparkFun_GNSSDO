@@ -4805,15 +4805,15 @@
 	)
 	(symbol
 		(lib_id "SparkFun-PowerSymbol:3.3V_P")
-		(at 119.38 143.51 0)
+		(at 43.18 46.99 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "0344c23c-017c-4f3b-a6d6-882bde9e626e")
-		(property "Reference" "#PWR0187"
-			(at 119.38 147.32 0)
+		(uuid "0296f737-2480-4be8-8808-3fe21b75b392")
+		(property "Reference" "#PWR0186"
+			(at 43.18 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4821,8 +4821,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "3.3V_P"
-			(at 119.38 139.954 0)
+		(property "Value" "3.3V_A"
+			(at 43.18 43.434 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4830,7 +4830,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 119.38 143.51 0)
+			(at 43.18 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4839,7 +4839,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 119.38 143.51 0)
+			(at 43.18 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4848,7 +4848,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
-			(at 119.38 143.51 0)
+			(at 43.18 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4857,77 +4857,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "a3c67051-0456-418d-b23a-2e7226e0e597")
+			(uuid "3ac56f69-8f4e-404d-bba8-7945be94ffe0")
 		)
 		(instances
 			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
-					(reference "#PWR0187")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "SparkFun-PowerSymbol:3.3V_P")
-		(at 152.4 147.32 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "055b12f0-a3f6-431b-a6d0-c26635128fd5")
-		(property "Reference" "#PWR0184"
-			(at 152.4 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "3.3V_P"
-			(at 152.4 143.764 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 152.4 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 152.4 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
-			(at 152.4 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6d826505-70ee-461b-8083-ac2692b7a737")
-		)
-		(instances
-			(project "SparkPNT_GNSSDO_Plus"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
-					(reference "#PWR0184")
+					(reference "#PWR0186")
 					(unit 1)
 				)
 			)
@@ -5064,6 +4999,71 @@
 		)
 	)
 	(symbol
+		(lib_id "SparkFun-PowerSymbol:3.3V_P")
+		(at 29.21 46.99 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "09d1bdff-00b1-4223-bb32-d8ce5aedaa9b")
+		(property "Reference" "#PWR0185"
+			(at 29.21 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "3.3V_A"
+			(at 29.21 43.434 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 29.21 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 29.21 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
+			(at 29.21 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "60ed203a-8e91-4292-9d73-65ed04b6b763")
+		)
+		(instances
+			(project "SparkPNT_GNSSDO_Plus"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
+					(reference "#PWR0185")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "SparkFun-Capacitor:1.0nF_0603_50V_10%")
 		(at 148.59 40.64 0)
 		(unit 1)
@@ -5154,6 +5154,71 @@
 			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "C49")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-PowerSymbol:3.3V_P")
+		(at 119.38 101.6 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "116aad2e-304c-4dfd-9e82-78605e2c46d2")
+		(property "Reference" "#PWR0222"
+			(at 119.38 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "3.3V_A"
+			(at 119.38 98.044 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 119.38 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 119.38 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
+			(at 119.38 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e89226c6-8449-42bf-b520-538ad5178503")
+		)
+		(instances
+			(project "SparkPNT_GNSSDO_Plus"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
+					(reference "#PWR0222")
 					(unit 1)
 				)
 			)
@@ -5318,6 +5383,71 @@
 			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "U20")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-PowerSymbol:3.3V_P")
+		(at 119.38 143.51 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1397df36-a4e1-4161-a9fd-4638e8845da9")
+		(property "Reference" "#PWR0287"
+			(at 119.38 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "3.3V_A"
+			(at 119.38 139.954 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 119.38 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 119.38 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
+			(at 119.38 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b8eaad32-4b20-41f2-9609-ce3e24437e2b")
+		)
+		(instances
+			(project "SparkPNT_GNSSDO_Plus"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
+					(reference "#PWR0287")
 					(unit 1)
 				)
 			)
@@ -5840,136 +5970,6 @@
 		)
 	)
 	(symbol
-		(lib_id "SparkFun-PowerSymbol:3.3V_P")
-		(at 170.18 147.32 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "2cbdccef-21f4-4fcc-8913-7a93827c595c")
-		(property "Reference" "#PWR0181"
-			(at 170.18 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "3.3V_P"
-			(at 170.18 143.764 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 170.18 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 170.18 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
-			(at 170.18 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "49829bc3-05e0-4e91-8ec1-221e8208bb78")
-		)
-		(instances
-			(project "SparkPNT_GNSSDO_Plus"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
-					(reference "#PWR0181")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "SparkFun-PowerSymbol:3.3V_P")
-		(at 119.38 101.6 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "334af0b6-693a-4f49-8460-433f068746ad")
-		(property "Reference" "#PWR0222"
-			(at 119.38 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "3.3V_P"
-			(at 119.38 98.044 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 119.38 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 119.38 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
-			(at 119.38 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "67dcfbfd-8694-42bb-a49e-1181a4d0ab39")
-		)
-		(instances
-			(project "SparkPNT_GNSSDO_Plus"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
-					(reference "#PWR0222")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "SparkFun-Resistor:0_0603")
 		(at 137.16 34.29 0)
 		(unit 1)
@@ -6385,15 +6385,15 @@
 	)
 	(symbol
 		(lib_id "SparkFun-PowerSymbol:3.3V_P")
-		(at 119.38 63.5 0)
+		(at 43.18 160.02 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "373c1484-bf80-480e-af94-d9f87fc2615b")
-		(property "Reference" "#PWR0287"
-			(at 119.38 67.31 0)
+		(uuid "385084d4-7461-4ac0-bb8d-7d2135b32359")
+		(property "Reference" "#PWR0188"
+			(at 43.18 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6401,8 +6401,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "3.3V_P"
-			(at 119.38 59.944 0)
+		(property "Value" "3.3V_A"
+			(at 43.18 156.464 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6410,7 +6410,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 119.38 63.5 0)
+			(at 43.18 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6419,7 +6419,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 119.38 63.5 0)
+			(at 43.18 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6428,7 +6428,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
-			(at 119.38 63.5 0)
+			(at 43.18 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6437,12 +6437,77 @@
 			)
 		)
 		(pin "1"
-			(uuid "2bd86843-c372-4cc3-b959-6e296aa3e85e")
+			(uuid "51277614-97d7-4e4d-b40e-356612e87b82")
 		)
 		(instances
 			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
-					(reference "#PWR0287")
+					(reference "#PWR0188")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-PowerSymbol:3.3V_P")
+		(at 152.4 147.32 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3e49ad8f-7c4e-479c-a287-4b69a313a0fd")
+		(property "Reference" "#PWR0181"
+			(at 152.4 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "3.3V_A"
+			(at 152.4 143.764 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 152.4 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 152.4 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
+			(at 152.4 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c34eaba2-e11b-4a77-a968-f9f038dfc4f1")
+		)
+		(instances
+			(project "SparkPNT_GNSSDO_Plus"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
+					(reference "#PWR0181")
 					(unit 1)
 				)
 			)
@@ -6791,71 +6856,6 @@
 			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "C88")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "SparkFun-PowerSymbol:3.3V_P")
-		(at 43.18 93.98 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "4f52d4c8-58c7-4ddf-bc40-961b37abb327")
-		(property "Reference" "#PWR0282"
-			(at 43.18 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "3.3V_P"
-			(at 43.18 90.424 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 43.18 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 43.18 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
-			(at 43.18 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "23247fdc-2eb0-4824-a92e-f5e78450ea46")
-		)
-		(instances
-			(project "SparkPNT_GNSSDO_Plus"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
-					(reference "#PWR0282")
 					(unit 1)
 				)
 			)
@@ -7464,6 +7464,71 @@
 		)
 	)
 	(symbol
+		(lib_id "SparkFun-PowerSymbol:3.3V_P")
+		(at 119.38 63.5 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "60a318cf-480c-4a33-b652-2c260248aa8f")
+		(property "Reference" "#PWR0187"
+			(at 119.38 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "3.3V_A"
+			(at 119.38 59.944 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 119.38 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 119.38 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
+			(at 119.38 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b497ea16-0195-40f7-b6ec-1ad65c3f29f8")
+		)
+		(instances
+			(project "SparkPNT_GNSSDO_Plus"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
+					(reference "#PWR0187")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 194.31 162.56 0)
 		(unit 1)
@@ -7783,71 +7848,6 @@
 			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "C80")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "SparkFun-PowerSymbol:3.3V_P")
-		(at 29.21 46.99 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "6f451458-cf6e-45f3-a7df-56a672d9dd51")
-		(property "Reference" "#PWR0185"
-			(at 29.21 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "3.3V_P"
-			(at 29.21 43.434 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 29.21 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 29.21 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
-			(at 29.21 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "045e66cb-5355-4757-992a-ddd985a969af")
-		)
-		(instances
-			(project "SparkPNT_GNSSDO_Plus"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
-					(reference "#PWR0185")
 					(unit 1)
 				)
 			)
@@ -8468,7 +8468,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "3.3V_P"
+		(property "Value" "3.3V_A"
 			(at 119.38 20.574 0)
 			(effects
 				(font
@@ -9579,6 +9579,71 @@
 		)
 	)
 	(symbol
+		(lib_id "SparkFun-PowerSymbol:3.3V_P")
+		(at 43.18 93.98 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a1023227-0eec-408d-ad5e-f43c8e460195")
+		(property "Reference" "#PWR0282"
+			(at 43.18 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "3.3V_A"
+			(at 43.18 90.424 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 43.18 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 43.18 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
+			(at 43.18 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3f1bd5fa-f999-4599-877d-9f5df18b14a1")
+		)
+		(instances
+			(project "SparkPNT_GNSSDO_Plus"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
+					(reference "#PWR0282")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "SparkFun-PowerSymbol:1.8V")
 		(at 102.87 107.95 0)
 		(unit 1)
@@ -9845,71 +9910,6 @@
 			(project ""
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "R76")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "SparkFun-PowerSymbol:3.3V_P")
-		(at 43.18 160.02 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "aed6047e-5082-44c0-8261-da800212512c")
-		(property "Reference" "#PWR0175"
-			(at 43.18 163.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "3.3V_P"
-			(at 43.18 156.464 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 43.18 160.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 43.18 160.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
-			(at 43.18 160.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c1e36d22-b977-4cb4-82f5-53c774358d42")
-		)
-		(instances
-			(project "SparkPNT_GNSSDO_Plus"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
-					(reference "#PWR0175")
 					(unit 1)
 				)
 			)
@@ -10722,71 +10722,6 @@
 		)
 	)
 	(symbol
-		(lib_id "SparkFun-PowerSymbol:3.3V_P")
-		(at 29.21 93.98 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "bb51e9d1-4405-47f0-818c-510f570adb3c")
-		(property "Reference" "#PWR0226"
-			(at 29.21 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "3.3V_P"
-			(at 29.21 90.424 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 29.21 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 29.21 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
-			(at 29.21 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "5beb0e6f-fd5e-48a4-9351-e22054753270")
-		)
-		(instances
-			(project "SparkPNT_GNSSDO_Plus"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
-					(reference "#PWR0226")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "SparkFun-Resistor:0_0603")
 		(at 137.16 111.76 0)
 		(unit 1)
@@ -10858,6 +10793,71 @@
 			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "R71")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-PowerSymbol:3.3V_P")
+		(at 170.18 147.32 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "be116b2a-8a12-4fea-a7a8-4edd40efb7ff")
+		(property "Reference" "#PWR0184"
+			(at 170.18 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "3.3V_A"
+			(at 170.18 143.764 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 170.18 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 170.18 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
+			(at 170.18 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "31de43cd-73c1-4c78-b3e3-8c625d2f7da2")
+		)
+		(instances
+			(project "SparkPNT_GNSSDO_Plus"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
+					(reference "#PWR0184")
 					(unit 1)
 				)
 			)
@@ -11932,6 +11932,71 @@
 		)
 	)
 	(symbol
+		(lib_id "SparkFun-PowerSymbol:3.3V_P")
+		(at 29.21 160.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "de35df34-a184-45ce-9dd8-1abfebe3c6c5")
+		(property "Reference" "#PWR0175"
+			(at 29.21 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "3.3V_A"
+			(at 29.21 156.464 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 29.21 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 29.21 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
+			(at 29.21 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "67c24c11-651c-4d44-bed0-2c6694b4cfdd")
+		)
+		(instances
+			(project "SparkPNT_GNSSDO_Plus"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
+					(reference "#PWR0175")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 43.18 57.15 0)
 		(unit 1)
@@ -12307,71 +12372,6 @@
 		)
 	)
 	(symbol
-		(lib_id "SparkFun-PowerSymbol:3.3V_P")
-		(at 29.21 160.02 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e8a5f494-ec49-4b3c-90b5-85e45340a376")
-		(property "Reference" "#PWR0188"
-			(at 29.21 163.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "3.3V_P"
-			(at 29.21 156.464 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 29.21 160.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 29.21 160.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
-			(at 29.21 160.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "9c288279-cb8f-4ce6-bbd3-fea5c34b7ef1")
-		)
-		(instances
-			(project "SparkPNT_GNSSDO_Plus"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
-					(reference "#PWR0188")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "SparkFun-RF:SMA_EdgeMount")
 		(at 222.25 151.13 0)
 		(unit 1)
@@ -12606,6 +12606,71 @@
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "C69")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-PowerSymbol:3.3V_P")
+		(at 29.21 93.98 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f1f196d1-e57f-47ad-8a79-cc9cd31980c2")
+		(property "Reference" "#PWR0226"
+			(at 29.21 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "3.3V_A"
+			(at 29.21 90.424 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 29.21 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 29.21 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
+			(at 29.21 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6356a0b5-35f6-4b9d-bea2-ddbd2684fcec")
+		)
+		(instances
+			(project "SparkPNT_GNSSDO_Plus"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
+					(reference "#PWR0226")
 					(unit 1)
 				)
 			)
@@ -13077,71 +13142,6 @@
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "#PWR0250")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "SparkFun-PowerSymbol:3.3V_P")
-		(at 43.18 46.99 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "f95a5c1c-589f-400c-916a-63bd2b2978aa")
-		(property "Reference" "#PWR0186"
-			(at 43.18 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "3.3V_P"
-			(at 43.18 43.434 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 43.18 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 43.18 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
-			(at 43.18 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e0f94d24-2311-4f96-b6eb-809d123835a6")
-		)
-		(instances
-			(project "SparkPNT_GNSSDO_Plus"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
-					(reference "#PWR0186")
 					(unit 1)
 				)
 			)
