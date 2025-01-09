@@ -101,8 +101,25 @@ void beginGNSS()
 
     if (retries == 0)
     {
-        systemPrintln("GNSS FAIL (SBFOnce)");
-        return;
+        systemPrintln("GNSS FAIL (SBFOnce). Attempting soft reset...");
+
+        // Module could be stuck in "Ready for SUF Download ...". Send a soft reset to unstick it
+        sendWithResponse("erst,soft,none\n\r", "ResetReceiver");
+
+        retries = 20;
+
+        while (!sendWithResponse("esoc, COM1, IPStatus\n\r", "SBFOnce") && (retries > 0))
+        {
+            systemPrintln("No response from mosaic. Retrying - with escape sequence...");
+            sendWithResponse("SSSSSSSSSSSSSSSSSSSS\n\r", "COM4>"); // Send escape sequence
+            retries--;
+        }
+
+        if (retries == 0)
+        {
+            systemPrintln("GNSS FAIL (SBFOnce)");
+            return;
+        }
     }
 
     if (!inMainMenu)
