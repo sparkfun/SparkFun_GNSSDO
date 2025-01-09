@@ -6706,16 +6706,6 @@
 		)
 		(uuid "3e373d25-5b39-45de-ba2e-4e592b276ca4")
 	)
-	(wire
-		(pts
-			(xy 147.32 60.96) (xy 149.86 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "45255b4a-8f87-446d-b840-8c4e6581f665")
-	)
 	(polyline
 		(pts
 			(xy 109.22 53.34) (xy 109.22 55.88)
@@ -6775,16 +6765,6 @@
 			(type default)
 		)
 		(uuid "4c4ec333-baa3-4434-bec9-153413cf690a")
-	)
-	(wire
-		(pts
-			(xy 149.86 59.69) (xy 149.86 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4d1fa341-b49b-44fa-ab94-c5ab8912f655")
 	)
 	(wire
 		(pts
@@ -7105,16 +7085,6 @@
 			(type default)
 		)
 		(uuid "7362bbe8-494c-4c64-aa82-d3d4cc37b11e")
-	)
-	(wire
-		(pts
-			(xy 149.86 63.5) (xy 149.86 64.77)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "73a524dc-dc3c-4c82-af6e-7f72b0a2330f")
 	)
 	(polyline
 		(pts
@@ -7925,16 +7895,6 @@
 			(type default)
 		)
 		(uuid "fbfcb8b0-66be-4bce-b1d9-37b9bde71aee")
-	)
-	(wire
-		(pts
-			(xy 147.32 63.5) (xy 149.86 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fea3ea09-1fb4-43a2-bfe1-d5d9a581ba2d")
 	)
 	(arc
 		(start 107.95 46.99)
@@ -11741,71 +11701,6 @@
 		)
 	)
 	(symbol
-		(lib_id "SparkFun-PowerSymbol:3.3V_P")
-		(at 149.86 59.69 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "536de354-bb4c-4ccb-a389-082b0d4472d6")
-		(property "Reference" "#PWR0214"
-			(at 149.86 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "3.3V_P"
-			(at 149.86 56.134 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 149.86 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 149.86 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"3.3V_P\""
-			(at 149.86 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "fb49a9fd-850a-46b5-958f-65da4fc93b3e")
-		)
-		(instances
-			(project "SparkFun_RTK_mosaic-T"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
-					(reference "#PWR0214")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "SparkFun-Connector:TestPoint_PTH")
 		(at 102.87 58.42 270)
 		(mirror x)
@@ -14009,71 +13904,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 149.86 64.77 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "bcda4d19-4776-4792-9deb-d5224cb0348b")
-		(property "Reference" "#PWR0215"
-			(at 149.86 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 149.86 68.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 149.86 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 149.86 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 149.86 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "bdcbd954-6a25-4c3f-9af7-91e475130807")
-		)
-		(instances
-			(project "SparkFun_RTK_mosaic-T"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
-					(reference "#PWR0215")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "SparkFun-Capacitor:10uF_0603_10V_20%")
 		(at 106.68 165.1 0)
 		(unit 1)
@@ -14252,72 +14082,6 @@
 		)
 	)
 	(symbol
-		(lib_id "SparkFun-Connector:TestPoint_PTH")
-		(at 147.32 63.5 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "d3210d44-e352-40f0-865a-42962afa7ff9")
-		(property "Reference" "TP30"
-			(at 139.7 63.5 90)
-			(do_not_autoplace yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "PTH"
-			(at 151.13 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "SparkFun-Connector:1x01"
-			(at 153.67 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 154.94 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Test Point"
-			(at 147.32 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b8d1205f-fc11-4790-bf04-8fc427a9352c")
-		)
-		(instances
-			(project "SparkFun_RTK_mosaic-T"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
-					(reference "TP30")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 60.96 44.45 0)
 		(unit 1)
@@ -14461,72 +14225,6 @@
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "R28")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "SparkFun-Connector:TestPoint_PTH")
-		(at 147.32 60.96 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ed7814ca-28f3-45d9-a3b8-fa0dc93abc81")
-		(property "Reference" "TP29"
-			(at 139.7 60.96 90)
-			(do_not_autoplace yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "PTH"
-			(at 151.13 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "SparkFun-Connector:1x01"
-			(at 153.67 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 154.94 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Test Point"
-			(at 147.32 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "25eb130c-3771-4a58-a41f-105a834ea8ec")
-		)
-		(instances
-			(project "SparkFun_RTK_mosaic-T"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
-					(reference "TP29")
 					(unit 1)
 				)
 			)

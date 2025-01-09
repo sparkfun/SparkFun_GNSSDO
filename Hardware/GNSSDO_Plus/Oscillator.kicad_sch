@@ -169,6 +169,167 @@
 				)
 			)
 		)
+		(symbol "SparkFun-Capacitor:1.0nF_0603_50V_10%"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "C"
+				(at 0.635 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "1.0nF"
+				(at 0.635 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "SparkFun-Capacitor:C_0603_1608Metric"
+				(at 0 -11.43 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+				(at 0 -13.97 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Unpolarized capacitor"
+				(at 0 -19.05 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "PROD_ID" "CAP-07886"
+				(at -1.27 -16.51 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Voltage" "50V"
+				(at 0 -6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Tolerance" "10%"
+				(at 0 -8.89 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "SparkFun cap capacitor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "C_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "1.0nF_0603_50V_10%_0_1"
+				(polyline
+					(pts
+						(xy -1.524 -0.508) (xy 1.524 -0.508)
+					)
+					(stroke
+						(width 0.3302)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.524 0.508) (xy 1.524 0.508)
+					)
+					(stroke
+						(width 0.3048)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "1.0nF_0603_50V_10%_1_1"
+				(pin passive line
+					(at 0 2.54 270)
+					(length 2.032)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 2.032)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "SparkFun-Capacitor:1.0uF_0603_16V_10%"
 			(pin_numbers hide)
 			(pin_names
@@ -1601,6 +1762,184 @@
 				)
 			)
 		)
+		(symbol "SparkFun-RF:Power_Splitter_JPS-3-1+"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at -5.715 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "JPS-3-1+"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "SparkFun-RF:Mini-Circuits_BH292"
+				(at 0 -12.7 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.minicircuits.com/pdfs/JPS-3-1+.pdf"
+				(at 0 -10.16 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power splitter / combiner 3-Way 50Ohm 5 to 300MHz"
+				(at 0 -7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "SparkFun power splitter combiner"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Power_Splitter_JPS-3-1+_1_1"
+				(rectangle
+					(start -6.35 3.81)
+					(end 6.35 -3.81)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at -8.89 0 0)
+					(length 2.54)
+					(name "SUM"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -8.89 -2.54 0)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 8.89 -2.54 180)
+					(length 2.54)
+					(name "PORT3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 8.89 0 180)
+					(length 2.54)
+					(name "PORT2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -8.89 -2.54 0)
+					(length 2.54) hide
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 8.89 2.54 180)
+					(length 2.54)
+					(name "PORT1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "SparkFun-Resistor:0_0603"
 			(pin_numbers hide)
 			(pin_names
@@ -2102,203 +2441,6 @@
 				)
 			)
 		)
-		(symbol "SparkFun-Resistor:49.9_0603"
-			(pin_numbers hide)
-			(pin_names
-				(offset 0)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "R"
-				(at 0 -2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "49.9"
-				(at 0 2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "SparkFun-Resistor:R_0603_1608Metric"
-				(at 0 -4.572 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
-				(at 0 -8.89 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Resistor"
-				(at 0 -11.43 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "PROD_ID" "RES-16237"
-				(at 0 -6.858 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Wattage" "0.5W"
-				(at 0 -13.716 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Tolerance" "1%"
-				(at -0.254 -15.748 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "SparkFun R res resistor"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "R_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "49.9_0603_0_1"
-				(polyline
-					(pts
-						(xy -2.286 0) (xy -2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.286 0) (xy 2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.762 0) (xy -1.143 -1.016) (xy -1.524 0) (xy -1.905 1.016) (xy -2.286 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 0) (xy 0.381 -1.016) (xy 0 0) (xy -0.381 1.016) (xy -0.762 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.286 0) (xy 1.905 -1.016) (xy 1.524 0) (xy 1.143 1.016) (xy 0.762 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "49.9_0603_1_1"
-				(pin passive line
-					(at 3.81 0 180)
-					(length 1.27)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -3.81 0 0)
-					(length 1.27)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 		(symbol "power:GND"
 			(power)
 			(pin_numbers hide)
@@ -2397,28 +2539,10 @@
 		)
 	)
 	(junction
-		(at 87.63 49.53)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "5195e7dd-b973-44b9-b6c8-16ae47daab5e")
-	)
-	(junction
 		(at 53.34 48.26)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "53115fe0-b911-4065-b558-69e03212fff5")
-	)
-	(junction
-		(at 69.85 129.54)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6b27d1d0-db2f-445c-bbde-1bfaa2649897")
-	)
-	(junction
-		(at 69.85 139.7)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9a614b48-10b5-42cd-8502-c7fc55fae060")
 	)
 	(junction
 		(at 58.42 50.8)
@@ -2433,10 +2557,16 @@
 		(uuid "c613ef4e-f361-4da1-a1e2-60d1ccfbafa0")
 	)
 	(junction
-		(at 59.69 134.62)
+		(at 93.98 49.53)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "c64d2c55-abce-4035-8e3b-93ed6790d003")
+		(uuid "cb2a6a7b-0c19-4d26-b1a4-217644f5d533")
+	)
+	(junction
+		(at 85.09 49.53)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e4d2b3e5-ae3d-4fc9-8ea8-fcebc35b6340")
 	)
 	(wire
 		(pts
@@ -2470,7 +2600,7 @@
 	)
 	(wire
 		(pts
-			(xy 68.58 129.54) (xy 69.85 129.54)
+			(xy 77.47 132.08) (xy 78.74 132.08)
 		)
 		(stroke
 			(width 0)
@@ -2487,16 +2617,6 @@
 			(type default)
 		)
 		(uuid "096d2d3c-8559-45cb-a6d8-844754e1550c")
-	)
-	(wire
-		(pts
-			(xy 69.85 129.54) (xy 71.12 129.54)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0cf201b9-1502-4e91-b2ae-fda9ae41facd")
 	)
 	(wire
 		(pts
@@ -2540,7 +2660,7 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 139.7) (xy 71.12 139.7)
+			(xy 77.47 137.16) (xy 78.74 137.16)
 		)
 		(stroke
 			(width 0)
@@ -2620,16 +2740,6 @@
 	)
 	(wire
 		(pts
-			(xy 59.69 129.54) (xy 60.96 129.54)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3a727907-bb7d-4a6e-8221-daca2bb234b3")
-	)
-	(wire
-		(pts
 			(xy 189.23 102.87) (xy 189.23 104.14)
 		)
 		(stroke
@@ -2660,6 +2770,16 @@
 	)
 	(wire
 		(pts
+			(xy 58.42 137.16) (xy 58.42 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "53838576-f509-4357-9259-34b0d89de26f")
+	)
+	(wire
+		(pts
 			(xy 189.23 111.76) (xy 189.23 113.03)
 		)
 		(stroke
@@ -2680,16 +2800,6 @@
 	)
 	(wire
 		(pts
-			(xy 68.58 139.7) (xy 69.85 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "62279816-e989-436c-ad59-10795af8a82c")
-	)
-	(wire
-		(pts
 			(xy 176.53 139.7) (xy 177.8 139.7)
 		)
 		(stroke
@@ -2697,6 +2807,16 @@
 			(type default)
 		)
 		(uuid "75e0cbf2-6431-4d60-89df-ea543f7192b0")
+	)
+	(wire
+		(pts
+			(xy 83.82 49.53) (xy 85.09 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "767a5c88-31b9-44fb-8882-24e84fa612b1")
 	)
 	(polyline
 		(pts
@@ -2717,6 +2837,16 @@
 			(type default)
 		)
 		(uuid "7984489a-0399-4e51-b38c-5b5ef5f01d16")
+	)
+	(wire
+		(pts
+			(xy 91.44 49.53) (xy 93.98 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7d65723a-d86a-4cfb-9afa-4b75b16afeb3")
 	)
 	(wire
 		(pts
@@ -2747,16 +2877,6 @@
 			(type default)
 		)
 		(uuid "8075af84-5a32-423e-8ca4-e85425ed34dc")
-	)
-	(wire
-		(pts
-			(xy 59.69 129.54) (xy 59.69 134.62)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "81c5f654-815f-4646-a305-deaf140ab2b8")
 	)
 	(wire
 		(pts
@@ -2800,13 +2920,23 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 48.26) (xy 87.63 49.53)
+			(xy 93.98 48.26) (xy 93.98 49.53)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "876cea11-7a4b-41ec-9024-7e59438b2ba8")
+	)
+	(wire
+		(pts
+			(xy 59.69 137.16) (xy 58.42 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8776ce1f-4eac-4ad2-bccf-7bbff7b344de")
 	)
 	(wire
 		(pts
@@ -2900,16 +3030,6 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 139.7) (xy 69.85 138.43)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a4dfcbef-2af2-41c0-bd3f-2d08743c69c4")
-	)
-	(wire
-		(pts
 			(xy 227.33 130.81) (xy 227.33 129.54)
 		)
 		(stroke
@@ -2930,13 +3050,23 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 49.53) (xy 88.9 49.53)
+			(xy 93.98 49.53) (xy 95.25 49.53)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "aa4b92fc-d0c7-456e-ae27-31010e770082")
+	)
+	(wire
+		(pts
+			(xy 85.09 58.42) (xy 85.09 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "acb35519-d2ec-4bb4-aaf8-0162707fa44b")
 	)
 	(wire
 		(pts
@@ -2950,33 +3080,23 @@
 	)
 	(wire
 		(pts
-			(xy 59.69 134.62) (xy 59.69 139.7)
+			(xy 77.47 134.62) (xy 78.74 134.62)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "b4f6d694-6503-4038-8de7-1944af1caec6")
+		(uuid "b584128a-c17a-4092-ac29-3058220a1877")
 	)
 	(wire
 		(pts
-			(xy 59.69 139.7) (xy 60.96 139.7)
+			(xy 85.09 49.53) (xy 86.36 49.53)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ba616f7f-e779-4fd2-acca-01f4c1366800")
-	)
-	(wire
-		(pts
-			(xy 83.82 49.53) (xy 87.63 49.53)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bf6ae898-ee3c-4472-a442-3ca92826fb27")
+		(uuid "bd98b046-2166-4155-a036-cb0500511b62")
 	)
 	(wire
 		(pts
@@ -2997,16 +3117,6 @@
 			(type default)
 		)
 		(uuid "cc92402c-b0e6-4fc1-af73-fcf7a54bf72e")
-	)
-	(wire
-		(pts
-			(xy 69.85 129.54) (xy 69.85 130.81)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cc9d07a0-0ce4-4471-a932-6119827a347e")
 	)
 	(wire
 		(pts
@@ -3090,6 +3200,16 @@
 	)
 	(wire
 		(pts
+			(xy 85.09 49.53) (xy 85.09 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eceddffd-9004-4a9c-b556-c70bdfbd1c1e")
+	)
+	(wire
+		(pts
 			(xy 64.77 74.93) (xy 64.77 76.2)
 		)
 		(stroke
@@ -3128,6 +3248,16 @@
 		)
 		(uuid "06ee3d0b-30b9-4902-8b17-ef827041d172")
 	)
+	(text "Typical Total Loss: 5.0dB at 10MHz"
+		(exclude_from_sim no)
+		(at 68.58 120.65 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "1f920eb3-929c-4448-8d25-f25d698c709f")
+	)
 	(text "Open jumpers to remove\npull-ups from bus"
 		(exclude_from_sim no)
 		(at 247.65 125.73 0)
@@ -3158,7 +3288,7 @@
 		)
 		(uuid "7264bc4e-e16e-4e1c-8041-a4df17d6a087")
 	)
-	(text "Delta 6dB Resistive Splitter"
+	(text "3-Way Splitter - JPS-3-1+"
 		(exclude_from_sim no)
 		(at 73.66 114.3 0)
 		(effects
@@ -3170,7 +3300,7 @@
 	)
 	(text "Sine Wave:\n5dBm Min.\n7dBm Typ.\n9dBm Max.\ninto 50 Ohm"
 		(exclude_from_sim no)
-		(at 104.14 49.53 0)
+		(at 110.49 49.53 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3187,26 +3317,6 @@
 			)
 		)
 		(uuid "d1e6fc37-487e-4e0e-a6fd-6efc203fe9c6")
-	)
-	(text "5dBm Min. = 1.12Vpp\n9dBm Max. = 1.78Vpp"
-		(exclude_from_sim no)
-		(at 36.83 134.62 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "ee873adb-c0d4-4bbe-8a24-ce49439d6af9")
-	)
-	(text "-1dBm Min. = 0.56Vpp\n3dBm Max. = 0.89Vpp\n\nMosaic REF_I requires:\n0.5Vpp Min., 1.7Vpp Max."
-		(exclude_from_sim no)
-		(at 100.33 139.7 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "f1231e9d-fd27-4bbf-a17e-42a9434efa99")
 	)
 	(global_label "ESP18{slash}SDA2"
 		(shape input)
@@ -3340,9 +3450,9 @@
 			)
 		)
 	)
-	(global_label "10MHz_Out"
+	(global_label "10MHz_1"
 		(shape input)
-		(at 71.12 129.54 0)
+		(at 78.74 132.08 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3352,7 +3462,7 @@
 		)
 		(uuid "4ce1c6e8-411f-4b10-9bfd-8a0f26e2feee")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 84.507 129.54 0)
+			(at 90.1313 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3406,9 +3516,9 @@
 			)
 		)
 	)
-	(global_label "10MHz_Mosaic"
+	(global_label "10MHz_3"
 		(shape input)
-		(at 71.12 139.7 0)
+		(at 78.74 137.16 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3418,7 +3528,7 @@
 		)
 		(uuid "76bb2a8b-3216-4385-bd27-8483858a0137")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 87.7727 139.7 0)
+			(at 90.1313 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3474,7 +3584,7 @@
 	)
 	(global_label "10MHz"
 		(shape input)
-		(at 88.9 49.53 0)
+		(at 95.25 49.53 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3484,7 +3594,7 @@
 		)
 		(uuid "def002a1-5357-45bb-bf51-9725723297db")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 98.1142 49.53 0)
+			(at 104.4642 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3507,6 +3617,28 @@
 		(uuid "e9fb4357-6e46-42f7-887e-d3549224b809")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 229.4685 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "10MHz_2"
+		(shape input)
+		(at 78.74 134.62 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "f65f7618-0ba8-4088-8636-b5f0919962e1")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 90.1313 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3614,8 +3746,105 @@
 		)
 	)
 	(symbol
+		(lib_id "SparkFun-Capacitor:1.0nF_0603_50V_10%")
+		(at 85.09 55.88 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp yes)
+		(fields_autoplaced yes)
+		(uuid "08097095-9395-4cd2-bfbc-e3f1921032dd")
+		(property "Reference" "C66"
+			(at 87.63 52.0762 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1.0nF"
+			(at 87.63 54.6162 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "SparkFun-Capacitor:C_0603_1608Metric"
+			(at 85.09 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+			(at 85.09 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 85.09 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PROD_ID" "CAP-07886"
+			(at 83.82 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 87.63 57.1562 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 87.63 59.6962 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "1"
+			(uuid "87ccbd2d-2ad1-4003-a749-219ef9f0fcb4")
+		)
+		(pin "2"
+			(uuid "d28f80ae-56d0-464f-9bea-3d7b17b00100")
+		)
+		(instances
+			(project ""
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/3c582527-c744-4af3-97cb-1f5f96664f58"
+					(reference "C66")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "SparkFun-Connector:TestPoint_PTH")
-		(at 87.63 48.26 0)
+		(at 93.98 48.26 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3624,7 +3853,7 @@
 		(fields_autoplaced yes)
 		(uuid "08cec823-768f-4596-9b36-c54fdb41576b")
 		(property "Reference" "TP33"
-			(at 87.63 43.18 0)
+			(at 93.98 43.18 0)
 			(do_not_autoplace yes)
 			(effects
 				(font
@@ -3633,7 +3862,7 @@
 			)
 		)
 		(property "Value" "PTH"
-			(at 87.63 52.07 0)
+			(at 93.98 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3642,7 +3871,7 @@
 			)
 		)
 		(property "Footprint" "SparkFun-Connector:1x01"
-			(at 86.36 54.61 0)
+			(at 92.71 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3651,7 +3880,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 87.63 55.88 0)
+			(at 93.98 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3660,7 +3889,7 @@
 			)
 		)
 		(property "Description" "Test Point"
-			(at 87.63 48.26 0)
+			(at 93.98 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4269,6 +4498,150 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 85.09 59.69 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "321eb03b-6391-4c75-b5ab-e4865427a396")
+		(property "Reference" "#PWR0281"
+			(at 85.09 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 85.09 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 85.09 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 85.09 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 85.09 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d6452b71-a216-42fe-9ba2-b3de16dd9aed")
+		)
+		(instances
+			(project "SparkPNT_GNSSDO_Plus"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/3c582527-c744-4af3-97cb-1f5f96664f58"
+					(reference "#PWR0281")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-RF:Power_Splitter_JPS-3-1+")
+		(at 68.58 134.62 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "345f3a73-a7a4-445d-84d3-a033441292ec")
+		(property "Reference" "U16"
+			(at 64.77 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "JPS-3-1+"
+			(at 68.58 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "SparkFun-RF:Mini-Circuits_BH292"
+			(at 68.58 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.minicircuits.com/pdfs/JPS-3-1+.pdf"
+			(at 68.58 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power splitter / combiner 3-Way 50Ohm 5 to 300MHz"
+			(at 68.58 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "445a96a0-105a-4dbc-b1a0-cc832c19d101")
+		)
+		(pin "6"
+			(uuid "27b171fc-e02b-4351-9efe-31ecc2d2b0c6")
+		)
+		(pin "2"
+			(uuid "7f36d9e4-52d8-4c84-bbf0-1b64f5cec50e")
+		)
+		(pin "1"
+			(uuid "4966bb71-9678-4d0a-95ec-bde5a8f60999")
+		)
+		(pin "5"
+			(uuid "f1397b66-5070-48aa-989e-a8dbfaf26676")
+		)
+		(pin "3"
+			(uuid "c1589148-a849-4cbb-a934-e67b575d183e")
+		)
+		(instances
+			(project ""
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/3c582527-c744-4af3-97cb-1f5f96664f58"
+					(reference "U16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "SparkFun-Resistor:2.2k_0603")
 		(at 177.8 134.62 90)
 		(unit 1)
@@ -4342,102 +4715,6 @@
 			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/3c582527-c744-4af3-97cb-1f5f96664f58"
 					(reference "R31")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "SparkFun-Resistor:49.9_0603")
-		(at 64.77 129.54 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "3ab9b62e-f540-47c4-aafb-46a821590a7c")
-		(property "Reference" "R61"
-			(at 64.77 123.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "49.9"
-			(at 64.77 125.73 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "SparkFun-Resistor:R_0603_1608Metric"
-			(at 64.77 134.112 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
-			(at 64.77 138.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 64.77 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PROD_ID" "RES-16237"
-			(at 64.77 136.398 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Wattage" "0.5W"
-			(at 64.77 143.256 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Tolerance" "1%"
-			(at 65.024 145.288 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e2d535c9-cbff-40b2-84e7-0cb4fcc7d384")
-		)
-		(pin "2"
-			(uuid "2470573e-12ea-434c-8d83-612d66086062")
-		)
-		(instances
-			(project "SparkPNT_GNSSDO_Plus"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/3c582527-c744-4af3-97cb-1f5f96664f58"
-					(reference "R61")
 					(unit 1)
 				)
 			)
@@ -4710,102 +4987,6 @@
 		)
 	)
 	(symbol
-		(lib_id "SparkFun-Resistor:49.9_0603")
-		(at 64.77 139.7 0)
-		(mirror x)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "4f113f28-0183-41f4-a4bf-aa969a0e141c")
-		(property "Reference" "R64"
-			(at 64.77 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "49.9"
-			(at 64.77 146.05 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "SparkFun-Resistor:R_0603_1608Metric"
-			(at 64.77 135.128 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
-			(at 64.77 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 64.77 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PROD_ID" "RES-16237"
-			(at 64.77 132.842 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Wattage" "0.5W"
-			(at 64.77 125.984 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Tolerance" "1%"
-			(at 64.516 123.952 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b0391e5c-f0f1-4377-a24d-1a864269fc76")
-		)
-		(pin "2"
-			(uuid "89a1e762-08a3-4887-a707-061d8db08602")
-		)
-		(instances
-			(project "SparkPNT_GNSSDO_Plus"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/3c582527-c744-4af3-97cb-1f5f96664f58"
-					(reference "R64")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "SparkFun-Resistor:2.2k_0603")
 		(at 240.03 134.62 270)
 		(unit 1)
@@ -5049,6 +5230,83 @@
 		)
 	)
 	(symbol
+		(lib_id "SparkFun-Resistor:0_0603")
+		(at 88.9 49.53 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "578517ab-bffc-43ad-b8f4-d2cf4ccf26fb")
+		(property "Reference" "R30"
+			(at 88.9 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "0"
+			(at 88.9 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "SparkFun-Resistor:R_0603_1608Metric"
+			(at 88.9 54.102 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDN0000/AOA0000C313.pdf"
+			(at 88.9 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 88.9 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PROD_ID" "RES-08609"
+			(at 88.9 56.388 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "f41edb2b-2f12-46be-ab2a-22a526fb7410")
+		)
+		(pin "1"
+			(uuid "02f82d97-ca32-4363-9a4e-7c6485cf93dd")
+		)
+		(instances
+			(project "SparkPNT_GNSSDO_Plus"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/3c582527-c744-4af3-97cb-1f5f96664f58"
+					(reference "R30")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "SparkFun-PowerSymbol:5V")
 		(at 72.39 74.93 0)
 		(unit 1)
@@ -5181,103 +5439,6 @@
 			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/3c582527-c744-4af3-97cb-1f5f96664f58"
 					(reference "I2C.1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "SparkFun-Resistor:49.9_0603")
-		(at 69.85 134.62 90)
-		(mirror x)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "7699fc06-9b93-4d73-b4a1-c8bfc8e8d0e1")
-		(property "Reference" "R51"
-			(at 71.12 133.35 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "49.9"
-			(at 71.12 135.89 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "SparkFun-Resistor:R_0603_1608Metric"
-			(at 74.422 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
-			(at 78.74 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 81.28 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PROD_ID" "RES-16237"
-			(at 76.708 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Wattage" "0.5W"
-			(at 83.566 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Tolerance" "1%"
-			(at 85.598 134.366 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6b1d9260-4a60-4e6a-a5c2-3c28dee0fa6e")
-		)
-		(pin "2"
-			(uuid "5278d08f-51ea-474f-b122-06cdf673142d")
-		)
-		(instances
-			(project "SparkPNT_GNSSDO_Plus"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/3c582527-c744-4af3-97cb-1f5f96664f58"
-					(reference "R51")
 					(unit 1)
 				)
 			)
@@ -6445,6 +6606,71 @@
 			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/3c582527-c744-4af3-97cb-1f5f96664f58"
 					(reference "#PWR0272")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 58.42 138.43 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e47fc3a2-a0c2-4d85-ad83-29354c7326c8")
+		(property "Reference" "#PWR0191"
+			(at 58.42 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 58.42 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 58.42 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 58.42 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 58.42 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6b74011a-b141-49bf-b6f6-4cb09bd93004")
+		)
+		(instances
+			(project "SparkPNT_GNSSDO_Plus"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/3c582527-c744-4af3-97cb-1f5f96664f58"
+					(reference "#PWR0191")
 					(unit 1)
 				)
 			)

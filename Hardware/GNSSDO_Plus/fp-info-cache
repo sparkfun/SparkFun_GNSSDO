@@ -1,4 +1,4 @@
-25093366192565184
+25095102532784599
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -93401,6 +93401,13 @@ SparkFun
 47
 47
 SparkFun-RF
+Mini-Circuits_BH292
+
+
+0
+0
+0
+SparkFun-RF
 PD0922J5050S2HF_ANA
 
 SparkFun
@@ -93475,8 +93482,8 @@ Ag9200
 
 SparkFun PoE Power Module
 0
-8
-8
+10
+10
 SparkFun-Semiconductor-Nonstandard
 Ag9900M
 
