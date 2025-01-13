@@ -1,4 +1,4 @@
-25095102532784599
+25103808343147315
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -91700,6 +91700,13 @@ SparkFun capacitor
 2
 2
 SparkFun-Capacitor
+C_0603_1608Metric_Polar
+
+SparkFun capacitor
+0
+2
+2
+SparkFun-Capacitor
 C_0805_2012Metric
 Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator
 SparkFun capacitor
@@ -91938,6 +91945,13 @@ SparkFun
 5
 5
 SparkFun-Connector
+1x05_2.0mm_SMD_Pin1RightDown
+
+SparkFun 5 pin 2mm
+0
+5
+5
+SparkFun-Connector
 1x05_Castellated
 
 SparkFun
@@ -91990,6 +92004,13 @@ SparkFun-Connector
 1x07
 
 SparkFun
+0
+7
+7
+SparkFun-Connector
+1x07_2.0mm_SMD_Pin1RightDown
+
+SparkFun 2mm 7 pin
 0
 7
 7
@@ -92946,6 +92967,13 @@ SparkFun
 26
 26
 SparkFun-Electromechanical
+Buzzer_9mm_SMD
+
+SparkFun SMD Buzzer
+0
+2
+2
+SparkFun-Electromechanical
 Relay_SPDT_2A_7.5x12.5mm
 
 SparkFun SPDT Power Relay 2A
@@ -93401,12 +93429,19 @@ SparkFun
 47
 47
 SparkFun-RF
+ID-2_12_20_Outline
+
+SparkFun ID Innovations RFID Mechanical Outline
+0
+0
+0
+SparkFun-RF
 Mini-Circuits_BH292
 
-
+SparkFun Mini-Circuits BH292
 0
-0
-0
+6
+6
 SparkFun-RF
 PD0922J5050S2HF_ANA
 

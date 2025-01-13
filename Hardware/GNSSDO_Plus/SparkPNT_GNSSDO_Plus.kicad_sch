@@ -1112,10 +1112,10 @@
 			(symbol "0.1uF_0603_25V_20%_0_1"
 				(polyline
 					(pts
-						(xy -2.032 -0.762) (xy 2.032 -0.762)
+						(xy -1.524 -0.508) (xy 1.524 -0.508)
 					)
 					(stroke
-						(width 0.508)
+						(width 0.3302)
 						(type default)
 					)
 					(fill
@@ -1124,10 +1124,10 @@
 				)
 				(polyline
 					(pts
-						(xy -2.032 0.762) (xy 2.032 0.762)
+						(xy -1.524 0.508) (xy 1.524 0.508)
 					)
 					(stroke
-						(width 0.508)
+						(width 0.3048)
 						(type default)
 					)
 					(fill
@@ -1137,8 +1137,8 @@
 			)
 			(symbol "0.1uF_0603_25V_20%_1_1"
 				(pin passive line
-					(at 0 3.81 270)
-					(length 2.794)
+					(at 0 2.54 270)
+					(length 2.032)
 					(name "~"
 						(effects
 							(font
@@ -1155,8 +1155,8 @@
 					)
 				)
 				(pin passive line
-					(at 0 -3.81 90)
-					(length 2.794)
+					(at 0 -2.54 90)
+					(length 2.032)
 					(name "~"
 						(effects
 							(font
@@ -1273,10 +1273,10 @@
 			(symbol "1.0uF_0603_16V_10%_0_1"
 				(polyline
 					(pts
-						(xy -2.032 -0.762) (xy 2.032 -0.762)
+						(xy -1.524 -0.508) (xy 1.524 -0.508)
 					)
 					(stroke
-						(width 0.508)
+						(width 0.3302)
 						(type default)
 					)
 					(fill
@@ -1285,10 +1285,10 @@
 				)
 				(polyline
 					(pts
-						(xy -2.032 0.762) (xy 2.032 0.762)
+						(xy -1.524 0.508) (xy 1.524 0.508)
 					)
 					(stroke
-						(width 0.508)
+						(width 0.3048)
 						(type default)
 					)
 					(fill
@@ -1298,8 +1298,8 @@
 			)
 			(symbol "1.0uF_0603_16V_10%_1_1"
 				(pin passive line
-					(at 0 3.81 270)
-					(length 2.794)
+					(at 0 2.54 270)
+					(length 2.032)
 					(name "~"
 						(effects
 							(font
@@ -1316,8 +1316,8 @@
 					)
 				)
 				(pin passive line
-					(at 0 -3.81 90)
-					(length 2.794)
+					(at 0 -2.54 90)
+					(length 2.032)
 					(name "~"
 						(effects
 							(font
@@ -1434,10 +1434,10 @@
 			(symbol "10uF_0603_10V_20%_0_1"
 				(polyline
 					(pts
-						(xy -2.032 -0.762) (xy 2.032 -0.762)
+						(xy -1.524 -0.508) (xy 1.524 -0.508)
 					)
 					(stroke
-						(width 0.508)
+						(width 0.3302)
 						(type default)
 					)
 					(fill
@@ -1446,10 +1446,10 @@
 				)
 				(polyline
 					(pts
-						(xy -2.032 0.762) (xy 2.032 0.762)
+						(xy -1.524 0.508) (xy 1.524 0.508)
 					)
 					(stroke
-						(width 0.508)
+						(width 0.3048)
 						(type default)
 					)
 					(fill
@@ -1459,8 +1459,8 @@
 			)
 			(symbol "10uF_0603_10V_20%_1_1"
 				(pin passive line
-					(at 0 3.81 270)
-					(length 2.794)
+					(at 0 2.54 270)
+					(length 2.032)
 					(name "~"
 						(effects
 							(font
@@ -1477,8 +1477,8 @@
 					)
 				)
 				(pin passive line
-					(at 0 -3.81 90)
-					(length 2.794)
+					(at 0 -2.54 90)
+					(length 2.032)
 					(name "~"
 						(effects
 							(font
@@ -1595,10 +1595,10 @@
 			(symbol "10uF_0603_6.3V_20%_0_1"
 				(polyline
 					(pts
-						(xy -2.032 -0.762) (xy 2.032 -0.762)
+						(xy -1.524 -0.508) (xy 1.524 -0.508)
 					)
 					(stroke
-						(width 0.508)
+						(width 0.3302)
 						(type default)
 					)
 					(fill
@@ -1607,10 +1607,10 @@
 				)
 				(polyline
 					(pts
-						(xy -2.032 0.762) (xy 2.032 0.762)
+						(xy -1.524 0.508) (xy 1.524 0.508)
 					)
 					(stroke
-						(width 0.508)
+						(width 0.3048)
 						(type default)
 					)
 					(fill
@@ -1620,8 +1620,8 @@
 			)
 			(symbol "10uF_0603_6.3V_20%_1_1"
 				(pin passive line
-					(at 0 3.81 270)
-					(length 2.794)
+					(at 0 2.54 270)
+					(length 2.032)
 					(name "~"
 						(effects
 							(font
@@ -1638,8 +1638,8 @@
 					)
 				)
 				(pin passive line
-					(at 0 -3.81 90)
-					(length 2.794)
+					(at 0 -2.54 90)
+					(length 2.032)
 					(name "~"
 						(effects
 							(font
@@ -1756,10 +1756,10 @@
 			(symbol "2.2uF_0603_10V_20%_0_1"
 				(polyline
 					(pts
-						(xy -2.032 -0.762) (xy 2.032 -0.762)
+						(xy -1.524 -0.508) (xy 1.524 -0.508)
 					)
 					(stroke
-						(width 0.508)
+						(width 0.3302)
 						(type default)
 					)
 					(fill
@@ -1768,10 +1768,10 @@
 				)
 				(polyline
 					(pts
-						(xy -2.032 0.762) (xy 2.032 0.762)
+						(xy -1.524 0.508) (xy 1.524 0.508)
 					)
 					(stroke
-						(width 0.508)
+						(width 0.3048)
 						(type default)
 					)
 					(fill
@@ -1781,8 +1781,8 @@
 			)
 			(symbol "2.2uF_0603_10V_20%_1_1"
 				(pin passive line
-					(at 0 3.81 270)
-					(length 2.794)
+					(at 0 2.54 270)
+					(length 2.032)
 					(name "~"
 						(effects
 							(font
@@ -1799,8 +1799,8 @@
 					)
 				)
 				(pin passive line
-					(at 0 -3.81 90)
-					(length 2.794)
+					(at 0 -2.54 90)
+					(length 2.032)
 					(name "~"
 						(effects
 							(font
@@ -3143,8 +3143,8 @@
 			)
 			(symbol "SolderJumper_2_Bridged_1_1"
 				(pin passive line
-					(at -3.81 0 0)
-					(length 2.54)
+					(at -2.54 0 0)
+					(length 1.27)
 					(name "A"
 						(effects
 							(font
@@ -3161,8 +3161,8 @@
 					)
 				)
 				(pin passive line
-					(at 3.81 0 180)
-					(length 2.54)
+					(at 2.54 0 180)
+					(length 1.27)
 					(name "B"
 						(effects
 							(font
@@ -3574,8 +3574,8 @@
 			)
 			(symbol "SolderJumper_3_Bridged123_1_1"
 				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
+					(at -2.54 0 0)
+					(length 1.27)
 					(name "A"
 						(effects
 							(font
@@ -3592,9 +3592,9 @@
 					)
 				)
 				(pin passive line
-					(at 0 -3.81 90)
-					(length 2.54)
-					(name "C"
+					(at 0 -2.54 90)
+					(length 1.27)
+					(name "B"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3610,9 +3610,9 @@
 					)
 				)
 				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "B"
+					(at 2.54 0 180)
+					(length 1.27)
+					(name "C"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -5520,7 +5520,7 @@
 			(symbol "10k_0603_0_1"
 				(polyline
 					(pts
-						(xy -2.286 0) (xy -2.54 0)
+						(xy -1.524 0) (xy -1.143 1.016) (xy -0.762 0) (xy -0.381 -1.016) (xy 0 0)
 					)
 					(stroke
 						(width 0)
@@ -5532,43 +5532,7 @@
 				)
 				(polyline
 					(pts
-						(xy 2.286 0) (xy 2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.762 0) (xy -1.143 -1.016) (xy -1.524 0) (xy -1.905 1.016) (xy -2.286 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 0) (xy 0.381 -1.016) (xy 0 0) (xy -0.381 1.016) (xy -0.762 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.286 0) (xy 1.905 -1.016) (xy 1.524 0) (xy 1.143 1.016) (xy 0.762 0)
+						(xy 0 0) (xy 0.381 1.016) (xy 0.762 0) (xy 1.143 -1.016) (xy 1.524 0)
 					)
 					(stroke
 						(width 0)
@@ -5581,8 +5545,8 @@
 			)
 			(symbol "10k_0603_1_1"
 				(pin passive line
-					(at 3.81 0 180)
-					(length 1.27)
+					(at -2.54 0 0)
+					(length 1.016)
 					(name "~"
 						(effects
 							(font
@@ -5599,8 +5563,8 @@
 					)
 				)
 				(pin passive line
-					(at -3.81 0 0)
-					(length 1.27)
+					(at 2.54 0 180)
+					(length 1.016)
 					(name "~"
 						(effects
 							(font
@@ -5699,7 +5663,7 @@
 			(symbol "1k_0603_0_1"
 				(polyline
 					(pts
-						(xy -2.286 0) (xy -2.54 0)
+						(xy -1.524 0) (xy -1.143 1.016) (xy -0.762 0) (xy -0.381 -1.016) (xy 0 0)
 					)
 					(stroke
 						(width 0)
@@ -5711,43 +5675,7 @@
 				)
 				(polyline
 					(pts
-						(xy 2.286 0) (xy 2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.762 0) (xy -1.143 -1.016) (xy -1.524 0) (xy -1.905 1.016) (xy -2.286 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 0) (xy 0.381 -1.016) (xy 0 0) (xy -0.381 1.016) (xy -0.762 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.286 0) (xy 1.905 -1.016) (xy 1.524 0) (xy 1.143 1.016) (xy 0.762 0)
+						(xy 0 0) (xy 0.381 1.016) (xy 0.762 0) (xy 1.143 -1.016) (xy 1.524 0)
 					)
 					(stroke
 						(width 0)
@@ -5760,8 +5688,8 @@
 			)
 			(symbol "1k_0603_1_1"
 				(pin passive line
-					(at 3.81 0 180)
-					(length 1.27)
+					(at -2.54 0 0)
+					(length 1.016)
 					(name "~"
 						(effects
 							(font
@@ -5778,8 +5706,8 @@
 					)
 				)
 				(pin passive line
-					(at -3.81 0 0)
-					(length 1.27)
+					(at 2.54 0 180)
+					(length 1.016)
 					(name "~"
 						(effects
 							(font
@@ -5878,7 +5806,7 @@
 			(symbol "2.2k_0603_0_1"
 				(polyline
 					(pts
-						(xy -2.286 0) (xy -2.54 0)
+						(xy -1.524 0) (xy -1.143 1.016) (xy -0.762 0) (xy -0.381 -1.016) (xy 0 0)
 					)
 					(stroke
 						(width 0)
@@ -5890,43 +5818,7 @@
 				)
 				(polyline
 					(pts
-						(xy 2.286 0) (xy 2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.762 0) (xy -1.143 -1.016) (xy -1.524 0) (xy -1.905 1.016) (xy -2.286 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 0) (xy 0.381 -1.016) (xy 0 0) (xy -0.381 1.016) (xy -0.762 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.286 0) (xy 1.905 -1.016) (xy 1.524 0) (xy 1.143 1.016) (xy 0.762 0)
+						(xy 0 0) (xy 0.381 1.016) (xy 0.762 0) (xy 1.143 -1.016) (xy 1.524 0)
 					)
 					(stroke
 						(width 0)
@@ -5939,8 +5831,8 @@
 			)
 			(symbol "2.2k_0603_1_1"
 				(pin passive line
-					(at 3.81 0 180)
-					(length 1.27)
+					(at -2.54 0 0)
+					(length 1.016)
 					(name "~"
 						(effects
 							(font
@@ -5957,8 +5849,8 @@
 					)
 				)
 				(pin passive line
-					(at -3.81 0 0)
-					(length 1.27)
+					(at 2.54 0 180)
+					(length 1.016)
 					(name "~"
 						(effects
 							(font
@@ -6057,7 +5949,7 @@
 			(symbol "470_0603_0_1"
 				(polyline
 					(pts
-						(xy -2.286 0) (xy -2.54 0)
+						(xy -1.524 0) (xy -1.143 1.016) (xy -0.762 0) (xy -0.381 -1.016) (xy 0 0)
 					)
 					(stroke
 						(width 0)
@@ -6069,43 +5961,7 @@
 				)
 				(polyline
 					(pts
-						(xy 2.286 0) (xy 2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.762 0) (xy -1.143 -1.016) (xy -1.524 0) (xy -1.905 1.016) (xy -2.286 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 0) (xy 0.381 -1.016) (xy 0 0) (xy -0.381 1.016) (xy -0.762 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.286 0) (xy 1.905 -1.016) (xy 1.524 0) (xy 1.143 1.016) (xy 0.762 0)
+						(xy 0 0) (xy 0.381 1.016) (xy 0.762 0) (xy 1.143 -1.016) (xy 1.524 0)
 					)
 					(stroke
 						(width 0)
@@ -6118,8 +5974,8 @@
 			)
 			(symbol "470_0603_1_1"
 				(pin passive line
-					(at 3.81 0 180)
-					(length 1.27)
+					(at -2.54 0 0)
+					(length 1.016)
 					(name "~"
 						(effects
 							(font
@@ -6136,8 +5992,8 @@
 					)
 				)
 				(pin passive line
-					(at -3.81 0 0)
-					(length 1.27)
+					(at 2.54 0 180)
+					(length 1.016)
 					(name "~"
 						(effects
 							(font
@@ -6354,7 +6210,7 @@
 	)
 	(wire
 		(pts
-			(xy 233.68 76.2) (xy 233.68 77.47)
+			(xy 233.68 74.93) (xy 233.68 77.47)
 		)
 		(stroke
 			(width 0)
@@ -6384,7 +6240,7 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 63.5) (xy 133.35 63.5)
+			(xy 129.54 63.5) (xy 134.62 63.5)
 		)
 		(stroke
 			(width 0)
@@ -6394,7 +6250,7 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 162.56) (xy 55.88 161.29)
+			(xy 55.88 161.29) (xy 55.88 160.02)
 		)
 		(stroke
 			(width 0)
@@ -6414,7 +6270,7 @@
 	)
 	(wire
 		(pts
-			(xy 195.58 53.34) (xy 195.58 52.07)
+			(xy 195.58 54.61) (xy 195.58 52.07)
 		)
 		(stroke
 			(width 0)
@@ -6434,23 +6290,13 @@
 	)
 	(wire
 		(pts
-			(xy 140.97 60.96) (xy 142.24 60.96)
+			(xy 139.7 60.96) (xy 143.51 60.96)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "12a1f98b-6ed0-4f68-babf-18ad00c59f31")
-	)
-	(wire
-		(pts
-			(xy 227.33 62.23) (xy 227.33 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "153f891b-74da-4402-8440-fe1382b4902d")
 	)
 	(wire
 		(pts
@@ -6504,7 +6350,7 @@
 	)
 	(wire
 		(pts
-			(xy 140.97 43.18) (xy 142.24 43.18)
+			(xy 139.7 43.18) (xy 143.51 43.18)
 		)
 		(stroke
 			(width 0)
@@ -6534,7 +6380,7 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 63.5) (xy 151.13 63.5)
+			(xy 148.59 63.5) (xy 151.13 63.5)
 		)
 		(stroke
 			(width 0)
@@ -6554,7 +6400,17 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 76.2) (xy 220.98 77.47)
+			(xy 227.33 62.23) (xy 227.33 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2c9adf56-3526-4d66-bae7-6ed7787e5428")
+	)
+	(wire
+		(pts
+			(xy 220.98 74.93) (xy 220.98 77.47)
 		)
 		(stroke
 			(width 0)
@@ -6581,6 +6437,16 @@
 			(type default)
 		)
 		(uuid "383319c5-9157-4047-b846-93517f712e7c")
+	)
+	(wire
+		(pts
+			(xy 55.88 152.4) (xy 55.88 154.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3b14159d-f46b-4e2a-929a-ef04970e6118")
 	)
 	(wire
 		(pts
@@ -6624,7 +6490,7 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 66.04) (xy 151.13 66.04)
+			(xy 148.59 66.04) (xy 151.13 66.04)
 		)
 		(stroke
 			(width 0)
@@ -6664,7 +6530,7 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 66.04) (xy 133.35 66.04)
+			(xy 129.54 66.04) (xy 134.62 66.04)
 		)
 		(stroke
 			(width 0)
@@ -6674,7 +6540,7 @@
 	)
 	(wire
 		(pts
-			(xy 195.58 60.96) (xy 195.58 62.23)
+			(xy 195.58 59.69) (xy 195.58 62.23)
 		)
 		(stroke
 			(width 0)
@@ -6684,7 +6550,7 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 67.31) (xy 222.25 67.31)
+			(xy 220.98 67.31) (xy 224.79 67.31)
 		)
 		(stroke
 			(width 0)
@@ -6694,7 +6560,7 @@
 	)
 	(wire
 		(pts
-			(xy 140.97 63.5) (xy 142.24 63.5)
+			(xy 139.7 63.5) (xy 143.51 63.5)
 		)
 		(stroke
 			(width 0)
@@ -6704,7 +6570,7 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 189.23) (xy 55.88 187.96)
+			(xy 55.88 187.96) (xy 55.88 186.69)
 		)
 		(stroke
 			(width 0)
@@ -6714,17 +6580,7 @@
 	)
 	(wire
 		(pts
-			(xy 232.41 67.31) (xy 233.68 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5a52e76b-13b8-439c-ad26-3928ed13325f")
-	)
-	(wire
-		(pts
-			(xy 140.97 66.04) (xy 142.24 66.04)
+			(xy 139.7 66.04) (xy 143.51 66.04)
 		)
 		(stroke
 			(width 0)
@@ -6734,7 +6590,7 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 106.68) (xy 55.88 107.95)
+			(xy 55.88 107.95) (xy 55.88 109.22)
 		)
 		(stroke
 			(width 0)
@@ -6744,7 +6600,7 @@
 	)
 	(wire
 		(pts
-			(xy 44.45 189.23) (xy 44.45 187.96)
+			(xy 44.45 187.96) (xy 44.45 186.69)
 		)
 		(stroke
 			(width 0)
@@ -6761,16 +6617,6 @@
 			(type default)
 		)
 		(uuid "5fdcc018-4c5c-4f41-aa4e-02e4f7e82bd5")
-	)
-	(wire
-		(pts
-			(xy 55.88 116.84) (xy 55.88 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "601096cf-9d7f-4449-ba0b-9df409cb6d92")
 	)
 	(wire
 		(pts
@@ -6794,7 +6640,7 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 60.96) (xy 133.35 60.96)
+			(xy 129.54 60.96) (xy 134.62 60.96)
 		)
 		(stroke
 			(width 0)
@@ -6834,7 +6680,7 @@
 	)
 	(wire
 		(pts
-			(xy 233.68 68.58) (xy 233.68 67.31)
+			(xy 233.68 69.85) (xy 233.68 67.31)
 		)
 		(stroke
 			(width 0)
@@ -6844,7 +6690,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 45.72) (xy 133.35 45.72)
+			(xy 127 45.72) (xy 134.62 45.72)
 		)
 		(stroke
 			(width 0)
@@ -6854,7 +6700,7 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 48.26) (xy 151.13 48.26)
+			(xy 148.59 48.26) (xy 151.13 48.26)
 		)
 		(stroke
 			(width 0)
@@ -6954,7 +6800,7 @@
 	)
 	(wire
 		(pts
-			(xy 208.28 52.07) (xy 208.28 53.34)
+			(xy 208.28 52.07) (xy 208.28 54.61)
 		)
 		(stroke
 			(width 0)
@@ -7024,7 +6870,7 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 60.96) (xy 151.13 60.96)
+			(xy 148.59 60.96) (xy 151.13 60.96)
 		)
 		(stroke
 			(width 0)
@@ -7044,6 +6890,16 @@
 	)
 	(wire
 		(pts
+			(xy 55.88 149.86) (xy 55.88 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9eb35945-2a47-40ee-9d94-28dc31c78530")
+	)
+	(wire
+		(pts
 			(xy 161.29 66.04) (xy 162.56 66.04)
 		)
 		(stroke
@@ -7054,7 +6910,7 @@
 	)
 	(wire
 		(pts
-			(xy 208.28 60.96) (xy 208.28 62.23)
+			(xy 208.28 59.69) (xy 208.28 62.23)
 		)
 		(stroke
 			(width 0)
@@ -7064,7 +6920,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 43.18) (xy 133.35 43.18)
+			(xy 127 43.18) (xy 134.62 43.18)
 		)
 		(stroke
 			(width 0)
@@ -7084,7 +6940,7 @@
 	)
 	(wire
 		(pts
-			(xy 44.45 180.34) (xy 44.45 179.07)
+			(xy 44.45 181.61) (xy 44.45 180.34)
 		)
 		(stroke
 			(width 0)
@@ -7114,7 +6970,7 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 45.72) (xy 151.13 45.72)
+			(xy 148.59 45.72) (xy 151.13 45.72)
 		)
 		(stroke
 			(width 0)
@@ -7124,17 +6980,7 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 151.13) (xy 55.88 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b66b3caf-d8ff-4690-8dd0-a11b62df81f7")
-	)
-	(wire
-		(pts
-			(xy 220.98 68.58) (xy 220.98 67.31)
+			(xy 220.98 69.85) (xy 220.98 67.31)
 		)
 		(stroke
 			(width 0)
@@ -7164,7 +7010,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 44.45) (xy 66.04 44.45)
+			(xy 63.5 44.45) (xy 67.31 44.45)
 		)
 		(stroke
 			(width 0)
@@ -7204,7 +7050,7 @@
 	)
 	(wire
 		(pts
-			(xy 140.97 48.26) (xy 142.24 48.26)
+			(xy 139.7 48.26) (xy 143.51 48.26)
 		)
 		(stroke
 			(width 0)
@@ -7234,13 +7080,23 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 180.34) (xy 55.88 179.07)
+			(xy 55.88 181.61) (xy 55.88 180.34)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "ce9deba8-fd4c-4c76-9e90-c101592e9e4d")
+	)
+	(wire
+		(pts
+			(xy 229.87 67.31) (xy 233.68 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d455a9ff-186c-4032-b3b7-15cb7f98e41b")
 	)
 	(wire
 		(pts
@@ -7254,7 +7110,7 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 142.24) (xy 55.88 143.51)
+			(xy 55.88 143.51) (xy 55.88 144.78)
 		)
 		(stroke
 			(width 0)
@@ -7264,7 +7120,17 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 48.26) (xy 133.35 48.26)
+			(xy 55.88 116.84) (xy 55.88 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d7aede3f-f3a2-4e04-95d4-77efc334fb5d")
+	)
+	(wire
+		(pts
+			(xy 129.54 48.26) (xy 134.62 48.26)
 		)
 		(stroke
 			(width 0)
@@ -7284,7 +7150,7 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 127) (xy 55.88 125.73)
+			(xy 55.88 125.73) (xy 55.88 124.46)
 		)
 		(stroke
 			(width 0)
@@ -7301,16 +7167,6 @@
 			(type default)
 		)
 		(uuid "e3bf5a63-8dc4-4d84-a6a9-626a3bd41955")
-	)
-	(wire
-		(pts
-			(xy 55.88 152.4) (xy 55.88 153.67)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e67647a2-c656-44f8-908e-1b255fd4c1a6")
 	)
 	(wire
 		(pts
@@ -7334,7 +7190,7 @@
 	)
 	(wire
 		(pts
-			(xy 140.97 45.72) (xy 142.24 45.72)
+			(xy 139.7 45.72) (xy 143.51 45.72)
 		)
 		(stroke
 			(width 0)
@@ -7374,7 +7230,7 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 43.18) (xy 151.13 43.18)
+			(xy 148.59 43.18) (xy 151.13 43.18)
 		)
 		(stroke
 			(width 0)
@@ -7394,7 +7250,7 @@
 	)
 	(wire
 		(pts
-			(xy 73.66 44.45) (xy 74.93 44.45)
+			(xy 72.39 44.45) (xy 74.93 44.45)
 		)
 		(stroke
 			(width 0)
@@ -7424,7 +7280,7 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 116.84) (xy 55.88 115.57)
+			(xy 55.88 114.3) (xy 55.88 116.84)
 		)
 		(stroke
 			(width 0)
@@ -8468,6 +8324,7 @@
 		)
 		(property "Value" "GND"
 			(at 227.33 50.8 0)
+			(do_not_autoplace yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8493,7 +8350,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 227.33 46.99 0)
+			(at 227.33 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8537,7 +8394,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 140.97 46.99 0)
+			(at 137.16 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8597,7 +8454,7 @@
 	)
 	(symbol
 		(lib_id "SparkFun-PowerSymbol:GND")
-		(at 55.88 127 0)
+		(at 55.88 125.73 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8605,7 +8462,7 @@
 		(dnp no)
 		(uuid "05d0816f-4565-4489-ab50-7661bc74847c")
 		(property "Reference" "#PWR05"
-			(at 55.88 133.35 0)
+			(at 55.88 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8614,7 +8471,8 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 55.88 130.81 0)
+			(at 55.88 129.54 0)
+			(do_not_autoplace yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8622,7 +8480,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 55.88 127 0)
+			(at 55.88 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8631,7 +8489,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 55.88 127 0)
+			(at 55.88 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8640,7 +8498,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 55.88 127 0)
+			(at 55.88 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8695,7 +8553,7 @@
 			)
 		)
 		(property "Footprint" "SparkFun-Hardware:Standoff"
-			(at 251.46 184.15 0)
+			(at 251.46 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8704,7 +8562,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 251.46 182.88 0)
+			(at 251.46 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8713,7 +8571,7 @@
 			)
 		)
 		(property "Description" "Drill holes for mechanically mounting via screws, standoffs, etc."
-			(at 251.46 179.07 0)
+			(at 251.46 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8797,7 +8655,7 @@
 	)
 	(symbol
 		(lib_id "SparkFun-PowerSymbol:3.3V")
-		(at 55.88 179.07 0)
+		(at 55.88 180.34 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8805,7 +8663,7 @@
 		(dnp no)
 		(uuid "13c2eea9-3ad7-4ace-8a31-cf5154e19043")
 		(property "Reference" "#PWR0102"
-			(at 55.88 182.88 0)
+			(at 55.88 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8814,7 +8672,8 @@
 			)
 		)
 		(property "Value" "3.3V"
-			(at 55.88 175.514 0)
+			(at 55.88 176.53 0)
+			(do_not_autoplace yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8822,7 +8681,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 55.88 179.07 0)
+			(at 55.88 180.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8831,7 +8690,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 55.88 179.07 0)
+			(at 55.88 180.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8840,7 +8699,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"3.3V\""
-			(at 55.88 179.07 0)
+			(at 55.88 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8913,7 +8772,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"VCC\""
-			(at 63.5 43.18 0)
+			(at 63.5 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8952,7 +8811,8 @@
 			)
 		)
 		(property "Value" "3.3V"
-			(at 129.54 38.354 0)
+			(at 129.54 38.1 0)
+			(do_not_autoplace yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8978,7 +8838,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"3.3V\""
-			(at 129.54 41.91 0)
+			(at 129.54 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9045,7 +8905,7 @@
 			)
 		)
 		(property "Description" "Test Point"
-			(at 96.52 181.61 0)
+			(at 86.36 181.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9076,7 +8936,7 @@
 		(fields_autoplaced yes)
 		(uuid "1b4ce860-15ec-4fae-8861-9d2f5e4979a4")
 		(property "Reference" "C1"
-			(at 48.26 182.8799 0)
+			(at 46.99 180.3462 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9085,7 +8945,7 @@
 			)
 		)
 		(property "Value" "10uF"
-			(at 48.26 185.4199 0)
+			(at 46.99 182.8862 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9130,23 +8990,21 @@
 			)
 		)
 		(property "Voltage" "6.3V"
-			(at 48.26 185.4199 0)
+			(at 46.99 185.4262 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 48.26 187.9599 0)
+			(at 46.99 187.9662 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
 		(pin "2"
@@ -9175,21 +9033,21 @@
 		(fields_autoplaced yes)
 		(uuid "1dcb164f-5b0d-487b-81ab-dddf93660373")
 		(property "Reference" "R4"
-			(at 218.44 71.1199 90)
+			(at 223.52 71.1199 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "2.2k"
-			(at 218.44 73.6599 90)
+			(at 223.52 73.6599 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "SparkFun-Resistor:R_0603_1608Metric"
@@ -9254,7 +9112,7 @@
 		(fields_autoplaced yes)
 		(uuid "24a4b0ab-4e4d-41f5-92ef-053a1dfb2e48")
 		(property "Reference" "C8"
-			(at 59.69 120.6499 0)
+			(at 58.42 118.1162 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9263,7 +9121,7 @@
 			)
 		)
 		(property "Value" "1.0uF"
-			(at 59.69 123.1899 0)
+			(at 58.42 120.6562 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9308,23 +9166,21 @@
 			)
 		)
 		(property "Voltage" "16V"
-			(at 59.69 123.1899 0)
+			(at 58.42 123.1962 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
 		(property "Tolerance" "10%"
-			(at 59.69 125.7299 0)
+			(at 58.42 125.7362 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -9435,7 +9291,7 @@
 			)
 		)
 		(property "Footprint" "SparkFun-Hardware:Standoff"
-			(at 255.27 180.34 0)
+			(at 255.27 182.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9444,7 +9300,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 255.27 179.07 0)
+			(at 255.27 180.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9453,7 +9309,7 @@
 			)
 		)
 		(property "Description" "Drill holes for mechanically mounting via screws, standoffs, etc."
-			(at 255.27 175.26 0)
+			(at 255.27 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9517,7 +9373,7 @@
 			)
 		)
 		(property "Description" "Fiducial Marker"
-			(at 262.89 175.26 0)
+			(at 262.89 182.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9581,7 +9437,7 @@
 			)
 		)
 		(property "Description" "Fiducial Marker"
-			(at 262.89 179.07 0)
+			(at 262.89 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9616,7 +9472,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 146.05 60.96 0)
+			(at 146.05 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9642,7 +9498,7 @@
 			)
 		)
 		(property "Description" "Solder Jumper, 2-pole, closed/bridged"
-			(at 146.05 63.5 0)
+			(at 146.05 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9667,7 +9523,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 44.45 189.23 0)
+		(at 44.45 187.96 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9675,7 +9531,7 @@
 		(dnp no)
 		(uuid "460857ec-ebeb-434f-8ba0-5feae2ce14fc")
 		(property "Reference" "#PWR098"
-			(at 44.45 195.58 0)
+			(at 44.45 194.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9684,7 +9540,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 44.45 193.04 0)
+			(at 44.45 191.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9692,7 +9548,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 44.45 189.23 0)
+			(at 44.45 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9701,7 +9557,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 44.45 189.23 0)
+			(at 44.45 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9710,7 +9566,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 44.45 189.23 0)
+			(at 44.45 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9738,10 +9594,9 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "47ab0a3b-2e28-4c37-8def-977dbda05301")
-		(property "Reference" "JP1"
-			(at 227.33 71.12 0)
+		(property "Reference" "I2C.1"
+			(at 231.14 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9749,7 +9604,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 227.33 70.104 0)
+			(at 223.52 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9766,7 +9621,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 227.33 59.69 0)
+			(at 227.33 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9775,7 +9630,7 @@
 			)
 		)
 		(property "Description" "Solder Jumper, 3-pole, pins 1+2+3 closed/bridged"
-			(at 227.33 67.31 0)
+			(at 227.33 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9795,7 +9650,7 @@
 		(instances
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
-					(reference "JP1")
+					(reference "I2C.1")
 					(unit 1)
 				)
 			)
@@ -9812,21 +9667,21 @@
 		(fields_autoplaced yes)
 		(uuid "4eaec9ad-b6cb-4eb7-a99e-61e5535ccbcc")
 		(property "Reference" "R8"
-			(at 53.34 156.2099 90)
+			(at 58.42 156.2099 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "2.2k"
-			(at 53.34 158.7499 90)
+			(at 58.42 158.7499 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "SparkFun-Resistor:R_0603_1608Metric"
@@ -9891,7 +9746,7 @@
 		(fields_autoplaced yes)
 		(uuid "4f4a55eb-5239-4ad0-a3ad-f1049d2bc618")
 		(property "Reference" "C54"
-			(at 199.39 55.8799 0)
+			(at 198.12 53.3462 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9900,7 +9755,7 @@
 			)
 		)
 		(property "Value" "2.2uF"
-			(at 199.39 58.4199 0)
+			(at 198.12 55.8862 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9945,23 +9800,21 @@
 			)
 		)
 		(property "Voltage" "10V"
-			(at 199.39 58.4199 0)
+			(at 198.12 58.4262 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 199.39 60.9599 0)
+			(at 198.12 60.9662 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -10260,7 +10113,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 55.88 189.23 0)
+		(at 55.88 187.96 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10268,7 +10121,7 @@
 		(dnp no)
 		(uuid "56143115-0e8d-49b2-ad75-4c40ac1188e8")
 		(property "Reference" "#PWR097"
-			(at 55.88 195.58 0)
+			(at 55.88 194.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10277,7 +10130,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 55.88 193.04 0)
+			(at 55.88 191.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10285,7 +10138,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 55.88 189.23 0)
+			(at 55.88 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10294,7 +10147,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 55.88 189.23 0)
+			(at 55.88 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10303,7 +10156,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 55.88 189.23 0)
+			(at 55.88 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10342,7 +10195,8 @@
 			)
 		)
 		(property "Value" "3.3V"
-			(at 80.01 106.934 0)
+			(at 80.01 106.68 0)
+			(do_not_autoplace yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10368,7 +10222,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"3.3V\""
-			(at 80.01 110.49 0)
+			(at 80.01 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10412,7 +10266,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 146.05 58.42 0)
+			(at 146.05 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10438,7 +10292,7 @@
 			)
 		)
 		(property "Description" "Solder Jumper, 2-pole, closed/bridged"
-			(at 146.05 60.96 0)
+			(at 146.05 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10490,7 +10344,7 @@
 			)
 		)
 		(property "Footprint" "SparkFun-Hardware:Standoff"
-			(at 255.27 184.15 0)
+			(at 255.27 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10499,7 +10353,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 255.27 182.88 0)
+			(at 255.27 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10508,7 +10362,7 @@
 			)
 		)
 		(property "Description" "Drill holes for mechanically mounting via screws, standoffs, etc."
-			(at 255.27 179.07 0)
+			(at 255.27 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10527,7 +10381,7 @@
 	)
 	(symbol
 		(lib_id "SparkFun-PowerSymbol:3.3V")
-		(at 55.88 142.24 0)
+		(at 55.88 143.51 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10535,7 +10389,7 @@
 		(dnp no)
 		(uuid "607e4e87-c635-4a2a-b723-760c812d2678")
 		(property "Reference" "#PWR01"
-			(at 55.88 146.05 0)
+			(at 55.88 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10544,7 +10398,8 @@
 			)
 		)
 		(property "Value" "3.3V"
-			(at 55.88 138.684 0)
+			(at 55.88 139.7 0)
+			(do_not_autoplace yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10552,7 +10407,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 55.88 142.24 0)
+			(at 55.88 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10561,7 +10416,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 55.88 142.24 0)
+			(at 55.88 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10570,7 +10425,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"3.3V\""
-			(at 55.88 142.24 0)
+			(at 55.88 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10662,7 +10517,7 @@
 	)
 	(symbol
 		(lib_id "SparkFun-PowerSymbol:3.3V")
-		(at 44.45 179.07 0)
+		(at 44.45 180.34 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10670,7 +10525,7 @@
 		(dnp no)
 		(uuid "63bacf24-98df-4cea-ae6b-51e73692a490")
 		(property "Reference" "#PWR0102"
-			(at 44.45 182.88 0)
+			(at 44.45 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10679,7 +10534,8 @@
 			)
 		)
 		(property "Value" "3.3V"
-			(at 44.45 175.514 0)
+			(at 44.45 176.53 0)
+			(do_not_autoplace yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10687,7 +10543,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 44.45 179.07 0)
+			(at 44.45 180.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10696,7 +10552,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 44.45 179.07 0)
+			(at 44.45 180.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10705,7 +10561,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"3.3V\""
-			(at 44.45 179.07 0)
+			(at 44.45 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10750,7 +10606,8 @@
 			)
 		)
 		(property "Value" "3.3V"
-			(at 227.33 33.274 0)
+			(at 227.33 33.02 0)
+			(do_not_autoplace yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10776,7 +10633,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"3.3V\""
-			(at 227.33 36.83 0)
+			(at 227.33 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10913,7 +10770,7 @@
 			)
 		)
 		(property "Description" "Test Point"
-			(at 222.25 36.83 0)
+			(at 222.25 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10944,7 +10801,7 @@
 		(fields_autoplaced yes)
 		(uuid "79a94c4a-9235-4710-b098-e2ad3ca390b4")
 		(property "Reference" "C60"
-			(at 212.09 55.8799 0)
+			(at 210.82 53.3462 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10953,7 +10810,7 @@
 			)
 		)
 		(property "Value" "0.1uF"
-			(at 212.09 58.4199 0)
+			(at 210.82 55.8862 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10998,23 +10855,21 @@
 			)
 		)
 		(property "Voltage" "25V"
-			(at 212.09 58.4199 0)
+			(at 210.82 58.4262 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 212.09 60.9599 0)
+			(at 210.82 60.9662 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
 		(pin "2"
@@ -11052,6 +10907,7 @@
 		)
 		(property "Value" "GND"
 			(at 162.56 53.34 0)
+			(do_not_autoplace yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11077,7 +10933,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 162.56 49.53 0)
+			(at 162.56 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11116,7 +10972,8 @@
 			)
 		)
 		(property "Value" "3.3V"
-			(at 208.28 48.514 0)
+			(at 208.28 48.26 0)
+			(do_not_autoplace yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11142,7 +10999,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"3.3V\""
-			(at 208.28 52.07 0)
+			(at 208.28 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11269,7 +11126,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 140.97 41.91 0)
+			(at 137.16 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11346,7 +11203,8 @@
 			)
 		)
 		(property "Value" "3.3V"
-			(at 195.58 48.514 0)
+			(at 195.58 48.26 0)
+			(do_not_autoplace yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11372,7 +11230,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"3.3V\""
-			(at 195.58 52.07 0)
+			(at 195.58 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11410,7 +11268,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 146.05 43.18 0)
+			(at 146.05 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11436,7 +11294,7 @@
 			)
 		)
 		(property "Description" "Solder Jumper, 2-pole, closed/bridged"
-			(at 146.05 45.72 0)
+			(at 146.05 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11477,7 +11335,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 146.05 45.72 0)
+			(at 146.05 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11503,7 +11361,7 @@
 			)
 		)
 		(property "Description" "Solder Jumper, 2-pole, closed/bridged"
-			(at 146.05 48.26 0)
+			(at 146.05 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11638,7 +11496,7 @@
 			)
 		)
 		(property "Description" "Test Point"
-			(at 217.17 36.83 0)
+			(at 217.17 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11705,7 +11563,7 @@
 			)
 		)
 		(property "Description" "Fiducial Marker"
-			(at 259.08 175.26 0)
+			(at 259.08 182.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11769,7 +11627,7 @@
 			)
 		)
 		(property "Description" "4 pin JST 1mm polarized connector for I2C"
-			(at 233.68 40.64 0)
+			(at 233.68 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11989,7 +11847,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 146.05 63.5 0)
+			(at 146.05 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12015,7 +11873,7 @@
 			)
 		)
 		(property "Description" "Solder Jumper, 2-pole, closed/bridged"
-			(at 146.05 66.04 0)
+			(at 146.05 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12056,7 +11914,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 146.05 40.64 0)
+			(at 146.05 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12082,7 +11940,7 @@
 			)
 		)
 		(property "Description" "Solder Jumper, 2-pole, closed/bridged"
-			(at 146.05 43.18 0)
+			(at 146.05 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12107,7 +11965,7 @@
 	)
 	(symbol
 		(lib_id "SparkFun-PowerSymbol:3.3V")
-		(at 55.88 106.68 0)
+		(at 55.88 107.95 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12115,7 +11973,7 @@
 		(dnp no)
 		(uuid "ce6ed213-1b6c-475f-9e59-deea4288470d")
 		(property "Reference" "#PWR0102"
-			(at 55.88 110.49 0)
+			(at 55.88 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12124,7 +11982,8 @@
 			)
 		)
 		(property "Value" "3.3V"
-			(at 55.88 103.124 0)
+			(at 55.88 104.14 0)
+			(do_not_autoplace yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12132,7 +11991,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 55.88 106.68 0)
+			(at 55.88 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12141,7 +12000,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 55.88 106.68 0)
+			(at 55.88 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12150,7 +12009,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"3.3V\""
-			(at 55.88 106.68 0)
+			(at 55.88 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12187,11 +12046,12 @@
 		(fields_autoplaced yes)
 		(uuid "cf918748-fcca-4d6d-8b22-89c5bb059d8f")
 		(property "Reference" "TP24"
-			(at 60.452 149.86 90)
+			(at 62.23 152.3999 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Value" "PTH"
@@ -12222,7 +12082,7 @@
 			)
 		)
 		(property "Description" "Test Point"
-			(at 57.15 152.4 0)
+			(at 46.99 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12260,7 +12120,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 140.97 62.23 0)
+			(at 137.16 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12338,6 +12198,7 @@
 		)
 		(property "Value" "GND"
 			(at 162.56 71.12 0)
+			(do_not_autoplace yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12363,7 +12224,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 162.56 67.31 0)
+			(at 162.56 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12492,12 +12353,11 @@
 			)
 		)
 		(property "Value" "Screw_Cage_3.5mm-10"
-			(at 39.37 69.85 90)
+			(at 42.164 71.374 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" "SparkFun-Connector:Screw_Cage_3.5mm-10"
@@ -12604,7 +12464,7 @@
 			)
 		)
 		(property "Footprint" "SparkFun-Hardware:Standoff"
-			(at 251.46 180.34 0)
+			(at 251.46 182.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12613,7 +12473,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 251.46 179.07 0)
+			(at 251.46 180.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12622,7 +12482,7 @@
 			)
 		)
 		(property "Description" "Drill holes for mechanically mounting via screws, standoffs, etc."
-			(at 251.46 175.26 0)
+			(at 251.46 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12659,6 +12519,7 @@
 		)
 		(property "Value" "GND"
 			(at 48.26 74.93 0)
+			(do_not_autoplace yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12684,7 +12545,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 48.26 71.12 0)
+			(at 48.26 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12723,7 +12584,8 @@
 			)
 		)
 		(property "Value" "3.3V"
-			(at 227.33 58.674 0)
+			(at 227.33 58.42 0)
+			(do_not_autoplace yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12749,7 +12611,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"3.3V\""
-			(at 227.33 62.23 0)
+			(at 227.33 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12858,7 +12720,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 140.97 44.45 0)
+			(at 137.16 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12963,7 +12825,7 @@
 			)
 		)
 		(property "Description" "Fiducial Marker"
-			(at 259.08 179.07 0)
+			(at 259.08 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12998,7 +12860,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 140.97 64.77 0)
+			(at 137.16 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13067,7 +12929,7 @@
 		(fields_autoplaced yes)
 		(uuid "ef9d3308-c9ab-4e7d-89ac-28f6e4173597")
 		(property "Reference" "C2"
-			(at 59.69 182.8799 0)
+			(at 58.42 180.3462 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13076,7 +12938,7 @@
 			)
 		)
 		(property "Value" "0.1uF"
-			(at 59.69 185.4199 0)
+			(at 58.42 182.8862 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13121,23 +12983,21 @@
 			)
 		)
 		(property "Voltage" "25V"
-			(at 59.69 185.4199 0)
+			(at 58.42 185.4262 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 59.69 187.9599 0)
+			(at 58.42 187.9662 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
 		(pin "2"
@@ -13157,7 +13017,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 55.88 162.56 0)
+		(at 55.88 161.29 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13165,7 +13025,7 @@
 		(dnp no)
 		(uuid "f1b88c02-c965-44f1-a31b-68b854461b84")
 		(property "Reference" "#PWR035"
-			(at 55.88 168.91 0)
+			(at 55.88 167.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13174,7 +13034,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 55.88 166.37 0)
+			(at 55.88 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13182,7 +13042,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 55.88 162.56 0)
+			(at 55.88 161.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13191,7 +13051,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 55.88 162.56 0)
+			(at 55.88 161.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13200,7 +13060,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 55.88 162.56 0)
+			(at 55.88 161.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13238,7 +13098,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 140.97 59.69 0)
+			(at 137.16 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13307,21 +13167,21 @@
 		(fields_autoplaced yes)
 		(uuid "f6bdd01b-bc8e-41ed-9831-33677fc56a07")
 		(property "Reference" "R7"
-			(at 53.34 146.0499 90)
+			(at 58.42 146.0499 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Value" "1k"
-			(at 53.34 148.5899 90)
+			(at 58.42 148.5899 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Footprint" "SparkFun-Resistor:R_0603_1608Metric"
@@ -13383,9 +13243,10 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "fe34e5f3-1068-4429-b62a-7335ee6ce5b8")
 		(property "Reference" "C53"
-			(at 73.66 36.83 90)
+			(at 69.8563 33.02 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13393,7 +13254,7 @@
 			)
 		)
 		(property "Value" "10uF"
-			(at 73.66 39.37 90)
+			(at 69.8563 35.56 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13437,7 +13298,7 @@
 			)
 		)
 		(property "Voltage" "10V"
-			(at 73.66 41.91 90)
+			(at 69.8563 38.1 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13445,12 +13306,11 @@
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 69.85 39.37 90)
+			(at 69.8563 40.64 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "2"

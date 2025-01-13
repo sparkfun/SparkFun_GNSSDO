@@ -48,7 +48,7 @@
         "silk_text_thickness": 0.15,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.1524
+          "min_clearance": 0.3048
         }
       },
       "diff_pair_dimensions": [
@@ -825,6 +825,60 @@
           "group_by": false,
           "label": "Description",
           "name": "Description",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "DIR1",
+          "name": "DIR1",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Input Voltage (VDC)",
+          "name": "Input Voltage (VDC)",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Current",
+          "name": "Current",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Ityp",
+          "name": "Ityp",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Mfg Part#",
+          "name": "Mfg Part#",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Minimum Load (mA)",
+          "name": "Minimum Load (mA)",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Output Current (mA)",
+          "name": "Output Current (mA)",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Output Voltage (VDC)",
+          "name": "Output Voltage (VDC)",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "DIR2",
+          "name": "DIR2",
           "show": false
         }
       ],
