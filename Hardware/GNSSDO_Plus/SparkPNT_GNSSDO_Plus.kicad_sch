@@ -6259,12 +6259,6 @@
 		(uuid "24eb89a9-08f8-43ae-bf74-2d60f18d6f53")
 	)
 	(junction
-		(at 52.07 116.84)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4db18fed-a97e-4269-bc4a-4cb1372aaa0d")
-	)
-	(junction
 		(at 162.56 45.72)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6690,16 +6684,6 @@
 	)
 	(wire
 		(pts
-			(xy 52.07 115.57) (xy 52.07 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "53a12aec-12e1-4b8a-9f7e-5cb60c93aaf3")
-	)
-	(wire
-		(pts
 			(xy 220.98 67.31) (xy 222.25 67.31)
 		)
 		(stroke
@@ -6827,16 +6811,6 @@
 			(type default)
 		)
 		(uuid "6cebbdaa-562b-4716-ab59-8a890a8a0c8b")
-	)
-	(wire
-		(pts
-			(xy 52.07 116.84) (xy 55.88 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "70fc84f8-a96b-4b47-adc2-7bcb4981b704")
 	)
 	(wire
 		(pts
@@ -7300,7 +7274,7 @@
 	)
 	(wire
 		(pts
-			(xy 50.8 116.84) (xy 52.07 116.84)
+			(xy 53.34 116.84) (xy 55.88 116.84)
 		)
 		(stroke
 			(width 0)
@@ -7926,7 +7900,7 @@
 	)
 	(global_label "ESP_~{RST}"
 		(shape input)
-		(at 50.8 116.84 180)
+		(at 53.34 116.84 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7936,7 +7910,7 @@
 		)
 		(uuid "56ec395d-f6fd-4095-a7af-31c41086a2f4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 40.7392 116.84 0)
+			(at 43.2792 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12790,72 +12764,6 @@
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(reference "#PWR080")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "SparkFun-Connector:TestPoint_PTH")
-		(at 52.07 115.57 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e9adf78b-8bc0-445c-a160-e3c8953eadbe")
-		(property "Reference" "TP1"
-			(at 49.53 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "PTH"
-			(at 52.07 119.38 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "SparkFun-Connector:1x01"
-			(at 50.8 121.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 52.07 123.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Test Point"
-			(at 52.07 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a2ff18b9-a351-4ca3-8465-91fd708aa922")
-		)
-		(instances
-			(project "SparkFun_RTK_mosaic-T"
-				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
-					(reference "TP1")
 					(unit 1)
 				)
 			)
