@@ -11848,6 +11848,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "eff666e7-2ab5-4b6a-935e-44bafcb21378")
 		(property "Reference" "C9"
 			(at 67.3163 116.84 90)
@@ -11858,12 +11859,11 @@
 			)
 		)
 		(property "Value" "1nF"
-			(at 69.85 112.395 0)
+			(at 67.3163 119.38 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" "SparkFun-Capacitor:C_1206_3216Metric"
@@ -11903,7 +11903,7 @@
 			)
 		)
 		(property "Voltage" "2kV"
-			(at 73.66 113.03 0)
+			(at 67.3163 121.92 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11911,7 +11911,7 @@
 			)
 		)
 		(property "Tolerance" "10%"
-			(at 76.2 113.03 0)
+			(at 67.3163 124.46 90)
 			(effects
 				(font
 					(size 1.27 1.27)

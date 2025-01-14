@@ -3923,21 +3923,21 @@
 		(fields_autoplaced yes)
 		(uuid "0b926c7c-5cee-46c7-8d88-cab054e0240d")
 		(property "Reference" "C47"
-			(at 67.31 76.2062 0)
+			(at 62.23 76.2062 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "10uF"
-			(at 67.31 78.7462 0)
+			(at 62.23 78.7462 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "SparkFun-Capacitor:C_0603_1608Metric"
@@ -3977,21 +3977,21 @@
 			)
 		)
 		(property "Voltage" "10V"
-			(at 67.31 81.2862 0)
+			(at 62.23 81.2862 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 67.31 83.8262 0)
+			(at 62.23 83.8262 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(pin "2"

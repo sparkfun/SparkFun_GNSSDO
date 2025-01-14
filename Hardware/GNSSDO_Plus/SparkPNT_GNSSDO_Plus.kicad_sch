@@ -8394,7 +8394,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 137.16 45.72 0)
+			(at 140.97 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11126,7 +11126,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 137.16 40.64 0)
+			(at 140.97 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12120,7 +12120,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 137.16 60.96 0)
+			(at 140.97 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12720,7 +12720,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 137.16 43.18 0)
+			(at 140.97 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12860,7 +12860,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 137.16 63.5 0)
+			(at 140.97 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13098,7 +13098,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 137.16 58.42 0)
+			(at 140.97 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)

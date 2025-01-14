@@ -5991,22 +5991,24 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "3f903a22-2010-449d-9111-8eca9f40447b")
 		(property "Reference" "R51"
-			(at 95.25 127 90)
+			(at 99.06 126.9999 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "49.9"
-			(at 99.06 128.27 0)
+			(at 99.06 129.5399 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" "SparkFun-Resistor:R_0603_1608Metric"
@@ -6520,22 +6522,24 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "556040aa-7dd6-4a3a-97ab-44c56666553a")
 		(property "Reference" "R59"
-			(at 95.25 88.9 90)
+			(at 99.06 88.8999 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "49.9"
-			(at 99.06 90.17 0)
+			(at 99.06 91.4399 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" "SparkFun-Resistor:R_0603_1608Metric"
@@ -7258,22 +7262,24 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "74b52be5-22d5-489c-b870-f7fd65fa2027")
 		(property "Reference" "R50"
-			(at 93.98 49.53 90)
+			(at 97.79 49.5299 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "49.9"
-			(at 97.79 50.8 0)
+			(at 97.79 52.0699 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" "SparkFun-Resistor:R_0603_1608Metric"
@@ -8671,7 +8677,7 @@
 		(fields_autoplaced yes)
 		(uuid "8f001d87-0c81-4a9e-9614-32e99ab703e3")
 		(property "Reference" "R64"
-			(at 109.22 107.95 0)
+			(at 109.22 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8679,7 +8685,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 109.22 110.49 0)
+			(at 109.22 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)

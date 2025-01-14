@@ -3947,7 +3947,7 @@
 	)
 	(wire
 		(pts
-			(xy 238.76 125.73) (xy 240.03 125.73)
+			(xy 238.76 123.19) (xy 240.03 123.19)
 		)
 		(stroke
 			(width 0)
@@ -4024,6 +4024,16 @@
 			(type default)
 		)
 		(uuid "1f1caa5c-9bda-48fa-8ac5-9b6a012cff6f")
+	)
+	(wire
+		(pts
+			(xy 224.79 149.86) (xy 226.06 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "20a8e408-c2c4-4c17-bbdb-ecdedb7a2aa1")
 	)
 	(wire
 		(pts
@@ -4147,23 +4157,13 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 127) (xy 203.2 125.73)
+			(xy 203.2 124.46) (xy 203.2 123.19)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "482995e4-7ac1-46c1-aa0f-d4b72015a7a9")
-	)
-	(wire
-		(pts
-			(xy 218.44 149.86) (xy 220.98 149.86)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4d88db4d-d196-4300-8600-4601ea52cf98")
 	)
 	(wire
 		(pts
@@ -4187,7 +4187,7 @@
 	)
 	(wire
 		(pts
-			(xy 231.14 125.73) (xy 233.68 125.73)
+			(xy 231.14 123.19) (xy 233.68 123.19)
 		)
 		(stroke
 			(width 0)
@@ -4207,7 +4207,7 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 125.73) (xy 205.74 125.73)
+			(xy 203.2 123.19) (xy 205.74 123.19)
 		)
 		(stroke
 			(width 0)
@@ -4247,7 +4247,7 @@
 	)
 	(wire
 		(pts
-			(xy 231.14 137.16) (xy 231.14 138.43)
+			(xy 231.14 134.62) (xy 231.14 135.89)
 		)
 		(stroke
 			(width 0)
@@ -4257,7 +4257,7 @@
 	)
 	(wire
 		(pts
-			(xy 210.82 125.73) (xy 212.09 125.73)
+			(xy 210.82 123.19) (xy 212.09 123.19)
 		)
 		(stroke
 			(width 0)
@@ -4347,7 +4347,7 @@
 	)
 	(wire
 		(pts
-			(xy 231.14 127) (xy 231.14 125.73)
+			(xy 231.14 124.46) (xy 231.14 123.19)
 		)
 		(stroke
 			(width 0)
@@ -4614,6 +4614,16 @@
 			(type default)
 		)
 		(uuid "a2a36365-d50f-4018-8f2e-eb9027c94c28")
+	)
+	(wire
+		(pts
+			(xy 218.44 149.86) (xy 219.71 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a4ee8501-b341-4511-9981-6cfb948af82d")
 	)
 	(wire
 		(pts
@@ -4887,7 +4897,7 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 137.16) (xy 203.2 138.43)
+			(xy 203.2 134.62) (xy 203.2 135.89)
 		)
 		(stroke
 			(width 0)
@@ -4907,7 +4917,7 @@
 	)
 	(wire
 		(pts
-			(xy 226.06 149.86) (xy 227.33 149.86)
+			(xy 231.14 149.86) (xy 232.41 149.86)
 		)
 		(stroke
 			(width 0)
@@ -5098,7 +5108,7 @@
 	)
 	(global_label "ESP0{slash}BOOT"
 		(shape input)
-		(at 240.03 125.73 0)
+		(at 240.03 123.19 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5108,7 +5118,7 @@
 		)
 		(uuid "3686f19f-aac0-406f-bafd-ff817c64b732")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 253.417 125.73 0)
+			(at 253.417 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5318,7 +5328,7 @@
 	)
 	(global_label "LOG_BTN"
 		(shape input)
-		(at 227.33 149.86 0)
+		(at 232.41 149.86 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5328,7 +5338,7 @@
 		)
 		(uuid "b58d2cfc-eb11-46f2-ba55-dba9cf68c617")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 238.4795 149.86 0)
+			(at 243.5595 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5340,7 +5350,7 @@
 	)
 	(global_label "ESP_~{RST}"
 		(shape input)
-		(at 212.09 125.73 0)
+		(at 212.09 123.19 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5350,7 +5360,7 @@
 		)
 		(uuid "c8685e2f-493d-474d-bb92-8f984028d9dd")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 222.1508 125.73 0)
+			(at 222.1508 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6027,7 +6037,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 203.2 138.43 0)
+		(at 203.2 135.89 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6035,7 +6045,7 @@
 		(dnp no)
 		(uuid "2cb878e8-3c2e-49ed-a5b3-080650921b0f")
 		(property "Reference" "#PWR0125"
-			(at 203.2 144.78 0)
+			(at 203.2 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6044,7 +6054,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 203.2 142.24 0)
+			(at 203.2 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6052,7 +6062,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 203.2 138.43 0)
+			(at 203.2 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6061,7 +6071,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 203.2 138.43 0)
+			(at 203.2 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6070,7 +6080,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 203.2 138.43 0)
+			(at 203.2 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6249,7 +6259,7 @@
 	)
 	(symbol
 		(lib_id "SparkFun-Switch:SPST_Push_PTH_RA_h7.5mm")
-		(at 203.2 132.08 90)
+		(at 203.2 129.54 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6258,7 +6268,7 @@
 		(fields_autoplaced yes)
 		(uuid "3d9adb46-82cb-4080-80d2-c19cd3a8737a")
 		(property "Reference" "SW1"
-			(at 204.47 130.8099 90)
+			(at 204.47 128.2699 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6267,7 +6277,7 @@
 			)
 		)
 		(property "Value" "PTH_RA_h7.5mm"
-			(at 204.47 133.3499 90)
+			(at 204.47 130.8099 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6276,7 +6286,7 @@
 			)
 		)
 		(property "Footprint" "SparkFun-Switch:Push_PTH_RA_8-020_h7.5mm"
-			(at 208.28 132.08 0)
+			(at 208.28 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6285,7 +6295,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 213.36 132.08 0)
+			(at 213.36 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6294,7 +6304,7 @@
 			)
 		)
 		(property "Description" "Single Pole Single Throw (SPST) switch"
-			(at 218.44 132.08 0)
+			(at 218.44 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6303,7 +6313,7 @@
 			)
 		)
 		(property "PROD_ID" "SWCH-13896"
-			(at 210.82 132.08 0)
+			(at 210.82 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6312,7 +6322,7 @@
 			)
 		)
 		(property "Mfg Part#" "8-020 TS H = 7.5mm"
-			(at 215.9 132.08 0)
+			(at 215.9 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6343,7 +6353,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 231.14 138.43 0)
+		(at 231.14 135.89 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6351,7 +6361,7 @@
 		(dnp no)
 		(uuid "478bef36-37b5-45e6-b3bc-c18208be4930")
 		(property "Reference" "#PWR0126"
-			(at 231.14 144.78 0)
+			(at 231.14 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6360,7 +6370,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 231.14 142.24 0)
+			(at 231.14 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6368,7 +6378,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 231.14 138.43 0)
+			(at 231.14 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6377,7 +6387,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 231.14 138.43 0)
+			(at 231.14 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6386,7 +6396,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 231.14 138.43 0)
+			(at 231.14 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7099,7 +7109,7 @@
 		(dnp no)
 		(uuid "63dabd04-e98c-4f5c-8e2b-7334d1a9b7f4")
 		(property "Reference" "R14"
-			(at 193.04 68.58 90)
+			(at 192.405 68.58 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7108,7 +7118,7 @@
 			)
 		)
 		(property "Value" "5.1k"
-			(at 195.58 69.85 0)
+			(at 194.31 71.12 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7529,7 +7539,7 @@
 		(dnp no)
 		(uuid "7be0f448-7923-47b9-b29e-db7b3e18798a")
 		(property "Reference" "R10"
-			(at 66.04 67.31 90)
+			(at 65.405 67.31 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7538,7 +7548,7 @@
 			)
 		)
 		(property "Value" "5.1k"
-			(at 68.58 68.58 0)
+			(at 67.31 69.85 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8133,6 +8143,74 @@
 		)
 	)
 	(symbol
+		(lib_id "SparkFun-Jumper:SolderJumper_2_Bridged")
+		(at 222.25 149.86 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a2ef9040-6dbd-4117-a18a-15bc0f10b6c0")
+		(property "Reference" "JP1"
+			(at 222.25 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 222.25 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "SparkFun-Jumper:Jumper_2_NC_Trace"
+			(at 221.996 154.432 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 222.25 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Solder Jumper, 2-pole, closed/bridged"
+			(at 222.25 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1f448803-a57e-4942-b206-d32e6c3b474e")
+		)
+		(pin "2"
+			(uuid "35dcd69c-2fff-4c23-b0f5-b0b8d75c64c1")
+		)
+		(instances
+			(project "SparkPNT_GNSSDO_Plus"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/0cda3e5b-c4bb-4a16-94d7-679fa3b0b0b8"
+					(reference "JP1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 198.12 73.66 0)
 		(unit 1)
@@ -8199,7 +8277,7 @@
 	)
 	(symbol
 		(lib_id "SparkFun-Resistor:1k_0603")
-		(at 223.52 149.86 0)
+		(at 228.6 149.86 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8208,7 +8286,7 @@
 		(fields_autoplaced yes)
 		(uuid "af0d879e-b18c-49ed-86e5-6ffd739ecdde")
 		(property "Reference" "R37"
-			(at 223.52 143.51 0)
+			(at 228.6 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8216,7 +8294,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 223.52 146.05 0)
+			(at 228.6 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8224,7 +8302,7 @@
 			)
 		)
 		(property "Footprint" "SparkFun-Resistor:R_0603_1608Metric"
-			(at 223.52 154.432 0)
+			(at 228.6 154.432 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8233,7 +8311,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
-			(at 222.25 158.75 0)
+			(at 227.33 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8242,7 +8320,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 223.52 161.29 0)
+			(at 228.6 161.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8251,7 +8329,7 @@
 			)
 		)
 		(property "PROD_ID" "RES-07856"
-			(at 223.52 156.718 0)
+			(at 228.6 156.718 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8352,7 +8430,7 @@
 	)
 	(symbol
 		(lib_id "SparkFun-Jumper:SolderJumper_2_Bridged")
-		(at 208.28 125.73 0)
+		(at 208.28 123.19 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8361,7 +8439,7 @@
 		(fields_autoplaced yes)
 		(uuid "b077a558-abad-48c6-b34f-676d8f0e1426")
 		(property "Reference" "JP10"
-			(at 208.28 120.65 0)
+			(at 208.28 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8369,7 +8447,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 208.28 123.19 0)
+			(at 208.28 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8377,7 +8455,7 @@
 			)
 		)
 		(property "Footprint" "SparkFun-Jumper:Jumper_2_NC_Trace"
-			(at 208.026 130.302 0)
+			(at 208.026 127.762 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8386,7 +8464,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 208.28 133.35 0)
+			(at 208.28 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8395,7 +8473,7 @@
 			)
 		)
 		(property "Description" "Solder Jumper, 2-pole, closed/bridged"
-			(at 208.28 135.89 0)
+			(at 208.28 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8552,7 +8630,7 @@
 	)
 	(symbol
 		(lib_id "SparkFun-Jumper:SolderJumper_2_Bridged")
-		(at 236.22 125.73 0)
+		(at 236.22 123.19 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8561,7 +8639,7 @@
 		(fields_autoplaced yes)
 		(uuid "c2bbad68-e5ee-4572-88b7-813a0ca495f9")
 		(property "Reference" "JP11"
-			(at 236.22 120.65 0)
+			(at 236.22 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8569,7 +8647,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 236.22 123.19 0)
+			(at 236.22 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8577,7 +8655,7 @@
 			)
 		)
 		(property "Footprint" "SparkFun-Jumper:Jumper_2_NC_Trace"
-			(at 235.966 130.302 0)
+			(at 235.966 127.762 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8586,7 +8664,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 236.22 133.35 0)
+			(at 236.22 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8595,7 +8673,7 @@
 			)
 		)
 		(property "Description" "Solder Jumper, 2-pole, closed/bridged"
-			(at 236.22 135.89 0)
+			(at 236.22 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9287,7 +9365,7 @@
 	)
 	(symbol
 		(lib_id "SparkFun-Switch:SPST_Push_PTH_RA_h7.5mm")
-		(at 231.14 132.08 90)
+		(at 231.14 129.54 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9296,7 +9374,7 @@
 		(fields_autoplaced yes)
 		(uuid "f4a69720-f12d-4d70-8381-73a85e777994")
 		(property "Reference" "SW2"
-			(at 232.41 130.8099 90)
+			(at 232.41 128.2699 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9305,7 +9383,7 @@
 			)
 		)
 		(property "Value" "PTH_RA_h7.5mm"
-			(at 232.41 133.3499 90)
+			(at 232.41 130.8099 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9314,7 +9392,7 @@
 			)
 		)
 		(property "Footprint" "SparkFun-Switch:Push_PTH_RA_8-020_h7.5mm"
-			(at 236.22 132.08 0)
+			(at 236.22 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9323,7 +9401,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 241.3 132.08 0)
+			(at 241.3 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9332,7 +9410,7 @@
 			)
 		)
 		(property "Description" "Single Pole Single Throw (SPST) switch"
-			(at 246.38 132.08 0)
+			(at 246.38 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9341,7 +9419,7 @@
 			)
 		)
 		(property "PROD_ID" "SWCH-13896"
-			(at 238.76 132.08 0)
+			(at 238.76 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9350,7 +9428,7 @@
 			)
 		)
 		(property "Mfg Part#" "8-020 TS H = 7.5mm"
-			(at 243.84 132.08 0)
+			(at 243.84 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)

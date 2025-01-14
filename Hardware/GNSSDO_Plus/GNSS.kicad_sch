@@ -8112,6 +8112,17 @@
 	)
 	(text "I/O Screw Terminals\n(via level-shifters)"
 		(exclude_from_sim no)
+		(at 118.11 112.395 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify bottom)
+		)
+		(uuid "7fff69a4-fafd-404b-b7b8-f0c24972b062")
+	)
+	(text "I/O Screw Terminals\n(via level-shifters)"
+		(exclude_from_sim no)
 		(at 111.76 53.34 0)
 		(effects
 			(font
@@ -8145,7 +8156,7 @@
 	)
 	(text "I/O Screw Terminal\n(via level-shifter)"
 		(exclude_from_sim no)
-		(at 125.73 107.95 0)
+		(at 125.73 107.315 0)
 		(effects
 			(font
 				(size 1.27 1.27)

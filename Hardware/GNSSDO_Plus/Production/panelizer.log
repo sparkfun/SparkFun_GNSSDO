@@ -1,13 +1,13 @@
-2025-01-13 16:44:54,967 - panelizer_logger - INFO - Running Panelizer
-2025-01-13 16:44:54,971 - panelizer_logger - INFO - ['--panelx', '190.500000', '--panely', '139.700000', '--smaller', '--vscorelayer', 'User.Comments', '--vscoretextlayer', 'User.Comments', '--gapx', '0.000000', '--gapy', '5.080000', '--hrail', '6.35', '--vrail', '6.35', '--fiducialpos', '0.25', '--fiducialslr']
-2025-01-13 16:44:54,977 - panelizer_logger - INFO - PANELIZER START: 2025-01-13T16:44:54.977923
-2025-01-13 16:45:01,738 - panelizer_logger - INFO - 
-START: 2025-01-13T16:44:54.976923
+2025-01-14 12:29:13,077 - panelizer_logger - INFO - Running Panelizer
+2025-01-14 12:29:13,084 - panelizer_logger - INFO - ['--panelx', '190.500000', '--panely', '139.700000', '--smaller', '--vscorelayer', 'User.Comments', '--vscoretextlayer', 'User.Comments', '--gapx', '0.000000', '--gapy', '5.080000', '--hrail', '6.35', '--vrail', '6.35', '--fiducialpos', '0.25', '--fiducialslr']
+2025-01-14 12:29:13,088 - panelizer_logger - INFO - PANELIZER START: 2025-01-14T12:29:13.088635
+2025-01-14 12:29:21,577 - panelizer_logger - INFO - 
+START: 2025-01-14T12:29:13.088635
 Board saved by user.
 Zones filled by user.
 
-Board: C:/Users/pc235/Documents/GitHub/SparkFun_RTK_mosaic-T/Hardware/GNSSDO_Plus\Production\SparkPNT_GNSSDO_Plus_panelized.kicad_pcb
+Board: C:\Users\pc235\Documents\GitHub\SparkFun_RTK_mosaic-T\Hardware\GNSSDO_Plus\Production\SparkPNT_GNSSDO_Plus_panelized.kicad_pcb
 Board dimensions: 151.90 x 101.60 mm.
 You can fit 1 x 1 boards on the panel.
 
-2025-01-13 16:45:04,456 - panelizer_logger - INFO - Panelizer complete
+2025-01-14 12:29:23,439 - panelizer_logger - INFO - Panelizer complete

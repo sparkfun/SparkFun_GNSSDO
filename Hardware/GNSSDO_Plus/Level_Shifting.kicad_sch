@@ -5016,7 +5016,7 @@
 	)
 	(text "For 50 Ohm input:\nClose jumper D"
 		(exclude_from_sim no)
-		(at 125.73 137.16 0)
+		(at 102.87 156.21 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5058,7 +5058,7 @@
 	)
 	(text "For 2.8V input:\n  Open jumper A\n  Close jumper B\n\nFor 1.8V input:\n  Open jumper A\n  Close jumper C"
 		(exclude_from_sim no)
-		(at 124.46 148.59 0)
+		(at 45.72 120.65 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7283,7 +7283,7 @@
 			)
 		)
 		(property "DIR1" "A <= B : DIR = GND"
-			(at 191.135 66.675 0)
+			(at 191.77 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7291,7 +7291,7 @@
 			)
 		)
 		(property "DIR2" "A => B : DIR = VCCA"
-			(at 191.135 68.58 0)
+			(at 191.77 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9842,7 +9842,7 @@
 		(dnp no)
 		(uuid "93c889f8-98c7-4e57-bb59-6e7002af64b6")
 		(property "Reference" "J3"
-			(at 119.0626 132.08 0)
+			(at 119.38 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
