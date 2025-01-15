@@ -19,6 +19,22 @@ Fugro AtomiChron® is a global, real-time, precise clock synchronisation and aut
 
 * NMA status: per satellite status for all 4 GNSS constellations concurrently
 
+## Performance
+
+With AtomiChron enabled, the GNSSDO achieves a GPS clock bias of better than 1 ns:
+
+<figure markdown>
+[![Clock bias performance](./assets/img/hookup_guide/clock_bias.png){ width="400" }](./assets/img/hookup_guide/clock_bias.png "Click to enlarge")
+<figcaption markdown>GPS clock bias with AtomiChron vs GPS Pulse-Per-Second offset (without AtomiChron).</figcaption>
+</figure>
+
+With AtomiChron enabled, the Pulse-Per-Second Allan Deviation approaches 1E-14 at 10000 seconds:
+
+<figure markdown>
+[![Allan Deviation with and without AtomiChron](./assets/img/hookup_guide/Allan_Deviation.jpg){ width="400" }](./assets/img/hookup_guide/Allan_Deviation.jpg "Click to enlarge")
+<figcaption markdown>Pulse-Per-Second Allan Deviation with and without AtomiChron.</figcaption>
+</figure>
+
 ## Firmware configuration
 
 Without an AtomiChron subscription, the firmware will use the composite GNSS **RxClkBias** from **PVTGeodetic** to discipline the TCXO frequency.
