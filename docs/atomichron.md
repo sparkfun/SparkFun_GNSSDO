@@ -2,7 +2,24 @@
 icon: material/tools
 ---
 
-For the ultimate in clock accuracy, you can subscribe to Fugro's AtomiChron service. Corrections can be delivered via L-Band or IP (Ethernet). AtomiChron allows the mosaic-T to achieve better than 1ns timing accuracy. Activation takes place over L-Band.
+Fugro AtomiChron® is a global, real-time, precise clock synchronisation and authentication service based on GNSS, for applications that require resilient, accurate and reliable time and frequency. This innovative technology eliminates time drift caused by clocks counting time at slightly different rates and gives users access to extreme frequency stability as well as extreme accurate time references, with levels that surpass high-calibre industrial standard caesium clocks and approaching hydrogen maser performance.
+
+<figure markdown>
+[![Fugro AtomiChron overview](./assets/img/hookup_guide/AtomiChron.png){ width="400" }](./assets/img/hookup_guide/AtomiChron.png "Click to enlarge")
+<figcaption markdown>Fugro AtomiChron overview.</figcaption>
+</figure>
+
+## :fontawesome-solid-screwdriver-wrench:&nbsp;Specifications
+
+* Timing accuracy: <5 ns UTC (95% of the time)
+
+* Accuracy: <1 ns to Fugro AtomiChron® timescale (independent of world-wide location
+
+* Performance improvement: >10x better than existing high-end GNSS receivers
+
+* NMA status: per satellite status for all 4 GNSS constellations concurrently
+
+## Firmware configuration
 
 Without an AtomiChron subscription, the firmware will use the composite GNSS **RxClkBias** from **PVTGeodetic** to discipline the TCXO frequency.
 
