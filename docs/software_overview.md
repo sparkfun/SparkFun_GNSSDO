@@ -382,10 +382,7 @@ The TCXO frequency control word is saved to NVM once per hour, to allow a quicke
 
 ### TCP Server (IPS1)
 
-When **TCP Server (IPS1)** is enabled, the ESP32 serial console is diverted from the CH340 (USB) interface to the mosaic-T COM3 UART interface.
-The serial data is then daisy chained from COM3 to the IPS1 TCP server.
-
-When **TCP Server (IPS1)** is enabled, the configuration menu and debug messages can be accessed over TCP / Telnet on the chosen port. The CH340 (USB) interface is then no longer active.
+When **TCP Server (IPS1)** is enabled, the ESP32 serial console is diverted from the CH340 (USB) interface to the mosaic-T COM3 UART interface and daisy chained to the IPS1 TCP server. The configuration menu and debug messages can then be accessed over TCP / Telnet on the chosen port. The CH340 (USB) interface is then no longer active.
 
 TCP / Telnet is supported over both Ethernet and the Ethernet-over-USB connection. Only one TCP2Way connection is supported.
 

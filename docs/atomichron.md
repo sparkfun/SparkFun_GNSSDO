@@ -5,7 +5,7 @@ icon: material/tools
 Fugro AtomiChron® is a global, real-time, precise clock synchronisation and authentication service based on GNSS, for applications that require resilient, accurate and reliable time and frequency. This innovative technology eliminates time drift caused by clocks counting time at slightly different rates and gives users access to extreme frequency stability as well as extreme accurate time references, with levels that surpass high-calibre industrial standard caesium clocks and approaching hydrogen maser performance.
 
 <figure markdown>
-[![Fugro AtomiChron overview](./assets/img/hookup_guide/AtomiChron.png){ width="400" }](./assets/img/hookup_guide/AtomiChron.png "Click to enlarge")
+[![Fugro AtomiChron overview](./assets/img/hookup_guide/AtomiChron.png){ width="600" }](./assets/img/hookup_guide/AtomiChron.png "Click to enlarge")
 <figcaption markdown>Fugro AtomiChron overview.</figcaption>
 </figure>
 
@@ -24,7 +24,7 @@ Fugro AtomiChron® is a global, real-time, precise clock synchronisation and aut
 With AtomiChron enabled, the GNSSDO achieves a GPS clock bias of better than 1 ns:
 
 <figure markdown>
-[![Clock bias performance](./assets/img/hookup_guide/clock_bias.png){ width="400" }](./assets/img/hookup_guide/clock_bias.png "Click to enlarge")
+[![Clock bias performance](./assets/img/hookup_guide/clock_bias.png){ width="600" }](./assets/img/hookup_guide/clock_bias.png "Click to enlarge")
 <figcaption markdown>GPS clock bias with AtomiChron vs GPS Pulse-Per-Second offset (without AtomiChron).</figcaption>
 </figure>
 
@@ -44,7 +44,7 @@ Without an AtomiChron subscription, the firmware will use the composite GNSS **R
 <figcaption markdown>By default, the Fugro AtomiChron subscription shows as "expired".</figcaption>
 </figure>
 
-With AtomiChron, you have the option to use (prefer) the individual GPS or Galileo clock bias from **FugroTimeOffset** over the Fugro composite bias. Please refer to the [ESP32 firmware settings](./software_overview.md#configure-operation) for more details.
+With AtomiChron, the firmware will use the Fugro composite bias reported in **FugroTimeOffset** to discipline the TCXO frequency. You also have the option to prefer the individual GPS or Galileo clock bias over the Fugro composite bias. Please refer to the [ESP32 firmware settings](./software_overview.md#configure-operation) for more details.
 
 <figure markdown>
 [![Fugro AtomiChron active](./assets/img/hookup_guide/AtomiChron-Active.png){ width="400" }](./assets/img/hookup_guide/AtomiChron-Active.png "Click to enlarge")
