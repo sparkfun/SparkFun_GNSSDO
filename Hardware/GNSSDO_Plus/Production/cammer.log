@@ -1,8 +1,8 @@
-2025-01-14 12:30:45,359 - cammer_logger - INFO - Running CAMmer
-2025-01-14 12:30:45,359 - cammer_logger - INFO - ['-l', 'F.Cu,In1.Cu,In2.Cu,B.Cu,F.Paste,B.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask', '-e', 'Edge.Cuts,User.Comments,User.1']
-2025-01-14 12:30:45,359 - cammer_logger - INFO - CAMMER START: 2025-01-14T12:30:45.359790
-2025-01-14 12:30:54,332 - cammer_logger - INFO - 
-START: 2025-01-14T12:30:45.359790
+2025-01-20 10:21:38,663 - cammer_logger - INFO - Running CAMmer
+2025-01-20 10:21:38,663 - cammer_logger - INFO - ['-l', 'F.Cu,In1.Cu,In2.Cu,B.Cu,F.Paste,B.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask', '-e', 'Edge.Cuts,User.Comments,User.1']
+2025-01-20 10:21:38,663 - cammer_logger - INFO - CAMMER START: 2025-01-20T10:21:38.663127
+2025-01-20 10:21:50,416 - cammer_logger - INFO - 
+START: 2025-01-20T10:21:38.663127
 Zones filled by user.
 Board saved by user.
 Deleting existing C:/Users/pc235/Documents/GitHub/SparkFun_RTK_mosaic-T/Hardware/GNSSDO_Plus/Production/SparkPNT_GNSSDO_Plus_panelized.GTL
@@ -29,4 +29,4 @@ Deleting existing C:/Users/pc235/Documents/GitHub/SparkFun_RTK_mosaic-T/Hardware
 Renaming C:/Users/pc235/Documents/GitHub/SparkFun_RTK_mosaic-T/Hardware/GNSSDO_Plus/Production/SparkPNT_GNSSDO_Plus_panelized-Edge_Cuts.gbr to C:/Users/pc235/Documents/GitHub/SparkFun_RTK_mosaic-T/Hardware/GNSSDO_Plus/Production/SparkPNT_GNSSDO_Plus_panelized.GKO
 Drill report: C:\Users\pc235\Documents\GitHub\SparkFun_RTK_mosaic-T\Hardware\GNSSDO_Plus\Production\drill_report.rpt
 
-2025-01-14 12:30:56,039 - cammer_logger - INFO - CAMmer complete
+2025-01-20 10:21:51,979 - cammer_logger - INFO - CAMmer complete

@@ -1,5 +1,5 @@
 Drill report for SparkPNT_GNSSDO_Plus_panelized.kicad_pcb
-Created on 2025-01-14T12:30:54+0000
+Created on 2025-01-20T10:21:50+0000
 
 Copper Layer Stackup:
     =============================================================
@@ -12,7 +12,7 @@ Copper Layer Stackup:
 Drill file 'SparkPNT_GNSSDO_Plus_panelized.drl' contains
     plated through holes:
     =============================================================
-    T1  0.300mm  0.0118"  (773 holes)
+    T1  0.300mm  0.0118"  (838 holes)
     T2  0.600mm  0.0236"  (8 holes)  (with 8 slots)
     T3  0.889mm  0.0350"  (12 holes)
     T4  0.900mm  0.0354"  (14 holes)
@@ -24,7 +24,7 @@ Drill file 'SparkPNT_GNSSDO_Plus_panelized.drl' contains
     T10  1.499mm  0.0590"  (6 holes)
     T11  1.700mm  0.0669"  (2 holes)
 
-    Total plated holes count 902
+    Total plated holes count 967
 
 
 Not plated through holes are merged with plated holes

@@ -1,8 +1,8 @@
-2025-01-14 12:29:13,077 - panelizer_logger - INFO - Running Panelizer
-2025-01-14 12:29:13,084 - panelizer_logger - INFO - ['--panelx', '190.500000', '--panely', '139.700000', '--smaller', '--vscorelayer', 'User.Comments', '--vscoretextlayer', 'User.Comments', '--gapx', '0.000000', '--gapy', '5.080000', '--hrail', '6.35', '--vrail', '6.35', '--fiducialpos', '0.25', '--fiducialslr']
-2025-01-14 12:29:13,088 - panelizer_logger - INFO - PANELIZER START: 2025-01-14T12:29:13.088635
-2025-01-14 12:29:21,577 - panelizer_logger - INFO - 
-START: 2025-01-14T12:29:13.088635
+2025-01-20 10:20:28,969 - panelizer_logger - INFO - Running Panelizer
+2025-01-20 10:20:28,980 - panelizer_logger - INFO - ['--panelx', '190.500000', '--panely', '139.700000', '--smaller', '--vscorelayer', 'User.Comments', '--vscoretextlayer', 'User.Comments', '--gapx', '0.000000', '--gapy', '5.080000', '--hrail', '6.35', '--vrail', '6.35', '--fiducialpos', '0.25', '--fiducialslr']
+2025-01-20 10:20:28,980 - panelizer_logger - INFO - PANELIZER START: 2025-01-20T10:20:28.980637
+2025-01-20 10:20:36,707 - panelizer_logger - INFO - 
+START: 2025-01-20T10:20:28.980637
 Board saved by user.
 Zones filled by user.
 
@@ -10,4 +10,4 @@ Board: C:\Users\pc235\Documents\GitHub\SparkFun_RTK_mosaic-T\Hardware\GNSSDO_Plu
 Board dimensions: 151.90 x 101.60 mm.
 You can fit 1 x 1 boards on the panel.
 
-2025-01-14 12:29:23,439 - panelizer_logger - INFO - Panelizer complete
+2025-01-20 10:20:38,190 - panelizer_logger - INFO - Panelizer complete

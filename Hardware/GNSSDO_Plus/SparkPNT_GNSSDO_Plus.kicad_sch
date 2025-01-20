@@ -6,8 +6,8 @@
 	(paper "USLetter")
 	(title_block
 		(title "GNSSDO Plus (mosaic-T, STP3593LF)")
-		(date "2025-01-02")
-		(rev "v10")
+		(date "2025-01-20")
+		(rev "v01")
 		(comment 1 "Designed by: P.C.")
 	)
 	(lib_symbols
@@ -2803,6 +2803,101 @@
 						)
 					)
 					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "SparkFun-Connector:TestPoint_1.25mm"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0.762) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "TP"
+				(at 0 5.08 0)
+				(do_not_autoplace)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "1.25mm"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Footprint" "SparkFun-Connector:TestPoint-1.25mm"
+				(at 0 -6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 -7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Test Point"
+				(at 0 -10.16 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Pin* Test*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "TestPoint_1.25mm_0_1"
+				(circle
+					(center 0 3.302)
+					(radius 0.762)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "TestPoint_1.25mm_1_1"
+				(pin passive line
+					(at 0 0 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -6109,10 +6204,40 @@
 		)
 	)
 	(junction
+		(at 39.37 58.42)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "196b889d-ba2a-42d4-bd2a-3e8e7b02b1a7")
+	)
+	(junction
 		(at 63.5 44.45)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "24eb89a9-08f8-43ae-bf74-2d60f18d6f53")
+	)
+	(junction
+		(at 39.37 48.26)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3391404f-e80b-4baa-8527-3f7fba312b4e")
+	)
+	(junction
+		(at 39.37 55.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "37f6fab7-4e62-4499-965e-dbd69130407f")
+	)
+	(junction
+		(at 39.37 45.72)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3f2b62b2-c349-4c28-8a23-3fc5667e3ba5")
+	)
+	(junction
+		(at 39.37 60.96)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "44ec629b-3fae-4740-8cfb-9e08174d3f8e")
 	)
 	(junction
 		(at 162.56 45.72)
@@ -6133,6 +6258,12 @@
 		(uuid "81a4b044-4bfa-4e36-88f0-9e8bc5002004")
 	)
 	(junction
+		(at 39.37 50.8)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "83acde80-c284-4eae-ae64-d1b2cf993fc7")
+	)
+	(junction
 		(at 162.56 66.04)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6143,6 +6274,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9ecf3ee1-ab5b-46b7-b6f9-594b0a9ec485")
+	)
+	(junction
+		(at 39.37 53.34)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9f0ecd8f-5bad-4fb0-816e-1a1b4624b77b")
 	)
 	(junction
 		(at 63.5 53.34)
@@ -6190,7 +6327,7 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 45.72) (xy 48.26 45.72)
+			(xy 38.1 45.72) (xy 39.37 45.72)
 		)
 		(stroke
 			(width 0)
@@ -6227,6 +6364,16 @@
 			(type default)
 		)
 		(uuid "0aa6bbde-ffed-4f92-b576-f35b3e06ee11")
+	)
+	(wire
+		(pts
+			(xy 40.64 46.99) (xy 39.37 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0aee023a-1fc7-4aec-9a89-f5c68ff04a9a")
 	)
 	(wire
 		(pts
@@ -6290,6 +6437,16 @@
 	)
 	(wire
 		(pts
+			(xy 40.64 59.69) (xy 39.37 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "11cfa27a-fa4d-4689-8da5-d0912d0e1dc6")
+	)
+	(wire
+		(pts
 			(xy 139.7 60.96) (xy 143.51 60.96)
 		)
 		(stroke
@@ -6320,7 +6477,7 @@
 	)
 	(wire
 		(pts
-			(xy 48.26 63.5) (xy 46.99 63.5)
+			(xy 39.37 63.5) (xy 38.1 63.5)
 		)
 		(stroke
 			(width 0)
@@ -6337,6 +6494,16 @@
 			(type default)
 		)
 		(uuid "1cc5f936-e4b4-4f05-8bf3-8194ebd8c245")
+	)
+	(wire
+		(pts
+			(xy 39.37 50.8) (xy 49.53 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "26129eef-ecf1-4cef-a596-9ddc2af56156")
 	)
 	(wire
 		(pts
@@ -6370,7 +6537,7 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 50.8) (xy 48.26 50.8)
+			(xy 38.1 50.8) (xy 39.37 50.8)
 		)
 		(stroke
 			(width 0)
@@ -6390,7 +6557,7 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 68.58) (xy 49.53 68.58)
+			(xy 38.1 68.58) (xy 40.64 68.58)
 		)
 		(stroke
 			(width 0)
@@ -6418,6 +6585,16 @@
 		)
 		(uuid "2f5041e1-0a66-4b15-8559-d244bc98b690")
 	)
+	(wire
+		(pts
+			(xy 40.64 49.53) (xy 39.37 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "30137767-5e99-4f21-be15-97ef359b13ea")
+	)
 	(polyline
 		(pts
 			(xy 180.34 171.45) (xy 180.34 90.17)
@@ -6427,6 +6604,26 @@
 			(type dash)
 		)
 		(uuid "339b5bcd-4da4-44d5-9863-edcae5941a60")
+	)
+	(wire
+		(pts
+			(xy 40.64 57.15) (xy 39.37 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "35397a8f-272e-4e7e-8bd8-e435067ca2f6")
+	)
+	(wire
+		(pts
+			(xy 40.64 54.61) (xy 39.37 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "37f6dfc8-a891-4830-af27-92f2815360d2")
 	)
 	(wire
 		(pts
@@ -6450,13 +6647,23 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 48.26) (xy 48.26 48.26)
+			(xy 38.1 48.26) (xy 39.37 48.26)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "3c35c97d-59f5-4087-b060-604252e36c34")
+	)
+	(wire
+		(pts
+			(xy 39.37 52.07) (xy 39.37 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "41159574-9226-4971-8b4a-706d2e17c4cf")
 	)
 	(wire
 		(pts
@@ -6580,6 +6787,16 @@
 	)
 	(wire
 		(pts
+			(xy 39.37 48.26) (xy 49.53 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5a52fc69-026f-45a3-8481-7ed9227276e2")
+	)
+	(wire
+		(pts
 			(xy 139.7 66.04) (xy 143.51 66.04)
 		)
 		(stroke
@@ -6587,6 +6804,16 @@
 			(type default)
 		)
 		(uuid "5cd212f0-4af7-46f1-ae1f-c6430bd28958")
+	)
+	(wire
+		(pts
+			(xy 39.37 53.34) (xy 63.5 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5e65eb0e-7310-408d-bf09-ca03f0a153ab")
 	)
 	(wire
 		(pts
@@ -6627,6 +6854,16 @@
 			(type default)
 		)
 		(uuid "6235b97a-a0e4-4b97-9d95-5558b6fb0699")
+	)
+	(wire
+		(pts
+			(xy 39.37 57.15) (xy 39.37 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6323cda9-e4c7-4d98-bcaa-7da20d8de2f2")
 	)
 	(wire
 		(pts
@@ -6730,7 +6967,7 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 53.34) (xy 63.5 53.34)
+			(xy 38.1 53.34) (xy 39.37 53.34)
 		)
 		(stroke
 			(width 0)
@@ -6760,6 +6997,16 @@
 	)
 	(wire
 		(pts
+			(xy 39.37 59.69) (xy 39.37 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8714c3e4-9db1-4957-b879-4ce7ec280da2")
+	)
+	(wire
+		(pts
 			(xy 95.25 151.13) (xy 96.52 151.13)
 		)
 		(stroke
@@ -6780,7 +7027,7 @@
 	)
 	(wire
 		(pts
-			(xy 48.26 63.5) (xy 48.26 71.12)
+			(xy 39.37 63.5) (xy 39.37 69.85)
 		)
 		(stroke
 			(width 0)
@@ -6810,6 +7057,16 @@
 	)
 	(wire
 		(pts
+			(xy 39.37 58.42) (xy 49.53 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "91309d11-2248-4393-b849-dd62d37b83b9")
+	)
+	(wire
+		(pts
 			(xy 215.9 40.64) (xy 222.25 40.64)
 		)
 		(stroke
@@ -6827,6 +7084,16 @@
 			(type default)
 		)
 		(uuid "94e58dfd-48d4-455d-9043-b45fe760f0b0")
+	)
+	(wire
+		(pts
+			(xy 39.37 46.99) (xy 39.37 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9783b8e8-f2b1-4d22-8e34-b2044114d0eb")
 	)
 	(wire
 		(pts
@@ -6850,7 +7117,7 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 58.42) (xy 48.26 58.42)
+			(xy 38.1 58.42) (xy 39.37 58.42)
 		)
 		(stroke
 			(width 0)
@@ -6900,6 +7167,16 @@
 	)
 	(wire
 		(pts
+			(xy 39.37 54.61) (xy 39.37 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a526f0aa-e831-4e3d-a62e-cbae0a81e9d9")
+	)
+	(wire
+		(pts
 			(xy 161.29 66.04) (xy 162.56 66.04)
 		)
 		(stroke
@@ -6907,6 +7184,16 @@
 			(type default)
 		)
 		(uuid "a5739691-9728-4310-b35a-41e1a639966a")
+	)
+	(wire
+		(pts
+			(xy 39.37 45.72) (xy 49.53 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a708576c-d2b3-4dfd-86c9-e237126ddda0")
 	)
 	(wire
 		(pts
@@ -6937,6 +7224,16 @@
 			(type default)
 		)
 		(uuid "ab0d29ad-dc7b-4b77-8b97-acaefc13ea55")
+	)
+	(wire
+		(pts
+			(xy 39.37 49.53) (xy 39.37 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b069f045-5f2b-488c-9ba4-fb444dcbf1ac")
 	)
 	(wire
 		(pts
@@ -6990,7 +7287,17 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 60.96) (xy 48.26 60.96)
+			(xy 39.37 44.45) (xy 39.37 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bcfe0c2e-aadc-479b-94d6-1cbf568c3789")
+	)
+	(wire
+		(pts
+			(xy 38.1 60.96) (xy 39.37 60.96)
 		)
 		(stroke
 			(width 0)
@@ -7010,6 +7317,16 @@
 	)
 	(wire
 		(pts
+			(xy 40.64 52.07) (xy 39.37 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c12d49dd-29aa-46ba-ad45-11e1251d6b2a")
+	)
+	(wire
+		(pts
 			(xy 63.5 44.45) (xy 67.31 44.45)
 		)
 		(stroke
@@ -7017,6 +7334,16 @@
 			(type default)
 		)
 		(uuid "c1458850-935b-460e-b693-9c3b95bc6fa4")
+	)
+	(wire
+		(pts
+			(xy 39.37 55.88) (xy 49.53 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c2153d21-fac8-4133-a575-30d5d36e17bc")
 	)
 	(wire
 		(pts
@@ -7200,6 +7527,16 @@
 	)
 	(wire
 		(pts
+			(xy 39.37 60.96) (xy 49.53 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ee0e542a-edfc-4500-979f-b89b77c494c8")
+	)
+	(wire
+		(pts
 			(xy 162.56 48.26) (xy 162.56 49.53)
 		)
 		(stroke
@@ -7230,6 +7567,16 @@
 	)
 	(wire
 		(pts
+			(xy 40.64 44.45) (xy 39.37 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f10f8fba-58ef-44d8-a375-cfb84ee332d9")
+	)
+	(wire
+		(pts
 			(xy 148.59 43.18) (xy 151.13 43.18)
 		)
 		(stroke
@@ -7240,7 +7587,7 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 55.88) (xy 48.26 55.88)
+			(xy 38.1 55.88) (xy 39.37 55.88)
 		)
 		(stroke
 			(width 0)
@@ -7300,7 +7647,7 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 66.04) (xy 49.53 66.04)
+			(xy 38.1 66.04) (xy 40.64 66.04)
 		)
 		(stroke
 			(width 0)
@@ -7492,7 +7839,7 @@
 	)
 	(global_label "DC_IN-"
 		(shape input)
-		(at 49.53 66.04 0)
+		(at 40.64 66.04 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7502,7 +7849,7 @@
 		)
 		(uuid "0e7e04c1-bcbf-42c5-9f77-a10c76877f8e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 59.5305 66.04 0)
+			(at 50.6405 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7646,7 +7993,7 @@
 	)
 	(global_label "MTX2_O"
 		(shape input)
-		(at 48.26 58.42 0)
+		(at 49.53 58.42 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7656,7 +8003,7 @@
 		)
 		(uuid "35fc6990-54de-4acc-9a38-74d59f3fbda3")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 58.3813 58.42 0)
+			(at 59.6513 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7668,7 +8015,7 @@
 	)
 	(global_label "DC_IN+"
 		(shape input)
-		(at 49.53 68.58 0)
+		(at 40.64 68.58 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7678,7 +8025,7 @@
 		)
 		(uuid "37842941-3258-401f-984c-d27544f46be5")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 59.5305 68.58 0)
+			(at 50.6405 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7778,7 +8125,7 @@
 	)
 	(global_label "MRX2_I"
 		(shape input)
-		(at 48.26 60.96 0)
+		(at 49.53 60.96 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7788,7 +8135,7 @@
 		)
 		(uuid "5998c860-806e-42c5-8628-9cd0762ee6f1")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 57.958 60.96 0)
+			(at 59.228 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7888,7 +8235,7 @@
 	)
 	(global_label "MGP1_O"
 		(shape input)
-		(at 48.26 48.26 0)
+		(at 49.53 48.26 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7898,7 +8245,7 @@
 		)
 		(uuid "7f57a90e-7d44-4448-898e-236dc82a742c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 58.7442 48.26 0)
+			(at 60.0142 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7954,7 +8301,7 @@
 	)
 	(global_label "MRTS2_O"
 		(shape input)
-		(at 48.26 55.88 0)
+		(at 49.53 55.88 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7964,7 +8311,7 @@
 		)
 		(uuid "87783f9c-b135-475f-b336-01262e1d69ee")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 59.6513 55.88 0)
+			(at 60.9213 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8064,7 +8411,7 @@
 	)
 	(global_label "MGP2_O"
 		(shape input)
-		(at 48.26 45.72 0)
+		(at 49.53 45.72 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8074,7 +8421,7 @@
 		)
 		(uuid "c271f22a-e34f-4645-bf72-0af7f931f27c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 58.7442 45.72 0)
+			(at 60.0142 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8240,7 +8587,7 @@
 	)
 	(global_label "MEventB_I"
 		(shape input)
-		(at 48.26 50.8 0)
+		(at 49.53 50.8 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8250,7 +8597,7 @@
 		)
 		(uuid "eb2c52bf-6722-43af-b39d-e7749ef15a94")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 60.6189 50.8 0)
+			(at 61.8889 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8859,6 +9206,138 @@
 		)
 	)
 	(symbol
+		(lib_id "SparkFun-Connector:TestPoint_1.25mm")
+		(at 40.64 52.07 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1a0a4737-e6e6-4457-8b58-e316a33b7f0b")
+		(property "Reference" "TP32"
+			(at 46.99 52.07 90)
+			(do_not_autoplace yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1.25mm"
+			(at 36.83 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "SparkFun-Connector:TestPoint-1.25mm"
+			(at 34.29 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 33.02 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point"
+			(at 30.48 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "fc1f45d3-93d4-4ba5-a6f0-28fbb3491066")
+		)
+		(instances
+			(project "SparkPNT_GNSSDO_Plus"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
+					(reference "TP32")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-Connector:TestPoint_1.25mm")
+		(at 40.64 54.61 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1a4bf0f2-f687-4aba-8aa8-1e89b609c0bb")
+		(property "Reference" "TP42"
+			(at 46.99 54.61 90)
+			(do_not_autoplace yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1.25mm"
+			(at 36.83 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "SparkFun-Connector:TestPoint-1.25mm"
+			(at 34.29 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 33.02 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point"
+			(at 30.48 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "38e9e1d4-06c1-4800-85d0-b04a107b9f84")
+		)
+		(instances
+			(project "SparkPNT_GNSSDO_Plus"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
+					(reference "TP42")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "SparkFun-Connector:TestPoint_PTH")
 		(at 96.52 181.61 270)
 		(unit 1)
@@ -9385,6 +9864,72 @@
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(reference "FID1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-Connector:TestPoint_1.25mm")
+		(at 40.64 57.15 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3b4b3294-850e-4e34-a24f-6b0064f11ffa")
+		(property "Reference" "TP44"
+			(at 46.99 57.15 90)
+			(do_not_autoplace yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1.25mm"
+			(at 36.83 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "SparkFun-Connector:TestPoint-1.25mm"
+			(at 34.29 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 33.02 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point"
+			(at 30.48 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5d602e7c-df4f-463c-8e22-10e8b6e74dad")
+		)
+		(instances
+			(project "SparkPNT_GNSSDO_Plus"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
+					(reference "TP44")
 					(unit 1)
 				)
 			)
@@ -10888,6 +11433,72 @@
 		)
 	)
 	(symbol
+		(lib_id "SparkFun-Connector:TestPoint_1.25mm")
+		(at 40.64 44.45 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7f53f010-c396-4506-872f-15536e9b87cd")
+		(property "Reference" "TP20"
+			(at 46.99 44.45 90)
+			(do_not_autoplace yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1.25mm"
+			(at 36.83 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "SparkFun-Connector:TestPoint-1.25mm"
+			(at 34.29 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 33.02 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point"
+			(at 30.48 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a80d4fcc-8d58-4aa8-bb8e-b3b8b2cc2711")
+		)
+		(instances
+			(project ""
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
+					(reference "TP20")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "SparkFun-PowerSymbol:GND")
 		(at 162.56 49.53 0)
 		(unit 1)
@@ -11179,6 +11790,72 @@
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(reference "R12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-Connector:TestPoint_1.25mm")
+		(at 40.64 46.99 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9d54b52a-26f3-4e78-adcd-908532f5c476")
+		(property "Reference" "TP30"
+			(at 46.99 46.99 90)
+			(do_not_autoplace yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1.25mm"
+			(at 36.83 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "SparkFun-Connector:TestPoint-1.25mm"
+			(at 34.29 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 33.02 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point"
+			(at 30.48 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "700a520a-2233-4c44-8823-2fa245f6fe39")
+		)
+		(instances
+			(project "SparkPNT_GNSSDO_Plus"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
+					(reference "TP30")
 					(unit 1)
 				)
 			)
@@ -11745,6 +12422,72 @@
 			(project "SparkFun_RTK_mosaic-T"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(reference "R6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SparkFun-Connector:TestPoint_1.25mm")
+		(at 40.64 49.53 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "bb509e81-89b4-443e-a687-efa8a04f902b")
+		(property "Reference" "TP31"
+			(at 46.99 49.53 90)
+			(do_not_autoplace yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1.25mm"
+			(at 36.83 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "SparkFun-Connector:TestPoint-1.25mm"
+			(at 34.29 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 33.02 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point"
+			(at 30.48 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ab14e156-76bd-400c-aaf8-42bae12d034b")
+		)
+		(instances
+			(project "SparkPNT_GNSSDO_Plus"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
+					(reference "TP31")
 					(unit 1)
 				)
 			)
@@ -12335,7 +13078,7 @@
 	)
 	(symbol
 		(lib_id "SparkFun-Connector:Screw_Cage_3.5mm-10")
-		(at 41.91 55.88 0)
+		(at 33.02 55.88 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -12344,7 +13087,7 @@
 		(dnp no)
 		(uuid "db2098d0-df39-405f-b5a5-c7c3774cf8f0")
 		(property "Reference" "J9"
-			(at 43.18 43.18 0)
+			(at 34.29 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12353,7 +13096,7 @@
 			)
 		)
 		(property "Value" "Screw_Cage_3.5mm-10"
-			(at 42.164 71.374 0)
+			(at 30.48 57.15 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12361,7 +13104,7 @@
 			)
 		)
 		(property "Footprint" "SparkFun-Connector:Screw_Cage_3.5mm-10"
-			(at 41.656 75.946 0)
+			(at 32.766 75.946 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12370,7 +13113,7 @@
 			)
 		)
 		(property "Datasheet" "https://cdn.sparkfun.com/assets/b/9/7/3/6/19854.pdf"
-			(at 41.656 78.486 0)
+			(at 32.766 78.486 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12379,7 +13122,7 @@
 			)
 		)
 		(property "Description" "Screw cage terminal, single row"
-			(at 41.91 81.026 0)
+			(at 33.02 81.026 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12388,7 +13131,7 @@
 			)
 		)
 		(property "PROD_ID" "CONN-17279"
-			(at 41.91 73.66 0)
+			(at 33.02 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12500,8 +13243,74 @@
 		)
 	)
 	(symbol
+		(lib_id "SparkFun-Connector:TestPoint_1.25mm")
+		(at 40.64 59.69 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e0dbd8c0-890e-41bb-9590-fb0fec8ba913")
+		(property "Reference" "TP45"
+			(at 46.99 59.69 90)
+			(do_not_autoplace yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1.25mm"
+			(at 36.83 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "SparkFun-Connector:TestPoint-1.25mm"
+			(at 34.29 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 33.02 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point"
+			(at 30.48 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "776aae2a-d77a-4b05-9569-6ba2efb6ae1d")
+		)
+		(instances
+			(project "SparkPNT_GNSSDO_Plus"
+				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
+					(reference "TP45")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "SparkFun-PowerSymbol:GND")
-		(at 48.26 71.12 0)
+		(at 39.37 69.85 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12509,7 +13318,7 @@
 		(dnp no)
 		(uuid "e63f3c41-359d-4948-840a-3a00f28aba08")
 		(property "Reference" "#PWR099"
-			(at 48.26 77.47 0)
+			(at 39.37 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12518,7 +13327,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 48.26 74.93 0)
+			(at 39.37 73.66 0)
 			(do_not_autoplace yes)
 			(effects
 				(font
@@ -12527,7 +13336,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 48.26 71.12 0)
+			(at 39.37 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12536,7 +13345,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 48.26 71.12 0)
+			(at 39.37 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12545,7 +13354,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 48.26 80.01 0)
+			(at 39.37 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
