@@ -101,6 +101,7 @@ void recordSystemSettingsToFile(File *settingsFile)
     settingsFile->printf("%s=%d\r\n", "preferNonCompositeGalileoBias", settings.preferNonCompositeGalileoBias);
     settingsFile->printf("%s=%d\r\n", "enableTCPServer", settings.enableTCPServer);
     settingsFile->printf("%s=%d\r\n", "tcpServerPort", settings.tcpServerPort);
+    settingsFile->printf("%s=%d\r\n", "previousIP", settings.previousIP);
     
 
     //settingsFile->printf("%s=%d\r\n", "", settings.);
@@ -376,6 +377,8 @@ bool parseLine(char *str, Settings *settings)
         settings->enableTCPServer = d;
     else if (strcmp(settingName, "tcpServerPort") == 0)
         settings->tcpServerPort = d;
+    else if (strcmp(settingName, "previousIP") == 0)
+        settings->previousIP = d;
 
     //else if (strcmp(settingName, "") == 0)
     //    settings-> = d;

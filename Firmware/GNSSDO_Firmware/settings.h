@@ -291,6 +291,7 @@ typedef struct
     bool preferNonCompositeGalileoBias = false; // Prefer non-composite Galileo bias - if available. Mutex with preferNonCompositeGPSBias
     bool enableTCPServer = false; // Enable and configure mosaic-T IPS1 for TCP2way for the ESP32 console
     uint16_t tcpServerPort = 28785;
+    uint32_t previousIP = 0; // Store the previous IP address
 
     // Add new settings above <------------------------------------------------------------>
 
