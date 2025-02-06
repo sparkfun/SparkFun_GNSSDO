@@ -662,11 +662,19 @@ void processConsumerMessage(PARSE_STATE *parse, uint8_t type)
         }
         else if ((parse->message & 0x1FFF) == 4058) // IPStatus
         {
+            for (int i = 0; i < 6; i++)
+                ethernetMACAddress[i] = parse->buffer[i + 14];
             uint32_t theIP = ((uint32_t)parse->buffer[32]) << 0;
             theIP |= ((uint32_t)parse->buffer[33]) << 8;
             theIP |= ((uint32_t)parse->buffer[34]) << 16;
             theIP |= ((uint32_t)parse->buffer[35]) << 24;
             gnssIP = IPAddress(theIP);
+        }
+        else if ((parse->message & 0x1FFF) == 5902) // ReceiverSetup
+        {
+            strncpy(RxSerialNumber, (const char *)&parse->buffer[156], sizeof(RxSerialNumber));
+            strncpy(RxVersion, (const char *)&parse->buffer[196], sizeof(RxVersion));
+            strncpy(ProductName, (const char *)&parse->buffer[328], sizeof(ProductName));
         }
         else if ((parse->message & 0x1FFF) == 4255) // FugroTimeOffset
         {

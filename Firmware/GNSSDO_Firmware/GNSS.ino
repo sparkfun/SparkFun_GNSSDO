@@ -84,15 +84,15 @@ bool sendWithResponse(String message, const char *reply, unsigned long timeout, 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 // Begin GNSS
-// Ensure GNSS is communicating on COM4. Request IPStatus
+// Ensure GNSS is communicating on COM4. Request IPStatus+ReceiverSetup
 void beginGNSS()
 {
     if (!inMainMenu)
-        systemPrintln("Begin GNSS - requesting IPStatus");
+        systemPrintln("Begin GNSS - requesting IPStatus+ReceiverSetup");
 
     int retries = 20; // The mosaic takes a few seconds to wake up after power on
 
-    while (!sendWithResponse("esoc, COM1, IPStatus\n\r", "SBFOnce") && (retries > 0))
+    while (!sendWithResponse("esoc, COM1, IPStatus+ReceiverSetup\n\r", "SBFOnce") && (retries > 0))
     {
         systemPrintln("No response from mosaic. Retrying - with escape sequence...");
         sendWithResponse("SSSSSSSSSSSSSSSSSSSS\n\r", "COM4>"); // Send escape sequence
@@ -106,9 +106,9 @@ void beginGNSS()
         // Module could be stuck in "Ready for SUF Download ...". Send a soft reset to unstick it
         sendWithResponse("erst,soft,none\n\r", "ResetReceiver");
 
-        retries = 20;
+        retries = 30;
 
-        while (!sendWithResponse("esoc, COM1, IPStatus\n\r", "SBFOnce") && (retries > 0))
+        while (!sendWithResponse("esoc, COM1, IPStatus+ReceiverSetup\n\r", "SBFOnce") && (retries > 0))
         {
             systemPrintln("No response from mosaic. Retrying - with escape sequence...");
             sendWithResponse("SSSSSSSSSSSSSSSSSSSS\n\r", "COM4>"); // Send escape sequence
@@ -123,7 +123,7 @@ void beginGNSS()
     }
 
     if (!inMainMenu)
-        systemPrintln("GNSS online. IPStatus requested");
+        systemPrintln("GNSS online. IPStatus+ReceiverSetup requested");
     online.gnss = true;
 }
 

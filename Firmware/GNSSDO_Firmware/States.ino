@@ -147,6 +147,9 @@ void updateSystemState()
                     {
                         tcxoUpdates = 0;
                         settings.tcxoControl = getFrequencyControlWord();
+
+                        settings.previousIP = gnssIP;
+
                         recordSystemSettings();
 
                         systemPrint("TCXO Control Word saved to LFS: ");

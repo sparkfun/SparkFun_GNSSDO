@@ -21,11 +21,26 @@ void menuMain()
         systemPrintln();
         char versionString[21];
         getFirmwareVersion(versionString, sizeof(versionString));
-        systemPrintf("SparkPNT %s %s\r\n", platformPrefix, versionString);
+        systemPrintf("SparkPNT %s Firmware %s\r\n", platformPrefix, versionString);
 
         systemPrint("ESP32 WiFi MAC Address: ");
         systemPrintf("%02X:%02X:%02X:%02X:%02X:%02X\r\n", wifiMACAddress[0], wifiMACAddress[1], wifiMACAddress[2],
                      wifiMACAddress[3], wifiMACAddress[4], wifiMACAddress[5]);
+
+        systemPrintf("Oscillator:             %s\r\n", oscillatorType);
+
+        systemPrintf("GNSS:                   %s version %s S/N %s\r\n", ProductName, RxVersion, RxSerialNumber);
+
+        systemPrint("Ethernet MAC Address:   ");
+        systemPrintf("%02X:%02X:%02X:%02X:%02X:%02X\r\n", ethernetMACAddress[0], ethernetMACAddress[1], ethernetMACAddress[2],
+                     ethernetMACAddress[3], ethernetMACAddress[4], ethernetMACAddress[5]);
+
+        systemPrintf("Previous IP address:    %s\r\n", IPAddress(settings.previousIP).toString().c_str());
+
+        systemPrintf("Current IP address:     %s\r\n", gnssIP.toString().c_str());
+
+        if (settings.enableTCPServer)
+            systemPrintf("TCP Server is enabled:  TCP Port %d\r\n", settings.tcpServerPort);
 
         // Display the uptime
         uint64_t uptimeMilliseconds = millis();
@@ -46,13 +61,14 @@ void menuMain()
         uptimeSeconds = uptimeMilliseconds / MILLISECONDS_IN_A_SECOND;
         uptimeMilliseconds %= MILLISECONDS_IN_A_SECOND;
 
-        systemPrint("System Uptime: ");
+        systemPrint("System Uptime:          ");
         systemPrintf("%d %02d:%02d:%02d.%03lld\r\n", uptimeDays, uptimeHours, uptimeMinutes, uptimeSeconds,
                      uptimeMilliseconds);
 
-        systemPrintf("Rejected by parser: %d NMEA / %d RTCM / %d SBF\r\n", failedParserMessages_NMEA,
+        systemPrintf("Rejected by parser:     %d NMEA / %d RTCM / %d SBF\r\n", failedParserMessages_NMEA,
                      failedParserMessages_RTCM, failedParserMessages_SBF);
 
+        systemPrintln();
         systemPrintln("Menu: Main");
 
         systemPrintln("c) Configure operation");
@@ -94,7 +110,8 @@ void menuMain()
     configureGNSSTCPServer(); // Configure TCP
 
     if (settings.enableTCPServer)
-        systemPrintf("TCP Server is enabled. Please connect on port %d to view the console\r\n", settings.tcpServerPort);
+        systemPrintf("TCP Server is enabled. Please connect on %s:%d to view the console\r\n",
+                    gnssIP.toString().c_str(), settings.tcpServerPort);
         
     beginConsole(115200, true); // Swap to Alt pins if TCP is enabled
 

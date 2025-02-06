@@ -95,6 +95,8 @@ void beginDisplay(TwoWire *i2cBus)
 
         delay(50); // Give display time to startup before attempting again
     }
+
+    systemPrintln("ERROR: Failed to detect or initialize the display! Continuing...\r\n");
 }
 
 // Given the system state, display the appropriate information

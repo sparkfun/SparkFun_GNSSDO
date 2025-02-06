@@ -535,6 +535,7 @@ void beginTCXO(TwoWire *i2cBus)
         }
         
         systemPrintln("Using STP3593LF OCXO");
+        strncpy(oscillatorType, "STP3593LF OCXO", sizeof(oscillatorType));
     }
     else if (presentSIT5811)
     {
@@ -553,6 +554,7 @@ void beginTCXO(TwoWire *i2cBus)
         }
         
         systemPrintln("Using SiT5811 OCXO");
+        strncpy(oscillatorType, "SiT5811 OCXO", sizeof(oscillatorType));
     }
     else if (presentSIT5358)
     {
@@ -571,10 +573,12 @@ void beginTCXO(TwoWire *i2cBus)
         }
         
         systemPrintln("Using SiT5358 TCXO");
+        strncpy(oscillatorType, "SiT5358 TCXO", sizeof(oscillatorType));
     }
     else
     {
         // No TCXO present!
+        strncpy(oscillatorType, "NONE", sizeof(oscillatorType));
         return;
     }
 

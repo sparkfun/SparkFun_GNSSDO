@@ -20,6 +20,12 @@
        mosaic COM3 TX (TX3) to ESP32 GPIO 34
        mosaic COM3 RX (RX3) to ESP32 GPIO 23
   1.2: Add support for SiT5811 and STP3593LF oscillators
+  1.3: Enable Ethernet by default
+  1.4: Include a soft reset to work around "Ready for SUF Download"
+  1.5: Print an ERROR if the display is not detected, but allow firmware to continue
+       Print mosaic-T version, S/N, Ethernet MAC + IP in menuMain
+       Store previousIP in NVM - updated once per hour
+       Print oscillator type in menuMain
 */
 
 // This is passed in from compiler extra flags
@@ -136,7 +142,13 @@ uint8_t gnssError = 255; // Unknown
 double gnssClockBias_ms = 0.0;
 
 // IPStatus 4058
+uint8_t ethernetMACAddress[6] = { 0,0,0,0,0,0 }; // Display this address in the system menu
 IPAddress gnssIP = IPAddress((uint32_t)0);
+
+// ReceiverSetup 5902
+char RxSerialNumber[21] = {0};
+char RxVersion[21] = {0};
+char ProductName[41] = {0};
 
 // FugroTimeOffset 4255
 // fugroTimeSystem fugroTimeSystems[] is in settings.h
@@ -209,6 +221,8 @@ DisplayType displayType = DISPLAY_MAX_NONE;
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 GNSSDO_TCXO *myTCXO;
 
+char oscillatorType[20] = {0};
+
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 // Low frequency tasks
@@ -230,8 +244,8 @@ const int buttonTaskStackSize = 2000;
 
 // Global variables
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-uint8_t wifiMACAddress[6];     // Display this address in the system menu
-char deviceName[70];           // The serial string that is broadcast. Ex: 'Surveyor Base-BC61'
+uint8_t wifiMACAddress[6] = { 0,0,0,0,0,0 };     // Display this address in the system menu
+char deviceName[70];
 const uint16_t menuTimeout = 60 * 10; // Menus will exit/timeout after this number of seconds
 int systemTime_minutes = 0;           // Used to test if logging is less than max minutes
 bool inMainMenu = false;              // Set true when in the serial config menu system.
@@ -391,7 +405,8 @@ void setup()
     systemPrintf("Boot time: %d\r\n", millis());
 
     if (settings.enableTCPServer)
-        systemPrintf("TCP Server is enabled. Please connect on port %d to view the console\r\n", settings.tcpServerPort);
+        systemPrintf("TCP Server is enabled. Please connect on port %d to view the console\r\n",
+                     settings.tcpServerPort);
 
     beginConsole(115200, true); // Swap to Alt pins if TCP is enabled
 }
