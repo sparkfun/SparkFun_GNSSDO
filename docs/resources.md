@@ -77,9 +77,9 @@ Septentrio also provides great resources for the mosaic-T:
 		:material-youtube: [Test-run for Septentrio's anti-jamming feature](https://youtu.be/SzI0skGHKEw)<br>
 		:material-youtube: [mosaic - GNSS module receiver range from Septentrio](https://youtu.be/Co8hrVeklAA)
 
-### 🏭&nbsp;Fugro AtomiChron<sup>Ⓡ</sup>
+### 🏭&nbsp;Fugro AtomiChron^®^
 Full details about Fugro's AtomiChron time synchronisation service can be found on their website:
 
-* [Fugro AtomiChron<sup>Ⓡ</sup>](https://www.fugro.com/expertise/other-expertise/atomichron)
+* [Fugro AtomiChron^®^](https://www.fugro.com/expertise/other-expertise/atomichron)
 * :material-file-document-multiple: [Mastering time: the challenge of time synchronisation](https://www.fugro.com/news/podcasts/2024/mastering-time-the-challenge-of-time-synchronisation)
 

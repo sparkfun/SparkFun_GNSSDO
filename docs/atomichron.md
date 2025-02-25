@@ -2,7 +2,7 @@
 icon: material/tools
 ---
 
-Fugro AtomiChron® is a global, real-time, precise clock synchronisation and authentication service based on GNSS, for applications that require resilient, accurate and reliable time and frequency. This innovative technology eliminates time drift caused by clocks counting time at slightly different rates and gives users access to extreme frequency stability as well as extreme accurate time references, with levels that surpass high-calibre industrial standard caesium clocks and approaching hydrogen maser performance.
+Fugro AtomiChron^®^ is a global, real-time, precise clock synchronisation and authentication service based on GNSS, for applications that require resilient, accurate and reliable time and frequency. This innovative technology eliminates time drift caused by clocks counting time at slightly different rates and gives users access to extreme frequency stability as well as extreme accurate time references, with levels that surpass high-calibre industrial standard caesium clocks and approaching hydrogen maser performance.
 
 <figure markdown>
 [![Fugro AtomiChron overview](./assets/img/hookup_guide/AtomiChron.png){ width="600" }](./assets/img/hookup_guide/AtomiChron.png "Click to enlarge")
@@ -13,7 +13,7 @@ Fugro AtomiChron® is a global, real-time, precise clock synchronisation and aut
 
 * Timing accuracy: <5 ns UTC (95% of the time)
 
-* Accuracy: <1 ns to Fugro AtomiChron® timescale (independent of world-wide location
+* Accuracy: <1 ns to Fugro AtomiChron^®^ timescale (independent of world-wide location)
 
 * Performance improvement: >10x better than existing high-end GNSS receivers
 
