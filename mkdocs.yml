@@ -294,6 +294,8 @@ extra:
   # Configures the hyperlink for the logo in the header
   homepage: https://www.sparkfun.com/pnt
 
+  generator: right
+
   # Configures social icons in the footer
   social:
     - icon: sfe
