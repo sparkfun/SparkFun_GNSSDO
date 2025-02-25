@@ -32,69 +32,71 @@ icon: material/book-open-page-variant
 
 	Under the hood, the GNSSDO is based on the mosaic-T GNSS module from Septentrio, plus the Espressif ESP32-WROVER processor (16MB flash, 8MB PSRAM). The mosaic-T has USB-C connectivity (with Ethernet-over-USB), multiple UARTs and supports full Ethernet connectivity. You can connect the mosaic-T directly to your Ethernet network - our product supports Power-over-Ethernet too. The ESP32 rides shotgun, disciplining the DCTCXO and controlling the OLED display. The GNSSDO has multiple power options including USB-C, PoE and 9V-36V DC, making it easy to connect it to a battery-backed supply. Robust SMA connections and screw cage terminals provide access to the Pulse-Per-Second and 10MHz clock signals.
 
+
+	??? info "Features"
+		- Septentrio mosaic-T multi-constellation, multi-frequency GNSS timing receiver
+			- Accurate and resilient with dedicated timing features
+			- Highly secure against jamming and spoofing with AIM+ unique interference mitigation technology combined with Fugro AtomiChron services
+			- Update rate of 10 Hz
+			- 448 hardware channels for simultaneous tracking of all visible supported satellite signals:
+				- GPS: L1C/A, L1PY, L2C, L2P, L5
+				- GLONASS: L1CA, L2CA, L2P, L3 CDMA
+				- Beidou: B1I, B1C, B2a, B2b, B2I, B3
+				- Galileo: E1, E5a, E5b, E5 AltBoc, E6
+				- QZSS: L1C/A, L1 C/B, L2C, L5
+				- NavIC: L5
+				- SBAS: Egnos, WAAS, GAGAN, MSAS, SDCM (L1, L5)
+				- On-module L-band
+			- Supports RTCM input for RTK Rover. **RTCM output (RTK Base) is not supported.**
+			- Time pulse precision: 5ns
+			- Time pulse precision with AtomiChron (L-Band or IP): < 1ns
+			- Event accuracy: < 20ns
+			- Operating temperature: -40 to 85 °C
+			- USB-C interface (UART and Ethernet-over-USB)
+		- ESP32-WROVER processor (16MB flash, 8MB PSRAM)
+			- USB-C interface (UART via CH340)
+		- SiT5358 disciplined 10MHz oscillator
+			- ±50ppb stability
+			- ±1ppb/°C frequency slope
+			- ±58ppb typical 20-year aging
+			- Digital frequency pulling via I²C
+			- [Allan Deviation](./assets/img/hookup_guide/Allan_Deviation.jpg) approaches 1E-14 at 10000 seconds with AtomiChron enabled
+			- Operating temperature: -40 to 85 °C (Industrial)
+		- microSD socket
+			- Connected directly to the mosaic-T for fast data logging
+		- OLED display
+			- 128x64 pixels
+		- Status LEDs
+
+
+	??? info "Connectivity Options"
+		- SMA Connections:
+			- GNSS Antenna (L1/L2/L5/L-Band) - provides 3.3V for an active antenna
+			- 10MHz Output - disciplined, configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
+			- 10MHz Input - switchable, input impedance 50Ω, detection level -14dBm, max supported level +12dBm
+			- Pulse-Per-Second Square Wave - configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
+			- EventA Input - configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
+		-	3.5mm Screw Cage Connections:
+			- 9V-36V DC input (isolated)
+			- GND
+			- mosaic-T COM2 (TX/RX/CTS/RTS) - 3.3V / 5V switchable
+			- CTS can be configured as a 3.3V / 5V power output via a solder jumper
+			- EventB input - 3.3V / 5V switchable
+			- I<sup>2</sup>C (SCL2 / SDA2) for an external TCXO / OCXO - 3.3V / 5V switchable
+		-	Ethernet:
+			- KSZ8041NLI Ethernet PHY interface
+			- 10Base-T / 100Base-TX with auto-negotiate and Auto MDI/MDI-X
+		-	Power Options:
+			- USB-C
+			- Power-over-Ethernet (PoE)
+			- 9V-36V DC input (fully isolated)
+
+
+	!!! warning "RTK Base"
+		The mosaic-T is a superb GNSS module designed for highly accurate timing applications. It can be configured as a RTK Rover and will make use of incoming RTCM corrections. **However, it can <span style="color:red;">NOT</span> be configured as a <span style="color:red;">RTK Base</span> because the RTCM output is not supported.**
+
 </div>
 
-!!! warning "RTK Base"
-	The mosaic-T is a superb GNSS module designed for highly accurate timing applications. It can be configured as a RTK Rover and will make use of incoming RTCM corrections. **But it can not be configured as a RTK Base. RTCM output is not supported.**
-
-## :fontawesome-solid-screwdriver-wrench: Features
-
-- Septentrio mosaic-T multi-constellation, multi-frequency GNSS timing receiver
-    - Accurate and resilient with dedicated timing features
-    - Highly secure against jamming and spoofing with AIM+ unique interference mitigation technology combined with Fugro AtomiChron services
-    - Update rate of 10 Hz
-    - 448 hardware channels for simultaneous tracking of all visible supported satellite signals:
-        - GPS: L1C/A, L1PY, L2C, L2P, L5
-        - GLONASS: L1CA, L2CA, L2P, L3 CDMA
-        - Beidou: B1I, B1C, B2a, B2b, B2I, B3
-        - Galileo: E1, E5a, E5b, E5 AltBoc, E6
-        - QZSS: L1C/A, L1 C/B, L2C, L5
-        - NavIC: L5
-        - SBAS: Egnos, WAAS, GAGAN, MSAS, SDCM (L1, L5)
-        - On-module L-band
-    - Supports RTCM input for RTK Rover. **RTCM output (RTK Base) is not supported.**
-    - Time pulse precision: 5ns
-    - Time pulse precision with AtomiChron (L-Band or IP): < 1ns
-    - Event accuracy: < 20ns
-    - Operating temperature: -40 to 85 °C
-    - USB-C interface (UART and Ethernet-over-USB)
-- ESP32-WROVER processor (16MB flash, 8MB PSRAM)
-    - USB-C interface (UART via CH340)
-- SiT5358 disciplined 10MHz oscillator
-    - ±50ppb stability
-    - ±1ppb/°C frequency slope
-    - ±58ppb typical 20-year aging
-    - Digital frequency pulling via I²C
-    - [Allan Deviation](./assets/img/hookup_guide/Allan_Deviation.jpg) approaches 1E-14 at 10000 seconds with AtomiChron enabled
-    - Operating temperature: -40 to 85 °C (Industrial)
-- microSD socket
-    - Connected directly to the mosaic-T for fast data logging
-- OLED display
-    - 128x64 pixels
-- Status LEDs
-
-## :fontawesome-solid-screwdriver-wrench: Connectivity
-
-- SMA Connections:
-    - GNSS Antenna (L1/L2/L5/L-Band) - provides 3.3V for an active antenna
-    - 10MHz Output - disciplined, configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
-    - 10MHz Input - switchable, input impedance 50Ω, detection level -14dBm, max supported level +12dBm
-    - Pulse-Per-Second Square Wave - configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
-    - EventA Input - configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
--	3.5mm Screw Cage Connections:
-    - 9V-36V DC input (isolated)
-    - GND
-    - mosaic-T COM2 (TX/RX/CTS/RTS) - 3.3V / 5V switchable
-    - CTS can be configured as a 3.3V / 5V power output via a solder jumper
-    - EventB input - 3.3V / 5V switchable
-	- I<sup>2</sup>C (SCL2 / SDA2) for an external TCXO / OCXO - 3.3V / 5V switchable
--	Ethernet:
-	- KSZ8041NLI Ethernet PHY interface
-    - 10Base-T / 100Base-TX with auto-negotiate and Auto MDI/MDI-X
--	Power Options:
-    - USB-C
-    - Power-over-Ethernet (PoE)
-    - 9V-36V DC input (fully isolated)
 
 ??? question "Product Comparison"
 	Below is a simple comparison table between our breakout board and Septentrio's development and evaluation kits:
@@ -258,13 +260,17 @@ icon: material/book-open-page-variant
 		<td style="text-align:center">SMA Connector</td>
 	</tr>
 	<tr>
-		<td>10MHz Signal</td>
-		<td style="text-align:center">No</td>
-		<td style="text-align:center">No</td>
-		<td style="text-align:center">No</td>
-		<td style="text-align:center">No</td>
+		<td style="vertical-align:middle;">10MHz Signal</td>
 		<td style="text-align:center">
-			SMA Connector
+			SMA Connector<br>
+			<i>In Only</i>
+		</td>
+		<td style="text-align:center; vertical-align:middle;">No</td>
+		<td style="text-align:center; vertical-align:middle;">No</td>
+		<td style="text-align:center; vertical-align:middle;">No</td>
+		<td style="text-align:center">
+			SMA Connector<br>
+			<i>In/Out</i>
 		</td>
 	</tr>
 	<tr>
@@ -462,6 +468,15 @@ As a more sophisticated product, we will skip over the more fundamental tutorial
 
 	**What is GPS RTK?**</a>
 
+-   <a href="https://learn.sparkfun.com/tutorials/1363">
+	<figure markdown>
+	![Tutorial Thumbnail](https://cdn.sparkfun.com/c/178-100/assets/learn_tutorials/1/3/6/3/Roof_Enclosure.jpg)
+	</figure>
+
+	---
+
+	**How to Build a DIY GNSS Reference Station**</a>
+
 -   <a href="https://learn.sparkfun.com/tutorials/1362">
 	<figure markdown>
 	![Tutorial Thumbnail](https://cdn.sparkfun.com/c/178-100/assets/learn_tutorials/1/3/6/2/GNSS_RTK_DIY_Surveying_Tutorial.jpg)
@@ -471,14 +486,32 @@ As a more sophisticated product, we will skip over the more fundamental tutorial
 
 	**Setting up a Rover Base RTK System**</a>
 
--   <a href="https://learn.sparkfun.com/tutorials/1363">
+-   <a href="https://docs.sparkfun.com/SparkFun_RTK_Everywhere_Firmware">
 	<figure markdown>
-	![Tutorial Thumbnail](https://cdn.sparkfun.com/c/178-100/assets/learn_tutorials/1/3/6/3/Roof_Enclosure.jpg)
+	![Tutorial Thumbnail](https://docs.sparkfun.com/SparkFun_RTK_Everywhere_Firmware/img/thumbnail.jpg)
 	</figure>
 
 	---
 
-	**How to Build a DIY GNSS Reference Station**</a>
+	**SparkFun RTK Everywhere Product Manual**</a>
+
+-   <a href="https://learn.sparkfun.com/tutorials/908">
+	<figure markdown>
+	![Tutorial Thumbnail](https://cdn.sparkfun.com/c/264-148/assets/learn_tutorials/9/0/8/USB-to-serial_converter_CH340-closeup.jpg)
+	</figure>
+
+	---
+
+	**How to Install CH340 Drivers**</a>
+
+-   <a href="https://docs.sparkfun.com/SparkFun_RTK_mosaic-X5">
+	<figure markdown>
+	![Tutorial Thumbnail](https://docs.sparkfun.com/SparkFun_RTK_mosaic-X5/assets/img/thumbnail.jpg)
+	</figure>
+
+	---
+
+	**RTK mosaic-X5 Hookup Guide**</a>
 
 -   <a href="https://docs.sparkfun.com/SparkFun_GNSS_mosaic-X5">
 	<figure markdown>
@@ -498,15 +531,6 @@ As a more sophisticated product, we will skip over the more fundamental tutorial
 
 	**Qwiic OLED 1.3" Hookup Guide**</a>
 
--   <a href="https://learn.sparkfun.com/tutorials/908">
-	<figure markdown>
-	![Tutorial Thumbnail](https://cdn.sparkfun.com/c/264-148/assets/learn_tutorials/9/0/8/USB-to-serial_converter_CH340-closeup.jpg)
-	</figure>
-
-	---
-
-	**How to Install CH340 Drivers**</a>
-
 -   <a href="https://learn.sparkfun.com/tutorials/112">
 	<figure markdown>
 	![Tutorial Thumbnail](https://cdn.sparkfun.com/c/264-148/assets/learn_tutorials/1/1/2/thumb.jpg)
@@ -516,14 +540,14 @@ As a more sophisticated product, we will skip over the more fundamental tutorial
 
 	**Serial Terminal Basics**</a>
 
--   <a href="https://learn.sparkfun.com/tutorials/62">
+-   <a href="https://learn.sparkfun.com/tutorials/8">
 	<figure markdown>
-	![Tutorial Thumbnail](https://cdn.sparkfun.com/c/264-148/assets/learn_tutorials/6/2/Input_Output_Logic_Level_Tolerances_tutorial_tile.png)
+	![Tutorial Thumbnail](https://cdn.sparkfun.com/c/264-148/assets/7/d/f/9/9/50d24be7ce395f1f6c000000.jpg)
 	</figure>
 
 	---
 
-	**Logic Levels**</a>
+	**Serial Communication**</a>
 
 -   <a href="https://learn.sparkfun.com/tutorials/82">
 	<figure markdown>
@@ -534,14 +558,14 @@ As a more sophisticated product, we will skip over the more fundamental tutorial
 
 	**I2C**</a>
 
--   <a href="https://learn.sparkfun.com/tutorials/8">
+-   <a href="https://learn.sparkfun.com/tutorials/62">
 	<figure markdown>
-	![Tutorial Thumbnail](https://cdn.sparkfun.com/c/264-148/assets/7/d/f/9/9/50d24be7ce395f1f6c000000.jpg)
+	![Tutorial Thumbnail](https://cdn.sparkfun.com/c/264-148/assets/learn_tutorials/6/2/Input_Output_Logic_Level_Tolerances_tutorial_tile.png)
 	</figure>
 
 	---
 
-	**Serial Communication**</a>
+	**Logic Levels**</a>
 
 -   <a href="https://learn.sparkfun.com/tutorials/664">
 	<figure markdown>
