@@ -123,6 +123,7 @@ theme:
       # Add custom admonitions
       github: simple/github
       arduino: simple/arduino
+      rpi: simple/raspberrypi
       python: simple/python
       code: fontawesome/regular/file-code
       terminal: octicons/terminal-16

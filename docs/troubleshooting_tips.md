@@ -58,7 +58,7 @@ Products in the accessories box.
 If you are missing any of these items, please reach out to us in our forum.
 
 <center>
-[:sfe-logo: SparkFun Forum - GNSS Topic](https://community.sparkfun.com/c/global-positioning-system-gps/96){ .md-button .md-button--primary }
+[:sfe: SparkFun Forum - GNSS Topic](https://community.sparkfun.com/c/global-positioning-system-gps/96){ .md-button .md-button--primary }
 </center>
 
 ## Data Logging
@@ -74,7 +74,7 @@ For data logging issues, here are some simple troubleshooting tips:
 Got a few dead pixels on your OLED display? Please reach out to us in our forum.
 
 <center>
-[:sfe-logo: SparkFun Forum - GNSS Topic](https://community.sparkfun.com/c/global-positioning-system-gps/96){ .md-button .md-button--primary }
+[:sfe: SparkFun Forum - GNSS Topic](https://community.sparkfun.com/c/global-positioning-system-gps/96){ .md-button .md-button--primary }
 </center>
 
 
