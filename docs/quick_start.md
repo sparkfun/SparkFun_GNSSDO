@@ -54,7 +54,7 @@ hide: toc
 
 
 
-=== "<H2>:material-ethernet:&nbsp;Ethernet</H2>"
+=== "<H2>:material-ethernet: Ethernet</H2>"
 
 	The simplest way to get your GNSSDO up and running is to connect it to your Ethernet network or an Ethernet port on your broadband router:
 
@@ -132,7 +132,7 @@ hide: toc
 
 			Subnet 3 is reserved for the mosaic-T's USB-C connection (Ethernet-over-USB). If your router / switch is allocating addresses using subnet 3 (192.168.3.***), please change its settings so it uses a different subnet. If it is using subnet 3, both the mosaic-T and your device will appear to have valid IP addresses but will not be able to communicate.
 
-=== "<H2>:material-usb-port:&nbsp;mosaic-T USB-C</H2>"
+=== "<H2>:material-usb-port: mosaic-T USB-C</H2>"
 
 	The mosaic-T has a built-in high-speed USB port which supports Ethernet-over-USB and two additional UART COM ports. To take advantage of this interface, you first need to install the Septentrio drivers.
 
@@ -173,7 +173,7 @@ hide: toc
 
 			Subnet 3 is reserved for the mosaic-T's USB-C connection (Ethernet-over-USB). If your computer is simultaneously connected to an Ethernet or WiFi network that also uses subnet 3 (192.168.3.***), please change the network settings so it uses a different subnet.
 
-=== "<H2>:material-usb-port:&nbsp;ESP32 USB-C</H2>"
+=== "<H2>:material-usb-port: ESP32 USB-C</H2>"
 
 	The SparkPNT GNSSDO contains an ESP32-WROVER microcontroller module. You can connect to its console through the **CONFIG ESP32** USB-C connector.
 

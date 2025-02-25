@@ -1,12 +1,12 @@
 # Contribute: Make an Augmentation!
 Spot an improvement opportunity? Feel free to contribute to our open-source design and documentation. <a href="https://github.com/sparkfun/SparkFun_GNSSDO/pulls" alt="Pull Requests"><img src="https://img.shields.io/github/issues-pr/sparkfun/SparkFun_GNSSDO.svg" /></a>
 
-## :material-file-document-multiple:&nbsp;Improve our Documentation
+## :material-file-document-multiple: Improve our Documentation
 All of this documentation can be modified by you! Please help us make it better.
 
 - These pages are contained in the [`docs` folder](https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/docs) of the [SparkFun GNSSDO repository](https://github.com/sparkfun/SparkFun_GNSSDO).
 
-<!-- ### :material-source-pull:&nbsp;Submit a Correction -->
+<!-- ### :material-source-pull: Submit a Correction -->
 ### Submit a Correction
 
 1. With a GitHub account, [fork this repository](https://github.com/sparkfun/SparkFun_GNSSDO/fork).
@@ -15,12 +15,12 @@ All of this documentation can be modified by you! Please help us make it better.
 	- Once received, the documentation specialist will automatically be notified.
 	- We will review your suggested improvements to make sure they are correct and fit within our documentation standards.
 
-## :material-cog:&nbsp;Improve our Hardware Design
+## :material-cog: Improve our Hardware Design
 All of our designs are open-source! Please help us make it better.
 
 - Our board design files are contained in the [`Hardware` folder](https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/Hardware) of the [SparkFun GNSSDO repository](https://github.com/sparkfun/SparkFun_GNSSDO).
 
-<!-- ### :material-source-pull:&nbsp;Submit a Design Enhancement -->
+<!-- ### :material-source-pull: Submit a Design Enhancement -->
 ### Submit a Design Enhancement
 
 1. With a GitHub account, [fork this repository](https://github.com/sparkfun/SparkFun_GNSSDO/fork).
@@ -33,7 +33,7 @@ All of our designs are open-source! Please help us make it better.
 		!!! info
 			Even if your suggestion is accepted, these changes may not be immediately available for purchase. We may have to cycle through our current product inventory first.
 
-## Contributors&nbsp;:clap:
+## Contributors :clap:
 Let's provide some recognition to the contributors for this project!
 
 ![GitHub Contributors Image](https://contrib.rocks/image?repo=sparkfun/SparkFun_GNSSDO)

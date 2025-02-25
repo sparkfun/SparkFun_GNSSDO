@@ -23,7 +23,7 @@ icon: material/book-open-page-variant
 - :material-forum: [SparkFun Forum: GNSS Topics](https://community.sparkfun.com/c/global-positioning-system-gps/96)
 
 
-### 🏭&nbsp;Manufacturer's Resources
+### 🏭 Manufacturer's Resources
 Septentrio also provides great resources for the mosaic-T:
 
 <div class="annotate" markdown>
@@ -77,7 +77,7 @@ Septentrio also provides great resources for the mosaic-T:
 		:material-youtube: [Test-run for Septentrio's anti-jamming feature](https://youtu.be/SzI0skGHKEw)<br>
 		:material-youtube: [mosaic - GNSS module receiver range from Septentrio](https://youtu.be/Co8hrVeklAA)
 
-### 🏭&nbsp;Fugro AtomiChron^®^
+### 🏭 Fugro AtomiChron^®^
 Full details about Fugro's AtomiChron time synchronisation service can be found on their website:
 
 - [Fugro AtomiChron^®^](https://www.fugro.com/expertise/other-expertise/atomichron)

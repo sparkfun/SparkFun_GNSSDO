@@ -17,7 +17,7 @@ icon: fontawesome/solid/computer
 	With that said, please feel free to [file an issue](../github/file_issue/#discrepancies-in-the-documentation) if you feel we have missed something that may benefit other users. *(Don't forget to provide us with a link to the documentation and what section the information is located.)*
 
 
-## :septentrio:&nbsp;mosaic-T
+## :septentrio: mosaic-T
 
 ### RxTools Software Suite
 
@@ -233,7 +233,7 @@ With the USB driver installed, the mosaic-T module supports Ethernet-over-USB. T
 ??? failure "Invalid IP Address *(WiFi Only)*"
 	[One of the documentation pages on Septentrio's website](https://customersupport.septentrio.com/s/article/What-is-the-default-IP-address-to-connect-via-WiFi), specifies a default IP address of `192.168.20.1` for the web interface. However, that address is for a WiFi enabled product and cannot be used with this product.
 
-## :espressif:&nbsp;ESP32
+## :espressif: ESP32
 
 ### USB Driver
 Users will need to install a USB driver for the CH340 serial-to-USB chip, in order to communicate with the ESP32 module.	The latest USB drivers for the CH340 are available from the manufacturer, on the [WCH website](https://www.wch-ic.com/products/CH340.html?):
@@ -296,7 +296,7 @@ In order to configure the firmware settings on the ESP32, users will need to ins
 
 	</div>
 
-## :fontawesome-solid-screwdriver-wrench:&nbsp;Software Settings
+## :fontawesome-solid-screwdriver-wrench: Software Settings
 
 When connected to the ESP32 CH340 COM port at 115200 baud, pressing any key in the terminal emulator will open the firmware Main Menu:
 

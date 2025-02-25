@@ -212,7 +212,7 @@ The GNSSDO can be powered individually or in combination, with any of the follow
 		If desired, users can link `VIN-` to the adjacent `GND` screw cage terminal. However, this will bypass the voltage isolation and could introduce an unwanted ground loop, particularly if the GNSS antenna ground (shield, 0V) is also connected to the chassis.
 
 
-## :septentrio:&nbsp;mosaic-T
+## :septentrio: mosaic-T
 The heart of our product is of course the mosaic-T GNSS module from Septentrio. It is a _very_ sophisticated chip with multiple interfaces: UARTS, USB and Ethernet. The `GPIO1` and `GPIO2` pins are available as 0.1" test points should you need access to them.
 
 <figure markdown>
@@ -220,7 +220,7 @@ The heart of our product is of course the mosaic-T GNSS module from Septentrio. 
 <figcaption markdown>The Septentrio mosaic-T GNSS module.</figcaption>
 </figure>
 
-## :espressif:&nbsp;ESP32-WROVER
+## :espressif: ESP32-WROVER
 The ESP32 processor is there to control (discipline) the 10 MHz TCXO oscillator and the OLED display. We have deliberately kept the ESP32 firmware as simple as possible. The intention is that you can write your own firmware using the Espressif IDF or Arduino IDE if you need to.
 
 <figure markdown>
@@ -724,7 +724,7 @@ There are three buttons on the GNSSDO: ++"RESET"++, ++"BOOT"++, and ++"LOG"++.
 </div>
 
 
-=== ":septentrio:&nbsp;mosaic-T: Data Logging"
+=== ":septentrio: mosaic-T: Data Logging"
 	Once a [logging stream](#sd-socket) is defined, users can control the data logging operation through the ++"LOG"++ button.
 
 	- A short press of the ++"LOG"++ button *(< 5s)* toggles data logging to the SD card on and off.
@@ -744,10 +744,10 @@ There are three buttons on the GNSSDO: ++"RESET"++, ++"BOOT"++, and ++"LOG"++.
 	!!! tip "Instructional Video"
 		:material-youtube: [How to log data to the SD card of the Septentrio mosaic receiver module](https://youtu.be/Y9tvOebnoxk)
 
-=== ":espressif:&nbsp;ESP32: Reset"
+=== ":espressif: ESP32: Reset"
 	The ++"RESET"++ button allows users to reset the firmware running on the ESP32-WROVER module without disconnecting the power.
 
-=== ":espressif:&nbsp;ESP32: Boot Control"
+=== ":espressif: ESP32: Boot Control"
 	The ++"BOOT"++ button can be used to force the ESP32 into the serial bootloader. Holding down the ++"BOOT"++ button, while connecting the GNSSDO to a computer through its USB-C connector or resetting the board will cause it to enter the <a href="https://docs.espressif.com/projects/esptool/en/latest/esp32/advanced-topics/boot-mode-selection.html#manual-bootloader">Firmware Download mode</a>. The ESP32 will remain in this mode until it power cycles (happens automatically after uploading new firmware) or the ++"RESET"++ button is pressed.
 
 	1. Hold the ++"BOOT"++ button down.

@@ -9,7 +9,7 @@ Fugro AtomiChron^®^ is a global, real-time, precise clock synchronisation and a
 <figcaption markdown>Fugro AtomiChron overview.</figcaption>
 </figure>
 
-## :fontawesome-solid-screwdriver-wrench:&nbsp;Specifications
+## :fontawesome-solid-screwdriver-wrench: Specifications
 
 - Timing accuracy: <5 ns UTC (95% of the time)
 

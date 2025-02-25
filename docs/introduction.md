@@ -37,7 +37,7 @@ icon: material/book-open-page-variant
 !!! warning "RTK Base"
 	The mosaic-T is a superb GNSS module designed for highly accurate timing applications. It can be configured as a RTK Rover and will make use of incoming RTCM corrections. **But it can not be configured as a RTK Base. RTCM output is not supported.**
 
-## :fontawesome-solid-screwdriver-wrench:&nbsp;Features
+## :fontawesome-solid-screwdriver-wrench: Features
 
 - Septentrio mosaic-T multi-constellation, multi-frequency GNSS timing receiver
     - Accurate and resilient with dedicated timing features
@@ -73,7 +73,7 @@ icon: material/book-open-page-variant
     - 128x64 pixels
 - Status LEDs
 
-## :fontawesome-solid-screwdriver-wrench:&nbsp;Connectivity
+## :fontawesome-solid-screwdriver-wrench: Connectivity
 
 - SMA Connections:
     - GNSS Antenna (L1/L2/L5/L-Band) - provides 3.3V for an active antenna
@@ -313,7 +313,7 @@ icon: material/book-open-page-variant
 
 
 
-## :fontawesome-solid-list-check:&nbsp;Required Materials
+## :fontawesome-solid-list-check: Required Materials
 The GNSSDO comes with everything you need to get up and running.
 
 **Kit Contents**
@@ -408,7 +408,7 @@ Everything that is included in the GNSSDO kit.
 
 	</div>
 
-??? note ":material-weather-pouring:&nbsp;Selecting an Outdoor Enclosure"
+??? note ":material-weather-pouring: Selecting an Outdoor Enclosure"
 
 	The GNSSDO comes in a beautiful custom extruded aluminum enclosure, with machined end panels and matching stickers. The slotted flanges make it easy to install and secure the enclosure in many locations. But the enclosure only provides limited protection against the ingress of dust and water; it is designed to IP42. So, if you are going to permanently install it up on the roof too, you're going to need a suitable weatherproof box. We found a good one - the [Orbit 57095](https://www.orbitonline.com/products/gray-outdoor-timer-cabinet) - also available from [Amazon](https://www.amazon.com/Orbit-57095-Weather-Resistant-Outdoor-Mounted-Controller/dp/B000VYGMF2) - back when we put together our very first [DIY GNSS Reference Station](https://learn.sparkfun.com/tutorials/how-to-build-a-diy-gnss-reference-station#mini-computer-setup-option-1).
 
@@ -437,7 +437,7 @@ Everything that is included in the GNSSDO kit.
 	</div>
 
 
-## :material-bookshelf:&nbsp;Suggested Reading
+## :material-bookshelf: Suggested Reading
 
 As a more sophisticated product, we will skip over the more fundamental tutorials (i.e. [**Ohm's Law**](https://learn.sparkfun.com/tutorials/voltage-current-resistance-and-ohms-law) and [**What is Electricity?**](https://learn.sparkfun.com/tutorials/what-is-electricity)). However, below are a few tutorials that may help users familiarize themselves with various aspects of the board.
 
