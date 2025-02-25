@@ -48,10 +48,10 @@ If you are missing any of these items, please reach out to us in our forum.
 ## Data Logging
 For data logging issues, here are some simple troubleshooting tips:
 
-* Make sure that your SD card is formatted to a `FAT32` file system.
-	* The `FAT32` file system also limits the maximum capacity of the card to less than **32GB** *(i.e. a 256GB SD card will not work)*.
-* Make sure that the mosaic-T module has a configured data stream output.
-* Use the mosaic-T web page to verify that the SD card is mounted as a storage drive.
+- Make sure that your SD card is formatted to a `FAT32` file system.
+	- The `FAT32` file system also limits the maximum capacity of the card to less than **32GB** *(i.e. a 256GB SD card will not work)*.
+- Make sure that the mosaic-T module has a configured data stream output.
+- Use the mosaic-T web page to verify that the SD card is mounted as a storage drive.
 
 
 ## OLED Dead Pixels

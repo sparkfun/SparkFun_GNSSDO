@@ -338,19 +338,19 @@ Everything that is included in the GNSSDO kit.
 
 <div class="annotate" markdown>
 
-* [Quick Start Guide](./assets/quick_start_guide-v10.pdf)
-* Cased GNSS Receiver
-	* [Aluminum Enclosure](https://www.sparkfun.com/metal-enclosure-custom-aluminum-extrusion-6in-x-4in-pcb.html) (1)
-	* [10-Way Terminal Blocks](https://www.sparkfun.com/10-way-terminal-socket.html)
-	* [Qwiic 1.3" OLED Display](https://www.sparkfun.com/sparkfun-qwiic-oled-1-3in-128x64.html)
-* [L1/L2/L5 GNSS Surveying Antenna](https://www.sparkfun.com/gnss-multi-band-l1-l2-l5-surveying-antenna-tnc-spk6618h.html)
-* [Reinforced RG58 TNC-SMA Cable (10m)](https://www.sparkfun.com/reinforced-interface-cable-sma-male-to-tnc-male-10m.html)
-* [32GB microSD Card (Class 10)](https://www.sparkfun.com/microsd-card-32gb-class-10.html)
-* [USB A and C Power Delivery (PD) Wall Adapter - 65W](https://www.sparkfun.com/usb-a-and-c-power-delivery-pd-wall-adapter-65w.html)
-* [USB-C to USB-C Cable (Flexible Silicone, 3m)](https://www.sparkfun.com/usb-c-to-usb-c-silicone-power-charging-cable-3m.html)
-* [Ethernet Cable (CAT-6, 1m)](https://www.sparkfun.com/cat-6-cable-3ft.html)
-* [SMA to BNC Cable (RG316, 1m)](https://www.sparkfun.com/sma-to-bnc-male-cable-rg316-1m.html)
-* [Silicone Bumpers - 5x11mm (4 Pack)](https://www.sparkfun.com/silicone-bumpers-5x11mm-4-pack.html)
+- [Quick Start Guide](./assets/quick_start_guide-v10.pdf)
+- Cased GNSS Receiver
+	- [Aluminum Enclosure](https://www.sparkfun.com/metal-enclosure-custom-aluminum-extrusion-6in-x-4in-pcb.html) (1)
+	- [10-Way Terminal Blocks](https://www.sparkfun.com/10-way-terminal-socket.html)
+	- [Qwiic 1.3" OLED Display](https://www.sparkfun.com/sparkfun-qwiic-oled-1-3in-128x64.html)
+- [L1/L2/L5 GNSS Surveying Antenna](https://www.sparkfun.com/gnss-multi-band-l1-l2-l5-surveying-antenna-tnc-spk6618h.html)
+- [Reinforced RG58 TNC-SMA Cable (10m)](https://www.sparkfun.com/reinforced-interface-cable-sma-male-to-tnc-male-10m.html)
+- [32GB microSD Card (Class 10)](https://www.sparkfun.com/microsd-card-32gb-class-10.html)
+- [USB A and C Power Delivery (PD) Wall Adapter - 65W](https://www.sparkfun.com/usb-a-and-c-power-delivery-pd-wall-adapter-65w.html)
+- [USB-C to USB-C Cable (Flexible Silicone, 3m)](https://www.sparkfun.com/usb-c-to-usb-c-silicone-power-charging-cable-3m.html)
+- [Ethernet Cable (CAT-6, 1m)](https://www.sparkfun.com/cat-6-cable-3ft.html)
+- [SMA to BNC Cable (RG316, 1m)](https://www.sparkfun.com/sma-to-bnc-male-cable-rg316-1m.html)
+- [Silicone Bumpers - 5x11mm (4 Pack)](https://www.sparkfun.com/silicone-bumpers-5x11mm-4-pack.html)
 
 </div>
 

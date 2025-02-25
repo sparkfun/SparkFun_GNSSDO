@@ -67,16 +67,16 @@ hide: toc
 
 	**`1`** - **Connect the GNSS antenna**
 	: * Inside your GNSSDO kit, you will find the L1/L2/L5 GNSS "UFO" antenna. It has a TNC connection. Use the supplied TNC-SMA cable to connect the antenna to the mosaic-T **GNSS** SMA connection.
-		* The antenna needs a clear view of the sky. If you are working indoors, put the antenna outside and pass the cable through a window. (Insulating double-glazed windows have a coating which can block the GNSS signal. For best results, put the antenna outside.)
+		- The antenna needs a clear view of the sky. If you are working indoors, put the antenna outside and pass the cable through a window. (Insulating double-glazed windows have a coating which can block the GNSS signal. For best results, put the antenna outside.)
 	**`2`** - **Connect the GNSSDO to your Ethernet network or router**
 	: * Use the supplied CAT-6 Ethernet cable to connect the **ETHERNET (PoE)** port to your network or an Ethernet port on your router.
-		* If your router provides Power-over-Ethernet (PoE), you're all set! You should see the red power (PWR) LED light up and text start to scroll up the OLED display.
-		* If your router does not provide PoE, move on to step 3.
+		- If your router provides Power-over-Ethernet (PoE), you're all set! You should see the red power (PWR) LED light up and text start to scroll up the OLED display.
+		- If your router does not provide PoE, move on to step 3.
 	**`3`** - **Provide power**
 	: * You can power the GNSSDO using the supplied USB power supply (wall adapter).
-		* Plug the power supply into the wall.
-		* Use the supplied USB-C cable to connect the power supply to either the **CONFIG MOSAIC** or the **CONFIG ESP32** USB-C port. It does not matter which.
-		* You should see the red power (PWR) LED light up and text appear on the OLED display.
+		- Plug the power supply into the wall.
+		- Use the supplied USB-C cable to connect the power supply to either the **CONFIG MOSAIC** or the **CONFIG ESP32** USB-C port. It does not matter which.
+		- You should see the red power (PWR) LED light up and text appear on the OLED display.
 
 	Once the mosaic-T has acquired a satellite signal and is connected to the Ethernet network, the OLED will display: the date and time; the antenna's position as Latitude (Lat) and Longitude (Long); the Ethernet IP (Internet Protocol) network address.
 
@@ -145,11 +145,11 @@ hide: toc
 
 	`1` - **Connect the GNSS antenna**
 	: * Inside your GNSSDO kit, you will find the L1/L2/L5 GNSS "UFO" antenna. It has a TNC connection. Use the supplied TNC-SMA cable to connect the antenna to the mosaic-T **GNSS** SMA connection.
-		* The antenna needs a clear view of the sky. If you are working indoors, put the antenna outside and pass the cable through a window. (Insulating double-glazed windows have a coating which can block the GNSS signal. For best results, put the antenna outside.)
+		- The antenna needs a clear view of the sky. If you are working indoors, put the antenna outside and pass the cable through a window. (Insulating double-glazed windows have a coating which can block the GNSS signal. For best results, put the antenna outside.)
 	`2` - **Download and install Septentrio RxTools**
 	: * The [Septentrio mosaic-T Resources page](https://www.septentrio.com/en/products/gnss-receivers/gnss-receiver-modules/mosaic-t#resources) has download links for the mosaic-T datasheet, firmware, firmware guide, hardware manual, how-to videos and the **RxTools** support tool suite.
-		* **RxTools** includes the driver for the USB-C port plus several tools, which you can use to control and configure the mosaic-T, forward data, log data, analyze the log files, convert the log files to other formats, and configure the module for use with other GIS software.
-		* Download and install **RxTools**.
+		- **RxTools** includes the driver for the USB-C port plus several tools, which you can use to control and configure the mosaic-T, forward data, log data, analyze the log files, convert the log files to other formats, and configure the module for use with other GIS software.
+		- Download and install **RxTools**.
 	`3` - **Connect the GNSSDO to your computer**
 	: * Use the supplied USB-C cable to connect the **CONFIG MOSAIC** port to your computer.
 
@@ -186,18 +186,18 @@ hide: toc
 
 	`1` - **Connect the GNSS antenna**
 	: * Inside your GNSSDO kit, you will find the L1/L2/L5 GNSS "UFO" antenna. It has a TNC connection. Use the supplied TNC-SMA cable to connect the antenna to the mosaic-T **GNSS** SMA connection.
-		* The antenna needs a clear view of the sky. If you are working indoors, put the antenna outside and pass the cable through a window. (Insulating double-glazed windows have a coating which can block the GNSS signal. For best results, put the antenna outside.)
+		- The antenna needs a clear view of the sky. If you are working indoors, put the antenna outside and pass the cable through a window. (Insulating double-glazed windows have a coating which can block the GNSS signal. For best results, put the antenna outside.)
 	`2` - **Download and install a terminal emulator like Tera Term**
 	: * To communicate with the firmware running on the ESP32, you will need a serial console or terminal emulator.
-		* If you are using Windows, we still recommend [Tera Term](https://learn.sparkfun.com/tutorials/112)
+		- If you are using Windows, we still recommend [Tera Term](https://learn.sparkfun.com/tutorials/112)
 	`3` - **Connect the GNSSDO to your computer**
 	: * Use the supplied USB-C cable to connect the **CONFIG ESP32** port to your computer.
 
 	<!-- Needed to break from list -->
 	`4` - **Open the terminal emulator**
 	: * Open the terminal emulator and connect to the CH340 COM port. Select **115200** as the baud rate.
-		* Once connected, you will see a debug message from the ESP32 every second. The message contains the date, time, Lat, Long and other information about the clock accuracy.
-		* Pressing any key will open the [configuration menu](./software_overview.md#software-settings), allowing you to change the firmware settings if needed.
+		- Once connected, you will see a debug message from the ESP32 every second. The message contains the date, time, Lat, Long and other information about the clock accuracy.
+		- Pressing any key will open the [configuration menu](./software_overview.md#software-settings), allowing you to change the firmware settings if needed.
 
 	!!! tip
 		Enabling the [**TCP Server (IPS1)**](./software_overview.md#tcp-server-ips1) option via the Configure Operation menu will allow you to access the firmware serial console via TCP. The firmware settings can then be accessed over the Ethernet or Ethernet-over-USB interfaces, instead of CONFIG ESP32 USB-C. The TCP port number can be changed via the menu; the default TCP port is 28785.

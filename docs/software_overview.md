@@ -40,18 +40,18 @@ Users should install the [RXTools software suite](https://www.septentrio.com/en/
 
 	=== "Operating Systems"
 
-		* Windows 7
-		* Windows 8
-		* Windows 10
-		* Fedora 23 *(or later)* using Qt technology.
-			* The standalone tools (except `bin2asc`) will run on older distributions.
+		- Windows 7
+		- Windows 8
+		- Windows 10
+		- Fedora 23 *(or later)* using Qt technology.
+			- The standalone tools (except `bin2asc`) will run on older distributions.
 
 	=== "Hardware Requirements"
 		The minimal hardware requirements *(1Hz update[^3])*:
 
-		* CPU: 1 GHz processor
-		* RAM: 1 GB RAM
-		* Screen Resolution: 1024×768 or higher resolution
+		- CPU: 1 GHz processor
+		- RAM: 1 GB RAM
+		- Screen Resolution: 1024×768 or higher resolution
 
 	[^2]: The system requirements and installation instructions are from the RxTools *v22.1.0* user manual. This information may change in later iterations of the software suite. Please refer to the user manual *(of the version you are utilizing)* for the most accurate information.
 	[^3]: Higher data rates will require higher CPU speed and more memory capacity.
@@ -71,26 +71,26 @@ Users should install the [RXTools software suite](https://www.septentrio.com/en/
 
 		<div markdown>
 
-		* RxControl
-		* SBF Converter
-		* SBF Analyzer
-		* RxLogger
+		- RxControl
+		- SBF Converter
+		- SBF Analyzer
+		- RxLogger
 
 		</div>
 
 		<div markdown>
 
-		* RxUpgrade
-		* RxDownload
-		* RxPlanner
+		- RxUpgrade
+		- RxDownload
+		- RxPlanner
 
 		</div>
 
 		<div markdown>
 
-		* Data Link
-		* RxAssistant
-		* RxLauncher
+		- Data Link
+		- RxAssistant
+		- RxLauncher
 
 		</div>
 
@@ -111,9 +111,9 @@ Users should install the [RXTools software suite](https://www.septentrio.com/en/
 
 			<div class="annotate" markdown>
 
-			* RxTools will need rights to access the `/dev/ttyS*` serial ports.
+			- RxTools will need rights to access the `/dev/ttyS*` serial ports.
 
-				* To access the serial ports, users must be part of the `uucp` and `lock` groups (1). This can be configured by editing the `/etc/group`[^7] file and adding the username to the lines defining the `uucp` group and the `lock` group.
+				- To access the serial ports, users must be part of the `uucp` and `lock` groups (1). This can be configured by editing the `/etc/group`[^7] file and adding the username to the lines defining the `uucp` group and the `lock` group.
 
 					For example, when adding the user `jsmith` to the `uucp` group, users would modify the `/etc/group` file as shown below:
 
@@ -122,10 +122,10 @@ Users should install the [RXTools software suite](https://www.septentrio.com/en/
 					{++uucp:x:14:uucp,jsmith++} # (3)!
 					```
 
-				* On Linux machine administered centrally on a local network, ask your system administrator to be included in the `uucp` and `lock` groups.
-			* RxTools also needs read/write (`rw`) access(4) to the `/dev/ttyS*` serial ports.
+				- On Linux machine administered centrally on a local network, ask your system administrator to be included in the `uucp` and `lock` groups.
+			- RxTools also needs read/write (`rw`) access(4) to the `/dev/ttyS*` serial ports.
 
-				* Users can change the permissions with the `chmod`[^8] command:
+				- Users can change the permissions with the `chmod`[^8] command:
 
 					```bash
 					chmod 660 /dev/ttyS<add port> # (5)!>
@@ -147,8 +147,8 @@ Users should install the [RXTools software suite](https://www.septentrio.com/en/
 		??? info "64-bit OS"
 			In order to run the RxTools on a 64-bit Linux operating system, users might have to install the 32-bit version of the `C` standard library.
 
-			* For Fedora installations, this is the `glibc.i686` package.
-			* The equivalent for Debian(/Ubuntu) installations is the `ia32-libs` package.
+			- For Fedora installations, this is the `glibc.i686` package.
+			- The equivalent for Debian(/Ubuntu) installations is the `ia32-libs` package.
 
 	[^4]: Users will need administrative privileges to install the RxTools software.
 	[^5]: Users may need to extract the RxTools installation files from the downloaded, compressed file.
@@ -165,8 +165,8 @@ Users should install the [RXTools software suite](https://www.septentrio.com/en/
 
 	<div class="annotate" markdown>
 
-	* RxTools Software Suite (1)
-	* mosaic-T GNSS Receiver Module (2)
+	- RxTools Software Suite (1)
+	- mosaic-T GNSS Receiver Module (2)
 
 	</div>
 
@@ -178,11 +178,11 @@ Users should install the [RXTools software suite](https://www.septentrio.com/en/
 	??? tip "Terminal Emulators"
 		Most [terminal emulation programs](https://learn.sparkfun.com/tutorials/112) will not make a distinction between virtual or native COM ports. However, for virtual serial ports, the port settings *(i.e. baud rate, etc.)* are not relevant and the default configuration is used in the terminal emulation program. However, the physical/native `COM` ports will have the following default setting: 
 
-		* Baudrate: 115200bps
-		* Data Bits: 8
-		* Parity: No
-		* Stop Bits: 1
-		* Flow Control: None
+		- Baudrate: 115200bps
+		- Data Bits: 8
+		- Parity: No
+		- Stop Bits: 1
+		- Flow Control: None
 
 	??? tip "Having Trouble?"
 		For users who are having trouble installing the USB driver, we have an archived version *(v3.0.2[^9])* of the installation file. Users can download [**version 3.0.2**](https://docs.sparkfun.com/SparkFun_GNSS_mosaic-T/assets/component_documentation/driver/USB_driver_3_0_2_Installer.exe) of the driver, by clicking on the button below.
@@ -314,31 +314,31 @@ Select option **c** ("c" followed by "Enter") to configure the firmware:
 <figcaption markdown>The ESP32 firmware configuration menu.</figcaption>
 </figure>
 
-* **1) RX Clock Bias Lock Limit**
-	* This allows the clock bias limit to be set. The units are milliseconds.
-	* The **LOCK** LED will illuminate when the bias is below this limit.
-	* PPS output will begin when the bias has been below this limit for **RX Clock Bias Limit Count** seconds.
-* **2) RX Clock Bias Initial Limit**
-	* This allows the initial clock bias limit to be set. The units are milliseconds.
-	* The firmware will soft-reset the GNSS if the clock bias is above this limit for **RX Clock Bias Limit Count** seconds.
-	* This allows the firmware to restart the GNSS and re-sync the TCXO if the initial bias is excessive.
-* **3) RX Clock Bias Limit Count**
-	* This defines how many consecutive 1Hz samples are needed to trigger the two clock bias limits.
-* **4) Pk (PI P term)**
-	* This defines the Proportional term for the TCXO frequency PI control loop. Default is 0.63
-	* This value was determined using approximate Ziegler-Nichols tuning of the SiT5358 loop.
-* **5) Ik (PI I term)**
-	* This defines the Integral term for the TCXO frequency PI control loop. Default is 0.151
-	* This value was determined using approximate Ziegler-Nichols tuning of the SiT5358 loop.
-* **6) Prefer non-composite GPS bias**
-	* With a subscription to Fugro AtomiChron, this option allows the individual GPS clock bias to be preferred over the composite Fugro bias.
-	* You can enable a preference for either GPS or Galileo. Enabling GPS will disable Galileo.
-* **7) Prefer non-composite Galileo bias**
-	* With a subscription to Fugro AtomiChron, this option allows the individual Galileo clock bias to be preferred over the composite Fugro bias.
-	* You can enable a preference for either GPS or Galileo. Enabling Galileo will disable GPS.
-* **8) Pulse-Per-Second Interval**
-	* This defines the interval of the PPS signal. The intervals are defined by the mosiac-T firmware. Use "8" and "Enter" to scroll through the intervals.
-	* "off"
+- **1) RX Clock Bias Lock Limit**
+	- This allows the clock bias limit to be set. The units are milliseconds.
+	- The **LOCK** LED will illuminate when the bias is below this limit.
+	- PPS output will begin when the bias has been below this limit for **RX Clock Bias Limit Count** seconds.
+- **2) RX Clock Bias Initial Limit**
+	- This allows the initial clock bias limit to be set. The units are milliseconds.
+	- The firmware will soft-reset the GNSS if the clock bias is above this limit for **RX Clock Bias Limit Count** seconds.
+	- This allows the firmware to restart the GNSS and re-sync the TCXO if the initial bias is excessive.
+- **3) RX Clock Bias Limit Count**
+	- This defines how many consecutive 1Hz samples are needed to trigger the two clock bias limits.
+- **4) Pk (PI P term)**
+	- This defines the Proportional term for the TCXO frequency PI control loop. Default is 0.63
+	- This value was determined using approximate Ziegler-Nichols tuning of the SiT5358 loop.
+- **5) Ik (PI I term)**
+	- This defines the Integral term for the TCXO frequency PI control loop. Default is 0.151
+	- This value was determined using approximate Ziegler-Nichols tuning of the SiT5358 loop.
+- **6) Prefer non-composite GPS bias**
+	- With a subscription to Fugro AtomiChron, this option allows the individual GPS clock bias to be preferred over the composite Fugro bias.
+	- You can enable a preference for either GPS or Galileo. Enabling GPS will disable Galileo.
+- **7) Prefer non-composite Galileo bias**
+	- With a subscription to Fugro AtomiChron, this option allows the individual Galileo clock bias to be preferred over the composite Fugro bias.
+	- You can enable a preference for either GPS or Galileo. Enabling Galileo will disable GPS.
+- **8) Pulse-Per-Second Interval**
+	- This defines the interval of the PPS signal. The intervals are defined by the mosiac-T firmware. Use "8" and "Enter" to scroll through the intervals.
+	- "off"
     * "msec10"
     * "msec20"
     * "msec50"
@@ -353,26 +353,26 @@ Select option **c** ("c" followed by "Enter") to configure the firmware:
     * "sec10"
     * "sec30"
     * "sec60"
-* **9) Pulse-Per-Second Polarity**
-	* This defines the PPS signal polarity: Low2High or High2Low
-* **10) Pulse-Per-Second Delay**
-	* This allows the timing of the PPS signal to be advanced or retarded. The units are nanoseconds.
-* **11) Pulse-Per-Second Time Scale**
-	* This defines which time scale is used to generate the PPS signal.
-	* "GPS"
+- **9) Pulse-Per-Second Polarity**
+	- This defines the PPS signal polarity: Low2High or High2Low
+- **10) Pulse-Per-Second Delay**
+	- This allows the timing of the PPS signal to be advanced or retarded. The units are nanoseconds.
+- **11) Pulse-Per-Second Time Scale**
+	- This defines which time scale is used to generate the PPS signal.
+	- "GPS"
     * "Galileo"
     * "BeiDou"
     * "GLONASS"
     * "UTC"
     * "RxClock"
-* **12) Pulse-Per-Second Max Sync Age**
-	* This defines how long PPS pulses will be produced when the GNSS signal is lost or jammed: 0 to 3600 seconds.
-* **13) Pulse-Per-Second Pulse Width**
-	* This defines the width of the PPS signal. The units are milliseconds: 0.000001 to 1000.000000.
-* **14) TCP Server (IPS1)**
-	* See [TCP Server (IPS1)](#tcp-server-ips1) below for more details
-* **15) TCP Server Port**
-	* The port for the TCP connection. Default is 28785.
+- **12) Pulse-Per-Second Max Sync Age**
+	- This defines how long PPS pulses will be produced when the GNSS signal is lost or jammed: 0 to 3600 seconds.
+- **13) Pulse-Per-Second Pulse Width**
+	- This defines the width of the PPS signal. The units are milliseconds: 0.000001 to 1000.000000.
+- **14) TCP Server (IPS1)**
+	- See [TCP Server (IPS1)](#tcp-server-ips1) below for more details
+- **15) TCP Server Port**
+	- The port for the TCP connection. Default is 28785.
 
 To reset all settings to their default values, select "r", "Enter", "y", "Enter"
 
@@ -388,11 +388,11 @@ TCP / Telnet is supported over both Ethernet and the Ethernet-over-USB connectio
 
 If you are using Tera Term:
 
-* Select **TCP/IP** and **Telnet**
-* Enter the mosaic-T's IP address in **Host**
-	* If you are connected via the CONFIG MOSAIC Ethernet-over-USB interface, the IP address is 192.168.3.1
-* Enter the TCP Server Port number in **TCP port#**
-	* The default port is 28785
+- Select **TCP/IP** and **Telnet**
+- Enter the mosaic-T's IP address in **Host**
+	- If you are connected via the CONFIG MOSAIC Ethernet-over-USB interface, the IP address is 192.168.3.1
+- Enter the TCP Server Port number in **TCP port#**
+	- The default port is 28785
 
 <figure markdown>
 [![Tera Term configuration for TCP](./assets/img/hookup_guide/Tera_Term_TCP_Server.png){ width="600" }](./assets/img/hookup_guide/Tera_Term_TCP_Server.png "Click to enlarge")
@@ -416,22 +416,22 @@ The format of the **Print conditions** CSV data is:
 
 **YYYY/MM/DD,HH:MM:SS,Epoch,Lat,Lon,Alt,TimeSys,Error,Fine,PPS,Bias,Source,TCXO,Pk,Ik**
 
-* **YYYY/MM/DD** is the date from the ReceiverTime SBF message
-* **HH:MM:SS** is the time from the ReceiverTime SBF message
-* **Epoch** is the date and time in Unix epoch format: seconds.milliseconds from midnight UTC January 1st 1970. This is useful when plotting the data against time.
-* **Lat** is the Latitude in degrees from the PVTGeodetic SBF message (7 decimal places)
-* **Lon** is the Longitude in degrees from the PVTGeodetic SBF message (7 decimal places)
-* **Alt** is the Altitude in metres from the PVTGeodetic SBF message (0.1mm resolution)
-* **TimeSys** is the named TimeSystem from the PVTGeodetic SBF message
-* **Error** is the Error byte from the PVTGeodetic SBF message. 0 indicates no error
-* **Fine** is the FINETIME bit from the SyncLevel byte from the ReceiverTime SBF message
-* **PPS** indicates if the Pulse-Per-Second output is enabled
-	* PPS is enabled when the RxClkBias reaches the required accuracy, set by **RX Clock Bias Lock Limit**
-* **Bias** is the receiver clock bias in seconds
-* **Source** is the source of the receiver clock bias reported in **Bias**
-	* By default, this is **PVT** indicating the source is the composite RxClkBias from the PVTGeodetic SBF message
-	* If AtomiChron is enabled and if **Prefer non-composite GPS bias** or **Prefer non-composite Galileo bias** has been selected, this will change to **GPS** or **Galileo** indicating that the individual non-composite bias from the FugroTimeOffset SBF message is available and is being used
-* **TCXO** is the 26-bit signed frequency control word written to the SiT5358 TCXO
-* **Pk** is the PI control loop Proportional term - set in the configuration menu
-* **Ik** is the PI control loop Integral term - set in the configuration menu
+- **YYYY/MM/DD** is the date from the ReceiverTime SBF message
+- **HH:MM:SS** is the time from the ReceiverTime SBF message
+- **Epoch** is the date and time in Unix epoch format: seconds.milliseconds from midnight UTC January 1st 1970. This is useful when plotting the data against time.
+- **Lat** is the Latitude in degrees from the PVTGeodetic SBF message (7 decimal places)
+- **Lon** is the Longitude in degrees from the PVTGeodetic SBF message (7 decimal places)
+- **Alt** is the Altitude in metres from the PVTGeodetic SBF message (0.1mm resolution)
+- **TimeSys** is the named TimeSystem from the PVTGeodetic SBF message
+- **Error** is the Error byte from the PVTGeodetic SBF message. 0 indicates no error
+- **Fine** is the FINETIME bit from the SyncLevel byte from the ReceiverTime SBF message
+- **PPS** indicates if the Pulse-Per-Second output is enabled
+	- PPS is enabled when the RxClkBias reaches the required accuracy, set by **RX Clock Bias Lock Limit**
+- **Bias** is the receiver clock bias in seconds
+- **Source** is the source of the receiver clock bias reported in **Bias**
+	- By default, this is **PVT** indicating the source is the composite RxClkBias from the PVTGeodetic SBF message
+	- If AtomiChron is enabled and if **Prefer non-composite GPS bias** or **Prefer non-composite Galileo bias** has been selected, this will change to **GPS** or **Galileo** indicating that the individual non-composite bias from the FugroTimeOffset SBF message is available and is being used
+- **TCXO** is the 26-bit signed frequency control word written to the SiT5358 TCXO
+- **Pk** is the PI control loop Proportional term - set in the configuration menu
+- **Ik** is the PI control loop Integral term - set in the configuration menu
 

@@ -98,9 +98,9 @@ The mosaic-T and the ESP32 both required 3.3V power. To simplify the power circu
 
 The GNSSDO can be powered individually or in combination, with any of the following:
 
-* **`USB Ports`** - **5V**; delivered via the `MOSAIC CONFIG` and/or `ESP32 CONFIG` USB-C connectors.
-* **`Power-over-Ethernet`** - **Range: 36 to 57V**; delivered via the `MOSAIC ETHERNET` RJ45 MagJack connector.
-* **`External DC Power`** - **Range: 9 to 36V**; delivered via the `VIN+` and `VIN-` screw cage terminals.
+- **`USB Ports`** - **5V**; delivered via the `MOSAIC CONFIG` and/or `ESP32 CONFIG` USB-C connectors.
+- **`Power-over-Ethernet`** - **Range: 36 to 57V**; delivered via the `MOSAIC ETHERNET` RJ45 MagJack connector.
+- **`External DC Power`** - **Range: 9 to 36V**; delivered via the `VIN+` and `VIN-` screw cage terminals.
 
 ??? tip "Measure Current Draw"
 	If you want to measure the board's current draw, you can open the `MEAS` jumper and measure the current via a pair of breakout pads *(see the **[Jumpers](#jumpers)** section)*.
@@ -195,8 +195,8 @@ The GNSSDO can be powered individually or in combination, with any of the follow
 	??? tip "Vehicle Power"
 		For **12V** or **24V** vehicle power:
 
-		* Connect 12V or 24V to the `VIN+` screw cage terminal
-		* Connect 0V (chassis) to the `VIN-` screw cage terminal
+		- Connect 12V or 24V to the `VIN+` screw cage terminal
+		- Connect 0V (chassis) to the `VIN-` screw cage terminal
 
 		!!! warning "Power Source"
 			Additionally, make sure that the power source from the vehicle is not directly tied to the vehicle's battery, `Always On`, or accessory circuits. Otherwise, users will risk draining the battery while the engine is off.
@@ -357,11 +357,11 @@ The &micro;SD socket is connected directly to the mosaic-T via a one-bit SDIO in
 
 	Once the stream is defined, users can control the data logging operation through the ++"LOG"++ button.
 
-	* A short press of the ++"LOG"++ button *(< 5s)* toggles data logging to the SD card on and off.
-		* The red `LOG` LED will flash while logging is taking place.
-	* A long press, holding the ++"LOG"++ button for more than 5 seconds *(> 5s)* and then releasing it, will force the board to:
-		* Unmount the SD card if it was mounted
-		* Mount the SD card if it was unmounted
+	- A short press of the ++"LOG"++ button *(< 5s)* toggles data logging to the SD card on and off.
+		- The red `LOG` LED will flash while logging is taking place.
+	- A long press, holding the ++"LOG"++ button for more than 5 seconds *(> 5s)* and then releasing it, will force the board to:
+		- Unmount the SD card if it was mounted
+		- Mount the SD card if it was unmounted
 
 
 ## SMA Connectors
@@ -597,19 +597,19 @@ There are two miniature slide switches on the GNSSDO PCB:
 
 <div markdown>
 
-* `VCCIO`
-	* This switch sets the voltage of the Input Output Terminals (COM2 UART, Event B, SCL2 & SDA2)
-	* The I/O voltage can be set to 3.3V (default) or 5V.
-* `10MHz`
-	* This switch changes the function of the 10MHz SMA connector
-	* When set to `OUT` (default):
-		* The SMA connector will output a 10MHz "CMOS" disciplined clock signal
-		* The signal voltage is set by the VCCIO voltage selection switch
-	* When set to `IN`:
-		* The user can apply a clock signal from an external 10MHz oscillator
-		* The input impedance is 50Ω
-		* The detection level is -14dBm
-		* The max supported input level is +12dBm
+- `VCCIO`
+	- This switch sets the voltage of the Input Output Terminals (COM2 UART, Event B, SCL2 & SDA2)
+	- The I/O voltage can be set to 3.3V (default) or 5V.
+- `10MHz`
+	- This switch changes the function of the 10MHz SMA connector
+	- When set to `OUT` (default):
+		- The SMA connector will output a 10MHz "CMOS" disciplined clock signal
+		- The signal voltage is set by the VCCIO voltage selection switch
+	- When set to `IN`:
+		- The user can apply a clock signal from an external 10MHz oscillator
+		- The input impedance is 50Ω
+		- The detection level is -14dBm
+		- The max supported input level is +12dBm
 
 </div>
 
@@ -620,25 +620,25 @@ There are six status LEDs on the GNSSDO:
 
 <div markdown>
 
-* `PWR` - Power *(Red)*
-	* Illuminates when power is applied
-* `LOG` - &micro;SD Logging *(Red)*
-	* Solid Red - &micro;SD card is mounted
-	* Blinking Red - Data is being logged
-	* Off - &micro;SD is dismounted or not present
-* `LOCK` - Oscillator Lock *(Green)*
-	* The TCXO is locked to the correct frequency - as reported by **PVTGeodetic RxClkBias**
-	* Connected to ESP32 GPIO pin 33
-* `PVT` - Position Velocity Time *(Green)*
-	* Solid Green - The mosaic-T has valid Position, Velocity and Time
-	* Off - Satellite signal not present or acquired
-* `ERROR` - GNSS Error *(Yellow)*
-	* The GNSS Error status - as reported by **PVTGeodetic Error**
-	* Connected to ESP32 GPIO pin 32
-* `RTK` - Real-Time Kinematic *(Yellow)*
-	* Solid Yellow - The mosaic-T has an RTK Fixed solution
-	* Blinking Yellow - The mosaic-T has an RTK Float solution
-	* Off - No RTK solution
+- `PWR` - Power *(Red)*
+	- Illuminates when power is applied
+- `LOG` - &micro;SD Logging *(Red)*
+	- Solid Red - &micro;SD card is mounted
+	- Blinking Red - Data is being logged
+	- Off - &micro;SD is dismounted or not present
+- `LOCK` - Oscillator Lock *(Green)*
+	- The TCXO is locked to the correct frequency - as reported by **PVTGeodetic RxClkBias**
+	- Connected to ESP32 GPIO pin 33
+- `PVT` - Position Velocity Time *(Green)*
+	- Solid Green - The mosaic-T has valid Position, Velocity and Time
+	- Off - Satellite signal not present or acquired
+- `ERROR` - GNSS Error *(Yellow)*
+	- The GNSS Error status - as reported by **PVTGeodetic Error**
+	- Connected to ESP32 GPIO pin 32
+- `RTK` - Real-Time Kinematic *(Yellow)*
+	- Solid Yellow - The mosaic-T has an RTK Fixed solution
+	- Blinking Yellow - The mosaic-T has an RTK Float solution
+	- Off - No RTK solution
 
 </div>
 
@@ -680,21 +680,21 @@ The OLED display on the GNSSDO.
 </figcaption>
 </figure>
 
-* Date & Time : YYYY/MM/DD HH:MM:SS from ReceiverTime
-* **IP**        : nnn.nnn.nnn.nnn from IPStatus IPAddress
-	* When [TCP console access](./software_overview.md#tcp-server-ips1) is enabled, the TCP port number is also displayed.
-* **Lat**       : Latitude from PVTGeodetic (Degrees)
-* **Long**      : Longitude from PVTGeodetic (Degrees)
-* **Sys**       : TimeSystem from PVTGeodetic
-	* GPS, Galileo, GLONASS, BeiDou, QZSS, Fugro
-* **Error**     : Error from PVTGeodetic
-	* None, Measurements, Ephemerides, DOP, Residuals, Convergence, Outliers, Export, Differential, Base, Ambiguities
-* **Fine**      : FINETIME from ReceiverTime
-	* False, True
-* **PPS**      : Indicates if the Pulse-Per-Second signal is being generated
-	* Off, On
-	* PPS is only generated once the RxClkBias has achieved the required accuracy
-* **Bias**      : RxClkBias from PVTGeodetic (ms/us/ns)
+- Date & Time : YYYY/MM/DD HH:MM:SS from ReceiverTime
+- **IP**        : nnn.nnn.nnn.nnn from IPStatus IPAddress
+	- When [TCP console access](./software_overview.md#tcp-server-ips1) is enabled, the TCP port number is also displayed.
+- **Lat**       : Latitude from PVTGeodetic (Degrees)
+- **Long**      : Longitude from PVTGeodetic (Degrees)
+- **Sys**       : TimeSystem from PVTGeodetic
+	- GPS, Galileo, GLONASS, BeiDou, QZSS, Fugro
+- **Error**     : Error from PVTGeodetic
+	- None, Measurements, Ephemerides, DOP, Residuals, Convergence, Outliers, Export, Differential, Base, Ambiguities
+- **Fine**      : FINETIME from ReceiverTime
+	- False, True
+- **PPS**      : Indicates if the Pulse-Per-Second signal is being generated
+	- Off, On
+	- PPS is only generated once the RxClkBias has achieved the required accuracy
+- **Bias**      : RxClkBias from PVTGeodetic (ms/us/ns)
 
 The display is updated on arrival of the **ReceiverTime** message. You may see a small lag between the display and the actual time system time, but it will be minimal.
 
@@ -727,19 +727,19 @@ There are three buttons on the GNSSDO: ++"RESET"++, ++"BOOT"++, and ++"LOG"++.
 === ":septentrio:&nbsp;mosaic-T: Data Logging"
 	Once a [logging stream](#sd-socket) is defined, users can control the data logging operation through the ++"LOG"++ button.
 
-	* A short press of the ++"LOG"++ button *(< 5s)* toggles data logging to the SD card on and off.
-		* The red `LOG` LED will flash while logging is taking place.
-	* Holding the ++"LOG"++ button for more than 5 seconds *(> 5s)* and then releasing it, will force the board to:
-		* Unmount the SD card if it was mounted
-		* Mount the SD card if it was unmounted
-	* The SD card must be mounted to allow data logging by the mosaic-T
-	* When the SD card is unmounted, it is accessible as a mass storage device via the CONFIG MOSAIC USB-C interface
-		* Files can be read and written over USB while the SD card is unmounted
-	* You can enter commands using the `Admin \ Expert Console` to:
-		* Change what happens when the disk is full
-		* Change how the files are named
-		* Change the mounting / unmounting of the disk
-	* Consult section 3.2.20 of the [Firmware Reference Guide](https://www.septentrio.com/en/products/gnss-receivers/gnss-receiver-modules/mosaic-t#resources) for more details
+	- A short press of the ++"LOG"++ button *(< 5s)* toggles data logging to the SD card on and off.
+		- The red `LOG` LED will flash while logging is taking place.
+	- Holding the ++"LOG"++ button for more than 5 seconds *(> 5s)* and then releasing it, will force the board to:
+		- Unmount the SD card if it was mounted
+		- Mount the SD card if it was unmounted
+	- The SD card must be mounted to allow data logging by the mosaic-T
+	- When the SD card is unmounted, it is accessible as a mass storage device via the CONFIG MOSAIC USB-C interface
+		- Files can be read and written over USB while the SD card is unmounted
+	- You can enter commands using the `Admin \ Expert Console` to:
+		- Change what happens when the disk is full
+		- Change how the files are named
+		- Change the mounting / unmounting of the disk
+	- Consult section 3.2.20 of the [Firmware Reference Guide](https://www.septentrio.com/en/products/gnss-receivers/gnss-receiver-modules/mosaic-t#resources) for more details
 
 	!!! tip "Instructional Video"
 		:material-youtube: [How to log data to the SD card of the Septentrio mosaic receiver module](https://youtu.be/Y9tvOebnoxk)
@@ -752,12 +752,12 @@ There are three buttons on the GNSSDO: ++"RESET"++, ++"BOOT"++, and ++"LOG"++.
 
 	1. Hold the ++"BOOT"++ button down.
 	2. Reset the MCU.
-		* While unpowered, connect the board to a computer through the USB-C connection.
-		* While powered, press the ++"RESET"++ button.
+		- While unpowered, connect the board to a computer through the USB-C connection.
+		- While powered, press the ++"RESET"++ button.
 	3. Release the ++"BOOT"++ button.
 	4. After programming is completed, reboot the MCU.
-		* Press the ++"RESET"++ button.
-		* Power cycle the board.
+		- Press the ++"RESET"++ button.
+		- Power cycle the board.
 
 ## Jumpers
 
@@ -807,59 +807,59 @@ The jumpers on the bottom of the GNSSDO PCB.
 
 
 === "Top"
-	* **POE** - This jumper can be used to disconnect the Power-over-Ethernet (PoE) module 50&ohm; load.
-		* The PoE module has a minimum load of 200mA. We included the 50&ohm; load to ensure this is met. If you can ensure this by other means, open this jumper to disconnect the load.
-	* **Voltage Configuration: A-V**
-		* The jumper links A-V can be used to configure the voltage levels and impedance of the SMA connections. Please refer to the [schematic](./assets/board_files/schematic.pdf) for additional information.
-		* To configure the 10MHz output for 50 Ohms: open jumper **A** and close jumper **D**.
-			* Jumper **A** is closed by default. Open it to select 50 Ohms for the 10MHz output.
-			* Jumper **B** is closed by default. It could be used to isolate the gate driving the 10MHz output. Advanced use only.
-			* Jumper **C** is open by default. It could be used to select the alternate gate for the 10MHz CMOS output. Advanced use only.
-			* Jumper **D** is open by default. Close it to select 50 Ohms for the 10MHz output.
-		* To configure the PPS output for 50 Ohms: open jumper **E** and close jumper **H**.
-			* Jumper **E** is closed by default. Open it to select 50 Ohms for the PPS output.
-			* Jumper **F** is closed by default. It could be used to isolate the gate driving the PPS output. Advanced use only.
-			* Jumper **G** is open by default. It could be used to select the alternate gate for the PPS CMOS output. Advanced use only.
-			* Jumper **H** is open by default. Close it to select 50 Ohms for the PPS output.
-		* Jumpers J,K,L configure the voltage of the Event A input.
-			* Jumper **J** is closed by default. It selects VCCIO as the Event A input voltage.
-			* Jumper **K** is open by default. Open jumper J and close jumper K to configure Event A for 2.8V.
-			* Jumper **L** is open by default. Open jumper J and close jumper L to configure Event A for 1.8V.
-		* Jumpers M,N,P configure the voltage of the PPS output.
-			* Jumper **M** is closed by default. It selects VCCIO as the PPS output voltage.
-			* Jumper **N** is open by default. Open jumper M and close jumper N to configure PPS for 2.8V.
-			* Jumper **P** is open by default. Open jumper M and close jumper P to configure PPS for 1.8V.
-		* Jumpers R,S,T configure the voltage of the 10MHz output.
-			* Jumper **R** is closed by default. It selects VCCIO as the 10MHz output voltage.
-			* Jumper **S** is open by default. Open jumper R and close jumper S to configure 10MHz for 2.8V output.
-			* Jumper **T** is open by default. Open jumper R and close jumper T to configure 10MHz for 1.8V output.
-		* Jumper **U** can be used to isolate the on-board 10MHz TCXO.
-			* Open jumper U when connecting an alternate TCXO via the breakout pads on the PCB. Advanced use only.
-		* To configure the Event A input for 50 Ohms: close jumper **V**.
-			* Jumper **V** is open by default. Close it to select 50 Ohms for the Event A input.
+	- **POE** - This jumper can be used to disconnect the Power-over-Ethernet (PoE) module 50&ohm; load.
+		- The PoE module has a minimum load of 200mA. We included the 50&ohm; load to ensure this is met. If you can ensure this by other means, open this jumper to disconnect the load.
+	- **Voltage Configuration: A-V**
+		- The jumper links A-V can be used to configure the voltage levels and impedance of the SMA connections. Please refer to the [schematic](./assets/board_files/schematic.pdf) for additional information.
+		- To configure the 10MHz output for 50 Ohms: open jumper **A** and close jumper **D**.
+			- Jumper **A** is closed by default. Open it to select 50 Ohms for the 10MHz output.
+			- Jumper **B** is closed by default. It could be used to isolate the gate driving the 10MHz output. Advanced use only.
+			- Jumper **C** is open by default. It could be used to select the alternate gate for the 10MHz CMOS output. Advanced use only.
+			- Jumper **D** is open by default. Close it to select 50 Ohms for the 10MHz output.
+		- To configure the PPS output for 50 Ohms: open jumper **E** and close jumper **H**.
+			- Jumper **E** is closed by default. Open it to select 50 Ohms for the PPS output.
+			- Jumper **F** is closed by default. It could be used to isolate the gate driving the PPS output. Advanced use only.
+			- Jumper **G** is open by default. It could be used to select the alternate gate for the PPS CMOS output. Advanced use only.
+			- Jumper **H** is open by default. Close it to select 50 Ohms for the PPS output.
+		- Jumpers J,K,L configure the voltage of the Event A input.
+			- Jumper **J** is closed by default. It selects VCCIO as the Event A input voltage.
+			- Jumper **K** is open by default. Open jumper J and close jumper K to configure Event A for 2.8V.
+			- Jumper **L** is open by default. Open jumper J and close jumper L to configure Event A for 1.8V.
+		- Jumpers M,N,P configure the voltage of the PPS output.
+			- Jumper **M** is closed by default. It selects VCCIO as the PPS output voltage.
+			- Jumper **N** is open by default. Open jumper M and close jumper N to configure PPS for 2.8V.
+			- Jumper **P** is open by default. Open jumper M and close jumper P to configure PPS for 1.8V.
+		- Jumpers R,S,T configure the voltage of the 10MHz output.
+			- Jumper **R** is closed by default. It selects VCCIO as the 10MHz output voltage.
+			- Jumper **S** is open by default. Open jumper R and close jumper S to configure 10MHz for 2.8V output.
+			- Jumper **T** is open by default. Open jumper R and close jumper T to configure 10MHz for 1.8V output.
+		- Jumper **U** can be used to isolate the on-board 10MHz TCXO.
+			- Open jumper U when connecting an alternate TCXO via the breakout pads on the PCB. Advanced use only.
+		- To configure the Event A input for 50 Ohms: close jumper **V**.
+			- Jumper **V** is open by default. Close it to select 50 Ohms for the Event A input.
 
 === "Bottom"
-	* LED Jumpers
-		* **LINK** - open this jumper to disable the Ethernet Link LED.
-		* **SPEED** - open this jumper to disable the Ethernet Speed LED.
-		* **RTK** - open this jumper to disable the mosaic-T Real-Time Kinetic LED.
-		* **PVT** - open this jumper to disable the mosaic-T Position Velocity Time LED.
-		* **LOG** - open this jumper to disable the mosaic-T Log LED.
-		* **ERROR** - open this jumper to disable the GNSS error LED.
-		* **LOCK** - open this jumper to disable the TCXO lock LED.
-		* **PWR** - open this jumper to disable the Power LED.
-	* Button Jumpers
-		* **BOOT** - open this jumper to disconnect the ESP32 BOOT pushbutton.
-		* **RESET** - open this jumper to disconnect the ESP32 RESET pushbutton.
-	* **SHLD** (x2) - open these jumpers to isolate the USB-C connector shield from GND.
-	* **I<sup>2</sup>C** (x2) - open these dual jumpers to disconnect the pull-ups for the I<sup>2</sup>C buses.
-		* Note: there are separate jumpers for the two I<sup>2</sup>C buses: OLED (Qwiic); and the SiTime TCXO.
-	* **VIN+** and **VIN-**
-		* Open these jumpers if you wish to isolate (disconnect) the external DC power terminals. The breakout pads can then be used to feed in power from an alternate source.
-	* **POE+** and **POE-**
-		* Open these jumpers if you wish to isolate (disconnect) the Power-over-Ethernet pins on the MOSAIC Ethernet magjack. The breakout pads can then be used to feed in power from an alternate source.
-	* **VCCIO**
-		* The **VCCIO** jumper can be soldered closed to connect the **CTS** screw terminal to VCCIO. **CTS** can then be used as a power output. The voltage is set by the VCCIO slide switch.
-	* **MEAS**
-		* Open the **MEAS** jumper if you wish to measure the total current drawn by the GNSSDO, or (e.g.) wish to add an ON/OFF switch. The breakout pads can then be used to attach a multimeter or a mechanical power switch.
-		* **MEAS** is _upstream_ of the two 3.3V regulators and _downstream_ of the four power source combination and protection diodes.
+	- LED Jumpers
+		- **LINK** - open this jumper to disable the Ethernet Link LED.
+		- **SPEED** - open this jumper to disable the Ethernet Speed LED.
+		- **RTK** - open this jumper to disable the mosaic-T Real-Time Kinetic LED.
+		- **PVT** - open this jumper to disable the mosaic-T Position Velocity Time LED.
+		- **LOG** - open this jumper to disable the mosaic-T Log LED.
+		- **ERROR** - open this jumper to disable the GNSS error LED.
+		- **LOCK** - open this jumper to disable the TCXO lock LED.
+		- **PWR** - open this jumper to disable the Power LED.
+	- Button Jumpers
+		- **BOOT** - open this jumper to disconnect the ESP32 BOOT pushbutton.
+		- **RESET** - open this jumper to disconnect the ESP32 RESET pushbutton.
+	- **SHLD** (x2) - open these jumpers to isolate the USB-C connector shield from GND.
+	- **I<sup>2</sup>C** (x2) - open these dual jumpers to disconnect the pull-ups for the I<sup>2</sup>C buses.
+		- Note: there are separate jumpers for the two I<sup>2</sup>C buses: OLED (Qwiic); and the SiTime TCXO.
+	- **VIN+** and **VIN-**
+		- Open these jumpers if you wish to isolate (disconnect) the external DC power terminals. The breakout pads can then be used to feed in power from an alternate source.
+	- **POE+** and **POE-**
+		- Open these jumpers if you wish to isolate (disconnect) the Power-over-Ethernet pins on the MOSAIC Ethernet magjack. The breakout pads can then be used to feed in power from an alternate source.
+	- **VCCIO**
+		- The **VCCIO** jumper can be soldered closed to connect the **CTS** screw terminal to VCCIO. **CTS** can then be used as a power output. The voltage is set by the VCCIO slide switch.
+	- **MEAS**
+		- Open the **MEAS** jumper if you wish to measure the total current drawn by the GNSSDO, or (e.g.) wish to add an ON/OFF switch. The breakout pads can then be used to attach a multimeter or a mechanical power switch.
+		- **MEAS** is _upstream_ of the two 3.3V regulators and _downstream_ of the four power source combination and protection diodes.

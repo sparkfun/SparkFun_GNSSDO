@@ -11,13 +11,13 @@ Fugro AtomiChron^®^ is a global, real-time, precise clock synchronisation and a
 
 ## :fontawesome-solid-screwdriver-wrench:&nbsp;Specifications
 
-* Timing accuracy: <5 ns UTC (95% of the time)
+- Timing accuracy: <5 ns UTC (95% of the time)
 
-* Accuracy: <1 ns to Fugro AtomiChron^®^ timescale (independent of world-wide location)
+- Accuracy: <1 ns to Fugro AtomiChron^®^ timescale (independent of world-wide location)
 
-* Performance improvement: >10x better than existing high-end GNSS receivers
+- Performance improvement: >10x better than existing high-end GNSS receivers
 
-* NMA status: per satellite status for all 4 GNSS constellations concurrently
+- NMA status: per satellite status for all 4 GNSS constellations concurrently
 
 ## Performance
 

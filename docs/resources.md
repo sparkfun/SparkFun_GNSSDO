@@ -4,23 +4,23 @@ icon: material/book-open-page-variant
 
 ## Product Resources
 
-* :sfe: [Product Page](www.sparkfun/sparkpnt-gnss-disciplined-oscillator.html)
-* [Quick Start Guide](./assets/quick_start_guide-v10.pdf)
-* :material-folder-cog: Design Files:
-	* :fontawesome-solid-file-pdf: [Schematic](./assets/board_files/schematic.pdf)
-	* :fontawesome-solid-file-image: [Board Dimensions](./assets/board_files/dimensions.png)
-	* :fontawesome-solid-file-pdf: [Enclosure Dimensions](./assets/board_files/dimensions-enclosure.pdf)
-	* :fontawesome-solid-file-code: [ESP32 Firmware](https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/Firmware/GNSSDO_Firmware)
-* :fontawesome-solid-file-pdf: [mosaic-T Datasheet](./assets/component_documentation/Mosaic%20Hardware%20Manual_v1.8.0.pdf)
-* :material-youtube: [SFE Product Showcase](https://www.youtube.com/watch?v=HwKxq9ChazQ)
-* :material-github: [Hardware Repo](https://github.com/sparkfun/SparkFun_GNSSDO)
+- :sfe: [Product Page](www.sparkfun/sparkpnt-gnss-disciplined-oscillator.html)
+- [Quick Start Guide](./assets/quick_start_guide-v10.pdf)
+- :material-folder-cog: Design Files:
+	- :fontawesome-solid-file-pdf: [Schematic](./assets/board_files/schematic.pdf)
+	- :fontawesome-solid-file-image: [Board Dimensions](./assets/board_files/dimensions.png)
+	- :fontawesome-solid-file-pdf: [Enclosure Dimensions](./assets/board_files/dimensions-enclosure.pdf)
+	- :fontawesome-solid-file-code: [ESP32 Firmware](https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/Firmware/GNSSDO_Firmware)
+- :fontawesome-solid-file-pdf: [mosaic-T Datasheet](./assets/component_documentation/Mosaic%20Hardware%20Manual_v1.8.0.pdf)
+- :material-youtube: [SFE Product Showcase](https://www.youtube.com/watch?v=HwKxq9ChazQ)
+- :material-github: [Hardware Repo](https://github.com/sparkfun/SparkFun_GNSSDO)
 
 
 ### :sfe: Additional Resources
 
-* [GNSS Product Category](https://www.sparkfun.com/categories/4)
-* :material-account-supervisor: [SparkFun Technical Assistance](https://www.sparkfun.com/technical_assistance)
-* :material-forum: [SparkFun Forum: GNSS Topics](https://community.sparkfun.com/c/global-positioning-system-gps/96)
+- [GNSS Product Category](https://www.sparkfun.com/categories/4)
+- :material-account-supervisor: [SparkFun Technical Assistance](https://www.sparkfun.com/technical_assistance)
+- :material-forum: [SparkFun Forum: GNSS Topics](https://community.sparkfun.com/c/global-positioning-system-gps/96)
 
 
 ### 🏭&nbsp;Manufacturer's Resources
@@ -28,12 +28,12 @@ Septentrio also provides great resources for the mosaic-T:
 
 <div class="annotate" markdown>
 
-* [mosaic-T Product Page](https://www.septentrio.com/en/products/gnss-receivers/gnss-receiver-modules/mosaic-t)
-	* :material-file-document-multiple: [Resources: Datasheet, firmware, manual, software tools, USB driver, etc.](https://www.septentrio.com/en/products/gnss-receivers/gnss-receiver-modules/mosaic-t#resources)
-* :material-help-box: [Support Portal](https://customersupport.septentrio.com/s/):
-	* :material-file-document-multiple: [Septentrio Knowledge Base](https://customersupport.septentrio.com/s/topiccatalog) (1)
-* :material-youtube: [YouTube Channel](https://www.youtube.com/@SeptentrioGNSS) (2)
-* [JammerTest 2023 - Anti-Jamming and Anti-Spoofing Performance](https://www.septentrio.com/en/learn-more/insights/most-resilient-gnss-receiver-results-jammertest-norway)
+- [mosaic-T Product Page](https://www.septentrio.com/en/products/gnss-receivers/gnss-receiver-modules/mosaic-t)
+	- :material-file-document-multiple: [Resources: Datasheet, firmware, manual, software tools, USB driver, etc.](https://www.septentrio.com/en/products/gnss-receivers/gnss-receiver-modules/mosaic-t#resources)
+- :material-help-box: [Support Portal](https://customersupport.septentrio.com/s/):
+	- :material-file-document-multiple: [Septentrio Knowledge Base](https://customersupport.septentrio.com/s/topiccatalog) (1)
+- :material-youtube: [YouTube Channel](https://www.youtube.com/@SeptentrioGNSS) (2)
+- [JammerTest 2023 - Anti-Jamming and Anti-Spoofing Performance](https://www.septentrio.com/en/learn-more/insights/most-resilient-gnss-receiver-results-jammertest-norway)
 
 </div>
 
@@ -80,6 +80,6 @@ Septentrio also provides great resources for the mosaic-T:
 ### 🏭&nbsp;Fugro AtomiChron^®^
 Full details about Fugro's AtomiChron time synchronisation service can be found on their website:
 
-* [Fugro AtomiChron^®^](https://www.fugro.com/expertise/other-expertise/atomichron)
-* :material-file-document-multiple: [Mastering time: the challenge of time synchronisation](https://www.fugro.com/news/podcasts/2024/mastering-time-the-challenge-of-time-synchronisation)
+- [Fugro AtomiChron^®^](https://www.fugro.com/expertise/other-expertise/atomichron)
+- :material-file-document-multiple: [Mastering time: the challenge of time synchronisation](https://www.fugro.com/news/podcasts/2024/mastering-time-the-challenge-of-time-synchronisation)
 

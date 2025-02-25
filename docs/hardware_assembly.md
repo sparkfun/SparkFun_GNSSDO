@@ -91,7 +91,7 @@ There is a single ethernet jack on the GNSSDO, which can be used to provide netw
 
 The jack to the mosaic-T allows users to provide internet access and power; it supports [PoE](https://en.wikipedia.org/wiki/Power_over_Ethernet "Power over Ethernet"). To provide network access, users should connect the GNSSDO from the `ETHERNET (PoE)` jack to their local network with the (CAT-6) ethernet cable provided in the kit.
 
-* To power the device, a PoE network switch or PoE injector should be installed in between the network connection to the GNSSDO.
+- To power the device, a PoE network switch or PoE injector should be installed in between the network connection to the GNSSDO.
 
 <figure markdown>
 [![mosaic-T PoE connection](./assets/img/hookup_guide/assembly-ethernet-mosaic.jpg){ width="400" }](./assets/img/hookup_guide/assembly-ethernet-mosaic.jpg "Click to enlarge")
@@ -150,10 +150,10 @@ An &micro;SD card slot is available for users to log and store data, locally on 
 ??? tip "Button Operation"
 	There are multiple ways to configure and enable data logging to an SD card. However, the simplest method is with the ++"LOG"++ button. Once the stream is defined,
 
-	* Pressing the ++"LOG"++ button *(< 5s)* toggles data logging to the SD card on and off.
-	* Holding the ++"LOG"++ button for more than 5 seconds *(> 5s)* and then releasing it, will force the board to:
-		* Unmount the SD card if it was mounted
-		* Mount the SD card if it was unmounted
+	- Pressing the ++"LOG"++ button *(< 5s)* toggles data logging to the SD card on and off.
+	- Holding the ++"LOG"++ button for more than 5 seconds *(> 5s)* and then releasing it, will force the board to:
+		- Unmount the SD card if it was mounted
+		- Mount the SD card if it was unmounted
 
 	For more information, please reference the [SD Card Slot](../hardware_overview/#sd-card-slot) section.
 
