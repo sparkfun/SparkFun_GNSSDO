@@ -1,12 +1,12 @@
-SparkFun License Information
+SparkPNT License Information
 ============================
 
-SparkFun uses two different licenses for our files — one for hardware and one for code.
+SparkPNT uses two different licenses for our files — one for hardware and one for code.
 
 Hardware
 ---------
 
-**SparkFun hardware is released under [Creative Commons Share-alike 4.0 International](http://creativecommons.org/licenses/by-sa/4.0/).**
+**SparkPNT hardware is released under [Creative Commons Share-alike 4.0 International](http://creativecommons.org/licenses/by-sa/4.0/).**
 
 Note: This is a human-readable summary of (and not a substitute for) the [license](http://creativecommons.org/licenses/by-sa/4.0/legalcode).
 
@@ -30,11 +30,11 @@ No warranties are given. The license may not give you all of the permissions nec
 Code
 --------
 
-**SparkFun code, firmware, and software are released under the [MIT License](http://opensource.org/licenses/MIT).**
+**SparkPNT code, firmware, and software are released under the [MIT License](http://opensource.org/licenses/MIT).**
 
 The MIT License (MIT)
 
-Copyright (c) 2024 SparkFun Electronics
+Copyright (c) 2025 SparkPNT
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

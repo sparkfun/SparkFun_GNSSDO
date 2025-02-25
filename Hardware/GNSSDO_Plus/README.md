@@ -1,4 +1,4 @@
-SparkFun GNSSDO Design Files
+SparkPNT GNSSDO Design Files
 =====================================
 
 The files here are the KiCad schematic and PCB design files from SparkFun Electronics.

@@ -175,7 +175,7 @@ hide: toc
 
 === "<H2>:material-usb-port:&nbsp;ESP32 USB-C</H2>"
 
-	The SparkFun GNSSDO contains an ESP32-WROVER microcontroller module. You can connect to its console through the **CONFIG ESP32** USB-C connector.
+	The SparkPNT GNSSDO contains an ESP32-WROVER microcontroller module. You can connect to its console through the **CONFIG ESP32** USB-C connector.
 
 	<figure markdown>
 	[![USB Connections](./assets/img/hookup_guide/assembly-usb-esp32.jpg){ width="400" }](./assets/img/hookup_guide/assembly-usb-esp32.jpg "Click to enlarge")
