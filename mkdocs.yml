@@ -15,11 +15,11 @@ copyright:
 edit_uri: blob/main/docs/
 
 
-
 # Configuration for webpage theme
 theme:
   # Theme: https://squidfunk.github.io/mkdocs-material/
   name: material
+  custom_dir: overrides # Personalized changes to the theme
 
   # Icon in Browser Tab (must be a square image - i.e. 32x32 pixels)
   favicon: assets/img/sfe-logo.png
@@ -28,12 +28,15 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
-  
+
 
   # Features to Include (ref. theme documentation)
   features:
-    # Enable copy button on code blocks
+    # Enable the copy button on code blocks
     - content.code.copy
+
+    # Enables code selection button to link a specific section of a code block
+    - content.code.select
 
     # Enable annotations in code blocks
     - content.code.annotate
@@ -42,10 +45,13 @@ theme:
     - content.action.edit
     # - content.action.view
 
+    # Enable tooltips (pop-open dialog boxes)
+    - content.tooltips
+
     # Enable Navigation buttons in the footer (i.e. previous/next)
     - navigation.footer
 
-    # Enables anchor tracking (updates page url with the section user is on)
+    # Enables anchor tracking (updates page URL with the section the user is on)
     # i.e. https://docs.sparkfun.com/<page link>/#<sub-section>
     - navigation.tracking
 
@@ -54,13 +60,19 @@ theme:
 
     # Keeps tabs visible in the header when scrolling
     - navigation.tabs.sticky
-    
+
     # Adds pop-up button just below the header (when the user starts to scroll up)
-    # Allows users to easily jump to the beginning of the page
+    # i.e. Allows users to easily jump to the beginning of the page
     - navigation.top
 
     # Renders path for page navigation at the top of the page (makes page navigation more mobile friendly)
     - navigation.path
+
+    # Enables instant previews globally, for all internal links
+    - navigation.instant.preview
+
+    # Highlights all occurrences of a search result when clicked on
+    - search.highlight
 
 
   # Adds light/dark theme to the webpage
@@ -77,7 +89,7 @@ theme:
     - media: "(prefers-color-scheme: light)"
       primary: grey
       accent: red
-      scheme: default 
+      scheme: default
       toggle:
         icon: material/brightness-7
         name: Switch to system preference
@@ -89,7 +101,7 @@ theme:
       scheme: slate
       toggle:
         icon: material/weather-night
-        name: Switch to light mode    
+        name: Switch to light mode
 
 
   # Configures icons
@@ -99,7 +111,7 @@ theme:
 
     # Sets repo icon to GitHub icon
     repo: fontawesome/brands/github
-    
+
     # Sets icons for "view source" (commented out) and "edit this page" buttons
     edit: material/file-document-edit-outline
     # view: material/file-code-outline
@@ -131,11 +143,6 @@ theme:
       link: octicons/link-16
 
 
-  # Adds overrides for icons, html, etc.
-  custom_dir: overrides
-
-
-
 # Included MkDocs plugins
 # Add the installation of any new plugins to the ./github/workflows/mkdocs.yml file also
 plugins:
@@ -150,35 +157,21 @@ plugins:
       redirect_maps:
         'index.md': 'introduction.md'
 
-  # Add revision date
-  - git-revision-date-localized:
-      enable_creation_date: true
-      type: timeago
-
-  # Add git committers at the bottom of the page
-  - git-committers:
-      repository: sparkfun/SparkFun_GNSSDO
-      branch: main
-
-  # Add git authors at the bottom of the page
-  - git-authors
-  
-  # Enables use of Git submodules and larger code base
-  - monorepo
-  
   # Enables improved security for external links
   - privacy:
       # Disables cache mechanism, so that external assets can be updated during rebuilds
       cache: false
 
-      # # Allows for external assets to be used
-      # assets: true
+      # # # Allows for external assets to be used
+      assets: true
       # assets_fetch: true
 
       # Provide domains for assets that are retrieved from external sites
       assets_include:
-        - https://docs.sparkfun.com/*
-      
+        - https://docs.sparkfun.com/SparkFun_RTK_Everywhere_Firmware/*
+
+      # assets_fetch_dir: ../docs/external/
+
       # External links open in a new tab
       links_attr_map:
         target: _blank
@@ -186,6 +179,9 @@ plugins:
 
   # Optimizes media files (*.png and *.jpg)
   - optimize:
+      # Disables plugin on local builds
+      enabled: !ENV [CI, false]
+
       # Specify directory; otherwise, multiple instances are created (.cache/plugins and .cache/plugin)
       cache_dir: .cache/plugins/optimize
 
@@ -204,18 +200,47 @@ plugins:
       # print_gain_summary: true
 
 
+  # Add revision date
+  - git-revision-date-localized:
+      # Disables plugin on local builds
+      enabled: !ENV [CI, false]
+
+      enable_creation_date: true
+      type: timeago
+
+  # Add git committers at bottom of the page
+  - git-committers:
+      # Disables plugin on local builds
+      enabled: !ENV [CI, false]
+
+      repository: sparkfun/SparkFun_GNSSDO
+      branch: main
+
+  # Add git authors at bottom of the page
+  - git-authors:
+      # Disables plugin on local builds
+      # enabled: !ENV [CI, false]
+
+  # Enables use of Git submodules and larger code base
+  - monorepo:
+      # Disables plugin on local builds
+      enabled: !ENV [CI, false]
+
+
 # Included Markdown extensions
 markdown_extensions:
   # Adds support for syntax highlighting of code blocks
   - pymdownx.highlight:
       anchor_linenums: true
-  
+      line_spans: __span
+      pygments_lang_class: true
+
   # Adds support for syntax highlighting of inline code blocks
   - pymdownx.inlinehilite
 
   # Adds the ability to embed content from arbitrary files
   - pymdownx.snippets:
-      # base_path: ['./docs']
+      base_path: ['.', './docs']
       url_download: true
       url_max_size: 0
       url_timeout: 0
@@ -223,14 +248,16 @@ markdown_extensions:
       dedent_subsections: True
   
   # Allows embedding of code blocks in other elements
-  - pymdownx.superfences
-  
-  # Allows admonition extension to collapse the call-out boxes
-  - pymdownx.details
-  
+  - pymdownx.superfences:
+      # Allows the use of diagrams
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
   # Allows the use of tabs in the document
   - pymdownx.tabbed:
-      alternate_style: true 
+      alternate_style: true
       slugify: !!python/object/apply:pymdownx.slugs.slugify
         kwds:
           case: lower
@@ -238,38 +265,44 @@ markdown_extensions:
   # Allows the use of Markup syntax
   - pymdownx.betterem:
       smart_enable: all
-  
+
   # Allows the use of in-text highlighting in Markdown syntax
   - pymdownx.mark
   - pymdownx.critic
-  
+
   # Allows the use of superscript/subscript formatting in Markdown syntax
   - pymdownx.caret
-  
+
   # Allows the use of strikeout formatting in Markdown syntax
   - pymdownx.tilde
-  
+
   # Allows the use of keyboard button formatting in Markdown syntax
   - pymdownx.keys
-  
+
   # Allows the use of tables in Markdown syntax
   - tables
-  
+
   # Allows the use of admonition/call-out boxes
   - admonition
-  
+
+  # Allows admonition extension to collapse the call-out boxes
+  - pymdownx.details
+
   # Allows the use of Markdown syntax in HTML elements
   - md_in_html
-  
+
   # Allows the use of HTML syntax in Markdown elements
   - attr_list
-  
+
   # Allows the use of definition list formatting in Markdown syntax
   - def_list
 
   # Allows the use of footnotes
   - footnotes
-  
+
+  # Allows the use of abbreviations
+  - abbr
+
   # Allows the use of bundled and custom icons and emojis
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
@@ -277,17 +310,16 @@ markdown_extensions:
       options:
         custom_icons:
           - overrides/.icons
-  
-  #  Allows for rendering of block and inline block equations
+
+  # Allows for the rendering of block and inline-block equations
   - pymdownx.arithmatex:
       generic: true
-  
+
   # Adds permalink icon to headers
   - toc:
       permalink: ''
       # Link: &#x1F517; 🔗
       # Chain: &#x26D3; ⛓
-
 
 
 extra:
@@ -310,6 +342,8 @@ extra:
       link: https://www.facebook.com/SparkFun
     - icon: fontawesome/brands/x-twitter
       link: https://twitter.com/sparkfun
+    - icon: simple/discourse
+      link: https://community.sparkfun.com/
 
   # Configures Google Analytics
   analytics:
@@ -330,7 +364,6 @@ extra:
       - reject
 
 
-# Configures styling for PDF rendering and webpage layout
 # Configures styling for the webpage
 extra_css:
   # SparkFun Customizations
@@ -356,6 +389,18 @@ extra_javascript:
 
 
 # Configures webpage navigation
+
+# Excludes README.md files from being built as webpages
+exclude_docs: |
+  README.md
+
+# Pages that are built, but not in the navigation menu
+not_in_nav: |
+  index.md
+  print_view.md
+  favicon.ico
+
+# Webpage navigation menu
 nav:
   - Getting Started:
     - Introduction: introduction.md
