@@ -4,7 +4,7 @@ icon: material/book-open-page-variant
 
 ## Product Resources
 
-* :sfe: [Product Page](https://www.sparkfun.com/products/26289)
+* :sfe: [Product Page](www.sparkfun/sparkpnt-gnss-disciplined-oscillator.html)
 * [Quick Start Guide](./assets/quick_start_guide-v10.pdf)
 * :material-folder-cog: Design Files:
 	* :fontawesome-solid-file-pdf: [Schematic](./assets/board_files/schematic.pdf)

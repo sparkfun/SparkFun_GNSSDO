@@ -9,39 +9,14 @@ icon: material/tools
 	The GNSSDO comes packaged as a complete kit, with all the accessories you'd need to set it up.
 
 	<figure markdown>
-	[![Kit contents](https://cdn.sparkfun.com//assets/parts/2/4/0/7/2/23748-RTK-Mosaic-X5-Kit-All-Feature.jpg){ width="300" }](https://cdn.sparkfun.com//assets/parts/2/4/0/7/2/23748-RTK-Mosaic-X5-Kit-All-Feature.jpg "Click to enlarge")
+	[![Kit contents](https://cdn.sparkfun.com/assets/parts/2/7/2/0/7/26289-GNSS-Disciplined-Oscillator-Kit-Feature.jpg){ width="300" }](https://cdn.sparkfun.com/assets/parts/2/7/2/0/7/26289-GNSS-Disciplined-Oscillator-Kit-Feature.jpg "Click to enlarge")
 	<figcaption markdown>
 	Everything that is included in the GNSSDO kit.
 	</figcaption>
 	</figure>
 
-	Inside the box, users will find the [GNSS antenna](https://www.sparkfun.com/products/21801), GNSSDO in its aluminum enclosure, and another box containing additional accessories. Inside, the accessory box, users will find the [CAT-6 Ethernet cable](https://www.sparkfun.com/products/8915), [USB cable](https://www.sparkfun.com/products/15424), [SMA to TNC cable](https://www.sparkfun.com/products/21740), [USB A and C Power Delivery (PD) Wall Adapter - 65W](https://www.sparkfun.com/products/24059) and [32GB SD card](https://www.sparkfun.com/products/19041).
+	Inside the box, users will find the [GNSS antenna](https://www.sparkfun.com/gnss-multi-band-l1-l2-l5-surveying-antenna-tnc-spk6618h.html), GNSSDO in its aluminum enclosure, a [USB-C cable](https://www.sparkfun.com/usb-c-to-usb-c-silicone-power-charging-cable-3m.html), [CAT-6 Ethernet cable](https://www.sparkfun.com/cat-6-cable-3ft.html), and another box containing additional accessories. Inside the accessory box, users will find the [SMA to TNC cable](https://www.sparkfun.com/reinforced-interface-cable-sma-male-to-tnc-male-10m.html), [SMA to BNC cable](https://www.sparkfun.com/sma-to-bnc-male-cable-rg316-1m.html), [USB PD wall adapter](https://www.sparkfun.com/usb-a-and-c-power-delivery-pd-wall-adapter-65w.html), [silicone bumpers](https://www.sparkfun.com/silicone-bumpers-5x11mm-4-pack.html), and [32GB SD card](https://www.sparkfun.com/microsd-card-32gb-class-10.html).
 
-	<div class="grid" markdown>
-
-	<div markdown>
-
-	<figure markdown>
-	[![Kit contents](./assets/img/hookup_guide/packaged_box.jpg){ width="300" }](./assets/img/hookup_guide/packaged_box.jpg "Click to enlarge")
-	<figcaption markdown>
-	The contents of the GNSSDO package.
-	</figcaption>
-	</figure>
-
-	</div>
-
-	<div markdown>
-
-	<figure markdown>
-	[![Kit contents](https://cdn.sparkfun.com//assets/parts/2/4/0/7/2/23748-RTK-Mosaic-X5-Kit-Accessories.jpg){ width="300" }](https://cdn.sparkfun.com//assets/parts/2/4/0/7/2/23748-RTK-Mosaic-X5-Kit-Accessories.jpg "Click to enlarge")
-	<figcaption markdown>
-	Products in the accessories box.
-	</figcaption>
-	</figure>
-
-	</div>
-
-	</div>
 
 
 ## USB-C Ports

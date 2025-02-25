@@ -5,14 +5,14 @@ icon: material/book-open-page-variant
 # Introduction
 <div class="grid cards desc" markdown>
 
--   <a href="https://www.sparkfun.com/products/26289">
+-   <a href="www.sparkfun/sparkpnt-gnss-disciplined-oscillator.html">
 	**GNSSDO**<br>
 	**SKU:** GPS-26289
 
 	---
 
 	<figure markdown>
-	![Product Thumbnail](https://cdn.sparkfun.com/assets/parts/2/4/0/7/2/23748-RTK-Mosaic-X5-Kit-All-Feature.jpg)
+	![Product Thumbnail](https://cdn.sparkfun.com/assets/parts/2/7/2/0/7/26289-GNSS-Disciplined-Oscillator-Front-Lit.jpg)
 	</figure></a>
 
 
@@ -24,7 +24,7 @@ icon: material/book-open-page-variant
 
 
 	<center>
-	[&nbsp;![QR code to product page](./assets/img/qr_code/product-low.png){ .tinyqr }&nbsp;&nbsp;Purchase from SparkFun :fontawesome-solid-cart-plus:{ .heart }&nbsp;&nbsp;&nbsp;](https://www.sparkfun.com/products/26289){ .md-button .md-button--primary }
+	[&nbsp;![QR code to product page](./assets/img/qr_code/product-low.png){ .tinyqr }&nbsp;&nbsp;Purchase from SparkFun :fontawesome-solid-cart-plus:{ .heart }&nbsp;&nbsp;&nbsp;](www.sparkfun/sparkpnt-gnss-disciplined-oscillator.html){ .md-button .md-button--primary }
 	</center>
 
 
@@ -326,7 +326,7 @@ The GNSSDO comes with everything you need to get up and running.
 
 <figure markdown>
 
-[![Kit contents](https://cdn.sparkfun.com/assets/parts/2/4/0/7/2/23748-RTK-Mosaic-X5-Kit-All.jpg){ width="300" }](https://cdn.sparkfun.com/assets/parts/2/4/0/7/2/23748-RTK-Mosaic-X5-Kit-All.jpg "Click to enlarge")
+[![Kit contents](https://cdn.sparkfun.com/assets/parts/2/7/2/0/7/26289-GNSS-Disciplined-Oscillator-Kit-Feature.jpg){ width="300" }](https://cdn.sparkfun.com/assets/parts/2/7/2/0/7/26289-GNSS-Disciplined-Oscillator-Kit-Feature.jpg "Click to enlarge")
 <figcaption markdown>
 Everything that is included in the GNSSDO kit.
 </figcaption>
@@ -340,20 +340,21 @@ Everything that is included in the GNSSDO kit.
 
 * [Quick Start Guide](./assets/quick_start_guide-v10.pdf)
 * Cased GNSS Receiver
-	* [Aluminum Enclosure](https://www.sparkfun.com/products/22640) (1)
-	* [10-Way Terminal Blocks](https://www.sparkfun.com/products/22461)
-	* [Qwiic 1.3" OLED Display](https://www.sparkfun.com/products/23453)
-* [L1/L2/L5 GNSS Surveying Antenna](https://www.sparkfun.com/products/21801)
-* [Reinforced RG58 TNC-SMA Cable (10m)](https://www.sparkfun.com/products/21740)
-* [32GB microSD Card (Class 10)](https://www.sparkfun.com/products/19041)
-* [USB A and C Power Delivery (PD) Wall Adapter - 65W](https://www.sparkfun.com/products/24059)
-* [USB-C Cable (A to C, 2m)](https://www.sparkfun.com/products/15424)
-* [Ethernet Cable (CAT-6, 1m)](https://www.sparkfun.com/products/8915)
-* [SMA to BNC Cable (RG316, 1m)](https://www.sparkfun.com/products/27480)
+	* [Aluminum Enclosure](https://www.sparkfun.com/metal-enclosure-custom-aluminum-extrusion-6in-x-4in-pcb.html) (1)
+	* [10-Way Terminal Blocks](https://www.sparkfun.com/10-way-terminal-socket.html)
+	* [Qwiic 1.3" OLED Display](https://www.sparkfun.com/sparkfun-qwiic-oled-1-3in-128x64.html)
+* [L1/L2/L5 GNSS Surveying Antenna](https://www.sparkfun.com/gnss-multi-band-l1-l2-l5-surveying-antenna-tnc-spk6618h.html)
+* [Reinforced RG58 TNC-SMA Cable (10m)](https://www.sparkfun.com/reinforced-interface-cable-sma-male-to-tnc-male-10m.html)
+* [32GB microSD Card (Class 10)](https://www.sparkfun.com/microsd-card-32gb-class-10.html)
+* [USB A and C Power Delivery (PD) Wall Adapter - 65W](https://www.sparkfun.com/usb-a-and-c-power-delivery-pd-wall-adapter-65w.html)
+* [USB-C to USB-C Cable (Flexible Silicone, 3m)](https://www.sparkfun.com/usb-c-to-usb-c-silicone-power-charging-cable-3m.html)
+* [Ethernet Cable (CAT-6, 1m)](https://www.sparkfun.com/cat-6-cable-3ft.html)
+* [SMA to BNC Cable (RG316, 1m)](https://www.sparkfun.com/sma-to-bnc-male-cable-rg316-1m.html)
+* [Silicone Bumpers - 5x11mm (4 Pack)](https://www.sparkfun.com/silicone-bumpers-5x11mm-4-pack.html)
 
 </div>
 
-1. The linked product does not include the front/rear panels and stickers from the GNSSDO.
+1. The linked product does not include the front/rear panels and stickers for the GNSSDO. Additionally, the product only features a red anodized plating and is not powder coated in the Septentrio orange.
 
 </div>
 

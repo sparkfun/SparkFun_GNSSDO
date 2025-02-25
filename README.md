@@ -1,9 +1,9 @@
 SparkPNT GNSSDO
 ========================================
 
-[![SparkPNT GNSSDO](https://cdn.sparkfun.com/r/600-600/assets/parts/2/7/2/0/7/26289-GNSS-Disciplined-Oscillator-Front-Lit.jpg)](https://www.sparkfun.com/products/26289)
+[![SparkPNT GNSSDO](https://cdn.sparkfun.com/r/600-600/assets/parts/2/7/2/0/7/26289-GNSS-Disciplined-Oscillator-Front-Lit.jpg)](www.sparkfun/sparkpnt-gnss-disciplined-oscillator.html)
 
-[*SparkPNT GNSSDO (GPS-26289)*](https://www.sparkfun.com/products/26289)
+[*SparkPNT GNSSDO (GPS-26289)*](www.sparkfun/sparkpnt-gnss-disciplined-oscillator.html)
 
 Designed and manufactured in Boulder, Colorado, USA, the SparkPNT GNSS Disciplined Oscillator (GNSSDO) is the perfect solution for your high-precision timing needs. Based around the multi-constellation, multi-frequency, L5-ready mosaic-T from Septentrio, this is our most accurate GNSS timing product to date. It features a disciplined 10MHz Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO). The mosaic-T also has built-in on-module support for the Fugro AtomiChron L-band timing service.
 

@@ -54,7 +54,7 @@ Users can download the [full schematic for the GNSSDO](./assets/board_files/sche
 ## Dimensions
 
 === ":material-package-variant-closed: Metal Enclosure"
-	Details about the aluminum enclosure can be found on the [Metal Enclosure - Custom Aluminum Extrusion (6in. x 4in. PCB)](https://www.sparkfun.com/products/22640) product page.
+	Details about the aluminum enclosure can be found on the [Metal Enclosure - Custom Aluminum Extrusion (6in. x 4in. PCB)](https://www.sparkfun.com/metal-enclosure-custom-aluminum-extrusion-6in-x-4in-pcb.html) product page.
 
 	<figure markdown>
 	[![Enclosure Dimensions](./assets/img/hookup_guide/Enclosure-Dimensions.png){ width="700" }](./assets/board_files/dimensions-enclosure.pdf "Click to enlarge")
@@ -77,7 +77,7 @@ Users can download the [full schematic for the GNSSDO](./assets/board_files/sche
 		For more information about the board's dimensions, users can download the [**KiCad files**](./assets/board_files/kicad_files.zip) for the board. These files can be opened in KiCad 8 and additional measurements can be made with the dimensions tool.
 
 === ":material-video-input-antenna: Antenna"
-	The dimensions and technical specifications of the GNSS antenna can be found on the [GNSS Multi-Band L1/L2/L5 Surveying Antenna - TNC (SPK6618H)](https://www.sparkfun.com/products/21801) product page.
+	The dimensions and technical specifications of the GNSS antenna can be found on the [GNSS Multi-Band L1/L2/L5 Surveying Antenna - TNC (SPK6618H)](https://www.sparkfun.com/gnss-multi-band-l1-l2-l5-surveying-antenna-tnc-spk6618h.html) product page.
 
 	<figure markdown>
 	[![Antenna Dimensions](./assets/board_files/dimensions-antenna.png){ width="400" }](./assets/board_files/dimensions-antenna.png "Click to enlarge")
@@ -433,7 +433,7 @@ The Event A SMA connector is standard polarity. The voltage is adjustable via th
 
 
 ## Input/Output Terminals
-The GNSSDO is equipped with a [10-way 3.5mm screw cage terminal connector](https://www.sparkfun.com/products/22461).
+The GNSSDO is equipped with a [10-way 3.5mm screw cage terminal connector](https://www.sparkfun.com/10-way-terminal-socket.html).
 
 <div class="grid" markdown>
 

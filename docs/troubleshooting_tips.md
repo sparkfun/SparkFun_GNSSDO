@@ -16,14 +16,14 @@ icon: sfe
 
 
 ## What is in the Box?
-The GNSSDO comes packaged as a complete kit, with all the accessories you'd need to set it up. Inside the box, users will find the [GNSS antenna](https://www.sparkfun.com/products/21801), GNSSDO in its aluminum enclosure, and another box containing additional accessories. Inside, the accessory box, users will find the [CAT-6 Ethernet cable](https://www.sparkfun.com/products/8915), [USB cable](https://www.sparkfun.com/products/15424), [SMA to TNC cable](https://www.sparkfun.com/products/21740), [USB power supply](https://www.sparkfun.com/products/11456), [WiFi antenna](https://www.sparkfun.com/products/145), and [32GB SD card](https://www.sparkfun.com/products/19041).
+The GNSSDO comes packaged as a complete kit, with all the accessories you'd need to set it up. Inside the box, users will find the [GNSS antenna](https://www.sparkfun.com/gnss-multi-band-l1-l2-l5-surveying-antenna-tnc-spk6618h.html), GNSSDO in its aluminum enclosure, [CAT-6 Ethernet cable](https://www.sparkfun.com/cat-6-cable-3ft.html), [USB-C cable](https://www.sparkfun.com/usb-c-to-usb-c-silicone-power-charging-cable-3m.html), and another box containing additional accessories. Inside the accessory box, users will find the [SMA to TNC cable](https://www.sparkfun.com/reinforced-interface-cable-sma-male-to-tnc-male-10m.html), [SMA to BNC cable](https://www.sparkfun.com/sma-to-bnc-male-cable-rg316-1m.html), [USB PD wall adapter](https://www.sparkfun.com/usb-a-and-c-power-delivery-pd-wall-adapter-65w.html), [WiFi antenna](https://www.sparkfun.com/products/145), [silicone bumpers](https://www.sparkfun.com/silicone-bumpers-5x11mm-4-pack.html), and [32GB SD card](https://www.sparkfun.com/microsd-card-32gb-class-10.html).
 
 <div class="grid" markdown>
 
 <div markdown>
 
 <figure markdown>
-[![Kit contents](https://cdn.sparkfun.com//assets/parts/2/4/0/7/2/23748-RTK-Mosaic-X5-Kit-All-Feature.jpg){ width="300" }](https://cdn.sparkfun.com//assets/parts/2/4/0/7/2/23748-RTK-Mosaic-X5-Kit-All-Feature.jpg "Click to enlarge")
+[![Kit contents](https://cdn.sparkfun.com/assets/parts/2/7/2/0/7/26289-GNSS-Disciplined-Oscillator-Kit-Feature.jpg){ width="300" }](https://cdn.sparkfun.com/assets/parts/2/7/2/0/7/26289-GNSS-Disciplined-Oscillator-Kit-Feature.jpg "Click to enlarge")
 <figcaption markdown>
 Everything that is included in the GNSSDO kit.
 </figcaption>
@@ -33,33 +33,17 @@ Everything that is included in the GNSSDO kit.
 
 <div markdown>
 
-<figure markdown>
-[![Kit contents](./assets/img/hookup_guide/packaged_box.jpg){ width="300" }](./assets/img/hookup_guide/packaged_box.jpg "Click to enlarge")
-<figcaption markdown>
-The contents of the GNSSDO package.
-</figcaption>
-</figure>
-
-</div>
-
-<div markdown>
-
-<figure markdown>
-[![Kit contents](https://cdn.sparkfun.com//assets/parts/2/4/0/7/2/23748-RTK-Mosaic-X5-Kit-Accessories.jpg){ width="300" }](https://cdn.sparkfun.com//assets/parts/2/4/0/7/2/23748-RTK-Mosaic-X5-Kit-Accessories.jpg "Click to enlarge")
-<figcaption markdown>
-Products in the accessories box.
-</figcaption>
-</figure>
-
-</div>
-
-</div>
-
 If you are missing any of these items, please reach out to us in our forum.
 
 <center>
 [:sfe: SparkFun Forum - GNSS Topic](https://community.sparkfun.com/c/global-positioning-system-gps/96){ .md-button .md-button--primary }
 </center>
+
+
+</div>
+
+</div>
+
 
 ## Data Logging
 For data logging issues, here are some simple troubleshooting tips:
