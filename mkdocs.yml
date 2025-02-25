@@ -219,7 +219,7 @@ plugins:
   # Add git authors at bottom of the page
   - git-authors:
       # Disables plugin on local builds
-      # enabled: !ENV [CI, false]
+      enabled: !ENV [CI, false]
 
   # Enables use of Git submodules and larger code base
   - monorepo:
