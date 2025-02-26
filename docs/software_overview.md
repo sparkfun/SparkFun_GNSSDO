@@ -176,7 +176,7 @@ Users should install the [RXTools software suite](https://www.septentrio.com/en/
 	Once installed, the driver emulates two virtual serial ports, which can be accessed as standard `COM` ports to the receiver.
 
 	??? tip "Terminal Emulators"
-		Most [terminal emulation programs](https://learn.sparkfun.com/tutorials/112) will not make a distinction between virtual or native COM ports. However, for virtual serial ports, the port settings *(i.e. baud rate, etc.)* are not relevant and the default configuration is used in the terminal emulation program. However, the physical/native `COM` ports will have the following default setting: 
+		Most [terminal emulation programs](https://learn.sparkfun.com/tutorials/112) will not make a distinction between virtual or native COM ports. However, for virtual serial ports, the port settings *(i.e. baud rate, etc.)* are not relevant and the default configuration is used in the terminal emulation program. However, the physical/native `COM` ports will have the following default setting:
 
 		- Baudrate: 115200bps
 		- Data Bits: 8
@@ -339,20 +339,20 @@ Select option **c** ("c" followed by "Enter") to configure the firmware:
 - **8) Pulse-Per-Second Interval**
 	- This defines the interval of the PPS signal. The intervals are defined by the mosiac-T firmware. Use "8" and "Enter" to scroll through the intervals.
 	- "off"
-    * "msec10"
-    * "msec20"
-    * "msec50"
-    * "msec100"
-    * "msec200"
-    * "msec250"
-    * "msec500"
-    * "sec1"
-    * "sec2"
-    * "sec4"
-    * "sec5"
-    * "sec10"
-    * "sec30"
-    * "sec60"
+		- "msec10"
+		- "msec20"
+		- "msec50"
+		- "msec100"
+		- "msec200"
+		- "msec250"
+		- "msec500"
+		- "sec1"
+		- "sec2"
+		- "sec4"
+		- "sec5"
+		- "sec10"
+		- "sec30"
+		- "sec60"
 - **9) Pulse-Per-Second Polarity**
 	- This defines the PPS signal polarity: Low2High or High2Low
 - **10) Pulse-Per-Second Delay**
@@ -360,11 +360,11 @@ Select option **c** ("c" followed by "Enter") to configure the firmware:
 - **11) Pulse-Per-Second Time Scale**
 	- This defines which time scale is used to generate the PPS signal.
 	- "GPS"
-    * "Galileo"
-    * "BeiDou"
-    * "GLONASS"
-    * "UTC"
-    * "RxClock"
+		- "Galileo"
+		- "BeiDou"
+		- "GLONASS"
+		- "UTC"
+		- "RxClock"
 - **12) Pulse-Per-Second Max Sync Age**
 	- This defines how long PPS pulses will be produced when the GNSS signal is lost or jammed: 0 to 3600 seconds.
 - **13) Pulse-Per-Second Pulse Width**
