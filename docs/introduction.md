@@ -20,11 +20,12 @@ icon: material/book-open-page-variant
 	<article class="video-500px">
 	<iframe src="https://www.youtube.com/embed/HwKxq9ChazQ" title="Product Showcase Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	</article>
+	![QR code to product video](./assets/img/qr_code/product_video.png){ .qr width=100 }
 	</center>
 
 
 	<center>
-	[&nbsp;![QR code to product page](./assets/img/qr_code/product-low.png){ .tinyqr }&nbsp;&nbsp;Purchase from SparkFun :fontawesome-solid-cart-plus:{ .heart }&nbsp;&nbsp;&nbsp;](www.sparkfun/sparkpnt-gnss-disciplined-oscillator.html){ .md-button .md-button--primary }
+	[Purchase from SparkFun :fontawesome-solid-cart-plus:{ .heart } ![QR code to product page](./assets/img/qr_code/product-low.png){ .tinyqr }](www.sparkfun/sparkpnt-gnss-disciplined-oscillator.html){ .md-button .md-button--primary }
 	</center>
 
 
@@ -109,35 +110,35 @@ icon: material/book-open-page-variant
 		mosaic-T Development Kit<br>
 		<hr>
 		<figure markdown>
-		![Product Thumbnail](./assets/img/product_comparison/mosaic-development-kit.png){ width="200" }
+		![Product Thumbnail](./assets/img/product_comparison/mosaic-development-kit.png)
 		</figure>
 	</th>
 	<th markdown style="text-align:center">
 		mosaic-go Evaluation Kit<br>
 		<hr>
 		<figure markdown>
-		![Product Thumbnail](./assets/img/product_comparison/mosaic-go-evaluation-kit.png){ width="200" }
+		![Product Thumbnail](./assets/img/product_comparison/mosaic-go-evaluation-kit.png)
 		</figure>
 	</th>
 	<th markdown style="text-align:center">
 		mosaic-X5 GNSS Breakout<br>
 		<hr>
 		<figure markdown>
-		![Product Thumbnail](./assets/img/product_comparison/tri-band_gnss_breakout.png){ width="200" }
+		![Product Thumbnail](./assets/img/product_comparison/tri-band_gnss_breakout.png)
 		</figure>
 	</th>
 	<th markdown style="text-align:center">
 		RTK mosaic-X5<br>
 		<hr>
 		<figure markdown>
-		![Product Thumbnail](./assets/img/product_comparison/rtk_mosaic-x5.png){ width="200" }
+		![Product Thumbnail](./assets/img/product_comparison/rtk_mosaic-x5.png)
 		</figure>
 	</th>
 	<th markdown style="text-align:center">
 		GNSSDO<br>
 		<hr>
 		<figure markdown>
-		![Product Thumbnail](./assets/img/product_comparison/rtk_mosaic-x5.png){ width="200" }
+		![Product Thumbnail](./assets/img/product_comparison/rtk_mosaic-x5.png)
 		</figure>
 	</th>
 	</tr>

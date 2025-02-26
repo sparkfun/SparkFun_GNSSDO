@@ -142,3 +142,8 @@ Once the terminal blocks have been removed, users can remove the front and rear 
 	We recommend removing the front panel first to prevent the Qwiic cable from being yanked off the OLED display or main PCB. Once the front panel is free, carefully lift the panel and disconnect the Qwiic cable from the top connector on the OLED display.
 
 At this point, if users have previously disconnected all the cables and the terminal blocks from the back, the GNSSDO PCB should slide out of the enclosure. Users can then, remove the rear panel from the enclosure to complete the teardown process.
+
+<!-- QR Code for Hookup Guide (Displayed when printed) -->
+<center>
+![QR code to the hookup guide](./assets/img/qr_code/hookup_guide.png){ .qr }
+</center>

@@ -514,25 +514,27 @@
 	}
 	
 	/* Sets images size in tables */
-	.md-typeset table:not([class]) td img {
-		width: 100%;
-		max-height: 150px;
+	.md-typeset table:not([class]) * + figure img {
+		max-width: 75px;
 	}
-
 
 	/* ================================================================================== */
 	/* YoutTube Videos                                                                    */
 	/* ================================================================================== */
 
-	.video-container iframe {
+	/* iframe {
+		display: none !important;
+	} */
+
+	.video-container {
 		display: none;
 	}
 
-	.video iframe {
+	.video {
 		display: none;
 	}
 
-	.video-500px iframe {
+	.video-500px {
 		display: none;
 	}
 
