@@ -73,8 +73,26 @@ Users can download the [full schematic for the GNSSDO](./assets/board_files/sche
 	</figcaption>
 	</figure>
 
-	??? tip "Need more measurements?"
-		For more information about the board's dimensions, users can download the [**KiCad files**](./assets/board_files/kicad_files.zip) for the board. These files can be opened in KiCad 8 and additional measurements can be made with the dimensions tool.
+	??? tip "Need Dimensions?"
+		For the board dimensions, users can download the [KiCad files](./assets/board_files/kicad_files.zip) for this board. These files can be opened in KiCad and measurements can be made with the measuring tool.
+
+		!!! info ":octicons-download-16:{ .heart } KiCad - Free Download!"
+			KiCad is free, open-source [CAD]("computer-aided design") program for electronics. Click on the button below to download their software. *(\*Users can find out more information about KiCad from their [website](https://www.kicad.org/).)*
+
+			<center>
+			[Download :kicad-primary:{ .enlarge-logo }](https://www.kicad.org/download/ "Go to downloads page"){ .md-button .md-button--primary width="250px" }
+			</center>
+
+
+		??? info ":straight_ruler: Measuring Tool"
+			This video demonstrates how to utilize the dimensions tool in KiCad, to include additional measurements:
+
+			<center>
+			<article class="video-500px">
+			<iframe src="https://www.youtube.com/embed/-eXuD8pkCYw" title="KiCad Dimension Tool" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</article>
+			![QR code to play video](./assets/img/qr_code/dimension_tool.png){ .qr }
+			</center>
 
 === ":material-video-input-antenna: Antenna"
 	The dimensions and technical specifications of the GNSS antenna can be found on the [GNSS Multi-Band L1/L2/L5 Surveying Antenna - TNC (SPK6618H)](https://www.sparkfun.com/gnss-multi-band-l1-l2-l5-surveying-antenna-tnc-spk6618h.html) product page.
