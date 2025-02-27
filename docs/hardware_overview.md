@@ -385,69 +385,127 @@ The &micro;SD socket is connected directly to the mosaic-T via a one-bit SDIO in
 ## SMA Connectors
 The GNSSDO has robust SMA connectors for the mosaic-T GNSS antenna, Pulse-Per-Second output, 10 MHz input / output, and the Event A input.
 
-<div class="grid" markdown>
-
-<div markdown>
 <figure markdown>
-[![SMA RF Connections](./assets/img/hookup_guide/Ant-GNSS.png){ width="750" }](./assets/img/hookup_guide/Ant-GNSS.png "Click to enlarge")
-<figcaption markdown>The SMA connector for the GNSS antenna.</figcaption>
+[![SMA Connections](./assets/img/hookup_guide/SMA.png){ width="750" }](./assets/img/hookup_guide/SMA.png "Click to enlarge")
+<figcaption markdown>The SMA connections on the SparkPNT GNSSDO.</figcaption>
 </figure>
 
-<figure markdown>
-[![SMA RF Connections](./assets/img/hookup_guide/RF-GNSS.png){ width="400" }](./assets/img/hookup_guide/RF-GNSS.png "Click to enlarge")
-<figcaption markdown>The connection for the GNSS antenna to the mosaic-T.</figcaption>
-</figure>
-
-The mosaic-T GNSS SMA connector is standard polarity and provides 3.3V power for an active antenna.
-</div>
-
-<div markdown>
-<figure markdown>
-[![SMA PPS Connections](./assets/img/hookup_guide/PPS.png){ width="750" }](./assets/img/hookup_guide/PPS.png "Click to enlarge")
-<figcaption markdown>The SMA connector for the Pulse-Per-Second output.</figcaption>
-</figure>
-
-<figure markdown>
-[![SMA PPS Connections](./assets/img/hookup_guide/PPS-PCB.png){ width="400" }](./assets/img/hookup_guide/PPS-PCB.png "Click to enlarge")
-<figcaption markdown>The connection for the Pulse-Per-Second output.</figcaption>
-</figure>
-
-The Pulse-Per-Second SMA connector is standard polarity. The voltage is selectable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The output is DC-coupled. The output can be configured for 50 Ohm output via the jumper links *(see the **[Jumpers](#jumpers)** section)*.
-</div>
-
-<div markdown>
-<figure markdown>
-[![SMA 10MHz Connections](./assets/img/hookup_guide/10MHz.png){ width="750" }](./assets/img/hookup_guide/10MHz.png "Click to enlarge")
-<figcaption markdown>The SMA connector for the 10 MHz output / input.</figcaption>
-</figure>
-
-<figure markdown>
-[![SMA 10MHz Connections](./assets/img/hookup_guide/10MHz-Switch-PCB.png){ width="400" }](./assets/img/hookup_guide/10MHz-Switch-PCB.png "Click to enlarge")
-<figcaption markdown>The connection for the 10 MHz output / input.</figcaption>
-</figure>
-
-The 10 MHz SMA connector is standard polarity. The voltage is adjustable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The output can also be configured for 50 Ohm via the jumper links *(see the **[Jumpers](#jumpers)** section)*. Output / Input is selected via the small slide switch adjacent to the connector. When configured for input: the input impedance is 50Ω; the detection level is -14dBm; the max supported input level is +12dBm.
-</div>
-
-<div markdown>
-<figure markdown>
-[![EventA Connections](./assets/img/hookup_guide/EventA.png){ width="750" }](./assets/img/hookup_guide/EventA.png "Click to enlarge")
-<figcaption markdown>The SMA connector for the EventA input.</figcaption>
-</figure>
-
-<figure markdown>
-[![EventA Connections](./assets/img/hookup_guide/EventA-PCB.png){ width="400" }](./assets/img/hookup_guide/EventA-PCB.png "Click to enlarge")
-<figcaption markdown>The connection for the EventA input.</figcaption>
-</figure>
-
-The Event A SMA connector is standard polarity. The voltage is adjustable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The output can also be configured for 50 Ohm via the jumper links *(see the **[Jumpers](#jumpers)** section)*.
-
-</div>
-
-</div>
 
 !!! tip "Connector Polarity"
-	When selecting antennas and/or cables for the GNSSDO, double-check the polarity for the connections.
+	All these SMA connectors have a standard polarity. When selecting antennas and/or cables for the GNSSDO, double-check the polarity for the connections and cables.
+
+
+=== "`EVENTA`"
+
+	<div class="grid" markdown>
+
+	<div markdown>
+
+	<figure markdown>
+	[![EventA Connections](./assets/img/hookup_guide/EventA.png){ width="750" }](./assets/img/hookup_guide/EventA.png "Click to enlarge")
+	<figcaption markdown>The SMA connector for the EventA input.</figcaption>
+	</figure>
+
+	The Event A SMA connector is standard polarity. The voltage is adjustable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The output 	can also be configured for 50 Ohm via the jumper links *(see the **[Jumpers](#jumpers)** section)*.
+
+	</div>
+
+
+	<div markdown>
+
+	<figure markdown>
+	[![EventA Connections](./assets/img/hookup_guide/EventA-PCB.png){ width="400" }](./assets/img/hookup_guide/EventA-PCB.png "Click to enlarge")
+	<figcaption markdown>The connection for the EventA input.</figcaption>
+	</figure>
+
+	</div>
+
+	</div>
+
+
+=== "`10MHz`"
+
+	<div class="grid" markdown>
+
+	<div markdown>
+
+	<figure markdown>
+	[![SMA 10MHz Connections](./assets/img/hookup_guide/10MHz.png){ width="750" }](./assets/img/hookup_guide/10MHz.png "Click to enlarge")
+	<figcaption markdown>The SMA connector for the 10 MHz output / input.</figcaption>
+	</figure>
+
+	The 10 MHz SMA connector is standard polarity. The voltage is adjustable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The output 	can also be configured for 50 Ohm via the jumper links *(see the **[Jumpers](#jumpers)** section)*. Output / Input is selected via the small slide switch adjacent to the connector. When configured for input: the input 	impedance is 50Ω; the detection level is -14dBm; the max supported input level is +12dBm.
+
+	</div>
+
+
+	<div markdown>
+
+	<figure markdown>
+	[![SMA 10MHz Connections](./assets/img/hookup_guide/10MHz-Switch-PCB.png){ width="400" }](./assets/img/hookup_guide/10MHz-Switch-PCB.png "Click to enlarge")
+	<figcaption markdown>The connection for the 10 MHz output / input.</figcaption>
+	</figure>
+
+	</div>
+
+	</div>
+
+
+=== "`PPS`"
+
+	<div class="grid" markdown>
+
+	<div markdown>
+
+	<figure markdown>
+	[![SMA PPS Connections](./assets/img/hookup_guide/PPS.png){ width="750" }](./assets/img/hookup_guide/PPS.png "Click to enlarge")
+	<figcaption markdown>The SMA connector for the Pulse-Per-Second output.</figcaption>
+	</figure>
+
+	The Pulse-Per-Second SMA connector is standard polarity. The voltage is selectable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The 	output is DC-coupled. The output can be configured for 50 Ohm output via the jumper links *(see the **[Jumpers](#jumpers)** section)*.
+
+	</div>
+
+
+	<div markdown>
+
+	<figure markdown>
+	[![SMA PPS Connections](./assets/img/hookup_guide/PPS-PCB.png){ width="400" }](./assets/img/hookup_guide/PPS-PCB.png "Click to enlarge")
+	<figcaption markdown>The connection for the Pulse-Per-Second output.</figcaption>
+	</figure>
+
+	</div>
+
+	</div>
+
+
+=== "`GNSS`"
+
+	<div class="grid" markdown>
+
+	<div markdown>
+
+	<figure markdown>
+	[![SMA RF Connections](./assets/img/hookup_guide/Ant-GNSS.png){ width="750" }](./assets/img/hookup_guide/Ant-GNSS.png "Click to enlarge")
+	<figcaption markdown>The SMA connector for the GNSS antenna.</figcaption>
+	</figure>
+
+	The mosaic-T GNSS SMA connector is standard polarity and provides 3.3V power for an active antenna.
+
+	</div>
+
+
+	<div markdown>
+
+	<figure markdown>
+	[![SMA RF Connections](./assets/img/hookup_guide/RF-GNSS.png){ width="400" }](./assets/img/hookup_guide/RF-GNSS.png "Click to enlarge")
+	<figcaption markdown>The connection for the GNSS antenna to the mosaic-T.</figcaption>
+	</figure>
+
+	</div>
+
+	</div>
+
 
 
 ## Input/Output Terminals
