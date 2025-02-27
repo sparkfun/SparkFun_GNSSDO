@@ -59,9 +59,9 @@ hide: toc
 	The simplest way to get your GNSSDO up and running is to connect it to your Ethernet network or an Ethernet port on your broadband router:
 
 	<figure markdown>
-	[![Ethernet Connections](./assets/img/hookup_guide/Ethernet_Connections.png){ width="400" }](./assets/img/hookup_guide/Ethernet_Connections.png "Click to enlarge")
+	[![Ethernet Connections](./assets/img/hookup_guide/quickstart_setup-ethernet.jpg){ width="300" }](./assets/img/hookup_guide/quickstart_setup-ethernet.jpg "Click to enlarge")
 	<figcaption markdown>
-	[Ethernet Connections (PNG)](./assets/img/hookup_guide/Ethernet_Connections.png) for the GNSSDO.
+	[Ethernet Connections (PNG)](./assets/img/hookup_guide/quickstart_setup-ethernet.jpg) for the GNSSDO.
 	</figcaption>
 	</figure>
 
@@ -137,9 +137,9 @@ hide: toc
 	The mosaic-T has a built-in high-speed USB port which supports Ethernet-over-USB and two additional UART COM ports. To take advantage of this interface, you first need to install [Septentrio's USB driver](./software_overview.md/#septentrio-usb-driver).
 
 	<figure markdown>
-	[![USB Connections](./assets/img/hookup_guide/USB_Connections.png){ width="400" }](./assets/img/hookup_guide/USB_Connections.png "Click to enlarge")
+	[![USB Connections](./assets/img/hookup_guide/quickstart_setup-mosaic.jpg){ width="600" }](./assets/img/hookup_guide/quickstart_setup-mosaic.jpg "Click to enlarge")
 	<figcaption markdown>
-	[USB Connections (PNG)](./assets/img/hookup_guide/USB_Connections.png) for the GNSSDO.
+	[USB Connections (PNG)](./assets/img/hookup_guide/quickstart_setup-mosaic.jpg) for the GNSSDO.
 	</figcaption>
 	</figure>
 
@@ -178,9 +178,9 @@ hide: toc
 	The SparkPNT GNSSDO contains an ESP32-WROVER microcontroller module. You can connect to its console through the **CONFIG ESP32** USB-C connector.
 
 	<figure markdown>
-	[![USB Connections](./assets/img/hookup_guide/assembly-usb-esp32.jpg){ width="400" }](./assets/img/hookup_guide/assembly-usb-esp32.jpg "Click to enlarge")
+	[![USB Connections](./assets/img/hookup_guide/quickstart_setup-esp32.jpg){ width="600" }](./assets/img/hookup_guide/quickstart_setup-esp32.jpg "Click to enlarge")
 	<figcaption markdown>
-	[USB Connections (JPG)](./assets/img/hookup_guide/assembly-usb-esp32.jpg) for the GNSSDO.
+	[USB Connections (JPG)](./assets/img/hookup_guide/quickstart_setup-esp32.jpg) for the GNSSDO.
 	</figcaption>
 	</figure>
 
