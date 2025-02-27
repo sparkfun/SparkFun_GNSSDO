@@ -487,15 +487,6 @@ As a more sophisticated product, we will skip over the more fundamental tutorial
 
 	**Setting up a Rover Base RTK System**</a>
 
--   <a href="https://learn.sparkfun.com/tutorials/908">
-	<figure markdown>
-	![Tutorial Thumbnail](https://cdn.sparkfun.com/c/264-148/assets/learn_tutorials/9/0/8/USB-to-serial_converter_CH340-closeup.jpg)
-	</figure>
-
-	---
-
-	**How to Install CH340 Drivers**</a>
-
 -   <a href="https://docs.sparkfun.com/SparkFun_RTK_mosaic-X5">
 	<figure markdown>
 	![Tutorial Thumbnail](https://docs.sparkfun.com/SparkFun_RTK_mosaic-X5/assets/img/thumbnail.jpg)
@@ -514,14 +505,14 @@ As a more sophisticated product, we will skip over the more fundamental tutorial
 
 	**mosaic-X5 GNSS Breakout Board Hookup Guide**</a>
 
--   <a href="https://docs.sparkfun.com/SparkFun_Qwiic_OLED_1.3in">
+-   <a href="https://learn.sparkfun.com/tutorials/908">
 	<figure markdown>
-	![Tutorial Thumbnail](https://docs.sparkfun.com/SparkFun_Qwiic_OLED_1.3in/assets/img/thumbnail.jpg)
+	![Tutorial Thumbnail](https://cdn.sparkfun.com/c/264-148/assets/learn_tutorials/9/0/8/USB-to-serial_converter_CH340-closeup.jpg)
 	</figure>
 
 	---
 
-	**Qwiic OLED 1.3" Hookup Guide**</a>
+	**How to Install CH340 Drivers**</a>
 
 -   <a href="https://learn.sparkfun.com/tutorials/112">
 	<figure markdown>
@@ -540,6 +531,15 @@ As a more sophisticated product, we will skip over the more fundamental tutorial
 	---
 
 	**Serial Communication**</a>
+
+-   <a href="https://docs.sparkfun.com/SparkFun_Qwiic_OLED_1.3in">
+	<figure markdown>
+	![Tutorial Thumbnail](https://docs.sparkfun.com/SparkFun_Qwiic_OLED_1.3in/assets/img/thumbnail.jpg)
+	</figure>
+
+	---
+
+	**Qwiic OLED 1.3" Hookup Guide**</a>
 
 -   <a href="https://learn.sparkfun.com/tutorials/82">
 	<figure markdown>
