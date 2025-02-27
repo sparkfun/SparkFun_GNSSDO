@@ -98,7 +98,7 @@ hide: toc
 			If you use your own Ethernet cable for Power-over-Ethernet, check it has all eight pins connected. Some cables only have four pins connected and do not support Power-over-Ethernet.
 
 		??? info "No position information?"
-			The OLED display will only show position information (Lat, Long etc.) once a satellite signal has been acquired. If you don't see these on the display, check the SMA to TNC cable is connected correctly and that the antenna is outside with a clear view of the sky. Use a [male-female SMA extension cable](https://www.sparkfun.com/products/21281) if needed to increase the cable length.
+			The OLED display will only show position information (Lat, Long etc.) once a satellite signal has been acquired. If you don't see these on the display, check the SMA to TNC cable is connected correctly and that the antenna is outside with a clear view of the sky. Use a [male-female SMA extension cable](https://www.sparkfun.com/interface-cable-sma-female-to-sma-male-10m-rg58.html) if needed to increase the cable length.
 
 		??? info "No IP address?"
 			Check the Ethernet interface is enabled. It may be disabled. Connect via the CONFIG MOSAIC USB-C port and open 192.168.3.1 on a web browser. Check the **Communication \ Ethernet** sub-page.
@@ -166,7 +166,7 @@ hide: toc
 			The red power (PWR) LED will light up when the GNSSDO has power. If the PWR LED is off, make sure the USB cable is connected.
 
 		??? info "No position information?"
-			The OLED display will only show position information (Lat, Long, Alt etc.) once a satellite signal has been acquired. If you see only an IP address on the display, check the SMA to TNC cable is connected correctly and that the antenna is outside with a clear view of the sky. Use a [male-female SMA extension cable](https://www.sparkfun.com/products/21281) if needed to increase the cable length.
+			The OLED display will only show position information (Lat, Long, Alt etc.) once a satellite signal has been acquired. If you see only an IP address on the display, check the SMA to TNC cable is connected correctly and that the antenna is outside with a clear view of the sky. Use a [male-female SMA extension cable](https://www.sparkfun.com/interface-cable-sma-female-to-sma-male-10m-rg58.html) if needed to increase the cable length.
 
 		??? info "No web page?"
 			If you can not see the mosaic-T's internal web page at **192.168.3.1**, please check that your computer / tablet / phone is connected correctly to the USB-C port.
@@ -209,7 +209,7 @@ hide: toc
 			The red power (PWR) LED will light up when the GNSSDO has power. If the PWR LED is off, make sure the USB cable is connected.
 
 		??? info "No position information?"
-			The OLED display will only show position information (Lat, Long, Alt etc.) once a satellite signal has been acquired. If you see only an IP address on the display, check the SMA to TNC cable is connected correctly and that the antenna is outside with a clear view of the sky. Use a [male-female SMA extension cable](https://www.sparkfun.com/products/21281) if needed to increase the cable length.
+			The OLED display will only show position information (Lat, Long, Alt etc.) once a satellite signal has been acquired. If you see only an IP address on the display, check the SMA to TNC cable is connected correctly and that the antenna is outside with a clear view of the sky. Use a [male-female SMA extension cable](https://www.sparkfun.com/interface-cable-sma-female-to-sma-male-10m-rg58.html) if needed to increase the cable length.
 
 		??? info "No serial console?"
 			If you can not see the debug messages and configuration menu in the terminal emulator, check that: you have [installed the CH340 driver](https://learn.sparkfun.com/tutorials/908) if needed; you are connected to the CH340 COM port; you have selected 115200 as the baud rate.

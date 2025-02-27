@@ -368,12 +368,12 @@ Everything that is included in the GNSSDO kit.
 </div>
 
 
-!!! note "Mounting Hardware"
+???+ note "Mounting Hardware"
 	This kit does not include any mounting hardware for the antenna. If you wish to permanently mount the antenna outside, we recommend the following products:
 
 	<div class="grid cards" markdown>
 
-	-   <a href="https://www.sparkfun.com/products/22197">
+	-   <a href="https://www.sparkfun.com/gnss-antenna-mounting-hardware-kit.html">
 		<figure markdown>
 		![GNSS Antenna Mounting Hardware Kit](https://cdn.sparkfun.com//assets/parts/2/2/0/9/7/22197-_01.jpg)
 		</figure>
@@ -383,7 +383,7 @@ Everything that is included in the GNSSDO kit.
 		**GNSS Antenna Mounting Hardware Kit**<br>
 		KIT-22197</a>
 
-	-   <a href="https://www.sparkfun.com/products/21257">
+	-   <a href="https://www.sparkfun.com/gnss-magnetic-antenna-mount-5-8-11-tpi.html">
 		<figure markdown>
 		![GNSS Magnetic Antenna Mount - 5/8" 11-TPI](https://cdn.sparkfun.com//assets/parts/2/1/0/2/7/SparkFun-GNSS-Antenna-Magnetic-Mount-21257-1.jpg)
 		</figure>
@@ -395,12 +395,18 @@ Everything that is included in the GNSSDO kit.
 
 	</div>
 
+	!!! tip
+		If needed, use an extension cable to reach your installation location. We have daisy chained up to three RG58 10m cables with a marginal loss in signal strength.
+
+
 ??? note "Extension Cables"
-	Your GNSSDO is equally at home on your desk, lab bench or in a server rack. But you're still going to want to put the GNSS antenna outdoors, so it will have the best view of the sky. Some extra SMA extension cables may be useful and we have good quality low-loss RG58 cables available in the store. The GNSS SMA antenna connection is standard polarity.
+	Your GNSSDO is equally at home on your desk, lab bench, or in a server rack. But you're still going to want to put the GNSS antenna outdoors, so it will have the best view of the sky. Some extra SMA extension cables may be useful. The `GNSS` SMA antenna connection from the SparkPNT GNSSDO has a standard polarity.
+
+	For shorter extensions, we have **RG178** cables in 1m and 25cm lengths. For longer extensions, we have higher quality, **low-loss RG58** 10m cables available in our catalog.
 
 	<div class="grid cards" markdown>
 
-	-   <a href="https://www.sparkfun.com/products/21281">
+	-   <a href="https://www.sparkfun.com/interface-cable-sma-female-to-sma-male-10m-rg58.html">
 		<figure markdown>
 		![Interface Cable - SMA Female to SMA Male (10m, RG58)](https://cdn.sparkfun.com//assets/parts/2/1/0/6/5/21281-_CAB-_01.jpg)
 		</figure>
@@ -410,10 +416,76 @@ Everything that is included in the GNSSDO kit.
 		**Interface Cable - SMA Female to SMA Male (10m, RG58)**<br>
 		CAB-21281</a>
 
-		!!! tip
-			Use this extension cable for the GNSS antenna. This cable will not work with the WiFi/BLE antenna due to the polarity of the connectors.
+	-   <a href="https://www.sparkfun.com/interface-cable-sma-male-to-sma-female-cable-1m-rg174.html">
+		<figure markdown>
+		![Interface Cable - SMA Male to SMA Female Cable (1M, RG174)](https://cdn.sparkfun.com/assets/parts/2/1/9/0/2/22035-_CAB-_01.jpg)
+		</figure>
+
+		---
+
+		**Interface Cable - SMA Male to SMA Female Cable (1M, RG174)**<br>
+		CAB-22035</a>
+
+	-   <a href="https://www.sparkfun.com/interface-cable-sma-male-to-sma-female-25cm-rg174.html">
+		<figure markdown>
+		![Interface Cable - SMA Male to SMA Female (25cm, RG174)](https://cdn.sparkfun.com/assets/parts/2/1/9/0/1/22034-_CAB-_01.jpg)
+		</figure>
+
+		---
+
+		**Interface Cable - SMA Male to SMA Female (25cm, RG174)**<br>
+		CAB-22034</a>
 
 	</div>
+
+
+??? note "SMA Adapters"
+	We have several adapters for users who need to connect to the `EVENTA`, `PPS`, and/or `10MHz` signals for their server or test equipment. These SMA connections from the SparkPNT GNSSDO have a standard polarity.
+
+	<div class="grid cards" markdown>
+
+	-   <a href="https://www.sparkfun.com/sma-male-to-rpsma-male-adapter.html">
+		<figure markdown>
+		![SMA Male to RPSMA Male Adapter](https://cdn.sparkfun.com/assets/parts/2/7/0/6/09233-5.jpg)
+		</figure>
+
+		---
+
+		**SMA Male to RPSMA Male Adapter**<br>
+		WRL-09233</a>
+
+	-   <a href="https://www.sparkfun.com/sma-male-to-sma-male-adapter.html">
+		<figure markdown>
+		![SMA Male to SMA Male Adapter](https://cdn.sparkfun.com/assets/parts/2/0/9/9/4/WRL-21225.jpg)
+		</figure>
+
+		---
+
+		**SMA Male to SMA Male Adapter**<br>
+		WRL-21225</a>
+
+	-   <a href="https://www.sparkfun.com/sma-to-u-fl-cable-150mm.html">
+		<figure markdown>
+		![SMA to U.FL Cable - 150mm](https://cdn.sparkfun.com/assets/parts/1/8/0/2/9/18568-Scale.jpg)
+		</figure>
+
+		---
+
+		**SMA to U.FL Cable - 150mm**<br>
+		WRL-18568</a>
+
+	-   <a href="https://www.sparkfun.com/sma-to-bnc-male-cable-rg316-1m.html">
+		<figure markdown>
+		![SMA to BNC Male Cable - 1m (RG316)](https://cdn.sparkfun.com/assets/parts/2/8/3/6/7/27480-SMA-to-BNC-Male-Cable-RG316-FEature.jpg)
+		</figure>
+
+		---
+
+		**SMA to BNC Male Cable - 1m (RG316)**<br>
+		CAB-27480</a>
+
+	</div>
+
 
 ??? note ":material-weather-pouring: Selecting an Outdoor Enclosure"
 
