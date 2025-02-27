@@ -52,7 +52,7 @@ With the default firmware, the USB port for the ESP32 is used for serial communi
 	Depending on their computer's operating system, users may need to install USB drivers to interface with the mosaic-T and/or the ESP32. Users may also need to install a terminal emulator for serial communication with the mosaic-T and the ESP32.
 
 
-## Antennas
+## GNSS Antenna
 In order to receive [GNSS](https://en.wikipedia.org/wiki/Satellite_navigation "Global Navigation Satellite System") signals, users will need a compatible antenna. With the parts included in this kit, connect the L1/L2/L5 (tri-band) GNSS antenna to the GNSSDO using the TNC-to-SMA cable.
 
 
@@ -62,7 +62,7 @@ In order to receive [GNSS](https://en.wikipedia.org/wiki/Satellite_navigation "G
 
 <figure markdown>
 [![GNSS antenna connected to the GNSSDO](./assets/img/hookup_guide/assembly-gnss_antenna.jpg){ width="400" }](./assets/img/hookup_guide/assembly-gnss_antenna.jpg "Click to enlarge")
-<figcaption markdown>Attaching a TNC-SMA cable to the SMA connector on the GNSSDO.</figcaption>
+<figcaption markdown>Attaching a TNC-SMA cable to the `GNSS` SMA connector on the GNSSDO.</figcaption>
 </figure>
 
 </div>
@@ -127,6 +127,15 @@ There is a single ethernet jack on the GNSSDO, which can be used to provide netw
 		If you need a static IP address, you can configure this through the mosaic-T's **Communication \ Ethernet** sub-page.
 
 		Subnet 3 is reserved for the mosaic-T's USB-C connection (Ethernet-over-USB). If your router / switch is allocating addresses using subnet 3 (192.168.3.***), please change its settings so it uses a different subnet.
+
+
+## 10MHz Signal
+For timing applications, we have broken out the standard 10MHz signal to an SMA connector. In our kit, users will find an [SMA to BNC adapter cable](https://www.sparkfun.com/sma-to-bnc-male-cable-rg316-1m.html) that they can use to hookup this signal to their equipment. If necessary, users can add an [SMA extension cable](https://www.sparkfun.com/interface-cable-sma-male-to-sma-female-cable-1m-rg174.html) to reach their equipment.
+
+<figure markdown>
+[![Connecting cable to 10MHz signal of the GNSSDO](./assets/img/hookup_guide/assembly-10mhz.jpg){ width="400" }](./assets/img/hookup_guide/assembly-10mhz.jpg "Click to enlarge")
+<figcaption markdown>Attaching a cable to the `10MHz` SMA connector on the GNSSDO.</figcaption>
+</figure>
 
 
 ## SD Card Slot
@@ -212,6 +221,3 @@ Users can easily attach accessories to the GNSSDO by wiring them into the termin
 
 	!!! warning
 		To avoid shorts or damaging the GNSSDO, verify the wiring with the labels on the back of the enclosure.
-
-
-
