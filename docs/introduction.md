@@ -487,15 +487,6 @@ As a more sophisticated product, we will skip over the more fundamental tutorial
 
 	**Setting up a Rover Base RTK System**</a>
 
--   <a href="https://docs.sparkfun.com/SparkFun_RTK_Everywhere_Firmware">
-	<figure markdown>
-	![Tutorial Thumbnail](https://docs.sparkfun.com/SparkFun_RTK_Everywhere_Firmware/img/thumbnail.jpg)
-	</figure>
-
-	---
-
-	**SparkFun RTK Everywhere Product Manual**</a>
-
 -   <a href="https://learn.sparkfun.com/tutorials/908">
 	<figure markdown>
 	![Tutorial Thumbnail](https://cdn.sparkfun.com/c/264-148/assets/learn_tutorials/9/0/8/USB-to-serial_converter_CH340-closeup.jpg)
