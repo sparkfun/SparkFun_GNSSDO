@@ -45,15 +45,6 @@ If you are missing any of these items, please reach out to us in our forum.
 </div>
 
 
-## Data Logging
-For data logging issues, here are some simple troubleshooting tips:
-
-- Make sure that your SD card is formatted to a `FAT32` file system.
-	- The `FAT32` file system also limits the maximum capacity of the card to less than **32GB** *(i.e. a 256GB SD card will not work)*.
-- Make sure that the mosaic-T module has a configured data stream output.
-- Use the mosaic-T web page to verify that the SD card is mounted as a storage drive.
-
-
 ## OLED Dead Pixels
 Got a few dead pixels on your OLED display? Please reach out to us in our forum.
 
@@ -62,15 +53,13 @@ Got a few dead pixels on your OLED display? Please reach out to us in our forum.
 </center>
 
 
-## Vehicle Power - Dead Battery
-Is the GNSSDO killing your vehicle's battery?
+## Data Logging
+For data logging issues, here are some simple troubleshooting tips:
 
-Make sure that the external power source for the GNSSDO is not directly tied to the vehicle's battery, `Always On`, or accessory circuits. Otherwise, users will risk killing the battery while the engine is off. We recommend locating the *ignition on* or *switched power* circuit, which is only powered when the key is in the `On` position *and the engine is running*.
-
-!!! note
-	The `On` position, is where a key normally rests after the engine is started. However, users can still move the key from the `Off` position and into the `On` position without starting the engine. In this case, the alternator is not running and keeping the battery charged.
-
-	Modern *eco-efficient* vehicles may automatically shut down the engine if the vehicle is idling too long. Therefore, cutting off the vehicle's alternator that keeps the battery charged. Luckily, most vehicles with this *automatic start/stop* technology will monitor the battery's voltage and restart the engine when required. With this in mind, users may want to initially monitor their battery voltage, in case their vehicle isn't *"so smart"* :sweat_smile:.
+- Make sure that your SD card is formatted to a `FAT32` file system.
+	- The `FAT32` file system also limits the maximum capacity of the card to less than **32GB** *(i.e. a 256GB SD card will not work)*.
+- Make sure that the mosaic-T module has a configured data stream output.
+- Use the mosaic-T web page to verify that the SD card is mounted as a storage drive.
 
 
 ## L5 Band
