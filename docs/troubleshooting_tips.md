@@ -114,7 +114,7 @@ Before disassembling the enclosure, users should disconnect the power and all ca
 
 The GNSSDO PCB is held in place by the front and rear panels of the enclosure. While users can remove the panels first, we recommend that users disconnect the screw terminal blocks first. Users may find it more difficult to separate the terminal block from the connector later in the disassembly process.
 
-!!! tip "Remove the Screw Terminal Block First"
+???+ tip "Remove the Screw Terminal Block First"
 	Users may find it easiest to remove the screw terminal blocks first; as opposed to later in the teardown process.
 
 	<figure markdown>
@@ -127,7 +127,7 @@ The GNSSDO PCB is held in place by the front and rear panels of the enclosure. W
 
 Once the terminal blocks have been removed, users can remove the front and rear panels of the enclosure. They are held in place with four, M3, Phillips head screws on the corners of each panel.
 
-!!! tip
+!!!  "Remove Front Panel First"
 	We recommend removing the front panel first to prevent the Qwiic cable from being yanked off the OLED display or main PCB. Once the front panel is free, carefully lift the panel and disconnect the Qwiic cable from the top connector on the OLED display.
 
 At this point, if users have previously disconnected all the cables and the terminal blocks from the back, the GNSSDO PCB should slide out of the enclosure. Users can then, remove the rear panel from the enclosure to complete the teardown process.
