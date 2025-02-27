@@ -5,7 +5,7 @@ icon: material/book-open-page-variant
 # Introduction
 <div class="grid cards desc" markdown>
 
--   <a href="www.sparkfun/sparkpnt-gnss-disciplined-oscillator.html">
+-   <a href="https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator.html">
 	**GNSSDO**<br>
 	**SKU:** GPS-26289
 
@@ -25,7 +25,7 @@ icon: material/book-open-page-variant
 
 
 	<center>
-	[Purchase from SparkFun :fontawesome-solid-cart-plus:{ .heart } ![QR code to product page](./assets/img/qr_code/product-low.png){ .tinyqr }](www.sparkfun/sparkpnt-gnss-disciplined-oscillator.html){ .md-button .md-button--primary }
+	[Purchase from SparkFun :fontawesome-solid-cart-plus:{ .heart } ![QR code to product page](./assets/img/qr_code/product-low.png){ .tinyqr }](https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator.html){ .md-button .md-button--primary }
 	</center>
 
 
