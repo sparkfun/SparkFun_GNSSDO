@@ -413,7 +413,7 @@ The 10 MHz SMA connector is standard polarity. The voltage is adjustable via the
 
 <div markdown>
 <figure markdown>
-[![EventA Connections](./assets/img/hookup_guide/Ant-WiFi.png){ width="750" }](./assets/img/hookup_guide/EventA.png "Click to enlarge")
+[![EventA Connections](./assets/img/hookup_guide/EventA.png){ width="750" }](./assets/img/hookup_guide/EventA.png "Click to enlarge")
 <figcaption markdown>The SMA connector for the EventA input.</figcaption>
 </figure>
 
@@ -674,9 +674,9 @@ The OLED display on the GNSSDO.
 </figure>
 
 <figure markdown>
-[![OLED display](./assets/img/hookup_guide/OLED-Fugro.png){ width="250" }](./assets/img/hookup_guide/OLED-Fugro.png "Click to enlarge")
+[![OLED display](./assets/img/hookup_guide/Display-Fugro.png){ width="250" }](./assets/img/hookup_guide/Display-Fugro.png "Click to enlarge")
 <figcaption markdown>
-[OLED display (PNG)](./assets/img/hookup_guide/OLED-Fugro.png) for the GNSSDO.
+[OLED display (PNG)](./assets/img/hookup_guide/Display-Fugro.png) for the GNSSDO.
 </figcaption>
 </figure>
 
