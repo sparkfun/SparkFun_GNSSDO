@@ -94,7 +94,7 @@ The jack to the mosaic-T allows users to provide internet access and power; it s
 - To power the device, a PoE network switch or PoE injector should be installed in between the network connection to the GNSSDO.
 
 <figure markdown>
-[![mosaic-T PoE connection](./assets/img/hookup_guide/assembly-ethernet-mosaic.jpg){ width="400" }](./assets/img/hookup_guide/assembly-ethernet-mosaic.jpg "Click to enlarge")
+[![mosaic-T PoE connection](./assets/img/hookup_guide/assembly-ethernet.jpg){ width="400" }](./assets/img/hookup_guide/assembly-ethernet.jpg "Click to enlarge")
 <figcaption markdown>The GNSSDO with ethernet cable being attached to the `ETHERNET (PoE)` jack.</figcaption>
 </figure>
 
@@ -162,7 +162,7 @@ An &micro;SD card slot is available for users to log and store data, locally on 
 Users can easily attach accessories to the GNSSDO by wiring them into the terminal blocks on the back of the enclosure.
 
 <figure markdown>
-[![Terminal Block](./assets/img/hookup_guide/assembly-terminal_block2.jpg){ width="400" }](./assets/img/hookup_guide/assembly-terminal_block2.jpg "Click to enlarge")
+[![Terminal Block](./assets/img/hookup_guide/assembly-terminal_block.jpg){ width="400" }](./assets/img/hookup_guide/assembly-terminal_block.jpg "Click to enlarge")
 <figcaption markdown>Connecting a wire to the terminal block.</figcaption>
 </figure>
 
@@ -189,7 +189,7 @@ Users can easily attach accessories to the GNSSDO by wiring them into the termin
 	<div markdown>
 
 	<figure markdown>
-	[![Terminal Block](./assets/img/hookup_guide/assembly-terminal_block.jpg){ width="400" }](./assets/img/hookup_guide/assembly-terminal_block.jpg "Click to enlarge")
+	[![Terminal Block](./assets/img/hookup_guide/assembly-terminal_block-separated.jpg){ width="400" }](./assets/img/hookup_guide/assembly-terminal_block-separated.jpg "Click to enlarge")
 	<figcaption markdown>Connecting a wire to the terminal block.</figcaption>
 	</figure>
 
