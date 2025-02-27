@@ -26,23 +26,23 @@ The USB ports are utilized to configure the mosaic-T module and ESP32 firmware s
 
 <div markdown>
 
-The USB port to the mosaic-T can be used to configure the module through an IP port, for serial communication to stream the GNSS data, and access the SD card as a mass storage device. To connect to the mosaic-T, users only need to plug a USB-C cable into the `CONFIG MOSAIC` USB port and their computer.
-
 <figure markdown>
 [![mosaic-T USB connection](./assets/img/hookup_guide/assembly-usb-mosaic.jpg){ width="400" }](./assets/img/hookup_guide/assembly-usb-mosaic.jpg "Click to enlarge")
 <figcaption markdown>The GNSSDO with USB-C cable being attached.</figcaption>
 </figure>
 
+The USB port to the mosaic-T can be used to configure the module through an IP port, for serial communication to stream the GNSS data, and access the SD card as a mass storage device. To connect to the mosaic-T, users only need to plug a USB-C cable into the `CONFIG MOSAIC` USB port and their computer.
+
 </div>
 
 <div markdown>
-
-With the default firmware, the USB port for the ESP32 is used for serial communication to tune the parameters for the TCXO oscillator and the Pulse-Per-Second output. To configure the settings, users only need to plug a USB-C cable into the `CONFIG ESP32` USB port and their computer, and then open a terminal emulator at 115200 baud.
 
 <figure markdown>
 [![ESP32 USB connection](./assets/img/hookup_guide/assembly-usb-esp32.jpg){ width="400" }](./assets/img/hookup_guide/assembly-usb-esp32.jpg "Click to enlarge")
 <figcaption markdown>The GNSSDO with USB-C cable being attached.</figcaption>
 </figure>
+
+With the default firmware, the USB port for the ESP32 is used for serial communication to tune the parameters for the TCXO oscillator and the Pulse-Per-Second output. To configure the settings, users only need to plug a USB-C cable into the `CONFIG ESP32` USB port and their computer, and then open a terminal emulator at 115200 baud.
 
 </div>
 
@@ -53,21 +53,26 @@ With the default firmware, the USB port for the ESP32 is used for serial communi
 
 
 ## Antennas
+In order to receive [GNSS](https://en.wikipedia.org/wiki/Satellite_navigation "Global Navigation Satellite System") signals, users will need a compatible antenna. With the parts included in this kit, connect the L1/L2/L5 (tri-band) GNSS antenna to the GNSSDO using the TNC-to-SMA cable.
+
 
 <div class="grid" markdown>
 
 <div markdown>
 
-In order to receive [GNSS](https://en.wikipedia.org/wiki/Satellite_navigation "Global Navigation Satellite System") signals, users will need a compatible antenna. With the parts included in this kit, connect the L1/L2/L5 (tri-band) GNSS antenna to the GNSSDO using the TNC-to-SMA cable.
+<figure markdown>
+[![GNSS antenna connected to the GNSSDO](./assets/img/hookup_guide/assembly-gnss_antenna.jpg){ width="400" }](./assets/img/hookup_guide/assembly-gnss_antenna.jpg "Click to enlarge")
+<figcaption markdown>Attaching a TNC-SMA cable to the SMA connector on the GNSSDO.</figcaption>
+</figure>
+
+</div>
+
+
+<div markdown>
 
 <figure markdown>
 [![GNSS antenna connected to the cable](./assets/img/hookup_guide/assembly-gnss-tnc.jpg){ width="400" }](./assets/img/hookup_guide/assembly-gnss-tnc.jpg "Click to enlarge")
 <figcaption markdown>Attaching a tri-band GNSS antenna to the TNC-SMA cable.</figcaption>
-</figure>
-
-<figure markdown>
-[![GNSS antenna connected to the GNSSDO](./assets/img/hookup_guide/assembly-gnss_antenna.jpg){ width="400" }](./assets/img/hookup_guide/assembly-gnss_antenna.jpg "Click to enlarge")
-<figcaption markdown>Attaching a TNC-SMA cable to the SMA connector on the GNSSDO.</figcaption>
 </figure>
 
 </div>
@@ -87,9 +92,7 @@ In order to receive [GNSS](https://en.wikipedia.org/wiki/Satellite_navigation "G
 
 
 ## Ethernet Jack
-There is a single ethernet jack on the GNSSDO, which can be used to provide network access to the mosaic-T module. It supports [power over ethernet (PoE)](https://en.wikipedia.org/wiki/Power_over_Ethernet "PoE") to power the device.
-
-The jack to the mosaic-T allows users to provide internet access and power; it supports [PoE](https://en.wikipedia.org/wiki/Power_over_Ethernet "Power over Ethernet"). To provide network access, users should connect the GNSSDO from the `ETHERNET (PoE)` jack to their local network with the (CAT-6) ethernet cable provided in the kit.
+There is a single ethernet jack on the GNSSDO, which can be used to provide network access to the mosaic-T module. It supports [power over ethernet (PoE)](https://en.wikipedia.org/wiki/Power_over_Ethernet "PoE") to power the device. To provide network access, users should connect the GNSSDO from the `ETHERNET (PoE)` jack to their local network with the (CAT-6) ethernet cable provided in the kit.
 
 - To power the device, a PoE network switch or PoE injector should be installed in between the network connection to the GNSSDO.
 
@@ -97,6 +100,7 @@ The jack to the mosaic-T allows users to provide internet access and power; it s
 [![mosaic-T PoE connection](./assets/img/hookup_guide/assembly-ethernet.jpg){ width="400" }](./assets/img/hookup_guide/assembly-ethernet.jpg "Click to enlarge")
 <figcaption markdown>The GNSSDO with ethernet cable being attached to the `ETHERNET (PoE)` jack.</figcaption>
 </figure>
+
 
 ??? tip "Configuration: mosaic-T Settings"
 	Users can configure the mosaic-T module through the network connection.
