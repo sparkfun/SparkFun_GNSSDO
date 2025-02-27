@@ -671,13 +671,15 @@ There are two miniature slide switches on the GNSSDO PCB:
 <figcaption markdown>Switches</figcaption>
 </figure>
 
-<div markdown>
 
-- `VCCIO`
-	- This switch sets the voltage of the Input Output Terminals (COM2 UART, Event B, SCL2 & SDA2)
+=== "`VCCIO`"
+	This switch sets the voltage of the Input Output Terminals (COM2 UART, Event B, SCL2 & SDA2)
+
 	- The I/O voltage can be set to 3.3V (default) or 5V.
-- `10MHz`
-	- This switch changes the function of the 10MHz SMA connector
+
+=== "`10MHz`"
+	This switch changes the function of the 10MHz SMA connector
+
 	- When set to `OUT` (default):
 		- The SMA connector will output a 10MHz "CMOS" disciplined clock signal
 		- The signal voltage is set by the VCCIO voltage selection switch
@@ -687,7 +689,7 @@ There are two miniature slide switches on the GNSSDO PCB:
 		- The detection level is -14dBm
 		- The max supported input level is +12dBm
 
-</div>
+
 
 ## Status LEDs
 There are six status LEDs on the GNSSDO:
