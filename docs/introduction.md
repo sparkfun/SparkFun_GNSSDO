@@ -18,7 +18,7 @@ icon: material/book-open-page-variant
 
 	<center>
 	<article class="video-500px">
-	<iframe src="https://www.youtube.com/embed/HwKxq9ChazQ" title="Product Showcase Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<iframe src="https://www.youtube.com/embed/WI0NbXBxeUo" title="Product Showcase Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	</article>
 	![QR code to product video](./assets/img/qr_code/product_video.png){ .qr width=100 }
 	</center>
