@@ -6,16 +6,16 @@ icon: material/tools
 	When assembling the GNSSDO, users should attach any power connections last. While there shouldn't be any issues with hot-swapping peripherals, it is common practice to power electronics as the last step of the assembly process *(and the power should be disconnected before removing components)*.
 
 ??? info "What is in the Box?"
-	The GNSSDO comes packaged as a complete kit, with all the accessories you'd need to set it up.
+	The SparkPNT GNSSDO comes packaged as a complete kit, with all the accessories you'd need to set it up.
 
 	<figure markdown>
 	[![Kit contents](https://cdn.sparkfun.com/assets/parts/2/7/2/0/7/26289-GNSS-Disciplined-Oscillator-Kit-Feature.jpg){ width="300" }](https://cdn.sparkfun.com/assets/parts/2/7/2/0/7/26289-GNSS-Disciplined-Oscillator-Kit-Feature.jpg "Click to enlarge")
 	<figcaption markdown>
-	Everything that is included in the GNSSDO kit.
+	Everything that is included in the SparkPNT GNSSDO kit.
 	</figcaption>
 	</figure>
 
-	Inside the box, users will find the [GNSS antenna](https://www.sparkfun.com/gnss-multi-band-l1-l2-l5-surveying-antenna-tnc-spk6618h.html), GNSSDO in its aluminum enclosure, a [USB-C cable](https://www.sparkfun.com/usb-c-to-usb-c-silicone-power-charging-cable-3m.html), [CAT-6 Ethernet cable](https://www.sparkfun.com/cat-6-cable-3ft.html), and another box containing additional accessories. Inside the accessory box, users will find the [SMA to TNC cable](https://www.sparkfun.com/reinforced-interface-cable-sma-male-to-tnc-male-10m.html), [SMA to BNC cable](https://www.sparkfun.com/sma-to-bnc-male-cable-rg316-1m.html), [USB PD wall adapter](https://www.sparkfun.com/usb-a-and-c-power-delivery-pd-wall-adapter-65w.html), [silicone bumpers](https://www.sparkfun.com/silicone-bumpers-5x11mm-4-pack.html), and [32GB SD card](https://www.sparkfun.com/microsd-card-32gb-class-10.html).
+	Inside the kit, users will find the SparkPNT GNSSDO, [GNSS antenna](https://www.sparkfun.com/gnss-multi-band-l1-l2-l5-surveying-antenna-tnc-spk6618h.html), [USB-C cable](https://www.sparkfun.com/usb-c-to-usb-c-silicone-power-charging-cable-3m.html), [CAT-6 Ethernet cable](https://www.sparkfun.com/cat-6-cable-3ft.html), and another box containing additional accessories. Inside the accessory box, users will find the [SMA to TNC cable](https://www.sparkfun.com/reinforced-interface-cable-sma-male-to-tnc-male-10m.html), [SMA to BNC cable](https://www.sparkfun.com/sma-to-bnc-male-cable-rg316-1m.html), [USB PD wall adapter](https://www.sparkfun.com/usb-a-and-c-power-delivery-pd-wall-adapter-65w.html), a pack of [silicone bumpers](https://www.sparkfun.com/silicone-bumpers-5x11mm-4-pack.html), and a [32GB SD card](https://www.sparkfun.com/microsd-card-32gb-class-10.html).
 
 
 
