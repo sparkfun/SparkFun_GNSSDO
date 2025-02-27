@@ -157,7 +157,7 @@ Users should install the [RXTools software suite](https://www.septentrio.com/en/
 	[^8]: Changing these permissions also requires `root` privileges.
 
 
-### USB Driver
+### Septentrio USB Driver
 === "Windows"
 	If users haven't already installed the [RxTools software suite](https://www.septentrio.com/en/products/gps-gnss-receiver-software/rxtools) on their Windows PC, they will need to install the USB driver[^1] necessary to recognize and interact with the mosaic-T module through the USB interface.
 
@@ -235,7 +235,7 @@ With the USB driver installed, the mosaic-T module supports Ethernet-over-USB. T
 
 ## :espressif: ESP32
 
-### USB Driver
+### CH340 USB Driver
 Users will need to install a USB driver for the CH340 serial-to-USB chip, in order to communicate with the ESP32 module.	The latest USB drivers for the CH340 are available from the manufacturer, on the [WCH website](https://www.wch-ic.com/products/CH340.html?):
 
 <center>

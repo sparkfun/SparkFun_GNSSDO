@@ -139,7 +139,7 @@ The GNSSDO can be powered individually or in combination, with any of the follow
 
 
 	!!! info "CH340 Driver"
-		The CH340 allows the ESP32-WROVER to communicate with a computer/host device through the USB-C connection. This allows the ESP32 to show up as a device on the serial (or COM) port of the computer. Users will need to install the latest drivers for the computer to recognize the CH340 *(see **[USB Driver](./software_overview.md#usb-driver_1)** section)*.
+		The CH340 allows the ESP32-WROVER to communicate with a computer/host device through the USB-C connection. This allows the ESP32 to show up as a device on the serial (or COM) port of the computer. Users will need to install the latest drivers for the computer to recognize the CH340 *(see **[USB Driver](./software_overview.md#ch340-usb-driver)** section)*.
 
 
 === ":material-ethernet: Power-over-Ethernet (PoE)"
@@ -316,7 +316,7 @@ The mosaic-T and ESP32 both have USB-C connections. The MOSAIC USB port is high-
 	The GNSSDO can draw power from either or both USB ports, in addition to Power-over-Ethernet and the DC-DC external input described above.
 
 !!! info "CH340 Driver"
-	The CH340 allows the ESP32-WROVER to communicate with a computer/host device through the USB-C connection. This allows the ESP32 to show up as a device on the serial (or COM) port of the computer. Users will need to install the latest drivers for the computer to recognize the CH340 *(see **[USB Driver](./software_overview.md#usb-driver_1)** section)*.
+	The CH340 allows the ESP32-WROVER to communicate with a computer/host device through the USB-C connection. This allows the ESP32 to show up as a device on the serial (or COM) port of the computer. Users will need to install the latest drivers for the computer to recognize the CH340 *(see **[USB Driver](./software_overview.md#ch340-usb-driver)** section)*.
 
 
 ## &micro;SD Socket

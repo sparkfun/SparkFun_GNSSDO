@@ -134,7 +134,7 @@ hide: toc
 
 === "<H2>:material-usb-port: mosaic-T USB-C</H2>"
 
-	The mosaic-T has a built-in high-speed USB port which supports Ethernet-over-USB and two additional UART COM ports. To take advantage of this interface, you first need to install the Septentrio drivers.
+	The mosaic-T has a built-in high-speed USB port which supports Ethernet-over-USB and two additional UART COM ports. To take advantage of this interface, you first need to install [Septentrio's USB driver](./software_overview.md/#septentrio-usb-driver).
 
 	<figure markdown>
 	[![USB Connections](./assets/img/hookup_guide/USB_Connections.png){ width="400" }](./assets/img/hookup_guide/USB_Connections.png "Click to enlarge")
