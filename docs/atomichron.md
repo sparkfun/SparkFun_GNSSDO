@@ -19,6 +19,35 @@ Fugro AtomiChron^®^ is a global, real-time, precise clock synchronisation and a
 
 - Navigation Message Authentication (NMA) status: per satellite status for all 4 GNSS constellations concurrently
 
+## Subscribing to Fugro AtomiChron^®^
+
+AtomiChron^®^ subscriptions are managed by Fugro. We ask that you complete the [SparkPNT GNSSDO Fugro AtomiChron^®^ Service Registration Form](https://www.sparkfun.com/gnssdo_registration) and the team at Fugro will be in touch. To subscribe, Fugro will need to know the serial number of the mosaic-T inside your GNSSDO. You can find the mosaic-T serial number a number of ways:
+
+* You can view it on the Fugro AtomiChron tab of mosaic-X5's internal web page. The web page can be viewed over Ethernet or Ethernet-over-USB. Please see the [Quick Start Guide](./quick_start.md) for more details.
+* The serial number is also displayed when you open the [Software Settings menu](./software_overview.md#software-settings) in a terminal emulator or serial console.
+
+<div class="grid" markdown>
+
+<div markdown>
+
+<figure markdown>
+[![Fugro AtomiChron ID - mosaic-T web page](./assets/img/hookup_guide/AtomiChron_ID_Web.png){ width="400" }](./assets/img/hookup_guide/AtomiChron_ID_Web.png "Click to enlarge")
+<figcaption markdown>Fugro AtomiChron ID on the mosaic-T web page.</figcaption>
+</figure>
+
+</div>
+
+<div markdown>
+
+<figure markdown>
+[![Fugro AtomiChron ID - software settings menu](./assets/img/hookup_guide/AtomiChron_ID_Menu.png){ width="400" }](./assets/img/hookup_guide/AtomiChron_ID_Menu.png "Click to enlarge")
+<figcaption markdown>Fugro AtomiChron ID in the GNSSDO software settings.</figcaption>
+</figure>
+
+</div>
+
+</div>
+
 ## Performance
 
 With AtomiChron enabled, the GNSSDO achieves a GPS clock bias of better than 1 ns:
