@@ -180,7 +180,7 @@ The GNSSDO can be powered individually or in combination, with any of the follow
 	<div markdown>
 
 	<figure markdown>
-	[![Power over Ethernet Jack](./assets/img/hookup_guide/PoE.png){ width="750" }](./assets/img/hookup_guide/PoE.png "Click to enlarge")
+	[![Power over Ethernet Jack](./assets/img/hookup_guide/POE.png){ width="750" }](./assets/img/hookup_guide/POE.png "Click to enlarge")
 	<figcaption markdown>The Power-over-Ethernet (PoE) jack on the GNSSDO.</figcaption>
 	</figure>
 
@@ -287,7 +287,7 @@ The mosaic-T has a KSZ8041NLI Ethernet PHY interface, connected using a Reduced 
 <div markdown>
 
 <figure markdown>
-[![Ethernet Connector](./assets/img/hookup_guide/PoE.png){ width="750" }](./assets/img/hookup_guide/PoE.png "Click to enlarge")
+[![Ethernet Connector](./assets/img/hookup_guide/POE.png){ width="750" }](./assets/img/hookup_guide/POE.png "Click to enlarge")
 <figcaption markdown>Ethernet (PoE) conection.</figcaption>
 </figure>
 
@@ -766,9 +766,9 @@ There are six status LEDs on the GNSSDO:
 	- The GNSS Error status - as reported by **PVTGeodetic Error**
 	- Connected to ESP32 GPIO pin 32
 - `RTK` - Real-Time Kinematic *(Yellow)*
-	- Solid Yellow - The mosaic-T has an RTK Fixed solution
-	- Blinking Yellow - The mosaic-T has an RTK Float solution
-	- Off - No RTK solution
+	- This LED has little or no functionality on the GNSSDO as the mosaic-T uses PPP, not RTK
+	- Internally, it is connected to the mosaic-T GPLED2 pin
+	- It can be configured for (e.g.) TRACKLED if desired
 
 </div>
 

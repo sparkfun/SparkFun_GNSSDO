@@ -130,7 +130,7 @@ There is a single ethernet jack on the GNSSDO, which can be used to provide netw
 
 
 ## 10MHz Signal
-For timing applications, we have broken out the standard 10MHz signal to an SMA connector. In our kit, users will find an [SMA to BNC adapter cable](https://www.sparkfun.com/sma-to-bnc-male-cable-rg316-1m.html) that they can use to hookup this signal to their equipment. If necessary, users can add an [SMA extension cable](https://www.sparkfun.com/interface-cable-sma-male-to-sma-female-cable-1m-rg174.html) to reach their equipment.
+For timing applications, we have broken out the TCXO 10MHz signal to an SMA connector. In our kit, users will find an [SMA to BNC adapter cable](https://www.sparkfun.com/sma-to-bnc-male-cable-rg316-1m.html) that they can use to hookup this signal to their equipment. If necessary, users can add an [SMA extension cable](https://www.sparkfun.com/interface-cable-sma-male-to-sma-female-cable-1m-rg174.html) to reach their equipment.
 
 <figure markdown>
 [![Connecting cable to 10MHz signal of the GNSSDO](./assets/img/hookup_guide/assembly-10mhz.jpg){ width="400" }](./assets/img/hookup_guide/assembly-10mhz.jpg "Click to enlarge")
@@ -139,7 +139,7 @@ For timing applications, we have broken out the standard 10MHz signal to an SMA 
 
 
 ## SD Card Slot
-An &micro;SD card slot is available for users to log and store data, locally on the board. Users will need to insert a compatible SD card and configure the mosaic-T module for data logging.
+A &micro;SD card slot is available for users to log and store data, locally on the board. Users will need to insert a compatible SD card and configure the mosaic-T module for data logging.
 
 <figure markdown>
 [![GNSSDO SD card slot](./assets/img/hookup_guide/assembly-sd_card.jpg){ width="400" }](./assets/img/hookup_guide/assembly-sd_card.jpg "Click to enlarge")
