@@ -17,7 +17,7 @@ Fugro AtomiChron^®^ is a global, real-time, precise clock synchronisation and a
 
 - Performance improvement: >10x better than existing high-end GNSS receivers
 
-- NMA status: per satellite status for all 4 GNSS constellations concurrently
+- Navigation Message Authentication (NMA) status: per satellite status for all 4 GNSS constellations concurrently
 
 ## Performance
 
