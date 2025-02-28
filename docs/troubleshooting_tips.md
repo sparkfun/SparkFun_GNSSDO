@@ -63,7 +63,7 @@ For data logging issues, here are some simple troubleshooting tips:
 
 
 ## L5 Band
-By default, the L5 band is disabled on the mosaic-T. To enable reception of the L5 band on the mosaic-T, we have provided instructions on the [Enable the L5 Band](../L5) page.
+By default, the L5 band is enabled on the mosaic-T. To disable or re-enable reception of the L5 band on the mosaic-T, we have provided instructions on the [Enable the L5 Band](./L5.md) page.
 
 
 ## Reprogramming the ESP32
