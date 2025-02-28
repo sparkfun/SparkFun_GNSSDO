@@ -180,7 +180,7 @@ bool initializeGNSS()
 
     // Restore default configuration
     // Note: the IP settings set by the setIPSettings and setIPPortSettings commands keep their value
-    while (!sendWithResponse("eccf, RxDefault, Current\n\r", "CopyConfigFile") && (retries > 0))
+    while (!sendWithResponse("eccf, RxDefault, Current\n\r", "CopyConfigFile", 5000) && (retries > 0))
     {
         systemPrintln("No response from mosaic. Retrying - with escape sequence...");
         sendWithResponse("SSSSSSSSSSSSSSSSSSSS\n\r", "COM4>"); // Send escape sequence
@@ -237,7 +237,7 @@ bool initializeGNSS()
     }
 
     // Copy current configuration into boot
-    if (!sendWithResponse("eccf, Current, Boot\n\r", "CopyConfigFile"))
+    if (!sendWithResponse("eccf, Current, Boot\n\r", "CopyConfigFile", 5000))
     {
         systemPrintln("GNSS FAIL (CopyConfigFile)");
         return false;
