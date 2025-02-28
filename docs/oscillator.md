@@ -9,7 +9,7 @@ icon: material/tools
 <figcaption markdown>SiT5358 TCXO Oscillator.</figcaption>
 </figure>
 
-For the best frequency accuracy, stability and holdover, the GNSSDO utilizes a SiTime SiT5358 Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO).
+For the best frequency accuracy, stability and holdover, the SparkPNT GNSSDO utilizes a SiTime SiT5358 Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO).
 The SiT5358 is a precision MEMS Super-TCXO optimized for ±50 ppb stability from -40°C to 105°C. Engineered for best dynamic performance, it is ideal for high reliability telecom, wireless and networking, industrial, precision GNSS and audio/video applications.
 
 - SiT5358AI-FS033IT-10.000000 10MHz DCTCXO
@@ -26,20 +26,22 @@ The SiT5358 is interfaced to the mosaic-T through a level-shifting buffer, repla
 
 The SiT5358 is interfaced to the mosaic-T according to Appendix D of the mosaic Hardware Manual: "mosaic-Based Disciplined Clock".
 
-The ESP32 is interfaced to three of the mosaic-T's COM (UART) ports: COM1, COM3 and COM4. The ESP32 configures the mosaic-T via COM4. COM1 is dedicated as an output port for the SBF blocks used to tune the oscillator frequency. COM3 is used to divert the ESP32 serial console to TCP.
+The ESP32 is interfaced to three of the mosaic-T's COM (UART) ports: `COM1`, `COM3`, and `COM4`. The ESP32 configures the mosaic-T via `COM4`. `COM1` is dedicated as an output port for the SBF blocks used to tune the oscillator frequency. `COM3` is used to divert the ESP32 serial console to TCP.
 
 When the firmware boots, the mosaic-T is configured as follows:
 
-- **setPPSParameters, off**
-- **setClockSyncThreshold, usec500, on**
-- **setSBFGroups, Group1, PVTGeodetic+ReceiverTime**
-- **setSBFOutput, Stream1, COM1, Group1, sec1**
-- **setSBFOutput, Stream2, COM1, IPStatus+FugroTimeOffset, OnChange**
-- **exeCopyConfigFile, Current, Boot**
+```
+setPPSParameters, off
+setClockSyncThreshold, usec500, on
+setSBFGroups, Group1, PVTGeodetic+ReceiverTime
+setSBFOutput, Stream1, COM1, Group1, sec1
+setSBFOutput, Stream2, COM1, IPStatus+FugroTimeOffset, OnChange
+exeCopyConfigFile, Current, Boot
+```
 
 These commands configure the mosaic so that it: starts-up with the PPS pulses disabled; performs an initial precise synchronization to GNSS time; and outputs the **PVTGeodetic** and **ReceiverTime** blocks on COM1 at 1Hz. **IPStatus** is output each time one or more IP parameters change. With a Fugro Atomichron subscription, the **FugroTimeOffset** message will be generated each time one of the clock biases changes.
 
-The firmware monitors the message blocks on COM1. The **ERROR** LED follows the **PVTGeodetic Error** code. The LED is extinguished when **Error** is zero.
+The firmware monitors the message blocks on `COM1`. The `ERROR` LED follows the **PVTGeodetic Error** code. The LED is extinguished when **Error** is zero.
 
 The firmware waits until the **ReceiverTime SyncLevel FINETIME** bit is set, indicating that the receiver time initialization is complete. Once the **FINETIME** bit is set, it remains set until the next reset of the receiver.
 
@@ -47,15 +49,16 @@ The firmware then monitors the **PVTGeodetic RxClkBias** (as 64-bit float in mil
 
 The Proportional (P) and Integral (I) terms can be adjusted via the [ESP32 firmware settings](./software_overview.md#configure-operation).
 
-The **LOCK** LED will illuminate and PPS pulses will be generated when RxClkBias is less than 10ns. The OLED will show **PPS On** when pulses are being generated.
+The `LOCK` LED will illuminate and PPS pulses will be generated when RxClkBias is less than 10ns. The OLED will show `PPS On` when pulses are being generated.
 
 The 10ns lock threshold / limit can be changed by the user through the ESP32 USB-C interface and saved in non-volatile memory.
 
 The Pulse-Per-Second parameters can also be configured by the user through the [ESP32 firmware settings](./software_overview.md#configure-operation): interval, polarity, delay, time scale, max sync age, pulse width.
 
-- **setPPSParameters, Interval, Polarity, Delay, TimeScale, MaxSyncAge, PulseWidth**
+```
+setPPSParameters, Interval, Polarity, Delay, TimeScale, MaxSyncAge, PulseWidth
+```
 
 Should **PVTGeodetic Error** indicate an error (i.e. become non-zero), the loop will continue but no changes will be made to the oscillator frequency until the error is cleared.
 
-Occasionally, the initial mosaic-T clock bias can be excessive - microseconds rather than nanoseconds. The firmware detects this and will restart the GNSS to achieve a better lock. You will see **Bad RxClkBias --- Restarting** appear on the OLED when this happens. The threshold for this can be adjusted via the ESP32 firmware settings.
-
+Occasionally, the initial mosaic-T clock bias can be excessive - microseconds rather than nanoseconds. The firmware detects this and will restart the GNSS to achieve a better lock. You will see `Bad RxClkBias --- Restarting` appear on the OLED when this happens. The threshold for this can be adjusted via the ESP32 firmware settings.
