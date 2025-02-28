@@ -718,7 +718,7 @@ void ButtonCheckTask(void *e)
 
     while (true)
     {
-        if (productVariant == RTK_MOSAIC_T)
+        if (productVariant == GNSSDO || productVariant == GNSSDO_PLUS)
         {
             if (setupBtn &&
                 (settings.disableSetupButton == false)) // Allow check of the setup button if not overridden by settings

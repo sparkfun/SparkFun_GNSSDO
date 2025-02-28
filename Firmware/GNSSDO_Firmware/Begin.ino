@@ -58,26 +58,30 @@ void identifyBoard()
 
     // Order the following ID checks, by millivolt values high to low
 
-    // GNSSDO: 1/1  -->  1571mV < 1650mV < 1729mV
+    // GNSSDO: 1/1  -->  1564mV < 1650mV < 1736mV
     if (idWithAdc(idValue, 1, 1))
-        productVariant = RTK_MOSAIC_T;
+        productVariant = GNSSDO;
+
+    // GNSSDO+: 1/2.2  -->  2193mV < 2269mV < 2342mV
+    else if (idWithAdc(idValue, 1, 2.2))
+        productVariant = GNSSDO_PLUS;
 
     else
     {
         systemPrintln("Out of band or nonexistent resistor IDs");
-        productVariant = RTK_UNKNOWN;
+        productVariant = GNSSDO_UNKNOWN;
     }
 }
 
 void beginBoard()
 {
-    if (productVariant == RTK_UNKNOWN)
+    if (productVariant == GNSSDO_UNKNOWN)
     {
         reportFatalError("RTK Variant Unknown");
     }
 
     // Setup hardware pins
-    if (productVariant == RTK_MOSAIC_T)
+    if (productVariant == GNSSDO || productVariant == GNSSDO_PLUS)
     {
         //   ESP32-WROVER-IE Pin Allocations:
         //   D0  : Boot + Boot Button
@@ -96,37 +100,32 @@ void beginBoard()
         //   D19 : I2C SCL2 (SiT5358)
         //   D21 : I2C SDA (OLED)
         //   D22 : I2C SCL (OLED)
-        //   D23 : N/C
+        //   D23 : Serial TX Alt (mosaic-T COM3 RX)
         //   D25 : Serial TX (mosaic-T COM4 RX)
         //   D26 : Serial CTS (mosaic-T COM1 CTS)
         //   D27 : Serial RTS (mosaic-T COM1 RTS)
         //   D32 : Error LED
         //   D33 : Lock LED
-        //   A34 : N/C
+        //   A34 : Serial RX Alt (mosaic-T COM3 TX)
         //   A35 : Device Sense (resistor divider)
         //   A36 : MRDY (mosaic-T module ready)
         //   A39 : N/C
 
-        pin_errorLED = 32;
-        pin_lockLED = 33;
-
-        pin_serial0TX_Alt = 23;
-        pin_serial0RX_Alt = 34;
-        pin_serial1TX = 14;
-        pin_serial1RX = 13;
-        pin_serial1CTS = 26;
-        pin_serial1RTS = 27;
-
-        pin_serial2TX = 25;
+        pin_setupButton = 0;
         pin_serial2RX = 4;
-
-        pin_SDA1 = 21;
-        pin_SCL1 = 22;
-
+        pin_serial1RX = 13;
+        pin_serial1TX = 14;
         pin_SDA2 = 18;
         pin_SCL2 = 19;
-
-        pin_setupButton = 0;
+        pin_SDA1 = 21;
+        pin_SCL1 = 22;
+        pin_serial0TX_Alt = 23;
+        pin_serial2TX = 25;
+        pin_serial1CTS = 26;
+        pin_serial1RTS = 27;
+        pin_errorLED = 32;
+        pin_lockLED = 33;
+        pin_serial0RX_Alt = 34;
 
         displayType = DISPLAY_128x64;
     }
@@ -287,7 +286,7 @@ void beginFS()
 // Set LEDs for output and configure PWM
 void beginLEDs()
 {
-    if (productVariant == RTK_MOSAIC_T)
+    if (productVariant == GNSSDO || productVariant == GNSSDO_PLUS)
     {
         pinMode(pin_errorLED, OUTPUT);
         pinMode(pin_lockLED, OUTPUT);
@@ -317,7 +316,7 @@ void beginSystemState()
         factoryReset(false); // We do not have the SD semaphore
     }
 
-    if (productVariant == RTK_MOSAIC_T)
+    if (productVariant == GNSSDO || productVariant == GNSSDO_PLUS)
     {
         if (settings.lastState == STATE_NOT_SET) // Default after factory reset
             settings.lastState = STATE_GNSS_NOT_CONFIGURED;
@@ -515,8 +514,16 @@ void pinI2C2Task(void *pvParameters)
 void beginTCXO(TwoWire *i2cBus)
 {
     if (!i2cBus)
-        reportFatalError("Illegal TCXO i2cBus");
-
+    {
+        // No i2cBus for TCXO
+        // There is some redundancy here. If online.tcxo is never set true,
+        // the myTCXO-> methods are never called...
+        myTCXO = new GNSSDO_TCXO();
+        systemPrintln("Illegal TCXO i2cBus! TCXO / OCXO not found?");
+        strncpy(oscillatorType, "NONE", sizeof(oscillatorType));
+        return;
+    }
+    
     // In order of priority: use STP3593LF or SiT5811 if present
     if (presentSTP3593LF)
     {
@@ -578,6 +585,10 @@ void beginTCXO(TwoWire *i2cBus)
     else
     {
         // No TCXO present!
+        // There is some redundancy here. If online.tcxo is never set true,
+        // the myTCXO-> methods are never called...
+        myTCXO = new GNSSDO_TCXO();
+        systemPrintln("TCXO / OCXO not found!");
         strncpy(oscillatorType, "NONE", sizeof(oscillatorType));
         return;
     }
