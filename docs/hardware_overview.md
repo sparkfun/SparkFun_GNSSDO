@@ -766,9 +766,9 @@ There are six status LEDs on the GNSSDO:
 	- The GNSS Error status - as reported by **PVTGeodetic Error**
 	- Connected to ESP32 GPIO pin 32
 - `RTK` - Real-Time Kinematic *(Yellow)*
-	- Solid Yellow - The mosaic-T has an RTK Fixed solution
-	- Blinking Yellow - The mosaic-T has an RTK Float solution
-	- Off - No RTK solution
+	- This LED has little or no functionality on the GNSSDO as the mosaic-T uses PPP, not RTK
+	- Internally, it is connected to the mosaic-T GPLED2 pin
+	- It can be configured for (e.g.) TRACKLED if desired
 
 </div>
 
