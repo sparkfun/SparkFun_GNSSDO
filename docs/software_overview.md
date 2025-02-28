@@ -337,8 +337,8 @@ Select option **c** ("c" followed by "Enter") to configure the firmware:
 	- With a subscription to Fugro AtomiChron, this option allows the individual Galileo clock bias to be preferred over the composite Fugro bias.
 	- You can enable a preference for either GPS or Galileo. Enabling Galileo will disable GPS.
 - **8) Pulse-Per-Second Interval**
-	- This defines the interval of the PPS signal. The intervals are defined by the mosiac-T firmware. Use "8" and "Enter" to scroll through the intervals.
-	- "off"
+	- This defines the interval of the PPS signal. The intervals are defined by the mosiac-T firmware. Use "8" and "Enter" to scroll through the intervals:
+		- "off"
 		- "msec10"
 		- "msec20"
 		- "msec50"
@@ -359,7 +359,7 @@ Select option **c** ("c" followed by "Enter") to configure the firmware:
 	- This allows the timing of the PPS signal to be advanced or retarded. The units are nanoseconds.
 - **11) Pulse-Per-Second Time Scale**
 	- This defines which time scale is used to generate the PPS signal.
-	- "GPS"
+		- "GPS"
 		- "Galileo"
 		- "BeiDou"
 		- "GLONASS"
@@ -382,7 +382,7 @@ The TCXO frequency control word is saved to NVM once per hour, to allow a quicke
 
 ### TCP Server (IPS1)
 
-When **TCP Server (IPS1)** is enabled, the ESP32 serial console is diverted from the CH340 (USB) interface to the mosaic-T COM3 UART interface and daisy chained to the IPS1 TCP server. The configuration menu and debug messages can then be accessed over TCP / Telnet on the chosen port. The CH340 (USB) interface is then no longer active.
+When **TCP Server (IPS1)** is enabled, the ESP32 serial console is diverted from the CH340 USB (CONFIG ESP32) interface to the mosaic-T COM3 UART interface and daisy chained to the IPS1 TCP server. The configuration menu and debug messages can then be accessed over TCP / Telnet on the chosen port. The CH340 USB (CONFIG ESP32) interface is then no longer active.
 
 TCP / Telnet is supported over both Ethernet and the Ethernet-over-USB connection. Only one TCP2Way connection is supported.
 
