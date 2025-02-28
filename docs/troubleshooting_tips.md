@@ -63,7 +63,7 @@ For data logging issues, here are some simple troubleshooting tips:
 
 
 ## L5 Band
-By default, the L5 band is disabled on the mosaic-T. To enable reception of the L5 band on the mosaic-T, we have provided instructions on the [Enable the L5 Band](../L5) page.
+By default, the L5 band is enabled on the mosaic-T. To disable or re-enable reception of the L5 band on the mosaic-T, we have provided instructions on the [Enable the L5 Band](./L5.md) page.
 
 
 ## Reprogramming the ESP32
@@ -127,7 +127,7 @@ The GNSSDO PCB is held in place by the front and rear panels of the enclosure. W
 
 Once the terminal blocks have been removed, users can remove the front and rear panels of the enclosure. They are held in place with four, M3, Phillips head screws on the corners of each panel.
 
-!!!  "Remove Front Panel First"
+!!! warning "Remove Front Panel First"
 	We recommend removing the front panel first to prevent the Qwiic cable from being yanked off the OLED display or main PCB. Once the front panel is free, carefully lift the panel and disconnect the Qwiic cable from the top connector on the OLED display.
 
 At this point, if users have previously disconnected all the cables and the terminal blocks from the back, the GNSSDO PCB should slide out of the enclosure. Users can then, remove the rear panel from the enclosure to complete the teardown process.
