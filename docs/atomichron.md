@@ -23,7 +23,7 @@ Fugro AtomiChron^®^ is a global, real-time, precise clock synchronisation and a
 
 AtomiChron^®^ subscriptions are managed by Fugro. We ask that you complete the [SparkPNT GNSSDO Fugro AtomiChron^®^ Service Registration Form](https://www.sparkfun.com/gnssdo_registration) and the team at Fugro will be in touch. To subscribe, Fugro will need to know the serial number of the mosaic-T inside your GNSSDO. You can find the mosaic-T serial number in several ways:
 
-* You can view it on the Fugro AtomiChron tab of mosaic-X5's internal web page. The web page can be viewed over Ethernet or Ethernet-over-USB. Please see the [Quick Start Guide](./quick_start.md) for more details.
+* You can view it on the Fugro AtomiChron tab of mosaic-T's internal web page. The web page can be viewed over Ethernet or Ethernet-over-USB. Please see the [Quick Start Guide](./quick_start.md) for more details.
 * The serial number is also displayed when you open the [Software Settings menu](./software_overview.md#software-settings) in a terminal emulator or serial console.
 
 <div class="grid" markdown>
