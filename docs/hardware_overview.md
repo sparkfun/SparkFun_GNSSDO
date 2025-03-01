@@ -1004,4 +1004,4 @@ The jumpers on the bottom of the GNSSDO PCB.
 		- The **VCCIO** jumper can be soldered closed to connect the **CTS** screw terminal to VCCIO. **CTS** can then be used as a power output. The voltage is set by the VCCIO slide switch.
 	- **MEAS**
 		- Open the **MEAS** jumper if you wish to measure the total current drawn by the GNSSDO, or (e.g.) wish to add an ON/OFF switch. The breakout pads can then be used to attach a multimeter or a mechanical power switch.
-		- **MEAS** is _upstream_ of the two 3.3V regulators and _downstream_ of the four power source combination and protection diodes.
+		- **MEAS** is *upstream* of the two 3.3V regulators and *downstream* of the four power source combination and protection diodes.

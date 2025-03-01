@@ -164,13 +164,13 @@ plugins:
 
       # # # Allows for external assets to be used
       assets: true
-      # assets_fetch: true
+      assets_fetch: true
 
       # Provide domains for assets that are retrieved from external sites
-      assets_include:
-        - https://docs.sparkfun.com/SparkFun_RTK_Everywhere_Firmware/*
+      # assets_include:
+      #   - https://docs.sparkfun.com/
 
-      # assets_fetch_dir: ../docs/external/
+      # assets_fetch_dir: /docs
 
       # External links open in a new tab
       links_attr_map:

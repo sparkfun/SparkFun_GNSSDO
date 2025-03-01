@@ -165,6 +165,11 @@
 	width: 100%;
 }
 
+.md-typeset .twemoji.icon-max-width svg {
+	display: inline-flex;
+	max-height: 1rem;
+	width: 100%;
+}
 
 /* ================================================================================== */
 /* Custom Admonitions                                                                 */
