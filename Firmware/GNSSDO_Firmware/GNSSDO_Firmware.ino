@@ -140,6 +140,7 @@ float gnssAltitude_m = 0.0;
 uint8_t gnssTimeSys = 255; // Unknown
 uint8_t gnssError = 255; // Unknown
 double gnssClockBias_ms = 0.0;
+float gnssClockDrift_ppm = 0.0;
 
 // IPStatus 4058
 uint8_t ethernetMACAddress[6] = { 0,0,0,0,0,0 }; // Display this address in the system menu

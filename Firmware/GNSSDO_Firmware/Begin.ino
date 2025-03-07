@@ -633,6 +633,7 @@ int64_t getFrequencyControlWord()
 void updateTCXOClockBias()
 {
     tcxoClockBias_ms = gnssClockBias_ms; // Default to the PVTGeodetic RxClkBias
+    tcxoClockDrift_ppm = gnssClockDrift_ppm;
     snprintf(rxClkBiasSource, sizeof(rxClkBiasSource), "PVT");
 
     if (settings.preferNonCompositeGPSBias || settings.preferNonCompositeGalileoBias) // These are mutex
@@ -641,6 +642,7 @@ void updateTCXOClockBias()
         if (fugroTimeSystems[index].updated) // If we have the preferred non-composite bias, use that
         {
             tcxoClockBias_ms = fugroTimeSystems[index].RxClkBias_ms;
+            tcxoClockDrift_ppm = fugroTimeSystems[index].RxClkDrift_ppm;
             fugroTimeSystems[index].updated = false;
             snprintf(rxClkBiasSource, sizeof(rxClkBiasSource), fugroTimeSystems[index].name);
         }

@@ -84,6 +84,7 @@ typedef struct {
     const uint8_t SysUsage;
     const char name[8];
     double RxClkBias_ms;
+    float RxClkDrift_ppm;
     bool updated;
 } fugroTimeSystem;
 
@@ -131,6 +132,7 @@ uint8_t mosaicTimeSystemIndexFromName(const char *name)
     return 0; // This should never happen
 }
 double tcxoClockBias_ms; // Updated by updateTCXOClockBias
+float tcxoClockDrift_ppm;
 char rxClkBiasSource[8];
 
 const char *const mosaicPVTErrorTable[] = {
