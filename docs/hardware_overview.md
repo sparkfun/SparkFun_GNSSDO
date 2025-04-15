@@ -442,7 +442,7 @@ The GNSSDO has robust SMA connectors for the mosaic-T GNSS antenna, Pulse-Per-Se
 	<figcaption markdown>The SMA connector for the EventA input.</figcaption>
 	</figure>
 
-	The Event A SMA connector is standard polarity. The voltage is adjustable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The output 	can also be configured for 50 Ohm via the jumper links *(see the **[Jumpers](#jumpers)** section)*.
+	The Event A SMA connector is standard polarity. The voltage is adjustable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The output can also be configured for 50 Ohm via the jumper links *(see the **[Jumpers](#jumpers)** section)*.
 
 	</div>
 
@@ -470,7 +470,7 @@ The GNSSDO has robust SMA connectors for the mosaic-T GNSS antenna, Pulse-Per-Se
 	<figcaption markdown>The SMA connector for the 10 MHz output / input.</figcaption>
 	</figure>
 
-	The 10 MHz SMA connector is standard polarity. The voltage is adjustable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The output 	can also be configured for 50 Ohm via the jumper links *(see the **[Jumpers](#jumpers)** section)*. Output / Input is selected via the small slide switch *(see the **[Switches](#switches)** section)* adjacent to the connector. When configured for input: the input 	impedance is 50Ω; the detection level is -14dBm; the max supported input level is +12dBm.
+	The 10 MHz SMA connector is standard polarity. The voltage is adjustable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The output can also be configured for 50 Ohm via the jumper links *(see the **[Jumpers](#jumpers)** section)*. Output / Input is selected via the small slide switch *(see the **[Switches](#switches)** section)* adjacent to the connector. When configured for input: the input impedance is 50Ω; the detection level is -14dBm; the max supported input level is +12dBm.
 
 	</div>
 
@@ -502,7 +502,7 @@ The GNSSDO has robust SMA connectors for the mosaic-T GNSS antenna, Pulse-Per-Se
 	<figcaption markdown>The SMA connector for the Pulse-Per-Second output.</figcaption>
 	</figure>
 
-	The Pulse-Per-Second SMA connector is standard polarity. The voltage is selectable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The 	output is DC-coupled. The output can be configured for 50 Ohm output via the jumper links *(see the **[Jumpers](#jumpers)** section)*.
+	The Pulse-Per-Second SMA connector is standard polarity. The voltage is selectable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The output is DC-coupled. The output can be configured for 50 Ohm output via the jumper links *(see the **[Jumpers](#jumpers)** section)*.
 
 	</div>
 
