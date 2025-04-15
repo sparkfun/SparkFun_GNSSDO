@@ -73,6 +73,7 @@ You can update or reload the firmware using the [SparkFun RTK Firmware Uploader]
 
 The full firmware source code is available in our [GitHub repository](https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/Firmware/GNSSDO_Firmware)
 
+
 ## Enclosure Disassembly
 Due to the ESD sensitivity of the mosaic-T module, we don't recommend disassembling the GNSSDO. However, if users must access the PCB to troubleshoot an issue, make a modification, or repair a component, we highly recommend that they take the necessary ESD precautions to avoid damaging the mosaic-T module.
 
@@ -131,6 +132,14 @@ Once the terminal blocks have been removed, users can remove the front and rear 
 	We recommend removing the front panel first to prevent the Qwiic cable from being yanked off the OLED display or main PCB. Once the front panel is free, carefully lift the panel and disconnect the Qwiic cable from the top connector on the OLED display.
 
 At this point, if users have previously disconnected all the cables and the terminal blocks from the back, the GNSSDO PCB should slide out of the enclosure. Users can then, remove the rear panel from the enclosure to complete the teardown process.
+
+
+## Clock Frequency Reference
+The mosaic-T module can either use its internal TCXO or accept an external signal as a frequency reference. However, the module will constantly reboot if the `REF_I` pin isn't provided a 10MHz sinusoidal signal and left floating. Therefore, users should only set the `10MHz` switch to the `IN` position, only if a 10MHz clock signal can be provided; otherwise, the switch should remain in the `OUT` position.
+
+!!! note
+	Switching between an external and internal frequency reference must occur when the mosaic-T is powered off, or the module must be reset after switching.
+
 
 <!-- QR Code for Hookup Guide (Displayed when printed) -->
 <center>
