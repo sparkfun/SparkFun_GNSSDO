@@ -442,7 +442,7 @@ The GNSSDO has robust SMA connectors for the mosaic-T GNSS antenna, Pulse-Per-Se
 	<figcaption markdown>The SMA connector for the EventA input.</figcaption>
 	</figure>
 
-	The Event A SMA connector is standard polarity. The voltage is adjustable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The output 	can also be configured for 50 Ohm via the jumper links *(see the **[Jumpers](#jumpers)** section)*.
+	The Event A SMA connector is standard polarity. The voltage is adjustable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The output can also be configured for 50 Ohm via the jumper links *(see the **[Jumpers](#jumpers)** section)*.
 
 	</div>
 
@@ -470,7 +470,7 @@ The GNSSDO has robust SMA connectors for the mosaic-T GNSS antenna, Pulse-Per-Se
 	<figcaption markdown>The SMA connector for the 10 MHz output / input.</figcaption>
 	</figure>
 
-	The 10 MHz SMA connector is standard polarity. The voltage is adjustable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The output 	can also be configured for 50 Ohm via the jumper links *(see the **[Jumpers](#jumpers)** section)*. Output / Input is selected via the small slide switch adjacent to the connector. When configured for input: the input 	impedance is 50Ω; the detection level is -14dBm; the max supported input level is +12dBm.
+	The 10 MHz SMA connector is standard polarity. The voltage is adjustable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The output can also be configured for 50 Ohm via the jumper links *(see the **[Jumpers](#jumpers)** section)*. Output / Input is selected via the small slide switch *(see the **[Switches](#switches)** section)* adjacent to the connector. When configured for input: the input impedance is 50Ω; the detection level is -14dBm; the max supported input level is +12dBm.
 
 	</div>
 
@@ -487,6 +487,10 @@ The GNSSDO has robust SMA connectors for the mosaic-T GNSS antenna, Pulse-Per-Se
 	</div>
 
 
+	!!! warning
+		Although the mosaic-T module can either use its internal TCXO or accept an external signal as a frequency reference, the module will constantly reboot if the `REF_I` pin isn't provided a 10MHz sinusoidal signal and left floating. Therefore, users should only set the [`10MHz` switch](#switches) to the `IN` position, only if a 10MHz clock signal can be provided; otherwise, the switch should remain in the `OUT` position.
+
+
 === "`PPS`"
 
 	<div class="grid" markdown>
@@ -498,7 +502,7 @@ The GNSSDO has robust SMA connectors for the mosaic-T GNSS antenna, Pulse-Per-Se
 	<figcaption markdown>The SMA connector for the Pulse-Per-Second output.</figcaption>
 	</figure>
 
-	The Pulse-Per-Second SMA connector is standard polarity. The voltage is selectable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The 	output is DC-coupled. The output can be configured for 50 Ohm output via the jumper links *(see the **[Jumpers](#jumpers)** section)*.
+	The Pulse-Per-Second SMA connector is standard polarity. The voltage is selectable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The output is DC-coupled. The output can be configured for 50 Ohm output via the jumper links *(see the **[Jumpers](#jumpers)** section)*.
 
 	</div>
 
@@ -724,6 +728,12 @@ There are two miniature slide switches on the GNSSDO PCB:
 </figure>
 
 
+!!! warning
+	The mosaic-T module can either use its internal TCXO or accept an external signal as a frequency reference. However, the module will constantly reboot if the `REF_I` pin isn't provided a 10MHz sinusoidal signal and left floating. Therefore, users should only set the `10MHz` switch to the `IN` position, only if a 10MHz clock signal can be provided; otherwise, the switch should remain in the `OUT` position.
+
+	Additionally, switching between an external and internal frequency reference must occur when the mosaic-T is powered off, or the module must be reset after switching states.
+
+
 === "`VCCIO`"
 	This switch sets the voltage of the Input Output Terminals (COM2 UART, Event B, SCL2 & SDA2)
 
@@ -736,7 +746,7 @@ There are two miniature slide switches on the GNSSDO PCB:
 		- The SMA connector will output a 10MHz "CMOS" disciplined clock signal
 		- The signal voltage is set by the VCCIO voltage selection switch
 	- When set to `IN`:
-		- The user can apply a clock signal from an external 10MHz oscillator
+		- The user **must apply a clock signal from an external 10MHz oscillator**; otherwise, the mosaic-T module will constantly reset
 		- The input impedance is 50Ω
 		- The detection level is -14dBm
 		- The max supported input level is +12dBm
