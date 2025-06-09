@@ -689,11 +689,11 @@ bool findSpiffsPartition(void)
 void verifyTables()
 {
     // Verify the product name table
-    if (productDisplayNamesEntries != (RTK_UNKNOWN + 1))
+    if (productDisplayNamesEntries != (GNSSDO_UNKNOWN + 1))
         reportFatalError("Fix productDisplayNames to match ProductVariant");
-    if (platformFilePrefixTableEntries != (RTK_UNKNOWN + 1))
+    if (platformFilePrefixTableEntries != (GNSSDO_UNKNOWN + 1))
         reportFatalError("Fix platformFilePrefixTable to match ProductVariant");
-    if (platformPrefixTableEntries != (RTK_UNKNOWN + 1))
+    if (platformPrefixTableEntries != (GNSSDO_UNKNOWN + 1))
         reportFatalError("Fix platformPrefixTable to match ProductVariant");
 
     tasksValidateTables();

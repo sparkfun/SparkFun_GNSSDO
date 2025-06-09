@@ -628,6 +628,11 @@ void processConsumerMessage(PARSE_STATE *parse, uint8_t type)
                 uint64_t unsigned64;
             } dblUnsigned64;
 
+            union {
+                float flt;
+                uint32_t unsigned32;
+            } fltUnsigned32;
+
             dblUnsigned64.unsigned64 = 0;
             for (int i = 0; i < 8; i++)
                 dblUnsigned64.unsigned64 |= ((uint64_t)parse->buffer[16 + i]) << (i * 8);
@@ -658,6 +663,15 @@ void processConsumerMessage(PARSE_STATE *parse, uint8_t type)
             if (gnssClockBias_ms > 999.999)
                 gnssClockBias_ms = 999.999;
 
+            fltUnsigned32.unsigned32 = 0;
+            for (int i = 0; i < 4; i++)
+                fltUnsigned32.unsigned32 |= ((uint32_t)parse->buffer[68 + i]) << (i * 8);
+            gnssClockDrift_ppm = fltUnsigned32.flt;
+            if (gnssClockDrift_ppm < -999999.999)
+                gnssClockDrift_ppm = -999999.999;
+            if (gnssClockDrift_ppm > 999999.999)
+                gnssClockDrift_ppm = 999999.999;
+
             gnssTimeSys = parse->buffer[72];
         }
         else if ((parse->message & 0x1FFF) == 4058) // IPStatus
@@ -686,21 +700,35 @@ void processConsumerMessage(PARSE_STATE *parse, uint8_t type)
                 uint8_t SysUsage = parse->buffer[20 + (b * SBLength) + 0];
                 uint8_t TimeSystem = parse->buffer[20 + (b * SBLength) + 2];
 
+                // Convert uint64_t to double
                 union {
                     double dbl;
                     uint64_t unsigned64;
                 } dblUnsigned64;
 
+                // Extract RxClkBias_ms
                 dblUnsigned64.unsigned64 = 0;
                 for (int i = 0; i < 8; i++)
                     dblUnsigned64.unsigned64 |= ((uint64_t)parse->buffer[20 + (b * SBLength) + 4 + i]) << (i * 8);
 
+                // Convert uint32_t to float
+                union {
+                    float flt;
+                    uint32_t unsigned32;
+                } fltUnsigned32;
+
+                // Extract RxClkDrift_ppm
+                fltUnsigned32.unsigned32 = 0;
+                for (int i = 0; i < 4; i++)
+                    fltUnsigned32.unsigned32 |= ((uint32_t)parse->buffer[20 + (b * SBLength) + 12 + i]) << (i * 8);
+    
                 // If this block contains a non-composite clock indicator, store it
                 for (int TS = 0; TS < NUM_FUGRO_CLK_BIASES; TS++)
                 {
                     if (fugroTimeSystems[TS].SysUsage == SysUsage)
                     {
                         fugroTimeSystems[TS].RxClkBias_ms = dblUnsigned64.dbl;
+                        fugroTimeSystems[TS].RxClkDrift_ppm = fltUnsigned32.flt;
                         fugroTimeSystems[TS].updated = true;
                         break;
                     }
@@ -718,7 +746,7 @@ void ButtonCheckTask(void *e)
 
     while (true)
     {
-        if (productVariant == RTK_MOSAIC_T)
+        if (productVariant == GNSSDO || productVariant == GNSSDO_PLUS)
         {
             if (setupBtn &&
                 (settings.disableSetupButton == false)) // Allow check of the setup button if not overridden by settings

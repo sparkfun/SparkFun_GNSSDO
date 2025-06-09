@@ -23,14 +23,16 @@ bool newSystemStateRequested = false;
 
 typedef enum
 {
-    RTK_MOSAIC_T = 0,
+    GNSSDO = 0,
+    GNSSDO_PLUS,
     // Add new values just above this line
-    RTK_UNKNOWN,
+    GNSSDO_UNKNOWN,
 } ProductVariant;
-ProductVariant productVariant = RTK_UNKNOWN;
+ProductVariant productVariant = GNSSDO_UNKNOWN;
 
 const char *const productDisplayNames[] = {
     "GNSSDO",
+    "GNSSDO+",
     // Add new values just above this line
     "Unknown",
 };
@@ -38,6 +40,7 @@ const int productDisplayNamesEntries = sizeof(productDisplayNames) / sizeof(prod
 
 const char *const platformFilePrefixTable[] = {
     "SFE_GNSSDO",
+    "SFE_GNSSDO_PLUS",
     // Add new values just above this line
     "SFE_Unknown",
 };
@@ -45,6 +48,7 @@ const int platformFilePrefixTableEntries = sizeof(platformFilePrefixTable) / siz
 
 const char *const platformPrefixTable[] = {
     "GNSSDO",
+    "GNSSDO_PLUS",
     // Add new values just above this line
     "Unknown",
 };
@@ -80,6 +84,7 @@ typedef struct {
     const uint8_t SysUsage;
     const char name[8];
     double RxClkBias_ms;
+    float RxClkDrift_ppm;
     bool updated;
 } fugroTimeSystem;
 
@@ -127,6 +132,7 @@ uint8_t mosaicTimeSystemIndexFromName(const char *name)
     return 0; // This should never happen
 }
 double tcxoClockBias_ms; // Updated by updateTCXOClockBias
+float tcxoClockDrift_ppm;
 char rxClkBiasSource[8];
 
 const char *const mosaicPVTErrorTable[] = {

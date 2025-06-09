@@ -584,7 +584,7 @@ void printCurrentConditions(bool CSV)
         {
             if (firstTime)
             {
-                systemPrintln("YYYY/MM/DD,HH:MM:SS,Epoch,Lat,Lon,Alt,TimeSys,Error,Fine,PPS,Bias,Source,TCXO,Pk,Ik");
+                systemPrintln("YYYY/MM/DD,HH:MM:SS,Epoch,Lat,Lon,Alt,TimeSys,Error,Fine,PPS,Bias,Drift,Source,TCXO,Pk,Ik");
                 firstTime = false;
             }
 
@@ -619,6 +619,8 @@ void printCurrentConditions(bool CSV)
             systemPrint(ppsStarted);
 
             systemPrintf(",%.3e", tcxoClockBias_ms / 1000.0); // Display clock bias in seconds
+
+            systemPrintf(",%.3e", tcxoClockDrift_ppm / 1000000.0); // Display clock drift in parts
 
             systemPrint(",");
             systemPrint((const char *)rxClkBiasSource),
@@ -668,6 +670,8 @@ void printCurrentConditions(bool CSV)
             else
                 systemPrintf(", Bias: %.3fns",
                     (float)(tcxoClockBias_ms * 1000000.0));
+
+            systemPrintf(", Drift: %.3e", tcxoClockDrift_ppm / 1000000.0);
 
             systemPrint(", Source: ");
             systemPrint((const char *)rxClkBiasSource),
