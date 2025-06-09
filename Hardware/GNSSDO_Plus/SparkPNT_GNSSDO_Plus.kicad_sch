@@ -14897,7 +14897,7 @@
 			)
 		)
 		(instances
-			(project "SparkPNT_GNSSDO_Plus"
+			(project "SparkPNT_GNSSDO_Plus_panelized"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(page "3")
 				)
@@ -14939,7 +14939,7 @@
 			)
 		)
 		(instances
-			(project "SparkPNT_GNSSDO_Plus"
+			(project "SparkPNT_GNSSDO_Plus_panelized"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(page "4")
 				)
@@ -14981,7 +14981,7 @@
 			)
 		)
 		(instances
-			(project "SparkPNT_GNSSDO_Plus"
+			(project "SparkPNT_GNSSDO_Plus_panelized"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(page "9")
 				)
@@ -15023,7 +15023,7 @@
 			)
 		)
 		(instances
-			(project "SparkPNT_GNSSDO_Plus"
+			(project "SparkPNT_GNSSDO_Plus_panelized"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(page "8")
 				)
@@ -15065,7 +15065,7 @@
 			)
 		)
 		(instances
-			(project "SparkPNT_GNSSDO_Plus"
+			(project "SparkPNT_GNSSDO_Plus_panelized"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(page "2")
 				)
@@ -15107,7 +15107,7 @@
 			)
 		)
 		(instances
-			(project "SparkPNT_GNSSDO_Plus"
+			(project "SparkPNT_GNSSDO_Plus_panelized"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(page "5")
 				)
@@ -15149,7 +15149,7 @@
 			)
 		)
 		(instances
-			(project "SparkPNT_GNSSDO_Plus"
+			(project "SparkPNT_GNSSDO_Plus_panelized"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(page "6")
 				)
@@ -15191,7 +15191,7 @@
 			)
 		)
 		(instances
-			(project "SparkPNT_GNSSDO_Plus"
+			(project "SparkPNT_GNSSDO_Plus_panelized"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a"
 					(page "7")
 				)
