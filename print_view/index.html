@@ -1278,12 +1278,12 @@
 <li>On-module L-band</li>
 </ul>
 </li>
-<li>Supports RTCM input for RTK Rover. <strong>RTCM output (RTK Base) is not supported.</strong></li>
 <li>Time pulse precision: 5ns</li>
 <li>Time pulse precision with AtomiChron (L-Band or IP): &lt; 1ns</li>
 <li>Event accuracy: &lt; 20ns</li>
 <li>Operating temperature: -40 to 85 °C</li>
 <li>USB-C interface (UART and Ethernet-over-USB)</li>
+<li><strong>RTK is not supported</strong></li>
 </ul>
 </li>
 <li>ESP32-WROVER processor (16MB flash, 8MB PSRAM)<ul>
@@ -1344,8 +1344,8 @@
 </ul>
 </details>
 <div class="admonition warning">
-<p class="admonition-title">RTK Base</p>
-<p>The mosaic-T is a superb GNSS module designed for highly accurate timing applications. It can be configured as a RTK Rover and will make use of incoming RTCM corrections. <strong>However, it can <span style="color:red;">NOT</span> be configured as a <span style="color:red;">RTK Base</span> because the RTCM output is not supported.</strong></p>
+<p class="admonition-title">RTK Not Supported</p>
+<p>The mosaic-T is a superb GNSS module designed for highly accurate timing applications. <strong>However, RTK is not supported.</strong></p>
 </div>
 </li>
 </ul>
@@ -1399,7 +1399,7 @@
     <td style="text-align:center">Yes</td>
     <td style="text-align:center">Yes</td>
     <td style="text-align:center">Yes</td>
-    <td style="text-align:center">Yes</td>
+    <td style="text-align:center"><strong>No</strong></td>
 </tr>
 <tr>
     <td>RTK Base</td>
