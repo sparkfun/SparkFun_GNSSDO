@@ -48,12 +48,12 @@ icon: material/book-open-page-variant
 				- NavIC: L5
 				- SBAS: Egnos, WAAS, GAGAN, MSAS, SDCM (L1, L5)
 				- On-module L-band
-			- Supports RTCM input for RTK Rover. **RTCM output (RTK Base) is not supported.**
 			- Time pulse precision: 5ns
 			- Time pulse precision with AtomiChron (L-Band or IP): < 1ns
 			- Event accuracy: < 20ns
 			- Operating temperature: -40 to 85 °C
 			- USB-C interface (UART and Ethernet-over-USB)
+			- **RTK is not supported**
 		- ESP32-WROVER processor (16MB flash, 8MB PSRAM)
 			- USB-C interface (UART via CH340)
 		- SiT5358 disciplined 10MHz oscillator
@@ -93,8 +93,8 @@ icon: material/book-open-page-variant
 			- 9V-36V DC input (fully isolated)
 
 
-	!!! warning "RTK Base"
-		The mosaic-T is a superb GNSS module designed for highly accurate timing applications. It can be configured as a RTK Rover and will make use of incoming RTCM corrections. **However, it can <span style="color:red;">NOT</span> be configured as a <span style="color:red;">RTK Base</span> because the RTCM output is not supported.**
+	!!! warning "RTK Not Supported"
+		The mosaic-T is a superb GNSS module designed for highly accurate timing applications. **However, RTK is not supported.**
 
 </div>
 
@@ -148,7 +148,7 @@ icon: material/book-open-page-variant
 		<td style="text-align:center">Yes</td>
 		<td style="text-align:center">Yes</td>
 		<td style="text-align:center">Yes</td>
-		<td style="text-align:center">Yes</td>
+		<td style="text-align:center">**No**</td>
 	</tr>
 	<tr>
 		<td>RTK Base</td>
