@@ -22,10 +22,15 @@
   1.2: Add support for SiT5811 and STP3593LF oscillators
   1.3: Enable Ethernet by default
   1.4: Include a soft reset to work around "Ready for SUF Download"
-  1.5: Print an ERROR if the display is not detected, but allow firmware to continue
+  1.5: Print an ERROR if the display is not initialized, but allow firmware to continue
        Print mosaic-T version, S/N, Ethernet MAC + IP in menuMain
        Store previousIP in NVM - updated once per hour
        Print oscillator type in menuMain
+  2.0: Add support for the GNSSDO Plus (GNSSDO+)
+       Add RX Clock Drift (RxClkDrift) reporting
+       Allow extra time when copying the mosaic-T configuration
+       Print an error if no TCXO / OCXO is detected, but allow firmware to continue
+       Print an ERROR if the display is not detected on I2C, but allow firmware to continue
 */
 
 // This is passed in from compiler extra flags

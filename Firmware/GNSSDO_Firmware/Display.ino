@@ -22,7 +22,11 @@ void beginDisplay(TwoWire *i2cBus)
         return;
 
     if (i2cBus == nullptr)
-        reportFatalError("Illegal display i2cBus");
+    {
+        //reportFatalError("Illegal display i2cBus");
+        systemPrintln("ERROR: Illegal display i2cBus! Failed to detect the display! Continuing...\r\n");
+        return;
+    }
 
     uint8_t i2cAddress;
     uint16_t x;
