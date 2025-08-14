@@ -9,9 +9,9 @@ Designed and manufactured in Boulder, Colorado, USA, the SparkPNT GNSS Disciplin
 
 Under the hood, the GNSSDO is based on the mosaic-T GNSS module from Septentrio, plus the Espressif ESP32-WROVER processor (16MB flash, 8MB PSRAM). The mosaic-T has USB-C connectivity (with Ethernet-over-USB), multiple UARTs and supports full Ethernet connectivity. You can connect the mosaic-T directly to your Ethernet network - our product supports Power-over-Ethernet too. The ESP32 rides shotgun: disciplining the DCTCXO and controlling the OLED display. Remote configuration is possible, the ESP32 console can be accessed via TCP. The GNSSDO has multiple power options including USB-C, PoE and 9V-36V DC, making it easy to connect it to a battery-backed supply.
 
-RTK Base
+RTK Not Supported
 --------------
-The mosaic-T is a superb GNSS module designed for highly accurate timing applications. It can be configured as a RTK Rover and will make use of incoming RTCM corrections. **But it can not be configured as a RTK Base. RTCM output is not supported.**
+The mosaic-T is a superb GNSS module designed for highly accurate timing applications. **But it does not support RTK. It can not be used as a RTK Rover or Base. RTCM output is not supported.**
 
 Documentation
 --------------
