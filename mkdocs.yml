@@ -216,11 +216,6 @@ plugins:
       repository: sparkfun/SparkFun_GNSSDO
       branch: main
 
-  # Add git authors at bottom of the page
-  - git-authors:
-      # Disables plugin on local builds
-      enabled: !ENV [CI, false]
-
   # Enables use of Git submodules and larger code base
   - monorepo:
       # Disables plugin on local builds
