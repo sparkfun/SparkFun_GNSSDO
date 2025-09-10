@@ -159,6 +159,9 @@ plugins:
 
   # Enables improved security for external links
   - privacy:
+      # Disables plugin on local builds
+      enabled: !ENV [CI, false]
+
       # Disables cache mechanism, so that external assets can be updated during rebuilds
       cache: false
 
