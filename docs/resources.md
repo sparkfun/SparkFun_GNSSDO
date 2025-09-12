@@ -12,7 +12,7 @@ icon: material/book-open-page-variant
 	- :fontawesome-solid-file-pdf: [Enclosure Dimensions](./assets/board_files/dimensions-enclosure.pdf)
 	- :fontawesome-solid-file-code: [ESP32 Firmware](https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/Firmware/GNSSDO_Firmware)
 - Datasheets:
-	- :fontawesome-solid-file-pdf: [mosaic-T Datasheet](./assets/component_documentation/Mosaic%20Hardware%20Manual_v1.8.0.pdf)
+	- :fontawesome-solid-file-pdf: [mosaic-T Datasheet](./assets/component_documentation/mosaic_hardware_manual_v1.11.0.pdf)
 	- :fontawesome-solid-file-pdf: [SiT5358 Datasheet](./assets/component_documentation/SiT5358-datasheet.pdf)
 	- :fontawesome-solid-file-pdf: [ESP32 Datasheet](./assets/component_documentation/esp32-wrover-e_datasheet_en.pdf)
 - :material-youtube: [SFE Product Showcase](https://www.youtube.com/watch?v=WI0NbXBxeUo)
