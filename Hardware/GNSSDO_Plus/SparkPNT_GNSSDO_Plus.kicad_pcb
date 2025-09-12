@@ -26326,45 +26326,9 @@
 			(uuid "2fdd9f5d-dd00-4afb-918e-2568ac8de5d2")
 		)
 		(embedded_fonts no)
-		(model "${SPARKFUN_KICAD_LIBRARY}/Footprints/SparkFun-3D-models/GPS/mosaic.wrl"
-			(hide yes)
+		(model "${SPARKFUN_KICAD_LIBRARY}/Footprints/SparkFun-3D-models/GPS/Septentrio_mosaic-Rev5.step"
 			(offset
-				(xyz -15.5 -15.5 0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
-		(model "${SPARKFUN_KICAD_LIBRARY}/Footprints/SparkFun-3D-models/GPS/mosaic_sticker-H.wrl"
-			(hide yes)
-			(offset
-				(xyz -12.5 12.5 4.5)
-			)
-			(scale
-				(xyz 0.25 0.25 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
-		(model "${SPARKFUN_KICAD_LIBRARY}/Footprints/SparkFun-3D-models/GPS/mosaic-X5-Rev5.step"
-			(hide yes)
-			(offset
-				(xyz -15.5 -15.5 0.96)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
-		(model "${SPARKFUN_KICAD_LIBRARY}/Footprints/SparkFun-3D-models/GPS/mosaic-Rev5.step"
-			(offset
-				(xyz -15.5 -15.5 0.96)
+				(xyz -15.5 -15.5 0.94)
 			)
 			(scale
 				(xyz 1 1 1)

@@ -25359,9 +25359,9 @@
 			(thermal_bridge_angle 0)
 			(uuid "e4dfe822-2944-4e76-811a-86bfbc437c90")
 		)
-		(model "${SPARKFUN_KICAD_LIBRARY}/Footprints/SparkFun-3D-models/GPS/mosaic.wrl"
+		(model "${SPARKFUN_KICAD_LIBRARY}/Footprints/SparkFun-3D-models/GPS/Septentrio_mosaic-Rev5.step"
 			(offset
-				(xyz -15.5 -15.5 0)
+				(xyz -15.5 -15.5 0.94)
 			)
 			(scale
 				(xyz 1 1 1)
