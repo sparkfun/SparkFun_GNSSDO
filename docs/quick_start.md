@@ -48,9 +48,10 @@ hide: toc
 		[:octicons-download-16:{ .heart } Download the Quick Start Guide :fontawesome-solid-file-pdf:](./assets/quick_start_guide-v10.pdf "Click to Download"){ .md-button .md-button--primary }
 		</figcaption>
 		</figure>
-		<center>
+
+		<article style="text-align: center;" markdown>
 		*Click on the button (above) or scan the QR code with a mobile device, to download the `*.pdf` file of the quick start pamphlet.*
-		</center>
+		</article>
 
 
 

@@ -15,11 +15,9 @@ icon: material/cog
 
 		<div markdown>
 
-		<center>
-		<article class="video-500px">
+		<article class="video-500px" style="text-align: center; margin: auto;" markdown>
 		<iframe src="https://www.youtube.com/embed/hrL5J6Q5gX8?si=jOPBat8rzMnL7Uz4&amp;start=26;&amp;end=35;" title="Septentrio: Getting Started Video (playback starts at ESD warning)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		</article>
-		</center>
 
 		</div>
 
@@ -85,20 +83,19 @@ Users can download the [full schematic for the GNSSDO](./assets/board_files/sche
 		!!! info ":octicons-download-16:{ .heart } KiCad - Free Download!"
 			KiCad is free, open-source [CAD]("computer-aided design") program for electronics. Click on the button below to download their software. *(\*Users can find out more information about KiCad from their [website](https://www.kicad.org/).)*
 
-			<center>
+			<article style="text-align: center;" markdown>
 			[Download :kicad-primary:{ .enlarge-logo }](https://www.kicad.org/download/ "Go to downloads page"){ .md-button .md-button--primary width="250px" }
-			</center>
+			</article>
 
 
 		??? info ":straight_ruler: Measuring Tool"
 			This video demonstrates how to utilize the dimensions tool in KiCad, to include additional measurements:
 
-			<center>
-			<article class="video-500px">
+			<article class="video-500px" style="text-align: center; margin: auto;" markdown>
 			<iframe src="https://www.youtube.com/embed/-eXuD8pkCYw" title="KiCad Dimension Tool" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			</article>
+
 			![QR code to play video](./assets/img/qr_code/dimension_tool.png){ .qr }
-			</center>
+			</article>
 
 
 === ":material-video-input-antenna: Antenna"
@@ -266,7 +263,7 @@ The ESP32 processor is there to control (discipline) the 10 MHz TCXO oscillator 
 <figcaption markdown>The Espressif ESP32-WROVER processor.</figcaption>
 </figure>
 
-Think of the ESP32 as a co-processor, or riding shotgun... The mosaic-T `COM1`, `COM3` and `COM4` UARTs are linked to the ESP32, allowing the two to communicate directly without needing an Ethernet link. In our firmware, the PVTGeodetic and ReceiverTime messages are output on COM1. The ESP32 displays some of their content on the I<sup>2</sup>C OLED display, and then uses the content to discipline the TCXO oscillator. See [Oscillator](./oscillator.md) for more details.
+Think of the ESP32 as a co-processor, or riding shotgun... The mosaic-T `COM1`, `COM3` and `COM4` UARTs are linked to the ESP32, allowing the two to communicate directly without needing an Ethernet link. In our firmware, the PVTGeodetic and ReceiverTime messages are output on COM1. The ESP32 displays some of their content on the I^2^C OLED display, and then uses the content to discipline the TCXO oscillator. See [Oscillator](./oscillator.md) for more details.
 
 ??? code "ESP32 Firmware"
 	We have intentionally kept the ESP32 firmware as simple as possible. The intention is that users can easily develop their, own firmware for the GNSSDO using the Espressif ESP IDF or the Arduino IDE if the SparkFun firmware does not meet their needs.
@@ -582,14 +579,14 @@ These terminals are described in the tabs below. For more information on the I/O
 
 	The `VIN+` and `VIN-` terminals allow the GNSSDO to be powered by an external DC power source - typically a 12V / 24V vehicle battery.
 
-	<center>
+	<article style="text-align: center;" markdown>
 
-	| **Terminal** | <center>**Function**</center>               |
+	| **Terminal** | **Function**                                |
 	| :----------: | :------------------------------------------ |
 	| **VIN+**     | External voltage: **Min: 9V**; **Max: 36V** |
 	| **VIN-**     | Ground / Chassis / 0V                       |
 
-	</center>
+	</article>
 
 	!!! info
 		The DC-DC converter in the GNSSDO provides 1.5kV isolation between `VIN+`/`VIN-` and **5V**/**GND**. There is no direct electrical connection between `VIN-` and `GND`.
@@ -611,16 +608,16 @@ These terminals are described in the tabs below. For more information on the I/O
 === "mosaic-T `COM2`"
 	The mosaic-T UART COM2 connections are connected as follows:
 
-	<center>
+	<article style="text-align: center;" markdown>
 
-	| **Terminal** | <center>**Function**</center>          | **Notes**                                                     |
+	| **Terminal** | **Function**                           | **Notes**                                                     |
 	| :----------: | :------------------------------------- | :------------------------------------------------------------ |
 	| **RX**       | COM2 UART Receive - **Input**          |                                                               |
 	| **TX**       | COM2 UART Transmit - **Output**        |                                                               |
 	| **RTS**      | COM2 UART Request To Send - **Output** | The module drives this pin low when ready to receive data     |
 	| **CTS**      | COM2 UART Clear To Send - **Input**    | Must be driven low when ready to receive data from the module |
 
-	</center>
+	</article>
 
 	!!! tip
 		The COM2 I/O voltage is set by the VCCIO voltage selection switch.
@@ -654,14 +651,14 @@ These terminals are described in the tabs below. For more information on the I/O
 
 	The `CTS` terminal can then be used as a power output or logic-high references. Likewise, the `GND` terminal can be used for power return or as logic-low references.
 
-	<center>
+	<article style="text-align: center;" markdown>
 
-	| **Terminal** | <center>**Function**</center>                   |
+	| **Terminal** | **Function**                                    |
 	| :----------: | :---------------------------------------------- |
 	| **CTS**      | 3.3V or 5V power output or logic-high reference |
 	| **GND**      | Ground / 0V or logic-low reference              |
 
-	</center>
+	</article>
 
 
 	!!! info
@@ -675,13 +672,13 @@ These terminals are described in the tabs below. For more information on the I/O
 === "EVENT B"
 	The mosaic-T **EVENTB** input can be used to mark or timestamp external events:
 
-	<center>
+	<article style="text-align: center;" markdown>
 
 	| **Terminal** | **Function**    |
-	| :----------: | :-------------: |
+	| :----------: | :-------------- |
 	| **EVENTB**   | Event B : Input |
 
-	</center>
+	</article>
 
 
 	!!! tip
@@ -702,20 +699,20 @@ These terminals are described in the tabs below. For more information on the I/O
 
 
 === "SCL2 & SDA2"
-	The SCL2 and SDA2 screw terminals provide access to the TCXO I<sup>2</sup>C bus, allowing the user to connect an external configurable TCXO if desired. The I<sup>2</sup>C voltage level is set by the VCCIO switch: 3.3V or 5V. The provided firmware supports the SiTime SiT5358; the user will need to modify the firmware to support additional osciillators.
+	The SCL2 and SDA2 screw terminals provide access to the TCXO I^2^C bus, allowing the user to connect an external configurable TCXO if desired. The I^2^C voltage level is set by the VCCIO switch: 3.3V or 5V. The provided firmware supports the SiTime SiT5358; the user will need to modify the firmware to support additional osciillators.
 
-	<center>
+	<article style="text-align: center;" markdown>
 
 	| **Terminal** | **Function**              |
-	| :----------: | :-----------------------: |
-	| **SCL2**      | I2C Clock : Bidirectional |
-	| **SDA2**      | I2C Data : Bidirectional |
+	| :----------: | :------------------------ |
+	| **SCL2**     | I2C Clock : Bidirectional |
+	| **SDA2**     | I2C Data : Bidirectional  |
 
-	</center>
+	</article>
 
 
 	!!! tip
-		The I<sup>2</sup>C voltage is set by the VCCIO voltage selection switch.
+		The I^2^C voltage is set by the VCCIO voltage selection switch.
 
 
 
@@ -806,7 +803,7 @@ The status indicator LEDs on the GNSSDO PCB.
 
 
 ## OLED Display
-The GNSSDO has a 128x64 pixel OLED display, controlled by the ESP32 via I<sup>2</sup>C. After some initial diagnostic messages, the display will show position, time and other data from the mosaic-T **PVTGeodetic**, **ReceiverTime** and **IPStatus** SBF blocks.
+The GNSSDO has a 128x64 pixel OLED display, controlled by the ESP32 via I^2^C. After some initial diagnostic messages, the display will show position, time and other data from the mosaic-T **PVTGeodetic**, **ReceiverTime** and **IPStatus** SBF blocks.
 
 <figure markdown>
 [![LEDs](./assets/img/hookup_guide/OLED3.png){ width="750" }](./assets/img/hookup_guide/OLED3.png "Click to enlarge")
@@ -1004,8 +1001,8 @@ The jumpers on the bottom of the GNSSDO PCB.
 		- **BOOT** - open this jumper to disconnect the ESP32 BOOT pushbutton.
 		- **RESET** - open this jumper to disconnect the ESP32 RESET pushbutton.
 	- **SHLD** (x2) - open these jumpers to isolate the USB-C connector shield from GND.
-	- **I<sup>2</sup>C** (x2) - open these dual jumpers to disconnect the pull-ups for the I<sup>2</sup>C buses.
-		- Note: there are separate jumpers for the two I<sup>2</sup>C buses: OLED (Qwiic); and the SiTime TCXO.
+	- **I^2^C** (x2) - open these dual jumpers to disconnect the pull-ups for the I^2^C buses.
+		- Note: there are separate jumpers for the two I^2^C buses: OLED (Qwiic); and the SiTime TCXO.
 	- **VIN+** and **VIN-**
 		- Open these jumpers if you wish to isolate (disconnect) the external DC power terminals. The breakout pads can then be used to feed in power from an alternate source.
 	- **POE+** and **POE-**

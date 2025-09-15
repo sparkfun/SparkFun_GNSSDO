@@ -16,17 +16,16 @@ icon: material/book-open-page-variant
 	</figure></a>
 
 
-	<center>
-	<article class="video-500px">
+	<article class="video-500px" style="text-align: center; margin: auto;" markdown>
 	<iframe src="https://www.youtube.com/embed/WI0NbXBxeUo" title="Product Showcase Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	</article>
+
 	![QR code to product video](./assets/img/qr_code/product_video.png){ .qr width=100 }
-	</center>
+	</article>
 
 
-	<center>
+	<article style="text-align: center;" markdown>
 	[Purchase from SparkFun :fontawesome-solid-cart-plus:{ .heart } ![QR code to product page](./assets/img/qr_code/product-low.png){ .tinyqr }](https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator.html){ .md-button .md-button--primary }
-	</center>
+	</article>
 
 
 -	Designed and manufactured in Boulder, Colorado, USA, the SparkPNT GNSSDO is the perfect solution for your high-precision timing needs. Based around the multi-constellation, multi-frequency, L5-ready mosaic-T from Septentrio, this is our most accurate GNSS timing product to date. It features a SiTime SiT5358 disciplined 10MHz Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO) providing excellent clock accuracy, stability and holdover. The mosaic-T also has built-in on-module support for the Fugro AtomiChron L-band timing service.
@@ -83,7 +82,7 @@ icon: material/book-open-page-variant
 			- mosaic-T COM2 (TX/RX/CTS/RTS) - 3.3V / 5V switchable
 			- CTS can be configured as a 3.3V / 5V power output via a solder jumper
 			- EventB input - 3.3V / 5V switchable
-			- I<sup>2</sup>C (SCL2 / SDA2) for an external TCXO / OCXO - 3.3V / 5V switchable
+			- I^2^C (SCL2 / SDA2) for an external TCXO / OCXO - 3.3V / 5V switchable
 		-	Ethernet:
 			- KSZ8041NLI Ethernet PHY interface
 			- 10Base-T / 100Base-TX with auto-negotiate and Auto MDI/MDI-X
