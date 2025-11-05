@@ -433,3 +433,9 @@ The format of the **Print conditions** CSV data is:
 - **Pk** is the PI control loop Proportional term - set in the configuration menu
 - **Ik** is the PI control loop Integral term - set in the configuration menu
 
+## :fontawesome-solid-screwdriver-wrench: Firmware Upgrade
+
+The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/Firmware/Binaries)** folder contains the firmware binaries. v2.0 is the latest stable release - as at 11-5-25.
+
+You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
+
