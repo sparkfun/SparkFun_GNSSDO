@@ -439,9 +439,13 @@ The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_GNSSDO/tree/main
 
 You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
 
-## :fontawesome-solid-screwdriver-wrench: Compiling Firmware
+## :fontawesome-solid-screwdriver-wrench: Compiling Firmware - using Docker
 
-The GNSSDO Firmware can be compiled locally using Docker:
+To compile the GNSSDO Firmware, you need to use the correct version of the ESP32 Arduino core and of each required Arduino library. It is tedious and error-prone. Especially on Windows. We've lost count of the number of times code compilation fails on our local machines, because we had the wrong ESP32 core installed... It is much easier to sandbox the firmware compilation using an environment like [Docker](https://www.docker.com/).
+
+Docker is open-source. It is our new favourite thing!
+
+Here is a step-by-step guide for how to install Docker and compile the firmware from scratch:
 
 ### Clone, fork or download the GNSSDO repo
 
@@ -509,3 +513,28 @@ You can then use (e.g.) the [SparkFun RTK Firmware Uploader](https://github.com/
 
 You may find the `.elf` file useful if you are trying to debug the code with [me-no-dev's Exception Decoder](https://github.com/me-no-dev/EspExceptionDecoder).
 
+## :fontawesome-solid-screwdriver-wrench: Uploading Firmware - using esptool
+
+The [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader) contains a copy of Espressif's esptool. It is esptool that actually performs the code upload.
+
+If you want to upload new firmware manually from the command line, here are the commands:
+
+```
+esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 460800 --before default_reset --after no_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0x1000 RTK_Surveyor.ino.bootloader.bin 0x8000 RTK_Surveyor_Partitions_16MB.bin 0xe000 boot_app0.bin 0x10000 GNSSDO_Firmware.ino.bin
+```
+
+followed by:
+
+```
+esptool.py --chip esp32 --port /dev/ttyUSB0 --before default_reset run
+```
+
+On Windows, you can replace `esptool.py` with `esptool.exe`. You can find a copy of `esptool.exe` in the [Utils](https://github.com/sparkfun/SparkFun_GNSSDO/tree/release_candidate/Firmware/Utils) folder.
+
+On Windows, replace `/dev/ttyUSB0` with the name of your CH340 COM port: `COM1` or similar.
+
+You can find copies of `RTK_Surveyor.ino.bootloader.bin`, `RTK_Surveyor_Partitions_16MB.bin` and `boot_app0.bin` in the [Firmware Uploader resource folder](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader/tree/main/RTK_Firmware_Uploader/resource).
+
+Enjoy!
+
+* Your friends at SparkFun
