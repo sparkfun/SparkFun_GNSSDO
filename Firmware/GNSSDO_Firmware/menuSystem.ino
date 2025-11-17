@@ -509,7 +509,7 @@ void menuOperation()
         {
             settings.ppsTimeScale++;
             if ((settings.ppsTimeScale >= mosaicPPSParametersTimeScaleEntries) || (settings.ppsTimeScale < 0))
-                settings.ppsPolarity = 0;
+                settings.ppsTimeScale = 0;
             ppsStarted = false; // Restart PPS afterwards
         }
         else if (incoming == 12)
