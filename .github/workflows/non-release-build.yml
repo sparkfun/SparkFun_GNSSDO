@@ -53,7 +53,7 @@ jobs:
             --build-arg FIRMWARE_VERSION_MINOR=${{ env.FIRMWARE_VERSION_MINOR }} \
             --build-arg DEBUG_LEVEL=${{ env.DEBUG_LEVEL }} \
             .
-          docker create --name=gnssdo_image rtk_firmware:latest
+          docker create --name=gnssdo_image gnssdo_firmware:latest
           mkdir ./build
           docker cp gnssdo_image:/GNSSDO_Firmware.ino.bin ./build
           docker cp gnssdo_image:/GNSSDO_Firmware.ino.elf ./build
