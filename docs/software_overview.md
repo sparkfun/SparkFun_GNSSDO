@@ -439,6 +439,8 @@ The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_GNSSDO/tree/main
 
 You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
 
+See [below](#fontawesome-solid-screwdriver-wrench-uploading-firmware---using-esptool) for details on how to upload with esptool from the command line.
+
 ## :fontawesome-solid-screwdriver-wrench: Compiling Firmware - using Docker
 
 To compile the GNSSDO Firmware, you need to use the correct version of the ESP32 Arduino core and of each required Arduino library. It is tedious and error-prone. Especially on Windows. We've lost count of the number of times code compilation fails on our local machines, because we had the wrong ESP32 core installed... It is much easier to sandbox the firmware compilation using an environment like [Docker](https://www.docker.com/).
