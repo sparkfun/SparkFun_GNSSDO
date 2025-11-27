@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../assets/img/sfe-logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23+insiders-4.53.17">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0+insiders-4.53.17">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.7d528353.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.22cc1d52.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -3839,8 +3839,96 @@ Everything that is included in the SparkPNT GNSSDO kit.
 <li><strong>Ik</strong> is the PI control loop Integral term - set in the configuration menu</li>
 </ul>
 <h2 id="firmware-upgrade"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M70.8-6.7c5.4-5.4 13.8-6.2 20.2-2l118.9 79.2c8.9 5.9 14.2 15.9 14.2 26.6v49.6l90.8 90.8c33.3-15 73.9-8.9 101.2 18.5l126.1 126.1c18.7 18.7 18.7 49.1 0 67.9l-60.1 60.1c-18.7 18.7-49.1 18.7-67.9 0L288.1 384c-27.4-27.4-33.5-67.9-18.5-101.2L178.8 192h-49.6c-10.7 0-20.7-5.3-26.6-14.2L23.4 58.9c-4.2-6.3-3.4-14.8 2-20.2zm145 303.5c-6.3 36.9 2.3 75.9 26.2 107.2l-94.9 95c-28.1 28.1-73.7 28.1-101.8 0s-28.1-73.7 0-101.8l135.4-135.5 35.2 35.1zM384.1 0c20.1 0 39.4 3.7 57.1 10.5 10 3.8 11.8 16.5 4.3 24.1l-56.7 56.7c-3 3-4.7 7.1-4.7 11.3V144c0 8.8 7.2 16 16 16h41.4c4.2 0 8.3-1.7 11.3-4.7l56.7-56.7c7.6-7.5 20.3-5.7 24.1 4.3 6.8 17.7 10.5 37 10.5 57.1 0 43.2-17.2 82.3-45 111.1L450 222c-33.1-33-78.5-45.7-121.1-38.4l-56.8-56.8V97.1l-.2-5c-.8-12.4-4.4-24.3-10.5-34.9C290.8 22.2 334.8 0 384.1-.1z"/></svg></span> Firmware Upgrade<a class="headerlink" href="#firmware-upgrade" title="Permanent link"></a></h2>
-<p>The <strong><a href="https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/Firmware/Binaries" target="_blank" rel="noopener">/Firmware/Binaries</a></strong> folder contains the firmware binaries. v2.0 is the latest stable release - as at 11-5-25.</p>
+<p>The <strong><a href="https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/Firmware/Binaries" target="_blank" rel="noopener">/Firmware/Binaries</a></strong> folder contains the firmware binaries. v2.1 is the latest stable release - as at 11-27-25.</p>
 <p>You can update or reload the firmware using the <a href="https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader" target="_blank" rel="noopener">SparkFun RTK Firmware Uploader</a>.</p>
+<p>See <a href="#fontawesome-solid-screwdriver-wrench-uploading-firmware---using-esptool">below</a> for details on how to upload with esptool from the command line.</p>
+<h2 id="compiling-firmware-using-docker"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M70.8-6.7c5.4-5.4 13.8-6.2 20.2-2l118.9 79.2c8.9 5.9 14.2 15.9 14.2 26.6v49.6l90.8 90.8c33.3-15 73.9-8.9 101.2 18.5l126.1 126.1c18.7 18.7 18.7 49.1 0 67.9l-60.1 60.1c-18.7 18.7-49.1 18.7-67.9 0L288.1 384c-27.4-27.4-33.5-67.9-18.5-101.2L178.8 192h-49.6c-10.7 0-20.7-5.3-26.6-14.2L23.4 58.9c-4.2-6.3-3.4-14.8 2-20.2zm145 303.5c-6.3 36.9 2.3 75.9 26.2 107.2l-94.9 95c-28.1 28.1-73.7 28.1-101.8 0s-28.1-73.7 0-101.8l135.4-135.5 35.2 35.1zM384.1 0c20.1 0 39.4 3.7 57.1 10.5 10 3.8 11.8 16.5 4.3 24.1l-56.7 56.7c-3 3-4.7 7.1-4.7 11.3V144c0 8.8 7.2 16 16 16h41.4c4.2 0 8.3-1.7 11.3-4.7l56.7-56.7c7.6-7.5 20.3-5.7 24.1 4.3 6.8 17.7 10.5 37 10.5 57.1 0 43.2-17.2 82.3-45 111.1L450 222c-33.1-33-78.5-45.7-121.1-38.4l-56.8-56.8V97.1l-.2-5c-.8-12.4-4.4-24.3-10.5-34.9C290.8 22.2 334.8 0 384.1-.1z"/></svg></span> Compiling Firmware - using Docker<a class="headerlink" href="#compiling-firmware-using-docker" title="Permanent link"></a></h2>
+<p>To compile the GNSSDO Firmware, you need to use the correct version of the ESP32 Arduino core and of each required Arduino library. It is tedious and error-prone. Especially on Windows. We've lost count of the number of times code compilation fails on our local machines, because we had the wrong ESP32 core installed... It is much easier to sandbox the firmware compilation using an environment like <a href="https://www.docker.com/" target="_blank" rel="noopener">Docker</a>.</p>
+<p>Docker is open-source. It is our new favourite thing!</p>
+<p>Here is a step-by-step guide for how to install Docker and compile the firmware from scratch:</p>
+<h3 id="clone-fork-or-download-the-gnssdo-repo">Clone, fork or download the GNSSDO repo<a class="headerlink" href="#clone-fork-or-download-the-gnssdo-repo" title="Permanent link"></a></h3>
+<p>To build the GNSSDO Firmware, you obviously need a copy of the source code.</p>
+<p>Click on the icon below to download a copy of the main (released) branch:</p>
+<p><a href="https://github.com/sparkfun/SparkFun_GNSSDO/archive/refs/heads/main.zip" title="Download ZIP (main branch)" target="_blank" rel="noopener"><img alt="Download ZIP" src="../assets/img/Download_Zip.png" /></a></p>
+<p>For the real Wild West experience, you can also download a copy of the <code>release_candidate</code> code branch. This is where the team is actively changing and testing the code, before it becomes a full release. The code there will <em>usually</em> compile and will <em>usually</em> work, but we don't guarantee it! We may be part way through implementing some breaking changes at the time of your download...</p>
+<p><a href="https://github.com/sparkfun/SparkFun_GNSSDO/archive/refs/heads/release_candidate.zip" title="Download ZIP (release_candidate branch)" target="_blank" rel="noopener"><img alt="Download ZIP - release candidate" src="../assets/img/Download_Zip.png" /></a></p>
+<h3 id="install-docker-desktop">Install Docker Desktop<a class="headerlink" href="#install-docker-desktop" title="Permanent link"></a></h3>
+<ul>
+<li><strong>(Optional)</strong> Head to <a href="https://www.docker.com/" target="_blank" rel="noopener">Docker</a> and create an account. A free "Personal" account will cover occasional compilations of the firmware</li>
+<li>Download and install <a href="https://docs.docker.com/get-started/get-docker/" target="_blank" rel="noopener">Docker Desktop</a> - there are versions for Mac, Windows and Linux. You may need to restart to complete the installation.</li>
+<li>Run the Desktop<ul>
+<li>You don't <em>need</em> to have an account and you don't <em>need</em> to be signed in</li>
+<li>You only need to be signed in if you want to store or share your Container on Docker Hub</li>
+<li>If you don't sign in, Docker Desktop will run in Personal mode - which will cover local compilations of the firmware</li>
+</ul>
+</li>
+<li>On Windows, you may see an error saying "<strong>WSL needs updating</strong> Your version of Windows Subsystem for Linux (WSL) is too old". If you do:<ul>
+<li>Open a command prompt</li>
+<li>Type <code>wsl --update</code> to update WSL. At the time of writing, this installs Windows Subsystem for Linux 2.6.1</li>
+<li>Restart the Docker Desktop</li>
+</ul>
+</li>
+<li>If you are using Docker for the first time, the "What is a container?" and "How do I run a container?" demos are useful - <em>but not essential</em><ul>
+<li>On Windows, you may want to give Docker Desktop permission to access to your Network, so it can access (e.g.) HTML ports</li>
+<li>You can Stop the container and Delete it when you are done</li>
+</ul>
+</li>
+<li>You may want to prevent Docker from running when your machine starts up<ul>
+<li>Uncheck "Start Docker Desktop when you sign in to your computer" in the Desktop settings</li>
+</ul>
+</li>
+</ul>
+<h3 id="using-docker-to-create-the-firmware-binary">Using Docker to create the firmware binary<a class="headerlink" href="#using-docker-to-create-the-firmware-binary" title="Permanent link"></a></h3>
+<ul>
+<li><strong>Make sure you have Docker Desktop running.</strong> You don't need to be signed in, but it needs to be running.</li>
+<li>Open a Command Prompt and <code>cd</code> into the SparkFun_GNSSDO folder</li>
+<li>Check you are in the right place. Type <code>dir</code> and hit enter. You should see the following files and folders:</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>    .gitattributes
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    .github
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    .gitignore
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    CONTRIBUTING.md
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    docs
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    Firmware
+</span></code></pre></div>
+<ul>
+<li><code>cd Firmware</code> and then <code>dir</code> again. You should see:</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>    app3M_fat9M_16MB.csv
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    Binaries
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    compile_with_docker.bat
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    Dockerfile
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    GNSSDO_Firmware
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    Utils
+</span></code></pre></div>
+<ul>
+<li>
+<p>The file that does most of the work is the <code>Dockerfile</code></p>
+</li>
+<li>
+<p>Run <code>compile_with_docker.bat</code> to compile the firmware. It does everything for you</p>
+</li>
+<li>
+<p>Type <code>dir</code> again. Hey presto! You have your newly compiled firmware binary!</p>
+</li>
+</ul>
+<p>You can then use (e.g.) the <a href="https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader" target="_blank" rel="noopener">SparkFun RTK Firmware Uploader</a> to upload the binary onto the ESP32.</p>
+<p>You may find the <code>.elf</code> file useful if you are trying to debug the code with <a href="https://github.com/me-no-dev/EspExceptionDecoder" target="_blank" rel="noopener">me-no-dev's Exception Decoder</a>.</p>
+<h2 id="uploading-firmware-using-esptool"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M70.8-6.7c5.4-5.4 13.8-6.2 20.2-2l118.9 79.2c8.9 5.9 14.2 15.9 14.2 26.6v49.6l90.8 90.8c33.3-15 73.9-8.9 101.2 18.5l126.1 126.1c18.7 18.7 18.7 49.1 0 67.9l-60.1 60.1c-18.7 18.7-49.1 18.7-67.9 0L288.1 384c-27.4-27.4-33.5-67.9-18.5-101.2L178.8 192h-49.6c-10.7 0-20.7-5.3-26.6-14.2L23.4 58.9c-4.2-6.3-3.4-14.8 2-20.2zm145 303.5c-6.3 36.9 2.3 75.9 26.2 107.2l-94.9 95c-28.1 28.1-73.7 28.1-101.8 0s-28.1-73.7 0-101.8l135.4-135.5 35.2 35.1zM384.1 0c20.1 0 39.4 3.7 57.1 10.5 10 3.8 11.8 16.5 4.3 24.1l-56.7 56.7c-3 3-4.7 7.1-4.7 11.3V144c0 8.8 7.2 16 16 16h41.4c4.2 0 8.3-1.7 11.3-4.7l56.7-56.7c7.6-7.5 20.3-5.7 24.1 4.3 6.8 17.7 10.5 37 10.5 57.1 0 43.2-17.2 82.3-45 111.1L450 222c-33.1-33-78.5-45.7-121.1-38.4l-56.8-56.8V97.1l-.2-5c-.8-12.4-4.4-24.3-10.5-34.9C290.8 22.2 334.8 0 384.1-.1z"/></svg></span> Uploading Firmware - using esptool<a class="headerlink" href="#uploading-firmware-using-esptool" title="Permanent link"></a></h2>
+<p>The <a href="https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader" target="_blank" rel="noopener">SparkFun RTK Firmware Uploader</a> contains a copy of Espressif's esptool. It is esptool that actually performs the code upload.</p>
+<p>If you want to upload new firmware manually from the command line, here are the commands:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 460800 --before default_reset --after no_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0x1000 RTK_Surveyor.ino.bootloader.bin 0x8000 RTK_Surveyor_Partitions_16MB.bin 0xe000 boot_app0.bin 0x10000 GNSSDO_Firmware.ino.bin
+</span></code></pre></div>
+<p>followed by:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>esptool.py --chip esp32 --port /dev/ttyUSB0 --before default_reset run
+</span></code></pre></div>
+<p>On Windows, you can replace <code>esptool.py</code> with <code>esptool.exe</code>. You can find a copy of <code>esptool.exe</code> in the <a href="https://github.com/sparkfun/SparkFun_GNSSDO/tree/release_candidate/Firmware/Utils" target="_blank" rel="noopener">Utils</a> folder.</p>
+<p>On Windows, replace <code>/dev/ttyUSB0</code> with the name of your CH340 COM port: <code>COM1</code> or similar.</p>
+<p>You can find copies of <code>RTK_Surveyor.ino.bootloader.bin</code>, <code>RTK_Surveyor_Partitions_16MB.bin</code> and <code>boot_app0.bin</code> in the <a href="https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader/tree/main/RTK_Firmware_Uploader/resource" target="_blank" rel="noopener">Firmware Uploader resource folder</a>.</p>
+<p>Enjoy!</p>
+<ul>
+<li>Your friends at SparkFun</li>
+</ul>
 <h1 id="tcxo-oscillator">TCXO Oscillator<a class="headerlink" href="#tcxo-oscillator" title="Permanent link"></a></h1>
 <h2 id="sitime-sit5358-disciplined-oscillator">SiTime SiT5358 Disciplined Oscillator<a class="headerlink" href="#sitime-sit5358-disciplined-oscillator" title="Permanent link"></a></h2>
 <figure>
@@ -3865,12 +3953,12 @@ The SiT5358 is a precision MEMS Super-TCXO optimized for ±50 ppb stability from
 <p>The SiT5358 is interfaced to the mosaic-T according to Appendix D of the mosaic Hardware Manual: "mosaic-Based Disciplined Clock".</p>
 <p>The ESP32 is interfaced to three of the mosaic-T's COM (UART) ports: <code>COM1</code>, <code>COM3</code>, and <code>COM4</code>. The ESP32 configures the mosaic-T via <code>COM4</code>. <code>COM1</code> is dedicated as an output port for the SBF blocks used to tune the oscillator frequency. <code>COM3</code> is used to divert the ESP32 serial console to TCP.</p>
 <p>When the firmware boots, the mosaic-T is configured as follows:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>setPPSParameters, off
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>setClockSyncThreshold, usec500, on
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>setSBFGroups, Group1, PVTGeodetic+ReceiverTime
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>setSBFOutput, Stream1, COM1, Group1, sec1
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>setSBFOutput, Stream2, COM1, IPStatus+FugroTimeOffset, OnChange
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>exeCopyConfigFile, Current, Boot
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>setPPSParameters, off
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>setClockSyncThreshold, usec500, on
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>setSBFGroups, Group1, PVTGeodetic+ReceiverTime
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>setSBFOutput, Stream1, COM1, Group1, sec1
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>setSBFOutput, Stream2, COM1, IPStatus+FugroTimeOffset, OnChange
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>exeCopyConfigFile, Current, Boot
 </span></code></pre></div>
 <p>These commands configure the mosaic so that it: starts-up with the PPS pulses disabled; performs an initial precise synchronization to GNSS time; and outputs the <strong>PVTGeodetic</strong> and <strong>ReceiverTime</strong> blocks on COM1 at 1Hz. <strong>IPStatus</strong> is output each time one or more IP parameters change. With a Fugro Atomichron subscription, the <strong>FugroTimeOffset</strong> message will be generated each time one of the clock biases changes.</p>
 <p>The firmware monitors the message blocks on <code>COM1</code>. The <code>ERROR</code> LED follows the <strong>PVTGeodetic Error</strong> code. The LED is extinguished when <strong>Error</strong> is zero.</p>
@@ -3880,7 +3968,7 @@ The SiT5358 is a precision MEMS Super-TCXO optimized for ±50 ppb stability from
 <p>The <code>LOCK</code> LED will illuminate and PPS pulses will be generated when RxClkBias is less than 10ns. The OLED will show <code>PPS On</code> when pulses are being generated.</p>
 <p>The 10ns lock threshold / limit can be changed by the user through the ESP32 USB-C interface and saved in non-volatile memory.</p>
 <p>The Pulse-Per-Second parameters can also be configured by the user through the <a href="../software_overview/#configure-operation">ESP32 firmware settings</a>: interval, polarity, delay, time scale, max sync age, pulse width.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>setPPSParameters, Interval, Polarity, Delay, TimeScale, MaxSyncAge, PulseWidth
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>setPPSParameters, Interval, Polarity, Delay, TimeScale, MaxSyncAge, PulseWidth
 </span></code></pre></div>
 <p>Should <strong>PVTGeodetic Error</strong> indicate an error (i.e. become non-zero), the loop will continue but no changes will be made to the oscillator frequency until the error is cleared.</p>
 <p>Occasionally, the initial mosaic-T clock bias can be excessive - microseconds rather than nanoseconds. The firmware detects this and will restart the GNSS to achieve a better lock. You will see <code>Bad RxClkBias --- Restarting</code> appear on the OLED when this happens. The threshold for this can be adjusted via the ESP32 firmware settings.</p>
