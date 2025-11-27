@@ -32,7 +32,7 @@ RUN pip install pyserial
 
 # Setup Arduino CLI
 #RUN curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | BINDIR=/usr/local/bin sh
-RUN curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
+RUN curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh -s nightly-latest
 
 # Start config file
 RUN arduino-cli config init --additional-urls https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json,https://espressif.github.io/arduino-esp32/package_esp32_dev_index.json
@@ -51,17 +51,17 @@ RUN arduino-cli lib install ESP32Time@2.0.0
 RUN arduino-cli lib install JC_Button@2.1.2
 RUN arduino-cli lib install "SparkFun Qwiic OLED Arduino Library"@1.0.13
 RUN arduino-cli lib install "SparkFun Toolkit"@0.9.2
-#RUN arduino-cli lib install "SparkFun SiT5358 DCTCXO Arduino Library"@1.0.1
-#RUN arduino-cli lib install "SparkFun SiT5811 OCXO Arduino Library"@1.0.1
-#RUN arduino-cli lib install "SparkFun STP3593LF OCXO Arduino Library"@1.0.1
+RUN arduino-cli lib install "SparkFun SiT5358 DCTCXO Arduino Library"@1.0.1
+RUN arduino-cli lib install "SparkFun SiT5811 OCXO Arduino Library"@1.0.1
+RUN arduino-cli lib install "SparkFun STP3593LF OCXO Arduino Library"@1.0.1
 
 # Enable external libs
-RUN arduino-cli config set library.enable_unsafe_install true
+#RUN arduino-cli config set library.enable_unsafe_install true
 
 # Get external libs
-RUN arduino-cli lib install --git-url https://github.com/sparkfun/SparkFun_SiT5358_DCTCXO_Arduino_Library.git
-RUN arduino-cli lib install --git-url https://github.com/sparkfun/SparkFun_SiT5811_OCXO_Arduino_Library.git
-RUN arduino-cli lib install --git-url https://github.com/sparkfun/SparkFun_STP3593LF_OCXO_Arduino_Library.git
+#RUN arduino-cli lib install --git-url https://github.com/sparkfun/SparkFun_SiT5358_DCTCXO_Arduino_Library.git
+#RUN arduino-cli lib install --git-url https://github.com/sparkfun/SparkFun_SiT5811_OCXO_Arduino_Library.git
+#RUN arduino-cli lib install --git-url https://github.com/sparkfun/SparkFun_STP3593LF_OCXO_Arduino_Library.git
 
 # Copy GNSSDO_Firmware and build deployment image
 FROM upstream AS deployment
