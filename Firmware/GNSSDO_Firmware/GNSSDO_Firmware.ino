@@ -5,12 +5,13 @@
 
   This is the firmware for the SparkFun SparkPNT GNSSDO.
   It runs on an ESP32 and communicates with the mosaic-T and SiT5358.
+  The SiTime SiT5811 and Rakon STP3593LF are also supported.
 
-  Compiled with Arduino v1.8.19 with ESP32 core v3.0.1.
+  Compiled with arduino-cli with ESP32 core v3.0.7
 
-  Set the board to "ESP32 Wrover Module"
+  If you are compiling manually in the Arduino IDE: set the board to "ESP32 Wrover Module"
 
-  Settings are pulled from ESP32's file system LittleFS.
+  Settings are stored in the ESP32's file system LittleFS.
 
   Version history:
   1.0: Initial release
@@ -31,6 +32,14 @@
        Allow extra time when copying the mosaic-T configuration
        Print an error if no TCXO / OCXO is detected, but allow firmware to continue
        Print an ERROR if the display is not detected on I2C, but allow firmware to continue
+  2.1: Resolves #10:
+         Corrects an error an menuOperation where option 11 (ppsTimescale) was not wrapping correctly
+       Resolves #11:
+         OLED "Sys" will show "Fugro (GPS)" when the non-composite GPS time system is preferred and in use
+         OLED "Sys" will show "Fugro (Galileo)" when the non-composite Galileo time system is preferred and in use
+       Resolves #12:
+         PVT Mode defaults to Static (after a Factory Reset) for best performance
+         The user can modify the Mode and save the configuration if needed
 */
 
 // This is passed in from compiler extra flags

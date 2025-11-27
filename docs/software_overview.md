@@ -435,7 +435,108 @@ The format of the **Print conditions** CSV data is:
 
 ## :fontawesome-solid-screwdriver-wrench: Firmware Upgrade
 
-The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/Firmware/Binaries)** folder contains the firmware binaries. v2.0 is the latest stable release - as at 11-5-25.
+The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/Firmware/Binaries)** folder contains the firmware binaries. v2.1 is the latest stable release - as at 11-27-25.
 
 You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
 
+See [below](#fontawesome-solid-screwdriver-wrench-uploading-firmware---using-esptool) for details on how to upload with esptool from the command line.
+
+## :fontawesome-solid-screwdriver-wrench: Compiling Firmware - using Docker
+
+To compile the GNSSDO Firmware, you need to use the correct version of the ESP32 Arduino core and of each required Arduino library. It is tedious and error-prone. Especially on Windows. We've lost count of the number of times code compilation fails on our local machines, because we had the wrong ESP32 core installed... It is much easier to sandbox the firmware compilation using an environment like [Docker](https://www.docker.com/).
+
+Docker is open-source. It is our new favourite thing!
+
+Here is a step-by-step guide for how to install Docker and compile the firmware from scratch:
+
+### Clone, fork or download the GNSSDO repo
+
+To build the GNSSDO Firmware, you obviously need a copy of the source code.
+
+Click on the icon below to download a copy of the main (released) branch:
+
+[![Download ZIP](./assets/img/Download_Zip.png)](https://github.com/sparkfun/SparkFun_GNSSDO/archive/refs/heads/main.zip "Download ZIP (main branch)")
+
+For the real Wild West experience, you can also download a copy of the `release_candidate` code branch. This is where the team is actively changing and testing the code, before it becomes a full release. The code there will _usually_ compile and will _usually_ work, but we don't guarantee it! We may be part way through implementing some breaking changes at the time of your download...
+
+[![Download ZIP - release candidate](./assets/img/Download_Zip.png)](https://github.com/sparkfun/SparkFun_GNSSDO/archive/refs/heads/release_candidate.zip "Download ZIP (release_candidate branch)")
+
+### Install Docker Desktop
+
+* **(Optional)** Head to [Docker](https://www.docker.com/) and create an account. A free "Personal" account will cover occasional compilations of the firmware
+* Download and install [Docker Desktop](https://docs.docker.com/get-started/get-docker/) - there are versions for Mac, Windows and Linux. You may need to restart to complete the installation.
+* Run the Desktop
+    * You don't _need_ to have an account and you don't _need_ to be signed in
+    * You only need to be signed in if you want to store or share your Container on Docker Hub
+    * If you don't sign in, Docker Desktop will run in Personal mode - which will cover local compilations of the firmware
+* On Windows, you may see an error saying "**WSL needs updating** Your version of Windows Subsystem for Linux (WSL) is too old". If you do:
+    * Open a command prompt
+	* Type `wsl --update` to update WSL. At the time of writing, this installs Windows Subsystem for Linux 2.6.1
+	* Restart the Docker Desktop
+* If you are using Docker for the first time, the "What is a container?" and "How do I run a container?" demos are useful - _but not essential_
+    * On Windows, you may want to give Docker Desktop permission to access to your Network, so it can access (e.g.) HTML ports
+	* You can Stop the container and Delete it when you are done
+* You may want to prevent Docker from running when your machine starts up
+    * Uncheck "Start Docker Desktop when you sign in to your computer" in the Desktop settings
+
+### Using Docker to create the firmware binary
+
+* **Make sure you have Docker Desktop running.** You don't need to be signed in, but it needs to be running.
+* Open a Command Prompt and `cd` into the SparkFun_GNSSDO folder
+* Check you are in the right place. Type `dir` and hit enter. You should see the following files and folders:
+
+```
+    .gitattributes
+    .github
+    .gitignore
+	CONTRIBUTING.md
+    docs
+    Firmware
+```
+
+* `cd Firmware` and then `dir` again. You should see:
+
+```
+    app3M_fat9M_16MB.csv
+	Binaries
+    compile_with_docker.bat
+    Dockerfile
+    GNSSDO_Firmware
+	Utils
+```
+
+* The file that does most of the work is the `Dockerfile`
+
+* Run `compile_with_docker.bat` to compile the firmware. It does everything for you
+
+* Type `dir` again. Hey presto! You have your newly compiled firmware binary!
+
+You can then use (e.g.) the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader) to upload the binary onto the ESP32.
+
+You may find the `.elf` file useful if you are trying to debug the code with [me-no-dev's Exception Decoder](https://github.com/me-no-dev/EspExceptionDecoder).
+
+## :fontawesome-solid-screwdriver-wrench: Uploading Firmware - using esptool
+
+The [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader) contains a copy of Espressif's esptool. It is esptool that actually performs the code upload.
+
+If you want to upload new firmware manually from the command line, here are the commands:
+
+```
+esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 460800 --before default_reset --after no_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0x1000 RTK_Surveyor.ino.bootloader.bin 0x8000 RTK_Surveyor_Partitions_16MB.bin 0xe000 boot_app0.bin 0x10000 GNSSDO_Firmware.ino.bin
+```
+
+followed by:
+
+```
+esptool.py --chip esp32 --port /dev/ttyUSB0 --before default_reset run
+```
+
+On Windows, you can replace `esptool.py` with `esptool.exe`. You can find a copy of `esptool.exe` in the [Utils](https://github.com/sparkfun/SparkFun_GNSSDO/tree/release_candidate/Firmware/Utils) folder.
+
+On Windows, replace `/dev/ttyUSB0` with the name of your CH340 COM port: `COM1` or similar.
+
+You can find copies of `RTK_Surveyor.ino.bootloader.bin`, `RTK_Surveyor_Partitions_16MB.bin` and `boot_app0.bin` in the [Firmware Uploader resource folder](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader/tree/main/RTK_Firmware_Uploader/resource).
+
+Enjoy!
+
+* Your friends at SparkFun

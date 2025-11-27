@@ -158,7 +158,7 @@ void updateDisplay()
             yPos += 8;
 
             snprintf(textLine, sizeof(textLine), "Sys   %s",
-                    mosaicTimeSystemNameFromId(gnssTimeSys));
+                    sysSource);
             oled->setCursor(0, yPos);
             oled->print(textLine);
             yPos += 8;

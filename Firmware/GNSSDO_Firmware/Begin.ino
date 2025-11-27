@@ -635,6 +635,7 @@ void updateTCXOClockBias()
     tcxoClockBias_ms = gnssClockBias_ms; // Default to the PVTGeodetic RxClkBias
     tcxoClockDrift_ppm = gnssClockDrift_ppm;
     snprintf(rxClkBiasSource, sizeof(rxClkBiasSource), "PVT");
+    snprintf(sysSource, sizeof(sysSource), mosaicTimeSystemNameFromId(gnssTimeSys));
 
     if (settings.preferNonCompositeGPSBias || settings.preferNonCompositeGalileoBias) // These are mutex
     {
@@ -645,6 +646,7 @@ void updateTCXOClockBias()
             tcxoClockDrift_ppm = fugroTimeSystems[index].RxClkDrift_ppm;
             fugroTimeSystems[index].updated = false;
             snprintf(rxClkBiasSource, sizeof(rxClkBiasSource), fugroTimeSystems[index].name);
+            snprintf(sysSource, sizeof(sysSource), "Fugro (%s)", fugroTimeSystems[index].name);
         }
     }
 }

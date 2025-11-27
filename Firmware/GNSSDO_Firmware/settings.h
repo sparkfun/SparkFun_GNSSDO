@@ -134,6 +134,7 @@ uint8_t mosaicTimeSystemIndexFromName(const char *name)
 double tcxoClockBias_ms; // Updated by updateTCXOClockBias
 float tcxoClockDrift_ppm;
 char rxClkBiasSource[8];
+char sysSource[16]; // "Fugro (Galileo)"
 
 const char *const mosaicPVTErrorTable[] = {
     "None",

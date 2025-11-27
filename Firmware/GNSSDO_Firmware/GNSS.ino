@@ -236,6 +236,12 @@ bool initializeGNSS()
         return false;
     }
 
+    if (!sendWithResponse("spm, Static, , auto\n\r", "PVTMode"))
+    {
+        systemPrintln("GNSS FAIL (PVTMode)");
+        return false;
+    }
+
     // Copy current configuration into boot
     if (!sendWithResponse("eccf, Current, Boot\n\r", "CopyConfigFile", 5000))
     {
