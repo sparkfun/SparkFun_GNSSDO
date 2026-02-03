@@ -40,6 +40,9 @@
        Resolves #12:
          PVT Mode defaults to Static (after a Factory Reset) for best performance
          The user can modify the Mode and save the configuration if needed
+  2.2: Add support for the MS8607 PHT sensor on GNSSDO Plus (GNSSDO+) - v02 PCB
+         The MS8607 pressure, temperature and humidity are included in the periodic reports
+         The OLED will display the temperature: to the right of "Error", when space is available
 */
 
 // This is passed in from compiler extra flags
