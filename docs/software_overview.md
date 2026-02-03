@@ -437,7 +437,9 @@ The format of the **Print conditions** CSV data is:
 - **Hum** is the relative humidity in %RH : **GNSSDO Plus (GNSSDO+) only**
 
 !!! note
-	The GNSSDO Plus (GNSSDO+) contains a MS8607 pressure, temperature and humidity sensor. The readings are reported in the periodic messages. The temperature reading will be elevated due to the sensor's proximity to the OCXO. The OCXO runs at elevated temperature; the heat will be coupled to the sensor by convection, radiation and conduction.
+	The GNSSDO Plus (GNSSDO+) contains a MS8607 pressure, temperature and humidity sensor. The readings are reported in the periodic messages.
+	
+	The temperature reading will be higher than expected due to the sensor's proximity to the OCXO. The OCXO runs at elevated temperature; heat will be coupled to the sensor by convection, radiation and conduction (through the PCB).
 
 ## :fontawesome-solid-screwdriver-wrench: Firmware Upgrade
 
