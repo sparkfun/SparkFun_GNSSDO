@@ -412,7 +412,7 @@ The debug options are what we use at SparkFun to check that the firmware is runn
 
 The format of the **Print conditions** CSV data is:
 
-**YYYY/MM/DD,HH:MM:SS,Epoch,Lat,Lon,Alt,TimeSys,Error,Fine,PPS,Bias,Source,TCXO,Pk,Ik**
+**YYYY/MM/DD,HH:MM:SS,Epoch,Lat,Lon,Alt,TimeSys,Error,Fine,PPS,Bias,Source,TCXO,Pk,Ik,Press,Temp,Hum**
 
 - **YYYY/MM/DD** is the date from the ReceiverTime SBF message
 - **HH:MM:SS** is the time from the ReceiverTime SBF message
@@ -432,10 +432,16 @@ The format of the **Print conditions** CSV data is:
 - **TCXO** is the 26-bit signed frequency control word written to the SiT5358 TCXO
 - **Pk** is the PI control loop Proportional term - set in the configuration menu
 - **Ik** is the PI control loop Integral term - set in the configuration menu
+- **Press** is the atmospheric pressure in hPa (mbar) : **GNSSDO Plus (GNSSDO+) only**
+- **Temp** is the internal temperature in degrees C : **GNSSDO Plus (GNSSDO+) only**
+- **Hum** is the relative humidity in %RH : **GNSSDO Plus (GNSSDO+) only**
+
+!!! note
+	The GNSSDO Plus (GNSSDO+) contains a MS8607 pressure, temperature and humidity sensor. The readings are reported in the periodic messages. The temperature reading will be elevated due to the sensor's proximity to the OCXO. The OCXO runs at elevated temperature; the heat will be coupled to the sensor by convection, radiation and conduction.
 
 ## :fontawesome-solid-screwdriver-wrench: Firmware Upgrade
 
-The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/Firmware/Binaries)** folder contains the firmware binaries. v2.1 is the latest stable release - as at 11-27-25.
+The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/Firmware/Binaries)** folder contains the firmware binaries. v2.2 is the latest stable release - as at 2-3-26.
 
 You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
 
