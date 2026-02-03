@@ -410,6 +410,20 @@ void pinI2C1Task(void *pvParameters)
                     i2cDisplay = i2c_1;
                     break;
                 }
+
+                case MS8607_HSENSOR_ADDR: {
+                    systemPrintf("0x%02x - MS8607 Humidity Sensor\r\n", addr);
+                    presentMS8607 = true;
+                    i2cPHT = i2c_1;
+                    break;
+                }
+
+                case MS8607_PSENSOR_ADDR: {
+                    systemPrintf("0x%02x - MS8607 Pressure/Temperature Sensor\r\n", addr);
+                    //presentMS8607 = true;
+                    //i2cPHT = i2c_1;
+                    break;
+                }
             }
         }
         else if ((millis() - timer) > 3)
@@ -513,6 +527,12 @@ void pinI2C2Task(void *pvParameters)
 
 void beginTCXO(TwoWire *i2cBus)
 {
+    if (myTCXO != nullptr)
+    {
+        systemPrintln("beginTCXO: the TCXO driver has already been initialized!");
+        return;
+    }
+    
     if (!i2cBus)
     {
         // No i2cBus for TCXO
@@ -650,3 +670,25 @@ void updateTCXOClockBias()
         }
     }
 }
+
+void beginPHT(TwoWire *i2cBus)
+{
+    if (!i2cBus)
+        return; // No i2cBus for PHT sensor
+    
+    if (presentMS8607)
+    {
+        if (phtSensor == nullptr)
+            phtSensor = new MS8607();
+
+        if (!phtSensor->begin(*i2cBus))
+            return;
+
+        phtSensor->set_humidity_resolution(MS8607_humidity_resolution_12b); // 12 bits
+        phtSensor->disable_heater(); // Turn the humidity sensor heater OFF
+
+        online.pht = true;
+        systemPrintln("Using MS8607 PHT sensor");
+    }
+}
+

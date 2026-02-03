@@ -124,77 +124,108 @@ void updateDisplay()
 
             int yPos = 0;
 
-            char textLine[30];
-            snprintf(textLine, sizeof(textLine), "%04d/%02d/%02d   %02d:%02d:%02d",
-                    gnssYear, gnssMonth, gnssDay, gnssHour, gnssMinute, gnssSecond);
-            oled->setCursor(0, yPos);
-            oled->print(textLine);
-            yPos += 8;
-
-            if ((settings.enableTCPServer) && ((gnssSecond % 4) > 1)) // Print TCP Port for two seconds
+            if (displayType == DISPLAY_128x64)
             {
-                snprintf(textLine, sizeof(textLine), "IP    TCP Port %d",
-                        settings.tcpServerPort);
+                char textLine[30];
+                snprintf(textLine, sizeof(textLine), "%04d/%02d/%02d   %02d:%02d:%02d",
+                        gnssYear, gnssMonth, gnssDay, gnssHour, gnssMinute, gnssSecond);
+                oled->setCursor(0, yPos);
+                oled->print(textLine);
+                yPos += 8;
+
+                if ((settings.enableTCPServer) && ((gnssSecond % 4) > 1)) // Print TCP Port for two seconds
+                {
+                    snprintf(textLine, sizeof(textLine), "IP    TCP Port %d",
+                            settings.tcpServerPort);
+                }
+                else
+                {
+                    snprintf(textLine, sizeof(textLine), "IP    %s",
+                            gnssIP.toString().c_str());
+                }
+                oled->setCursor(0, yPos);
+                oled->print(textLine);
+                yPos += 8;
+
+                snprintf(textLine, sizeof(textLine), "Lat   %.7f",
+                        gnssLatitude_d);
+                oled->setCursor(0, yPos);
+                oled->print(textLine);
+                yPos += 8;
+
+                snprintf(textLine, sizeof(textLine), "Long  %.7f",
+                        gnssLongitude_d);
+                oled->setCursor(0, yPos);
+                oled->print(textLine);
+                yPos += 8;
+
+                snprintf(textLine, sizeof(textLine), "Sys   %s",
+                        sysSource);
+                oled->setCursor(0, yPos);
+                oled->print(textLine);
+                yPos += 8;
+
+                // |-------- 21 -------|
+                // Error Export   -21.0C
+                char errorStr[22];
+                snprintf(errorStr, sizeof(errorStr), "Error %s",
+                         mosaicPVTErrorNameFromId(gnssError));
+                char padding[10] = {0};
+                char temperatureStr[10] = {0};
+                if (online.pht)
+                {
+                    size_t errorLen = strlen(errorStr);
+                    // Display temperature if Error is None, DOP, Export or Base
+                    if (errorLen <= strlen("Error Export"))
+                    {
+                        snprintf(temperatureStr, sizeof(temperatureStr), "%.1fC", temperature);
+                        size_t numSpaces = 21 - errorLen;
+                        numSpaces -= strlen(temperatureStr);
+                        for (size_t s = 0; s < numSpaces; s++)
+                            strcat(padding, " ");
+                    }
+                }
+                snprintf(textLine, sizeof(textLine), "%s%s%s",
+                        errorStr,
+                        padding, temperatureStr);  // Right-justify temperature (if present)
+                oled->setCursor(0, yPos);
+                oled->print(textLine);
+                yPos += 8;
+
+                // |-------- 21 -------|
+                // Fine  False   PPS Off
+                snprintf(textLine, sizeof(textLine), "Fine  %s   %s",
+                        gnssFineTime ? "True " : "False",
+                        ppsStarted ? " PPS On" : "PPS Off"); // Right-justify PPS
+                oled->setCursor(0, yPos);
+                oled->print(textLine);
+                yPos += 8;
+
+                if (tcxoClockBias_ms >= 1.0)
+                    snprintf(textLine, sizeof(textLine), "Bias  +%.3fms",
+                        (float)tcxoClockBias_ms);
+                else if (tcxoClockBias_ms <= -1.0)
+                    snprintf(textLine, sizeof(textLine), "Bias  %.3fms",
+                        (float)tcxoClockBias_ms);
+                else if (tcxoClockBias_ms >= 0.001)
+                    snprintf(textLine, sizeof(textLine), "Bias  +%.3fus",
+                        (float)(tcxoClockBias_ms * 1000.0));
+                else if (tcxoClockBias_ms <= -0.001)
+                    snprintf(textLine, sizeof(textLine), "Bias  %.3fus",
+                        (float)(tcxoClockBias_ms * 1000.0));
+                else if (tcxoClockBias_ms >= 0.0)
+                    snprintf(textLine, sizeof(textLine), "Bias  +%.3fns",
+                        (float)(tcxoClockBias_ms * 1000000.0));
+                else
+                    snprintf(textLine, sizeof(textLine), "Bias  %.3fns",
+                        (float)(tcxoClockBias_ms * 1000000.0));
+                oled->setCursor(0, yPos);
+                oled->print(textLine);
             }
-            else
+            else if (displayType == DISPLAY_64x48)
             {
-                snprintf(textLine, sizeof(textLine), "IP    %s",
-                        gnssIP.toString().c_str());
+                // TODO - possible future product
             }
-            oled->setCursor(0, yPos);
-            oled->print(textLine);
-            yPos += 8;
-
-            snprintf(textLine, sizeof(textLine), "Lat   %.7f",
-                    gnssLatitude_d);
-            oled->setCursor(0, yPos);
-            oled->print(textLine);
-            yPos += 8;
-
-            snprintf(textLine, sizeof(textLine), "Long  %.7f",
-                    gnssLongitude_d);
-            oled->setCursor(0, yPos);
-            oled->print(textLine);
-            yPos += 8;
-
-            snprintf(textLine, sizeof(textLine), "Sys   %s",
-                    sysSource);
-            oled->setCursor(0, yPos);
-            oled->print(textLine);
-            yPos += 8;
-
-            snprintf(textLine, sizeof(textLine), "Error %s",
-                    mosaicPVTErrorNameFromId(gnssError));
-            oled->setCursor(0, yPos);
-            oled->print(textLine);
-            yPos += 8;
-
-            snprintf(textLine, sizeof(textLine), "Fine  %s   PPS %s",
-                    gnssFineTime ? "True " : "False", ppsStarted ? "On" : "Off");
-            oled->setCursor(0, yPos);
-            oled->print(textLine);
-            yPos += 8;
-
-            if (tcxoClockBias_ms >= 1.0)
-                snprintf(textLine, sizeof(textLine), "Bias  +%.3fms",
-                    (float)tcxoClockBias_ms);
-            else if (tcxoClockBias_ms <= -1.0)
-                snprintf(textLine, sizeof(textLine), "Bias  %.3fms",
-                    (float)tcxoClockBias_ms);
-            else if (tcxoClockBias_ms >= 0.001)
-                snprintf(textLine, sizeof(textLine), "Bias  +%.3fus",
-                    (float)(tcxoClockBias_ms * 1000.0));
-            else if (tcxoClockBias_ms <= -0.001)
-                snprintf(textLine, sizeof(textLine), "Bias  %.3fus",
-                    (float)(tcxoClockBias_ms * 1000.0));
-            else if (tcxoClockBias_ms >= 0.0)
-                snprintf(textLine, sizeof(textLine), "Bias  +%.3fns",
-                    (float)(tcxoClockBias_ms * 1000000.0));
-            else
-                snprintf(textLine, sizeof(textLine), "Bias  %.3fns",
-                    (float)(tcxoClockBias_ms * 1000000.0));
-            oled->setCursor(0, yPos);
-            oled->print(textLine);
 
             oled->display(); // Push internal buffer to display
         }

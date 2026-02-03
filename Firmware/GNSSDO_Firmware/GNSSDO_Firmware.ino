@@ -223,12 +223,17 @@ volatile bool i2c2Pinned = false; // This variable is touched by core 0 but chec
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 #include <SparkFun_Qwiic_OLED.h> //http://librarymanager/All#SparkFun_Qwiic_Graphic_OLED
 
+DisplayType displayType = DISPLAY_MAX_NONE;
+
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+// I2C Bus
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 TwoWire *i2c_1 = nullptr; // OLED (400kHz)
 TwoWire *i2c_2 = nullptr; // TCXO (100kHz)
 TwoWire *i2cDisplay = nullptr;
 TwoWire *i2cTCXO = nullptr;
-
-DisplayType displayType = DISPLAY_MAX_NONE;
+TwoWire *i2cPHT = nullptr;
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -254,6 +259,16 @@ Button *setupBtn = nullptr; // We can't instantiate the buttons here because we 
 TaskHandle_t ButtonCheckTaskHandle = nullptr;
 const uint8_t ButtonCheckTaskPriority = 1; // 3 being the highest, and 0 being the lowest
 const int buttonTaskStackSize = 2000;
+
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+// MS8607 PHT sensor - on GNSSDO+
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+#include <SparkFun_PHT_MS8607_Arduino_Library.h> // http://librarymanager/All#SparkFun_PHT_MS8607
+MS8607 *phtSensor = nullptr;
+float pressure;
+float temperature;
+float humidity;
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -408,6 +423,9 @@ void setup()
     DMW_c("beginTCXO");
     beginTCXO(i2cTCXO); // Configure SiTime oscillator
 
+    DMW_c("beginPHT");
+    beginPHT(i2cPHT); // Configure PHT sensor
+
     DMW_c("beginSystemState");
     beginSystemState(); // Determine initial system state. Configure GNSS messages.
 
@@ -430,6 +448,9 @@ void loop()
 {
     DMW_c("updateSystemState");
     updateSystemState();
+
+    DMW_c("updatePHT");
+    updatePHT(); // Read the pressure, temperature and humidity
 
     DMW_c("updateDisplay");
     updateDisplay();
@@ -509,6 +530,20 @@ void updateRTC()
                     }
                 }
             }
+        }
+    }
+}
+
+void updatePHT()
+{
+    static unsigned long previousUpdate = 0;
+
+    if (online.pht) // Only do this if the PHT is online
+    {
+        if ((millis() - previousUpdate) > 500) // Update twice per second
+        {
+            phtSensor->read_temperature_pressure_humidity(&temperature, &pressure, &humidity);
+            previousUpdate = millis();
         }
     }
 }
