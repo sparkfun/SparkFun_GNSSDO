@@ -584,7 +584,11 @@ void printCurrentConditions(bool CSV)
         {
             if (firstTime)
             {
-                systemPrintln("YYYY/MM/DD,HH:MM:SS,Epoch,Lat,Lon,Alt,TimeSys,Error,Fine,PPS,Bias,Drift,Source,TCXO,Pk,Ik");
+                systemPrint("YYYY/MM/DD,HH:MM:SS,Epoch,Lat,Lon,Alt,TimeSys,Error,Fine,PPS,Bias,Drift,Source,TCXO,Pk,Ik");
+                if (online.pht)
+                    systemPrintln(",Press,Temp,Hum");
+                else
+                    systemPrintln();
                 firstTime = false;
             }
 
@@ -633,6 +637,13 @@ void printCurrentConditions(bool CSV)
             systemPrint(",");
             systemPrint(settings.Ik, 3);
             
+            if (online.pht)
+            {
+                systemPrintf(",%.0f", pressure);
+                systemPrintf(",%.1f", temperature);
+                systemPrintf(",%.0f", humidity);
+            }
+
             systemPrintln();
         }
         else
@@ -679,6 +690,13 @@ void printCurrentConditions(bool CSV)
             systemPrint(", TCXO Control: ");
             systemPrint(getFrequencyControlWord());
             
+            if (online.pht)
+            {
+                systemPrintf(", Pressure: %.0fhPa", pressure);
+                systemPrintf(", Temperature: %.1fC", temperature);
+                systemPrintf(", Humidity: %.0f%%RH", humidity);
+            }
+
             systemPrintln();
         }
     }

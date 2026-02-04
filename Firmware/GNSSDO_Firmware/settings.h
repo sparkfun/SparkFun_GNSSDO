@@ -222,6 +222,10 @@ bool presentSIT5811 = false;
 bool presentSIT5358 = false;
 bool presentSTP3593LF = false;
 
+// PHT (MS8607)
+
+bool presentMS8607 = false;
+
 // Display
 
 typedef enum
@@ -315,6 +319,7 @@ struct struct_online
     bool i2c1 = false;
     bool i2c2 = false;
     bool tcxo = false;
+    bool pht = false;
 } online;
 
 #endif // __SETTINGS_H__

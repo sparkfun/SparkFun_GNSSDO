@@ -54,6 +54,7 @@ RUN arduino-cli lib install "SparkFun Toolkit"@0.9.2
 RUN arduino-cli lib install "SparkFun SiT5358 DCTCXO Arduino Library"@1.0.1
 RUN arduino-cli lib install "SparkFun SiT5811 OCXO Arduino Library"@1.0.1
 RUN arduino-cli lib install "SparkFun STP3593LF OCXO Arduino Library"@1.0.1
+RUN arduino-cli lib install "SparkFun PHT MS8607 Arduino Library"@1.0.5
 
 # Enable external libs
 #RUN arduino-cli config set library.enable_unsafe_install true
