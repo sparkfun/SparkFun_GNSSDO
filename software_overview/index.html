@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../assets/img/sfe-logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0+insiders-4.53.17">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0+insiders-4.53.18">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.22cc1d52.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.df281a37.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2237,7 +2237,7 @@
 <p>The debug options are what we use at SparkFun to check that the firmware is running correctly. You should not need change any of the options, except perhaps option 8 <strong>Print conditions</strong>. This option controls the periodic CSV messages seen in the console when the menu is closed. The format can be changed to human-readable text, or the messages can be disabled if desired.</p>
 <h3 id="print-conditions-periodic-messages">Print Conditions (periodic messages)<a class="headerlink" href="#print-conditions-periodic-messages" title="Permanent link"></a></h3>
 <p>The format of the <strong>Print conditions</strong> CSV data is:</p>
-<p><strong>YYYY/MM/DD,HH:MM:SS,Epoch,Lat,Lon,Alt,TimeSys,Error,Fine,PPS,Bias,Source,TCXO,Pk,Ik</strong></p>
+<p><strong>YYYY/MM/DD,HH:MM:SS,Epoch,Lat,Lon,Alt,TimeSys,Error,Fine,PPS,Bias,Source,TCXO,Pk,Ik,Press,Temp,Hum</strong></p>
 <ul>
 <li><strong>YYYY/MM/DD</strong> is the date from the ReceiverTime SBF message</li>
 <li><strong>HH:MM:SS</strong> is the time from the ReceiverTime SBF message</li>
@@ -2261,9 +2261,17 @@
 <li><strong>TCXO</strong> is the 26-bit signed frequency control word written to the SiT5358 TCXO</li>
 <li><strong>Pk</strong> is the PI control loop Proportional term - set in the configuration menu</li>
 <li><strong>Ik</strong> is the PI control loop Integral term - set in the configuration menu</li>
+<li><strong>Press</strong> is the atmospheric pressure in hPa (mbar) : <strong>GNSSDO Plus (GNSSDO+) only</strong></li>
+<li><strong>Temp</strong> is the internal temperature in degrees C : <strong>GNSSDO Plus (GNSSDO+) only</strong></li>
+<li><strong>Hum</strong> is the relative humidity in %RH : <strong>GNSSDO Plus (GNSSDO+) only</strong></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The GNSSDO Plus (GNSSDO+) contains a MS8607 pressure, temperature and humidity sensor. The readings are reported in the periodic messages.</p>
+<p>The temperature reading will be higher than expected due to the sensor's proximity to the OCXO. The OCXO runs at elevated temperature; heat will be coupled to the sensor by convection, radiation and conduction (through the PCB).</p>
+</div>
 <h2 id="firmware-upgrade"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M70.8-6.7c5.4-5.4 13.8-6.2 20.2-2l118.9 79.2c8.9 5.9 14.2 15.9 14.2 26.6v49.6l90.8 90.8c33.3-15 73.9-8.9 101.2 18.5l126.1 126.1c18.7 18.7 18.7 49.1 0 67.9l-60.1 60.1c-18.7 18.7-49.1 18.7-67.9 0L288.1 384c-27.4-27.4-33.5-67.9-18.5-101.2L178.8 192h-49.6c-10.7 0-20.7-5.3-26.6-14.2L23.4 58.9c-4.2-6.3-3.4-14.8 2-20.2zm145 303.5c-6.3 36.9 2.3 75.9 26.2 107.2l-94.9 95c-28.1 28.1-73.7 28.1-101.8 0s-28.1-73.7 0-101.8l135.4-135.5 35.2 35.1zM384.1 0c20.1 0 39.4 3.7 57.1 10.5 10 3.8 11.8 16.5 4.3 24.1l-56.7 56.7c-3 3-4.7 7.1-4.7 11.3V144c0 8.8 7.2 16 16 16h41.4c4.2 0 8.3-1.7 11.3-4.7l56.7-56.7c7.6-7.5 20.3-5.7 24.1 4.3 6.8 17.7 10.5 37 10.5 57.1 0 43.2-17.2 82.3-45 111.1L450 222c-33.1-33-78.5-45.7-121.1-38.4l-56.8-56.8V97.1l-.2-5c-.8-12.4-4.4-24.3-10.5-34.9C290.8 22.2 334.8 0 384.1-.1z"/></svg></span> Firmware Upgrade<a class="headerlink" href="#firmware-upgrade" title="Permanent link"></a></h2>
-<p>The <strong><a href="https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/Firmware/Binaries" target="_blank" rel="noopener">/Firmware/Binaries</a></strong> folder contains the firmware binaries. v2.1 is the latest stable release - as at 11-27-25.</p>
+<p>The <strong><a href="https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/Firmware/Binaries" target="_blank" rel="noopener">/Firmware/Binaries</a></strong> folder contains the firmware binaries. v2.2 is the latest stable release - as at 2-3-26.</p>
 <p>You can update or reload the firmware using the <a href="https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader" target="_blank" rel="noopener">SparkFun RTK Firmware Uploader</a>.</p>
 <p>See <a href="#fontawesome-solid-screwdriver-wrench-uploading-firmware---using-esptool">below</a> for details on how to upload with esptool from the command line.</p>
 <h2 id="compiling-firmware-using-docker"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M70.8-6.7c5.4-5.4 13.8-6.2 20.2-2l118.9 79.2c8.9 5.9 14.2 15.9 14.2 26.6v49.6l90.8 90.8c33.3-15 73.9-8.9 101.2 18.5l126.1 126.1c18.7 18.7 18.7 49.1 0 67.9l-60.1 60.1c-18.7 18.7-49.1 18.7-67.9 0L288.1 384c-27.4-27.4-33.5-67.9-18.5-101.2L178.8 192h-49.6c-10.7 0-20.7-5.3-26.6-14.2L23.4 58.9c-4.2-6.3-3.4-14.8 2-20.2zm145 303.5c-6.3 36.9 2.3 75.9 26.2 107.2l-94.9 95c-28.1 28.1-73.7 28.1-101.8 0s-28.1-73.7 0-101.8l135.4-135.5 35.2 35.1zM384.1 0c20.1 0 39.4 3.7 57.1 10.5 10 3.8 11.8 16.5 4.3 24.1l-56.7 56.7c-3 3-4.7 7.1-4.7 11.3V144c0 8.8 7.2 16 16 16h41.4c4.2 0 8.3-1.7 11.3-4.7l56.7-56.7c7.6-7.5 20.3-5.7 24.1 4.3 6.8 17.7 10.5 37 10.5 57.1 0 43.2-17.2 82.3-45 111.1L450 222c-33.1-33-78.5-45.7-121.1-38.4l-56.8-56.8V97.1l-.2-5c-.8-12.4-4.4-24.3-10.5-34.9C290.8 22.2 334.8 0 384.1-.1z"/></svg></span> Compiling Firmware - using Docker<a class="headerlink" href="#compiling-firmware-using-docker" title="Permanent link"></a></h2>
@@ -2408,7 +2416,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="November 27, 2025 07:55:00 UTC"><span class="timeago" datetime="2025-11-27T07:55:00+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="November 27, 2025 07:55:00 UTC">2025-11-27</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 3, 2026 15:36:22 UTC"><span class="timeago" datetime="2026-02-03T15:36:22+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 3, 2026 15:36:22 UTC">2026-02-03</span>
   </span>
 
     
