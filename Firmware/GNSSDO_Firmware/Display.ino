@@ -201,24 +201,41 @@ void updateDisplay()
                 oled->print(textLine);
                 yPos += 8;
 
-                if (tcxoClockBias_ms >= 1.0)
-                    snprintf(textLine, sizeof(textLine), "Bias  +%.3fms",
-                        (float)tcxoClockBias_ms);
-                else if (tcxoClockBias_ms <= -1.0)
-                    snprintf(textLine, sizeof(textLine), "Bias  %.3fms",
-                        (float)tcxoClockBias_ms);
-                else if (tcxoClockBias_ms >= 0.001)
-                    snprintf(textLine, sizeof(textLine), "Bias  +%.3fus",
-                        (float)(tcxoClockBias_ms * 1000.0));
-                else if (tcxoClockBias_ms <= -0.001)
-                    snprintf(textLine, sizeof(textLine), "Bias  %.3fus",
-                        (float)(tcxoClockBias_ms * 1000.0));
-                else if (tcxoClockBias_ms >= 0.0)
-                    snprintf(textLine, sizeof(textLine), "Bias  +%.3fns",
-                        (float)(tcxoClockBias_ms * 1000000.0));
+                if (systemState >= STATE_GNSS_FREQUENCY_LOCK)
+                {
+                    if (tcxoClockBias_ms >= 1.0)
+                        snprintf(textLine, sizeof(textLine), "Bias  +%.3fms",
+                            (float)tcxoClockBias_ms);
+                    else if (tcxoClockBias_ms <= -1.0)
+                        snprintf(textLine, sizeof(textLine), "Bias  %.3fms",
+                            (float)tcxoClockBias_ms);
+                    else if (tcxoClockBias_ms >= 0.001)
+                        snprintf(textLine, sizeof(textLine), "Bias  +%.3fus",
+                            (float)(tcxoClockBias_ms * 1000.0));
+                    else if (tcxoClockBias_ms <= -0.001)
+                        snprintf(textLine, sizeof(textLine), "Bias  %.3fus",
+                            (float)(tcxoClockBias_ms * 1000.0));
+                    else if (tcxoClockBias_ms >= 0.0)
+                        snprintf(textLine, sizeof(textLine), "Bias  +%.3fns",
+                            (float)(tcxoClockBias_ms * 1000000.0));
+                    else
+                        snprintf(textLine, sizeof(textLine), "Bias  %.3fns",
+                            (float)(tcxoClockBias_ms * 1000000.0));
+                }
+                else if (systemState >= STATE_GNSS_FINETIME)
+                {
+                    snprintf(textLine, sizeof(textLine), "Drift %s%.3e PPM",
+                        tcxoClockDrift_ppm >= 0.0 ? "+" : "",
+                        tcxoClockDrift_ppm);
+                }
+                else if (systemState >= STATE_TCXO_WARMUP)
+                {
+                    snprintf(textLine, sizeof(textLine), "TCXO  Warming Up");
+                }
                 else
-                    snprintf(textLine, sizeof(textLine), "Bias  %.3fns",
-                        (float)(tcxoClockBias_ms * 1000000.0));
+                {
+                    snprintf(textLine, sizeof(textLine), " ");
+                }
                 oled->setCursor(0, yPos);
                 oled->print(textLine);
             }
@@ -405,11 +422,12 @@ void displayMessage(const char *message, uint16_t displayTime)
         // Count words based on spaces
         uint8_t wordCount = 0;
         strncpy(temp, message, sizeof(temp) - 1); // strtok modifies the message so make copy
-        char *token = strtok(temp, " ");
+        char *preservedPointer;
+        char *token = strtok_r(temp, " ", &preservedPointer); // This will blow the ' ' away
         while (token != nullptr)
         {
             wordCount++;
-            token = strtok(nullptr, " ");
+            token = strtok_r(nullptr, " ", &preservedPointer);
         }
 
         uint8_t yPos = (oled->getHeight() / 2) - ((fontHeight / 2) * wordCount);
@@ -419,11 +437,11 @@ void displayMessage(const char *message, uint16_t displayTime)
         // drawFrame();
 
         strncpy(temp, message, sizeof(temp) - 1);
-        token = strtok(temp, " ");
+        token = strtok_r(temp, " ", &preservedPointer);
         while (token != nullptr)
         {
             printTextCenter(token, yPos, QW_FONT_8X16, 1, false); // text, y, font type, kerning, inverted
-            token = strtok(nullptr, " ");
+            token = strtok_r(nullptr, " ", &preservedPointer);
             yPos += fontHeight;
         }
 

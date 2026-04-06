@@ -564,13 +564,16 @@ void processConsumerMessage(PARSE_STATE *parse, uint8_t type)
     {
         if ((parse->message & 0x1FFF) == 5914) // ReceiverTime
         {
-            gnssTimeUpdated[0] = gnssTimeUpdated[1] = gnssTimeUpdated[2] = true;
+            gnssTimeUpdated[0] = true;
+            gnssTimeUpdated[1] = true;
+            gnssTimeUpdated[2] = true;
+
             gnssTimeArrivalMillis = millis();
             
             gnssTOW_ms = ((uint32_t)parse->buffer[8]) << 0;
-            gnssTOW_ms |= ((uint32_t)parse->buffer[9]) << 8;
-            gnssTOW_ms |= ((uint32_t)parse->buffer[10]) << 16;
-            gnssTOW_ms |= ((uint32_t)parse->buffer[11]) << 24;
+            gnssTOW_ms = gnssTOW_ms | ((uint32_t)parse->buffer[9]) << 8;
+            gnssTOW_ms = gnssTOW_ms | ((uint32_t)parse->buffer[10]) << 16;
+            gnssTOW_ms = gnssTOW_ms | ((uint32_t)parse->buffer[11]) << 24;
             if (gnssTOW_ms > 700000000)
                 gnssTOW_ms = 0;
 

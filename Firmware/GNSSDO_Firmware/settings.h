@@ -12,14 +12,43 @@ typedef enum
     STATE_GNSS_NOT_CONFIGURED = 0,
     STATE_GNSS_CONFIGURED, // GNSS has been configured: PVTGeodetic+ReceiverTime+IPStatus enabled on COM1
     STATE_GNSS_ERROR_BEFORE_FINETIME, // Error is non-zero before FineTime is true
-    STATE_GNSS_FINETIME, // GNSS FINETIME bit is set. Oscillator control can begin
+    STATE_TCXO_WARMUP, // Wait for the TCXO temperature to become stable - if sensor is present
+    STATE_GNSS_ERROR_DURING_WARMUP,
+    STATE_GNSS_FINETIME, // GNSS FINETIME bit is set. Oscillator control can begin in frequency locked mode
     STATE_GNSS_ERROR_AFTER_FINETIME, // PVTGeodetic Error is non-zero. Oscillator updates are paused
+    STATE_GNSS_FREQUENCY_LOCK, // GNSS is frequency locked. Minimise the bias without blowing up the integrator
+    STATE_GNSS_ERROR_AFTER_FREQUENCY_LOCK,
+    STATE_GNSS_PHASE_LOCK, // GNSS has achieved phase lock. Maintain the bias using the PLL
+    STATE_GNSS_ERROR_AFTER_PHASE_LOCK,
     STATE_NOT_SET, // Must be last on list
 } SystemState;
 volatile SystemState systemState = STATE_NOT_SET;
 SystemState lastSystemState = STATE_NOT_SET;
 SystemState requestedSystemState = STATE_NOT_SET;
 bool newSystemStateRequested = false;
+
+typedef struct
+{
+    const SystemState systemState;
+    const char *stateName;
+} SystemStatesName;
+
+const SystemStatesName SystemStatesNames[] = {
+    { STATE_GNSS_NOT_CONFIGURED, "NOT_CONFIGURED" },
+    { STATE_GNSS_CONFIGURED, "CONFIGURED" },
+    { STATE_GNSS_ERROR_BEFORE_FINETIME, "ERROR_BEFORE_FINETIME" },
+    { STATE_TCXO_WARMUP, "WARMUP" },
+    { STATE_GNSS_ERROR_DURING_WARMUP, "ERROR_DURING_WARMUP" },
+    { STATE_GNSS_FINETIME, "FINETIME" },
+    { STATE_GNSS_ERROR_AFTER_FINETIME, "ERROR_AFTER_FINETIME" },
+    { STATE_GNSS_FREQUENCY_LOCK, "FREQUENCY_LOCK" },
+    { STATE_GNSS_ERROR_AFTER_FREQUENCY_LOCK, "ERROR_AFTER_FREQUENCY_LOCK" },
+    { STATE_GNSS_PHASE_LOCK, "PHASE_LOCK" },
+    { STATE_GNSS_ERROR_AFTER_PHASE_LOCK, "ERROR_AFTER_PHASE_LOCK" },
+    { STATE_NOT_SET, "NOT_SET" },
+};
+
+const int numSystemStatesNames = sizeof(SystemStatesNames) / sizeof(SystemStatesNames[0]);
 
 typedef enum
 {
@@ -97,7 +126,7 @@ fugroTimeSystem fugroTimeSystems[] = {
     { MOSAIC_TIME_SYSTEM_FUGRO, 0, "Fugro", 0.0, false },
 };
 
-#define NUM_FUGRO_CLK_BIASES (sizeof(fugroTimeSystems) / sizeof(fugroTimeSystem))
+const int NUM_FUGRO_CLK_BIASES = sizeof(fugroTimeSystems) / sizeof(fugroTimeSystems[0]);
 
 // Convert id (0,1,3,4,5,100) to index (0-5). Return NUM_FUGRO_CLK_BIASES (6) if id is invalid
 uint8_t mosaicTimeSystemIndexFromId(uint8_t id) {
@@ -131,10 +160,13 @@ uint8_t mosaicTimeSystemIndexFromName(const char *name)
 
     return 0; // This should never happen
 }
-double tcxoClockBias_ms; // Updated by updateTCXOClockBias
-float tcxoClockDrift_ppm;
+
+volatile double tcxoClockBias_ms; // Updated by updateTCXOClockBias
+volatile float tcxoClockDrift_ppm;
 char rxClkBiasSource[8];
 char sysSource[16]; // "Fugro (Galileo)"
+volatile double tcxoClockBiasChange_ms; // Change in clock bias during initial frequency locking
+volatile double tcxoTemperature; // Holds the TCXO temperature - if sensor is present
 
 const char *const mosaicPVTErrorTable[] = {
     "None",
@@ -226,6 +258,12 @@ bool presentSTP3593LF = false;
 
 bool presentMS8607 = false;
 
+// TCXO internal temperature sensor - if present
+bool presentTcxoTemperature = false;
+
+// TCXO can save its frequency control word - if present
+bool presentTcxoSaveControl = false;
+
 // Display
 
 typedef enum
@@ -292,9 +330,10 @@ typedef struct
     float ppsPulseWidth_ms = 5.0;
 
     int64_t tcxoControl = 0; // Store the TCXO control word - to aid locking after power off
-    double rxClkBiasInitialLimit_ms = 1.0e-3; // Consider the clock bias 'bad' when > this many ms. Default: 1.0us (1.0e-3ms)
-    double rxClkBiasLockLimit_ms = 10.0e-6; // Consider the clock locked when the bias is <= this many ms. Default: 10.0ns (10.0e-6ms)
-    int rxClkBiasLimitCount = 3; // Consider the clock locked when the bias is <= rxClkBiasLockLimit_ms for this many successive readings. Default: 3
+    double rxFrequencyLockErrorLimit_s = 1.0e-10; // Stay in STATE_GNSS_FINETIME until the change in the bias is <= this many s/s
+    double rxPhaseErrorLimit_s = 1.0e-7; // Stay in STATE_GNSS_FREQUENCY_LOCK until the bias is <= this many s
+    double PkSteer = 0.5; // PI P term for initial frequency steering
+    double IkSteer = 0.5; // PI I term for initial frequency steering
     double Pk = 0.63; // PI P term (default for the SiT5358 - updated if needed by beginTCXO)
     double Ik = 0.151; // PI I term (default for the SiT5358 - updated if needed by beginTCXO)
     uint8_t lastSeenTCXO = 0; // Use this to identify a change of oscillator (by its I2C address)
@@ -303,6 +342,10 @@ typedef struct
     bool enableTCPServer = false; // Enable and configure mosaic-T IPS1 for TCP2way for the ESP32 console
     uint16_t tcpServerPort = 28785;
     uint32_t previousIP = 0; // Store the previous IP address
+    double tcxoTemperatureStability = 0.01; // Required temperature stability for TCXO warm up (ADU)
+    unsigned long tcxoMinWarmup_s = 120; // Required minimum warmup
+    double tcxoRampRateLimit_sps = 250e-9; // This limits the ramp rate during steering (s/s)
+    double tcxoRampStepSize_s = 1.0e-9; // Ole uses 1ns/s
 
     // Add new settings above <------------------------------------------------------------>
 

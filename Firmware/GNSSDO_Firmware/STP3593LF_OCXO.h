@@ -19,6 +19,9 @@ class GNSSDO_STP3593LF : GNSSDO_TCXO
         // Get the frequency control word
         int64_t getFrequencyControlWord(void);
 
+        // Set the frequency control word
+        bool setFrequencyControlWord(int64_t controlWord);
+
         // Set the frequency by bias millis
         bool setFrequencyByBiasMillis(double bias, double Pk, double Ik);
 
@@ -27,7 +30,10 @@ class GNSSDO_STP3593LF : GNSSDO_TCXO
 
         // Get the default P and I terms - for the default settings
         double getDefaultFrequencyByBiasPTerm(void) { return (1.0 / 6.25); }
-        double getDefaultFrequencyByBiasITerm(void) { return ((1.0 / 6.25) / 150.0); }
+        double getDefaultFrequencyByBiasITerm(void) { return ((1.0 / 6.25) / 50.0); }
+
+        // Read the temperature sensor - if present
+        uint16_t getTcxoTemperature(void);
 };
 
 #endif // /__SFE_GNSSDO_STP3593LF_TCXO__

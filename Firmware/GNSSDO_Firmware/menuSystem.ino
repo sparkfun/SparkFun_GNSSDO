@@ -67,7 +67,12 @@ void menuDebugSoftware()
         systemPrint("14) Echo user input: ");
         systemPrintf("%s\r\n", settings.echoUserInput ? "Enabled" : "Disabled");
 
-        systemPrintf("15) Print partition table\r\n");
+        systemPrint("15) Print addditional debug messages: ");
+        systemPrintf("%s\r\n", settings.printDebugMessages ? "Enabled" : "Disabled");
+
+        systemPrintf("16) Print partition table\r\n");
+
+        systemPrintf("17) Print settings file\r\n");
 
         // UART
         systemPrintln("\r\n-------  UART  ------\r\n");
@@ -160,7 +165,11 @@ void menuDebugSoftware()
         else if (incoming == 14)
             settings.echoUserInput ^= 1;
         else if (incoming == 15)
+            settings.printDebugMessages ^= 1;          
+        else if (incoming == 16)
             printPartitionTable();
+        else if (incoming == 17)
+            printSettings();
 
         else if (incoming == 20)
         {
@@ -359,162 +368,269 @@ void menuOperation()
         systemPrintln();
         systemPrintln("Menu: Operation\r\n");
 
-        systemPrint("1) RX Clock Bias Lock Limit (ms): ");
-        systemPrintf("%.3e\r\n", settings.rxClkBiasLockLimit_ms);
+        if (presentTcxoTemperature)
+        {
+        systemPrintf("1)  Minimum TCXO Warm Up (s):                          %ld\r\n", settings.tcxoMinWarmup_s);
+        systemPrintf("2)  Required TCXO Temperature Stability (ADU):         %.2f\r\n", settings.tcxoTemperatureStability);
+        }
 
-        systemPrint("2) RX Clock Bias Initial Limit (ms): ");
-        systemPrintf("%.3e\r\n", settings.rxClkBiasInitialLimit_ms);
+        systemPrint("3)  Required bias stability for frequency lock (s):    ");
+        systemPrintf("%.3e\r\n", settings.rxFrequencyLockErrorLimit_s);
 
-        systemPrint("3) RX Clock Bias Limit Count: ");
-        systemPrintf("%d\r\n", settings.rxClkBiasLimitCount);
+        systemPrint("4)  PI P term for initial frequency steering:          ");
+        systemPrintf("%.3e\r\n", settings.PkSteer);
 
-        systemPrint("4) Pk (PI P term): ");
+        systemPrint("5)  PI I term for initial frequency steering:          ");
+        systemPrintf("%.3e\r\n", settings.IkSteer);
+
+        systemPrint("6)  TCXO steering ramp rate limit (s/s):               ");
+        systemPrintf("%.3e\r\n", settings.tcxoRampRateLimit_sps);
+
+        systemPrint("7)  TCXO steering ramp step size (s):                  ");
+        systemPrintf("%.3e\r\n", settings.tcxoRampStepSize_s);
+
+        systemPrint("8)  Required bias for phase lock (s):                  ");
+        systemPrintf("%.3e\r\n", settings.rxPhaseErrorLimit_s);
+
+        systemPrint("9)  PI P term for final TCXO disciplining:             ");
         systemPrintf("%.3e\r\n", settings.Pk);
 
-        systemPrint("5) Ik (PI I term): ");
+        systemPrint("10) PI I term for final TCXO disciplining:             ");
         systemPrintf("%.3e\r\n", settings.Ik);
 
-        systemPrint("6) Prefer non-composite GPS bias - if available: ");
+        systemPrint("11) Prefer non-composite GPS bias - if available:      ");
         systemPrintf("%s\r\n", settings.preferNonCompositeGPSBias ? "Enabled" : "Disabled");
 
-        systemPrint("7) Prefer non-composite Galileo bias - if available: ");
+        systemPrint("12) Prefer non-composite Galileo bias - if available:  ");
         systemPrintf("%s\r\n", settings.preferNonCompositeGalileoBias ? "Enabled" : "Disabled");
 
-        systemPrint("8) Pulse-Per-Second Interval: ");
+        systemPrint("13) Pulse-Per-Second Interval:                         ");
         systemPrintln(mosaicPPSParametersInterval[settings.ppsInterval]);
 
-        systemPrint("9) Pulse-Per-Second Polarity: ");
+        systemPrint("14) Pulse-Per-Second Polarity:                         ");
         systemPrintln(mosaicPPSParametersPolarity[settings.ppsPolarity]);
 
-        systemPrint("10) Pulse-Per-Second Delay (ns): ");
+        systemPrint("15) Pulse-Per-Second Delay (ns):                       ");
         systemPrintln(settings.ppsDelay_ns);
 
-        systemPrint("11) Pulse-Per-Second Time Scale: ");
+        systemPrint("16) Pulse-Per-Second Time Scale:                       ");
         systemPrintln(mosaicPPSParametersTimeScale[settings.ppsTimeScale]);
 
-        systemPrint("12) Pulse-Per-Second Max Sync Age (s): ");
+        systemPrint("17) Pulse-Per-Second Max Sync Age (s):                 ");
         systemPrintln(settings.ppsMaxSyncAge_s);
 
-        systemPrint("13) Pulse-Per-Second Pulse Width (ms): ");
+        systemPrint("18) Pulse-Per-Second Pulse Width (ms):                 ");
         systemPrintln(settings.ppsPulseWidth_ms);
 
-        systemPrint("14) TCP Server (IPS1): ");
+        systemPrint("19) TCP Server (IPS1):                                 ");
         systemPrintf("%s\r\n", settings.enableTCPServer ? "Enabled" : "Disabled");
 
-        systemPrint("15) TCP Server Port: ");
+        systemPrint("20) TCP Server Port:                                   ");
         systemPrintln(settings.tcpServerPort);
+
+        if (presentTcxoSaveControl)
+            systemPrintln("21) Save TCXO control word to TCXO memory");
 
         systemPrintln("\r\nx) Exit");
 
         byte incoming = getCharacterNumber();
 
-        if (incoming == 1)
+        if (presentTcxoTemperature && (incoming == 1))
         {
-            systemPrint("Enter RX Clock Bias Lock Limit in milliseconds: ");
-            double limit = getDouble();
-            if (limit <= 0.0 || limit >= 1000.0) // Arbitrary 1s limit
-                systemPrintln("Error: Lock Limit is out of range");
-            else
+            systemPrint("Enter the minimum TCXO warm up in seconds: ");
+            int warmup = getNumber(); // Returns EXIT, TIMEOUT, or long
+            if ((warmup != INPUT_RESPONSE_GETNUMBER_EXIT) &&
+                (warmup != INPUT_RESPONSE_GETNUMBER_TIMEOUT))
             {
-                settings.rxClkBiasLockLimit_ms = limit; // Recorded to NVM at main menu exit
+                if (warmup < 1 || warmup > 3600)
+                    systemPrintln("Error: Warm up is out of range");
+                else
+                {
+                    settings.tcxoMinWarmup_s = warmup;
+                }
             }
         }
-        else if (incoming == 2)
+        else if (presentTcxoTemperature && (incoming == 2))
         {
-            systemPrint("Enter RX Clock Bias Initial Limit in milliseconds: ");
-            double limit = getDouble();
-            if (limit <= 0.0 || limit >= 1000.0) // Arbitrary 1s limit
-                systemPrintln("Error: Initial Limit is out of range");
-            else
+            systemPrint("Enter the required temperature stability in ADU: ");
+            double stability;
+            if (getDouble(stability))
             {
-                settings.rxClkBiasInitialLimit_ms = limit; // Recorded to NVM at main menu exit
+                if (stability < 0.01 || stability > 100.0)
+                    systemPrintln("Error: Temperature stability is out of range");
+                else
+                {
+                    settings.tcxoTemperatureStability = stability;
+                }
             }
         }
         else if (incoming == 3)
         {
-            systemPrint("Enter the RX Clock Bias Limit Count: ");
-            int count = getNumber(); // Returns EXIT, TIMEOUT, or long
-            if ((count != INPUT_RESPONSE_GETNUMBER_EXIT) &&
-                (count != INPUT_RESPONSE_GETNUMBER_TIMEOUT))
+            systemPrintln("The firmware will stay in STATE_GNSS_FINETIME");
+            systemPrintf("until the change in the bias is less than %.3es.\r\n", settings.rxFrequencyLockErrorLimit_s);
+            systemPrint("Enter the new bias stability in seconds: ");
+            double limit;
+            if (getDouble(limit))
             {
-                if (count < 1 || count > 3600)
-                    systemPrintln("Error: Count is out of range");
+                if (limit <= 0.0 || limit >= 1.0e-3) // Arbitrary limits
+                    systemPrintln("Error: bias stability is out of range");
                 else
                 {
-                    settings.rxClkBiasLimitCount = count;
+                    settings.rxFrequencyLockErrorLimit_s = limit; // Recorded to NVM at main menu exit
                 }
             }
         }
         else if (incoming == 4)
         {
-            systemPrint("Enter the PI P term: ");
-            double p = getDouble();
-            if (p <= 0.0 || p >= 10.0) // Arbitrary limits
-                systemPrintln("Error: term is out of range");
-            else
+            systemPrint("Enter the PI P term for initial frequency steering: ");
+            double p;
+            if (getDouble(p))
             {
-                settings.Pk = p; // Recorded to NVM at main menu exit
+                if (p < 0.0 || p > 10.0) // Arbitrary limits
+                    systemPrintln("Error: term is out of range");
+                else
+                {
+                    settings.PkSteer = p; // Recorded to NVM at main menu exit
+                }
             }
         }
         else if (incoming == 5)
         {
-            systemPrint("Enter the PI I term: ");
-            double i = getDouble();
-            if (i < 0.0 || i >= 10.0) // Arbitrary limits
-                systemPrintln("Error: term is out of range");
-            else
+            systemPrint("Enter the PI I term for initial frequency steering: ");
+            double i;
+            if (getDouble(i))
             {
-                settings.Ik = i; // Recorded to NVM at main menu exit
+                if (i < 0.0 || i > 10.0) // Arbitrary limits
+                    systemPrintln("Error: term is out of range");
+                else
+                {
+                    settings.IkSteer = i; // Recorded to NVM at main menu exit
+                }
             }
         }
         else if (incoming == 6)
+        {
+            systemPrint("Enter the TCXO steering ramp rate limit in seconds per second: ");
+            double dbl;
+            if (getDouble(dbl))
+            {
+                if (dbl < 1.0e-9 || dbl > 1.0e-3)
+                    systemPrintln("Error: steering rate limit is out of range");
+                else
+                {
+                    settings.tcxoRampRateLimit_sps = dbl;
+                }
+            }
+        }
+        else if (incoming == 7)
+        {
+            systemPrint("Enter the TCXO steering ramp step size in seconds: ");
+            double dbl;
+            if (getDouble(dbl))
+            {
+                if (dbl < 1.0e-9 || dbl > 1.0e-6)
+                    systemPrintln("Error: Steering Ramp Step Size is out of range");
+                else
+                {
+                    settings.tcxoRampStepSize_s = dbl;
+                }
+            }
+        }
+        else if (incoming == 8)
+        {
+            systemPrintln("The firmware will stay in STATE_GNSS_FREQUENCY_LOCK");
+            systemPrintf("until the bias is less than %.3es.\r\n", settings.rxPhaseErrorLimit_s);
+            systemPrint("Enter the new bias limit in seconds: ");
+            double limit;
+            if (getDouble(limit))
+            {
+                if (limit <= 0.0 || limit >= 1.0e-3) // Arbitrary 1ms limit
+                    systemPrintln("Error: bias limit is out of range");
+                else
+                {
+                    settings.rxPhaseErrorLimit_s = limit; // Recorded to NVM at main menu exit
+                }
+            }
+        }
+        else if (incoming == 9)
+        {
+            systemPrint("Enter the PI P term: ");
+            double p;
+            if (getDouble(p))
+            {
+                if (p < 0.0 || p > 10.0) // Arbitrary limits
+                    systemPrintln("Error: term is out of range");
+                else
+                {
+                    settings.Pk = p; // Recorded to NVM at main menu exit
+                }
+            }
+        }
+        else if (incoming == 10)
+        {
+            systemPrint("Enter the PI I term: ");
+            double i;
+            if (getDouble(i))
+            {
+                if (i < 0.0 || i > 10.0) // Arbitrary limits
+                    systemPrintln("Error: term is out of range");
+                else
+                {
+                    settings.Ik = i; // Recorded to NVM at main menu exit
+                }
+            }
+        }
+        else if (incoming == 11)
         {
             settings.preferNonCompositeGPSBias ^= 1;
             if (settings.preferNonCompositeGPSBias)
                 settings.preferNonCompositeGalileoBias = false;
         }
-        else if (incoming == 7)
+        else if (incoming == 12)
         {
             settings.preferNonCompositeGalileoBias ^= 1;
             if (settings.preferNonCompositeGalileoBias)
                 settings.preferNonCompositeGPSBias = false;
         }
-        else if (incoming == 8)
+        else if (incoming == 13)
         {
             settings.ppsInterval++;
             if ((settings.ppsInterval >= mosaicPPSParametersIntervalEntries) || (settings.ppsInterval < 0))
                 settings.ppsInterval = 0;
             ppsStarted = false; // Restart PPS afterwards
         }
-        else if (incoming == 9)
+        else if (incoming == 14)
         {
             settings.ppsPolarity++;
             if ((settings.ppsPolarity >= mosaicPPSParametersPolarityEntries) || (settings.ppsPolarity < 0))
                 settings.ppsPolarity = 0;
             ppsStarted = false; // Restart PPS afterwards
         }
-        else if (incoming == 10)
+        else if (incoming == 15)
         {
-            systemPrint("Enter Pulse-Per-Second Delay in nanoseconds: ");
-            double dly = getDouble();
-            if (dly < -1000000.00 || dly > 1000000.00)
-                systemPrintln("Error: Delay is out of range");
-            else
+            systemPrint("Enter the Pulse-Per-Second Delay in nanoseconds: ");
+            double dly;
+            if (getDouble(dly))
             {
-                settings.ppsDelay_ns = dly;
-                ppsStarted = false; // Restart PPS afterwards
+                if (dly < -1000000.00 || dly > 1000000.00)
+                    systemPrintln("Error: delay is out of range");
+                else
+                {
+                    settings.ppsDelay_ns = dly;
+                    ppsStarted = false; // Restart PPS afterwards
+                }
             }
         }
-        else if (incoming == 11)
+        else if (incoming == 16)
         {
             settings.ppsTimeScale++;
             if ((settings.ppsTimeScale >= mosaicPPSParametersTimeScaleEntries) || (settings.ppsTimeScale < 0))
                 settings.ppsTimeScale = 0;
             ppsStarted = false; // Restart PPS afterwards
         }
-        else if (incoming == 12)
+        else if (incoming == 17)
         {
-            systemPrint("Enter Max Sync Age in seconds (0 to 3600): ");
+            systemPrint("Enter the Max Sync Age in seconds (0 to 3600): ");
             int syncAge = getNumber(); // Returns EXIT, TIMEOUT, or long
             if ((syncAge != INPUT_RESPONSE_GETNUMBER_EXIT) &&
                 (syncAge != INPUT_RESPONSE_GETNUMBER_TIMEOUT))
@@ -528,23 +644,26 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 13)
+        else if (incoming == 18)
         {
-            systemPrint("Enter Pulse Width in milliseconds: ");
-            double width = getDouble();
-            if (width <= 0.000001 || width > 1000.000000)
-                systemPrintln("Error: Pulse Width is out of range");
-            else
+            systemPrint("Enter the Pulse Width in milliseconds: ");
+            double width;
+            if (getDouble(width))
             {
-                settings.ppsPulseWidth_ms = width;
-                ppsStarted = false; // Restart PPS afterwards
+                if (width <= 0.000001 || width > 1000.000000)
+                    systemPrintln("Error: Pulse Width is out of range");
+                else
+                {
+                    settings.ppsPulseWidth_ms = width;
+                    ppsStarted = false; // Restart PPS afterwards
+                }
             }
         }
-        else if (incoming == 14)
+        else if (incoming == 19)
         {
             settings.enableTCPServer ^= 1;
         }
-        else if (incoming == 15)
+        else if (incoming == 20)
         {
             systemPrint("Enter the TCP Server Port: ");
             int port = getNumber(); // Returns EXIT, TIMEOUT, or long
@@ -559,6 +678,18 @@ void menuOperation()
                 }
             }
         }
+        else if (presentTcxoSaveControl && (incoming == 21))
+        {
+            systemPrintln("\r\nSaving the TCXO control word to TCXO memory. Press 'y' to confirm:");
+            byte bContinue = getCharacterNumber();
+            if (bContinue == 'y')
+            {
+                myTCXO->saveFrequencyControlValue();
+            }
+            else
+                systemPrintln("Save aborted");
+        }
+
         // Menu exit control
         else if (incoming == 'x')
             break;
@@ -624,7 +755,7 @@ void printCurrentConditions(bool CSV)
 
             systemPrintf(",%.3e", tcxoClockBias_ms / 1000.0); // Display clock bias in seconds
 
-            systemPrintf(",%.3e", tcxoClockDrift_ppm / 1000000.0); // Display clock drift in parts
+            systemPrintf(",%.3e", tcxoClockDrift_ppm); // Display clock drift in PPM
 
             systemPrint(",");
             systemPrint((const char *)rxClkBiasSource),
@@ -642,6 +773,26 @@ void printCurrentConditions(bool CSV)
                 systemPrintf(",%.0f", pressure);
                 systemPrintf(",%.1f", temperature);
                 systemPrintf(",%.0f", humidity);
+            }
+
+            if (presentTcxoTemperature)
+                systemPrintf(",%d", (uint16_t)round(tcxoTemperature));
+
+            if (settings.printDebugMessages == true)
+            {
+                for (int i = 0; i < numSystemStatesNames; i++)
+                {
+                    if (SystemStatesNames[i].systemState == systemState)
+                    {
+                        systemPrintf(",%s", SystemStatesNames[i].stateName);
+                        break;
+                    }
+                }
+
+                systemPrintf(",%.3e", rate_s);
+                systemPrintf(",%.3e", rate_held_s);
+                systemPrintf(",%.3e", setpoint_s);
+                systemPrintf(",%.3e", error_s);
             }
 
             systemPrintln();
@@ -682,7 +833,7 @@ void printCurrentConditions(bool CSV)
                 systemPrintf(", Bias: %.3fns",
                     (float)(tcxoClockBias_ms * 1000000.0));
 
-            systemPrintf(", Drift: %.3e", tcxoClockDrift_ppm / 1000000.0);
+            systemPrintf(", Drift: %.3e", tcxoClockDrift_ppm);
 
             systemPrint(", Source: ");
             systemPrint((const char *)rxClkBiasSource),
@@ -696,6 +847,9 @@ void printCurrentConditions(bool CSV)
                 systemPrintf(", Temperature: %.1fC", temperature);
                 systemPrintf(", Humidity: %.0f%%RH", humidity);
             }
+
+            if (presentTcxoTemperature)
+                systemPrintf(", TCXO Temp: %d", (uint16_t)(round(tcxoTemperature)));
 
             systemPrintln();
         }

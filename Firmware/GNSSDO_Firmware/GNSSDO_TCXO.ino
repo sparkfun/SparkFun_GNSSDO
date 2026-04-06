@@ -12,6 +12,12 @@ int64_t GNSSDO_TCXO::getFrequencyControlWord(void)
     return settings.tcxoControl;
 }
 
+// Set the frequency control word - useful when resetting the integrator
+bool GNSSDO_TCXO::setFrequencyControlWord(int64_t controlWord)
+{
+    return true;
+}
+
 // Set the frequency by bias millis
 bool GNSSDO_TCXO::setFrequencyByBiasMillis(double bias, double Pk, double Ik)
 {
@@ -33,3 +39,10 @@ double GNSSDO_TCXO::getDefaultFrequencyByBiasITerm(void)
 {
     return settings.Ik;
 }
+
+// Read the temperature sensor - if present
+uint16_t GNSSDO_TCXO::getTcxoTemperature(void)
+{
+    return 0;
+}
+

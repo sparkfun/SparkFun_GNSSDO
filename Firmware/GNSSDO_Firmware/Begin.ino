@@ -304,7 +304,7 @@ void updateErrorLED()
 
 void updateLockLED()
 {
-    digitalWrite(pin_lockLED, (fabs(tcxoClockBias_ms) < settings.rxClkBiasLockLimit_ms) ? HIGH : LOW);
+    digitalWrite(pin_lockLED, systemState >= STATE_GNSS_PHASE_LOCK ? HIGH : LOW);
 }
 
 // Depending on platform and previous power down state, set system state
@@ -506,6 +506,8 @@ void pinI2C2Task(void *pvParameters)
                 case SFE_GNSSDO_OSC_STP3593LF: {
                     systemPrintf("0x%02x - STP3593LF TCXO\r\n", addr);
                     presentSTP3593LF = true;
+                    presentTcxoTemperature = true;
+                    presentTcxoSaveControl = true;
                     i2cTCXO = i2c_2;
                     break;
                 }
@@ -525,7 +527,7 @@ void pinI2C2Task(void *pvParameters)
     vTaskDelete(nullptr); // Delete task once it has run once
 }
 
-void beginTCXO(TwoWire *i2cBus)
+void beginTCXO(TwoWire *i2cBus, bool printOCXO)
 {
     if (myTCXO != nullptr)
     {
@@ -561,7 +563,8 @@ void beginTCXO(TwoWire *i2cBus)
             recordSystemSettings();
         }
         
-        systemPrintln("Using STP3593LF OCXO");
+        if (printOCXO)
+            systemPrintln("Using STP3593LF OCXO");
         strncpy(oscillatorType, "STP3593LF OCXO", sizeof(oscillatorType));
     }
     else if (presentSIT5811)
@@ -580,7 +583,8 @@ void beginTCXO(TwoWire *i2cBus)
             recordSystemSettings();
         }
         
-        systemPrintln("Using SiT5811 OCXO");
+        if (printOCXO)
+            systemPrintln("Using SiT5811 OCXO");
         strncpy(oscillatorType, "SiT5811 OCXO", sizeof(oscillatorType));
     }
     else if (presentSIT5358)
@@ -599,7 +603,8 @@ void beginTCXO(TwoWire *i2cBus)
             recordSystemSettings();
         }
         
-        systemPrintln("Using SiT5358 TCXO");
+        if (printOCXO)
+            systemPrintln("Using SiT5358 TCXO");
         strncpy(oscillatorType, "SiT5358 TCXO", sizeof(oscillatorType));
     }
     else
@@ -616,12 +621,24 @@ void beginTCXO(TwoWire *i2cBus)
     online.tcxo = true;
 }
 
-// This function updates the TCXO to discipline the frequency
+// This function updates the TCXO to discipline the frequency using the latest bias
 void updateTCXO()
+{
+    updateTCXO(tcxoClockBias_ms);
+}
+
+// This function updates the TCXO using the specified bias and the P&I terms from settings
+void updateTCXO(double bias_ms)
+{
+    updateTCXO(bias_ms, settings.Pk, settings.Ik);
+}
+
+// This function updates the TCXO using the specified bias and P&I terms
+void updateTCXO(double bias_ms, double P, double I)
 {
     if (online.tcxo)
     {
-        myTCXO->setFrequencyByBiasMillis(tcxoClockBias_ms, settings.Pk, settings.Ik);
+        myTCXO->setFrequencyByBiasMillis(bias_ms, P, I);
     }
 }
 
@@ -645,7 +662,7 @@ int64_t getFrequencyControlWord()
 }
 
 // This function updates the tcxoClockBias_ms used to discipline the TCXO frequency
-// updateTCXOClockBias is only called by STATE_GNSS_FINETIME when gnssPVTUpdated was true
+// updateTCXOClockBias is only called by (e.g.) STATE_GNSS_FINETIME when gnssPVTUpdated was true
 // So we know that gnssClockBias_ms is valid
 // Use gnssClockBias_ms as the default
 // If we have non-composite GPS from FugroTimeOffset, use that - if enabled
@@ -656,6 +673,15 @@ void updateTCXOClockBias()
     tcxoClockDrift_ppm = gnssClockDrift_ppm;
     snprintf(rxClkBiasSource, sizeof(rxClkBiasSource), "PVT");
     snprintf(sysSource, sizeof(sysSource), mosaicTimeSystemNameFromId(gnssTimeSys));
+
+    // uint8_t index = mosaicTimeSystemIndexFromName("Fugro");
+    // if (fugroTimeSystems[index].updated) // If we have the Fugro bias, use that
+    // {
+    //     tcxoClockBias_ms = fugroTimeSystems[index].RxClkBias_ms;
+    //     tcxoClockDrift_ppm = fugroTimeSystems[index].RxClkDrift_ppm;
+    //     fugroTimeSystems[index].updated = false;
+    //     snprintf(rxClkBiasSource, sizeof(rxClkBiasSource), fugroTimeSystems[index].name);
+    // }
 
     if (settings.preferNonCompositeGPSBias || settings.preferNonCompositeGalileoBias) // These are mutex
     {
