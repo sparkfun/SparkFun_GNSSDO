@@ -332,8 +332,8 @@ typedef struct
     int64_t tcxoControl = 0; // Store the TCXO control word - to aid locking after power off
     double rxFrequencyLockErrorLimit_s = 1.0e-10; // Stay in STATE_GNSS_FINETIME until the change in the bias is <= this many s/s
     double rxPhaseErrorLimit_s = 1.0e-7; // Stay in STATE_GNSS_FREQUENCY_LOCK until the bias is <= this many s
-    double PkSteer = 0.5; // PI P term for initial frequency steering
-    double IkSteer = 0.5; // PI I term for initial frequency steering
+    double PkSteer = 0.5; // PI P term for initial frequency steering (updated if needed by beginTCXO)
+    double IkSteer = 0.5; // PI I term for initial frequency steering (updated if needed by beginTCXO)
     double Pk = 0.63; // PI P term (default for the SiT5358 - updated if needed by beginTCXO)
     double Ik = 0.151; // PI I term (default for the SiT5358 - updated if needed by beginTCXO)
     uint8_t lastSeenTCXO = 0; // Use this to identify a change of oscillator (by its I2C address)
@@ -344,8 +344,9 @@ typedef struct
     uint32_t previousIP = 0; // Store the previous IP address
     double tcxoTemperatureStability = 0.01; // Required temperature stability for TCXO warm up (ADU)
     unsigned long tcxoMinWarmup_s = 120; // Required minimum warmup
-    double tcxoRampRateLimit_sps = 250e-9; // This limits the ramp rate during steering (s/s)
+    double tcxoRampRateLimit_sps = 250.0e-9; // This limits the ramp rate during steering (s/s) (updated if needed by beginTCXO)
     double tcxoRampStepSize_s = 1.0e-9; // Ole uses 1ns/s
+    double tcxoFreqLockIkMultiplier = 10.0; // STP3593 needs much more I. SiT5358 less so.
 
     // Add new settings above <------------------------------------------------------------>
 

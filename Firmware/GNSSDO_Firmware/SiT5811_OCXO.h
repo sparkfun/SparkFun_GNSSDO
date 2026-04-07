@@ -31,6 +31,10 @@ class GNSSDO_SIT5811 : GNSSDO_TCXO
         // Get the default P and I terms - for the default settings - TODO
         double getDefaultFrequencyByBiasPTerm(void) { return 0.5; }
         double getDefaultFrequencyByBiasITerm(void) { return 0.1; }
+        double getDefaultFrequencySteeringPTerm(void) { return 0.5; }
+        double getDefaultFrequencySteeringITerm(void) { return 0.5; }
+        double getDefaultTcxoRampRateLimit(void) { return 250e-9; }
+        double getDefaultTcxoRampStepSize(void) { return 1.0e-9; };
 
         // Read the temperature sensor - if present
         uint16_t getTcxoTemperature(void);

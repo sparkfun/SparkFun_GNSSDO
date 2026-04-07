@@ -3,9 +3,9 @@
   SparkFun Electronics
   Paul Clark
 
-  This is the firmware for the SparkFun SparkPNT GNSSDO.
-  It runs on an ESP32 and communicates with the mosaic-T and SiT5358.
-  The SiTime SiT5811 and Rakon STP3593LF are also supported.
+  This is the firmware for the SparkFun SparkPNT GNSSDO / GNSSDO+.
+  It runs on an ESP32 and communicates with the mosaic-T and SiT5358 / STP3593LF.
+  The SiTime SiT5811 is also supported.
 
   Compiled with arduino-cli with ESP32 core v3.0.7
 
@@ -44,23 +44,27 @@
          The MS8607 pressure, temperature and humidity are included in the periodic reports
          The OLED will display the temperature: to the right of "Error", when space is available
   3.0: Improved TCXO / OCXO startup from cold
-         The firmware no longer uses setClockSyncThreshold StartupSync
+         The firmware no longer uses setClockSyncThreshold (scst) StartupSync. StartupSync is off
+           This prevents a shift in PPS with respect to the clock
+           But it does mean that the initial bias error can be up to 500us
          The firmware no longer performs a soft reset if the bias is excessive on startup
-         The clock sync threshold (scst) StartupSync is set to off to avoid shifts in the PPS output
+         In STATE_TCXO_WARMUP (GNSSDO+ only)
+           The firmware waits for tcxoMinWarmup_s and for the OCXO temperature to become stable
          In STATE_GNSS_CONFIGURED
            The firmware waits for the ReceiverTime FINETIME bit to be set, indicating
            the setClockSyncThreshold Threshold (usec500) has been achieved
          In STATE_GNSS_FINETIME
            The firmware disciplines the TCXO / OCXO frequency in a simple frequency locked loop
            The firmware exits this state when the tcxoClockBias_ms (RxClkBias)
-           is better than the specified rxFrequencyLockErrorLimit_ms
+           is better than the specified rxFrequencyLockErrorLimit_s
          In STATE_GNSS_FREQUENCY_LOCK
            The TCXO / OCXO bias is minimised by ramping the residual bias towards zero in
            increasing and then decreasing steps (to avoid blowing up the integrator)
            When the ramps are complete, the tcxoClockBias_ms (RxClkBias) is re-checked
-           This state is repeated if the bias is still excessive (> rxPhaseErrorLimit_ms)
+           This state is repeated if the bias is still excessive (> rxPhaseErrorLimit_s)
+           The PI loop uses PkSteer and IkSteer when following the ramp
          In STATE_GNSS_PHASE_LOCK
-           PPS output will be started when entering STATE_GNSS_PHASE_LOCK
+           PPS output will be started when entering STATE_GNSS_PHASE_LOCK for the first time
            This state uses a conventional PLL to drive the tcxoClockBias_ms (RxClkBias) to zero
 */
 

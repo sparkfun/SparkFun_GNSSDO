@@ -5,6 +5,8 @@ static double rate_s;
 static double rate_held_s;
 static double error_s;
 static bool slewing; // false causes setpoint etc. to be initialized. true indicates slewing is in progress
+static double smoothedTcxoBiasChange_ms = -2.0e10; // Same as Do-Not-Use
+static double smoothedTemperatureChange = 0.0; // GNSSDO+ only
 
 // Given the current state, see if conditions have moved us to a new state
 // A user pressing the setup button (change between rover/base) is handled by checkpin_setupButton()
@@ -110,8 +112,6 @@ void updateSystemState()
                 // We need to stay in this state for at least tcxoMinWarmup_s
                 static unsigned long seconds = 0;
                 
-                static double smoothedTemperatureChange = 0.0;
-
                 static double previousTemperature = tcxoTemperature;
 
                 double temperatureChange = previousTemperature - tcxoTemperature;
@@ -179,7 +179,6 @@ void updateSystemState()
                 tcxoClockBiasChange_ms = previousTcxoClockBias_ms - tcxoClockBias_ms;
                 previousTcxoClockBias_ms = tcxoClockBias_ms;
 
-                static double smoothedTcxoBiasChange_ms = -2.0e10; // Same as Do-Not-Use
                 if (smoothedTcxoBiasChange_ms < -1.0e10)
                 {
                     smoothedTcxoBiasChange_ms = tcxoClockBiasChange_ms;
@@ -196,8 +195,8 @@ void updateSystemState()
                 // If the previous bias is more positive than the current bias, the change is positive
                 // But feeding a positive value into setFrequencyByBiasMillis reduces the frequency
                 // So we need to invert the sign
-                // Use the regular P and I terms, but make I a little more aggressive
-                updateTCXO(0.0 - tcxoClockBiasChange_ms, settings.Pk, settings.Ik * 10.0);
+                // Use the regular P and I terms, but adjust I as needed
+                updateTCXO(0.0 - tcxoClockBiasChange_ms, settings.Pk, settings.Ik * settings.tcxoFreqLockIkMultiplier);
 
                 // If smoothedTcxoBiasChange_ms is better than settings.rxFrequencyLockErrorLimit_s
                 // go into STATE_GNSS_FREQUENCY_LOCK
@@ -255,14 +254,12 @@ void updateSystemState()
 
                 double tcxoClockBias_s = tcxoClockBias_ms * 0.001; // Convert bias to seconds
 
-                static bool setpointIsSet = false;
-
+                // Initialise the setpoint with the current bias so we start with an error of ~zero
                 // Set the turn around at half the current bias
                 // Initialize the rate
                 if (!slewing)
                 {
                     setpoint_s = tcxoClockBias_s;
-                    setpointIsSet = true;
                     slew_turnaround_s = fabs(tcxoClockBias_s) / 2.0; // slew_turnaround is absolute
                     rate_s = 3.0 * settings.tcxoRampStepSize_s; // initialize the rate
                     slewing = true;
@@ -275,19 +272,30 @@ void updateSystemState()
                 else
                     rate_s -= settings.tcxoRampStepSize_s;
 
-                // Initialise the setpoint with the current bias
-                // so we start with an error of ~zero
-                if (!setpointIsSet)
-                {
-                    setpoint_s = tcxoClockBias_s;
-                    setpointIsSet = true;
-                    break; // Skip the TCXO update on this pass. Bias will keep shifting
-                }
-
                 // Check if the rate has returned to ~zero
                 // We start at 3 * the step size. Check at 2 *
-                if (rate_s < (2.0 * settings.tcxoRampStepSize_s))
+                if (rate_s <= (2.0 * settings.tcxoRampStepSize_s))
                     slewing = false;
+
+                // Limit the rate (s/s)
+                if (rate_s > settings.tcxoRampRateLimit_sps)
+                    rate_held_s = settings.tcxoRampRateLimit_sps;
+                else
+                    rate_held_s = rate_s;
+
+                // Walk setpoint back to 0
+                if (slewing)
+                {
+                    if (setpoint_s > rate_held_s)
+                        setpoint_s -= rate_held_s; // Shift the setpoint by the rate. rate_s is absolute
+                    else if (setpoint_s < (0.0 - rate_held_s))
+                        setpoint_s += rate_held_s;
+                    else
+                    {
+                        setpoint_s = 0.0;
+                        slewing = false;
+                    }
+                }
 
                 // When slewing is false, we have finished slewing
                 // Keep going if the phase error is still too large
@@ -302,23 +310,6 @@ void updateSystemState()
                 }
                 else
                 {
-                    // Limit the rate (s/s)
-                    if (rate_s > settings.tcxoRampRateLimit_sps)
-                        rate_held_s = settings.tcxoRampRateLimit_sps;
-                    else
-                        rate_held_s = rate_s;
-
-                    // Walk setpoint back to 0
-                    if (setpoint_s != 0.0)
-                    {
-                        if (setpoint_s > rate_held_s)
-                            setpoint_s -= rate_held_s; // Shift the setpoint by the rate. rate_s is absolute
-                        else if (setpoint_s < (0.0 - rate_held_s))
-                            setpoint_s += rate_held_s;
-                        else
-                            setpoint_s = 0.0;
-                    }
-
                     // The error term is the difference between the setpoint and the current bias
                     error_s = setpoint_s - tcxoClockBias_s;
 
@@ -367,7 +358,9 @@ void updateSystemState()
                 updateLockLED(); // Update Lock LED based on systemState
                 updateErrorLED();
 
-                static int tcxoUpdates = 0; // Keep count of TCXO control word updates. Save the control word every hour
+                // Keep count of TCXO control word updates
+                static int tcxoUpdates = 0;
+                static int saveControlWordAfter_s = 3600;
 
                 // Change state on error - stop updating the TCXO
                 if (gnssError)
@@ -388,8 +381,8 @@ void updateSystemState()
 
                 tcxoUpdates++;
 
-                // Save the TCXO control word once per hour only - to protect the LittleFS flash memory
-                if (tcxoUpdates > 3600)
+                // Save the TCXO control word after 1, 2, 4, 8, 8, 8... hours - to protect the LittleFS flash memory
+                if (tcxoUpdates > saveControlWordAfter_s)
                 {
                     tcxoUpdates = 0;
                     settings.tcxoControl = getFrequencyControlWord();
@@ -403,6 +396,10 @@ void updateSystemState()
                     printDebug(debugString);
 
                     saveTCXO(); // Tell the TCXO to save its frequency control word - if supported
+
+                    // Save the control word after: 1, 2, 4, 8, 8, 8... hours
+                    if (saveControlWordAfter_s < 28800)
+                        saveControlWordAfter_s *= 2;
                 }
             }
         }

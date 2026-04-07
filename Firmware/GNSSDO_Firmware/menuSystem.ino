@@ -456,7 +456,7 @@ void menuOperation()
             double stability;
             if (getDouble(stability))
             {
-                if (stability < 0.01 || stability > 100.0)
+                if (stability < 0.001 || stability > 100.0)
                     systemPrintln("Error: Temperature stability is out of range");
                 else
                 {
@@ -717,9 +717,14 @@ void printCurrentConditions(bool CSV)
             {
                 systemPrint("YYYY/MM/DD,HH:MM:SS,Epoch,Lat,Lon,Alt,TimeSys,Error,Fine,PPS,Bias,Drift,Source,TCXO,Pk,Ik");
                 if (online.pht)
-                    systemPrintln(",Press,Temp,Hum");
-                else
-                    systemPrintln();
+                    systemPrint(",Press,Temp,Hum");
+                if (presentTcxoTemperature)
+                    systemPrint(",TCXO_Temp");
+                systemPrint(",Mode");
+                if (presentTcxoTemperature)
+                    systemPrint(",Temp_Smooth");
+                systemPrint(",Bias_Smooth,PkSteer,IkSteer,Rate,Rate_Held,Setpoint,Error");
+                systemPrintln();
                 firstTime = false;
             }
 
@@ -778,22 +783,30 @@ void printCurrentConditions(bool CSV)
             if (presentTcxoTemperature)
                 systemPrintf(",%d", (uint16_t)round(tcxoTemperature));
 
-            if (settings.printDebugMessages == true)
+            for (int i = 0; i < numSystemStatesNames; i++)
             {
-                for (int i = 0; i < numSystemStatesNames; i++)
+                if (SystemStatesNames[i].systemState == systemState)
                 {
-                    if (SystemStatesNames[i].systemState == systemState)
-                    {
-                        systemPrintf(",%s", SystemStatesNames[i].stateName);
-                        break;
-                    }
+                    systemPrintf(",%s", SystemStatesNames[i].stateName);
+                    break;
                 }
-
-                systemPrintf(",%.3e", rate_s);
-                systemPrintf(",%.3e", rate_held_s);
-                systemPrintf(",%.3e", setpoint_s);
-                systemPrintf(",%.3e", error_s);
             }
+
+            if (presentTcxoTemperature)
+                systemPrintf(",%.3e", smoothedTemperatureChange);
+
+            systemPrintf(",%.3e", smoothedTcxoBiasChange_ms / 1000.0);
+
+            systemPrint(",");
+            systemPrint(settings.PkSteer, 3);
+            
+            systemPrint(",");
+            systemPrint(settings.IkSteer, 3);
+            
+            systemPrintf(",%.3e", rate_s);
+            systemPrintf(",%.3e", rate_held_s);
+            systemPrintf(",%.3e", setpoint_s);
+            systemPrintf(",%.3e", error_s);
 
             systemPrintln();
         }
@@ -850,6 +863,15 @@ void printCurrentConditions(bool CSV)
 
             if (presentTcxoTemperature)
                 systemPrintf(", TCXO Temp: %d", (uint16_t)(round(tcxoTemperature)));
+
+            for (int i = 0; i < numSystemStatesNames; i++)
+            {
+                if (SystemStatesNames[i].systemState == systemState)
+                {
+                    systemPrintf(", Mode: %s", SystemStatesNames[i].stateName);
+                    break;
+                }
+            }
 
             systemPrintln();
         }

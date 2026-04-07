@@ -113,6 +113,7 @@ void recordSystemSettingsToFile(File *settingsFile)
     settingsFile->printf("%s=%d\r\n", "tcxoMinWarmup_s", settings.tcxoMinWarmup_s);
     settingsFile->printf("%s=%0.3e\r\n", "tcxoRampRateLimit_sps", settings.tcxoRampRateLimit_sps);
     settingsFile->printf("%s=%0.3e\r\n", "tcxoRampStepSize_s", settings.tcxoRampStepSize_s);
+    settingsFile->printf("%s=%0.1f\r\n", "tcxoFreqLockIkMultiplier", settings.tcxoFreqLockIkMultiplier);
 
     //settingsFile->printf("%s=%d\r\n", "", settings.);
 
@@ -502,6 +503,8 @@ bool parseLine(char *theLine, Settings *settings, bool printDebug)
         settings->tcxoRampRateLimit_sps = d;
     else if (strcmp(settingName, "tcxoRampStepSize_s") == 0)
         settings->tcxoRampStepSize_s = d;
+    else if (strcmp(settingName, "tcxoFreqLockIkMultiplier") == 0)
+        settings->tcxoFreqLockIkMultiplier = d;
 
     //else if (strcmp(settingName, "") == 0)
     //    settings-> = d;

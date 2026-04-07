@@ -560,6 +560,11 @@ void beginTCXO(TwoWire *i2cBus, bool printOCXO)
             settings.lastSeenTCXO = SFE_GNSSDO_OSC_STP3593LF;
             settings.Pk = myTCXO->getDefaultFrequencyByBiasPTerm();
             settings.Ik = myTCXO->getDefaultFrequencyByBiasITerm();
+            settings.PkSteer = myTCXO->getDefaultFrequencySteeringPTerm();
+            settings.IkSteer = myTCXO->getDefaultFrequencySteeringITerm();
+            settings.tcxoRampRateLimit_sps = myTCXO->getDefaultTcxoRampRateLimit();
+            settings.tcxoRampStepSize_s = myTCXO->getDefaultTcxoRampStepSize();
+            settings.tcxoFreqLockIkMultiplier = 10.0;
             recordSystemSettings();
         }
         
@@ -580,6 +585,11 @@ void beginTCXO(TwoWire *i2cBus, bool printOCXO)
             settings.lastSeenTCXO = SFE_GNSSDO_OSC_SIT5811;
             settings.Pk = myTCXO->getDefaultFrequencyByBiasPTerm();
             settings.Ik = myTCXO->getDefaultFrequencyByBiasITerm();
+            settings.PkSteer = myTCXO->getDefaultFrequencySteeringPTerm();
+            settings.IkSteer = myTCXO->getDefaultFrequencySteeringITerm();
+            settings.tcxoRampRateLimit_sps = myTCXO->getDefaultTcxoRampRateLimit();
+            settings.tcxoRampStepSize_s = myTCXO->getDefaultTcxoRampStepSize();
+            settings.tcxoFreqLockIkMultiplier = 2.0; // TODO
             recordSystemSettings();
         }
         
@@ -600,6 +610,11 @@ void beginTCXO(TwoWire *i2cBus, bool printOCXO)
             settings.lastSeenTCXO = SFE_GNSSDO_OSC_SIT5358;
             settings.Pk = myTCXO->getDefaultFrequencyByBiasPTerm();
             settings.Ik = myTCXO->getDefaultFrequencyByBiasITerm();
+            settings.PkSteer = myTCXO->getDefaultFrequencySteeringPTerm();
+            settings.IkSteer = myTCXO->getDefaultFrequencySteeringITerm();
+            settings.tcxoRampRateLimit_sps = myTCXO->getDefaultTcxoRampRateLimit();
+            settings.tcxoRampStepSize_s = myTCXO->getDefaultTcxoRampStepSize();
+            settings.tcxoFreqLockIkMultiplier = 2.0;
             recordSystemSettings();
         }
         

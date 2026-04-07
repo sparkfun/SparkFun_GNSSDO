@@ -39,6 +39,22 @@ double GNSSDO_TCXO::getDefaultFrequencyByBiasITerm(void)
 {
     return settings.Ik;
 }
+double GNSSDO_TCXO::getDefaultFrequencySteeringPTerm(void)
+{
+    return settings.PkSteer;
+}
+double GNSSDO_TCXO::getDefaultFrequencySteeringITerm(void)
+{
+    return settings.IkSteer;
+}
+double GNSSDO_TCXO::getDefaultTcxoRampRateLimit(void)
+{
+    return settings.tcxoRampRateLimit_sps;
+}
+double GNSSDO_TCXO::getDefaultTcxoRampStepSize(void)
+{
+    return settings.tcxoRampStepSize_s;
+}
 
 // Read the temperature sensor - if present
 uint16_t GNSSDO_TCXO::getTcxoTemperature(void)
