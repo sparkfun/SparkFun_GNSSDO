@@ -370,66 +370,78 @@ void menuOperation()
 
         if (presentTcxoTemperature)
         {
-        systemPrintf("1)  Minimum TCXO Warm Up (s):                          %ld\r\n", settings.tcxoMinWarmup_s);
-        systemPrintf("2)  Required TCXO Temperature Stability (ADU):         %.2f\r\n", settings.tcxoTemperatureStability);
+        systemPrintf("1)  Minimum TCXO Warm Up (s):                           %ld\r\n", settings.tcxoMinWarmup_s);
+        systemPrintf("2)  Required TCXO Temperature Stability (ADU):          %.2f\r\n", settings.tcxoTemperatureStability);
         }
 
-        systemPrint("3)  Required bias stability for frequency lock (s):    ");
-        systemPrintf("%.3e\r\n", settings.rxFrequencyLockErrorLimit_s);
-
-        systemPrint("4)  PI P term for initial frequency steering:          ");
+        systemPrint("10) PI P term for initial frequency steering:           ");
         systemPrintf("%.3e\r\n", settings.PkSteer);
 
-        systemPrint("5)  PI I term for initial frequency steering:          ");
+        systemPrint("11) PI I term for initial frequency steering:           ");
         systemPrintf("%.3e\r\n", settings.IkSteer);
 
-        systemPrint("6)  TCXO steering ramp rate limit (s/s):               ");
+        systemPrint("12) Required bias stability for frequency lock:         ");
+        systemPrintf("%.3e\r\n", settings.rxStabilityForFrequencyLockError);
+
+        systemPrint("13) PI P term for fast ramping:                         ");
+        systemPrintf("%.3e\r\n", settings.PkRamp);
+
+        systemPrint("14) PI I term for fast ramping:                         ");
+        systemPrintf("%.3e\r\n", settings.IkRamp);
+
+        systemPrint("15) TCXO steering ramp rate limit (s/s):                ");
         systemPrintf("%.3e\r\n", settings.tcxoRampRateLimit_sps);
 
-        systemPrint("7)  TCXO steering ramp step size (s):                  ");
+        systemPrint("16) TCXO steering ramp step size (s):                   ");
         systemPrintf("%.3e\r\n", settings.tcxoRampStepSize_s);
 
-        systemPrint("8)  Required bias for phase lock (s):                  ");
+        systemPrint("17) TCXO steering ramp asymmetry:                       ");
+        systemPrintf("%.3f\r\n", settings.tcxoRampAsymmetry);
+
+        systemPrint("18) TCXO steering ramp minimum repeats:                 ");
+        systemPrintf("%d\r\n", settings.minimumRampRepeats);        
+
+        systemPrint("19) Required bias for phase lock (s):                   ");
         systemPrintf("%.3e\r\n", settings.rxPhaseErrorLimit_s);
 
-        systemPrint("9)  PI P term for final TCXO disciplining:             ");
+        systemPrint("20) PI P term for final TCXO disciplining:              ");
         systemPrintf("%.3e\r\n", settings.Pk);
 
-        systemPrint("10) PI I term for final TCXO disciplining:             ");
+        systemPrint("21) PI I term for final TCXO disciplining:              ");
         systemPrintf("%.3e\r\n", settings.Ik);
 
-        systemPrint("11) Prefer non-composite GPS bias - if available:      ");
+        systemPrint("30) Prefer non-composite GPS bias - if available:       ");
         systemPrintf("%s\r\n", settings.preferNonCompositeGPSBias ? "Enabled" : "Disabled");
 
-        systemPrint("12) Prefer non-composite Galileo bias - if available:  ");
+        systemPrint("31) Prefer non-composite Galileo bias - if available:   ");
         systemPrintf("%s\r\n", settings.preferNonCompositeGalileoBias ? "Enabled" : "Disabled");
 
-        systemPrint("13) Pulse-Per-Second Interval:                         ");
+        systemPrint("40) Pulse-Per-Second Interval:                          ");
         systemPrintln(mosaicPPSParametersInterval[settings.ppsInterval]);
 
-        systemPrint("14) Pulse-Per-Second Polarity:                         ");
+        systemPrint("41) Pulse-Per-Second Polarity:                          ");
         systemPrintln(mosaicPPSParametersPolarity[settings.ppsPolarity]);
 
-        systemPrint("15) Pulse-Per-Second Delay (ns):                       ");
+        systemPrint("42) Pulse-Per-Second Delay (ns):                        ");
         systemPrintln(settings.ppsDelay_ns);
 
-        systemPrint("16) Pulse-Per-Second Time Scale:                       ");
+        systemPrint("43) Pulse-Per-Second Time Scale:                        ");
         systemPrintln(mosaicPPSParametersTimeScale[settings.ppsTimeScale]);
 
-        systemPrint("17) Pulse-Per-Second Max Sync Age (s):                 ");
+        systemPrint("44) Pulse-Per-Second Max Sync Age (s):                  ");
         systemPrintln(settings.ppsMaxSyncAge_s);
 
-        systemPrint("18) Pulse-Per-Second Pulse Width (ms):                 ");
+        systemPrint("45) Pulse-Per-Second Pulse Width (ms):                  ");
         systemPrintln(settings.ppsPulseWidth_ms);
 
-        systemPrint("19) TCP Server (IPS1):                                 ");
+        systemPrint("50) TCP Server (IPS1):                                  ");
         systemPrintf("%s\r\n", settings.enableTCPServer ? "Enabled" : "Disabled");
 
-        systemPrint("20) TCP Server Port:                                   ");
+        systemPrint("51) TCP Server Port:                                    ");
         systemPrintln(settings.tcpServerPort);
 
         if (presentTcxoSaveControl)
-            systemPrintln("21) Save TCXO control word to TCXO memory");
+            systemPrintln("60) Save TCXO control word to TCXO memory");
 
         systemPrintln("\r\nx) Exit");
 
@@ -443,7 +455,7 @@ void menuOperation()
                 (warmup != INPUT_RESPONSE_GETNUMBER_TIMEOUT))
             {
                 if (warmup < 1 || warmup > 3600)
-                    systemPrintln("Error: Warm up is out of range");
+                    systemPrintln("Error: warm up is out of range");
                 else
                 {
                     settings.tcxoMinWarmup_s = warmup;
@@ -457,30 +469,14 @@ void menuOperation()
             if (getDouble(stability))
             {
                 if (stability < 0.001 || stability > 100.0)
-                    systemPrintln("Error: Temperature stability is out of range");
+                    systemPrintln("Error: temperature stability is out of range");
                 else
                 {
                     settings.tcxoTemperatureStability = stability;
                 }
             }
         }
-        else if (incoming == 3)
-        {
-            systemPrintln("The firmware will stay in STATE_GNSS_FINETIME");
-            systemPrintf("until the change in the bias is less than %.3es.\r\n", settings.rxFrequencyLockErrorLimit_s);
-            systemPrint("Enter the new bias stability in seconds: ");
-            double limit;
-            if (getDouble(limit))
-            {
-                if (limit <= 0.0 || limit >= 1.0e-3) // Arbitrary limits
-                    systemPrintln("Error: bias stability is out of range");
-                else
-                {
-                    settings.rxFrequencyLockErrorLimit_s = limit; // Recorded to NVM at main menu exit
-                }
-            }
-        }
-        else if (incoming == 4)
+        else if (incoming == 10)
         {
             systemPrint("Enter the PI P term for initial frequency steering: ");
             double p;
@@ -494,7 +490,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 5)
+        else if (incoming == 11)
         {
             systemPrint("Enter the PI I term for initial frequency steering: ");
             double i;
@@ -508,7 +504,51 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 6)
+        else if (incoming == 12)
+        {
+            systemPrintln("The firmware will stay in STATE_GNSS_FINETIME");
+            systemPrintf("until the change in the bias is less than %.3e.\r\n", settings.rxStabilityForFrequencyLockError);
+            systemPrint("Enter the new bias stability: ");
+            double limit;
+            if (getDouble(limit))
+            {
+                if (limit <= 0.0 || limit >= 1.0e-3) // Arbitrary limits
+                    systemPrintln("Error: bias stability is out of range");
+                else
+                {
+                    settings.rxStabilityForFrequencyLockError = limit; // Recorded to NVM at main menu exit
+                }
+            }
+        }
+        else if (incoming == 13)
+        {
+            systemPrint("Enter the PI P term for fast ramping: ");
+            double p;
+            if (getDouble(p))
+            {
+                if (p < 0.0 || p > 10.0) // Arbitrary limits
+                    systemPrintln("Error: term is out of range");
+                else
+                {
+                    settings.PkRamp = p; // Recorded to NVM at main menu exit
+                }
+            }
+        }
+        else if (incoming == 14)
+        {
+            systemPrint("Enter the PI I term for fast ramping: ");
+            double i;
+            if (getDouble(i))
+            {
+                if (i < 0.0 || i > 10.0) // Arbitrary limits
+                    systemPrintln("Error: term is out of range");
+                else
+                {
+                    settings.IkRamp = i; // Recorded to NVM at main menu exit
+                }
+            }
+        }
+        else if (incoming == 15)
         {
             systemPrint("Enter the TCXO steering ramp rate limit in seconds per second: ");
             double dbl;
@@ -522,21 +562,54 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 7)
+        else if (incoming == 16)
         {
             systemPrint("Enter the TCXO steering ramp step size in seconds: ");
             double dbl;
             if (getDouble(dbl))
             {
                 if (dbl < 1.0e-9 || dbl > 1.0e-6)
-                    systemPrintln("Error: Steering Ramp Step Size is out of range");
+                    systemPrintln("Error: steering ramp step size is out of range");
                 else
                 {
                     settings.tcxoRampStepSize_s = dbl;
                 }
             }
         }
-        else if (incoming == 8)
+        else if (incoming == 17)
+        {
+            systemPrintf("The TCXO steering ramp asymmetry is currently %.3f\r\n", settings.tcxoRampAsymmetry);
+            systemPrintf("This means the two ramp step sizes are %.2es and %.2es respectively\r\n",
+                         settings.tcxoRampStepSize_s, (settings.tcxoRampStepSize_s * settings.tcxoRampAsymmetry));
+            systemPrint("Enter the new TCXO ramp asymmetry: ");
+            double dbl;
+            if (getDouble(dbl))
+            {
+                // Allow one ramp to take 10 times longer than the other
+                if (dbl < 0.1 || dbl > 1.0)
+                    systemPrintln("Error: asymmetry is out of range");
+                else
+                {
+                    settings.tcxoRampAsymmetry = dbl;
+                }
+            }
+        }
+        else if (incoming == 18)
+        {
+            systemPrint("Enter the steering ramp minimum repeats: ");
+            int repeats = getNumber(); // Returns EXIT, TIMEOUT, or long
+            if ((repeats != INPUT_RESPONSE_GETNUMBER_EXIT) &&
+                (repeats != INPUT_RESPONSE_GETNUMBER_TIMEOUT))
+            {
+                if (repeats < 1 || repeats > 10)
+                    systemPrintln("Error: minimum repeats is out of range");
+                else
+                {
+                    settings.minimumRampRepeats = repeats;
+                }
+            }
+        }
+        else if (incoming == 19)
         {
             systemPrintln("The firmware will stay in STATE_GNSS_FREQUENCY_LOCK");
             systemPrintf("until the bias is less than %.3es.\r\n", settings.rxPhaseErrorLimit_s);
@@ -552,7 +625,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 9)
+        else if (incoming == 20)
         {
             systemPrint("Enter the PI P term: ");
             double p;
@@ -566,7 +639,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 10)
+        else if (incoming == 21)
         {
             systemPrint("Enter the PI I term: ");
             double i;
@@ -580,33 +653,33 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 11)
+        else if (incoming == 30)
         {
             settings.preferNonCompositeGPSBias ^= 1;
             if (settings.preferNonCompositeGPSBias)
                 settings.preferNonCompositeGalileoBias = false;
         }
-        else if (incoming == 12)
+        else if (incoming == 31)
         {
             settings.preferNonCompositeGalileoBias ^= 1;
             if (settings.preferNonCompositeGalileoBias)
                 settings.preferNonCompositeGPSBias = false;
         }
-        else if (incoming == 13)
+        else if (incoming == 40)
         {
             settings.ppsInterval++;
             if ((settings.ppsInterval >= mosaicPPSParametersIntervalEntries) || (settings.ppsInterval < 0))
                 settings.ppsInterval = 0;
             ppsStarted = false; // Restart PPS afterwards
         }
-        else if (incoming == 14)
+        else if (incoming == 41)
         {
             settings.ppsPolarity++;
             if ((settings.ppsPolarity >= mosaicPPSParametersPolarityEntries) || (settings.ppsPolarity < 0))
                 settings.ppsPolarity = 0;
             ppsStarted = false; // Restart PPS afterwards
         }
-        else if (incoming == 15)
+        else if (incoming == 42)
         {
             systemPrint("Enter the Pulse-Per-Second Delay in nanoseconds: ");
             double dly;
@@ -621,14 +694,14 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 16)
+        else if (incoming == 43)
         {
             settings.ppsTimeScale++;
             if ((settings.ppsTimeScale >= mosaicPPSParametersTimeScaleEntries) || (settings.ppsTimeScale < 0))
                 settings.ppsTimeScale = 0;
             ppsStarted = false; // Restart PPS afterwards
         }
-        else if (incoming == 17)
+        else if (incoming == 44)
         {
             systemPrint("Enter the Max Sync Age in seconds (0 to 3600): ");
             int syncAge = getNumber(); // Returns EXIT, TIMEOUT, or long
@@ -644,7 +717,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 18)
+        else if (incoming == 45)
         {
             systemPrint("Enter the Pulse Width in milliseconds: ");
             double width;
@@ -659,11 +732,11 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 19)
+        else if (incoming == 50)
         {
             settings.enableTCPServer ^= 1;
         }
-        else if (incoming == 20)
+        else if (incoming == 51)
         {
             systemPrint("Enter the TCP Server Port: ");
             int port = getNumber(); // Returns EXIT, TIMEOUT, or long
@@ -678,7 +751,7 @@ void menuOperation()
                 }
             }
         }
-        else if (presentTcxoSaveControl && (incoming == 21))
+        else if (presentTcxoSaveControl && (incoming == 60))
         {
             systemPrintln("\r\nSaving the TCXO control word to TCXO memory. Press 'y' to confirm:");
             byte bContinue = getCharacterNumber();
@@ -715,7 +788,7 @@ void printCurrentConditions(bool CSV)
         {
             if (firstTime)
             {
-                systemPrint("YYYY/MM/DD,HH:MM:SS,Epoch,Lat,Lon,Alt,TimeSys,Error,Fine,PPS,Bias,Drift,Source,TCXO,Pk,Ik");
+                systemPrint("YYYY/MM/DD,HH:MM:SS,Epoch,Lat,Lon,Alt,TimeSys,Error,Fine,PPS,Bias,Drift,Source,TCXO,PkSteer,IkSteer,PkRamp,IkRamp,Pk,Ik");
                 if (online.pht)
                     systemPrint(",Press,Temp,Hum");
                 if (presentTcxoTemperature)
@@ -723,7 +796,7 @@ void printCurrentConditions(bool CSV)
                 systemPrint(",Mode");
                 if (presentTcxoTemperature)
                     systemPrint(",Temp_Smooth");
-                systemPrint(",Bias_Smooth,PkSteer,IkSteer,Rate,Rate_Held,Setpoint,Error");
+                systemPrint(",Bias_Smooth,Rate,Rate_Held,Setpoint,Turn,Error,Repeat");
                 systemPrintln();
                 firstTime = false;
             }
@@ -768,6 +841,18 @@ void printCurrentConditions(bool CSV)
             systemPrintf(",%lld", getFrequencyControlWord());
             
             systemPrint(",");
+            systemPrint(settings.PkSteer, 3);
+            
+            systemPrint(",");
+            systemPrint(settings.IkSteer, 3);
+            
+            systemPrint(",");
+            systemPrint(settings.PkRamp, 3);
+            
+            systemPrint(",");
+            systemPrint(settings.IkRamp, 3);
+            
+            systemPrint(",");
             systemPrint(settings.Pk, 3);
             
             systemPrint(",");
@@ -797,16 +882,12 @@ void printCurrentConditions(bool CSV)
 
             systemPrintf(",%.3e", smoothedTcxoBiasChange_ms / 1000.0);
 
-            systemPrint(",");
-            systemPrint(settings.PkSteer, 3);
-            
-            systemPrint(",");
-            systemPrint(settings.IkSteer, 3);
-            
             systemPrintf(",%.3e", rate_s);
             systemPrintf(",%.3e", rate_held_s);
             systemPrintf(",%.3e", setpoint_s);
+            systemPrintf(",%.3e", slew_turnaround_s);
             systemPrintf(",%.3e", error_s);
+            systemPrintf(",%d", repeat);
 
             systemPrintln();
         }

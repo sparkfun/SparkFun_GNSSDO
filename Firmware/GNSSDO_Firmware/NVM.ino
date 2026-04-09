@@ -96,12 +96,14 @@ void recordSystemSettingsToFile(File *settingsFile)
     settingsFile->printf("%s=%0.6f\r\n", "ppsPulseWidth_ms", settings.ppsPulseWidth_ms);
 
     settingsFile->printf("%s=%lld\r\n", "tcxoControl", settings.tcxoControl);
-    settingsFile->printf("%s=%0.3e\r\n", "rxFrequencyLockErrorLimit_s", settings.rxFrequencyLockErrorLimit_s);
+    settingsFile->printf("%s=%0.3e\r\n", "rxStabilityForFrequencyLockError", settings.rxStabilityForFrequencyLockError);
     settingsFile->printf("%s=%0.3e\r\n", "rxPhaseErrorLimit_s", settings.rxPhaseErrorLimit_s);
-    settingsFile->printf("%s=%0.3e\r\n", "Pk", settings.Pk);
-    settingsFile->printf("%s=%0.3e\r\n", "Ik", settings.Ik);
     settingsFile->printf("%s=%0.3e\r\n", "PkSteer", settings.PkSteer);
     settingsFile->printf("%s=%0.3e\r\n", "IkSteer", settings.IkSteer);
+    settingsFile->printf("%s=%0.3e\r\n", "PkRamp", settings.PkRamp);
+    settingsFile->printf("%s=%0.3e\r\n", "IkRamp", settings.IkRamp);
+    settingsFile->printf("%s=%0.3e\r\n", "Pk", settings.Pk);
+    settingsFile->printf("%s=%0.3e\r\n", "Ik", settings.Ik);
     settingsFile->printf("%s=%d\r\n", "lastSeenTCXO", settings.lastSeenTCXO);
     settingsFile->printf("%s=%d\r\n", "preferNonCompositeGPSBias", settings.preferNonCompositeGPSBias);
     settingsFile->printf("%s=%d\r\n", "preferNonCompositeGalileoBias", settings.preferNonCompositeGalileoBias);
@@ -113,7 +115,8 @@ void recordSystemSettingsToFile(File *settingsFile)
     settingsFile->printf("%s=%d\r\n", "tcxoMinWarmup_s", settings.tcxoMinWarmup_s);
     settingsFile->printf("%s=%0.3e\r\n", "tcxoRampRateLimit_sps", settings.tcxoRampRateLimit_sps);
     settingsFile->printf("%s=%0.3e\r\n", "tcxoRampStepSize_s", settings.tcxoRampStepSize_s);
-    settingsFile->printf("%s=%0.1f\r\n", "tcxoFreqLockIkMultiplier", settings.tcxoFreqLockIkMultiplier);
+    settingsFile->printf("%s=%0.3f\r\n", "tcxoRampAsymmetry", settings.tcxoRampAsymmetry);
+    settingsFile->printf("%s=%d\r\n", "minimumRampRepeats", settings.minimumRampRepeats);
 
     //settingsFile->printf("%s=%d\r\n", "", settings.);
 
@@ -471,14 +474,18 @@ bool parseLine(char *theLine, Settings *settings, bool printDebug)
 
     else if (strcmp(settingName, "tcxoControl") == 0)
         settings->tcxoControl = d;
-    else if (strcmp(settingName, "rxFrequencyLockErrorLimit_s") == 0)
-        settings->rxFrequencyLockErrorLimit_s = d;
+    else if (strcmp(settingName, "rxStabilityForFrequencyLockError") == 0)
+        settings->rxStabilityForFrequencyLockError = d;
     else if (strcmp(settingName, "rxPhaseErrorLimit_s") == 0)
         settings->rxPhaseErrorLimit_s = d;
     else if (strcmp(settingName, "PkSteer") == 0)
         settings->PkSteer = d;
     else if (strcmp(settingName, "IkSteer") == 0)
         settings->IkSteer = d;
+    else if (strcmp(settingName, "PkRamp") == 0)
+        settings->PkRamp = d;
+    else if (strcmp(settingName, "IkRamp") == 0)
+        settings->IkRamp = d;
     else if (strcmp(settingName, "Pk") == 0)
         settings->Pk = d;
     else if (strcmp(settingName, "Ik") == 0)
@@ -503,8 +510,10 @@ bool parseLine(char *theLine, Settings *settings, bool printDebug)
         settings->tcxoRampRateLimit_sps = d;
     else if (strcmp(settingName, "tcxoRampStepSize_s") == 0)
         settings->tcxoRampStepSize_s = d;
-    else if (strcmp(settingName, "tcxoFreqLockIkMultiplier") == 0)
-        settings->tcxoFreqLockIkMultiplier = d;
+    else if (strcmp(settingName, "tcxoRampAsymmetry") == 0)
+        settings->tcxoRampAsymmetry = d;
+    else if (strcmp(settingName, "minimumRampRepeats") == 0)
+        settings->minimumRampRepeats = d;
 
     //else if (strcmp(settingName, "") == 0)
     //    settings-> = d;

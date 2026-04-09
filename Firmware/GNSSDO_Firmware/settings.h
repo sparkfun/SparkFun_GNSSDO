@@ -330,10 +330,12 @@ typedef struct
     float ppsPulseWidth_ms = 5.0;
 
     int64_t tcxoControl = 0; // Store the TCXO control word - to aid locking after power off
-    double rxFrequencyLockErrorLimit_s = 1.0e-10; // Stay in STATE_GNSS_FINETIME until the change in the bias is <= this many s/s
+    double rxStabilityForFrequencyLockError = 1.0e-10; // Stay in STATE_GNSS_FINETIME until the change in the bias is <= this many s/s
     double rxPhaseErrorLimit_s = 1.0e-7; // Stay in STATE_GNSS_FREQUENCY_LOCK until the bias is <= this many s
-    double PkSteer = 0.5; // PI P term for initial frequency steering (updated if needed by beginTCXO)
-    double IkSteer = 0.5; // PI I term for initial frequency steering (updated if needed by beginTCXO)
+    double PkSteer = 0.2; // PI P term for initial frequency steering (updated if needed by beginTCXO)
+    double IkSteer = 0.02; // PI I term for initial frequency steering (updated if needed by beginTCXO)
+    double PkRamp = 0.4; // PI P term for fast ramping (updated if needed by beginTCXO)
+    double IkRamp = 0.4; // PI I term for fast ramping (updated if needed by beginTCXO)
     double Pk = 0.63; // PI P term (default for the SiT5358 - updated if needed by beginTCXO)
     double Ik = 0.151; // PI I term (default for the SiT5358 - updated if needed by beginTCXO)
     uint8_t lastSeenTCXO = 0; // Use this to identify a change of oscillator (by its I2C address)
@@ -346,7 +348,8 @@ typedef struct
     unsigned long tcxoMinWarmup_s = 120; // Required minimum warmup
     double tcxoRampRateLimit_sps = 250.0e-9; // This limits the ramp rate during steering (s/s) (updated if needed by beginTCXO)
     double tcxoRampStepSize_s = 1.0e-9; // Ole uses 1ns/s
-    double tcxoFreqLockIkMultiplier = 10.0; // STP3593 needs much more I. SiT5358 less so.
+    double tcxoRampAsymmetry = 1.0; // It seems STP3593 can't heat and cool at the same rate (updated if needed by beginTCXO)
+    int minimumRampRepeats = 1; // updated if needed by beginTCXO
 
     // Add new settings above <------------------------------------------------------------>
 

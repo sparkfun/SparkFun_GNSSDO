@@ -31,10 +31,6 @@ class GNSSDO_TCXO
         // Get the default P and I terms - for the default settings
         virtual double getDefaultFrequencyByBiasPTerm(void);
         virtual double getDefaultFrequencyByBiasITerm(void);
-        virtual double getDefaultFrequencySteeringPTerm(void);
-        virtual double getDefaultFrequencySteeringITerm(void);
-        virtual double getDefaultTcxoRampRateLimit(void);
-        virtual double getDefaultTcxoRampStepSize(void);
 
         // Read the temperature sensor - if present
         virtual uint16_t getTcxoTemperature(void);

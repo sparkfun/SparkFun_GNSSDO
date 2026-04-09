@@ -56,16 +56,18 @@
          In STATE_GNSS_FINETIME
            The firmware disciplines the TCXO / OCXO frequency in a simple frequency locked loop
            The firmware exits this state when the tcxoClockBias_ms (RxClkBias)
-           is better than the specified rxFrequencyLockErrorLimit_s
+           is better than the specified rxStabilityForFrequencyLockError
+           The PI loop uses PkSteer and IkSteer when frequency locking
          In STATE_GNSS_FREQUENCY_LOCK
            The TCXO / OCXO bias is minimised by ramping the residual bias towards zero in
            increasing and then decreasing steps (to avoid blowing up the integrator)
            When the ramps are complete, the tcxoClockBias_ms (RxClkBias) is re-checked
            This state is repeated if the bias is still excessive (> rxPhaseErrorLimit_s)
-           The PI loop uses PkSteer and IkSteer when following the ramp
+           The PI loop uses PkRamp and IkRamp when following the ramp
          In STATE_GNSS_PHASE_LOCK
            PPS output will be started when entering STATE_GNSS_PHASE_LOCK for the first time
            This state uses a conventional PLL to drive the tcxoClockBias_ms (RxClkBias) to zero
+           The P and I terms are Pk and Ik
 */
 
 // This is passed in from compiler extra flags
