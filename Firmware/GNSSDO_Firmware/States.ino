@@ -8,6 +8,8 @@ static volatile bool slewing; // false causes setpoint etc. to be initialized. t
 static volatile double smoothedTcxoBiasChange_ms = -2.0e10; // Same as Do-Not-Use
 static volatile double smoothedTemperatureChange = 0.0; // GNSSDO+ only
 static volatile int repeat = 0; // Keep count of how many times FREQUENCY_LOCK has been repeated
+static volatile int secondsInPhaseLock = 0; // Keep count of how long we have been in phase lock
+const int phaseLockPIRampTime_s = 120; // Ramp the P and I terms from Pk/IkRamp to Pk/Ik over this many seconds
 
 // Given the current state, see if conditions have moved us to a new state
 // A user pressing the setup button (change between rover/base) is handled by checkpin_setupButton()
@@ -210,6 +212,7 @@ void updateSystemState()
                     // If the bias is low enough, go straight into phase lock
                     if (fabs(tcxoClockBias_ms) < (1000.0 * settings.rxPhaseErrorLimit_s))
                     {
+                        secondsInPhaseLock = phaseLockPIRampTime_s; // Don't ramp P and I - it makes things worse!
                         // Party time! Excellent!
                         changeState(STATE_GNSS_PHASE_LOCK);
                     }
@@ -263,59 +266,57 @@ void updateSystemState()
 
                 // It seems that the STP3593 can decrease its frequency faster than it can increase it
                 // This makes sense if the double-oven can cool at a faster rate than it can heat
-                // So, we need to match both the heating and cooling rates to what the STP3593 is capable of
+                // So, we may need to match both the heating and cooling rates to what the STP3593 is capable of
 
                 // With tcxoRampAsymmetry set to 0.5:
-                // If the initial bias is positive:
                 //   Ramp up at 1ns/s to a maximum of 250ns/s
                 //   Ramp down at 0.5ns/s
                 //     To do this, we need to start ramping down earlier
                 //     Ramp down will take twice as long as ramp up
-                // If the initial bias is negative:
-                //   Everything is reversed
-                //   Ramp up at 0.5ns/s
-                //   Ramp down at 1ns/s
-                //   Ramp up will take twice as long as ramp down
+                // tcxoRampAsymmetry turnaroundPoint
+                //        1.0             0.5
+                //        0.1             0.091
+                //        0.5             0.333
+                //        2.0             0.666
+                //       10.0             0.91
 
                 double tcxoClockBias_s = tcxoClockBias_ms * 0.001; // Convert bias to seconds
 
-                static bool initalBiasPositive;
+                static bool rampingDown;
 
-                // Record the sign of the initial bias
+                // Other states must set slewing false before chaging state to STATE_GNSS_FREQUENCY_LOCK
+
                 // Initialise the setpoint with the current bias so we start with an error of ~zero
                 // Set the turn around at the correct point for the tcxoRampAsymmetry
                 // Initialize the rate
                 if (!slewing)
                 {
-                    initalBiasPositive = (tcxoClockBias_s > 0.0);
                     setpoint_s = tcxoClockBias_s;
                     double turnaroundPoint = 1.0 / (1.0 + (1.0 / settings.tcxoRampAsymmetry));
-                    if (initalBiasPositive)
-                        slew_turnaround_s = fabs(setpoint_s) * (1.0 - turnaroundPoint); // slew_turnaround is absolute
-                    else
-                        slew_turnaround_s = fabs(setpoint_s) * turnaroundPoint; // slew_turnaround is absolute
+                    slew_turnaround_s = fabs(setpoint_s) * turnaroundPoint; // slew_turnaround is absolute
                     rate_s = 3.0 * settings.tcxoRampStepSize_s; // initialize the rate
                     rate_held_s = rate_s;
                     error_s = 0.0;
+                    rampingDown = false;
                     slewing = true;
                     repeat = repeat + 1;
                 }
 
+                // We can't keep comparing fabs(tcxoClockBias_s) to slew_turnaround_s
+                // because when setpoint has reached ~zero, the bias can make it appear that
+                // we are ramping up again. Once rampingDown is true, only !slewing can reset it
+                if (fabs(tcxoClockBias_s) < slew_turnaround_s) // Are we ramping 'down' ?
+                    rampingDown = true;
+
                 // If we have not yet reached the turnaround, increase the rate by the step size
-                if (fabs(tcxoClockBias_s) > slew_turnaround_s) // Are we ramping 'up' ?
+                if (!rampingDown) // Are we ramping 'up' ?
                 {
-                    if (initalBiasPositive)
-                        rate_s = rate_s + settings.tcxoRampStepSize_s; // rate_s is absolute
-                    else
-                        rate_s = rate_s + (settings.tcxoRampStepSize_s * settings.tcxoRampAsymmetry);
+                    rate_s = rate_s + settings.tcxoRampStepSize_s; // rate_s is absolute
                 }
-                // If have passed the turnaround, decrease the rate by the step size
+                // If have passed the turnaround, decrease the rate by the asymmetric step size
                 else
                 {
-                    if (initalBiasPositive)
-                        rate_s = rate_s - (settings.tcxoRampStepSize_s * settings.tcxoRampAsymmetry);
-                    else
-                        rate_s = rate_s - settings.tcxoRampStepSize_s; // rate_s is absolute
+                    rate_s = rate_s - (settings.tcxoRampStepSize_s * settings.tcxoRampAsymmetry);
                 }
 
                 // Check if the rate has returned to ~zero
@@ -334,14 +335,48 @@ void updateSystemState()
                 // Walk setpoint back to 0
                 if (slewing)
                 {
-                    if (setpoint_s > rate_held_s)
+                    if (setpoint_s > (2.0 * rate_held_s))
                         setpoint_s = setpoint_s - rate_held_s; // Shift the setpoint by the rate. rate_s is absolute
-                    else if (setpoint_s < (0.0 - rate_held_s))
+                    else if (setpoint_s < (0.0 - (2.0 * rate_held_s)))
                         setpoint_s = setpoint_s + rate_held_s;
                     else
                     {
-                        setpoint_s = 0.0;
-                        slewing = false;
+                        // setpoint has caught up with the rate, so make setpoint track the rate
+                        if (setpoint_s > 0.0)
+                            setpoint_s = rate_held_s;
+                        else
+                            setpoint_s = 0.0 - rate_held_s;
+                    }
+                }
+
+                // Track the error - but not during the final part of the ramp
+                static int errorTooLargeFor_s = 0;
+                if ((fabs(setpoint_s) < (2.0 * rate_held_s))
+                    || (fabs(error_s) < (2.0 * settings.tcxoRampRateLimit_sps)))
+                {
+                    errorTooLargeFor_s = 0;
+                }
+                // If the previous error is too large, keep count of how long the error has been too large
+                else
+                {
+                    errorTooLargeFor_s += 1;
+
+                    if (errorTooLargeFor_s > 10) // Check if it has all gone sideways
+                    {
+                        errorTooLargeFor_s = 0;
+
+                        // Reset the setpoint, but leave the turnaround and rate as they are
+                        setpoint_s = tcxoClockBias_s;
+                        break; // Skip the updateTCXO
+
+                        // Start again - with a new setpoint, turnaround and rate
+                        // slewing = false;
+                        // changeState(STATE_GNSS_FREQUENCY_LOCK);
+                        // break;
+
+                        // Start again - with frequency locking
+                        // changeState(STATE_GNSS_FINETIME);
+                        // break;
                     }
                 }
 
@@ -399,10 +434,14 @@ void updateSystemState()
                     // the cumulative rate (until the bias overtakes after turnaround)
                     // error_s will be negative. We need to invert
                     // setFrequencyByBiasMillis needs a positive value to reduce the frequency
-                    // Use the aggressive P and I terms on the first repeat only
-                    updateTCXO(1000.0 * (0.0 - error_s), // settings.PkSteer, settings.IkSteer);
-                               repeat <= 1 ? settings.PkRamp : settings.PkSteer,
-                               repeat <= 1 ? settings.IkRamp : settings.IkSteer);
+                    updateTCXO(1000.0 * (0.0 - error_s), settings.PkRamp, settings.IkRamp);
+                            // Use the Ramp P and I terms on the first repeat
+                            // Use the Steer P and I terms on the second
+                            // Use the regular P and I terms for the third onwards
+                            //    repeat <= 1 ? settings.PkRamp :
+                            //     repeat <= 2 ? settings.PkSteer : settings.Pk,
+                            //    repeat <= 1 ? settings.IkRamp :
+                            //     repeat <= 2 ? settings.IkSteer : settings.Ik);
                 }
 
                 // =============================================================
@@ -452,6 +491,7 @@ void updateSystemState()
                 {
                     tcxoUpdates = 0; // Reset the count before changing state
                     saveControlWordAfter_s = 3600;
+                    secondsInPhaseLock = 0;
                     changeState(STATE_GNSS_ERROR_AFTER_PHASE_LOCK);
                     break;
                 }
@@ -462,8 +502,18 @@ void updateSystemState()
                     ppsStarted = true;
                 }
 
+                // Calculate the P and I terms
+                // Ramp from PK/IKRamp to Pk/Ik over phaseLockPIRampTime_s
+                double rampFraction = ((double)(phaseLockPIRampTime_s - secondsInPhaseLock))
+                                      / ((double)phaseLockPIRampTime_s);
+                double P = settings.Pk + (rampFraction * (settings.PkRamp - settings.Pk));
+                double I = settings.Ik + (rampFraction * (settings.IkRamp - settings.Ik));
+
                 // Update the TCXO
-                updateTCXO();
+                updateTCXO(tcxoClockBias_ms, P, I);
+
+                if (secondsInPhaseLock < phaseLockPIRampTime_s)
+                    secondsInPhaseLock = secondsInPhaseLock + 1; // Now update the count. Cap at phaseLockPIRampTime_s
 
                 // Check if it has all gone sideways...
                 double tcxoClockBias_s = tcxoClockBias_ms * 0.001; // Convert bias to seconds
@@ -471,8 +521,10 @@ void updateSystemState()
                 {
                     tcxoUpdates = 0; // Reset the count before changing state
                     saveControlWordAfter_s = 3600;
+                    secondsInPhaseLock = 0;
 
                     slewing = false;
+                    
                     changeState(STATE_GNSS_FREQUENCY_LOCK); // Return to frequency locked
 
                     //changeState(STATE_GNSS_FINETIME); // Return to finetime (frequency locking)
@@ -517,6 +569,7 @@ void updateSystemState()
                 {
                     updateTCXOClockBias(); // Update the tcxoClockBias_ms from the best source
 
+                    //secondsInPhaseLock = phaseLockPIRampTime_s;
                     //changeState(STATE_GNSS_PHASE_LOCK); // Return to phase locked
 
                     slewing = false;

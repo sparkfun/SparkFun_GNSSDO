@@ -28,10 +28,6 @@ class GNSSDO_TCXO
         // Save the frequency control word - if supported
         virtual bool saveFrequencyControlValue(void);
 
-        // Get the default P and I terms - for the default settings
-        virtual double getDefaultFrequencyByBiasPTerm(void);
-        virtual double getDefaultFrequencyByBiasITerm(void);
-
         // Read the temperature sensor - if present
         virtual uint16_t getTcxoTemperature(void);
 };

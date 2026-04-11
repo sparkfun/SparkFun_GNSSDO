@@ -30,16 +30,6 @@ bool GNSSDO_TCXO::saveFrequencyControlValue(void)
     return true;
 }
 
-// Get the default P and I terms - for the default settings
-double GNSSDO_TCXO::getDefaultFrequencyByBiasPTerm(void)
-{
-    return settings.Pk;
-}
-double GNSSDO_TCXO::getDefaultFrequencyByBiasITerm(void)
-{
-    return settings.Ik;
-}
-
 // Read the temperature sensor - if present
 uint16_t GNSSDO_TCXO::getTcxoTemperature(void)
 {

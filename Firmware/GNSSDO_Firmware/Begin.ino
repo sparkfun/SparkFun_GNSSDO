@@ -558,15 +558,15 @@ void beginTCXO(TwoWire *i2cBus, bool printOCXO)
         {
             // Update the default P and I terms to match a new oscillator
             settings.lastSeenTCXO = SFE_GNSSDO_OSC_STP3593LF;
-            settings.Pk = myTCXO->getDefaultFrequencyByBiasPTerm();
-            settings.Ik = myTCXO->getDefaultFrequencyByBiasITerm();
             settings.PkSteer = 0.2;
             settings.IkSteer = 0.5;
-            settings.PkRamp = 0.45;
-            settings.IkRamp = 0.45;
+            settings.PkRamp = 0.4;
+            settings.IkRamp = 0.4;
+            settings.Pk = (1.0 / 6.25);
+            settings.Ik = ((1.0 / 6.25) / 150.0);
             settings.tcxoRampRateLimit_sps = 250.0e-9;
-            settings.tcxoRampStepSize_s = 1.0e-9;
-            settings.tcxoRampAsymmetry = 0.4;
+            settings.tcxoRampStepSize_s = 0.5e-9;
+            settings.tcxoRampAsymmetry = 1.0;
             settings.minimumRampRepeats = 2;
             recordSystemSettings();
         }
@@ -587,12 +587,12 @@ void beginTCXO(TwoWire *i2cBus, bool printOCXO)
             // Update the default P and I terms to match a new oscillator
             // *** TODO ***
             settings.lastSeenTCXO = SFE_GNSSDO_OSC_SIT5811;
-            settings.Pk = myTCXO->getDefaultFrequencyByBiasPTerm();
-            settings.Ik = myTCXO->getDefaultFrequencyByBiasITerm();
             settings.PkSteer = 0.5;
             settings.IkSteer = 0.1;
             settings.PkRamp = 0.5;
             settings.IkRamp = 0.1;
+            settings.Pk = 0.5;
+            settings.Ik = 0.1;
             settings.tcxoRampRateLimit_sps = 250.0e-9;
             settings.tcxoRampStepSize_s = 1.0e-9;
             settings.tcxoRampAsymmetry = 1.0;
@@ -615,12 +615,12 @@ void beginTCXO(TwoWire *i2cBus, bool printOCXO)
         {
             // Update the default P and I terms to match a new oscillator
             settings.lastSeenTCXO = SFE_GNSSDO_OSC_SIT5358;
-            settings.Pk = myTCXO->getDefaultFrequencyByBiasPTerm();
-            settings.Ik = myTCXO->getDefaultFrequencyByBiasITerm();
             settings.PkSteer = 0.63;
             settings.IkSteer = 0.151;
             settings.PkRamp = 0.63;
             settings.IkRamp = 0.5;
+            settings.Pk = 0.63;
+            settings.Ik = 0.151;
             settings.tcxoRampRateLimit_sps = 500.0e-9;
             settings.tcxoRampStepSize_s = 1.0e-9;
             settings.tcxoRampAsymmetry = 1.0;

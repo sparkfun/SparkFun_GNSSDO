@@ -568,7 +568,7 @@ void menuOperation()
             double dbl;
             if (getDouble(dbl))
             {
-                if (dbl < 1.0e-9 || dbl > 1.0e-6)
+                if (dbl < 1.0e-10 || dbl > 1.0e-6)
                     systemPrintln("Error: steering ramp step size is out of range");
                 else
                 {
@@ -586,7 +586,7 @@ void menuOperation()
             if (getDouble(dbl))
             {
                 // Allow one ramp to take 10 times longer than the other
-                if (dbl < 0.1 || dbl > 1.0)
+                if (dbl < 0.1 || dbl > 10.0)
                     systemPrintln("Error: asymmetry is out of range");
                 else
                 {

@@ -28,10 +28,6 @@ class GNSSDO_STP3593LF : GNSSDO_TCXO
         // Save the frequency control word - if supported
         bool saveFrequencyControlValue(void);
 
-        // Get the default P and I terms - for the default settings
-        double getDefaultFrequencyByBiasPTerm(void) { return (1.0 / 6.25); }
-        double getDefaultFrequencyByBiasITerm(void) { return ((1.0 / 6.25) / 150.0); }
-
         // Read the temperature sensor - if present
         uint16_t getTcxoTemperature(void);
 };

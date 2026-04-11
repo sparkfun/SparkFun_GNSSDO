@@ -30,12 +30,11 @@ bool GNSSDO_STP3593LF::setFrequencyControlWord(int64_t controlWord)
 // Set the frequency by bias millis
 bool GNSSDO_STP3593LF::setFrequencyByBiasMillis(double bias, double Pk, double Ik)
 {
-    return _STP3593LF->setFrequencyByBiasMillis(bias, Pk, Ik);
+    //return _STP3593LF->setFrequencyByBiasMillis(bias, Pk, Ik);
 
-    /*
-    systemPrintln("setFrequencyByBiasMillis:");
+    //systemPrintln("setFrequencyByBiasMillis:");
 
-    systemPrintf("bias %.3e Pk %.3e Ik %.3e\r\n", bias, Pk, Ik);
+    //systemPrintf("bias %.3e Pk %.3e Ik %.3e\r\n", bias, Pk, Ik);
 
     const double kSfeSTP3593LFFreqControlResolution = 8e-13;
 
@@ -60,7 +59,7 @@ bool GNSSDO_STP3593LF::setFrequencyByBiasMillis(double bias, double Pk, double I
     double _maxFrequencyChangePPB = _STP3593LF->getMaxFrequencyChangePPB();
     double maxChangeInLSBs = _maxFrequencyChangePPB * 1.0e-9 / kSfeSTP3593LFFreqControlResolution;
 
-    systemPrintf("maxChangeInLSBs %.1f\r\n", maxChangeInLSBs);
+    //systemPrintf("maxChangeInLSBs %.1f\r\n", maxChangeInLSBs);
 
     // Limit requiredChangeInLSBs to +/-maxChangeInLSBs
     if (requiredChangeInLSBs >= 0.0)
@@ -74,17 +73,37 @@ bool GNSSDO_STP3593LF::setFrequencyByBiasMillis(double bias, double Pk, double I
             requiredChangeInLSBs = 0.0 - maxChangeInLSBs;
     }
 
-    systemPrintf("requiredChangeInLSBs %.1f\r\n", requiredChangeInLSBs);
+    //systemPrintf("requiredChangeInLSBs %.1f\r\n", requiredChangeInLSBs);
 
-    double P = requiredChangeInLSBs * Pk;
-    double dI = requiredChangeInLSBs * Ik;
+    // Control      P       Ti      Td
+    // P            0.5Kc   -       -
+    // PI           0.45Kc  Pc/1.2  -
+    // PI           0.60Kc  0.5Pc   Pc/8
+
+    double P = requiredChangeInLSBs * Pk * 1.333;
+    double dI = requiredChangeInLSBs * Ik * 0.6;
+    static double previousChangeInLSBs = requiredChangeInLSBs;
+    double Dk = Ik * 0.15;
+    double D = Dk * (previousChangeInLSBs - requiredChangeInLSBs);
     I += dI; // Add the delta to the integral
 
-    systemPrintf("P %f I %f\r\n", P, I);
-    systemPrintf("round(P + I) %ld\r\n", (uint32_t)round(P + I));
+    //systemPrintf("P %f I %f\r\n", P, I);
+    //systemPrintf("round(P + I) %ld\r\n", (uint32_t)round(P + I));
 
-    return _STP3593LF->setFrequencyControlWord((uint32_t)round(P + I)); // Set the control word to proportional plus integral
-    */
+    double newControlWordDbl = round(P + I + D); // Set the control word to proportional plus integral
+
+    previousChangeInLSBs = requiredChangeInLSBs;
+    
+    // Ensure control word is within bounds. Bad things happen if it wraps below zero!
+    uint32_t newControlWord;
+    if (newControlWordDbl > (double)kSfeSTP3593LFFreqControlMaxValue)
+        newControlWord = kSfeSTP3593LFFreqControlMaxValue;
+    else if (newControlWordDbl < 0.0)
+        newControlWord = 0;
+    else
+        newControlWord = (uint32_t)newControlWordDbl;
+
+    return _STP3593LF->setFrequencyControlWord(newControlWord);
 }
 
 // Save the frequency control word - if supported
