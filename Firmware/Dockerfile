@@ -52,7 +52,7 @@ RUN arduino-cli lib install JC_Button@2.1.2
 RUN arduino-cli lib install "SparkFun Qwiic OLED Arduino Library"@1.0.13
 RUN arduino-cli lib install "SparkFun SiT5358 DCTCXO Arduino Library"@1.0.1
 RUN arduino-cli lib install "SparkFun SiT5811 OCXO Arduino Library"@1.0.1
-RUN arduino-cli lib install "SparkFun STP3593LF OCXO Arduino Library"@1.0.1
+RUN arduino-cli lib install "SparkFun STP3593LF OCXO Arduino Library"@1.0.2
 RUN arduino-cli lib install "SparkFun PHT MS8607 Arduino Library"@1.0.5
 
 # Install the depends last - to ensure the correct version is installed
