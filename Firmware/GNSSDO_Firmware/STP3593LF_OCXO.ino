@@ -86,7 +86,7 @@ bool GNSSDO_STP3593LF::setFrequencyByBiasMillis(double bias, double Pk, double I
     // Control      P       Ti      Td
     // P            0.5Kc   -       -
     // PI           0.45Kc  Pc/1.2  -
-    // PI           0.60Kc  0.5Pc   Pc/8
+    // PID          0.60Kc  0.5Pc   Pc/8
 
     double P = requiredChangeInLSBs * Pk * 1.333;
     double dI = requiredChangeInLSBs * Ik * 0.6;
