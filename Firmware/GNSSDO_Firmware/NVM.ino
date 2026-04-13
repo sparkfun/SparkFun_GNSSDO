@@ -96,7 +96,7 @@ void recordSystemSettingsToFile(File *settingsFile)
     settingsFile->printf("%s=%0.6f\r\n", "ppsPulseWidth_ms", settings.ppsPulseWidth_ms);
 
     settingsFile->printf("%s=%lld\r\n", "tcxoControl", settings.tcxoControl);
-    settingsFile->printf("%s=%0.3e\r\n", "rxStabilityForFrequencyLockError", settings.rxStabilityForFrequencyLockError);
+    settingsFile->printf("%s=%0.3e\r\n", "rxStabilityForFrequencyLock", settings.rxStabilityForFrequencyLock);
     settingsFile->printf("%s=%0.3e\r\n", "rxPhaseErrorLimit_s", settings.rxPhaseErrorLimit_s);
     settingsFile->printf("%s=%0.3e\r\n", "PkSteer", settings.PkSteer);
     settingsFile->printf("%s=%0.3e\r\n", "IkSteer", settings.IkSteer);
@@ -474,8 +474,8 @@ bool parseLine(char *theLine, Settings *settings, bool printDebug)
 
     else if (strcmp(settingName, "tcxoControl") == 0)
         settings->tcxoControl = d;
-    else if (strcmp(settingName, "rxStabilityForFrequencyLockError") == 0)
-        settings->rxStabilityForFrequencyLockError = d;
+    else if (strcmp(settingName, "rxStabilityForFrequencyLock") == 0)
+        settings->rxStabilityForFrequencyLock = d;
     else if (strcmp(settingName, "rxPhaseErrorLimit_s") == 0)
         settings->rxPhaseErrorLimit_s = d;
     else if (strcmp(settingName, "PkSteer") == 0)

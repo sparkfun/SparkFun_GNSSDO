@@ -381,7 +381,7 @@ void menuOperation()
         systemPrintf("%.3e\r\n", settings.IkSteer);
 
         systemPrint("12) Required bias stability for frequency lock:         ");
-        systemPrintf("%.3e\r\n", settings.rxStabilityForFrequencyLockError);
+        systemPrintf("%.3e\r\n", settings.rxStabilityForFrequencyLock);
 
         systemPrint("13) PI P term for fast ramping:                         ");
         systemPrintf("%.3e\r\n", settings.PkRamp);
@@ -507,7 +507,7 @@ void menuOperation()
         else if (incoming == 12)
         {
             systemPrintln("The firmware will stay in STATE_GNSS_FINETIME");
-            systemPrintf("until the change in the bias is less than %.3e.\r\n", settings.rxStabilityForFrequencyLockError);
+            systemPrintf("until the change in the bias is less than %.3e.\r\n", settings.rxStabilityForFrequencyLock);
             systemPrint("Enter the new bias stability: ");
             double limit;
             if (getDouble(limit))
@@ -516,7 +516,7 @@ void menuOperation()
                     systemPrintln("Error: bias stability is out of range");
                 else
                 {
-                    settings.rxStabilityForFrequencyLockError = limit; // Recorded to NVM at main menu exit
+                    settings.rxStabilityForFrequencyLock = limit; // Recorded to NVM at main menu exit
                 }
             }
         }

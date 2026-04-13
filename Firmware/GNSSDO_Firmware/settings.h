@@ -330,7 +330,7 @@ typedef struct
     float ppsPulseWidth_ms = 5.0;
 
     int64_t tcxoControl = 0; // Store the TCXO control word - to aid locking after power off
-    double rxStabilityForFrequencyLockError = 1.0e-10; // Stay in STATE_GNSS_FINETIME until the change in the bias is <= this many s/s
+    double rxStabilityForFrequencyLock = 1.0e-10; // Stay in STATE_GNSS_FINETIME until the change in the bias is <= this many s/s
     double rxPhaseErrorLimit_s = 1.0e-7; // Stay in STATE_GNSS_FREQUENCY_LOCK until the bias is <= this many s
     double PkSteer = 0.2; // PI P term for initial frequency steering (updated if needed by beginTCXO)
     double IkSteer = 0.02; // PI I term for initial frequency steering (updated if needed by beginTCXO)
