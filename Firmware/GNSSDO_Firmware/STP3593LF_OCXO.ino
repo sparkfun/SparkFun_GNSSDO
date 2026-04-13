@@ -30,7 +30,11 @@ bool GNSSDO_STP3593LF::setFrequencyControlWord(int64_t controlWord)
 // Set the frequency by bias millis
 bool GNSSDO_STP3593LF::setFrequencyByBiasMillis(double bias, double Pk, double Ik)
 {
+    // Uncomment the next line to use setFrequencyByBiasMillis unmodified from the STP3593LF library
     //return _STP3593LF->setFrequencyByBiasMillis(bias, Pk, Ik);
+
+
+    // The following is setFrequencyByBiasMillis modified to support the Derivative
 
     //systemPrintln("setFrequencyByBiasMillis:");
 
@@ -75,6 +79,10 @@ bool GNSSDO_STP3593LF::setFrequencyByBiasMillis(double bias, double Pk, double I
 
     //systemPrintf("requiredChangeInLSBs %.1f\r\n", requiredChangeInLSBs);
 
+// Comment the next line to use PI only
+#define useDerivative
+#ifdef useDerivative
+
     // Control      P       Ti      Td
     // P            0.5Kc   -       -
     // PI           0.45Kc  Pc/1.2  -
@@ -87,12 +95,27 @@ bool GNSSDO_STP3593LF::setFrequencyByBiasMillis(double bias, double Pk, double I
     double D = Dk * (previousChangeInLSBs - requiredChangeInLSBs);
     I += dI; // Add the delta to the integral
 
+    //systemPrintf("P %f I %f D %f\r\n", P, I, D);
+    //systemPrintf("round(P + I + D) %ld\r\n", (uint32_t)round(P + I + D));
+
+    double newControlWordDbl = round(P + I + D); // Set the control word to proportional plus integral plus derivative
+
+    previousChangeInLSBs = requiredChangeInLSBs;
+
+#else
+
+    // This is the same as setFrequencyByBiasMillis from the STP3593LF library
+
+    double P = requiredChangeInLSBs * Pk;
+    double dI = requiredChangeInLSBs * Ik;
+    I += dI; // Add the delta to the integral
+
     //systemPrintf("P %f I %f\r\n", P, I);
     //systemPrintf("round(P + I) %ld\r\n", (uint32_t)round(P + I));
 
-    double newControlWordDbl = round(P + I + D); // Set the control word to proportional plus integral
+    double newControlWordDbl = round(P + I); // Set the control word to proportional plus integral
 
-    previousChangeInLSBs = requiredChangeInLSBs;
+#endif
     
     // Ensure control word is within bounds. Bad things happen if it wraps below zero!
     uint32_t newControlWord;
