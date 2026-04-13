@@ -70,6 +70,7 @@
            This state is repeated if the bias is still excessive (> rxPhaseErrorLimit_s)
            The PI loop uses PkRamp and IkRamp when following the ramps
          In STATE_GNSS_PHASE_LOCK
+           The LOCK LED will be illuminated when the firmware is in STATE_GNSS_PHASE_LOCK
            PPS output will be started when entering STATE_GNSS_PHASE_LOCK for the first time
            This state uses a conventional PLL to drive the tcxoClockBias_ms (RxClkBias) to zero
            The P and I terms are Pk and Ik

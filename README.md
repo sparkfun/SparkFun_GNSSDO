@@ -1,13 +1,13 @@
-SparkPNT GNSSDO
+SparkPNT GNSSDO / GNSSDO+
 ========================================
 
 [![SparkPNT GNSSDO](https://cdn.sparkfun.com/r/600-600/assets/parts/2/7/2/0/7/26289-GNSS-Disciplined-Oscillator-Front-Lit.jpg)](https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator.html)
 
 [*SparkPNT GNSSDO (GPS-26289)*](https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator.html)
 
-Designed and manufactured in Boulder, Colorado, USA, the SparkPNT GNSS Disciplined Oscillator (GNSSDO) is the perfect solution for your high-precision timing needs. Based around the multi-constellation, multi-frequency, L5-ready mosaic-T from Septentrio, this is our most accurate GNSS timing product to date. It features a disciplined 10MHz Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO). The mosaic-T also has built-in on-module support for the Fugro AtomiChron L-band timing service.
+Designed and manufactured in Boulder, Colorado, USA, the SparkPNT GNSS Disciplined Oscillator (GNSSDO) and GNSS Disciplined Oscillator Plus (GNSSDO+) are the perfect solution for your high-precision timing needs. Based around the multi-constellation, multi-frequency, L5-ready mosaic-T from Septentrio, these are our most accurate GNSS timing products to date. They feature a disciplined 10MHz oscillator: Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO) on the GNSSDO; Digitally-Controlled Double-Oven Crystal Oscillator (OCXO) on the GNSSDO+. The mosaic-T also has built-in on-module support for the Fugro AtomiChron L-band timing service.
 
-Under the hood, the GNSSDO is based on the mosaic-T GNSS module from Septentrio, plus the Espressif ESP32-WROVER processor (16MB flash, 8MB PSRAM). The mosaic-T has USB-C connectivity (with Ethernet-over-USB), multiple UARTs and supports full Ethernet connectivity. You can connect the mosaic-T directly to your Ethernet network - our product supports Power-over-Ethernet too. The ESP32 rides shotgun: disciplining the DCTCXO and controlling the OLED display. Remote configuration is possible, the ESP32 console can be accessed via TCP. The GNSSDO has multiple power options including USB-C, PoE and 9V-36V DC, making it easy to connect it to a battery-backed supply.
+Under the hood, the GNSSDO and GNSDO+ are based on the mosaic-T GNSS module from Septentrio, plus the Espressif ESP32-WROVER processor (16MB flash, 8MB PSRAM). The mosaic-T has USB-C connectivity (with Ethernet-over-USB), multiple UARTs and supports full Ethernet connectivity. You can connect the mosaic-T directly to your Ethernet network - our product supports Power-over-Ethernet too. The ESP32 rides shotgun: disciplining the digitally-controlled oscillator and controlling the OLED display. Remote configuration is possible, the ESP32 console can be accessed via TCP. The GNSSDO and GNSSDO+ have multiple power options including USB-C, PoE and 9V-36V DC, making it easy to connect them to a battery-backed supply.
 
 RTK Not Supported
 --------------
@@ -52,7 +52,8 @@ Repository Contents
 Product Variants
 ----------------
 
-- [GPS-26289](https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator.html)- v1.0, Initial Release
+- [GPS-26289](https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator.html)- GNSSDO v1.0, Initial Release
+- [GPS-30777](https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator-plus.html)- GNSSDO+ v1.0, Initial Release
 
 Version History
 ---------------

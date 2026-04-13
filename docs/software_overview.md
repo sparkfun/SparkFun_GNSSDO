@@ -3,7 +3,7 @@ icon: fontawesome/solid/computer
 ---
 
 !!! code "ESP32 Firmware"
-	We have intentionally kept the ESP32 firmware as simple as possible - its only tasks are to: discipline the TCXO oscillator; control the OLED display. The intention is that you can easily develop your own firmware for the GNSSDO if the SparkFun firmware does not meet your needs.
+	We have intentionally kept the ESP32 firmware as simple as possible - its only tasks are to: discipline the TCXO oscillator; control the OLED display. The intention is that you can easily develop your own firmware for the GNSSDO(+) if the SparkFun firmware does not meet your needs.
 
 	The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/Firmware/Binaries)** folder contains the firmware binaries.
 	
@@ -312,30 +312,61 @@ Select option **c** ("c" followed by "Enter") to configure the firmware:
 <figcaption markdown>The ESP32 firmware configuration menu.</figcaption>
 </figure>
 
-- **1) RX Clock Bias Lock Limit**
-	- This allows the clock bias limit to be set. The units are milliseconds.
-	- The **LOCK** LED will illuminate when the bias is below this limit.
-	- PPS output will begin when the bias has been below this limit for **RX Clock Bias Limit Count** seconds.
-- **2) RX Clock Bias Initial Limit**
-	- This allows the initial clock bias limit to be set. The units are milliseconds.
-	- The firmware will soft-reset the GNSS if the clock bias is above this limit for **RX Clock Bias Limit Count** seconds.
-	- This allows the firmware to restart the GNSS and re-sync the TCXO if the initial bias is excessive.
-- **3) RX Clock Bias Limit Count**
-	- This defines how many consecutive 1Hz samples are needed to trigger the two clock bias limits.
-- **4) Pk (PI P term)**
-	- This defines the Proportional term for the TCXO frequency PI control loop. Default is 0.63
-	- This value was determined using approximate Ziegler-Nichols tuning of the SiT5358 loop.
-- **5) Ik (PI I term)**
-	- This defines the Integral term for the TCXO frequency PI control loop. Default is 0.151
-	- This value was determined using approximate Ziegler-Nichols tuning of the SiT5358 loop.
-- **6) Prefer non-composite GPS bias**
+- **1)  Minimum TCXO Warm Up (s)**
+	- This defines the minimum oscillator warmp-up in state STATE_TCXO_WARMUP
+	- Default: 120s
+	- **GNSSDO+ only**
+- **2)  Required TCXO Temperature Stability (ADU)**
+	- This defines the required temperature stability to exit STATE_TCXO_WARMUP
+	- Default: 0.01 ADU
+	- **GNSSDO+ only**
+- **10) PI P term for initial frequency steering**
+	- This defines the PI control loop Proportional term used during initial frequency locking
+	- The default value depends on the oscillator (GNSSDO vs. GNSSDO+)
+- **11) PI I term for initial frequency steering**
+	- This defines the PI control loop Integral term used during initial frequency locking
+	- The default value depends on the oscillator (GNSSDO vs. GNSSDO+)
+- **12) Required bias stability for frequency lock**
+	- The firmware will stay in state STATE_GNSS_FINETIME until the _change_ in **Bias** reaches this
+	- Default: 1.0e-10
+- **13) PI P term for fast ramping**
+	- This defines the PI control loop Proportional term used during fast ramping (state STATE_GNSS_FREQUENCY_LOCK) to remove the large initial bias
+	- The default value depends on the oscillator (GNSSDO vs. GNSSDO+)
+- **14) PI I term for fast ramping**
+	- This defines the PI control loop Integral term used during fast ramping (state STATE_GNSS_FREQUENCY_LOCK) to remove the large initial bias
+	- The default value depends on the oscillator (GNSSDO vs. GNSSDO+)
+- **15) TCXO steering ramp rate limit (s/s)**
+	- This setting limits the maximum rate (change) in the setpoint during fast ramping
+	- The default value depends on the oscillator (GNSSDO vs. GNSSDO+) but is typically 250ns/s
+- **16) TCXO steering ramp step size (s)**
+	- This setting sets the rate of change of the setpoint during fast ramping
+	- The default value depends on the oscillator (GNSSDO vs. GNSSDO+) but is typically 0.5ns
+- **17) TCXO steering ramp asymmetry**
+	- If needed, this setting can be used to adjust the step size used during the 'down' ramp compared to the 'up'
+	- The default value is 1.0 = no asymmetry
+	- A value of 0.5 makes the 'down' ramp steps half the size of the 'up' ramp
+	- If 16) is set to 1.0ns, and 17) is set to 0.5, the 'down' ramp steps will be 0.5ns. The 'down' ramp will take twice as long as the 'up'
+	- If 16) is set to 1.0ns, and 17) is set to 2.0, the 'down' ramp steps will be 2.0ns. The 'down' ramp will take half the time of the 'up'
+- **18) TCXO steering ramp minimum repeats**
+	- This sets the minimum number of times state STATE_GNSS_FREQUENCY_LOCK is repeated
+	- The default value depends on the oscillator (GNSSDO vs. GNSSDO+)
+- **19) Required bias for phase lock (s)**
+	- The firmware will stay in state STATE_GNSS_FREQUENCY_LOCK if the **Bias** exceeds this after fast ramping
+	- Default: 100ns
+- **20) PI P term for final TCXO disciplining**
+	- This defines the Proportional term for the TCXO frequency PI control loop
+	- The default value depends on the oscillator (GNSSDO vs. GNSSDO+)
+- **21) PI I term for final TCXO disciplining**
+	- This defines the Integral term for the TCXO frequency PI control loop
+	- The default value depends on the oscillator (GNSSDO vs. GNSSDO+)
+- **30) Prefer non-composite GPS bias - if available**
 	- With a subscription to Fugro AtomiChron, this option allows the individual GPS clock bias to be preferred over the composite Fugro bias.
 	- You can enable a preference for either GPS or Galileo. Enabling GPS will disable Galileo.
-- **7) Prefer non-composite Galileo bias**
+- **31) Prefer non-composite Galileo bias - if available**
 	- With a subscription to Fugro AtomiChron, this option allows the individual Galileo clock bias to be preferred over the composite Fugro bias.
 	- You can enable a preference for either GPS or Galileo. Enabling Galileo will disable GPS.
-- **8) Pulse-Per-Second Interval**
-	- This defines the interval of the PPS signal. The intervals are defined by the mosiac-T firmware. Use "8" and "Enter" to scroll through the intervals:
+- **40) Pulse-Per-Second Interval**
+	- This defines the interval of the PPS signal. The intervals are defined by the mosiac-T firmware. Use "40" and "Enter" to scroll through the intervals:
 		- "off"
 		- "msec10"
 		- "msec20"
@@ -351,11 +382,15 @@ Select option **c** ("c" followed by "Enter") to configure the firmware:
 		- "sec10"
 		- "sec30"
 		- "sec60"
-- **9) Pulse-Per-Second Polarity**
+- **41) Pulse-Per-Second Polarity**
 	- This defines the PPS signal polarity: Low2High or High2Low
-- **10) Pulse-Per-Second Delay**
-	- This allows the timing of the PPS signal to be advanced or retarded. The units are nanoseconds.
-- **11) Pulse-Per-Second Time Scale**
+- **42) Pulse-Per-Second Delay (ns)**
+	- This allows the timing of the PPS signal to be advanced or retarded. The units are nanoseconds
+	- On GNSSDO+:
+		- Advanced users may want to adjust this to ensure a slight mis-alignment between PPS and the 10MHz clock
+		- This would ensure their rising edges are slightly separated and that the 74LVC1G175 flip-flop (U15) produces a clean output
+		- Consult page 7 of the [GNSSDO+ schematic](./assets/board_files/SparkPNT_GNSSDO_Plus_schematic.pdf) for more details
+- **43) Pulse-Per-Second Time Scale**
 	- This defines which time scale is used to generate the PPS signal.
 		- "GPS"
 		- "Galileo"
@@ -363,14 +398,19 @@ Select option **c** ("c" followed by "Enter") to configure the firmware:
 		- "GLONASS"
 		- "UTC"
 		- "RxClock"
-- **12) Pulse-Per-Second Max Sync Age**
-	- This defines how long PPS pulses will be produced when the GNSS signal is lost or jammed: 0 to 3600 seconds.
-- **13) Pulse-Per-Second Pulse Width**
-	- This defines the width of the PPS signal. The units are milliseconds: 0.000001 to 1000.000000.
-- **14) TCP Server (IPS1)**
+- **44) Pulse-Per-Second Max Sync Age (s)**
+	- This defines how long PPS pulses will be produced when the GNSS signal is lost or jammed: 0 to 3600 seconds
+- **45) Pulse-Per-Second Pulse Width (ms)**
+	- This defines the width of the PPS signal. The units are milliseconds: 0.000001 to 1000.000000
+- **50) TCP Server (IPS1)**
 	- See [TCP Server (IPS1)](#tcp-server-ips1) below for more details
-- **15) TCP Server Port**
-	- The port for the TCP connection. Default is 28785.
+- **51) TCP Server Port**
+	- The port for the TCP connection. Default is 28785
+- **60) Save TCXO control word to TCXO memory**
+	- This option allows the current TCXO control word to be saved manually to TCXO internal memory
+	- **GNSSDO+ only**
+	- This may be useful when setting up a new GNSSDO+. E.g. the control word could be saved manually when state STATE_GNSS_FINETIME is _almost_ complete
+	- The control word will be saved automatically when the firmware has been in state STATE_GNSS_PHASE_LOCK for one hour
 
 To reset all settings to their default values, select "r", "Enter", "y", "Enter"
 
@@ -412,7 +452,7 @@ The debug options are what we use at SparkFun to check that the firmware is runn
 
 The format of the **Print conditions** CSV data is:
 
-**YYYY/MM/DD,HH:MM:SS,Epoch,Lat,Lon,Alt,TimeSys,Error,Fine,PPS,Bias,Source,TCXO,Pk,Ik,Press,Temp,Hum**
+**YYYY/MM/DD,HH:MM:SS,Epoch,Lat,Lon,Alt,TimeSys,Error,Fine,PPS,Bias,Drift,Source,TCXO,PkSteer,IkSteer,PkRamp,IkRamp,Pk,Ik,Press,Temp,Hum,TCXO_Temp,Mode,Temp_Smooth,Bias_Smooth,Rate,Rate_Held,Setpoint,Turn,Error,Repeat**
 
 - **YYYY/MM/DD** is the date from the ReceiverTime SBF message
 - **HH:MM:SS** is the time from the ReceiverTime SBF message
@@ -426,24 +466,51 @@ The format of the **Print conditions** CSV data is:
 - **PPS** indicates if the Pulse-Per-Second output is enabled
 	- PPS is enabled when the RxClkBias reaches the required accuracy, set by **RX Clock Bias Lock Limit**
 - **Bias** is the receiver clock bias in seconds
+- **Drift** is the receiver clock drift in PPM
 - **Source** is the source of the receiver clock bias reported in **Bias**
 	- By default, this is **PVT** indicating the source is the composite RxClkBias from the PVTGeodetic SBF message
 	- If AtomiChron is enabled and if **Prefer non-composite GPS bias** or **Prefer non-composite Galileo bias** has been selected, this will change to **GPS** or **Galileo** indicating that the individual non-composite bias from the FugroTimeOffset SBF message is available and is being used
-- **TCXO** is the 26-bit signed frequency control word written to the SiT5358 TCXO
-- **Pk** is the PI control loop Proportional term - set in the configuration menu
-- **Ik** is the PI control loop Integral term - set in the configuration menu
+- **TCXO** is the frequency control word written to the temperature-controlled oscillator
+- **PkSteer** is the PI control loop Proportional term used during initial frequency locking - set in the configuration menu
+- **IkSteer** is the PI control loop Integral term used during initial frequency locking - set in the configuration menu
+- **PkRamp** is the PI control loop Proportional term during fast ramping to remove the large initial bias - set in the configuration menu
+- **IkRamp** is the PI control loop Integral term during fast ramping to remove the large initial bias - set in the configuration menu
+- **Pk** is the PI control loop Proportional term for the main Phase-Locked Loop - set in the configuration menu
+- **Ik** is the PI control loop Integral term for the main Phase-Locked Loop - set in the configuration menu
 - **Press** is the atmospheric pressure in hPa (mbar) : **GNSSDO Plus (GNSSDO+) only**
 - **Temp** is the internal temperature in degrees C : **GNSSDO Plus (GNSSDO+) only**
 - **Hum** is the relative humidity in %RH : **GNSSDO Plus (GNSSDO+) only**
+- **TCXO_Temp** is the temperature-controlled oscillator internal temperature in ADU : **GNSSDO Plus (GNSSDO+) only**
+- **Mode** is the firmware mode / state. Possible values are:
+	- NOT_CONFIGURED
+    - CONFIGURED
+    - ERROR_BEFORE_FINETIME
+    - WARMUP
+    - ERROR_DURING_WARMUP
+    - FINETIME
+    - ERROR_AFTER_FINETIME
+    - FREQUENCY_LOCK
+    - ERROR_AFTER_FREQUENCY_LOCK
+    - PHASE_LOCK
+    - ERROR_AFTER_PHASE_LOCK
+- **Temp_Smooth** is the exponentially smoothed **TCXO_Temp** : state STATE_TCXO_WARMUP only : **GNSSDO Plus (GNSSDO+) only**
+- **Bias_Smooth** is the exponentially smoothed _change_ in **Bias** : state STATE_GNSS_FINETIME only
+- **Rate** is the ramp rate (s/s) during state STATE_GNSS_FREQUENCY_LOCK
+- **Rate_Held** is the capped ramp rate (s/s) during state STATE_GNSS_FREQUENCY_LOCK
+- **Setpoint** is the Bias target value which during ramping in state STATE_GNSS_FREQUENCY_LOCK
+- **Turn** is the turn-around point in state STATE_GNSS_FREQUENCY_LOCK, from the 'up' ramp to the 'down' ramp
+- **Error** is the error term (difference between the **Setpoint** and the **Bias**) in state STATE_GNSS_FREQUENCY_LOCK
+- **Repeat** is the count of the number of times state STATE_GNSS_FREQUENCY_LOCK has been repeated
+
 
 !!! note
-	The GNSSDO Plus (GNSSDO+) contains a MS8607 pressure, temperature and humidity sensor. The readings are reported in the periodic messages.
+	The GNSSDO Plus (GNSSDO+) contains a MS8607 pressure, temperature and humidity sensor. The readings are reported in the periodic messages as **Press**, **Temp** and **Hum**.
 	
 	The temperature reading will be higher than expected due to the sensor's proximity to the OCXO. The OCXO runs at elevated temperature; heat will be coupled to the sensor by convection, radiation and conduction (through the PCB).
 
 ## :fontawesome-solid-screwdriver-wrench: Firmware Upgrade
 
-The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/Firmware/Binaries)** folder contains the firmware binaries. v2.2 is the latest stable release - as at 2-3-26.
+The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/Firmware/Binaries)** folder contains the firmware binaries. v3.0 is the latest stable release - as at 4-13-26.
 
 You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
 

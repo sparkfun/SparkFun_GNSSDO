@@ -9,7 +9,7 @@ icon: material/cog
 	??? info "ESD Precaution"
 		As recommended by the manufacturer, we highly encourage users to take the necessary precautions to avoid damaging their module.
 
-		- The GNSSDO features ESD protection on the USB-C connectors, ethernet jack, I/O terminals and antenna connections.
+		- The GNSSDO(+) features ESD protection on the USB-C connectors, ethernet jack, I/O terminals and antenna connections.
 
 		<div class="grid cards" markdown>
 
@@ -36,7 +36,7 @@ icon: material/cog
 
 
 !!! code "ESP32 Firmware"
-	We have intentionally kept the ESP32 firmware as simple as possible - it only disciplines the TCXO oscillator and controls the OLED display. The SparkFun RTK Firmware or SparkFun RTK Everywhere firmware will not run on this product. The intention is that you can easily develop your own firmware for the GNSSDO if the SparkFun firmware does not meet your needs.
+	We have intentionally kept the ESP32 firmware as simple as possible - it only disciplines the TCXO oscillator and controls the OLED display. The SparkFun RTK Firmware or SparkFun RTK Everywhere firmware will not run on this product. The intention is that you can easily develop your own firmware for the GNSSDO(+) if the SparkFun firmware does not meet your needs.
 
 	The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/Firmware/Binaries)** folder contains the firmware binaries.
 
@@ -51,7 +51,7 @@ In this section, we walk you through the hardware design, interfaces, I/O connec
 
 
 ## Schematic
-Users can download the [full schematic for the GNSSDO](./assets/board_files/schematic.pdf) in `*.pdf` format.
+Users can download the full schematic for the [GNSSDO](./assets/board_files/schematic.pdf) and [GNSSDO+](./assets/board_files/SparkPNT_GNSSDO_Plus_schematic.pdf) in `*.pdf` format.
 
 
 ## Dimensions
@@ -62,7 +62,7 @@ Users can download the [full schematic for the GNSSDO](./assets/board_files/sche
 	<figure markdown>
 	[![Enclosure Dimensions](./assets/img/hookup_guide/Enclosure-Dimensions.png){ width="700" }](./assets/board_files/dimensions-enclosure.pdf "Click to enlarge")
 	<figcaption markdown>
-	[Dimensions (PDF)](./assets/board_files/dimensions-enclosure.pdf) of the GNSSDO aluminum enclosure and the front/rear panels, in millimeters.
+	[Dimensions (PDF)](./assets/board_files/dimensions-enclosure.pdf) of the GNSSDO(+) aluminum enclosure and the front/rear panels, in millimeters.
 	</figcaption>
 	</figure>
 
@@ -73,7 +73,7 @@ Users can download the [full schematic for the GNSSDO](./assets/board_files/sche
 	<figure markdown>
 	[![Board Dimensions](./assets/board_files/dimensions.png){ width="400" }](./assets/board_files/dimensions.png "Click to enlarge")
 	<figcaption markdown>
-	[Dimensions (PNG)](./assets/board_files/dimensions.png) of the GNSSDO PCB, in inches.
+	[Dimensions (PNG)](./assets/board_files/dimensions.png) of the GNSSDO(+) PCB, in inches.
 	</figcaption>
 	</figure>
 
@@ -116,7 +116,7 @@ The mosaic-T and the ESP32 both required 3.3V power. To simplify the power circu
 
 <figure markdown>
 [![Power connections](./assets/img/hookup_guide/Power.png){ width="400" }](./assets/img/hookup_guide/Power.png "Click to enlarge")
-<figcaption markdown>Power connections on the GNSSDO PCB.</figcaption>
+<figcaption markdown>Power connections on the GNSSDO(+) PCB.</figcaption>
 </figure>
 
 The GNSSDO can be powered individually or in combination, with any of the following:
@@ -125,9 +125,22 @@ The GNSSDO can be powered individually or in combination, with any of the follow
 - **`Power-over-Ethernet`** - **Range: 36 to 57V**; delivered via the `MOSAIC ETHERNET` RJ45 MagJack connector.
 - **`External DC Power`** - **Range: 9 to 36V**; delivered via the `VIN+` and `VIN-` screw cage terminals.
 
+Powering the GNSSDO+ takes a little more thought and care. The double-oven oscillator in the GNSSDO+ draws more current than a standard USB (2.0) port can provide. You need to ensure that you use the provided 65W Power Delvery Wall Adapter if you are going to power the GNSSDO+ from USB. Also, the GNSSDO+ includes a Power Path priority circuit. From highest to lowest, the Power Path priorities are:
+
+- **`Power-over-Ethernet`** - **Range: 36 to 57V**; delivered via the `MOSAIC ETHERNET` RJ45 MagJack connector.
+- **`External DC Power`** - **Range: 9 to 36V**; delivered via the `VIN+` and `VIN-` screw cage terminals.
+- **`CONFIG ESP32 USB Port`** - **5V from a Power Delivery Wall Adapter**; delivered via the `CONFIG ESP32` USB-C connector.
+- **`CONFIG MOSAIC USB Port`** - **5V from a Power Delivery Wall Adapter**; delivered via the `CONFIG MOSAIC` USB-C connector.
+
+If you have the **`CONFIG ESP32 USB Port`** connected to a standard USB (2.0) port, it will not be able to provide enough current. And due to the Power Path priority, it will not preferentially draw power from **`CONFIG MOSAIC USB Port`**. Your options are:
+
+- Provide power via **`Power-over-Ethernet`** or **`External DC Power`** since these have higher priority
+- Install a [power switch](https://www.sparkfun.com/usb-c-extension-cable-with-power-switch-1m.html) in the **`CONFIG ESP32 USB Port`** cable to disconnect its power, forcing the GNSSDO+ to draw Power Delivery power from the **`CONFIG MOSAIC USB Port`**.
+
+If you have **`CONFIG MOSAIC USB Port`** connected to a standard USB (2.0) port, ensure the Power Delivery Wall Adapter is connected to **`CONFIG ESP32 USB Port`**. The Power Path priority will ensure power is drawn from the **`CONFIG ESP32 USB Port`**.
 
 ??? tip "Measure Current Draw"
-	If you want to measure the board's current draw, you can open the `MEAS` jumper and measure the current via a pair of breakout pads *(see the **[Jumpers](#jumpers)** section)*.
+	If you want to measure the board's current draw, you can open the `MEAS` jumper and measure the current via a pair of breakout pads *(see the **[Jumpers](#jumpers-gnssdo)** section)*.
 
 
 ??? info "Protection Components"
@@ -139,7 +152,7 @@ The GNSSDO can be powered individually or in combination, with any of the follow
 
 
 === ":material-usb-port: USB-C Connectors"
-	The mosaic-T and ESP32 both have USB-C connections. These USB ports can be used to power the GNSSDO during the initial configuration when the mosaic-T or ESP32 are connected to a computer.
+	The mosaic-T and ESP32 both have USB-C connections. These USB ports can be used to power the GNSSDO during the initial configuration when the mosaic-T or ESP32 are connected to a computer. For GNSSDO+, ensure you are using the provided Power Path Wall Adapter as described above.
 
 	<div class="grid" markdown>
 
@@ -147,7 +160,7 @@ The GNSSDO can be powered individually or in combination, with any of the follow
 
 	<figure markdown>
 	[![USB-C Connectors](./assets/img/hookup_guide/USB.png){ width="750" }](./assets/img/hookup_guide/USB.png "Click to enlarge")
-	<figcaption markdown>USB-C connectors on the GNSSDO.</figcaption>
+	<figcaption markdown>USB-C connectors on the GNSSDO(+).</figcaption>
 	</figure>
 
 	</div>
@@ -157,7 +170,7 @@ The GNSSDO can be powered individually or in combination, with any of the follow
 
 	<figure markdown>
 	[![USB-C Power Connections](./assets/img/hookup_guide/USB-PCB.png){ width="400" }](./assets/img/hookup_guide/USB-PCB.png "Click to enlarge")
-	<figcaption markdown>The USB-C device connections on the GNSSDO PCB.</figcaption>
+	<figcaption markdown>The USB-C device connections on the GNSSDO(+) PCB.</figcaption>
 	</figure>
 
 	</div>
@@ -170,7 +183,7 @@ The GNSSDO can be powered individually or in combination, with any of the follow
 
 
 === ":material-ethernet: Power-over-Ethernet (PoE)"
-	The mosaic-T Ethernet port supports Power-over-Ethernet ([PoE](https://en.wikipedia.org/wiki/Power_over_Ethernet "Power Over Ethernet")), allowing the GNSSDO to be powered by the network. This is very useful when the GNSSDO is mounted remotely - perhaps in a weatherproof box up on the roof. Data and power can be delivered through a single cable, avoiding the need for a separate power connection.
+	The mosaic-T Ethernet port supports Power-over-Ethernet ([PoE](https://en.wikipedia.org/wiki/Power_over_Ethernet "Power Over Ethernet")), allowing the GNSSDO(+) to be powered by the network. This is very useful when the GNSSDO(+) is mounted remotely - perhaps in a weatherproof box up on the roof. Data and power can be delivered through a single cable, avoiding the need for a separate power connection.
 
 	<div class="grid" markdown>
 
@@ -178,7 +191,7 @@ The GNSSDO can be powered individually or in combination, with any of the follow
 
 	<figure markdown>
 	[![Power over Ethernet Jack](./assets/img/hookup_guide/POE.png){ width="750" }](./assets/img/hookup_guide/POE.png "Click to enlarge")
-	<figcaption markdown>The Power-over-Ethernet (PoE) jack on the GNSSDO.</figcaption>
+	<figcaption markdown>The Power-over-Ethernet (PoE) jack on the GNSSDO(+).</figcaption>
 	</figure>
 
 	</div>
@@ -197,7 +210,7 @@ The GNSSDO can be powered individually or in combination, with any of the follow
 
 
 === ":material-car-battery: External DC Power (VIN)"
-	The GNSSDO includes a fully-isolated DC-DC converter, for applications where you may want to power the unit from a vehicle. The DC-DC converter accepts DC voltages between **9V and 36V**, regulating this down to 5V. The converter is fully isolated to 1.5kV and operates with ~90% efficiency.
+	The GNSSDO(+) includes a fully-isolated DC-DC converter, for applications where you may want to power the unit from a vehicle. The DC-DC converter accepts DC voltages between **9V and 36V**, regulating this down to 5V. The converter is fully isolated to 1.5kV and operates with ~90% efficiency.
 
 	<div class="grid" markdown>
 
@@ -215,7 +228,7 @@ The GNSSDO can be powered individually or in combination, with any of the follow
 
 	<figure markdown>
 	[![External DC Power Input](./assets/img/hookup_guide/VIN-PCB.png){ width="400" }](./assets/img/hookup_guide/VIN-PCB.png "Click to enlarge")
-	<figcaption markdown>The DC-DC power converter and external power inputs on the GNSSDO PCB.</figcaption>
+	<figcaption markdown>The DC-DC power converter and external power inputs on the GNSSDO(+) PCB.</figcaption>
 	</figure>
 
 	</div>
@@ -266,7 +279,7 @@ The ESP32 processor is there to control (discipline) the 10 MHz TCXO oscillator 
 Think of the ESP32 as a co-processor, or riding shotgun... The mosaic-T `COM1`, `COM3` and `COM4` UARTs are linked to the ESP32, allowing the two to communicate directly without needing an Ethernet link. In our firmware, the PVTGeodetic and ReceiverTime messages are output on COM1. The ESP32 displays some of their content on the I^2^C OLED display, and then uses the content to discipline the TCXO oscillator. See [Oscillator](./oscillator.md) for more details.
 
 ??? code "ESP32 Firmware"
-	We have intentionally kept the ESP32 firmware as simple as possible. The intention is that users can easily develop their, own firmware for the GNSSDO using the Espressif ESP IDF or the Arduino IDE if the SparkFun firmware does not meet their needs.
+	We have intentionally kept the ESP32 firmware as simple as possible. The intention is that users can easily develop their, own firmware for the GNSSDO(+) using the Espressif ESP IDF or the Arduino IDE if the SparkFun firmware does not meet their needs.
 
 	The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/Firmware/Binaries)** folder contains the firmware binaries.
 
@@ -295,7 +308,7 @@ The mosaic-T has a KSZ8041NLI Ethernet PHY interface, connected using a Reduced 
 
 <figure markdown>
 [![Ethernet PHY](./assets/img/hookup_guide/PHY-PCB.png){ width="400" }](./assets/img/hookup_guide/PHY-PCB.png "Click to enlarge")
-<figcaption markdown>The Ethernet PHY on the GNSSDO PCB.</figcaption>
+<figcaption markdown>The Ethernet PHY on the GNSSDO(+) PCB.</figcaption>
 </figure>
 
 </div>
@@ -347,7 +360,7 @@ The mosaic-T and ESP32 both have USB-C connections. The MOSAIC USB port is high-
 
 <figure markdown>
 [![USB-C Power Connections](./assets/img/hookup_guide/USB-PCB.png){ width="400" }](./assets/img/hookup_guide/USB-PCB.png "Click to enlarge")
-<figcaption markdown>The USB-C data connections on the GNSSDO PCB.</figcaption>
+<figcaption markdown>The USB-C data connections on the GNSSDO(+) PCB.</figcaption>
 </figure>
 
 </div>
@@ -356,7 +369,7 @@ The mosaic-T and ESP32 both have USB-C connections. The MOSAIC USB port is high-
 
 
 !!! info
-	The GNSSDO can draw power from either or both USB ports, in addition to Power-over-Ethernet and the DC-DC external input described above.
+	The GNSSDO can draw power from either or both USB ports, in addition to Power-over-Ethernet and the DC-DC external input described above. Powering GNSSDO+ via USB takes a little more though and care. Please see the notes [above](#power-options).
 
 
 !!! info "CH340 Driver"
@@ -383,7 +396,7 @@ The &micro;SD socket is connected directly to the mosaic-T via a one-bit SDIO in
 
 <figure markdown>
 [![micro SD socket and log button](./assets/img/hookup_guide/Log-PCB.png){ width="400" }](./assets/img/hookup_guide/Log-PCB.png "Click to enlarge")
-<figcaption markdown>&micro;SD socket and ++"Log"++ button on the GNSSDO PCB.</figcaption>
+<figcaption markdown>&micro;SD socket and ++"Log"++ button on the GNSSDO(+) PCB.</figcaption>
 </figure>
 
 </div>
@@ -416,7 +429,7 @@ The &micro;SD socket is connected directly to the mosaic-T via a one-bit SDIO in
 
 
 ## SMA Connectors
-The GNSSDO has robust SMA connectors for the mosaic-T GNSS antenna, Pulse-Per-Second output, 10 MHz input / output, and the Event A input.
+The GNSSDO has robust SMA connectors for the mosaic-T GNSS antenna, Pulse-Per-Second output, 10 MHz clock signal and the Event A input.
 
 <figure markdown>
 [![SMA Connections](./assets/img/hookup_guide/SMA.png){ width="750" }](./assets/img/hookup_guide/SMA.png "Click to enlarge")
@@ -439,7 +452,7 @@ The GNSSDO has robust SMA connectors for the mosaic-T GNSS antenna, Pulse-Per-Se
 	<figcaption markdown>The SMA connector for the EventA input.</figcaption>
 	</figure>
 
-	The Event A SMA connector is standard polarity. The voltage is adjustable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The output can also be configured for 50 Ohm via the jumper links *(see the **[Jumpers](#jumpers)** section)*.
+	The Event A SMA connector is standard polarity. The voltage is adjustable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers-gnssdo)** section)*. The output can also be configured for 50 Ohm via the jumper links *(see the **[Jumpers](#jumpers-gnssdo)** section)*.
 
 	</div>
 
@@ -467,7 +480,11 @@ The GNSSDO has robust SMA connectors for the mosaic-T GNSS antenna, Pulse-Per-Se
 	<figcaption markdown>The SMA connector for the 10 MHz output / input.</figcaption>
 	</figure>
 
-	The 10 MHz SMA connector is standard polarity. The voltage is adjustable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The output can also be configured for 50 Ohm via the jumper links *(see the **[Jumpers](#jumpers)** section)*. Output / Input is selected via the small slide switch *(see the **[Switches](#switches)** section)* adjacent to the connector. When configured for input: the input impedance is 50Ω; the detection level is -14dBm; the max supported input level is +12dBm.
+	The 10 MHz SMA connector is standard polarity.
+	
+	On GNSSDO, the voltage is adjustable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers-gnssdo)** section)*. The output can also be configured for 50 Ohm via the jumper links *(see the **[Jumpers](#jumpers-gnssdo)** section)*. Output / Input is selected via the small slide switch *(see the **[Switches](#switches)** section)* adjacent to the connector. When configured for input: the input impedance is 50Ω; the detection level is -14dBm; the max supported input level is +12dBm.
+
+	On GNSSDO+, the 10MHz signal is output-only and 3.3V only.
 
 	</div>
 
@@ -476,7 +493,7 @@ The GNSSDO has robust SMA connectors for the mosaic-T GNSS antenna, Pulse-Per-Se
 
 	<figure markdown>
 	[![SMA 10MHz Connections](./assets/img/hookup_guide/10MHz-Switch-PCB.png){ width="400" }](./assets/img/hookup_guide/10MHz-Switch-PCB.png "Click to enlarge")
-	<figcaption markdown>The connection for the 10 MHz output / input.</figcaption>
+	<figcaption markdown>The connection for the 10 MHz clock signal.</figcaption>
 	</figure>
 
 	</div>
@@ -499,7 +516,11 @@ The GNSSDO has robust SMA connectors for the mosaic-T GNSS antenna, Pulse-Per-Se
 	<figcaption markdown>The SMA connector for the Pulse-Per-Second output.</figcaption>
 	</figure>
 
-	The Pulse-Per-Second SMA connector is standard polarity. The voltage is selectable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers)** section)*. The output is DC-coupled. The output can be configured for 50 Ohm output via the jumper links *(see the **[Jumpers](#jumpers)** section)*.
+	The Pulse-Per-Second SMA connector is standard polarity.
+	
+	On GNSSDO, the voltage is selectable via the VCCIO switch: 3.3V or 5V. 2.8V and 1.8V are also available via the jumper links *(see the **[Jumpers](#jumpers-gnssdo)** section)*. The output is DC-coupled. The output can be configured for 50 Ohm output via the jumper links *(see the **[Jumpers](#jumpers-gnssdo)** section)*.
+
+	On GNSSDO+, PPS is 3.3V only. The PPS output is aligned to the 10MHz clock to ensure its accuracy.
 
 	</div>
 
@@ -699,7 +720,10 @@ These terminals are described in the tabs below. For more information on the I/O
 
 
 === "SCL2 & SDA2"
-	The SCL2 and SDA2 screw terminals provide access to the TCXO I^2^C bus, allowing the user to connect an external configurable TCXO if desired. The I^2^C voltage level is set by the VCCIO switch: 3.3V or 5V. The provided firmware supports the SiTime SiT5358; the user will need to modify the firmware to support additional osciillators.
+	!!! tip
+		SCL2 & SDA2 are only available on GNSSDO.
+
+	The SCL2 and SDA2 screw terminals provide access to the TCXO I^2^C bus, allowing the user to connect an external configurable TCXO if desired. The I^2^C voltage level is set by the VCCIO switch: 3.3V or 5V. The provided firmware supports the SiTime SiT5358 and the Rakon STP3593LF; the user will need to modify the firmware to support additional osciillators.
 
 	<article style="text-align: center;" markdown>
 
@@ -713,6 +737,25 @@ These terminals are described in the tabs below. For more information on the I/O
 
 	!!! tip
 		The I^2^C voltage is set by the VCCIO voltage selection switch.
+
+=== "GP1 & GP2"
+	!!! tip
+		GP1 & GP2 are only available on GNSSDO+.
+
+	The GP1 and GP2 screw terminals provide access to the mosaic-T GP output signals, allowing the user to use them to configure external devices or for (e.g.) data / state logging. The output voltage level is set by the VCCIO switch: 3.3V or 5V.
+
+	<article style="text-align: center;" markdown>
+
+	| **Terminal** | **Function**              |
+	| :----------: | :------------------------ |
+	| **GP1**     | GP1 : Output-only |
+	| **GP2**     | GP2 : Output-only  |
+
+	</article>
+
+
+	!!! tip
+		The output voltage is set by the VCCIO voltage selection switch.
 
 
 
@@ -732,11 +775,14 @@ There are two miniature slide switches on the GNSSDO PCB:
 
 
 === "`VCCIO`"
-	This switch sets the voltage of the Input Output Terminals (COM2 UART, Event B, SCL2 & SDA2)
+	This switch sets the voltage of the Input Output Terminals (COM2 UART, Event B, SCL2 & SDA2 (GNSSDO), GP1 & GP2 (GNSSDO+))
 
 	- The I/O voltage can be set to 3.3V (default) or 5V.
 
 === "`10MHz`"
+	!!! tip
+		This switch is only available on GNSSDO. The GNSSDO+ 10MHz SMA is output-only.
+
 	This switch changes the function of the 10MHz SMA connector
 
 	- When set to `OUT` (default):
@@ -751,7 +797,7 @@ There are two miniature slide switches on the GNSSDO PCB:
 
 
 ## Status LEDs
-There are six status LEDs on the GNSSDO:
+There are six status LEDs on the GNSSDO(+):
 
 <div class="grid" markdown>
 
@@ -773,7 +819,7 @@ There are six status LEDs on the GNSSDO:
 	- The GNSS Error status - as reported by **PVTGeodetic Error**
 	- Connected to ESP32 GPIO pin 32
 - `RTK` - Real-Time Kinematic *(Yellow)*
-	- This LED has little or no functionality on the GNSSDO as the mosaic-T uses PPP, not RTK
+	- This LED has little or no functionality on the GNSSDO(+) as the mosaic-T uses PPP, not RTK
 	- Internally, it is connected to the mosaic-T GPLED2 pin
 	- It can be configured for (e.g.) TRACKLED if desired
 
@@ -785,14 +831,14 @@ There are six status LEDs on the GNSSDO:
 <figure markdown>
 [![LEDs](./assets/img/hookup_guide/LEDs.png){ width="400" }](./assets/img/hookup_guide/LEDs.png "Click to enlarge")
 <figcaption markdown>
-The status indicator LEDs on the GNSSDO.
+The status indicator LEDs on the GNSSDO(+).
 </figcaption>
 </figure>
 
 <figure markdown>
 [![LEDs](./assets/img/hookup_guide/LEDs-PCB.png){ width="400" }](./assets/img/hookup_guide/LEDs-PCB.png "Click to enlarge")
 <figcaption markdown>
-The status indicator LEDs on the GNSSDO PCB.
+The status indicator LEDs on the GNSSDO(+) PCB.
 </figcaption>
 </figure>
 
@@ -803,19 +849,19 @@ The status indicator LEDs on the GNSSDO PCB.
 
 
 ## OLED Display
-The GNSSDO has a 128x64 pixel OLED display, controlled by the ESP32 via I^2^C. After some initial diagnostic messages, the display will show position, time and other data from the mosaic-T **PVTGeodetic**, **ReceiverTime** and **IPStatus** SBF blocks.
+The GNSSDO(+) has a 128x64 pixel OLED display, controlled by the ESP32 via I^2^C. After some initial diagnostic messages, the display will show position, time and other data from the mosaic-T **PVTGeodetic**, **ReceiverTime** and **IPStatus** SBF blocks.
 
 <figure markdown>
 [![LEDs](./assets/img/hookup_guide/OLED3.png){ width="750" }](./assets/img/hookup_guide/OLED3.png "Click to enlarge")
 <figcaption markdown>
-The OLED display on the GNSSDO.
+The OLED display on the GNSSDO(+).
 </figcaption>
 </figure>
 
 <figure markdown>
 [![OLED display](./assets/img/hookup_guide/Display-Fugro.png){ width="250" }](./assets/img/hookup_guide/Display-Fugro.png "Click to enlarge")
 <figcaption markdown>
-[OLED display (PNG)](./assets/img/hookup_guide/Display-Fugro.png) for the GNSSDO.
+[OLED display (PNG)](./assets/img/hookup_guide/Display-Fugro.png) for the GNSSDO(+).
 </figcaption>
 </figure>
 
@@ -840,7 +886,7 @@ The display is updated on arrival of the **ReceiverTime** message. You may see a
 
 
 ## Buttons
-There are three buttons on the GNSSDO: ++"RESET"++, ++"BOOT"++, and ++"LOG"++.
+There are three buttons on the GNSSDO(+): ++"RESET"++, ++"BOOT"++, and ++"LOG"++.
 
 <div class="grid" markdown>
 
@@ -848,7 +894,7 @@ There are three buttons on the GNSSDO: ++"RESET"++, ++"BOOT"++, and ++"LOG"++.
 
 <figure markdown>
 [![Buttons](./assets/img/hookup_guide/Buttons.png){ width="750" }](./assets/img/hookup_guide/Buttons.png "Click to enlarge")
-<figcaption markdown>Buttons on the GNSSDO.</figcaption>
+<figcaption markdown>Buttons on the GNSSDO(+).</figcaption>
 </figure>
 
 </div>
@@ -858,7 +904,7 @@ There are three buttons on the GNSSDO: ++"RESET"++, ++"BOOT"++, and ++"LOG"++.
 
 <figure markdown>
 [![Buttons](./assets/img/hookup_guide/Buttons-PCB.png){ width="400" }](./assets/img/hookup_guide/Buttons-PCB.png "Click to enlarge")
-<figcaption markdown>Buttons on the GNSSDO PCB.</figcaption>
+<figcaption markdown>Buttons on the GNSSDO(+) PCB.</figcaption>
 </figure>
 
 </div>
@@ -892,7 +938,7 @@ There are three buttons on the GNSSDO: ++"RESET"++, ++"BOOT"++, and ++"LOG"++.
 
 
 === ":espressif: ESP32: Boot Control"
-	The ++"BOOT"++ button can be used to force the ESP32 into the serial bootloader. Holding down the ++"BOOT"++ button, while connecting the GNSSDO to a computer through its USB-C connector or resetting the board will cause it to enter the <a href="https://docs.espressif.com/projects/esptool/en/latest/esp32/advanced-topics/boot-mode-selection.html#manual-bootloader">Firmware Download mode</a>. The ESP32 will remain in this mode until it power cycles (happens automatically after uploading new firmware) or the ++"RESET"++ button is pressed.
+	The ++"BOOT"++ button can be used to force the ESP32 into the serial bootloader. Holding down the ++"BOOT"++ button, while connecting the GNSSDO(+) to a computer through its USB-C connector or resetting the board will cause it to enter the <a href="https://docs.espressif.com/projects/esptool/en/latest/esp32/advanced-topics/boot-mode-selection.html#manual-bootloader">Firmware Download mode</a>. The ESP32 will remain in this mode until it power cycles (happens automatically after uploading new firmware) or the ++"RESET"++ button is pressed.
 
 	1. Hold the ++"BOOT"++ button down.
 	2. Reset the MCU.
@@ -905,7 +951,7 @@ There are three buttons on the GNSSDO: ++"RESET"++, ++"BOOT"++, and ++"LOG"++.
 
 
 
-## Jumpers
+## Jumpers (GNSSDO)
 
 ??? note "Never modified a jumper before?"
 	Check out our <a href="https://learn.sparkfun.com/tutorials/664">Jumper Pads and PCB Traces tutorial</a> for a quick introduction!
@@ -1010,5 +1056,94 @@ The jumpers on the bottom of the GNSSDO PCB.
 	- **VCCIO**
 		- The **VCCIO** jumper can be soldered closed to connect the **CTS** screw terminal to VCCIO. **CTS** can then be used as a power output. The voltage is set by the VCCIO slide switch.
 	- **MEAS**
-		- Open the **MEAS** jumper if you wish to measure the total current drawn by the GNSSDO, or (e.g.) wish to add an ON/OFF switch. The breakout pads can then be used to attach a multimeter or a mechanical power switch.
+		- Open the **MEAS** jumper if you wish to measure the total current drawn by the GNSSDO(+), or (e.g.) wish to add an ON/OFF switch. The breakout pads can then be used to attach a multimeter or a mechanical power switch.
 		- **MEAS** is *upstream* of the two 3.3V regulators and *downstream* of the four power source combination and protection diodes.
+
+## Jumpers (GNSSDO+)
+
+??? note "Never modified a jumper before?"
+	Check out our <a href="https://learn.sparkfun.com/tutorials/664">Jumper Pads and PCB Traces tutorial</a> for a quick introduction!
+
+	<div class="grid cards col-4" markdown align="center">
+
+	-   <a href="https://learn.sparkfun.com/tutorials/664">
+		<figure markdown>
+		![Tutorial thumbnail](https://cdn.sparkfun.com/c/264-148/assets/learn_tutorials/6/6/4/PCB_TraceCutLumenati.jpg)
+		</figure>
+
+		---
+
+		**How to Work with Jumper Pads and PCB Traces**</a>
+
+	</div>
+
+There are several jumpers on the GNSSDO+ PCB which can be used to (e.g.) disable the LEDs or allow measurement of the board's current draw.
+
+
+<!-- <div class="grid" markdown>
+
+<div markdown>
+
+<figure markdown>
+[![Jumpers](./assets/img/hookup_guide/Jumpers-top.png){ width="400" }](./assets/img/hookup_guide/Jumpers-top.png "Click to enlarge")
+<figcaption markdown>
+The jumpers on the top of the GNSSDO PCB.
+</figcaption>
+</figure>
+
+</div>
+
+
+<div markdown>
+
+<figure markdown>
+[![Jumpers](./assets/img/hookup_guide/Jumpers-bottom.png){ width="400" }](./assets/img/hookup_guide/Jumpers-bottom.png "Click to enlarge")
+<figcaption markdown>
+The jumpers on the bottom of the GNSSDO PCB.
+</figcaption>
+</figure>
+
+</div>
+
+</div> -->
+
+
+=== "Top"
+	- **POE** - This jumper can be used to disconnect the Power-over-Ethernet (PoE) module 50&ohm; load.
+		- The PoE module has a minimum load of 200mA. We included the 50&ohm; load to ensure this is met. If you can ensure this by other means, open this jumper to disconnect the load.
+	- **Voltage Configuration: A-D**
+		- The jumper links can be used to configure the voltage levels and impedance of the SMA connections. Please refer to the [schematic](./assets/board_files/SparkPNT_GNSSDO_Plus_schematic.pdf) for additional information.
+		- Jumpers A,B,C configure the voltage of the Event A input.
+			- Jumper **A** is closed by default. It selects VCCIO as the Event A input voltage.
+			- Jumper **B** is open by default. Open jumper A and close jumper B to configure Event A for 2.8V.
+			- Jumper **C** is open by default. Open jumper A and close jumper C to configure Event A for 1.8V.
+		- To configure the Event A input for 50 Ohms: close jumper **D**.
+			- Jumper **D** is open by default. Close it to select 50 Ohms for the Event A input.
+
+
+=== "Bottom"
+	- LED Jumpers
+		- **LINK** - open this jumper to disable the Ethernet Link LED.
+		- **SPEED** - open this jumper to disable the Ethernet Speed LED.
+		- **RTK** - open this jumper to disable the mosaic-T Real-Time Kinetic LED.
+		- **PVT** - open this jumper to disable the mosaic-T Position Velocity Time LED.
+		- **LOG** - open this jumper to disable the mosaic-T Log LED.
+		- **ERROR** - open this jumper to disable the GNSS error LED.
+		- **LOCK** - open this jumper to disable the TCXO lock LED.
+		- **PWR** - open this jumper to disable the Power LED.
+	- Button Jumpers
+		- **BOOT** - open this jumper to disconnect the ESP32 BOOT pushbutton.
+		- **RESET** - open this jumper to disconnect the ESP32 RESET pushbutton.
+	- **SHLD** (x2) - open these jumpers to isolate the USB-C connector shield from GND.
+	- **I^2^C** (x2) - open these dual jumpers to disconnect the pull-ups for the I^2^C buses.
+		- Note: there are separate jumpers for the two I^2^C buses: OLED (Qwiic); and the oscillator. On GNSSDO+, there are more jumpers for the 5V level-shifted oscillator I^2^C signals.
+	- **VIN+** and **VIN-**
+		- Open these jumpers if you wish to isolate (disconnect) the external DC power terminals. The breakout pads can then be used to feed in power from an alternate source.
+	- **POE+** and **POE-**
+		- Open these jumpers if you wish to isolate (disconnect) the Power-over-Ethernet pins on the MOSAIC Ethernet magjack. The breakout pads can then be used to feed in power from an alternate source.
+	- **VCCIO**
+		- The **VCCIO** jumper can be soldered closed to connect the **CTS** screw terminal to VCCIO. **CTS** can then be used as a power output. The voltage is set by the VCCIO slide switch.
+	- **MEAS**
+		- Open the **MEAS** jumper if you wish to measure the total current drawn by the GNSSDO(+), or (e.g.) wish to add an ON/OFF switch. The breakout pads can then be used to attach a multimeter or a mechanical power switch.
+		- **MEAS** is *upstream* of the two 3.3V regulators and *downstream* of the four power source combination and protection diodes.
+		- On GNSSDO+: there is a separate, additional **MEAS** jumper for the OCXO Power Path circuit. Open this to switch / measure the current drawn by the OCXO. **Note:** this could be 1.5A on startup from cold.
