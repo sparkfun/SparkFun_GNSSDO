@@ -57,7 +57,8 @@ void updateSystemState()
         break;
 
         // GNSS has begun and has been configured
-        // Wait for gnssWNSet, gnssToWSet and gnssFineTime to go true, then go into STATE_GNSS_FINETIME
+        // Wait for gnssWNSet, gnssToWSet and gnssFineTime to go true, then go into:
+        // STATE_TCXO_WARMUP on GNSSDO+; STATE_GNSS_FINETIME on GNSSDO
         // Monitor gnssError. If it becomes non-zero, go into STATE_GNSS_ERROR_BEFORE_FINETIME
         case (STATE_GNSS_CONFIGURED): {
             if (gnssPVTUpdated) // Wait for PVT to be updated. It contains Error.
@@ -154,7 +155,7 @@ void updateSystemState()
 
         // Discipline the TCXO in frequency locked mode
         // Monitor gnssError. If it becomes non-zero, go into STATE_GNSS_ERROR_AFTER_FINETIME
-        // When smoothedTcxoBiasChange_ms is less than rxStabilityForFrequencyLockError, go into STATE_GNSS_FREQUENCY_LOCK
+        // When smoothedTcxoBiasChange_ms is less than rxStabilityForFrequencyLock, go into STATE_GNSS_FREQUENCY_LOCK
         case (STATE_GNSS_FINETIME): {
             if (gnssPVTUpdated) // Wait for PVT to be updated. It contains Error.
             {
@@ -194,17 +195,17 @@ void updateSystemState()
                 // Update the TCXO based on the change in the clock bias
                 // updateTCXO calls myTCXO->setFrequencyByBiasMillis
                 // myTCXO->setFrequencyByBiasMillis will limit the frequency change to _maxFrequencyChangePPB
-                // So we can feed in a huge bias. All that is important is the sign...
+                // So we can feed in a large bias. All that is important is the sign...
                 // If the previous bias is more positive than the current bias, the change is positive
                 // But feeding a positive value into setFrequencyByBiasMillis reduces the frequency
                 // So we need to invert the sign
                 updateTCXO(0.0 - tcxoClockBiasChange_ms, settings.PkSteer, settings.IkSteer);
 
-                // If smoothedTcxoBiasChange_ms is better than settings.rxStabilityForFrequencyLockError
+                // If smoothedTcxoBiasChange_ms is better than settings.rxStabilityForFrequencyLock
                 // go into STATE_GNSS_FREQUENCY_LOCK / STATE_GNSS_PHASE_LOCK
-                if ((fabs(smoothedTcxoBiasChange_ms) < (1000.0 * settings.rxStabilityForFrequencyLockError)))
+                if ((fabs(smoothedTcxoBiasChange_ms) < (1000.0 * settings.rxStabilityForFrequencyLock)))
                 {
-                    // Reinitialize myTCXO to reset the integrator
+                    // Uncomment these lines to reinitialize myTCXO and reset the integrator
                     // delete(myTCXO);
                     // myTCXO = nullptr;
                     // beginTCXO(i2cTCXO, settings.printDebugMessages);
@@ -228,7 +229,7 @@ void updateSystemState()
         }
         break;
 
-        // Wait for error to clear before resuming TCXO discipline
+        // Wait for error to clear before resuming frequency locking
         case (STATE_GNSS_ERROR_AFTER_FINETIME): {
             if (gnssPVTUpdated) // Wait for PVT to be updated
             {
@@ -264,11 +265,10 @@ void updateSystemState()
                 // =============================================================
                 // Based on original Python code by Ole Rønningen. Thank you Ole
 
-                // It seems that the STP3593 can decrease its frequency faster than it can increase it
-                // This makes sense if the double-oven can cool at a faster rate than it can heat
-                // So, we may need to match both the heating and cooling rates to what the STP3593 is capable of
-
-                // With tcxoRampAsymmetry set to 0.5:
+                // If needed, you can make the ramps asymmetric
+                // The 'up' ramp will always use tcxoRampStepSize_s
+                // The 'down' ramp will use tcxoRampStepSize_s multiplied by tcxoRampAsymmetry
+                // E.g. with tcxoRampAsymmetry set to 0.5:
                 //   Ramp up at 1ns/s to a maximum of 250ns/s
                 //   Ramp down at 0.5ns/s
                 //     To do this, we need to start ramping down earlier
@@ -302,9 +302,11 @@ void updateSystemState()
                     repeat = repeat + 1;
                 }
 
-                // We can't keep comparing fabs(tcxoClockBias_s) to slew_turnaround_s
-                // because when setpoint has reached ~zero, the bias can make it appear that
-                // we are ramping up again. Once rampingDown is true, only !slewing can reset it
+                // If slew_turnaround is small, and the PID loop overshoots
+                // fabs(tcxoClockBias_s) can become larger than slew_turnaround_s
+                // making it appear as if we are ramping up when really we are still ramping down.
+                // So, we use a flag to indicate when the turnaround is passed
+                // Once rampingDown is true, only !slewing can reset it
                 if (fabs(tcxoClockBias_s) < slew_turnaround_s) // Are we ramping 'down' ?
                     rampingDown = true;
 
@@ -327,6 +329,7 @@ void updateSystemState()
                 // Limit the rate (s/s)
                 // With the control word set its limits, the STP3593 can ramp at about 330ns/s
                 // To keep things stable and include room for TCXO aging, use a limit of 250ns/s
+                // The SiT5358 can ramp much faster
                 if (rate_s > settings.tcxoRampRateLimit_sps)
                     rate_held_s = settings.tcxoRampRateLimit_sps;
                 else
@@ -342,6 +345,8 @@ void updateSystemState()
                     else
                     {
                         // setpoint has caught up with the rate, so make setpoint track the rate
+                        // Setting the setpoint to zero here causes problems if we overshoot
+                        // It can prevent the ramp from completing cleanly
                         if (setpoint_s > 0.0)
                             setpoint_s = rate_held_s;
                         else
@@ -349,7 +354,7 @@ void updateSystemState()
                     }
                 }
 
-                // Track the error - but not during the final part of the ramp
+                // Track the error - but not during the final part of the ramp (in case we overshoot)
                 static int errorTooLargeFor_s = 0;
                 if ((fabs(setpoint_s) < (2.0 * rate_held_s))
                     || (fabs(error_s) < (2.0 * settings.tcxoRampRateLimit_sps)))
@@ -369,12 +374,12 @@ void updateSystemState()
                         setpoint_s = tcxoClockBias_s;
                         break; // Skip the updateTCXO
 
-                        // Start again - with a new setpoint, turnaround and rate
+                        // Uncomment these lines to start again - with a new setpoint, turnaround and rate
                         // slewing = false;
                         // changeState(STATE_GNSS_FREQUENCY_LOCK);
                         // break;
 
-                        // Start again - with frequency locking
+                        // Uncomment these lines to start again - repeat the frequency locking
                         // changeState(STATE_GNSS_FINETIME);
                         // break;
                     }
@@ -387,20 +392,21 @@ void updateSystemState()
                 {
                     if (repeat < settings.minimumRampRepeats)
                     {
-                        // Reinitialize myTCXO to reset the integrator
+                        // Uncomment these lines to reinitialize myTCXO and reset the integrator
                         // delete(myTCXO);
                         // myTCXO = nullptr;
                         // beginTCXO(i2cTCXO, settings.printDebugMessages);
 
-                        //changeState(STATE_GNSS_FINETIME); // Fall back to FINETIME
-
-                        // Go around again...
+                        // Go around again... We have not reached minimumRampRepeats
                         // Set settings.enablePrintDuplicateStates to true to see the non state change
                         changeState(STATE_GNSS_FREQUENCY_LOCK);
+
+                        // Uncomment these lines to start again - repeat the frequency locking
+                        //changeState(STATE_GNSS_FINETIME); // Fall back to FINETIME
                     }
                     else if (fabs(tcxoClockBias_s) < settings.rxPhaseErrorLimit_s)
                     {
-                        // Reinitialize myTCXO to reset the integrator
+                        // Uncomment these lines to reinitialize myTCXO and reset the integrator
                         // delete(myTCXO);
                         // myTCXO = nullptr;
                         // beginTCXO(i2cTCXO, settings.printDebugMessages);
@@ -412,16 +418,17 @@ void updateSystemState()
                     {
                         // minimumRampRepeats has been reached but phase error is still too large
 
-                        // Reinitialize myTCXO to reset the integrator
+                        // Uncomment these lines to reinitialize myTCXO and reset the integrator
                         // delete(myTCXO);
                         // myTCXO = nullptr;
                         // beginTCXO(i2cTCXO, settings.printDebugMessages);
 
-                        //changeState(STATE_GNSS_FINETIME); // Fall back to FINETIME
-
                         // Go around again...
                         // Set settings.enablePrintDuplicateStates to true to see the non state change
                         changeState(STATE_GNSS_FREQUENCY_LOCK);
+
+                        // Uncomment these lines to start again - repeat the frequency locking
+                        //changeState(STATE_GNSS_FINETIME); // Fall back to FINETIME
                     }
                 }
                 else
@@ -431,17 +438,10 @@ void updateSystemState()
 
                     // myTCXO->setFrequencyByBiasMillis needs the error in millis
                     // If the bias is positive, setpoint will be smaller than the bias by
-                    // the cumulative rate (until the bias overtakes after turnaround)
+                    // the cumulative rate (until the bias overtakes)
                     // error_s will be negative. We need to invert
                     // setFrequencyByBiasMillis needs a positive value to reduce the frequency
                     updateTCXO(1000.0 * (0.0 - error_s), settings.PkRamp, settings.IkRamp);
-                            // Use the Ramp P and I terms on the first repeat
-                            // Use the Steer P and I terms on the second
-                            // Use the regular P and I terms for the third onwards
-                            //    repeat <= 1 ? settings.PkRamp :
-                            //     repeat <= 2 ? settings.PkSteer : settings.Pk,
-                            //    repeat <= 1 ? settings.IkRamp :
-                            //     repeat <= 2 ? settings.IkSteer : settings.Ik);
                 }
 
                 // =============================================================
@@ -462,16 +462,17 @@ void updateSystemState()
                     updateTCXOClockBias(); // Update the tcxoClockBias_ms from the best source
 
                     // Get everything ready, then change state
-                    slewing = false;
+                    slewing = false; // Start again
                     changeState(STATE_GNSS_FREQUENCY_LOCK); // Return to previous state
 
+                    // Uncomment these lines to start again - repeat the frequency locking
                     //changeState(STATE_GNSS_FINETIME); // Return to finetime (frequency locking)
                 }
             }
         }
         break;
 
-        // TCXO is locked. Run the PLL as normal
+        // TCXO is phase-locked. Run the PLL as normal
         case (STATE_GNSS_PHASE_LOCK): {
             if (gnssPVTUpdated) // Wait for PVT to be updated. It contains Error.
             {
@@ -503,7 +504,7 @@ void updateSystemState()
                 }
 
                 // Calculate the P and I terms
-                // Ramp from PK/IKRamp to Pk/Ik over phaseLockPIRampTime_s
+                // Ramp from Pk/IkRamp to Pk/Ik over phaseLockPIRampTime_s
                 double rampFraction = ((double)(phaseLockPIRampTime_s - secondsInPhaseLock))
                                       / ((double)phaseLockPIRampTime_s);
                 double P = settings.Pk + (rampFraction * (settings.PkRamp - settings.Pk));
@@ -527,6 +528,7 @@ void updateSystemState()
                     
                     changeState(STATE_GNSS_FREQUENCY_LOCK); // Return to frequency locked
 
+                    // Uncomment these lines to start again - repeat the frequency locking
                     //changeState(STATE_GNSS_FINETIME); // Return to finetime (frequency locking)
 
                     break;
@@ -569,12 +571,15 @@ void updateSystemState()
                 {
                     updateTCXOClockBias(); // Update the tcxoClockBias_ms from the best source
 
+                    // Uncomment these lines to return to the phase-locked state
                     //secondsInPhaseLock = phaseLockPIRampTime_s;
                     //changeState(STATE_GNSS_PHASE_LOCK); // Return to phase locked
 
+                    // For safety, in case the TCXO has wandered a lot, repeat the bias ramps
                     slewing = false;
                     changeState(STATE_GNSS_FREQUENCY_LOCK); // Return to frequency locked
 
+                    // Uncomment these lines to start again - repeat the frequency locking
                     //changeState(STATE_GNSS_FINETIME); // Return to finetime (frequency locking)
                 }
             }

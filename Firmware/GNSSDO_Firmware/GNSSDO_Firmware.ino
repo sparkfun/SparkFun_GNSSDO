@@ -43,31 +43,39 @@
   2.2: Add support for the MS8607 PHT sensor on GNSSDO Plus (GNSSDO+) - v02 PCB
          The MS8607 pressure, temperature and humidity are included in the periodic reports
          The OLED will display the temperature: to the right of "Error", when space is available
-  3.0: Improved TCXO / OCXO startup from cold
+  3.0: Improved TCXO / OCXO startup - with no PPS uncertainty from StartupSync
          The firmware no longer uses setClockSyncThreshold (scst) StartupSync. StartupSync is off
            This prevents a shift in PPS with respect to the clock
-           But it does mean that the initial bias error can be up to 500us
+           But it does mean that the initial bias error can be up to 500us and it can take a long
+           time (~30 minutes) to get the bias down to zero by ramping the frequency
          The firmware no longer performs a soft reset if the bias is excessive on startup
-         In STATE_TCXO_WARMUP (GNSSDO+ only)
-           The firmware waits for tcxoMinWarmup_s and for the OCXO temperature to become stable
          In STATE_GNSS_CONFIGURED
            The firmware waits for the ReceiverTime FINETIME bit to be set, indicating
            the setClockSyncThreshold Threshold (usec500) has been achieved
+         In STATE_TCXO_WARMUP (GNSSDO+ only)
+           The firmware waits for tcxoMinWarmup_s and for the OCXO temperature to become stable
          In STATE_GNSS_FINETIME
            The firmware disciplines the TCXO / OCXO frequency in a simple frequency locked loop
-           The firmware exits this state when the tcxoClockBias_ms (RxClkBias)
-           is better than the specified rxStabilityForFrequencyLockError
+           The firmware exits this state when the change in the tcxoClockBias_ms (RxClkBias)
+           is better than the specified rxStabilityForFrequencyLock
            The PI loop uses PkSteer and IkSteer when frequency locking
          In STATE_GNSS_FREQUENCY_LOCK
-           The TCXO / OCXO bias is minimised by ramping the residual bias towards zero in
-           increasing and then decreasing steps (to avoid blowing up the integrator)
+           The TCXO / OCXO bias is driven towards zero
+           The initial bias error can be up to 500us, so we need to ramp the TCXO frequency one way
+           ('up') and then back again ('down')
+           We slowly accelerate the change in frequency, maintain it at tcxoRampRateLimit_sps, then decelerate
+           The acceleration is set by the tcxoRampStepSize_s: 0.5ns/s for the STP3593; the SiT5358 can accelerate faster
+           The ramps help to avoid blowing up the integrator
            When the ramps are complete, the tcxoClockBias_ms (RxClkBias) is re-checked
            This state is repeated if the bias is still excessive (> rxPhaseErrorLimit_s)
-           The PI loop uses PkRamp and IkRamp when following the ramp
+           The PI loop uses PkRamp and IkRamp when following the ramps
          In STATE_GNSS_PHASE_LOCK
            PPS output will be started when entering STATE_GNSS_PHASE_LOCK for the first time
            This state uses a conventional PLL to drive the tcxoClockBias_ms (RxClkBias) to zero
            The P and I terms are Pk and Ik
+           When entering STATE_GNSS_PHASE_LOCK from STATE_GNSS_FREQUENCY_LOCK, the P and I terms
+           are ramped from PkRamp and IkRamp to Pk and Ik over phaseLockPIRampTime_s (120s)
+           This helps to avoid shocking the PI loop and sending the bias off for a walk...
 */
 
 // This is passed in from compiler extra flags
