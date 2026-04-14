@@ -88,7 +88,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "SparkFun cap capacitor"
+			(property "ki_keywords" "SparkFun cap capacitor 100nF"
 				(at 0 0 0)
 				(effects
 					(font
@@ -391,7 +391,7 @@
 					(hide yes)
 				)
 			)
-			(property "PROD_ID" "CAP-07888"
+			(property "PROD_ID" "CAP-24999"
 				(at -1.27 -13.97 0)
 				(effects
 					(font
@@ -664,7 +664,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "SparkFun-Coil:470Ohm_0603_1.0A"
+		(symbol "SparkFun-Coil:Ferrite_470Ohm_0603_1.0A"
 			(pin_numbers
 				(hide yes)
 			)
@@ -683,7 +683,7 @@
 					)
 				)
 			)
-			(property "Value" "470Ohm"
+			(property "Value" "470 Ohm"
 				(at 0 -1.27 0)
 				(effects
 					(font
@@ -735,7 +735,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "SparkFun inductor choke coil reactor magnetic"
+			(property "ki_keywords" "SparkFun inductor choke coil reactor magnetic ferrite"
 				(at 0 0 0)
 				(effects
 					(font
@@ -753,7 +753,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "470Ohm_0603_1.0A_0_1"
+			(symbol "Ferrite_470Ohm_0603_1.0A_0_1"
 				(polyline
 					(pts
 						(xy -1.905 1.016) (xy -1.651 1.016)
@@ -995,7 +995,7 @@
 					)
 				)
 			)
-			(symbol "470Ohm_0603_1.0A_1_1"
+			(symbol "Ferrite_470Ohm_0603_1.0A_1_1"
 				(pin passive line
 					(at -2.54 0 0)
 					(length 0.508)
@@ -1064,7 +1064,7 @@
 					(hide yes)
 				)
 			)
-			(property "Footprint" "SparkFun-Connector:1x01"
+			(property "Footprint" "SparkFun-Connector:1x01_P2.54mm"
 				(at -1.27 -6.35 0)
 				(effects
 					(font
@@ -2053,7 +2053,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "SparkFun-GPS:mosaic-T"
+		(symbol "SparkFun-GNSS:mosaic-T"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -2073,7 +2073,7 @@
 					)
 				)
 			)
-			(property "Footprint" "SparkFun-GPS:MOSAIC_LGA"
+			(property "Footprint" "SparkFun-GNSS:Septentrio_mosaic_LGA"
 				(at -1.27 -60.96 0)
 				(effects
 					(font
@@ -5968,7 +5968,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "SparkFun-RF:SMA_EdgeMount"
+		(symbol "SparkFun-RF:SMA_EdgeMount_6.3mm"
 			(pin_numbers
 				(hide yes)
 			)
@@ -5995,7 +5995,7 @@
 					)
 				)
 			)
-			(property "Footprint" "SparkFun-Connector:SMA_Edge"
+			(property "Footprint" "SparkFun-Connector:SMA_Edge_6.3mm"
 				(at 0 -10.16 0)
 				(effects
 					(font
@@ -6004,7 +6004,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "https://www.sparkfun.com/datasheets/Wireless/Antenna/SMA-Connector.pdf"
+			(property "Datasheet" "https://cdn.sparkfun.com/assets/4/1/2/2/0/SMA-Connector.pdf"
 				(at 0 -12.7 0)
 				(effects
 					(font
@@ -6013,7 +6013,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "SMA PCB Edge Mount connector"
+			(property "Description" "Not for new designs. Use 8mm variant. SMA PCB Edge Mount connector"
 				(at 0 -15.24 0)
 				(effects
 					(font
@@ -6031,7 +6031,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "SparkFun SMA coxaial connector"
+			(property "ki_keywords" "SparkFun SMA coxaial connector antenna"
 				(at 0 0 0)
 				(effects
 					(font
@@ -6049,7 +6049,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "SMA_EdgeMount_0_1"
+			(symbol "SMA_EdgeMount_6.3mm_0_1"
 				(polyline
 					(pts
 						(xy -2.54 0) (xy -0.508 0)
@@ -6110,7 +6110,7 @@
 					)
 				)
 			)
-			(symbol "SMA_EdgeMount_1_1"
+			(symbol "SMA_EdgeMount_6.3mm_1_1"
 				(pin passive line
 					(at -5.08 0 0)
 					(length 2.54)
@@ -9517,7 +9517,7 @@
 			(uuid "20d6bd70-be9d-4bb9-a4ec-435878931e2e")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR107")
 					(unit 1)
@@ -9584,7 +9584,7 @@
 			(uuid "070fe53e-ff05-4f9d-b7c2-c957285cb908")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR196")
 					(unit 1)
@@ -9664,7 +9664,7 @@
 			(uuid "43cddac3-3145-415a-8ed6-a2fa42ac6dae")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "R29")
 					(unit 1)
@@ -9752,7 +9752,7 @@
 			(uuid "ec84b2b4-06df-4610-9289-de864f0b0ecb")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "D1")
 					(unit 1)
@@ -9788,7 +9788,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "SparkFun-Connector:1x01"
+		(property "Footprint" "SparkFun-Connector:1x01_P2.54mm"
 			(at 130.81 41.91 0)
 			(effects
 				(font
@@ -9819,7 +9819,7 @@
 			(uuid "eae11b24-c4d6-4821-b822-3b70e77dc6a5")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "TP15")
 					(unit 1)
@@ -9884,7 +9884,7 @@
 			(uuid "4b8c58d3-4442-4f89-a161-6a05d6bbfc4f")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR40")
 					(unit 1)
@@ -9955,7 +9955,7 @@
 					(unit 1)
 				)
 			)
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR91")
 					(unit 1)
@@ -9964,7 +9964,7 @@
 		)
 	)
 	(symbol
-		(lib_id "SparkFun-GPS:mosaic-T")
+		(lib_id "SparkFun-GNSS:mosaic-T")
 		(at 81.28 72.39 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9989,7 +9989,7 @@
 				)
 			)
 		)
-		(property "Footprint" "SparkFun-GPS:MOSAIC_LGA"
+		(property "Footprint" "SparkFun-GNSS:Septentrio_mosaic_LGA"
 			(at 80.01 133.35 0)
 			(effects
 				(font
@@ -10563,7 +10563,7 @@
 			(uuid "2a47e298-122b-410a-8496-7ccf18bbbda3")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "U2")
 					(unit 1)
@@ -10572,7 +10572,7 @@
 		)
 	)
 	(symbol
-		(lib_id "SparkFun-Coil:470Ohm_0603_1.0A")
+		(lib_id "SparkFun-Coil:Ferrite_470Ohm_0603_1.0A")
 		(at 49.53 49.53 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -10581,15 +10581,15 @@
 		(dnp no)
 		(uuid "18f89a45-291b-4d40-96ed-15c854e3fe21")
 		(property "Reference" "L1"
-			(at 45.72 45.72 0)
+			(at 49.53 43.434 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "470Ohm"
-			(at 50.8 44.45 0)
+		(property "Value" "470 Ohm"
+			(at 49.53 45.466 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10633,7 +10633,7 @@
 			)
 		)
 		(property "Frequency" "100MHz"
-			(at 50.8 46.99 0)
+			(at 49.53 47.498 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10647,7 +10647,7 @@
 			(uuid "9fb78641-715e-4483-8a8a-1b231871e2b7")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "L1")
 					(unit 1)
@@ -10683,7 +10683,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "SparkFun-Connector:1x01"
+		(property "Footprint" "SparkFun-Connector:1x01_P2.54mm"
 			(at 130.81 34.29 0)
 			(effects
 				(font
@@ -10714,7 +10714,7 @@
 			(uuid "62a033d6-1894-4e48-8d1f-69bc8278edb2")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "TP12")
 					(unit 1)
@@ -10807,7 +10807,7 @@
 			(uuid "90aa90b9-410c-40e3-a694-5d0122b70c58")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "D7")
 					(unit 1)
@@ -10884,7 +10884,7 @@
 			(uuid "d9cfa1ac-947f-45f9-9329-6d0a6c9f4ebe")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "R5")
 					(unit 1)
@@ -10955,7 +10955,7 @@
 					(unit 1)
 				)
 			)
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR12")
 					(unit 1)
@@ -11026,7 +11026,7 @@
 					(unit 1)
 				)
 			)
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR89")
 					(unit 1)
@@ -11123,7 +11123,7 @@
 			(uuid "7ad17aa5-002f-4c6c-b032-74fe7f5a6dc4")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "C74")
 					(unit 1)
@@ -11188,7 +11188,7 @@
 			(uuid "cf712d48-323d-40f3-a0b8-3aaeb54d2504")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR67")
 					(unit 1)
@@ -11253,7 +11253,7 @@
 			(uuid "601e727a-0348-486f-bbac-22a0b4867e17")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR197")
 					(unit 1)
@@ -11290,7 +11290,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "SparkFun-Connector:1x01"
+		(property "Footprint" "SparkFun-Connector:1x01_P2.54mm"
 			(at 93.98 69.85 0)
 			(effects
 				(font
@@ -11321,7 +11321,7 @@
 			(uuid "b27fd5c2-3960-46de-b133-f9e29f539941")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "TP18")
 					(unit 1)
@@ -11386,7 +11386,7 @@
 			(uuid "067a85a2-1e01-439a-a99e-ddd55ec9c677")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR93")
 					(unit 1)
@@ -11483,7 +11483,7 @@
 			(uuid "0bd05f38-86d0-4a61-9818-996d36811a9d")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "C19")
 					(unit 1)
@@ -11518,7 +11518,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "SparkFun-Connector:1x01"
+		(property "Footprint" "SparkFun-Connector:1x01_P2.54mm"
 			(at 57.15 115.57 0)
 			(effects
 				(font
@@ -11549,7 +11549,7 @@
 			(uuid "13e45516-2caa-49b7-8cda-ab7fd920382c")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "TP22")
 					(unit 1)
@@ -11586,7 +11586,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "SparkFun-Connector:1x01"
+		(property "Footprint" "SparkFun-Connector:1x01_P2.54mm"
 			(at 96.52 67.31 0)
 			(effects
 				(font
@@ -11617,7 +11617,7 @@
 			(uuid "ba4f610c-4c45-43bc-b451-4c5b4dcae4d7")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "TP17")
 					(unit 1)
@@ -11688,7 +11688,7 @@
 					(unit 1)
 				)
 			)
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR79")
 					(unit 1)
@@ -11759,7 +11759,7 @@
 					(unit 1)
 				)
 			)
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR11")
 					(unit 1)
@@ -11823,7 +11823,7 @@
 				(hide yes)
 			)
 		)
-		(property "PROD_ID" "CAP-07888"
+		(property "PROD_ID" "CAP-24999"
 			(at 24.13 120.65 0)
 			(effects
 				(font
@@ -11857,7 +11857,7 @@
 			(uuid "e7b29ccb-2989-4ad7-9f84-9ddf56b7f220")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "C73")
 					(unit 1)
@@ -11923,7 +11923,7 @@
 			(uuid "0b38edf5-e16c-4f24-97ab-8d5e968ffcae")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR88")
 					(unit 1)
@@ -11960,7 +11960,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "SparkFun-Connector:1x01"
+		(property "Footprint" "SparkFun-Connector:1x01_P2.54mm"
 			(at 96.52 59.69 0)
 			(effects
 				(font
@@ -11991,7 +11991,7 @@
 			(uuid "b5b3d094-0a84-4572-9ea1-291f6e77abee")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "TP16")
 					(unit 1)
@@ -12057,7 +12057,7 @@
 			(uuid "779d3ef1-f279-48bc-b71f-109a2609618d")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR64")
 					(unit 1)
@@ -12121,7 +12121,7 @@
 				(hide yes)
 			)
 		)
-		(property "PROD_ID" "CAP-07888"
+		(property "PROD_ID" "CAP-24999"
 			(at 24.13 140.97 0)
 			(effects
 				(font
@@ -12155,7 +12155,7 @@
 			(uuid "5eaabd47-f468-4ae0-ac5c-362fa3081b92")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "C18")
 					(unit 1)
@@ -12191,7 +12191,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "SparkFun-Connector:1x01"
+		(property "Footprint" "SparkFun-Connector:1x01_P2.54mm"
 			(at 130.81 39.37 0)
 			(effects
 				(font
@@ -12222,7 +12222,7 @@
 			(uuid "c2499212-f094-4083-a356-cdf5d5322ee7")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "TP14")
 					(unit 1)
@@ -12288,7 +12288,7 @@
 			(uuid "3f7eea24-64c1-46b1-b797-e7af34268bfb")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR8")
 					(unit 1)
@@ -12354,7 +12354,7 @@
 			(uuid "8702a85f-51b4-42dd-8d69-84b743606cce")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR106")
 					(unit 1)
@@ -12422,7 +12422,7 @@
 			(uuid "b5c2a2be-d328-4ab0-89fd-63c1ce94646f")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR10")
 					(unit 1)
@@ -12458,7 +12458,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "SparkFun-Connector:1x01"
+		(property "Footprint" "SparkFun-Connector:1x01_P2.54mm"
 			(at 130.81 36.83 0)
 			(effects
 				(font
@@ -12489,7 +12489,7 @@
 			(uuid "bed5e1d8-c29c-4f37-8f80-120239243121")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "TP13")
 					(unit 1)
@@ -12582,7 +12582,7 @@
 			(uuid "7dbc81f3-4e18-4a03-a820-29a05a96fcca")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "C3")
 					(unit 1)
@@ -12679,7 +12679,7 @@
 			(uuid "9c730f08-5aef-49b2-8a62-bea90a6cc062")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "C17")
 					(unit 1)
@@ -12745,7 +12745,7 @@
 			(uuid "75a3d6a1-3550-4fe1-b4e0-43f3d75d8caa")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR14")
 					(unit 1)
@@ -12842,7 +12842,7 @@
 			(uuid "4d7e638a-6dcf-4d85-a08f-3d8b5ea5bd66")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "C28")
 					(unit 1)
@@ -12879,7 +12879,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "SparkFun-Connector:1x01"
+		(property "Footprint" "SparkFun-Connector:1x01_P2.54mm"
 			(at 93.98 72.39 0)
 			(effects
 				(font
@@ -12910,7 +12910,7 @@
 			(uuid "51b2d567-c528-452f-a2ac-37631a09562e")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "TP19")
 					(unit 1)
@@ -12977,7 +12977,7 @@
 			(uuid "a082ab56-7d85-482a-a9eb-eddcb74ec9e5")
 		)
 		(instances
-			(project ""
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR259")
 					(unit 1)
@@ -12986,7 +12986,7 @@
 		)
 	)
 	(symbol
-		(lib_id "SparkFun-RF:SMA_EdgeMount")
+		(lib_id "SparkFun-RF:SMA_EdgeMount_6.3mm")
 		(at 201.93 38.1 0)
 		(mirror y)
 		(unit 1)
@@ -13012,7 +13012,7 @@
 				)
 			)
 		)
-		(property "Footprint" "SparkFun-Connector:SMA_Edge"
+		(property "Footprint" "SparkFun-Connector:SMA_Edge_6.3mm"
 			(at 201.93 48.26 0)
 			(effects
 				(font
@@ -13021,7 +13021,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.sparkfun.com/datasheets/Wireless/Antenna/SMA-Connector.pdf"
+		(property "Datasheet" "https://cdn.sparkfun.com/assets/4/1/2/2/0/SMA-Connector.pdf"
 			(at 201.93 50.8 0)
 			(effects
 				(font
@@ -13030,7 +13030,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "SMA PCB Edge Mount connector"
+		(property "Description" "Not for new designs. Use 8mm variant. SMA PCB Edge Mount connector"
 			(at 201.93 53.34 0)
 			(effects
 				(font
@@ -13055,7 +13055,7 @@
 			(uuid "e6f1874d-3524-475d-878d-2d20af7ba9ec")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "J1")
 					(unit 1)
@@ -13121,7 +13121,7 @@
 			(uuid "2e9234f0-111b-4deb-8411-ad20e4a05691")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR90")
 					(unit 1)
@@ -13233,7 +13233,7 @@
 			(uuid "7daa9ad8-3f55-4697-a075-5d453ed968c4")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "J6")
 					(unit 1)
@@ -13298,7 +13298,7 @@
 			(uuid "cd79612b-4632-4d07-8b14-1f14517969c8")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR87")
 					(unit 1)
@@ -13364,7 +13364,7 @@
 			(uuid "606dca5d-9986-4c82-a10b-cd985845523a")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR111")
 					(unit 1)
@@ -13400,7 +13400,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "SparkFun-Connector:1x01"
+		(property "Footprint" "SparkFun-Connector:1x01_P2.54mm"
 			(at 106.68 76.2 0)
 			(effects
 				(font
@@ -13431,7 +13431,7 @@
 			(uuid "3e4d52c9-eb5c-4918-8ff6-dfa0f1d5a444")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "TP10")
 					(unit 1)
@@ -13497,7 +13497,7 @@
 			(uuid "093b5c51-5fba-4eef-8a5f-550290d4ae72")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR102")
 					(unit 1)
@@ -13594,7 +13594,7 @@
 			(uuid "ae22ad7e-00b0-4951-9312-1f6343997f57")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "C29")
 					(unit 1)
@@ -13659,7 +13659,7 @@
 			(uuid "cc6562b1-b23f-43ee-8adb-4e9162e22384")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR13")
 					(unit 1)
@@ -13694,7 +13694,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "SparkFun-Connector:1x01"
+		(property "Footprint" "SparkFun-Connector:1x01_P2.54mm"
 			(at 66.04 110.49 0)
 			(effects
 				(font
@@ -13725,7 +13725,7 @@
 			(uuid "df10a136-8427-4744-adfc-280f9e90d534")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "TP41")
 					(unit 1)
@@ -13791,7 +13791,7 @@
 			(uuid "e5e9ea5f-5d4f-47d4-89e2-7dd0da9413d7")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR39")
 					(unit 1)
@@ -13827,7 +13827,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "SparkFun-Connector:1x01"
+		(property "Footprint" "SparkFun-Connector:1x01_P2.54mm"
 			(at 106.68 78.74 0)
 			(effects
 				(font
@@ -13858,7 +13858,7 @@
 			(uuid "1e8ead68-695d-453c-ba0b-74dabbb292bd")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "TP11")
 					(unit 1)
@@ -13925,7 +13925,7 @@
 			(uuid "6dbf5eb3-2510-445a-b27e-a7931ebb1ebb")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR257")
 					(unit 1)
@@ -14002,7 +14002,7 @@
 			(uuid "83f16f87-03dc-444c-8e5c-870e495dd765")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "R27")
 					(unit 1)
@@ -14067,7 +14067,7 @@
 			(uuid "86ba1a76-3e42-40e1-87f6-7ac8a137dc1b")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR62")
 					(unit 1)
@@ -14133,7 +14133,7 @@
 			(uuid "d25e6ddf-6640-43f8-90c7-5a6b1449a12d")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR65")
 					(unit 1)
@@ -14230,7 +14230,7 @@
 			(uuid "3a7a8d13-0252-4fb8-b59b-a627fb9ec63a")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "C30")
 					(unit 1)
@@ -14309,7 +14309,7 @@
 			(uuid "16284886-8616-4839-80bb-11b4596147ee")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "R11")
 					(unit 1)
@@ -14380,7 +14380,7 @@
 					(unit 1)
 				)
 			)
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR92")
 					(unit 1)
@@ -14459,7 +14459,7 @@
 			(uuid "55e19886-7f4b-4929-bc99-7d898c99482a")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "R28")
 					(unit 1)
@@ -14523,7 +14523,7 @@
 				(hide yes)
 			)
 		)
-		(property "PROD_ID" "CAP-07888"
+		(property "PROD_ID" "CAP-24999"
 			(at 24.13 100.33 0)
 			(effects
 				(font
@@ -14557,7 +14557,7 @@
 			(uuid "e84348b3-ff46-4fd9-a11c-8808afc80f03")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "C16")
 					(unit 1)
@@ -14623,7 +14623,7 @@
 			(uuid "2e28f450-4c1f-4ca2-ab37-1817eee5aba7")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR9")
 					(unit 1)
@@ -14687,7 +14687,7 @@
 				(hide yes)
 			)
 		)
-		(property "PROD_ID" "CAP-07888"
+		(property "PROD_ID" "CAP-24999"
 			(at 104.14 200.66 0)
 			(effects
 				(font
@@ -14721,7 +14721,7 @@
 			(uuid "0baa6eb7-95cf-4b2b-a434-c51de3cc38a5")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "C31")
 					(unit 1)
@@ -14786,7 +14786,7 @@
 			(uuid "21f8322a-b08d-4401-a8da-190177da295e")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR258")
 					(unit 1)
@@ -14852,7 +14852,7 @@
 			(uuid "d56a7001-f6ff-4ebe-9d09-02eeba1244ae")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR69")
 					(unit 1)
@@ -14917,7 +14917,7 @@
 			(uuid "bc485f9a-7093-40f3-b96e-78e2085a1e25")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR66")
 					(unit 1)
@@ -14982,7 +14982,7 @@
 			(uuid "a67caded-9bda-41b8-88d7-45d426609dbf")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR61")
 					(unit 1)
@@ -15048,7 +15048,7 @@
 			(uuid "b46071fe-bccb-4ee7-b060-66ee242380dc")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR63")
 					(unit 1)
@@ -15113,7 +15113,7 @@
 			(uuid "451660d8-d98a-41c8-bc82-99526e278ce9")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR1")
 					(unit 1)
@@ -15178,7 +15178,7 @@
 			(uuid "388ab8b8-a143-4e24-bbe9-beb73b40009f")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/1004b21d-c362-4c5d-adad-4952c3ff3811"
 					(reference "#PWR109")
 					(unit 1)

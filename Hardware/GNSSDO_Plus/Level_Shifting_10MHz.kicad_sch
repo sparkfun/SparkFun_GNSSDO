@@ -88,7 +88,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "SparkFun cap capacitor"
+			(property "ki_keywords" "SparkFun cap capacitor 100nF"
 				(at 0 0 0)
 				(effects
 					(font
@@ -252,7 +252,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "SparkFun cap capacitor"
+			(property "ki_keywords" "SparkFun cap capacitor 1nF 1000pF"
 				(at 0 0 0)
 				(effects
 					(font
@@ -391,7 +391,7 @@
 					(hide yes)
 				)
 			)
-			(property "PROD_ID" "CAP-07888"
+			(property "PROD_ID" "CAP-24999"
 				(at -1.27 -13.97 0)
 				(effects
 					(font
@@ -1138,7 +1138,7 @@
 					)
 				)
 			)
-			(property "Footprint" "SparkFun-Semiconductor-Standard:SOT-323"
+			(property "Footprint" "SparkFun-Semiconductor-Standard:SOT-363_SC-70-6"
 				(at 0 -8.89 0)
 				(effects
 					(font
@@ -1156,7 +1156,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Single D-Type Flip-Flop With Asynchronous Clear, 1.65V to 5.5V, SOT-323 (SC70)"
+			(property "Description" "Single D-Type Flip-Flop With Asynchronous Clear, 1.65V to 5.5V, SOT-363 (SC70)"
 				(at 0 -16.51 0)
 				(effects
 					(font
@@ -1662,7 +1662,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "SparkFun-RF:SMA_EdgeMount"
+		(symbol "SparkFun-RF:SMA_EdgeMount_6.3mm"
 			(pin_numbers
 				(hide yes)
 			)
@@ -1689,7 +1689,7 @@
 					)
 				)
 			)
-			(property "Footprint" "SparkFun-Connector:SMA_Edge"
+			(property "Footprint" "SparkFun-Connector:SMA_Edge_6.3mm"
 				(at 0 -10.16 0)
 				(effects
 					(font
@@ -1698,7 +1698,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "https://www.sparkfun.com/datasheets/Wireless/Antenna/SMA-Connector.pdf"
+			(property "Datasheet" "https://cdn.sparkfun.com/assets/4/1/2/2/0/SMA-Connector.pdf"
 				(at 0 -12.7 0)
 				(effects
 					(font
@@ -1707,7 +1707,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "SMA PCB Edge Mount connector"
+			(property "Description" "Not for new designs. Use 8mm variant. SMA PCB Edge Mount connector"
 				(at 0 -15.24 0)
 				(effects
 					(font
@@ -1725,7 +1725,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "SparkFun SMA coxaial connector"
+			(property "ki_keywords" "SparkFun SMA coxaial connector antenna"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1743,7 +1743,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "SMA_EdgeMount_0_1"
+			(symbol "SMA_EdgeMount_6.3mm_0_1"
 				(polyline
 					(pts
 						(xy -2.54 0) (xy -0.508 0)
@@ -1804,7 +1804,7 @@
 					)
 				)
 			)
-			(symbol "SMA_EdgeMount_1_1"
+			(symbol "SMA_EdgeMount_6.3mm_1_1"
 				(pin passive line
 					(at -5.08 0 0)
 					(length 2.54)
@@ -4773,7 +4773,7 @@
 			(uuid "5587a05f-1baf-4b6e-bdfd-f4e81bb90a66")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "#PWR249")
 					(unit 1)
@@ -4839,7 +4839,7 @@
 			(uuid "711bbb3d-9aec-455b-b318-4752182ac4b7")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "#PWR247")
 					(unit 1)
@@ -5334,7 +5334,7 @@
 			(uuid "f77f5baf-ac00-41b5-80dd-2d6ca51681aa")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "#PWR211")
 					(unit 1)
@@ -5398,7 +5398,7 @@
 				(hide yes)
 			)
 		)
-		(property "PROD_ID" "CAP-07888"
+		(property "PROD_ID" "CAP-24999"
 			(at 30.48 66.04 0)
 			(effects
 				(font
@@ -5432,7 +5432,7 @@
 			(uuid "d300540a-4fa9-4b45-8a9f-f7bb9903d3f3")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "C71")
 					(unit 1)
@@ -5509,7 +5509,7 @@
 			(uuid "94ad6c75-bc5b-47fe-b981-f68db8339639")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "R57")
 					(unit 1)
@@ -6034,7 +6034,7 @@
 			(uuid "4bbcfe69-b54c-481a-a4db-cf4b6be457db")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "C68")
 					(unit 1)
@@ -6342,7 +6342,7 @@
 			(uuid "34732375-409c-4175-be2c-486e34f84c48")
 		)
 		(instances
-			(project ""
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "R77")
 					(unit 1)
@@ -6642,7 +6642,7 @@
 				)
 			)
 		)
-		(property "Footprint" "SparkFun-Semiconductor-Standard:SOT-323"
+		(property "Footprint" "SparkFun-Semiconductor-Standard:SOT-363_SC-70-6"
 			(at 161.29 160.02 0)
 			(effects
 				(font
@@ -6660,7 +6660,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Single D-Type Flip-Flop With Asynchronous Clear, 1.65V to 5.5V, SOT-323 (SC70)"
+		(property "Description" "Single D-Type Flip-Flop With Asynchronous Clear, 1.65V to 5.5V, SOT-363 (SC70)"
 			(at 161.29 167.64 0)
 			(effects
 				(font
@@ -6697,7 +6697,7 @@
 			(uuid "6ff936d4-8c5a-4f2a-81ee-fbe4f89e17de")
 		)
 		(instances
-			(project ""
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "U15")
 					(unit 1)
@@ -7326,7 +7326,7 @@
 				(hide yes)
 			)
 		)
-		(property "PROD_ID" "CAP-07888"
+		(property "PROD_ID" "CAP-24999"
 			(at 30.48 179.07 0)
 			(effects
 				(font
@@ -7446,7 +7446,7 @@
 			(uuid "12fda427-cc4a-4b70-8b8a-0460f71f4448")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "D17")
 					(unit 1)
@@ -7543,7 +7543,7 @@
 			(uuid "edfa6d2c-7aa6-4160-ab87-a6c5767a92cd")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "R50")
 					(unit 1)
@@ -7609,7 +7609,7 @@
 			(uuid "b366c761-dee6-4682-9f28-52296a84984f")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "#PWR203")
 					(unit 1)
@@ -7819,7 +7819,7 @@
 			(uuid "2adcfe36-a8b0-492c-b478-a8262f574eea")
 		)
 		(instances
-			(project ""
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "TP47")
 					(unit 1)
@@ -8036,7 +8036,7 @@
 			(uuid "5ab9548e-ce77-4c18-9a04-f30edce70293")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "#PWR256")
 					(unit 1)
@@ -8378,7 +8378,7 @@
 			(uuid "1870b6e2-43ee-40b9-8f95-4fcb4c742b9d")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "R52")
 					(unit 1)
@@ -8445,7 +8445,7 @@
 			(uuid "aca0904f-fa46-4103-9190-054089676547")
 		)
 		(instances
-			(project ""
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "TP46")
 					(unit 1)
@@ -8826,7 +8826,7 @@
 				(hide yes)
 			)
 		)
-		(property "PROD_ID" "CAP-07888"
+		(property "PROD_ID" "CAP-24999"
 			(at 30.48 44.45 0)
 			(effects
 				(font
@@ -8860,7 +8860,7 @@
 			(uuid "60edee32-38ae-47b1-9bc6-1ffc0eb6b053")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "C72")
 					(unit 1)
@@ -9507,7 +9507,7 @@
 			(uuid "87e4620e-0d3a-4c99-9b86-4b37e71a154d")
 		)
 		(instances
-			(project ""
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "R76")
 					(unit 1)
@@ -9819,7 +9819,7 @@
 			(uuid "b67675d9-e2e4-469e-80d8-e5b97a138e54")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "C76")
 					(unit 1)
@@ -10026,7 +10026,7 @@
 			(uuid "82535452-3a4a-4637-9299-5cf3e54e30cb")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "#PWR210")
 					(unit 1)
@@ -10169,7 +10169,7 @@
 			(uuid "610533ac-1ac7-418e-8886-3de86408bb43")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "#PWR195")
 					(unit 1)
@@ -10455,7 +10455,7 @@
 			(uuid "63eec90f-0dbc-40fe-86fd-16b1f9e5565a")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "R56")
 					(unit 1)
@@ -10544,7 +10544,7 @@
 		)
 	)
 	(symbol
-		(lib_id "SparkFun-RF:SMA_EdgeMount")
+		(lib_id "SparkFun-RF:SMA_EdgeMount_6.3mm")
 		(at 166.37 34.29 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -10568,7 +10568,7 @@
 				)
 			)
 		)
-		(property "Footprint" "SparkFun-Connector:SMA_Edge"
+		(property "Footprint" "SparkFun-Connector:SMA_Edge_6.3mm"
 			(at 166.37 44.45 0)
 			(effects
 				(font
@@ -10577,7 +10577,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.sparkfun.com/datasheets/Wireless/Antenna/SMA-Connector.pdf"
+		(property "Datasheet" "https://cdn.sparkfun.com/assets/4/1/2/2/0/SMA-Connector.pdf"
 			(at 166.37 46.99 0)
 			(effects
 				(font
@@ -10586,7 +10586,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "SMA PCB Edge Mount connector"
+		(property "Description" "Not for new designs. Use 8mm variant. SMA PCB Edge Mount connector"
 			(at 166.37 49.53 0)
 			(effects
 				(font
@@ -10611,7 +10611,7 @@
 			(uuid "032665a8-e8d5-48e1-aac4-60cd2ac8a9da")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "J8")
 					(unit 1)
@@ -10697,7 +10697,7 @@
 			(uuid "fff95f4b-cf91-4a22-a200-64d316731328")
 		)
 		(instances
-			(project ""
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "U17")
 					(unit 1)
@@ -11025,7 +11025,7 @@
 			(uuid "eca0b5ea-b549-4b4f-91e4-7bfb5325fea8")
 		)
 		(instances
-			(project ""
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "C75")
 					(unit 1)
@@ -11090,7 +11090,7 @@
 			(uuid "4f7fa0a1-48ef-4c1b-bd08-a8481c514e5d")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "#PWR254")
 					(unit 1)
@@ -11188,7 +11188,7 @@
 			(uuid "ff0e197c-9389-4464-83eb-186180c2cdc0")
 		)
 		(instances
-			(project ""
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "C83")
 					(unit 1)
@@ -11576,7 +11576,7 @@
 			(uuid "86a4edaf-1a23-452e-a226-d195e88a5f67")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "#PWR252")
 					(unit 1)
@@ -11640,7 +11640,7 @@
 				(hide yes)
 			)
 		)
-		(property "PROD_ID" "CAP-07888"
+		(property "PROD_ID" "CAP-24999"
 			(at 30.48 113.03 0)
 			(effects
 				(font
@@ -11885,7 +11885,7 @@
 			(uuid "afb136f1-55a3-4f91-bce7-f2464e374095")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "#PWR255")
 					(unit 1)
@@ -11894,7 +11894,7 @@
 		)
 	)
 	(symbol
-		(lib_id "SparkFun-RF:SMA_EdgeMount")
+		(lib_id "SparkFun-RF:SMA_EdgeMount_6.3mm")
 		(at 212.09 151.13 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -11918,7 +11918,7 @@
 				)
 			)
 		)
-		(property "Footprint" "SparkFun-Connector:SMA_Edge"
+		(property "Footprint" "SparkFun-Connector:SMA_Edge_6.3mm"
 			(at 212.09 161.29 0)
 			(effects
 				(font
@@ -11927,7 +11927,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.sparkfun.com/datasheets/Wireless/Antenna/SMA-Connector.pdf"
+		(property "Datasheet" "https://cdn.sparkfun.com/assets/4/1/2/2/0/SMA-Connector.pdf"
 			(at 212.09 163.83 0)
 			(effects
 				(font
@@ -11936,7 +11936,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "SMA PCB Edge Mount connector"
+		(property "Description" "Not for new designs. Use 8mm variant. SMA PCB Edge Mount connector"
 			(at 212.09 166.37 0)
 			(effects
 				(font
@@ -12027,7 +12027,7 @@
 			(uuid "58575dcc-75f8-489a-a843-818b9f08d4c4")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "#PWR202")
 					(unit 1)
@@ -12124,7 +12124,7 @@
 			(uuid "b6d7f678-b3fd-4a1a-92fe-09383ca93257")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "C69")
 					(unit 1)
@@ -12430,7 +12430,7 @@
 			(uuid "7dcd79bb-2520-4a7e-8a75-77df6bcb7348")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "#PWR248")
 					(unit 1)
@@ -12527,7 +12527,7 @@
 			(uuid "453d938c-c6a8-488f-9258-d35dd2e2ff8a")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "C70")
 					(unit 1)
@@ -12658,7 +12658,7 @@
 			(uuid "3613e7b2-2f50-4c98-8471-0c57c93a2edb")
 		)
 		(instances
-			(project "SparkFun_RTK_mosaic-T"
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/e788e229-99ae-40ff-993c-e79a627e85af"
 					(reference "#PWR250")
 					(unit 1)
