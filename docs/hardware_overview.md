@@ -148,7 +148,7 @@ If you have **`CONFIG MOSAIC USB Port`** connected to a standard USB (2.0) port,
 
 
 !!! info
-	For more details, users can reference the [schematic](./assets/board_files/schematic.pdf) and the datasheets of the individual components on the board.
+	For more details, users can reference the [GNSSDO schematic](./assets/board_files/schematic.pdf), [GNSSDO+ schematic](./assets/board_files/SparkPNT_GNSSDO_Plus_schematic.pdf) and the datasheets of the individual components on the board.
 
 
 === ":material-usb-port: USB-C Connectors"
@@ -259,7 +259,7 @@ If you have **`CONFIG MOSAIC USB Port`** connected to a standard USB (2.0) port,
 
 
 ## :septentrio: mosaic-T
-The heart of our product is of course the mosaic-T GNSS module from Septentrio. It is a _very_ sophisticated chip with multiple interfaces: UARTS, USB and Ethernet. The `GPIO1` and `GPIO2` pins are available as 0.1" test points should you need access to them.
+The heart of our product is of course the mosaic-T GNSS module from Septentrio. It is a _very_ sophisticated chip with multiple interfaces: UARTS, USB and Ethernet. On GNSSDO, the `GPIO1` and `GPIO2` pins are available as 0.1" test points should you need access to them. On GNSSDO+, GP1 and GP2 are available on the 10-way screw cage connector.
 
 <figure markdown>
 [![mosaic-T](./assets/img/hookup_guide/T.png){ width="400" }](./assets/img/hookup_guide/T.png "Click to enlarge")
@@ -272,8 +272,13 @@ The heart of our product is of course the mosaic-T GNSS module from Septentrio. 
 The ESP32 processor is there to control (discipline) the 10 MHz TCXO oscillator and the OLED display. We have deliberately kept the ESP32 firmware as simple as possible. The intention is that you can write your own firmware using the Espressif IDF or Arduino IDE if you need to.
 
 <figure markdown>
-[![Espressif ESP32](./assets/img/hookup_guide/ESP32.png){ width="400" }](./assets/img/hookup_guide/ESP32.png "Click to enlarge")
-<figcaption markdown>The Espressif ESP32-WROVER processor.</figcaption>
+[![Espressif ESP32 on GNSSDO](./assets/img/hookup_guide/ESP32.png){ width="400" }](./assets/img/hookup_guide/ESP32.png "Click to enlarge")
+<figcaption markdown>The Espressif ESP32-WROVER processor on GNSSDO.</figcaption>
+</figure>
+
+<figure markdown>
+[![Espressif ESP32 on GNSSDO+](./assets/img/hookup_guide/ESP32_GNSSDO+.png){ width="400" }](./assets/img/hookup_guide/ESP32_GNSSDO+.png "Click to enlarge")
+<figcaption markdown>The Espressif ESP32-WROVER processor on GNSSDO+.</figcaption>
 </figure>
 
 Think of the ESP32 as a co-processor, or riding shotgun... The mosaic-T `COM1`, `COM3` and `COM4` UARTs are linked to the ESP32, allowing the two to communicate directly without needing an Ethernet link. In our firmware, the PVTGeodetic and ReceiverTime messages are output on COM1. The ESP32 displays some of their content on the I^2^C OLED display, and then uses the content to discipline the TCXO oscillator. See [Oscillator](./oscillator.md) for more details.
@@ -593,7 +598,7 @@ The GNSSDO is equipped with a [10-way 3.5mm screw cage terminal connector](https
 </div>
 
 
-These terminals are described in the tabs below. For more information on the I/O terminals, you can refer to the [schematic](./assets/board_files/schematic.pdf).
+These terminals are described in the tabs below. For more information on the I/O terminals, you can refer to the [GNSSDO schematic](./assets/board_files/schematic.pdf) and the [GNSSDO+ schematic](./assets/board_files/SparkPNT_GNSSDO_Plus_schematic.pdf).
 
 
 === "External Power"
@@ -764,12 +769,19 @@ There are two miniature slide switches on the GNSSDO PCB:
 
 <figure markdown>
 [![Switches](./assets/img/hookup_guide/Switches.png){ width="400" }](./assets/img/hookup_guide/Switches.png "Click to enlarge")
-<figcaption markdown>Switches</figcaption>
+<figcaption markdown>GNSSDO Switches</figcaption>
+</figure>
+
+But only one on the GNSSDO+ PCB:
+
+<figure markdown>
+[![Switches](./assets/img/hookup_guide/Switches_GNSSDO+.png){ width="400" }](./assets/img/hookup_guide/Switches_GNSSDO+.png "Click to enlarge")
+<figcaption markdown>GNSSDO+ Switches</figcaption>
 </figure>
 
 
 !!! warning
-	The mosaic-T module can either use its internal TCXO or accept an external signal as a frequency reference. However, the module will constantly reboot if the `REF_I` pin isn't provided a 10MHz sinusoidal signal and left floating. Therefore, users should only set the `10MHz` switch to the `IN` position, only if a 10MHz clock signal can be provided; otherwise, the switch should remain in the `OUT` position.
+	The mosaic-T module can either use its internal TCXO or accept an external signal as a frequency reference. However, the module will constantly reboot if the `REF_I` pin isn't provided a 10MHz sinusoidal signal and left floating. Therefore, users should only set the GNSSDO `10MHz` switch to the `IN` position, only if a 10MHz clock signal can be provided; otherwise, the switch should remain in the `OUT` position.
 
 	Additionally, switching between an external and internal frequency reference must occur when the mosaic-T is powered off, or the module must be reset after switching states.
 
@@ -1080,14 +1092,14 @@ The jumpers on the bottom of the GNSSDO PCB.
 There are several jumpers on the GNSSDO+ PCB which can be used to (e.g.) disable the LEDs or allow measurement of the board's current draw.
 
 
-<!-- <div class="grid" markdown>
+<div class="grid" markdown>
 
 <div markdown>
 
 <figure markdown>
-[![Jumpers](./assets/img/hookup_guide/Jumpers-top.png){ width="400" }](./assets/img/hookup_guide/Jumpers-top.png "Click to enlarge")
+[![Jumpers](./assets/img/hookup_guide/Jumpers-top_GNSSDO+.png){ width="400" }](./assets/img/hookup_guide/Jumpers-top_GNSSDO+.png "Click to enlarge")
 <figcaption markdown>
-The jumpers on the top of the GNSSDO PCB.
+The jumpers on the top of the GNSSDO+ PCB.
 </figcaption>
 </figure>
 
@@ -1097,20 +1109,18 @@ The jumpers on the top of the GNSSDO PCB.
 <div markdown>
 
 <figure markdown>
-[![Jumpers](./assets/img/hookup_guide/Jumpers-bottom.png){ width="400" }](./assets/img/hookup_guide/Jumpers-bottom.png "Click to enlarge")
+[![Jumpers](./assets/img/hookup_guide/Jumpers-bottom_GNSSDO+.png){ width="400" }](./assets/img/hookup_guide/Jumpers-bottom_GNSSDO+.png "Click to enlarge")
 <figcaption markdown>
-The jumpers on the bottom of the GNSSDO PCB.
+The jumpers on the bottom of the GNSSDO+ PCB.
 </figcaption>
 </figure>
 
 </div>
 
-</div> -->
+</div>
 
 
 === "Top"
-	- **POE** - This jumper can be used to disconnect the Power-over-Ethernet (PoE) module 50&ohm; load.
-		- The PoE module has a minimum load of 200mA. We included the 50&ohm; load to ensure this is met. If you can ensure this by other means, open this jumper to disconnect the load.
 	- **Voltage Configuration: A-D**
 		- The jumper links can be used to configure the voltage levels and impedance of the SMA connections. Please refer to the [schematic](./assets/board_files/SparkPNT_GNSSDO_Plus_schematic.pdf) for additional information.
 		- Jumpers A,B,C configure the voltage of the Event A input.

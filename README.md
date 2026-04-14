@@ -37,9 +37,11 @@ Repository Contents
 - **[/docs](/docs/)** - Online documentation files
     - [assets](/docs/assets/) - Assets files
         - [board_files](/docs/assets/board_files/) - Files for the product design
-            - [Schematic](/docs/assets/board_files/schematic.pdf) (.pdf)
+            - [GNSSDO Schematic](/docs/assets/board_files/schematic.pdf) (.pdf)
+            - [GNSSDO+ Schematic](/docs/assets/board_files/SparkPNT_GNSSDO_Plus_schematic) (.pdf)
             - [Dimensions](/docs/assets/board_files/dimensions.png) (.png)
-            - [KiCad files](/docs/assets/board_files/kicad_files.zip) (.zip)
+            - [GNSSDO KiCad files](/docs/assets/board_files/kicad_files.zip) (.zip)
+            - [GNSSDO+ KiCad files](/docs/assets/board_files/kicad_files_GNSSDO_Plus.zip) (.zip)
         - [img/hookup_guide/](/docs/assets/img/hookup_guide/) - Images for hookup guide documentation
 - **[/Hardware](/Hardware/)** - KiCad design files
 - **[/Hardware/Production](/Hardware/Production/)** - PCB panel production files

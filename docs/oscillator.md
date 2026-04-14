@@ -24,6 +24,11 @@ The SiT5358 is interfaced to the mosaic-T through a level-shifting buffer, repla
 
 ## GNSSDO+: Rakon STP3593LF Double-Oven Disciplined Oscillator
 
+<figure markdown>
+[![STP3593LF OCXO Oscillator](./assets/img/hookup_guide/TCXO-PCB_GNSSDO+.png){ width="750" }](./assets/img/hookup_guide/TCXO-PCB_GNSSDO+.png "Click to enlarge")
+<figcaption markdown>STP3593LF OCXO Oscillator.</figcaption>
+</figure>
+
 For the best frequency accuracy, stability and holdover, the SparkPNT GNSSDO+ utilizes a Rakon STP3593LF Double-Oven Crystal Oscillator (OCXO).
 The STP3593LF is a High End Telecom OCXO with embedded module, typically found in 5G Grand Master or Stratum-2 clocks.
 

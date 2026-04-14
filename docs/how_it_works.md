@@ -88,7 +88,7 @@ The firmware will exit **Mode** **FREQUENCY_LOCK** and enter **PHASE_LOCK** if t
 
 ### Phase Lock
 
-When the oscillator frequency and phase are correct, the firmware continues to drive the Bias towards zero using a PI(D) loop. The displayed Bias should be within (approximately) +/-100ps on GNSSDO and +/-10ps GNSSDO+. Please note that the reported Bias is relative, not absolute. The true absolute accuracy will be higher than this, but within the quoted 5ns or 1ns with Fugro AtomiChron.
+When the oscillator frequency and phase are correct, the firmware continues to drive the Bias towards zero using a PI(D) loop. The residual Bias should be within (approximately) +/-100ps on GNSSDO and +/-10ps GNSSDO+. Please note that the reported Bias is relative, not absolute. The true absolute accuracy will be higher than this, but within the quoted 5ns or 1ns with Fugro AtomiChron.
 
 The **Mode** will be **PHASE_LOCK** during this state.
 
@@ -101,7 +101,7 @@ PPS output is started when the firmware enters this state for the first time (si
 
 ### Error States
 
-If the GNSS detects an Error, the firmware will: report the Error on the OLED display and in the CSV **Error** column; maintain the oscillator frequency until the error is cleared.
+If the GNSS detects an Error, the firmware will: report the Error on the OLED display and in the CSV **Error** column; maintain the oscillator frequency until the error is cleared. The Error LED will also illuminate.
 
 Once the error is cleared, the firmware will return to **FREQUENCY_LOCK**, nudge the oscillator frequency if required, and return to **PHASE_LOCK** as promptly as possible. The PPS output is not paused during error states; once started in **PHASE_LOCK**, PPS output is not stopped.
 

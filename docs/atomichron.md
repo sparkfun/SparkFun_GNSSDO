@@ -57,11 +57,18 @@ With AtomiChron enabled, the GNSSDO achieves a GPS clock bias of better than 1 n
 <figcaption markdown>GPS clock bias with AtomiChron vs GPS Pulse-Per-Second offset (without AtomiChron).</figcaption>
 </figure>
 
-With AtomiChron enabled, the Pulse-Per-Second Allan Deviation approaches 1E-14 at 10000 seconds:
+With AtomiChron enabled, the GNSSDO Pulse-Per-Second Allan Deviation approaches 1E-14 at 10000 seconds:
 
 <figure markdown>
 [![Allan Deviation with and without AtomiChron](./assets/img/hookup_guide/Allan_Deviation.jpg){ width="400" }](./assets/img/hookup_guide/Allan_Deviation.jpg "Click to enlarge")
-<figcaption markdown>Pulse-Per-Second Allan Deviation with and without AtomiChron.</figcaption>
+<figcaption markdown>GNSSDO Pulse-Per-Second Allan Deviation with and without AtomiChron.</figcaption>
+</figure>
+
+On GNSSDO+, the Pulse-Per-Second Allan Deviation is below 1E-14 at 10000 seconds:
+
+<figure markdown>
+[![Allan Deviation with AtomiChron](./assets/img/hookup_guide/GNSSDO+_Allan_Deviation.png){ width="400" }](./assets/img/hookup_guide/GNSSDO+_Allan_Deviation.png "Click to enlarge")
+<figcaption markdown>GNSSDO+ Pulse-Per-Second Allan Deviation with AtomiChron.</figcaption>
 </figure>
 
 ## Firmware configuration
