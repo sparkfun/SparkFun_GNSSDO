@@ -74,34 +74,38 @@ The firmware no longer performs a soft reset if the bias is excessive on startup
 The firmware monitors the message blocks on `COM1`. The `ERROR` LED follows the **PVTGeodetic Error** code. The LED is extinguished when **Error** is zero.
 
 In STATE_GNSS_CONFIGURED:
-* The firmware waits for the **ReceiverTime** `FINETIME` bit to be set, indicating the **setClockSyncThreshold** `Threshold` (usec500) has been achieved
+
+- The firmware waits for the **ReceiverTime** `FINETIME` bit to be set, indicating the **setClockSyncThreshold** `Threshold` (usec500) has been achieved
 
 In STATE_TCXO_WARMUP (GNSSDO+ only):
-* The firmware waits for `tcxoMinWarmup_s` and for the OCXO temperature to become stable
+
+- The firmware waits for `tcxoMinWarmup_s` and for the OCXO temperature to become stable
 
 In STATE_GNSS_FINETIME:
-* The firmware disciplines the TCXO / OCXO frequency in a simple frequency locked loop
-* The firmware exits this state when the change in the `tcxoClockBias_ms` (`RxClkBias`) is better than the specified `rxStabilityForFrequencyLock`
-* The PI loop uses `PkSteer` and `IkSteer` when frequency locking
+
+- The firmware disciplines the TCXO / OCXO frequency in a simple frequency locked loop
+- The firmware exits this state when the change in the `tcxoClockBias_ms` (`RxClkBias`) is better than the specified `rxStabilityForFrequencyLock`
+- The PI loop uses `PkSteer` and `IkSteer` when frequency locking
 
 In STATE_GNSS_FREQUENCY_LOCK:
-* The TCXO / OCXO bias is driven towards zero
-* The initial bias error can be up to 500us, so we need to ramp the TCXO frequency one way ('up') and then back again ('down')
-* We slowly accelerate the change in frequency, maintain it at `tcxoRampRateLimit_sps`, then decelerate
-* The acceleration is set by the `tcxoRampStepSize_s`: 0.5ns/s for the STP3593; the SiT5358 can accelerate faster
-* The ramps help to avoid blowing up the integrator
-* When the ramps are complete, the `tcxoClockBias_ms` (`RxClkBias`) is re-checked
-* This state is repeated if the bias is still excessive (> `rxPhaseErrorLimit_s`)
-* The PI loop uses `PkRamp` and `IkRamp` when following the ramps
+
+- The TCXO / OCXO bias is driven towards zero
+- The initial bias error can be up to 500us, so we need to ramp the TCXO frequency one way ('up') and then back again ('down')
+- We slowly accelerate the change in frequency, maintain it at `tcxoRampRateLimit_sps`, then decelerate
+- The acceleration is set by the `tcxoRampStepSize_s`: 0.5ns/s for the STP3593; the SiT5358 can accelerate faster
+- The ramps help to avoid blowing up the integrator
+- When the ramps are complete, the `tcxoClockBias_ms` (`RxClkBias`) is re-checked
+- This state is repeated if the bias is still excessive (> `rxPhaseErrorLimit_s`)
+- The PI loop uses `PkRamp` and `IkRamp` when following the ramps
 
 In STATE_GNSS_PHASE_LOCK:
-* The LOCK LED will be illuminated when the firmware is in STATE_GNSS_PHASE_LOCK
-* PPS output will be started when entering STATE_GNSS_PHASE_LOCK for the first time
-* This state uses a conventional PLL to drive the `tcxoClockBias_ms` (`RxClkBias`) to zero
-* The P and I terms are `Pk` and `Ik`
-* When entering STATE_GNSS_PHASE_LOCK from STATE_GNSS_FREQUENCY_LOCK, the P and I terms are ramped from `PkRamp` and `IkRamp` to `Pk` and `Ik` over `phaseLockPIRampTime_s` (120s)
-    * This helps to avoid shocking the PI loop and sending the bias off for a walk...
 
+- The LOCK LED will be illuminated when the firmware is in STATE_GNSS_PHASE_LOCK
+- PPS output will be started when entering STATE_GNSS_PHASE_LOCK for the first time
+- This state uses a conventional PLL to drive the `tcxoClockBias_ms` (`RxClkBias`) to zero
+- The P and I terms are `Pk` and `Ik`
+- When entering STATE_GNSS_PHASE_LOCK from STATE_GNSS_FREQUENCY_LOCK, the P and I terms are ramped from `PkRamp` and `IkRamp` to `Pk` and `Ik` over `phaseLockPIRampTime_s` (120s)
+    - This helps to avoid shocking the PI loop and sending the bias off for a walk...
 
 The firmware monitors the **PVTGeodetic RxClkBias** (as 64-bit float in milliseconds). When **RxClkBias** is positive, receiver time is ahead of system time and the oscillator frequency should be reduced. When **RxClkBias** is negative, receiver time is behind system time and the oscillator frequency should be increased. The firmware will adjust the oscillator frequency via its Digital Frequency Control register accordingly. As per Appendix D, the frequency will be changed by no more than 3ppb per second.
 

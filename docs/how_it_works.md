@@ -2,8 +2,6 @@
 icon: material/tools
 ---
 
-## How It Works
-
 As the name suggests, the SparkPNT GNSS Disciplined Oscillator (GNSSDO) and GNSS Disciplined Oscillator Plus (GNSSDO+) are very precise 10MHz disciplined oscillators.
 Inside, the Septentrio mosaic-T GNSS provides all-in-view satellite tracking: multi-constellation, and multi-frequency. It has dedicated timing features for time and clock synchronisation. Using the clock bias measurements from the mosaic-T, which it calculates by comparing the internal 10MHz clock to those of the GNSS satellites, the GNSSDO(+) is able to discipline (adjust) the frequency of the digitally-controlled oscillator to bring it as close to 10MHz as possible. Once the frequency has been adjusted, the accuracy of the mosaic-T's Pulse Per Second output is: better than 5ns; and better that 1ns with an optional subscription to [Fugro's AtomiChron](./atomichron.md) timing service. Take two GNSSDOs, place them anywhere on the planet and you can be confident that their time pulses are aligned to within 5ns or 1ns of each other...
 
@@ -18,7 +16,7 @@ If you connect to the GNSSDO(+)'s CONFIG ESP32 USB port and open a terminal emul
 While the mosaic-T is acquiring a GNSS signal, the OLED display will show an Error such as "Measurements" or "Ephemerides":
 
 <figure markdown>
-[![OLED showing Error Measurements](./assets/img/hookup_guide/OLED_1.png){ width="100" }](./assets/img/hookup_guide/OLED_1.png "Click to enlarge")
+[![OLED showing Error Measurements](./assets/img/hookup_guide/OLED_1.png){ width="250" }](./assets/img/hookup_guide/OLED_1.png "Click to enlarge")
 <figcaption markdown>OLED showing Error Measurements.</figcaption>
 </figure>
 
@@ -29,7 +27,7 @@ Once the GNSS has acquired a signal and has a (preliminary) time solution: Error
 On GNSSDO+, the firmware will now go into **Mode** **WARMUP**. It can take approximately 10 minutes for the STP3593LF double-oven oscillator temperature to stabilise.
 
 <figure markdown>
-[![OLED showing TCXO Warming Up](./assets/img/hookup_guide/OLED_2.png){ width="100" }](./assets/img/hookup_guide/OLED_2.png "Click to enlarge")
+[![OLED showing TCXO Warming Up](./assets/img/hookup_guide/OLED_2.png){ width="250" }](./assets/img/hookup_guide/OLED_2.png "Click to enlarge")
 <figcaption markdown>OLED showing TCXO Warming Up.</figcaption>
 </figure>
 
@@ -44,7 +42,7 @@ After initial warm-up, the temperature-controlled oscillator is neither frequenc
 During this state, the OLED display will show "Drift" followed by the oscillator drift in PPM:
 
 <figure markdown>
-[![OLED showing Drift](./assets/img/hookup_guide/OLED_3.png){ width="100" }](./assets/img/hookup_guide/OLED_3.png "Click to enlarge")
+[![OLED showing Drift](./assets/img/hookup_guide/OLED_3.png){ width="250" }](./assets/img/hookup_guide/OLED_3.png "Click to enlarge")
 <figcaption markdown>OLED showing Drift.</figcaption>
 </figure>
 
@@ -69,7 +67,7 @@ Ramping the frequency is a slow process. It can take over 30 minutes, depending 
 The OLED display will display the clock Bias. You can watch the Bias change, slowly at first, reaching a limit of: 500ns/s on GNSSDO; and 250ns/s on GNSSDO+.
 
 <figure markdown>
-[![OLED showing Bias in microseconds](./assets/img/hookup_guide/OLED_4.png){ width="100" }](./assets/img/hookup_guide/OLED_4.png "Click to enlarge")
+[![OLED showing Bias in microseconds](./assets/img/hookup_guide/OLED_4.png){ width="250" }](./assets/img/hookup_guide/OLED_4.png "Click to enlarge")
 <figcaption markdown>OLED showing Bias in microseconds.</figcaption>
 </figure>
 
@@ -95,7 +93,7 @@ The **Mode** will be **PHASE_LOCK** during this state.
 PPS output is started when the firmware enters this state for the first time (since power-on).
 
 <figure markdown>
-[![OLED showing PPS On](./assets/img/hookup_guide/OLED_5.png){ width="100" }](./assets/img/hookup_guide/OLED_5.png "Click to enlarge")
+[![OLED showing PPS On](./assets/img/hookup_guide/OLED_5.png){ width="250" }](./assets/img/hookup_guide/OLED_5.png "Click to enlarge")
 <figcaption markdown>OLED showing PPS On.</figcaption>
 </figure>
 

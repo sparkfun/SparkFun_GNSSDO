@@ -139,6 +139,8 @@ If you have the **`CONFIG ESP32 USB Port`** connected to a standard USB (2.0) po
 
 If you have **`CONFIG MOSAIC USB Port`** connected to a standard USB (2.0) port, ensure the Power Delivery Wall Adapter is connected to **`CONFIG ESP32 USB Port`**. The Power Path priority will ensure power is drawn from the **`CONFIG ESP32 USB Port`**.
 
+Consult page 9 of the [GNSSDO+ schematic](./assets/board_files/SparkPNT_GNSSDO_Plus_schematic.pdf) for more details
+
 ??? tip "Measure Current Draw"
 	If you want to measure the board's current draw, you can open the `MEAS` jumper and measure the current via a pair of breakout pads *(see the **[Jumpers](#jumpers-gnssdo)** section)*.
 

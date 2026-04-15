@@ -50,6 +50,10 @@ icon: material/book-open-page-variant
 	[Purchase from SparkFun :fontawesome-solid-cart-plus:{ .heart } ![QR code to product page](./assets/img/qr_code/product-low.png){ .tinyqr }](https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator.html){ .md-button .md-button--primary }
 	</article>
 
+</div>
+
+<div class="grid cards desc" markdown>
+
 
 -	Designed and manufactured in Boulder, Colorado, USA, the SparkPNT GNSSDO / GNSSDO+ are the perfect solution for your high-precision timing needs. Based around the multi-constellation, multi-frequency, L5-ready mosaic-T from Septentrio, these are our most accurate GNSS timing product to date. The GNSSDO features a SiTime SiT5358 disciplined 10MHz Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO) providing excellent clock accuracy and stability. The GNSSDO+ gets an upgrade from the Rakon STP3593LF disciplined 10MHz Digitally-Controlled Double-Oven Crystal Oscillator (OCXO) providing superb clock accuracy, stability and holdover. The mosaic-T also has built-in on-module support for the Fugro AtomiChron L-band timing service.
 
@@ -86,7 +90,7 @@ icon: material/book-open-page-variant
 			- [Allan Deviation](./assets/img/hookup_guide/Allan_Deviation.jpg) approaches 1E-14 at 10000 seconds with AtomiChron enabled
 			- Operating temperature: -40 to 85 °C (Industrial)
 		- GNSSDO+: STP3593LF disciplined 10MHz oscillator
-			- better than 50ppb frequency calibration at 25°C
+			- Better than 50ppb frequency calibration at 25°C
 			- ±0.2ppb per day frequency stability (aging)
 			- ±0.03ppb frequency stability with temperature (-32°C to +70°C)
 			- Digital frequency pulling via I²C
@@ -175,14 +179,14 @@ icon: material/book-open-page-variant
 		GNSSDO<br>
 		<hr>
 		<figure markdown>
-		![Product Thumbnail](./assets/img/product_comparison/rtk_mosaic-x5.png)
+		![Product Thumbnail](./assets/img/product_comparison/GNSSDO.png)
 		</figure>
 	</th>
 	<th markdown style="text-align:center">
 		GNSSDO+<br>
 		<hr>
 		<figure markdown>
-		![Product Thumbnail](./assets/img/product_comparison/rtk_mosaic-x5.png)
+		![Product Thumbnail](./assets/img/product_comparison/GNSSDO.png)
 		</figure>
 	</th>
 	</tr>
