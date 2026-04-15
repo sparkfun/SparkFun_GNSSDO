@@ -699,15 +699,6 @@ void updateTCXOClockBias()
     snprintf(rxClkBiasSource, sizeof(rxClkBiasSource), "PVT");
     snprintf(sysSource, sizeof(sysSource), mosaicTimeSystemNameFromId(gnssTimeSys));
 
-    // uint8_t index = mosaicTimeSystemIndexFromName("Fugro");
-    // if (fugroTimeSystems[index].updated) // If we have the Fugro bias, use that
-    // {
-    //     tcxoClockBias_ms = fugroTimeSystems[index].RxClkBias_ms;
-    //     tcxoClockDrift_ppm = fugroTimeSystems[index].RxClkDrift_ppm;
-    //     fugroTimeSystems[index].updated = false;
-    //     snprintf(rxClkBiasSource, sizeof(rxClkBiasSource), fugroTimeSystems[index].name);
-    // }
-
     if (settings.preferNonCompositeGPSBias || settings.preferNonCompositeGalileoBias) // These are mutex
     {
         uint8_t index = mosaicTimeSystemIndexFromName(settings.preferNonCompositeGPSBias ? "GPS" : "Galileo");
