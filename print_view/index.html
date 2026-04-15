@@ -1343,6 +1343,10 @@
 <a class="md-button md-button--primary" href="https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator.html" target="_blank" rel="noopener">Purchase from SparkFun <span class="twemoji heart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M0 8C0-5.3 10.7-16 24-16h45.3c27.1 0 50.3 19.4 55.1 46l.4 2h412.7c20 0 35.1 18.2 31.4 37.9l-31.1 165.9c-5.7 30.3-32.1 52.2-62.9 52.2H171.3l5.1 28.3c2.1 11.4 12 19.7 23.6 19.7h256c13.3 0 24 10.7 24 24s-10.7 24-24 24H200.1c-34.8 0-64.6-24.9-70.8-59.1L77.2 38.6c-.7-3.8-4-6.6-7.9-6.6H24C10.7 32 0 21.3 0 8m160 456a48 48 0 1 1 96 0 48 48 0 1 1-96 0m224 0a48 48 0 1 1 96 0 48 48 0 1 1-96 0M336 78.4c-13.3 0-24 10.7-24 24V136h-33.6c-13.3 0-24 10.7-24 24s10.7 24 24 24H312v33.6c0 13.3 10.7 24 24 24s24-10.7 24-24V184h33.6c13.3 0 24-10.7 24-24s-10.7-24-24-24H360v-33.6c0-13.3-10.7-24-24-24"/></svg></span> <img alt="QR code to product page" class="tinyqr" src="../assets/img/qr_code/product-low.png" /></a>
 </article></p>
 </li>
+</ul>
+</div>
+<div class="grid cards desc">
+<ul>
 <li>
 <p>Designed and manufactured in Boulder, Colorado, USA, the SparkPNT GNSSDO / GNSSDO+ are the perfect solution for your high-precision timing needs. Based around the multi-constellation, multi-frequency, L5-ready mosaic-T from Septentrio, these are our most accurate GNSS timing product to date. The GNSSDO features a SiTime SiT5358 disciplined 10MHz Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO) providing excellent clock accuracy and stability. The GNSSDO+ gets an upgrade from the Rakon STP3593LF disciplined 10MHz Digitally-Controlled Double-Oven Crystal Oscillator (OCXO) providing superb clock accuracy, stability and holdover. The mosaic-T also has built-in on-module support for the Fugro AtomiChron L-band timing service.</p>
 <p>Under the hood, the GNSSDO and GNSSDO+ are based on the mosaic-T GNSS module from Septentrio, plus the Espressif ESP32-WROVER processor (16MB flash, 8MB PSRAM). The mosaic-T has USB-C connectivity (with Ethernet-over-USB), multiple UARTs and supports full Ethernet connectivity. You can connect the mosaic-T directly to your Ethernet network - our product supports Power-over-Ethernet too. The ESP32 rides shotgun, disciplining the oscillator and controlling the OLED display. The GNSSDO and GNSSDO+ have multiple power options including USB-C, PoE and 9V-36V DC, making it easy to connect them to a battery-backed supply. Robust SMA connections and screw cage terminals provide access to the Pulse-Per-Second and 10MHz clock signals.</p>
@@ -1386,7 +1390,7 @@
 </ul>
 </li>
 <li>GNSSDO+: STP3593LF disciplined 10MHz oscillator<ul>
-<li>better than 50ppb frequency calibration at 25°C</li>
+<li>Better than 50ppb frequency calibration at 25°C</li>
 <li>±0.2ppb per day frequency stability (aging)</li>
 <li>±0.03ppb frequency stability with temperature (-32°C to +70°C)</li>
 <li>Digital frequency pulling via I²C</li>
@@ -1502,14 +1506,14 @@
     GNSSDO<br>
     <hr>
     <figure markdown>
-    <img alt="Product Thumbnail" src="../assets/img/product_comparison/rtk_mosaic-x5.png" />
+    <img alt="Product Thumbnail" src="../assets/img/product_comparison/GNSSDO.png" />
     </figure>
 </th>
 <th markdown style="text-align:center">
     GNSSDO+<br>
     <hr>
     <figure markdown>
-    <img alt="Product Thumbnail" src="../assets/img/product_comparison/rtk_mosaic-x5.png" />
+    <img alt="Product Thumbnail" src="../assets/img/product_comparison/GNSSDO.png" />
     </figure>
 </th>
 </tr>
@@ -2448,6 +2452,7 @@ Source: <a href="https://cdn.sparkfun.com/assets/f/f/5/1/7/SparkFun_SPK6618H_Dat
 <li>Install a <a href="https://www.sparkfun.com/usb-c-extension-cable-with-power-switch-1m.html" target="_blank" rel="noopener">power switch</a> in the <strong><code>CONFIG ESP32 USB Port</code></strong> cable to disconnect its power, forcing the GNSSDO+ to draw Power Delivery power from the <strong><code>CONFIG MOSAIC USB Port</code></strong>.</li>
 </ul>
 <p>If you have <strong><code>CONFIG MOSAIC USB Port</code></strong> connected to a standard USB (2.0) port, ensure the Power Delivery Wall Adapter is connected to <strong><code>CONFIG ESP32 USB Port</code></strong>. The Power Path priority will ensure power is drawn from the <strong><code>CONFIG ESP32 USB Port</code></strong>.</p>
+<p>Consult page 9 of the <a href="../assets/board_files/SparkPNT_GNSSDO_Plus_schematic.pdf">GNSSDO+ schematic</a> for more details</p>
 <details class="tip">
 <summary>Measure Current Draw</summary>
 <p>If you want to measure the board's current draw, you can open the <code>MEAS</code> jumper and measure the current via a pair of breakout pads <em>(see the <strong><a href="#jumpers-gnssdo">Jumpers</a></strong> section)</em>.</p>
@@ -4378,30 +4383,42 @@ This prevents a shift in PPS with respect to the 10MHz clock, but it does mean t
 time (~30 minutes) to get the bias down to zero by ramping the frequency.
 The firmware no longer performs a soft reset if the bias is excessive on startup.</p>
 <p>The firmware monitors the message blocks on <code>COM1</code>. The <code>ERROR</code> LED follows the <strong>PVTGeodetic Error</strong> code. The LED is extinguished when <strong>Error</strong> is zero.</p>
-<p>In STATE_GNSS_CONFIGURED:
-* The firmware waits for the <strong>ReceiverTime</strong> <code>FINETIME</code> bit to be set, indicating the <strong>setClockSyncThreshold</strong> <code>Threshold</code> (usec500) has been achieved</p>
-<p>In STATE_TCXO_WARMUP (GNSSDO+ only):
-* The firmware waits for <code>tcxoMinWarmup_s</code> and for the OCXO temperature to become stable</p>
-<p>In STATE_GNSS_FINETIME:
-* The firmware disciplines the TCXO / OCXO frequency in a simple frequency locked loop
-* The firmware exits this state when the change in the <code>tcxoClockBias_ms</code> (<code>RxClkBias</code>) is better than the specified <code>rxStabilityForFrequencyLock</code>
-* The PI loop uses <code>PkSteer</code> and <code>IkSteer</code> when frequency locking</p>
-<p>In STATE_GNSS_FREQUENCY_LOCK:
-* The TCXO / OCXO bias is driven towards zero
-* The initial bias error can be up to 500us, so we need to ramp the TCXO frequency one way ('up') and then back again ('down')
-* We slowly accelerate the change in frequency, maintain it at <code>tcxoRampRateLimit_sps</code>, then decelerate
-* The acceleration is set by the <code>tcxoRampStepSize_s</code>: 0.5ns/s for the STP3593; the SiT5358 can accelerate faster
-* The ramps help to avoid blowing up the integrator
-* When the ramps are complete, the <code>tcxoClockBias_ms</code> (<code>RxClkBias</code>) is re-checked
-* This state is repeated if the bias is still excessive (&gt; <code>rxPhaseErrorLimit_s</code>)
-* The PI loop uses <code>PkRamp</code> and <code>IkRamp</code> when following the ramps</p>
-<p>In STATE_GNSS_PHASE_LOCK:
-* The LOCK LED will be illuminated when the firmware is in STATE_GNSS_PHASE_LOCK
-* PPS output will be started when entering STATE_GNSS_PHASE_LOCK for the first time
-* This state uses a conventional PLL to drive the <code>tcxoClockBias_ms</code> (<code>RxClkBias</code>) to zero
-* The P and I terms are <code>Pk</code> and <code>Ik</code>
-* When entering STATE_GNSS_PHASE_LOCK from STATE_GNSS_FREQUENCY_LOCK, the P and I terms are ramped from <code>PkRamp</code> and <code>IkRamp</code> to <code>Pk</code> and <code>Ik</code> over <code>phaseLockPIRampTime_s</code> (120s)
-    * This helps to avoid shocking the PI loop and sending the bias off for a walk...</p>
+<p>In STATE_GNSS_CONFIGURED:</p>
+<ul>
+<li>The firmware waits for the <strong>ReceiverTime</strong> <code>FINETIME</code> bit to be set, indicating the <strong>setClockSyncThreshold</strong> <code>Threshold</code> (usec500) has been achieved</li>
+</ul>
+<p>In STATE_TCXO_WARMUP (GNSSDO+ only):</p>
+<ul>
+<li>The firmware waits for <code>tcxoMinWarmup_s</code> and for the OCXO temperature to become stable</li>
+</ul>
+<p>In STATE_GNSS_FINETIME:</p>
+<ul>
+<li>The firmware disciplines the TCXO / OCXO frequency in a simple frequency locked loop</li>
+<li>The firmware exits this state when the change in the <code>tcxoClockBias_ms</code> (<code>RxClkBias</code>) is better than the specified <code>rxStabilityForFrequencyLock</code></li>
+<li>The PI loop uses <code>PkSteer</code> and <code>IkSteer</code> when frequency locking</li>
+</ul>
+<p>In STATE_GNSS_FREQUENCY_LOCK:</p>
+<ul>
+<li>The TCXO / OCXO bias is driven towards zero</li>
+<li>The initial bias error can be up to 500us, so we need to ramp the TCXO frequency one way ('up') and then back again ('down')</li>
+<li>We slowly accelerate the change in frequency, maintain it at <code>tcxoRampRateLimit_sps</code>, then decelerate</li>
+<li>The acceleration is set by the <code>tcxoRampStepSize_s</code>: 0.5ns/s for the STP3593; the SiT5358 can accelerate faster</li>
+<li>The ramps help to avoid blowing up the integrator</li>
+<li>When the ramps are complete, the <code>tcxoClockBias_ms</code> (<code>RxClkBias</code>) is re-checked</li>
+<li>This state is repeated if the bias is still excessive (&gt; <code>rxPhaseErrorLimit_s</code>)</li>
+<li>The PI loop uses <code>PkRamp</code> and <code>IkRamp</code> when following the ramps</li>
+</ul>
+<p>In STATE_GNSS_PHASE_LOCK:</p>
+<ul>
+<li>The LOCK LED will be illuminated when the firmware is in STATE_GNSS_PHASE_LOCK</li>
+<li>PPS output will be started when entering STATE_GNSS_PHASE_LOCK for the first time</li>
+<li>This state uses a conventional PLL to drive the <code>tcxoClockBias_ms</code> (<code>RxClkBias</code>) to zero</li>
+<li>The P and I terms are <code>Pk</code> and <code>Ik</code></li>
+<li>When entering STATE_GNSS_PHASE_LOCK from STATE_GNSS_FREQUENCY_LOCK, the P and I terms are ramped from <code>PkRamp</code> and <code>IkRamp</code> to <code>Pk</code> and <code>Ik</code> over <code>phaseLockPIRampTime_s</code> (120s)<ul>
+<li>This helps to avoid shocking the PI loop and sending the bias off for a walk...</li>
+</ul>
+</li>
+</ul>
 <p>The firmware monitors the <strong>PVTGeodetic RxClkBias</strong> (as 64-bit float in milliseconds). When <strong>RxClkBias</strong> is positive, receiver time is ahead of system time and the oscillator frequency should be reduced. When <strong>RxClkBias</strong> is negative, receiver time is behind system time and the oscillator frequency should be increased. The firmware will adjust the oscillator frequency via its Digital Frequency Control register accordingly. As per Appendix D, the frequency will be changed by no more than 3ppb per second.</p>
 <p>The Proportional (P) and Integral (I) terms can be adjusted via the <a href="../software_overview/#configure-operation">ESP32 firmware settings</a>.</p>
 <p>The Pulse-Per-Second parameters can be configured by the user through the <a href="../software_overview/#configure-operation">ESP32 firmware settings</a>: interval, polarity, delay, time scale, max sync age, pulse width.</p>

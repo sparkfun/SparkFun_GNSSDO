@@ -204,7 +204,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-it-works" class="md-skip">
+        <a href="#gnss-signal-acquisition-and-warm-up" class="md-skip">
           Skip to content
         </a>
       
@@ -829,20 +829,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        <span class="md-typeset">
-          How It Works<a class="headerlink" href="#how-it-works" title="Permanent link"></a>
-        </span>
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#gnss-signal-acquisition-and-warm-up" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -854,8 +840,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#frequency-locking" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -867,8 +853,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#phase-locking-frequency-ramping" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -880,8 +866,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#phase-lock" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -893,8 +879,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#error-states" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -904,11 +890,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1373,20 +1354,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        <span class="md-typeset">
-          How It Works<a class="headerlink" href="#how-it-works" title="Permanent link"></a>
-        </span>
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#gnss-signal-acquisition-and-warm-up" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1398,8 +1365,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#frequency-locking" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1411,8 +1378,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#phase-locking-frequency-ramping" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1424,8 +1391,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#phase-lock" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1437,8 +1404,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#error-states" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1448,11 +1415,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1498,7 +1460,6 @@
 
   <h1>How It Works</h1>
 
-<h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link"></a></h2>
 <p>As the name suggests, the SparkPNT GNSS Disciplined Oscillator (GNSSDO) and GNSS Disciplined Oscillator Plus (GNSSDO+) are very precise 10MHz disciplined oscillators.
 Inside, the Septentrio mosaic-T GNSS provides all-in-view satellite tracking: multi-constellation, and multi-frequency. It has dedicated timing features for time and clock synchronisation. Using the clock bias measurements from the mosaic-T, which it calculates by comparing the internal 10MHz clock to those of the GNSS satellites, the GNSSDO(+) is able to discipline (adjust) the frequency of the digitally-controlled oscillator to bring it as close to 10MHz as possible. Once the frequency has been adjusted, the accuracy of the mosaic-T's Pulse Per Second output is: better than 5ns; and better that 1ns with an optional subscription to <a href="../atomichron/">Fugro's AtomiChron</a> timing service. Take two GNSSDOs, place them anywhere on the planet and you can be confident that their time pulses are aligned to within 5ns or 1ns of each other...</p>
 <p>The mosaic-T PVT (Position Velocity Time) messages report the Receiver clock bias (RxClkBias) relative to the GNSS time system. If RxClkBias is positive, the receiver time is ahead of the GNSS system time. By reducing the oscillator frequency (ever so slightly), the clock bias can be reduced towards zero. If RxClkBias is negative, the oscillator frequency needs to be increased to minimise the bias. This is achieved by controlling the oscillator frequency using a classic Phase-Locked Loop, with Proportional and Integral (PI) control terms. On GNSSDO+, we also include a Derivative term (PID) in the feedback loop.</p>
@@ -1507,7 +1468,7 @@ Inside, the Septentrio mosaic-T GNSS provides all-in-view satellite tracking: mu
 <p>If you connect to the GNSSDO(+)'s CONFIG ESP32 USB port and open a terminal emulator / serial console, you will see diagnostic data which tells you the status of the GNSSDO. You can find more information on how to do that in the <a href="../quick_start/#esp32-usb-c">quick start guide</a> and in the <a href="../software_overview/#print-conditions-periodic-messages">software overview</a>. The <strong>Mode</strong> column tells you which mode the GNSSDO is in.</p>
 <p>While the mosaic-T is acquiring a GNSS signal, the OLED display will show an Error such as "Measurements" or "Ephemerides":</p>
 <figure>
-<p><a href="../assets/img/hookup_guide/OLED_1.png" title="Click to enlarge"><img alt="OLED showing Error Measurements" src="../assets/img/hookup_guide/OLED_1.png" width="100" /></a></p>
+<p><a href="../assets/img/hookup_guide/OLED_1.png" title="Click to enlarge"><img alt="OLED showing Error Measurements" src="../assets/img/hookup_guide/OLED_1.png" width="250" /></a></p>
 <figcaption>
 <p>OLED showing Error Measurements.</p>
 </figcaption>
@@ -1516,7 +1477,7 @@ Inside, the Septentrio mosaic-T GNSS provides all-in-view satellite tracking: mu
 <p>Once the GNSS has acquired a signal and has a (preliminary) time solution: Error will change to "None"; Fine will change to "True" (indicating that the receiver time-of-week is within bounds).</p>
 <p>On GNSSDO+, the firmware will now go into <strong>Mode</strong> <strong>WARMUP</strong>. It can take approximately 10 minutes for the STP3593LF double-oven oscillator temperature to stabilise.</p>
 <figure>
-<p><a href="../assets/img/hookup_guide/OLED_2.png" title="Click to enlarge"><img alt="OLED showing TCXO Warming Up" src="../assets/img/hookup_guide/OLED_2.png" width="100" /></a></p>
+<p><a href="../assets/img/hookup_guide/OLED_2.png" title="Click to enlarge"><img alt="OLED showing TCXO Warming Up" src="../assets/img/hookup_guide/OLED_2.png" width="250" /></a></p>
 <figcaption>
 <p>OLED showing TCXO Warming Up.</p>
 </figcaption>
@@ -1527,7 +1488,7 @@ Inside, the Septentrio mosaic-T GNSS provides all-in-view satellite tracking: mu
 <p>After initial warm-up, the temperature-controlled oscillator is neither frequency-locked nor phase-locked. The first step is to ensure it is running at the correct frequency. This is acheived using a simple frequency-locked loop. The <em>change</em> in the Bias (RxClkBias) is used as the error term for the PI loop. The <em>change</em> in the Bias is driven to zero, by altering the oscillator frequency.</p>
 <p>During this state, the OLED display will show "Drift" followed by the oscillator drift in PPM:</p>
 <figure>
-<p><a href="../assets/img/hookup_guide/OLED_3.png" title="Click to enlarge"><img alt="OLED showing Drift" src="../assets/img/hookup_guide/OLED_3.png" width="100" /></a></p>
+<p><a href="../assets/img/hookup_guide/OLED_3.png" title="Click to enlarge"><img alt="OLED showing Drift" src="../assets/img/hookup_guide/OLED_3.png" width="250" /></a></p>
 <figcaption>
 <p>OLED showing Drift.</p>
 </figcaption>
@@ -1543,7 +1504,7 @@ Inside, the Septentrio mosaic-T GNSS provides all-in-view satellite tracking: mu
 <p>Ramping the frequency is a slow process. It can take over 30 minutes, depending on the size of the initial error.</p>
 <p>The OLED display will display the clock Bias. You can watch the Bias change, slowly at first, reaching a limit of: 500ns/s on GNSSDO; and 250ns/s on GNSSDO+.</p>
 <figure>
-<p><a href="../assets/img/hookup_guide/OLED_4.png" title="Click to enlarge"><img alt="OLED showing Bias in microseconds" src="../assets/img/hookup_guide/OLED_4.png" width="100" /></a></p>
+<p><a href="../assets/img/hookup_guide/OLED_4.png" title="Click to enlarge"><img alt="OLED showing Bias in microseconds" src="../assets/img/hookup_guide/OLED_4.png" width="250" /></a></p>
 <figcaption>
 <p>OLED showing Bias in microseconds.</p>
 </figcaption>
@@ -1564,7 +1525,7 @@ Inside, the Septentrio mosaic-T GNSS provides all-in-view satellite tracking: mu
 <p>The <strong>Mode</strong> will be <strong>PHASE_LOCK</strong> during this state.</p>
 <p>PPS output is started when the firmware enters this state for the first time (since power-on).</p>
 <figure>
-<p><a href="../assets/img/hookup_guide/OLED_5.png" title="Click to enlarge"><img alt="OLED showing PPS On" src="../assets/img/hookup_guide/OLED_5.png" width="100" /></a></p>
+<p><a href="../assets/img/hookup_guide/OLED_5.png" title="Click to enlarge"><img alt="OLED showing PPS On" src="../assets/img/hookup_guide/OLED_5.png" width="250" /></a></p>
 <figcaption>
 <p>OLED showing PPS On.</p>
 </figcaption>
@@ -1595,7 +1556,7 @@ Inside, the Septentrio mosaic-T GNSS provides all-in-view satellite tracking: mu
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 14, 2026 16:26:51 UTC"><span class="timeago" datetime="2026-04-14T16:26:51+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 14, 2026 16:26:51 UTC">2026-04-14</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 15, 2026 15:55:34 UTC"><span class="timeago" datetime="2026-04-15T15:55:34+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 15, 2026 15:55:34 UTC">2026-04-15</span>
   </span>
 
     

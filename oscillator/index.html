@@ -1467,30 +1467,42 @@ This prevents a shift in PPS with respect to the 10MHz clock, but it does mean t
 time (~30 minutes) to get the bias down to zero by ramping the frequency.
 The firmware no longer performs a soft reset if the bias is excessive on startup.</p>
 <p>The firmware monitors the message blocks on <code>COM1</code>. The <code>ERROR</code> LED follows the <strong>PVTGeodetic Error</strong> code. The LED is extinguished when <strong>Error</strong> is zero.</p>
-<p>In STATE_GNSS_CONFIGURED:
-* The firmware waits for the <strong>ReceiverTime</strong> <code>FINETIME</code> bit to be set, indicating the <strong>setClockSyncThreshold</strong> <code>Threshold</code> (usec500) has been achieved</p>
-<p>In STATE_TCXO_WARMUP (GNSSDO+ only):
-* The firmware waits for <code>tcxoMinWarmup_s</code> and for the OCXO temperature to become stable</p>
-<p>In STATE_GNSS_FINETIME:
-* The firmware disciplines the TCXO / OCXO frequency in a simple frequency locked loop
-* The firmware exits this state when the change in the <code>tcxoClockBias_ms</code> (<code>RxClkBias</code>) is better than the specified <code>rxStabilityForFrequencyLock</code>
-* The PI loop uses <code>PkSteer</code> and <code>IkSteer</code> when frequency locking</p>
-<p>In STATE_GNSS_FREQUENCY_LOCK:
-* The TCXO / OCXO bias is driven towards zero
-* The initial bias error can be up to 500us, so we need to ramp the TCXO frequency one way ('up') and then back again ('down')
-* We slowly accelerate the change in frequency, maintain it at <code>tcxoRampRateLimit_sps</code>, then decelerate
-* The acceleration is set by the <code>tcxoRampStepSize_s</code>: 0.5ns/s for the STP3593; the SiT5358 can accelerate faster
-* The ramps help to avoid blowing up the integrator
-* When the ramps are complete, the <code>tcxoClockBias_ms</code> (<code>RxClkBias</code>) is re-checked
-* This state is repeated if the bias is still excessive (&gt; <code>rxPhaseErrorLimit_s</code>)
-* The PI loop uses <code>PkRamp</code> and <code>IkRamp</code> when following the ramps</p>
-<p>In STATE_GNSS_PHASE_LOCK:
-* The LOCK LED will be illuminated when the firmware is in STATE_GNSS_PHASE_LOCK
-* PPS output will be started when entering STATE_GNSS_PHASE_LOCK for the first time
-* This state uses a conventional PLL to drive the <code>tcxoClockBias_ms</code> (<code>RxClkBias</code>) to zero
-* The P and I terms are <code>Pk</code> and <code>Ik</code>
-* When entering STATE_GNSS_PHASE_LOCK from STATE_GNSS_FREQUENCY_LOCK, the P and I terms are ramped from <code>PkRamp</code> and <code>IkRamp</code> to <code>Pk</code> and <code>Ik</code> over <code>phaseLockPIRampTime_s</code> (120s)
-    * This helps to avoid shocking the PI loop and sending the bias off for a walk...</p>
+<p>In STATE_GNSS_CONFIGURED:</p>
+<ul>
+<li>The firmware waits for the <strong>ReceiverTime</strong> <code>FINETIME</code> bit to be set, indicating the <strong>setClockSyncThreshold</strong> <code>Threshold</code> (usec500) has been achieved</li>
+</ul>
+<p>In STATE_TCXO_WARMUP (GNSSDO+ only):</p>
+<ul>
+<li>The firmware waits for <code>tcxoMinWarmup_s</code> and for the OCXO temperature to become stable</li>
+</ul>
+<p>In STATE_GNSS_FINETIME:</p>
+<ul>
+<li>The firmware disciplines the TCXO / OCXO frequency in a simple frequency locked loop</li>
+<li>The firmware exits this state when the change in the <code>tcxoClockBias_ms</code> (<code>RxClkBias</code>) is better than the specified <code>rxStabilityForFrequencyLock</code></li>
+<li>The PI loop uses <code>PkSteer</code> and <code>IkSteer</code> when frequency locking</li>
+</ul>
+<p>In STATE_GNSS_FREQUENCY_LOCK:</p>
+<ul>
+<li>The TCXO / OCXO bias is driven towards zero</li>
+<li>The initial bias error can be up to 500us, so we need to ramp the TCXO frequency one way ('up') and then back again ('down')</li>
+<li>We slowly accelerate the change in frequency, maintain it at <code>tcxoRampRateLimit_sps</code>, then decelerate</li>
+<li>The acceleration is set by the <code>tcxoRampStepSize_s</code>: 0.5ns/s for the STP3593; the SiT5358 can accelerate faster</li>
+<li>The ramps help to avoid blowing up the integrator</li>
+<li>When the ramps are complete, the <code>tcxoClockBias_ms</code> (<code>RxClkBias</code>) is re-checked</li>
+<li>This state is repeated if the bias is still excessive (&gt; <code>rxPhaseErrorLimit_s</code>)</li>
+<li>The PI loop uses <code>PkRamp</code> and <code>IkRamp</code> when following the ramps</li>
+</ul>
+<p>In STATE_GNSS_PHASE_LOCK:</p>
+<ul>
+<li>The LOCK LED will be illuminated when the firmware is in STATE_GNSS_PHASE_LOCK</li>
+<li>PPS output will be started when entering STATE_GNSS_PHASE_LOCK for the first time</li>
+<li>This state uses a conventional PLL to drive the <code>tcxoClockBias_ms</code> (<code>RxClkBias</code>) to zero</li>
+<li>The P and I terms are <code>Pk</code> and <code>Ik</code></li>
+<li>When entering STATE_GNSS_PHASE_LOCK from STATE_GNSS_FREQUENCY_LOCK, the P and I terms are ramped from <code>PkRamp</code> and <code>IkRamp</code> to <code>Pk</code> and <code>Ik</code> over <code>phaseLockPIRampTime_s</code> (120s)<ul>
+<li>This helps to avoid shocking the PI loop and sending the bias off for a walk...</li>
+</ul>
+</li>
+</ul>
 <p>The firmware monitors the <strong>PVTGeodetic RxClkBias</strong> (as 64-bit float in milliseconds). When <strong>RxClkBias</strong> is positive, receiver time is ahead of system time and the oscillator frequency should be reduced. When <strong>RxClkBias</strong> is negative, receiver time is behind system time and the oscillator frequency should be increased. The firmware will adjust the oscillator frequency via its Digital Frequency Control register accordingly. As per Appendix D, the frequency will be changed by no more than 3ppb per second.</p>
 <p>The Proportional (P) and Integral (I) terms can be adjusted via the <a href="../software_overview/#configure-operation">ESP32 firmware settings</a>.</p>
 <p>The Pulse-Per-Second parameters can be configured by the user through the <a href="../software_overview/#configure-operation">ESP32 firmware settings</a>: interval, polarity, delay, time scale, max sync age, pulse width.</p>
@@ -1519,7 +1531,7 @@ The firmware no longer performs a soft reset if the bias is excessive on startup
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 14, 2026 16:26:51 UTC"><span class="timeago" datetime="2026-04-14T16:26:51+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 14, 2026 16:26:51 UTC">2026-04-14</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 15, 2026 15:55:34 UTC"><span class="timeago" datetime="2026-04-15T15:55:34+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 15, 2026 15:55:34 UTC">2026-04-15</span>
   </span>
 
     
