@@ -28,9 +28,32 @@ icon: material/book-open-page-variant
 	</article>
 
 
--	Designed and manufactured in Boulder, Colorado, USA, the SparkPNT GNSSDO is the perfect solution for your high-precision timing needs. Based around the multi-constellation, multi-frequency, L5-ready mosaic-T from Septentrio, this is our most accurate GNSS timing product to date. It features a SiTime SiT5358 disciplined 10MHz Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO) providing excellent clock accuracy, stability and holdover. The mosaic-T also has built-in on-module support for the Fugro AtomiChron L-band timing service.
+-   <a href="https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator-plus.html">
+	**GNSSDO+**<br>
+	**SKU:** GPS-30777
 
-	Under the hood, the GNSSDO is based on the mosaic-T GNSS module from Septentrio, plus the Espressif ESP32-WROVER processor (16MB flash, 8MB PSRAM). The mosaic-T has USB-C connectivity (with Ethernet-over-USB), multiple UARTs and supports full Ethernet connectivity. You can connect the mosaic-T directly to your Ethernet network - our product supports Power-over-Ethernet too. The ESP32 rides shotgun, disciplining the DCTCXO and controlling the OLED display. The GNSSDO has multiple power options including USB-C, PoE and 9V-36V DC, making it easy to connect it to a battery-backed supply. Robust SMA connections and screw cage terminals provide access to the Pulse-Per-Second and 10MHz clock signals.
+	---
+
+	<figure markdown>
+	![Product Thumbnail](https://cdn.sparkfun.com/assets/parts/2/7/2/0/7/26289-GNSS-Disciplined-Oscillator-Front-Lit.jpg)
+	</figure></a>
+
+
+	<article class="video-500px" style="text-align: center; margin: auto;" markdown>
+	<iframe src="https://www.youtube.com/embed/WI0NbXBxeUo" title="Product Showcase Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+	![QR code to product video](./assets/img/qr_code/product_video.png){ .qr width=100 }
+	</article>
+
+
+	<article style="text-align: center;" markdown>
+	[Purchase from SparkFun :fontawesome-solid-cart-plus:{ .heart } ![QR code to product page](./assets/img/qr_code/product-low.png){ .tinyqr }](https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator.html){ .md-button .md-button--primary }
+	</article>
+
+
+-	Designed and manufactured in Boulder, Colorado, USA, the SparkPNT GNSSDO / GNSSDO+ are the perfect solution for your high-precision timing needs. Based around the multi-constellation, multi-frequency, L5-ready mosaic-T from Septentrio, these are our most accurate GNSS timing product to date. The GNSSDO features a SiTime SiT5358 disciplined 10MHz Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO) providing excellent clock accuracy and stability. The GNSSDO+ gets an upgrade from the Rakon STP3593LF disciplined 10MHz Digitally-Controlled Double-Oven Crystal Oscillator (OCXO) providing superb clock accuracy, stability and holdover. The mosaic-T also has built-in on-module support for the Fugro AtomiChron L-band timing service.
+
+	Under the hood, the GNSSDO and GNSSDO+ are based on the mosaic-T GNSS module from Septentrio, plus the Espressif ESP32-WROVER processor (16MB flash, 8MB PSRAM). The mosaic-T has USB-C connectivity (with Ethernet-over-USB), multiple UARTs and supports full Ethernet connectivity. You can connect the mosaic-T directly to your Ethernet network - our product supports Power-over-Ethernet too. The ESP32 rides shotgun, disciplining the oscillator and controlling the OLED display. The GNSSDO and GNSSDO+ have multiple power options including USB-C, PoE and 9V-36V DC, making it easy to connect them to a battery-backed supply. Robust SMA connections and screw cage terminals provide access to the Pulse-Per-Second and 10MHz clock signals.
 
 
 	??? info "Features"
@@ -55,13 +78,20 @@ icon: material/book-open-page-variant
 			- **RTK is not supported**
 		- ESP32-WROVER processor (16MB flash, 8MB PSRAM)
 			- USB-C interface (UART via CH340)
-		- SiT5358 disciplined 10MHz oscillator
+		- GNSSDO: SiT5358 disciplined 10MHz oscillator
 			- ±50ppb stability
 			- ±1ppb/°C frequency slope
 			- ±58ppb typical 20-year aging
 			- Digital frequency pulling via I²C
 			- [Allan Deviation](./assets/img/hookup_guide/Allan_Deviation.jpg) approaches 1E-14 at 10000 seconds with AtomiChron enabled
 			- Operating temperature: -40 to 85 °C (Industrial)
+		- GNSSDO+: STP3593LF disciplined 10MHz oscillator
+			- better than 50ppb frequency calibration at 25°C
+			- ±0.2ppb per day frequency stability (aging)
+			- ±0.03ppb frequency stability with temperature (-32°C to +70°C)
+			- Digital frequency pulling via I²C
+			- [Allan Deviation](./assets/img/hookup_guide/GNSSDO+_Allan_Deviation.png) below 1E-14 at 10000 seconds with AtomiChron<sup>®</sup> enabled
+			- Operating temperature: -32 to 70 °C
 		- microSD socket
 			- Connected directly to the mosaic-T for fast data logging
 		- OLED display
@@ -72,9 +102,13 @@ icon: material/book-open-page-variant
 	??? info "Connectivity Options"
 		- SMA Connections:
 			- GNSS Antenna (L1/L2/L5/L-Band) - provides 3.3V for an active antenna
-			- 10MHz Output - disciplined, configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
-			- 10MHz Input - switchable, input impedance 50Ω, detection level -14dBm, max supported level +12dBm
-			- Pulse-Per-Second Square Wave - configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
+			- GNSSDO:
+				- 10MHz Output - disciplined, configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
+				- 10MHz Input - switchable, input impedance 50Ω, detection level -14dBm, max supported level +12dBm
+				- Pulse-Per-Second Square Wave - configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
+			- GNSSDO+:
+				- 10MHz Output - disciplined, 3.3V
+				- Pulse-Per-Second Square Wave - 3.3V, aligned to the 10MHz clock signal
 			- EventA Input - configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
 		-	3.5mm Screw Cage Connections:
 			- 9V-36V DC input (isolated)
@@ -82,12 +116,16 @@ icon: material/book-open-page-variant
 			- mosaic-T COM2 (TX/RX/CTS/RTS) - 3.3V / 5V switchable
 			- CTS can be configured as a 3.3V / 5V power output via a solder jumper
 			- EventB input - 3.3V / 5V switchable
-			- I^2^C (SCL2 / SDA2) for an external TCXO / OCXO - 3.3V / 5V switchable
+			- GNSSDO:
+				- I^2^C (SCL2 / SDA2) for an external TCXO / OCXO - 3.3V / 5V switchable
+			- GNSSDO+:
+				- mosaic-T GP1 and GP2 outputs - 3.3V / 5V switchable
 		-	Ethernet:
 			- KSZ8041NLI Ethernet PHY interface
 			- 10Base-T / 100Base-TX with auto-negotiate and Auto MDI/MDI-X
 		-	Power Options:
 			- USB-C
+				- GNSSDO+ requires a Power Delivery Wall Adapter
 			- Power-over-Ethernet (PoE)
 			- 9V-36V DC input (fully isolated)
 
@@ -140,6 +178,13 @@ icon: material/book-open-page-variant
 		![Product Thumbnail](./assets/img/product_comparison/rtk_mosaic-x5.png)
 		</figure>
 	</th>
+	<th markdown style="text-align:center">
+		GNSSDO+<br>
+		<hr>
+		<figure markdown>
+		![Product Thumbnail](./assets/img/product_comparison/rtk_mosaic-x5.png)
+		</figure>
+	</th>
 	</tr>
 	<tr>
 		<td>RTK Rover</td>
@@ -148,6 +193,7 @@ icon: material/book-open-page-variant
 		<td style="text-align:center">Yes</td>
 		<td style="text-align:center">Yes</td>
 		<td style="text-align:center">**No**</td>
+		<td style="text-align:center">**No**</td>
 	</tr>
 	<tr>
 		<td>RTK Base</td>
@@ -155,6 +201,7 @@ icon: material/book-open-page-variant
 		<td style="text-align:center">Yes</td>
 		<td style="text-align:center">Yes</td>
 		<td style="text-align:center">Yes</td>
+		<td style="text-align:center">**No**</td>
 		<td style="text-align:center">**No**</td>
 	</tr>
 	<tr>
@@ -167,11 +214,13 @@ icon: material/book-open-page-variant
 		<td style="text-align:center; vertical-align:middle;">Single</td>
 		<td style="text-align:center; vertical-align:middle;">Single</td>
 		<td style="text-align:center; vertical-align:middle;">Single</td>
+		<td style="text-align:center; vertical-align:middle;">Single</td>
 	</tr>
 	<tr>
 		<td>USB Connector</td>
 		<td style="text-align:center">micro-B</td>
 		<td style="text-align:center">micro-B</td>
+		<td style="text-align:center">Type-C</td>
 		<td style="text-align:center">Type-C</td>
 		<td style="text-align:center">Type-C</td>
 		<td style="text-align:center">Type-C</td>
@@ -192,6 +241,10 @@ icon: material/book-open-page-variant
 			Yes<br>
 			<i>10/100 Base-T</i>
 		</td>
+		<td style="text-align:center">
+			Yes<br>
+			<i>10/100 Base-T</i>
+		</td>
 	</tr>
 	<tr>
 		<td style="vertical-align:middle;">WiFi</td>
@@ -202,6 +255,7 @@ icon: material/book-open-page-variant
 			Yes - Network Bridge<br>
 			<i>10 Base-T</i>
 		</td>
+		<td style="text-align:center; vertical-align:middle;">No</td>
 		<td style="text-align:center; vertical-align:middle;">No</td>
 	</tr>
 	<tr>
@@ -217,9 +271,14 @@ icon: material/book-open-page-variant
 			1 - mosaic-T<br>
 			1 - ESP32
 		</td>
+		<td style="text-align:center">
+			1 - mosaic-T<br>
+			1 - ESP32
+		</td>
 	</tr>
 	<tr>
 		<td>&micro;SD Card Slot</td>
+		<td style="text-align:center">Yes</td>
 		<td style="text-align:center">Yes</td>
 		<td style="text-align:center">Yes</td>
 		<td style="text-align:center">Yes</td>
@@ -233,6 +292,7 @@ icon: material/book-open-page-variant
 		<td style="text-align:center; vertical-align:middle;">Yes</td>
 		<td style="text-align:center; vertical-align:middle;">Yes</td>
 		<td style="text-align:center; vertical-align:middle;">Yes</td>
+		<td style="text-align:center">Yes</td>
 	</tr>
 	<tr>
 		<td style="vertical-align:middle;">Logic-Level</td>
@@ -250,6 +310,10 @@ icon: material/book-open-page-variant
 			3.3V<br>
 			5V
 		</td>
+		<td style="text-align:center">
+			3.3V<br>
+			5V
+		</td>
 	</tr>
 	<tr>
 		<td>PPS Signal</td>
@@ -257,6 +321,7 @@ icon: material/book-open-page-variant
 		<td style="text-align:center">6-Pin JST Connector</td>
 		<td style="text-align:center">SMA Connector</td>
 		<td style="text-align:center">Screw Terminal</td>
+		<td style="text-align:center">SMA Connector</td>
 		<td style="text-align:center">SMA Connector</td>
 	</tr>
 	<tr>
@@ -272,6 +337,10 @@ icon: material/book-open-page-variant
 			SMA Connector<br>
 			<i>In/Out</i>
 		</td>
+		<td style="text-align:center">
+			SMA Connector<br>
+			<i>Out only</i>
+		</td>
 	</tr>
 	<tr>
 		<td>Enclosure Material</td>
@@ -280,12 +349,17 @@ icon: material/book-open-page-variant
 		<td style="text-align:center; vertical-align:middle;">N/A</td>
 		<td style="text-align:center; vertical-align:middle;">Aluminum</td>
 		<td style="text-align:center; vertical-align:middle;">Aluminum</td>
+		<td style="text-align:center; vertical-align:middle;">Aluminum</td>
 	</tr>
 	<tr>
 		<td style="vertical-align:middle;">Dimensions</td>
 		<td style="text-align:center; vertical-align:middle;">N/A</td>
 		<td style="text-align:center; vertical-align:middle;">71 x 59 x 12mm ± 1mm</td>
 		<td style="text-align:center; vertical-align:middle;">70.9 x 50.8 x 8mm</td>
+		<td style="text-align:center">
+			180.6 x 101.8 x 41mm<br>
+			<i>Enclosure Only</i>
+		</td>
 		<td style="text-align:center">
 			180.6 x 101.8 x 41mm<br>
 			<i>Enclosure Only</i>
@@ -308,6 +382,10 @@ icon: material/book-open-page-variant
 			415.15g<br>
 			<i>Enclosure Only</i>
 		</td>
+		<td style="text-align:center">
+			415.15g<br>
+			<i>Enclosure Only</i>
+		</td>
 	</tr>
 	
 	</table>
@@ -320,7 +398,7 @@ icon: material/book-open-page-variant
 
 
 ## :fontawesome-solid-list-check: Required Materials
-The GNSSDO comes with everything you need to get up and running.
+The GNSSDO / GNSSDO+ comes with everything you need to get up and running.
 
 **Kit Contents**
 

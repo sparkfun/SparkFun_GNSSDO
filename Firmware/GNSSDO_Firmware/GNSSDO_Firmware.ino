@@ -3,9 +3,9 @@
   SparkFun Electronics
   Paul Clark
 
-  This is the firmware for the SparkFun SparkPNT GNSSDO.
-  It runs on an ESP32 and communicates with the mosaic-T and SiT5358.
-  The SiTime SiT5811 and Rakon STP3593LF are also supported.
+  This is the firmware for the SparkFun SparkPNT GNSSDO / GNSSDO+.
+  It runs on an ESP32 and communicates with the mosaic-T and SiT5358 / STP3593LF.
+  The SiTime SiT5811 is also supported.
 
   Compiled with arduino-cli with ESP32 core v3.0.7
 
@@ -43,6 +43,40 @@
   2.2: Add support for the MS8607 PHT sensor on GNSSDO Plus (GNSSDO+) - v02 PCB
          The MS8607 pressure, temperature and humidity are included in the periodic reports
          The OLED will display the temperature: to the right of "Error", when space is available
+  3.0: Improved TCXO / OCXO startup - with no PPS uncertainty from StartupSync
+         The firmware no longer uses setClockSyncThreshold (scst) StartupSync. StartupSync is off
+           This prevents a shift in PPS with respect to the clock
+           But it does mean that the initial bias error can be up to 500us and it can take a long
+           time (~30 minutes) to get the bias down to zero by ramping the frequency
+         The firmware no longer performs a soft reset if the bias is excessive on startup
+         In STATE_GNSS_CONFIGURED
+           The firmware waits for the ReceiverTime FINETIME bit to be set, indicating
+           the setClockSyncThreshold Threshold (usec500) has been achieved
+         In STATE_TCXO_WARMUP (GNSSDO+ only)
+           The firmware waits for tcxoMinWarmup_s and for the OCXO temperature to become stable
+         In STATE_GNSS_FINETIME
+           The firmware disciplines the TCXO / OCXO frequency in a simple frequency locked loop
+           The firmware exits this state when the change in the tcxoClockBias_ms (RxClkBias)
+           is better than the specified rxStabilityForFrequencyLock
+           The PI loop uses PkSteer and IkSteer when frequency locking
+         In STATE_GNSS_FREQUENCY_LOCK
+           The TCXO / OCXO bias is driven towards zero
+           The initial bias error can be up to 500us, so we need to ramp the TCXO frequency one way
+           ('up') and then back again ('down')
+           We slowly accelerate the change in frequency, maintain it at tcxoRampRateLimit_sps, then decelerate
+           The acceleration is set by the tcxoRampStepSize_s: 0.5ns/s for the STP3593; the SiT5358 can accelerate faster
+           The ramps help to avoid blowing up the integrator
+           When the ramps are complete, the tcxoClockBias_ms (RxClkBias) is re-checked
+           This state is repeated if the bias is still excessive (> rxPhaseErrorLimit_s)
+           The PI loop uses PkRamp and IkRamp when following the ramps
+         In STATE_GNSS_PHASE_LOCK
+           The LOCK LED will be illuminated when the firmware is in STATE_GNSS_PHASE_LOCK
+           PPS output will be started when entering STATE_GNSS_PHASE_LOCK for the first time
+           This state uses a conventional PLL to drive the tcxoClockBias_ms (RxClkBias) to zero
+           The P and I terms are Pk and Ik
+           When entering STATE_GNSS_PHASE_LOCK from STATE_GNSS_FREQUENCY_LOCK, the P and I terms
+           are ramped from PkRamp and IkRamp to Pk and Ik over phaseLockPIRampTime_s (120s)
+           This helps to avoid shocking the PI loop and sending the bias off for a walk...
 */
 
 // This is passed in from compiler extra flags
@@ -135,32 +169,32 @@ unsigned long syncRTCInterval = 1000; // To begin, sync RTC every second. Interv
 // These globals are updated regularly via the SBF parser
 
 // ReceiverTime 5914
-unsigned long gnssTimeArrivalMillis = 0;
-bool gnssTimeUpdated[3] = { false, false, false }; // RTC, TCXO, printConditions
-uint32_t gnssTOW_ms = 0;
-uint8_t gnssDay = 0;
-uint8_t gnssMonth = 0;
-uint16_t gnssYear = 0;
-uint8_t gnssHour = 0;
-uint8_t gnssMinute = 0;
-uint8_t gnssSecond = 0;
-bool gnssWNSet = false;
-bool gnssToWSet = false;
-bool gnssFineTime = false;
+volatile unsigned long gnssTimeArrivalMillis = 0;
+volatile bool gnssTimeUpdated[3] = { false, false, false }; // RTC, TCXO, printConditions
+volatile uint32_t gnssTOW_ms = 0;
+volatile uint8_t gnssDay = 0;
+volatile uint8_t gnssMonth = 0;
+volatile uint16_t gnssYear = 0;
+volatile uint8_t gnssHour = 0;
+volatile uint8_t gnssMinute = 0;
+volatile uint8_t gnssSecond = 0;
+volatile bool gnssWNSet = false;
+volatile bool gnssToWSet = false;
+volatile bool gnssFineTime = false;
 
 // PVTGeodetic 4007
-unsigned long gnssPVTArrivalMillis = 0;
-bool gnssPVTUpdated = false;
-double gnssLatitude_d = 0.0;
-double gnssLongitude_d = 0.0;
-float gnssAltitude_m = 0.0;
-uint8_t gnssTimeSys = 255; // Unknown
-uint8_t gnssError = 255; // Unknown
-double gnssClockBias_ms = 0.0;
-float gnssClockDrift_ppm = 0.0;
+volatile unsigned long gnssPVTArrivalMillis = 0;
+volatile bool gnssPVTUpdated = false;
+volatile double gnssLatitude_d = 0.0;
+volatile double gnssLongitude_d = 0.0;
+volatile float gnssAltitude_m = 0.0;
+volatile uint8_t gnssTimeSys = 255; // Unknown
+volatile uint8_t gnssError = 255; // Unknown
+volatile double gnssClockBias_ms = 0.0;
+volatile float gnssClockDrift_ppm = 0.0;
 
 // IPStatus 4058
-uint8_t ethernetMACAddress[6] = { 0,0,0,0,0,0 }; // Display this address in the system menu
+volatile uint8_t ethernetMACAddress[6] = { 0,0,0,0,0,0 }; // Display this address in the system menu
 IPAddress gnssIP = IPAddress((uint32_t)0);
 
 // ReceiverSetup 5902
@@ -424,7 +458,7 @@ void setup()
     tasksStartUART1();
 
     DMW_c("beginTCXO");
-    beginTCXO(i2cTCXO); // Configure SiTime oscillator
+    beginTCXO(i2cTCXO, true); // Configure oscillator
 
     DMW_c("beginPHT");
     beginPHT(i2cPHT); // Configure PHT sensor
@@ -454,6 +488,9 @@ void loop()
 
     DMW_c("updatePHT");
     updatePHT(); // Read the pressure, temperature and humidity
+
+    DMW_c("updateTcxoTemperature");
+    updateTcxoTemperature(); // Read the TCXO temperature sensor - if present
 
     DMW_c("updateDisplay");
     updateDisplay();
@@ -543,9 +580,23 @@ void updatePHT()
 
     if (online.pht) // Only do this if the PHT is online
     {
-        if ((millis() - previousUpdate) > 500) // Update twice per second
+        if ((millis() - previousUpdate) > 1000) // Update once per second
         {
             phtSensor->read_temperature_pressure_humidity(&temperature, &pressure, &humidity);
+            previousUpdate = millis();
+        }
+    }
+}
+
+void updateTcxoTemperature()
+{
+    static unsigned long previousUpdate = 0;
+
+    if (presentTcxoTemperature) // Only do this if the sensor is present
+    {
+        if ((millis() - previousUpdate) > 1000) // Update once per second
+        {
+            tcxoTemperature = (double)myTCXO->getTcxoTemperature();
             previousUpdate = millis();
         }
     }

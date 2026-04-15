@@ -31,7 +31,7 @@ Everything that is included in the GNSSDO kit.
 </div>
 
 <div markdown>
-The GNSSDO comes packaged as a complete kit, with all the accessories you'd need to set it up. Inside the box, users will find the [GNSS antenna](https://www.sparkfun.com/gnss-multi-band-l1-l2-l5-surveying-antenna-tnc-spk6618h.html), GNSSDO in its aluminum enclosure, [CAT-6 Ethernet cable](https://www.sparkfun.com/cat-6-cable-3ft.html), [USB-C cable](https://www.sparkfun.com/usb-c-to-usb-c-silicone-power-charging-cable-3m.html), and another box containing additional accessories. Inside the accessory box, users will find the [SMA to TNC cable](https://www.sparkfun.com/reinforced-interface-cable-sma-male-to-tnc-male-10m.html), [SMA to BNC cable](https://www.sparkfun.com/sma-to-bnc-male-cable-rg316-1m.html), [USB PD wall adapter](https://www.sparkfun.com/usb-a-and-c-power-delivery-pd-wall-adapter-65w.html), [WiFi antenna](https://www.sparkfun.com/products/145), [silicone bumpers](https://www.sparkfun.com/silicone-bumpers-5x11mm-4-pack.html), and [32GB SD card](https://www.sparkfun.com/microsd-card-32gb-class-10.html).
+The GNSSDO and GNSSDO+ come packaged as a complete kit, with all the accessories you'd need to set them up. Inside the box, users will find the [GNSS antenna](https://www.sparkfun.com/gnss-multi-band-l1-l2-l5-surveying-antenna-tnc-spk6618h.html), GNSSDO(+) in its aluminum enclosure, [CAT-6 Ethernet cable](https://www.sparkfun.com/cat-6-cable-3ft.html), [USB-C cable](https://www.sparkfun.com/usb-c-to-usb-c-silicone-power-charging-cable-3m.html), and another box containing additional accessories. Inside the accessory box, users will find the [SMA to TNC cable](https://www.sparkfun.com/reinforced-interface-cable-sma-male-to-tnc-male-10m.html), [SMA to BNC cable](https://www.sparkfun.com/sma-to-bnc-male-cable-rg316-1m.html), [USB PD wall adapter](https://www.sparkfun.com/usb-a-and-c-power-delivery-pd-wall-adapter-65w.html), [WiFi antenna](https://www.sparkfun.com/products/145), [silicone bumpers](https://www.sparkfun.com/silicone-bumpers-5x11mm-4-pack.html), and [32GB SD card](https://www.sparkfun.com/microsd-card-32gb-class-10.html).
 
 If you are missing any of these items, please reach out to us in our forum.
 
@@ -132,8 +132,8 @@ Once the terminal blocks have been removed, users can remove the front and rear 
 At this point, if users have previously disconnected all the cables and the terminal blocks from the back, the GNSSDO PCB should slide out of the enclosure. Users can then, remove the rear panel from the enclosure to complete the teardown process.
 
 
-## Clock Frequency Reference
-The mosaic-T module can either use its internal TCXO or accept an external signal as a frequency reference. However, the module will constantly reboot if the `REF_I` pin isn't provided a 10MHz sinusoidal signal and left floating. Therefore, users should only set the `10MHz` switch to the `IN` position, only if a 10MHz clock signal can be provided; otherwise, the switch should remain in the `OUT` position.
+## GNSSDO Clock Frequency Reference
+The mosaic-T module can either use its internal TCXO or accept an external signal as a frequency reference. However, the module will constantly reboot if the `REF_I` pin isn't provided a 10MHz sinusoidal signal and left floating. Therefore, GNSSDO users should only set the `10MHz` switch to the `IN` position, only if a 10MHz clock signal can be provided; otherwise, the switch should remain in the `OUT` position.
 
 !!! note
 	Switching between an external and internal frequency reference must occur when the mosaic-T is powered off, or the module must be reset after switching.

@@ -19,15 +19,17 @@ class GNSSDO_TCXO
         // int64_t can contain all three
         virtual int64_t getFrequencyControlWord(void);
 
+        // Set the frequency control word - useful when resetting the integrator
+        virtual bool setFrequencyControlWord(int64_t controlWord);
+
         // Set the frequency by bias millis
         virtual bool setFrequencyByBiasMillis(double bias, double Pk, double Ik);
 
         // Save the frequency control word - if supported
         virtual bool saveFrequencyControlValue(void);
 
-        // Get the default P and I terms - for the default settings
-        virtual double getDefaultFrequencyByBiasPTerm(void);
-        virtual double getDefaultFrequencyByBiasITerm(void);
+        // Read the temperature sensor - if present
+        virtual uint16_t getTcxoTemperature(void);
 };
 
 #endif // /__SFE_GNSSDO_TCXO__

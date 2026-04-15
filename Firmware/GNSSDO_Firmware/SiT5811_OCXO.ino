@@ -19,6 +19,12 @@ int64_t GNSSDO_SIT5811::getFrequencyControlWord(void)
     return (int64_t)_SiT5811->getFrequencyControlWord();
 }
 
+// Set the frequency control word
+bool GNSSDO_SIT5811::setFrequencyControlWord(int64_t controlWord)
+{
+    return _SiT5811->setFrequencyControlWord(controlWord);
+}
+
 // Set the frequency by bias millis
 bool GNSSDO_SIT5811::setFrequencyByBiasMillis(double bias, double Pk, double Ik)
 {
@@ -29,4 +35,10 @@ bool GNSSDO_SIT5811::setFrequencyByBiasMillis(double bias, double Pk, double Ik)
 bool GNSSDO_SIT5811::saveFrequencyControlValue(void)
 {
     return false;
+}
+
+// Read the temperature sensor - if present
+uint16_t GNSSDO_SIT5811::getTcxoTemperature(void)
+{
+    return 0;
 }

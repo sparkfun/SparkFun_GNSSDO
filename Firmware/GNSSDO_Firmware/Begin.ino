@@ -304,7 +304,7 @@ void updateErrorLED()
 
 void updateLockLED()
 {
-    digitalWrite(pin_lockLED, (fabs(tcxoClockBias_ms) < settings.rxClkBiasLockLimit_ms) ? HIGH : LOW);
+    digitalWrite(pin_lockLED, systemState >= STATE_GNSS_PHASE_LOCK ? HIGH : LOW);
 }
 
 // Depending on platform and previous power down state, set system state
@@ -506,6 +506,8 @@ void pinI2C2Task(void *pvParameters)
                 case SFE_GNSSDO_OSC_STP3593LF: {
                     systemPrintf("0x%02x - STP3593LF TCXO\r\n", addr);
                     presentSTP3593LF = true;
+                    presentTcxoTemperature = true;
+                    presentTcxoSaveControl = true;
                     i2cTCXO = i2c_2;
                     break;
                 }
@@ -525,7 +527,7 @@ void pinI2C2Task(void *pvParameters)
     vTaskDelete(nullptr); // Delete task once it has run once
 }
 
-void beginTCXO(TwoWire *i2cBus)
+void beginTCXO(TwoWire *i2cBus, bool printOCXO)
 {
     if (myTCXO != nullptr)
     {
@@ -556,12 +558,21 @@ void beginTCXO(TwoWire *i2cBus)
         {
             // Update the default P and I terms to match a new oscillator
             settings.lastSeenTCXO = SFE_GNSSDO_OSC_STP3593LF;
-            settings.Pk = myTCXO->getDefaultFrequencyByBiasPTerm();
-            settings.Ik = myTCXO->getDefaultFrequencyByBiasITerm();
+            settings.PkSteer = 0.2;
+            settings.IkSteer = 0.5;
+            settings.PkRamp = 0.4;
+            settings.IkRamp = 0.4;
+            settings.Pk = (1.0 / 6.25);
+            settings.Ik = ((1.0 / 6.25) / 150.0);
+            settings.tcxoRampRateLimit_sps = 250.0e-9;
+            settings.tcxoRampStepSize_s = 0.5e-9;
+            settings.tcxoRampAsymmetry = 1.0;
+            settings.minimumRampRepeats = 2;
             recordSystemSettings();
         }
         
-        systemPrintln("Using STP3593LF OCXO");
+        if (printOCXO)
+            systemPrintln("Using STP3593LF OCXO");
         strncpy(oscillatorType, "STP3593LF OCXO", sizeof(oscillatorType));
     }
     else if (presentSIT5811)
@@ -574,13 +585,23 @@ void beginTCXO(TwoWire *i2cBus)
         if (settings.lastSeenTCXO != SFE_GNSSDO_OSC_SIT5811)
         {
             // Update the default P and I terms to match a new oscillator
+            // *** TODO ***
             settings.lastSeenTCXO = SFE_GNSSDO_OSC_SIT5811;
-            settings.Pk = myTCXO->getDefaultFrequencyByBiasPTerm();
-            settings.Ik = myTCXO->getDefaultFrequencyByBiasITerm();
+            settings.PkSteer = 0.5;
+            settings.IkSteer = 0.1;
+            settings.PkRamp = 0.5;
+            settings.IkRamp = 0.1;
+            settings.Pk = 0.5;
+            settings.Ik = 0.1;
+            settings.tcxoRampRateLimit_sps = 250.0e-9;
+            settings.tcxoRampStepSize_s = 1.0e-9;
+            settings.tcxoRampAsymmetry = 1.0;
+            settings.minimumRampRepeats = 1;
             recordSystemSettings();
         }
         
-        systemPrintln("Using SiT5811 OCXO");
+        if (printOCXO)
+            systemPrintln("Using SiT5811 OCXO");
         strncpy(oscillatorType, "SiT5811 OCXO", sizeof(oscillatorType));
     }
     else if (presentSIT5358)
@@ -594,12 +615,21 @@ void beginTCXO(TwoWire *i2cBus)
         {
             // Update the default P and I terms to match a new oscillator
             settings.lastSeenTCXO = SFE_GNSSDO_OSC_SIT5358;
-            settings.Pk = myTCXO->getDefaultFrequencyByBiasPTerm();
-            settings.Ik = myTCXO->getDefaultFrequencyByBiasITerm();
+            settings.PkSteer = 0.63;
+            settings.IkSteer = 0.151;
+            settings.PkRamp = 0.63;
+            settings.IkRamp = 0.5;
+            settings.Pk = 0.63;
+            settings.Ik = 0.151;
+            settings.tcxoRampRateLimit_sps = 500.0e-9;
+            settings.tcxoRampStepSize_s = 1.0e-9;
+            settings.tcxoRampAsymmetry = 1.0;
+            settings.minimumRampRepeats = 1;
             recordSystemSettings();
         }
         
-        systemPrintln("Using SiT5358 TCXO");
+        if (printOCXO)
+            systemPrintln("Using SiT5358 TCXO");
         strncpy(oscillatorType, "SiT5358 TCXO", sizeof(oscillatorType));
     }
     else
@@ -616,12 +646,24 @@ void beginTCXO(TwoWire *i2cBus)
     online.tcxo = true;
 }
 
-// This function updates the TCXO to discipline the frequency
+// This function updates the TCXO to discipline the frequency using the latest bias
 void updateTCXO()
+{
+    updateTCXO(tcxoClockBias_ms);
+}
+
+// This function updates the TCXO using the specified bias and the P&I terms from settings
+void updateTCXO(double bias_ms)
+{
+    updateTCXO(bias_ms, settings.Pk, settings.Ik);
+}
+
+// This function updates the TCXO using the specified bias and P&I terms
+void updateTCXO(double bias_ms, double P, double I)
 {
     if (online.tcxo)
     {
-        myTCXO->setFrequencyByBiasMillis(tcxoClockBias_ms, settings.Pk, settings.Ik);
+        myTCXO->setFrequencyByBiasMillis(bias_ms, P, I);
     }
 }
 
@@ -645,7 +687,7 @@ int64_t getFrequencyControlWord()
 }
 
 // This function updates the tcxoClockBias_ms used to discipline the TCXO frequency
-// updateTCXOClockBias is only called by STATE_GNSS_FINETIME when gnssPVTUpdated was true
+// updateTCXOClockBias is only called by (e.g.) STATE_GNSS_FINETIME when gnssPVTUpdated was true
 // So we know that gnssClockBias_ms is valid
 // Use gnssClockBias_ms as the default
 // If we have non-composite GPS from FugroTimeOffset, use that - if enabled

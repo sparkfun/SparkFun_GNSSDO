@@ -1,6 +1,6 @@
 # Documentation page information
-site_name: Product Manual - SparkPNT GNSSDO
-site_description: The product manual for the SparkPNT GNSSDO
+site_name: Product Manual - SparkPNT GNSSDO & GNSSDO+
+site_description: The product manual for the SparkPNT GNSSDO and GNSSDO+
 site_url: https://sparkfun.github.io/SparkFun_GNSSDO
 site_author: SparkPNT
 
@@ -403,6 +403,7 @@ nav:
   - Getting Started:
     - Introduction: introduction.md
     - Quick Start Guide: quick_start.md
+    - How It Works: how_it_works.md
     - Hardware Overview: hardware_overview.md
     - Hardware Assembly: hardware_assembly.md
     - Software Setup: software_overview.md

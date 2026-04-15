@@ -7,13 +7,15 @@ icon: material/book-open-page-variant
 - :sfe: [Product Page](https://https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator.html)
 - [Quick Start Guide](./assets/quick_start_guide-v10.pdf)
 - :material-folder-cog: Design Files:
-	- :fontawesome-solid-file-pdf: [Schematic](./assets/board_files/schematic.pdf)
+	- :fontawesome-solid-file-pdf: [GNSSDO Schematic](./assets/board_files/schematic.pdf)
+	- :fontawesome-solid-file-pdf: [GNSSDO+ Schematic](./assets/board_files/SparkPNT_GNSSDO_Plus_schematic.pdf)
 	- :fontawesome-solid-file-image: [Board Dimensions](./assets/board_files/dimensions.png)
 	- :fontawesome-solid-file-pdf: [Enclosure Dimensions](./assets/board_files/dimensions-enclosure.pdf)
 	- :fontawesome-solid-file-code: [ESP32 Firmware](https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/Firmware/GNSSDO_Firmware)
 - Datasheets:
 	- :fontawesome-solid-file-pdf: [mosaic-T Datasheet](./assets/component_documentation/mosaic_hardware_manual_v1.11.0.pdf)
 	- :fontawesome-solid-file-pdf: [SiT5358 Datasheet](./assets/component_documentation/SiT5358-datasheet.pdf)
+	- :fontawesome-solid-file-pdf: [STP3593LF Datasheet](./assets/component_documentation/STP3593LF_ROX5242T1N_Preliminary_Datasheet.pdf)
 	- :fontawesome-solid-file-pdf: [ESP32 Datasheet](./assets/component_documentation/esp32-wrover-e_datasheet_en.pdf)
 - :material-youtube: [SFE Product Showcase](https://www.youtube.com/watch?v=WI0NbXBxeUo)
 - :material-github: [Hardware Repo](https://github.com/sparkfun/SparkFun_GNSSDO)

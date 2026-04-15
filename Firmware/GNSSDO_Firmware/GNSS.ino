@@ -199,7 +199,7 @@ bool initializeGNSS()
         return false;
     }
 
-    if (!sendWithResponse("scst, usec500, on\n\r", "ClockSyncThreshold"))
+    if (!sendWithResponse("scst, usec500, off\n\r", "ClockSyncThreshold"))
     {
         systemPrintln("GNSS FAIL (ClockSyncThreshold)");
         return false;

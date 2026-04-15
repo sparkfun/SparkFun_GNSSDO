@@ -88,7 +88,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "SparkFun cap capacitor"
+			(property "ki_keywords" "SparkFun cap capacitor 100nF"
 				(at 0 0 0)
 				(effects
 					(font
@@ -252,7 +252,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "SparkFun cap capacitor"
+			(property "ki_keywords" "SparkFun cap capacitor 1nF 1000pF"
 				(at 0 0 0)
 				(effects
 					(font
@@ -416,7 +416,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "SparkFun cap capacitor"
+			(property "ki_keywords" "SparkFun cap capacitor 1uF"
 				(at 0 0 0)
 				(effects
 					(font
@@ -863,7 +863,7 @@
 					(hide yes)
 				)
 			)
-			(property "Footprint" "SparkFun-Connector:1x01"
+			(property "Footprint" "SparkFun-Connector:1x01_P2.54mm"
 				(at -1.27 -6.35 0)
 				(effects
 					(font
@@ -3805,7 +3805,7 @@
 			(uuid "d28f80ae-56d0-464f-9bea-3d7b17b00100")
 		)
 		(instances
-			(project ""
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/3c582527-c744-4af3-97cb-1f5f96664f58"
 					(reference "C66")
 					(unit 1)
@@ -3841,7 +3841,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "SparkFun-Connector:1x01"
+		(property "Footprint" "SparkFun-Connector:1x01_P2.54mm"
 			(at 92.71 54.61 0)
 			(effects
 				(font
@@ -3957,7 +3957,7 @@
 			(uuid "dadecf81-59e1-4aec-85eb-0b3fc9ebe8e1")
 		)
 		(instances
-			(project ""
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/3c582527-c744-4af3-97cb-1f5f96664f58"
 					(reference "U13")
 					(unit 1)
@@ -4361,7 +4361,7 @@
 			(uuid "8bc01364-dd10-46b7-83c1-a8c5db1746cd")
 		)
 		(instances
-			(project ""
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/3c582527-c744-4af3-97cb-1f5f96664f58"
 					(reference "R65")
 					(unit 1)
@@ -4514,7 +4514,7 @@
 			(uuid "c1589148-a849-4cbb-a934-e67b575d183e")
 		)
 		(instances
-			(project ""
+			(project "SparkPNT_GNSSDO_Plus"
 				(path "/e3dd3ae4-244d-4cba-9cca-5d2abf83f29a/3c582527-c744-4af3-97cb-1f5f96664f58"
 					(reference "U16")
 					(unit 1)
@@ -4696,7 +4696,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "SparkFun-Connector:1x01"
+		(property "Footprint" "SparkFun-Connector:1x01_P2.54mm"
 			(at 57.15 53.34 0)
 			(effects
 				(font
@@ -6087,7 +6087,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "SparkFun-Connector:1x01"
+		(property "Footprint" "SparkFun-Connector:1x01_P2.54mm"
 			(at 52.07 53.34 0)
 			(effects
 				(font

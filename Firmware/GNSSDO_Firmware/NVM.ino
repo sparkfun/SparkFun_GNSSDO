@@ -3,6 +3,11 @@ void loadSettings()
     loadSystemSettingsFromFileLFS(settingsFileName, &settings);
 }
 
+void printSettings()
+{
+    printSystemSettingsFromFileLFS(settingsFileName);
+}
+
 // Set the settingsFileName and coordinate file names used many places
 void setSettingsFileName()
 {
@@ -91,9 +96,12 @@ void recordSystemSettingsToFile(File *settingsFile)
     settingsFile->printf("%s=%0.6f\r\n", "ppsPulseWidth_ms", settings.ppsPulseWidth_ms);
 
     settingsFile->printf("%s=%lld\r\n", "tcxoControl", settings.tcxoControl);
-    settingsFile->printf("%s=%0.3e\r\n", "rxClkBiasInitialLimit_ms", settings.rxClkBiasInitialLimit_ms);
-    settingsFile->printf("%s=%0.3e\r\n", "rxClkBiasLockLimit_ms", settings.rxClkBiasLockLimit_ms);
-    settingsFile->printf("%s=%d\r\n", "rxClkBiasLimitCount", settings.rxClkBiasLimitCount);
+    settingsFile->printf("%s=%0.3e\r\n", "rxStabilityForFrequencyLock", settings.rxStabilityForFrequencyLock);
+    settingsFile->printf("%s=%0.3e\r\n", "rxPhaseErrorLimit_s", settings.rxPhaseErrorLimit_s);
+    settingsFile->printf("%s=%0.3e\r\n", "PkSteer", settings.PkSteer);
+    settingsFile->printf("%s=%0.3e\r\n", "IkSteer", settings.IkSteer);
+    settingsFile->printf("%s=%0.3e\r\n", "PkRamp", settings.PkRamp);
+    settingsFile->printf("%s=%0.3e\r\n", "IkRamp", settings.IkRamp);
     settingsFile->printf("%s=%0.3e\r\n", "Pk", settings.Pk);
     settingsFile->printf("%s=%0.3e\r\n", "Ik", settings.Ik);
     settingsFile->printf("%s=%d\r\n", "lastSeenTCXO", settings.lastSeenTCXO);
@@ -102,7 +110,13 @@ void recordSystemSettingsToFile(File *settingsFile)
     settingsFile->printf("%s=%d\r\n", "enableTCPServer", settings.enableTCPServer);
     settingsFile->printf("%s=%d\r\n", "tcpServerPort", settings.tcpServerPort);
     settingsFile->printf("%s=%d\r\n", "previousIP", settings.previousIP);
-    
+
+    settingsFile->printf("%s=%0.2f\r\n", "tcxoTemperatureStability", settings.tcxoTemperatureStability);
+    settingsFile->printf("%s=%d\r\n", "tcxoMinWarmup_s", settings.tcxoMinWarmup_s);
+    settingsFile->printf("%s=%0.3e\r\n", "tcxoRampRateLimit_sps", settings.tcxoRampRateLimit_sps);
+    settingsFile->printf("%s=%0.3e\r\n", "tcxoRampStepSize_s", settings.tcxoRampStepSize_s);
+    settingsFile->printf("%s=%0.3f\r\n", "tcxoRampAsymmetry", settings.tcxoRampAsymmetry);
+    settingsFile->printf("%s=%d\r\n", "minimumRampRepeats", settings.minimumRampRepeats);
 
     //settingsFile->printf("%s=%d\r\n", "", settings.);
 
@@ -129,6 +143,8 @@ bool loadSystemSettingsFromFileLFS(char *fileName, Settings *settings)
     char line[100];
     int lineNumber = 0;
 
+    bool printDebug = settings->printDebugMessages;
+
     while (settingsFile.available())
     {
         // Get the next line from the file
@@ -149,7 +165,7 @@ bool loadSystemSettingsFromFileLFS(char *fileName, Settings *settings)
                 return (false);
             }
         }
-        else if (parseLine(line, settings) == false)
+        else if (parseLine(line, settings, printDebug) == false)
         {
             systemPrintf("Failed to parse line %d: %s\r\n", lineNumber, line);
             if (lineNumber == 0)
@@ -172,30 +188,120 @@ bool loadSystemSettingsFromFileLFS(char *fileName, Settings *settings)
     return (true);
 }
 
+// Given a fileName, print the file contents
+// Returns true if some settings were printed from a file
+// Returns false if a file was not opened/loaded
+bool printSystemSettingsFromFileLFS(char *fileName)
+{
+    if (online.fs == false)
+        return false;
+        
+    File settingsFile = LittleFS.open(fileName, FILE_READ);
+    if (!settingsFile)
+    {
+        systemPrintf("settingsFile not found in LittleFS\r\n");
+        return (false);
+    }
+
+    systemPrintf("\r\nContents of %s\r\n", fileName);
+    systemPrintln("==================================================");
+
+    char line[100];
+    int lineNumber = 0;
+
+    while (settingsFile.available())
+    {
+        // Get the next line from the file
+        int n;
+        n = getLine(&settingsFile, line, sizeof(line));
+
+        if (n <= 0)
+        {
+            systemPrintf("Failed to read line %d from settings file\r\n", lineNumber);
+        }
+        else if (line[n - 1] != '\n' && n == (sizeof(line) - 1))
+        {
+            systemPrintf("Settings line %d too long\r\n", lineNumber);
+            if (lineNumber == 0)
+            {
+                // If we can't read the first line of the settings file, give up
+                systemPrintln("Giving up on settings file");
+                return (false);
+            }
+        }
+        else if (parseLine(line, nullptr, settings.printDebugMessages) == false)
+        {
+            systemPrintf("Failed to parse line %d: %s\r\n", lineNumber, line);
+            if (lineNumber == 0)
+            {
+                // If we can't read the first line of the settings file, give up
+                systemPrintln("Giving up on settings file");
+                return (false);
+            }
+        }
+
+        lineNumber++;
+        if (lineNumber > 400) // Arbitrary limit. Catch corrupt files.
+        {
+            systemPrintf("Giving up reading file: %s\r\n", fileName);
+            break;
+        }
+
+        line[n - 1] = '\0';
+        systemPrintln(line);
+    }
+
+    settingsFile.close();
+
+    systemPrintln("==================================================");
+    systemPrintln();
+
+    return (true);
+}
+
 // Convert a given line from file into a settingName and value
 // Sets the setting if the name is known
-bool parseLine(char *str, Settings *settings)
+bool parseLine(char *theLine, Settings *settings, bool printDebug)
 {
-    char *ptr;
+    // Make a copy. Manipulate the copy, not the original
+    size_t strLen = strnlen(theLine, 100);
+    if (strLen == 100)
+    {
+        if (printDebug)
+            systemPrintln("parseLine: line too long");
+        return false;
+    }
+    char strCopy[strLen + 1];
+    memcpy(strCopy, theLine, strLen + 1); // Copy the NULL
+    char *strPtr = strCopy;
+
+    // A health warning about strtok:
+    // strtok will convert any delimiters it finds ("=" in our case) into NULL characters.
+    // Also, be very careful that you do not use strtok within an strtok while loop.
+    // The next call of strtok(NULL, ...) in the outer loop will use the pointer saved from the inner loop!
+    // The same is true for tasks!
+    // The solution is to use strtok_r - the reentrant version of strtok
 
     // Set strtok start of line.
-    str = strtok(str, "=");
-    if (!str)
+    char *preservedPointer;
+    strPtr = strtok_r(strPtr, "=", &preservedPointer); // This will blow the = away
+    if (!strPtr)
     {
-        systemPrintln("parseLine Fail");
+        if (printDebug)
+            systemPrintln("parseLine: = fail");
         return false;
     }
 
     // Store this setting name
     char settingName[100];
-    snprintf(settingName, sizeof(settingName), "%s", str);
+    snprintf(settingName, sizeof(settingName), "%s", strPtr);
 
     double d = 0.0;
     char settingString[100] = "";
 
-    // Move pointer to end of line
-    str = strtok(nullptr, "\n");
-    if (!str)
+    // Move pointer past where the = was
+    strPtr = strtok_r(nullptr, "\n", &preservedPointer); // This will blow the \n away
+    if (!strPtr)
     {
         // This line does not contain a \n or the settingString is zero length
         // so there is nothing to parse
@@ -203,23 +309,22 @@ bool parseLine(char *str, Settings *settings)
     }
     else
     {
-        // if (strcmp(settingName, "ntripServer_CasterHost") == 0) //Debug
-        // if (strcmp(settingName, "profileName") == 0) //Debug
-        //   systemPrintf("Found problem spot raw: %s\r\n", str);
-
         // Assume the value is a string such as 8d8a48b. The leading number causes skipSpace to fail.
         // If settingString has a mix of letters and numbers, just convert to string
-        snprintf(settingString, sizeof(settingString), "%s", str);
+        snprintf(settingString, sizeof(settingString), "%s", strPtr);
 
         // Check if string is mixed: 8a011EF, 192.168.1.1, -102.4, t6-h4$, etc.
         bool hasSymbol = false;
         int decimalCount = 0;
+        int plusCount = 0;
         int minusCount = 0;
         int eCount = 0;
         for (int x = 0; x < strlen(settingString); x++)
         {
             if (settingString[x] == '.')
                 decimalCount++;
+            else if (settingString[x] == '+')
+                plusCount++; // One + is OK (scientific notation)
             else if (settingString[x] == '-')
                 minusCount++; // Multiple -'s are good (scientific notation)
             else if (settingString[x] == 'e')
@@ -230,26 +335,38 @@ bool parseLine(char *str, Settings *settings)
                 hasSymbol = true;
         }
 
-        if (hasSymbol || decimalCount > 1 || minusCount > 2 || eCount > 1)
+        if (hasSymbol || decimalCount > 1 || plusCount > 1 || minusCount > 2 || eCount > 1)
         {
             // It's a mess. Skip strtod.
+            if (printDebug)
+                systemPrintf("parseLine: skipping strtod: %s %s hasSymbol %d decimalCount %d plusCount %d minusCount %d eCount %d\r\n",
+                             settingName, settingString, hasSymbol, decimalCount, plusCount, minusCount, eCount);
         }
         else
         {
             // Attempt to convert string to double
-            d = strtod(str, &ptr);
+            char *dblPtr;
+            d = strtod(strPtr, &dblPtr);
 
             if (d == 0.0) // strtod failed, may be string or may be 0 but let it pass
             {
-                snprintf(settingString, sizeof(settingString), "%s", str);
+                snprintf(settingString, sizeof(settingString), "%s", strPtr);
             }
             else
             {
-                if (str == ptr || *skipSpace(ptr))
-                    return false; // Check str pointer
+                // Check that strtod extracted something and that the following character is NULL
+                if ((strPtr == dblPtr) || (*skipSpace(dblPtr) != '\0'))
+                {
+                    if (printDebug)
+                        systemPrintln("parseLine: strtod fail");
+                    return false;
+                }
             }
         }
     }
+
+    if (!settings)
+        return true;
 
     //systemPrintf("settingName: %s - value: %s - d: %0.9f\r\n", settingName, settingString, d);
 
@@ -357,12 +474,18 @@ bool parseLine(char *str, Settings *settings)
 
     else if (strcmp(settingName, "tcxoControl") == 0)
         settings->tcxoControl = d;
-    else if (strcmp(settingName, "rxClkBiasInitialLimit_ms") == 0)
-        settings->rxClkBiasInitialLimit_ms = d;
-    else if (strcmp(settingName, "rxClkBiasLockLimit_ms") == 0)
-        settings->rxClkBiasLockLimit_ms = d;
-    else if (strcmp(settingName, "rxClkBiasLimitCount") == 0)
-        settings->rxClkBiasLimitCount = d;
+    else if (strcmp(settingName, "rxStabilityForFrequencyLock") == 0)
+        settings->rxStabilityForFrequencyLock = d;
+    else if (strcmp(settingName, "rxPhaseErrorLimit_s") == 0)
+        settings->rxPhaseErrorLimit_s = d;
+    else if (strcmp(settingName, "PkSteer") == 0)
+        settings->PkSteer = d;
+    else if (strcmp(settingName, "IkSteer") == 0)
+        settings->IkSteer = d;
+    else if (strcmp(settingName, "PkRamp") == 0)
+        settings->PkRamp = d;
+    else if (strcmp(settingName, "IkRamp") == 0)
+        settings->IkRamp = d;
     else if (strcmp(settingName, "Pk") == 0)
         settings->Pk = d;
     else if (strcmp(settingName, "Ik") == 0)
@@ -379,6 +502,18 @@ bool parseLine(char *str, Settings *settings)
         settings->tcpServerPort = d;
     else if (strcmp(settingName, "previousIP") == 0)
         settings->previousIP = d;
+    else if (strcmp(settingName, "tcxoTemperatureStability") == 0)
+        settings->tcxoTemperatureStability = d;
+    else if (strcmp(settingName, "tcxoMinWarmup_s") == 0)
+        settings->tcxoMinWarmup_s = d;
+    else if (strcmp(settingName, "tcxoRampRateLimit_sps") == 0)
+        settings->tcxoRampRateLimit_sps = d;
+    else if (strcmp(settingName, "tcxoRampStepSize_s") == 0)
+        settings->tcxoRampStepSize_s = d;
+    else if (strcmp(settingName, "tcxoRampAsymmetry") == 0)
+        settings->tcxoRampAsymmetry = d;
+    else if (strcmp(settingName, "minimumRampRepeats") == 0)
+        settings->minimumRampRepeats = d;
 
     //else if (strcmp(settingName, "") == 0)
     //    settings-> = d;
@@ -388,7 +523,8 @@ bool parseLine(char *str, Settings *settings)
 
     else
     {
-        systemPrintf("Bad setting: %s - value: %s\r\n", settingName, settingString);
+        if (printDebug)
+            systemPrintf("Bad setting: %s - value: %s\r\n", settingName, settingString);
         return false;
     }
 
@@ -397,24 +533,40 @@ bool parseLine(char *str, Settings *settings)
 
 // The SD library doesn't have a fgets function like SD fat so recreate it here
 // Read the current line in the file until we hit a EOL char \r or \n
+// fgets removes the \r leaving only \n. getLine does the same thing
 int getLine(File *openFile, char *lineChars, int lineSize)
 {
     int count = 0;
-    while (openFile->available())
+    while (openFile->available() > 0)
     {
-        byte incoming = openFile->read();
-        if (incoming == '\r' || incoming == '\n')
+        // Read the next byte from the file
+        int data = openFile->read();
+
+        // Handle any file errors
+        if (data < 0)
+            return data;
+
+        // Get the data byte
+        byte incoming = (byte)data;
+        if (incoming == '\0')
         {
-            // Sometimes a line has multiple terminators
-            while (openFile->peek() == '\r' || openFile->peek() == '\n')
-                openFile->read(); // Dump it to prevent next line read corruption
-            break;
+            break; // Something bad happened...
         }
-
-        lineChars[count++] = incoming;
-
-        if (count == lineSize - 1)
-            break; // Stop before overun of buffer
+        else if (incoming == '\r')
+        {
+            // Skip \r. fgets does the same thing
+        }
+        else if (incoming == '\n')
+        {
+            lineChars[count++] = incoming; // Record the \n. fgets does the same thing
+            break; // We are done
+        }
+        else if ((incoming >= ' ') && (incoming <= '~')) // Reject non-printables
+        {
+            lineChars[count++] = incoming; // Record everything else
+            if (count == lineSize - 1)
+                break; // Stop before overrun of buffer
+        }
     }
     lineChars[count] = '\0'; // Terminate string
     return (count);

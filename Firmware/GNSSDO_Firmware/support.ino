@@ -368,26 +368,31 @@ long getNumber()
 }
 
 // Gets a double (float) from the user
-// Returns 0 for timeout and empty response
-double getDouble()
+bool getDouble(double &dbl)
 {
     char userEntry[50];
-    double userFloat = 0.0;
 
     InputResponse response = getString(userEntry, sizeof(userEntry));
-    if (response == INPUT_RESPONSE_VALID)
-        sscanf(userEntry, "%lg", &userFloat); // Allow both scientific and floating point format
-    else if (response == INPUT_RESPONSE_TIMEOUT)
+
+    if (response == INPUT_RESPONSE_TIMEOUT)
     {
         systemPrintln("No user response - Do you have line endings turned on?");
-        userFloat = 0.0;
     }
     else if (response == INPUT_RESPONSE_EMPTY)
     {
-        userFloat = 0.0;
+        // Do nothing
+    }
+    else if (response == INPUT_RESPONSE_VALID)
+    {
+        double newDbl;
+        if (sscanf(userEntry, "%lg", &newDbl) == 1) // Allow both scientific and floating point format
+        {
+            dbl = newDbl;
+            return true;
+        }
     }
 
-    return userFloat;
+    return false;
 }
 
 void printElapsedTime(const char *title)
@@ -695,6 +700,8 @@ void verifyTables()
         reportFatalError("Fix platformFilePrefixTable to match ProductVariant");
     if (platformPrefixTableEntries != (GNSSDO_UNKNOWN + 1))
         reportFatalError("Fix platformPrefixTable to match ProductVariant");
+    if (numSystemStatesNames - 1 != STATE_NOT_SET)
+        reportFatalError("Fix SystemStatesNames table to match SystemState");
 
     tasksValidateTables();
 }

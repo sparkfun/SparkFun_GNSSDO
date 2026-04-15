@@ -19,15 +19,17 @@ class GNSSDO_SIT5358 : GNSSDO_TCXO
         // Get the frequency control word
         int64_t getFrequencyControlWord(void);
 
+        // Set the frequency control word
+        bool setFrequencyControlWord(int64_t controlWord);
+
         // Set the frequency by bias millis
         bool setFrequencyByBiasMillis(double bias, double Pk, double Ik);
 
         // Save the frequency control word - if supported
         bool saveFrequencyControlValue(void);
 
-        // Get the default P and I terms - for the default settings
-        double getDefaultFrequencyByBiasPTerm(void) { return 0.63; }
-        double getDefaultFrequencyByBiasITerm(void) { return 0.151; }
+        // Read the temperature sensor - if present
+        uint16_t getTcxoTemperature(void);
 };
 
 #endif // /__SFE_GNSSDO_SIT5358_TCXO__
