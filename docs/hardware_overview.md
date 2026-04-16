@@ -730,7 +730,7 @@ These terminals are described in the tabs below. For more information on the I/O
 	!!! tip
 		SCL2 & SDA2 are only available on GNSSDO.
 
-	The SCL2 and SDA2 screw terminals provide access to the TCXO I^2^C bus, allowing the user to connect an external configurable TCXO if desired. The I^2^C voltage level is set by the VCCIO switch: 3.3V or 5V. The provided firmware supports the SiTime SiT5358 and the Rakon STP3593LF; the user will need to modify the firmware to support additional osciillators.
+	The SCL2 and SDA2 screw terminals provide access to the TCXO I^2^C bus, allowing the user to connect an external configurable TCXO if desired. The I^2^C voltage level is set by the VCCIO switch: 3.3V or 5V. The provided firmware supports the SiTime SiT5358, SiT5811 and the Rakon STP3593LF; the user will need to modify the firmware to support additional osciillators.
 
 	<article style="text-align: center;" markdown>
 

@@ -3,6 +3,7 @@ icon: material/book-open-page-variant
 ---
 
 # Introduction
+
 <div class="grid cards desc" markdown>
 
 -   <a href="https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator.html">
@@ -52,92 +53,87 @@ icon: material/book-open-page-variant
 
 </div>
 
-<div class="grid cards desc" markdown>
+Designed and manufactured in Boulder, Colorado, USA, the SparkPNT GNSSDO / GNSSDO+ are the perfect solution for your high-precision timing needs. Based around the multi-constellation, multi-frequency, L5-ready mosaic-T from Septentrio, these are our most accurate GNSS timing product to date. The GNSSDO features a SiTime SiT5358 disciplined 10MHz Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO) providing excellent clock accuracy and stability. The GNSSDO+ gets an upgrade from the Rakon STP3593LF disciplined 10MHz Digitally-Controlled Double-Oven Crystal Oscillator (OCXO) providing superb clock accuracy, stability and holdover. The mosaic-T also has built-in on-module support for the Fugro AtomiChron L-band timing service.
+
+Under the hood, the GNSSDO and GNSSDO+ are based on the mosaic-T GNSS module from Septentrio, plus the Espressif ESP32-WROVER processor (16MB flash, 8MB PSRAM). The mosaic-T has USB-C connectivity (with Ethernet-over-USB), multiple UARTs and supports full Ethernet connectivity. You can connect the mosaic-T directly to your Ethernet network - our product supports Power-over-Ethernet too. The ESP32 rides shotgun, disciplining the oscillator and controlling the OLED display. The GNSSDO and GNSSDO+ have multiple power options including USB-C, PoE and 9V-36V DC, making it easy to connect them to a battery-backed supply. Robust SMA connections and screw cage terminals provide access to the Pulse-Per-Second and 10MHz clock signals.
 
 
--	Designed and manufactured in Boulder, Colorado, USA, the SparkPNT GNSSDO / GNSSDO+ are the perfect solution for your high-precision timing needs. Based around the multi-constellation, multi-frequency, L5-ready mosaic-T from Septentrio, these are our most accurate GNSS timing product to date. The GNSSDO features a SiTime SiT5358 disciplined 10MHz Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO) providing excellent clock accuracy and stability. The GNSSDO+ gets an upgrade from the Rakon STP3593LF disciplined 10MHz Digitally-Controlled Double-Oven Crystal Oscillator (OCXO) providing superb clock accuracy, stability and holdover. The mosaic-T also has built-in on-module support for the Fugro AtomiChron L-band timing service.
-
-	Under the hood, the GNSSDO and GNSSDO+ are based on the mosaic-T GNSS module from Septentrio, plus the Espressif ESP32-WROVER processor (16MB flash, 8MB PSRAM). The mosaic-T has USB-C connectivity (with Ethernet-over-USB), multiple UARTs and supports full Ethernet connectivity. You can connect the mosaic-T directly to your Ethernet network - our product supports Power-over-Ethernet too. The ESP32 rides shotgun, disciplining the oscillator and controlling the OLED display. The GNSSDO and GNSSDO+ have multiple power options including USB-C, PoE and 9V-36V DC, making it easy to connect them to a battery-backed supply. Robust SMA connections and screw cage terminals provide access to the Pulse-Per-Second and 10MHz clock signals.
-
-
-	??? info "Features"
-		- Septentrio mosaic-T multi-constellation, multi-frequency GNSS timing receiver
-			- Accurate and resilient with dedicated timing features
-			- Highly secure against jamming and spoofing with AIM+ unique interference mitigation technology combined with Fugro AtomiChron services
-			- Update rate of 10 Hz
-			- 448 hardware channels for simultaneous tracking of all visible supported satellite signals:
-				- GPS: L1C/A, L1PY, L2C, L2P, L5
-				- GLONASS: L1CA, L2CA, L2P, L3 CDMA
-				- Beidou: B1I, B1C, B2a, B2b, B2I, B3
-				- Galileo: E1, E5a, E5b, E5 AltBoc, E6
-				- QZSS: L1C/A, L1 C/B, L2C, L5
-				- NavIC: L5
-				- SBAS: Egnos, WAAS, GAGAN, MSAS, SDCM (L1, L5)
-				- On-module L-band
-			- Time pulse precision: 5ns
-			- Time pulse precision with AtomiChron (L-Band or IP): < 1ns
-			- Event accuracy: < 20ns
-			- Operating temperature: -40 to 85 °C
-			- USB-C interface (UART and Ethernet-over-USB)
-			- **RTK is not supported**
-		- ESP32-WROVER processor (16MB flash, 8MB PSRAM)
-			- USB-C interface (UART via CH340)
-		- GNSSDO: SiT5358 disciplined 10MHz oscillator
-			- ±50ppb stability
-			- ±1ppb/°C frequency slope
-			- ±58ppb typical 20-year aging
-			- Digital frequency pulling via I²C
-			- [Allan Deviation](./assets/img/hookup_guide/Allan_Deviation.jpg) approaches 1E-14 at 10000 seconds with AtomiChron enabled
-			- Operating temperature: -40 to 85 °C (Industrial)
-		- GNSSDO+: STP3593LF disciplined 10MHz oscillator
-			- Better than 50ppb frequency calibration at 25°C
-			- ±0.2ppb per day frequency stability (aging)
-			- ±0.03ppb frequency stability with temperature (-32°C to +70°C)
-			- Digital frequency pulling via I²C
-			- [Allan Deviation](./assets/img/hookup_guide/GNSSDO+_Allan_Deviation.png) below 1E-14 at 10000 seconds with AtomiChron<sup>®</sup> enabled
-			- Operating temperature: -32 to 70 °C
-		- microSD socket
-			- Connected directly to the mosaic-T for fast data logging
-		- OLED display
-			- 128x64 pixels
-		- Status LEDs
+??? info "Features"
+	- Septentrio mosaic-T multi-constellation, multi-frequency GNSS timing receiver
+		- Accurate and resilient with dedicated timing features
+		- Highly secure against jamming and spoofing with AIM+ unique interference mitigation technology combined with Fugro AtomiChron services
+		- Update rate of 10 Hz
+		- 448 hardware channels for simultaneous tracking of all visible supported satellite signals:
+			- GPS: L1C/A, L1PY, L2C, L2P, L5
+			- GLONASS: L1CA, L2CA, L2P, L3 CDMA
+			- Beidou: B1I, B1C, B2a, B2b, B2I, B3
+			- Galileo: E1, E5a, E5b, E5 AltBoc, E6
+			- QZSS: L1C/A, L1 C/B, L2C, L5
+			- NavIC: L5
+			- SBAS: Egnos, WAAS, GAGAN, MSAS, SDCM (L1, L5)
+			- On-module L-band
+		- Time pulse precision: 5ns
+		- Time pulse precision with AtomiChron (L-Band or IP): < 1ns
+		- Event accuracy: < 20ns
+		- Operating temperature: -40 to 85 °C
+		- USB-C interface (UART and Ethernet-over-USB)
+		- **RTK is not supported**
+	- ESP32-WROVER processor (16MB flash, 8MB PSRAM)
+		- USB-C interface (UART via CH340)
+	- GNSSDO: SiT5358 disciplined 10MHz oscillator
+		- ±50ppb stability
+		- ±1ppb/°C frequency slope
+		- ±58ppb typical 20-year aging
+		- Digital frequency pulling via I²C
+		- [Allan Deviation](./assets/img/hookup_guide/Allan_Deviation.jpg) approaches 1E-14 at 10000 seconds with AtomiChron enabled
+		- Operating temperature: -40 to 85 °C (Industrial)
+	- GNSSDO+: STP3593LF disciplined 10MHz oscillator
+		- Better than 50ppb frequency calibration at 25°C
+		- ±0.2ppb per day frequency stability (aging)
+		- ±0.03ppb frequency stability with temperature (-32°C to +70°C)
+		- Digital frequency pulling via I²C
+		- [Allan Deviation](./assets/img/hookup_guide/GNSSDO+_Allan_Deviation.png) below 1E-14 at 10000 seconds with AtomiChron<sup>®</sup> enabled
+		- Operating temperature: -32 to 70 °C
+	- microSD socket
+		- Connected directly to the mosaic-T for fast data logging
+	- OLED display
+		- 128x64 pixels
+	- Status LEDs
 
 
-	??? info "Connectivity Options"
-		- SMA Connections:
-			- GNSS Antenna (L1/L2/L5/L-Band) - provides 3.3V for an active antenna
-			- GNSSDO:
-				- 10MHz Output - disciplined, configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
-				- 10MHz Input - switchable, input impedance 50Ω, detection level -14dBm, max supported level +12dBm
-				- Pulse-Per-Second Square Wave - configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
-			- GNSSDO+:
-				- 10MHz Output - disciplined, 3.3V
-				- Pulse-Per-Second Square Wave - 3.3V, aligned to the 10MHz clock signal
-			- EventA Input - configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
-		-	3.5mm Screw Cage Connections:
-			- 9V-36V DC input (isolated)
-			- GND
-			- mosaic-T COM2 (TX/RX/CTS/RTS) - 3.3V / 5V switchable
-			- CTS can be configured as a 3.3V / 5V power output via a solder jumper
-			- EventB input - 3.3V / 5V switchable
-			- GNSSDO:
-				- I^2^C (SCL2 / SDA2) for an external TCXO / OCXO - 3.3V / 5V switchable
-			- GNSSDO+:
-				- mosaic-T GP1 and GP2 outputs - 3.3V / 5V switchable
-		-	Ethernet:
-			- KSZ8041NLI Ethernet PHY interface
-			- 10Base-T / 100Base-TX with auto-negotiate and Auto MDI/MDI-X
-		-	Power Options:
-			- USB-C
-				- GNSSDO+ requires a Power Delivery Wall Adapter
-			- Power-over-Ethernet (PoE)
-			- 9V-36V DC input (fully isolated)
+??? info "Connectivity Options"
+	- SMA Connections:
+		- GNSS Antenna (L1/L2/L5/L-Band) - provides 3.3V for an active antenna
+		- GNSSDO:
+			- 10MHz Output - disciplined, configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
+			- 10MHz Input - switchable, input impedance 50Ω, detection level -14dBm, max supported level +12dBm
+			- Pulse-Per-Second Square Wave - configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
+		- GNSSDO+:
+			- 10MHz Output - disciplined, 3.3V
+			- Pulse-Per-Second Square Wave - 3.3V, aligned to the 10MHz clock signal
+		- EventA Input - configurable for 5V / 3.3V / 2.8V / 1.8V and 50 Ohm
+	-	3.5mm Screw Cage Connections:
+		- 9V-36V DC input (isolated)
+		- GND
+		- mosaic-T COM2 (TX/RX/CTS/RTS) - 3.3V / 5V switchable
+		- CTS can be configured as a 3.3V / 5V power output via a solder jumper
+		- EventB input - 3.3V / 5V switchable
+		- GNSSDO:
+			- I^2^C (SCL2 / SDA2) for an external TCXO / OCXO - 3.3V / 5V switchable
+		- GNSSDO+:
+			- mosaic-T GP1 and GP2 outputs - 3.3V / 5V switchable
+	-	Ethernet:
+		- KSZ8041NLI Ethernet PHY interface
+		- 10Base-T / 100Base-TX with auto-negotiate and Auto MDI/MDI-X
+	-	Power Options:
+		- USB-C
+			- GNSSDO+ requires a Power Delivery Wall Adapter
+		- Power-over-Ethernet (PoE)
+		- 9V-36V DC input (fully isolated)
 
 
-	!!! warning "RTK Not Supported"
-		The mosaic-T is a superb GNSS module designed for highly accurate timing applications. **However, RTK is not supported.**
-
-</div>
+!!! warning "RTK Not Supported"
+	The mosaic-T is a superb GNSS module designed for highly accurate timing applications. **However, RTK is not supported.**
 
 
 ??? question "Product Comparison"

@@ -153,7 +153,9 @@ hide: toc
 	</figure>
 
 	!!! note
-		You can not power the GNSSDO+ from a standard USB (2.0) port. It requires more current than a standard port can deliver. Please ensure the provided 65W Power Delivery Wall Adapter is connected to the GNSSDO+ CONFIG ESP32 port to deliver the power.
+		You can not power the GNSSDO+ from a standard USB (2.0) port. It requires more current than a standard port can deliver.
+		
+		Please ensure the provided 65W Power Delivery Wall Adapter is connected to the GNSSDO+ CONFIG ESP32 port to deliver the power.
 
 	`1` - **Connect the GNSS antenna**
 	: - Inside your SparkPNT GNSSDO(+) kit, you will find the L1/L2/L5 GNSS "UFO" antenna. It has a TNC connection. Use the supplied TNC-SMA cable to connect the antenna to the `GNSS` SMA connection on the GNSSDO(+).
@@ -203,7 +205,16 @@ hide: toc
 	</figure>
 
 	!!! note
-		You can not power the GNSSDO+ from a standard USB (2.0) port. It requires more current than a standard port can deliver. The GNSSDO+ contains a Power Path priority circuit. From highest to lowest, the Power Path priorities are: PoE, DC-in, CONFIG ESP32, CONFIG MOSAIC. If you have CONFIG ESP32 connected to a standard USB (2.0) port, you will need to: provide power from PoE or DC-in; or install a [power switch](https://www.sparkfun.com/usb-c-extension-cable-with-power-switch-1m.html) in the CONFIG ESP32 cable to disconnect the power and provide Power Delivery power via CONFIG MOSAIC.
+		You can not power the GNSSDO+ from a standard USB (2.0) port. It requires more current than a standard port can deliver.
+		
+		The GNSSDO+ contains a Power Path priority circuit. From highest to lowest, the Power Path priorities are:
+
+		- PoE
+		- DC-in
+		- CONFIG ESP32
+		- CONFIG MOSAIC
+		
+		If you have CONFIG ESP32 connected to a standard USB (2.0) port, you will need to: provide power from PoE or DC-in; or install a [power switch](https://www.sparkfun.com/usb-c-extension-cable-with-power-switch-1m.html) in the **`CONFIG ESP32`** cable to disconnect the power and provide Power Delivery power via **`CONFIG MOSAIC`**.
 
 	`1` - **Connect the GNSS antenna**
 	: - Inside your SparkPNT GNSSDO(+) kit, you will find the L1/L2/L5 GNSS "UFO" antenna. It has a TNC connection. Use the supplied TNC-SMA cable to connect the antenna to the `GNSS` SMA connection on the GNSSDO(+).
@@ -231,7 +242,7 @@ hide: toc
 		The following sections will help if your GNSSDO(+) is not working as expected:
 
 		??? info "No power?"
-			The red power `PWR` LED will light up when the GNSSDO(+) has power. If the `PWR` LED is off, make sure the USB cable is connected. **Please see the note above regarding Power Path priority.**
+			The red power `PWR` LED will light up when the GNSSDO(+) has power. If the `PWR` LED is off, make sure the USB cable is connected. **Please see the note above regarding GNSSDO+ Power Path priority.**
 
 		??? info "No position information?"
 			The OLED display will only show position information (Lat, Long, Alt etc.) once a satellite signal has been acquired. If you see only an IP address on the display, check the SMA to TNC cable is connected correctly and that the antenna is outside with a clear view of the sky. Use a [male-female SMA extension cable](https://www.sparkfun.com/interface-cable-sma-female-to-sma-male-10m-rg58.html) if needed to increase the cable length.
