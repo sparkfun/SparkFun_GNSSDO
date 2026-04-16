@@ -1345,9 +1345,6 @@
 </li>
 </ul>
 </div>
-<div class="grid cards desc">
-<ul>
-<li>
 <p>Designed and manufactured in Boulder, Colorado, USA, the SparkPNT GNSSDO / GNSSDO+ are the perfect solution for your high-precision timing needs. Based around the multi-constellation, multi-frequency, L5-ready mosaic-T from Septentrio, these are our most accurate GNSS timing product to date. The GNSSDO features a SiTime SiT5358 disciplined 10MHz Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO) providing excellent clock accuracy and stability. The GNSSDO+ gets an upgrade from the Rakon STP3593LF disciplined 10MHz Digitally-Controlled Double-Oven Crystal Oscillator (OCXO) providing superb clock accuracy, stability and holdover. The mosaic-T also has built-in on-module support for the Fugro AtomiChron L-band timing service.</p>
 <p>Under the hood, the GNSSDO and GNSSDO+ are based on the mosaic-T GNSS module from Septentrio, plus the Espressif ESP32-WROVER processor (16MB flash, 8MB PSRAM). The mosaic-T has USB-C connectivity (with Ethernet-over-USB), multiple UARTs and supports full Ethernet connectivity. You can connect the mosaic-T directly to your Ethernet network - our product supports Power-over-Ethernet too. The ESP32 rides shotgun, disciplining the oscillator and controlling the OLED display. The GNSSDO and GNSSDO+ have multiple power options including USB-C, PoE and 9V-36V DC, making it easy to connect them to a battery-backed supply. Robust SMA connections and screw cage terminals provide access to the Pulse-Per-Second and 10MHz clock signals.</p>
 <details class="info">
@@ -1463,9 +1460,6 @@
 <div class="admonition warning">
 <p class="admonition-title">RTK Not Supported</p>
 <p>The mosaic-T is a superb GNSS module designed for highly accurate timing applications. <strong>However, RTK is not supported.</strong></p>
-</div>
-</li>
-</ul>
 </div>
 <details class="question">
 <summary>Product Comparison</summary>
@@ -2199,7 +2193,8 @@ Click on the tab of your preferred interface (below), to get started with the GN
 </figure></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You can not power the GNSSDO+ from a standard USB (2.0) port. It requires more current than a standard port can deliver. Please ensure the provided 65W Power Delivery Wall Adapter is connected to the GNSSDO+ CONFIG ESP32 port to deliver the power.</p>
+<p>You can not power the GNSSDO+ from a standard USB (2.0) port. It requires more current than a standard port can deliver.</p>
+<p>Please ensure the provided 65W Power Delivery Wall Adapter is connected to the GNSSDO+ CONFIG ESP32 port to deliver the power.</p>
 </div>
 <dl>
 <dt><code>1</code> - <strong>Connect the GNSS antenna</strong></dt>
@@ -2261,7 +2256,15 @@ Click on the tab of your preferred interface (below), to get started with the GN
 </figure></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You can not power the GNSSDO+ from a standard USB (2.0) port. It requires more current than a standard port can deliver. The GNSSDO+ contains a Power Path priority circuit. From highest to lowest, the Power Path priorities are: PoE, DC-in, CONFIG ESP32, CONFIG MOSAIC. If you have CONFIG ESP32 connected to a standard USB (2.0) port, you will need to: provide power from PoE or DC-in; or install a <a href="https://www.sparkfun.com/usb-c-extension-cable-with-power-switch-1m.html" target="_blank" rel="noopener">power switch</a> in the CONFIG ESP32 cable to disconnect the power and provide Power Delivery power via CONFIG MOSAIC.</p>
+<p>You can not power the GNSSDO+ from a standard USB (2.0) port. It requires more current than a standard port can deliver.</p>
+<p>The GNSSDO+ contains a Power Path priority circuit. From highest to lowest, the Power Path priorities are:</p>
+<ul>
+<li>PoE</li>
+<li>DC-in</li>
+<li>CONFIG ESP32</li>
+<li>CONFIG MOSAIC</li>
+</ul>
+<p>If you have CONFIG ESP32 connected to a standard USB (2.0) port, you will need to: provide power from PoE or DC-in; or install a <a href="https://www.sparkfun.com/usb-c-extension-cable-with-power-switch-1m.html" target="_blank" rel="noopener">power switch</a> in the <strong><code>CONFIG ESP32</code></strong> cable to disconnect the power and provide Power Delivery power via <strong><code>CONFIG MOSAIC</code></strong>.</p>
 </div>
 <dl>
 <dt><code>1</code> - <strong>Connect the GNSS antenna</strong></dt>
@@ -2315,7 +2318,7 @@ Click on the tab of your preferred interface (below), to get started with the GN
 <p>The following sections will help if your GNSSDO(+) is not working as expected:</p>
 <details class="info">
 <summary>No power?</summary>
-<p>The red power <code>PWR</code> LED will light up when the GNSSDO(+) has power. If the <code>PWR</code> LED is off, make sure the USB cable is connected. <strong>Please see the note above regarding Power Path priority.</strong></p>
+<p>The red power <code>PWR</code> LED will light up when the GNSSDO(+) has power. If the <code>PWR</code> LED is off, make sure the USB cable is connected. <strong>Please see the note above regarding GNSSDO+ Power Path priority.</strong></p>
 </details>
 <details class="info">
 <summary>No position information?</summary>
@@ -2980,7 +2983,7 @@ Source: <a href="https://cdn.sparkfun.com/assets/f/f/5/1/7/SparkFun_SPK6618H_Dat
 <p class="admonition-title">Tip</p>
 <p>SCL2 &amp; SDA2 are only available on GNSSDO.</p>
 </div>
-<p>The SCL2 and SDA2 screw terminals provide access to the TCXO I<sup>2</sup>C bus, allowing the user to connect an external configurable TCXO if desired. The I<sup>2</sup>C voltage level is set by the VCCIO switch: 3.3V or 5V. The provided firmware supports the SiTime SiT5358 and the Rakon STP3593LF; the user will need to modify the firmware to support additional osciillators.</p>
+<p>The SCL2 and SDA2 screw terminals provide access to the TCXO I<sup>2</sup>C bus, allowing the user to connect an external configurable TCXO if desired. The I<sup>2</sup>C voltage level is set by the VCCIO switch: 3.3V or 5V. The provided firmware supports the SiTime SiT5358, SiT5811 and the Rakon STP3593LF; the user will need to modify the firmware to support additional osciillators.</p>
 <article style="text-align: center;" markdown>
 <table>
 <thead>
