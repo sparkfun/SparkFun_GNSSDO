@@ -1,8 +1,5 @@
-2025-06-09 10:03:37,056 - panelizer_logger - INFO - Running Panelizer
-2025-06-09 10:03:37,056 - panelizer_logger - INFO - ['--panelx', '190.500000', '--panely', '139.700000', '--smaller', '--vscorelayer', 'User.Comments', '--vscoretextlayer', 'User.Comments', '--gapx', '0.000000', '--gapy', '5.080000', '--hrail', '6.35', '--vrail', '6.35', '--fiducialpos', '0.25', '--fiducialslr']
-2025-06-09 10:03:37,056 - panelizer_logger - INFO - PANELIZER START: 2025-06-09T10:03:37.056329
-2025-06-09 10:03:46,749 - panelizer_logger - WARNING - 
-START: 2025-06-09T10:03:37.056329
+2026-04-17 08:27:17,364 - panelizer_logger - WARNING - 
+START: 2026-04-17T08:27:07.997465
 Board saved by user.
 Gaps should be at least 0.3" for AOI.
 Zones filled by Panelizer.
@@ -12,4 +9,3 @@ Board dimensions: 151.90 x 101.60 mm.
 You can fit 1 x 1 boards on the panel.
 Zones refilled by Panelizer.
 
-2025-06-09 10:03:49,630 - panelizer_logger - INFO - Panelizer complete

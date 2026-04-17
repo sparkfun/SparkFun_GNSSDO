@@ -6,8 +6,8 @@
 	(paper "USLetter")
 	(title_block
 		(title "GNSSDO Plus (mosaic-T, STP3593LF)")
-		(date "2025-06-06")
-		(rev "v02")
+		(date "2026-04-17")
+		(rev "v10")
 		(company "SparkFun Electronics")
 		(comment 1 "Designed by: P.C.")
 	)

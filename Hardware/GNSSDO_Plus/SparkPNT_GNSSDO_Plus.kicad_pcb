@@ -34693,7 +34693,7 @@
 			(pinfunction "Ext")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "755f6175-d60a-4a57-b3dc-9462911f7723")
+			(uuid "b0b924ab-883f-400e-85af-6439d974a0f6")
 		)
 		(pad "2" smd rect
 			(at 2.54 0)
@@ -34703,7 +34703,7 @@
 			(pinfunction "Ext")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "755f6175-d60a-4a57-b3dc-9462911f7723")
+			(uuid "42b443f3-3fb8-46da-8d5f-03c52de46bad")
 		)
 		(pad "2" smd rect
 			(at 2.54 0)
@@ -34713,7 +34713,7 @@
 			(pinfunction "Ext")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "755f6175-d60a-4a57-b3dc-9462911f7723")
+			(uuid "6656d210-f1a6-4bb0-9d33-554364112e54")
 		)
 		(embedded_fonts no)
 		(model "${SPARKFUN_KICAD_LIBRARY}/3dmodels/Connector.3dshapes/SMA-Edge.step"
@@ -36961,7 +36961,7 @@
 			(pinfunction "Ext")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "857aa7ed-2ea8-4f55-ac9b-c3b157d9f2a6")
+			(uuid "abf3f76a-cf62-4c45-a395-0e2a92a72d6f")
 		)
 		(pad "2" smd rect
 			(at 2.54 0)
@@ -36971,7 +36971,7 @@
 			(pinfunction "Ext")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "857aa7ed-2ea8-4f55-ac9b-c3b157d9f2a6")
+			(uuid "41e3ed93-46db-4f54-8a0e-3d204846c965")
 		)
 		(pad "2" smd rect
 			(at 2.54 0)
@@ -36981,7 +36981,7 @@
 			(pinfunction "Ext")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "857aa7ed-2ea8-4f55-ac9b-c3b157d9f2a6")
+			(uuid "b1fabbb8-23cf-420d-95de-49ed1407e857")
 		)
 		(embedded_fonts no)
 		(model "${SPARKFUN_KICAD_LIBRARY}/3dmodels/Connector.3dshapes/SMA-Edge.step"
@@ -46873,7 +46873,7 @@
 			(pinfunction "Ext")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "6698c720-20fc-4102-a50e-f4f8b750a488")
+			(uuid "221ea4d5-fc5b-4ebd-8efd-9f77d4e168a7")
 		)
 		(pad "2" smd rect
 			(at 2.54 0)
@@ -46883,7 +46883,7 @@
 			(pinfunction "Ext")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "6698c720-20fc-4102-a50e-f4f8b750a488")
+			(uuid "ec4ba4d2-e132-4d84-980a-eb53af24d0a0")
 		)
 		(pad "2" smd rect
 			(at 2.54 0)
@@ -46893,7 +46893,7 @@
 			(pinfunction "Ext")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "6698c720-20fc-4102-a50e-f4f8b750a488")
+			(uuid "f31fb1be-c28f-44ad-9ea6-9ceebfa65e8f")
 		)
 		(embedded_fonts no)
 		(model "${SPARKFUN_KICAD_LIBRARY}/3dmodels/Connector.3dshapes/SMA-Edge.step"
@@ -57348,7 +57348,7 @@
 			(pinfunction "GND")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "80e8856a-f890-4e7c-af61-dc2b991d2d98")
+			(uuid "62699257-f92f-4aa8-b898-8d90e1b2af3b")
 		)
 		(pad "NC1" thru_hole oval
 			(at -4.318 5.095)
@@ -57412,7 +57412,7 @@
 			(pinfunction "VBUS")
 			(pintype "power_out")
 			(thermal_bridge_angle 0)
-			(uuid "0189502a-c643-4f91-9d59-28756b4683bd")
+			(uuid "ede003ea-e433-4803-b9d8-891720c790e0")
 		)
 		(embedded_fonts no)
 		(model "${SPARKFUN_KICAD_LIBRARY}/3dmodels/Connector.3dshapes/USB-C_16.step"
@@ -59348,7 +59348,7 @@
 			(pinfunction "GND")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "24bb7cfb-8e21-4d1e-a1b3-3170e0c5f583")
+			(uuid "b4873170-7e7f-442e-8691-87de286d6a14")
 		)
 		(pad "NC1" thru_hole oval
 			(at -4.318 5.095)
@@ -59412,7 +59412,7 @@
 			(pinfunction "VBUS")
 			(pintype "power_out")
 			(thermal_bridge_angle 0)
-			(uuid "f36fa442-4f49-453e-828b-5f145b0b1e90")
+			(uuid "2ac85a9c-f08b-4ad2-94f7-0f1c1f3d8f32")
 		)
 		(embedded_fonts no)
 		(model "${SPARKFUN_KICAD_LIBRARY}/3dmodels/Connector.3dshapes/USB-C_16.step"
@@ -63308,7 +63308,7 @@
 			(pinfunction "Ext")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "86d49366-e9cc-4184-922a-98d78d4f47de")
+			(uuid "5f59ca58-69c3-4460-b4ce-eae5ab7292a7")
 		)
 		(pad "2" smd rect
 			(at 2.54 0)
@@ -63318,7 +63318,7 @@
 			(pinfunction "Ext")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "86d49366-e9cc-4184-922a-98d78d4f47de")
+			(uuid "b2fb7a7c-a93e-4f39-9d2f-8e9b39772faf")
 		)
 		(pad "2" smd rect
 			(at 2.54 0)
@@ -63328,7 +63328,7 @@
 			(pinfunction "Ext")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "86d49366-e9cc-4184-922a-98d78d4f47de")
+			(uuid "a9272770-1baf-4474-83a3-a9ea6547624d")
 		)
 		(embedded_fonts no)
 		(model "${SPARKFUN_KICAD_LIBRARY}/3dmodels/Connector.3dshapes/SMA-Edge.step"
@@ -94358,7 +94358,7 @@
 			(pinfunction "A")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "fe1f6bda-70ce-4625-a180-684a3bb806c7")
+			(uuid "c3425f5e-c565-41b3-99e3-d8960adc91e7")
 		)
 		(pad "2" smd rect
 			(at 0.508 0)
@@ -94380,7 +94380,7 @@
 			(pinfunction "B")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "641625f3-5079-4a5a-8162-aa68e1c98490")
+			(uuid "8f2540f7-76ed-403c-b900-3f3ef3067ca5")
 		)
 		(embedded_fonts no)
 	)
@@ -96532,7 +96532,7 @@
 			(pinfunction "A")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "32a423ea-45f6-4b57-aeb9-4a0c27f115dd")
+			(uuid "f0a40c75-af52-4bdf-a648-8d72da574137")
 		)
 		(pad "2" smd rect
 			(at 0.508 0 270)
@@ -96554,7 +96554,7 @@
 			(pinfunction "B")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "9eb880f7-61da-4caf-bcf4-455e5d9039d5")
+			(uuid "eb7e0728-f184-4912-bb59-9748a548baac")
 		)
 		(embedded_fonts no)
 	)
@@ -98357,7 +98357,7 @@
 			(pinfunction "A")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "ba3387e8-b0a5-47a5-8f7a-8f5c652bb8d5")
+			(uuid "b8d489d9-eeb7-47bf-821d-40413b2da8b2")
 		)
 		(pad "2" smd rect
 			(at 0.508 0 90)
@@ -98379,7 +98379,7 @@
 			(pinfunction "B")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "2a1cd16e-3e4d-4e82-b505-2162b66b27c2")
+			(uuid "78ce4e7b-244a-41ad-917f-a184f31b9666")
 		)
 		(embedded_fonts no)
 	)
@@ -99063,7 +99063,7 @@
 			(pinfunction "A")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "1eb74b79-7fb0-4264-993a-d3802d56eb2b")
+			(uuid "696a874c-9229-406b-9f25-43c948397708")
 		)
 		(pad "2" smd rect
 			(at 0.508 0 270)
@@ -99085,7 +99085,7 @@
 			(pinfunction "B")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "b71ba673-1690-46c8-a20b-2ac1f7e21518")
+			(uuid "1023423f-f754-41b6-b441-9d392e636127")
 		)
 		(embedded_fonts no)
 	)
@@ -107176,7 +107176,7 @@
 			(pinfunction "A")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "95c69af7-446d-4047-b796-2c8057465ec5")
+			(uuid "085af26a-48cf-469b-845e-6a867fd12d5b")
 		)
 		(pad "2" smd rect
 			(at 0.508 0 270)
@@ -107198,7 +107198,7 @@
 			(pinfunction "B")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "19495c6f-f44a-4cb8-8f09-bb0678e0292d")
+			(uuid "c6965ca7-4a3e-4363-b076-dadf2818a67e")
 		)
 		(embedded_fonts no)
 	)
@@ -107354,7 +107354,7 @@
 			(pinfunction "A")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "9bda3b37-1c61-4ec2-905e-452a1c229d18")
+			(uuid "b04994c1-6c3a-415b-b998-434716c94e36")
 		)
 		(pad "2" smd rect
 			(at 0.508 0 270)
@@ -107376,7 +107376,7 @@
 			(pinfunction "B")
 			(pintype "passive")
 			(thermal_bridge_angle 0)
-			(uuid "8dd2f1bc-938b-412d-9e3e-06cd3840c5c9")
+			(uuid "2f5ec51d-e3fd-4545-9f1a-9bb9feb6e30e")
 		)
 		(embedded_fonts no)
 	)
@@ -111661,7 +111661,7 @@
 			(justify right bottom mirror)
 		)
 	)
-	(gr_text "v02"
+	(gr_text "v10"
 		(at 104.14 132.08 270)
 		(layer "B.Cu" knockout)
 		(uuid "3c322aac-72fa-464e-a60f-a1d3fef083b6")
