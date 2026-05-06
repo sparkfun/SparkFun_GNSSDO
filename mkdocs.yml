@@ -107,7 +107,7 @@ theme:
   # Configures icons
   icon:
     # Sets homepage icon
-    logo: sparkpnt
+    logo: sparkpnt-primary
 
     # Sets repo icon to GitHub icon
     repo: fontawesome/brands/github
