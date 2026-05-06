@@ -74,6 +74,9 @@ theme:
     # Highlights all occurrences of a search result when clicked on
     - search.highlight
 
+    # Allows the user to hide the announcement banner
+    - announce.dismiss
+
 
   # Adds light/dark theme to the webpage
   palette:

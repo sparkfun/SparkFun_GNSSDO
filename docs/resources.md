@@ -2,6 +2,12 @@
 icon: material/book-open-page-variant
 ---
 
+
+!!! failure "Deprecated Documentation"
+	As of Apr 24, 2026 this guide has been retired. Users can find our latest documentation at: [docs.sparkpnt.com/GNDDSO](https://docs.sparkpnt.com/gnddso)
+
+
+
 ## Product Resources
 
 - :sfe: [Product Page](https://https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator.html)

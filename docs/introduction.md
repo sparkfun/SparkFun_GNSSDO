@@ -2,6 +2,12 @@
 icon: material/book-open-page-variant
 ---
 
+
+!!! failure "Deprecated Documentation"
+	As of Apr 24, 2026 this guide has been retired. Users can find our latest documentation at: [docs.sparkpnt.com/GNDDSO](https://docs.sparkpnt.com/gnddso)
+
+
+
 # Introduction
 
 <div class="grid cards" markdown>

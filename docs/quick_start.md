@@ -3,6 +3,14 @@ icon: material/run-fast
 hide: toc
 ---
 
+
+!!! failure "Deprecated Documentation"
+	As of Apr 24, 2026 this guide has been retired. Users can find our latest documentation at: [docs.sparkpnt.com/GNDDSO](https://docs.sparkpnt.com/gnddso)
+
+
+
+# Quick Start Guide
+
 !!! abstract "Directions"
 
 	This *quick start* guide is intended to help users get started with the SparkPNT GNSSDO / GNSSDO+, without having to review the technical details of this product. It includes the minimum instructions to initially set up the GNSSDO(+), depending on the primary interface that users would like to utilize:

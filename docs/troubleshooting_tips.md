@@ -2,6 +2,15 @@
 icon: sparkpnt
 ---
 
+
+!!! failure "Deprecated Documentation"
+	As of Apr 24, 2026 this guide has been retired. Users can find our latest documentation at: [docs.sparkpnt.com/GNDDSO](https://docs.sparkpnt.com/gnddso)
+
+
+
+# Troubleshootin Tips
+
+
 !!! warning "Need Help?"
 	If you need technical assistance or more information on a product that is not working as you expected, we recommend heading on over to the [SparkFun Forums](https://community.sparkfun.com).
 
