@@ -4,7 +4,7 @@ icon: material/book-open-page-variant
 
 # Introduction
 
-<div class="grid cards desc" markdown>
+<div class="grid cards" markdown>
 
 -   <a href="https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator.html">
 	**GNSSDO**<br>
@@ -15,13 +15,6 @@ icon: material/book-open-page-variant
 	<figure markdown>
 	![Product Thumbnail](https://cdn.sparkfun.com/assets/parts/2/7/2/0/7/26289-GNSS-Disciplined-Oscillator-Front-Lit.jpg)
 	</figure></a>
-
-
-	<article class="video-500px" style="text-align: center; margin: auto;" markdown>
-	<iframe src="https://www.youtube.com/embed/WI0NbXBxeUo" title="Product Showcase Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-	![QR code to product video](./assets/img/qr_code/product_video.png){ .qr width=100 }
-	</article>
 
 
 	<article style="text-align: center;" markdown>
@@ -40,13 +33,6 @@ icon: material/book-open-page-variant
 	</figure></a>
 
 
-	<article class="video-500px" style="text-align: center; margin: auto;" markdown>
-	<iframe src="https://www.youtube.com/embed/WI0NbXBxeUo" title="Product Showcase Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-	![QR code to product video](./assets/img/qr_code/product_video.png){ .qr width=100 }
-	</article>
-
-
 	<article style="text-align: center;" markdown>
 	[Purchase from SparkFun :fontawesome-solid-cart-plus:{ .heart } ![QR code to product page](./assets/img/qr_code/product-plus-low.png){ .tinyqr }](https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator-plus.html){ .md-button .md-button--primary }
 	</article>
@@ -54,6 +40,15 @@ icon: material/book-open-page-variant
 </div>
 
 Designed and manufactured in Boulder, Colorado, USA, the SparkPNT GNSSDO / GNSSDO+ are the perfect solution for your high-precision timing needs. Based around the multi-constellation, multi-frequency, L5-ready mosaic-T from Septentrio, these are our most accurate GNSS timing product to date. The GNSSDO features a SiTime SiT5358 disciplined 10MHz Digitally-Controlled Temperature-Controlled Crystal Oscillator (DCTCXO) providing excellent clock accuracy and stability. The GNSSDO+ gets an upgrade from the Rakon STP3593LF disciplined 10MHz Digitally-Controlled Double-Oven Crystal Oscillator (OCXO) providing superb clock accuracy, stability and holdover. The mosaic-T also has built-in on-module support for the Fugro AtomiChron L-band timing service.
+
+
+<article class="video-500px" style="text-align: center; margin: auto;" markdown>
+<iframe src="https://www.youtube.com/embed/WI0NbXBxeUo" title="Product Showcase Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+![QR code to product video](./assets/img/qr_code/product_video.png){ .qr width=100 }
+</article>
+
+
 
 Under the hood, the GNSSDO and GNSSDO+ are based on the mosaic-T GNSS module from Septentrio, plus the Espressif ESP32-WROVER processor (16MB flash, 8MB PSRAM). The mosaic-T has USB-C connectivity (with Ethernet-over-USB), multiple UARTs and supports full Ethernet connectivity. You can connect the mosaic-T directly to your Ethernet network - our product supports Power-over-Ethernet too. The ESP32 rides shotgun, disciplining the oscillator and controlling the OLED display. The GNSSDO and GNSSDO+ have multiple power options including USB-C, PoE and 9V-36V DC, making it easy to connect them to a battery-backed supply. Robust SMA connections and screw cage terminals provide access to the Pulse-Per-Second and 10MHz clock signals.
 
