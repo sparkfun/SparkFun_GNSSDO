@@ -48,7 +48,7 @@ icon: material/book-open-page-variant
 
 
 	<article style="text-align: center;" markdown>
-	[Purchase from SparkFun :fontawesome-solid-cart-plus:{ .heart } ![QR code to product page](./assets/img/qr_code/product-low.png){ .tinyqr }](https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator.html){ .md-button .md-button--primary }
+	[Purchase from SparkFun :fontawesome-solid-cart-plus:{ .heart } ![QR code to product page](./assets/img/qr_code/product-plus-low.png){ .tinyqr }](https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator-plus.html){ .md-button .md-button--primary }
 	</article>
 
 </div>
