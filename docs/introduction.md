@@ -24,7 +24,7 @@ icon: material/book-open-page-variant
 
 
 	<article style="text-align: center;" markdown>
-	[Purchase from SparkFun :fontawesome-solid-cart-plus:{ .heart } ![QR code to product page](./assets/img/qr_code/product-low.png){ .tinyqr }](https://www.sparkpnt.com/products/sxt-gnssdo){ .md-button .md-button--primary }
+	[Purchase from SparkPNT :fontawesome-solid-cart-plus:{ .heart } ![QR code to product page](./assets/img/qr_code/product-low.png){ .tinyqr }](https://www.sparkpnt.com/products/sxt-gnssdo){ .md-button .md-button--primary }
 	</article>
 
 
@@ -40,7 +40,7 @@ icon: material/book-open-page-variant
 
 
 	<article style="text-align: center;" markdown>
-	[Purchase from SparkFun :fontawesome-solid-cart-plus:{ .heart } ![QR code to product page](./assets/img/qr_code/product-plus-low.png){ .tinyqr }](https://www.sparkpnt.com/products/sxt-d-gnssdo){ .md-button .md-button--primary }
+	[Purchase from SparkPNT :fontawesome-solid-cart-plus:{ .heart } ![QR code to product page](./assets/img/qr_code/product-plus-low.png){ .tinyqr }](https://www.sparkpnt.com/products/sxt-d-gnssdo){ .md-button .md-button--primary }
 	</article>
 
 </div>
