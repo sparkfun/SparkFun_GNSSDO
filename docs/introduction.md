@@ -49,9 +49,7 @@ Designed and manufactured in Boulder, Colorado, USA, the SparkPNT GNSSDO / GNSSD
 
 
 <article class="video-500px" style="text-align: center; margin: auto;" markdown>
-<iframe src="https://www.youtube.com/embed/WI0NbXBxeUo" title="Product Showcase Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-![QR code to product video](./assets/img/qr_code/product_video.png){ .qr width=100 }
+<iframe src="https://www.youtube.com/embed/pNqCndyTUV8" title="Product Showcase Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </article>
 
 
