@@ -4,13 +4,13 @@ icon: material/book-open-page-variant
 
 
 !!! failure "Deprecated Documentation"
-	As of Apr 24, 2026 this guide has been retired. Users can find our latest documentation at: [docs.sparkpnt.com/GNDDSO](https://docs.sparkpnt.com/gnddso)
+	As of Apr 24, 2026 this guide has been retired. Users can find our latest documentation at: [docs.sparkpnt.com/SXT](https://docs.sparkpnt.com/SXT)
 
 
 
 ## Product Resources
 
-- :sfe: [Product Page](https://https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator.html)
+- :sfe: [Product Page](https://https://www.sparkpnt.com/products/sxt-gnssdo)
 - [Quick Start Guide](./assets/quick_start_guide-v10.pdf)
 - :material-folder-cog: Design Files:
 	- :fontawesome-solid-file-pdf: [GNSSDO Schematic](./assets/board_files/schematic.pdf)
@@ -31,7 +31,7 @@ icon: material/book-open-page-variant
 
 - [GNSS Product Category](https://www.sparkfun.com/categories/4)
 - :material-account-supervisor: [SparkFun Technical Assistance](https://www.sparkfun.com/technical_assistance)
-- :material-forum: [SparkFun Forum: GNSS Topics](https://community.sparkfun.com/c/global-positioning-system-gps/96)
+- :material-forum: [SparkPNT Forum: GNSS Topics](https://community.sparkpnt.com/)
 
 
 ### 🏭 Manufacturer's Resources

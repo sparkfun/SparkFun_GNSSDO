@@ -4,7 +4,7 @@ icon: material/book-open-page-variant
 
 
 !!! failure "Deprecated Documentation"
-	As of Apr 24, 2026 this guide has been retired. Users can find our latest documentation at: [docs.sparkpnt.com/GNDDSO](https://docs.sparkpnt.com/gnddso)
+	As of Apr 24, 2026 this guide has been retired. Users can find our latest documentation at: [docs.sparkpnt.com/SXT](https://docs.sparkpnt.com/SXT)
 
 
 
@@ -12,9 +12,9 @@ icon: material/book-open-page-variant
 
 <div class="grid cards" markdown>
 
--   <a href="https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator.html">
+-   <a href="https://www.sparkpnt.com/products/sxt-gnssdo">
 	**GNSSDO**<br>
-	**SKU:** GPS-26289
+	**SKU:** SXT
 
 	---
 
@@ -24,13 +24,13 @@ icon: material/book-open-page-variant
 
 
 	<article style="text-align: center;" markdown>
-	[Purchase from SparkFun :fontawesome-solid-cart-plus:{ .heart } ![QR code to product page](./assets/img/qr_code/product-low.png){ .tinyqr }](https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator.html){ .md-button .md-button--primary }
+	[Purchase from SparkFun :fontawesome-solid-cart-plus:{ .heart } ![QR code to product page](./assets/img/qr_code/product-low.png){ .tinyqr }](https://www.sparkpnt.com/products/sxt-gnssdo){ .md-button .md-button--primary }
 	</article>
 
 
--   <a href="https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator-plus.html">
+-   <a href="https://www.sparkpnt.com/products/sxt-d-gnssdo">
 	**GNSSDO+**<br>
-	**SKU:** GPS-30777
+	**SKU:** SXT-D
 
 	---
 
@@ -40,7 +40,7 @@ icon: material/book-open-page-variant
 
 
 	<article style="text-align: center;" markdown>
-	[Purchase from SparkFun :fontawesome-solid-cart-plus:{ .heart } ![QR code to product page](./assets/img/qr_code/product-plus-low.png){ .tinyqr }](https://www.sparkfun.com/sparkpnt-gnss-disciplined-oscillator-plus.html){ .md-button .md-button--primary }
+	[Purchase from SparkFun :fontawesome-solid-cart-plus:{ .heart } ![QR code to product page](./assets/img/qr_code/product-plus-low.png){ .tinyqr }](https://www.sparkpnt.com/products/sxt-d-gnssdo){ .md-button .md-button--primary }
 	</article>
 
 </div>

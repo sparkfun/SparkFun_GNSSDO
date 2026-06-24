@@ -334,17 +334,17 @@ extra:
     - icon: sfe
       link: https://www.sparkfun.com/pnt
     - icon: fontawesome/brands/youtube
-      link: https://www.youtube.com/sparkfun
+      link: https://www.youtube.com/@sparkpnt
     - icon: fontawesome/brands/instagram
-      link: https://www.instagram.com/sparkfun
+      link: https://www.instagram.com/sparkpnt
     - icon: fontawesome/brands/github
       link: https://www.github.com/sparkfun
     - icon: fontawesome/brands/facebook
-      link: https://www.facebook.com/SparkFun
+      link: https://www.facebook.com/SparkPNT
     - icon: fontawesome/brands/x-twitter
-      link: https://twitter.com/sparkfun
+      link: https://twitter.com/sparkpnt
     - icon: simple/discourse
-      link: https://community.sparkfun.com/
+      link: https://community.sparkpnt.com/
 
   # Configures Google Analytics
   analytics:

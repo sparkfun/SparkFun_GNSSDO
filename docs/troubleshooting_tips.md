@@ -4,7 +4,7 @@ icon: sparkpnt
 
 
 !!! failure "Deprecated Documentation"
-	As of Apr 24, 2026 this guide has been retired. Users can find our latest documentation at: [docs.sparkpnt.com/GNDDSO](https://docs.sparkpnt.com/gnddso)
+	As of Apr 24, 2026 this guide has been retired. Users can find our latest documentation at: [docs.sparkpnt.com/SXT](https://docs.sparkpnt.com/SXT)
 
 
 
@@ -12,11 +12,11 @@ icon: sparkpnt
 
 
 !!! warning "Need Help?"
-	If you need technical assistance or more information on a product that is not working as you expected, we recommend heading on over to the [SparkFun Forums](https://community.sparkfun.com).
+	If you need technical assistance or more information on a product that is not working as you expected, we recommend heading on over to the [SparkPNT Forums](https://community.sparkpnt.com).
 
 
 	!!! info "Account Registration Required"
-		If this is your first visit to our forum, you'll need to create a [Forum Account](https://community.sparkfun.com/signup) to post questions.
+		If this is your first visit to our forum, you'll need to create a [Forum Account](https://community.sparkpnt.com/signup) to post questions.
 
 
 ## What is in the Box?
@@ -40,7 +40,7 @@ The GNSSDO and GNSSDO+ come packaged as a complete kit, with all the accessories
 If you are missing any of these items, please reach out to us in our forum.
 
 <article style="text-align: center;" markdown>
-[:sfe: SparkFun Forum - GNSS Topic](https://community.sparkfun.com/c/global-positioning-system-gps/96){ .md-button .md-button--primary }
+[SparkPNT Forum](https://community.sparkpnt.com/){ .md-button .md-button--primary }
 </article>
 
 
@@ -53,7 +53,7 @@ If you are missing any of these items, please reach out to us in our forum.
 Got a few dead pixels on your OLED display? Please reach out to us in our forum.
 
 <article style="text-align: center;" markdown>
-[:sfe: SparkFun Forum - GNSS Topic](https://community.sparkfun.com/c/global-positioning-system-gps/96){ .md-button .md-button--primary }
+[SparkPNT Forum](https://community.sparkpnt.com/){ .md-button .md-button--primary }
 </article>
 
 

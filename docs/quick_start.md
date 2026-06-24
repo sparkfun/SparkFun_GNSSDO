@@ -5,7 +5,7 @@ hide: toc
 
 
 !!! failure "Deprecated Documentation"
-	As of Apr 24, 2026 this guide has been retired. Users can find our latest documentation at: [docs.sparkpnt.com/GNDDSO](https://docs.sparkpnt.com/gnddso)
+	As of Apr 24, 2026 this guide has been retired. Users can find our latest documentation at: [docs.sparkpnt.com/SXT](https://docs.sparkpnt.com/SXT)
 
 
 

@@ -10,10 +10,10 @@ Spot something wrong? Please let us know. <a href="https://github.com/sparkfun/S
 	[SparkFun Technical Assistance Page](https://www.sparkfun.com/technical_assistance){ .md-button .md-button--primary }
 	</article>
 
-	If you can't find what you need there, the [SparkFun Forums](https://community.sparkfun.com) is a great place to search the product forums and ask questions.
+	If you can't find what you need there, the [SparkPNT Forums](https://community.sparkpnt.com) is a great place to search the product forums and ask questions.
 
 	!!! info "Account Registration Required"
-		For your first visit to our forum, you'll need to create a [Forum Account](https://community.sparkfun.com) to post questions.
+		For your first visit to our forum, you'll need to create a [Forum Account](https://community.sparkpnt.com) to post questions.
 
 
 ## Discrepancies in the Documentation
