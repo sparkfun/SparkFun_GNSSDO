@@ -23,7 +23,7 @@ icon: material/book-open-page-variant
 	- :fontawesome-solid-file-pdf: [SiT5358 Datasheet](./assets/component_documentation/SiT5358-datasheet.pdf)
 	- :fontawesome-solid-file-pdf: [STP3593LF Datasheet](./assets/component_documentation/STP3593LF_ROX5242T1N_Preliminary_Datasheet.pdf)
 	- :fontawesome-solid-file-pdf: [ESP32 Datasheet](./assets/component_documentation/esp32-wrover-e_datasheet_en.pdf)
-- :material-youtube: [SFE Product Showcase](https://www.youtube.com/watch?v=pNqCndyTUV8)
+- :material-youtube: [SFE Product Showcase](https://www.youtube.com/watch?v=WI0NbXBxeUo)
 - :material-github: [Hardware Repo](https://github.com/sparkfun/SparkFun_GNSSDO)
 
 
