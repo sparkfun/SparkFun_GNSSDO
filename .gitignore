@@ -71,6 +71,7 @@ local.properties
 *.net
 *.gbr
 *.drl
+.history
 
 #KiCad Backup files
 *.kicad_prl
