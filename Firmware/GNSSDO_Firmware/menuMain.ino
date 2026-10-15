@@ -3,9 +3,16 @@ void updateSerial()
 {
     if (systemAvailable())
     {
-        systemRead();
+        byte incoming = systemRead();
 
-        menuMain(); // Present user menu
+        // A leading '$' introduces a machine command for external oscillator
+        // control (used by PePPAR-Fix over USB or the mosaic-T TCP backdoor).
+        // Anything else opens the interactive menu, exactly as before. See
+        // ExternalControl.ino.
+        if (incoming == '$')
+            parseExternalControlCommand();
+        else
+            menuMain(); // Present user menu
     }
 }
 

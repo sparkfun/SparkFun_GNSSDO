@@ -368,53 +368,59 @@ void menuOperation()
         systemPrintln();
         systemPrintln("Menu: Operation\r\n");
 
-        if (presentTcxoTemperature)
+        systemPrint("1)  TCXO closed-loop control:                           ");
+        systemPrintf("%s\r\n", settings.tcxoClosedLoop ? "Enabled" : "Disabled");
+
+        if (settings.tcxoClosedLoop)
         {
-        systemPrintf("1)  Minimum TCXO Warm Up (s):                           %ld\r\n", settings.tcxoMinWarmup_s);
-        systemPrintf("2)  Required TCXO Temperature Stability (ADU):          %.2f\r\n", settings.tcxoTemperatureStability);
+            if (presentTcxoTemperature)
+            {
+            systemPrintf("2)  Minimum TCXO Warm Up (s):                           %ld\r\n", settings.tcxoMinWarmup_s);
+            systemPrintf("3)  Required TCXO Temperature Stability (ADU):          %.2f\r\n", settings.tcxoTemperatureStability);
+            }
+
+            systemPrint("10) PI P term for initial frequency steering:           ");
+            systemPrintf("%.3e\r\n", settings.PkSteer);
+
+            systemPrint("11) PI I term for initial frequency steering:           ");
+            systemPrintf("%.3e\r\n", settings.IkSteer);
+
+            systemPrint("12) Required bias stability for frequency lock:         ");
+            systemPrintf("%.3e\r\n", settings.rxStabilityForFrequencyLock);
+
+            systemPrint("13) PI P term for fast ramping:                         ");
+            systemPrintf("%.3e\r\n", settings.PkRamp);
+
+            systemPrint("14) PI I term for fast ramping:                         ");
+            systemPrintf("%.3e\r\n", settings.IkRamp);
+
+            systemPrint("15) TCXO steering ramp rate limit (s/s):                ");
+            systemPrintf("%.3e\r\n", settings.tcxoRampRateLimit_sps);
+
+            systemPrint("16) TCXO steering ramp step size (s):                   ");
+            systemPrintf("%.3e\r\n", settings.tcxoRampStepSize_s);
+
+            systemPrint("17) TCXO steering ramp asymmetry:                       ");
+            systemPrintf("%.3f\r\n", settings.tcxoRampAsymmetry);
+
+            systemPrint("18) TCXO steering ramp minimum repeats:                 ");
+            systemPrintf("%d\r\n", settings.minimumRampRepeats);        
+
+            systemPrint("19) Required bias for phase lock (s):                   ");
+            systemPrintf("%.3e\r\n", settings.rxPhaseErrorLimit_s);
+
+            systemPrint("20) PI P term for final TCXO disciplining:              ");
+            systemPrintf("%.3e\r\n", settings.Pk);
+
+            systemPrint("21) PI I term for final TCXO disciplining:              ");
+            systemPrintf("%.3e\r\n", settings.Ik);
+
+            systemPrint("30) Prefer non-composite GPS bias - if available:       ");
+            systemPrintf("%s\r\n", settings.preferNonCompositeGPSBias ? "Enabled" : "Disabled");
+
+            systemPrint("31) Prefer non-composite Galileo bias - if available:   ");
+            systemPrintf("%s\r\n", settings.preferNonCompositeGalileoBias ? "Enabled" : "Disabled");
         }
-
-        systemPrint("10) PI P term for initial frequency steering:           ");
-        systemPrintf("%.3e\r\n", settings.PkSteer);
-
-        systemPrint("11) PI I term for initial frequency steering:           ");
-        systemPrintf("%.3e\r\n", settings.IkSteer);
-
-        systemPrint("12) Required bias stability for frequency lock:         ");
-        systemPrintf("%.3e\r\n", settings.rxStabilityForFrequencyLock);
-
-        systemPrint("13) PI P term for fast ramping:                         ");
-        systemPrintf("%.3e\r\n", settings.PkRamp);
-
-        systemPrint("14) PI I term for fast ramping:                         ");
-        systemPrintf("%.3e\r\n", settings.IkRamp);
-
-        systemPrint("15) TCXO steering ramp rate limit (s/s):                ");
-        systemPrintf("%.3e\r\n", settings.tcxoRampRateLimit_sps);
-
-        systemPrint("16) TCXO steering ramp step size (s):                   ");
-        systemPrintf("%.3e\r\n", settings.tcxoRampStepSize_s);
-
-        systemPrint("17) TCXO steering ramp asymmetry:                       ");
-        systemPrintf("%.3f\r\n", settings.tcxoRampAsymmetry);
-
-        systemPrint("18) TCXO steering ramp minimum repeats:                 ");
-        systemPrintf("%d\r\n", settings.minimumRampRepeats);        
-
-        systemPrint("19) Required bias for phase lock (s):                   ");
-        systemPrintf("%.3e\r\n", settings.rxPhaseErrorLimit_s);
-
-        systemPrint("20) PI P term for final TCXO disciplining:              ");
-        systemPrintf("%.3e\r\n", settings.Pk);
-
-        systemPrint("21) PI I term for final TCXO disciplining:              ");
-        systemPrintf("%.3e\r\n", settings.Ik);
-
-        systemPrint("30) Prefer non-composite GPS bias - if available:       ");
-        systemPrintf("%s\r\n", settings.preferNonCompositeGPSBias ? "Enabled" : "Disabled");
-
-        systemPrint("31) Prefer non-composite Galileo bias - if available:   ");
-        systemPrintf("%s\r\n", settings.preferNonCompositeGalileoBias ? "Enabled" : "Disabled");
 
         systemPrint("40) Pulse-Per-Second Interval:                          ");
         systemPrintln(mosaicPPSParametersInterval[settings.ppsInterval]);
@@ -447,7 +453,13 @@ void menuOperation()
 
         byte incoming = getCharacterNumber();
 
-        if (presentTcxoTemperature && (incoming == 1))
+        if (incoming == 1)
+        {
+            settings.tcxoClosedLoop ^= 1;
+
+            requestChangeState(STATE_GNSS_CONFIGURED);
+        }
+        else if (settings.tcxoClosedLoop && presentTcxoTemperature && (incoming == 2))
         {
             systemPrint("Enter the minimum TCXO warm up in seconds: ");
             int warmup = getNumber(); // Returns EXIT, TIMEOUT, or long
@@ -462,7 +474,7 @@ void menuOperation()
                 }
             }
         }
-        else if (presentTcxoTemperature && (incoming == 2))
+        else if (settings.tcxoClosedLoop && presentTcxoTemperature && (incoming == 3))
         {
             systemPrint("Enter the required temperature stability in ADU: ");
             double stability;
@@ -476,7 +488,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 10)
+        else if (settings.tcxoClosedLoop && (incoming == 10))
         {
             systemPrint("Enter the PI P term for initial frequency steering: ");
             double p;
@@ -490,7 +502,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 11)
+        else if (settings.tcxoClosedLoop && (incoming == 11))
         {
             systemPrint("Enter the PI I term for initial frequency steering: ");
             double i;
@@ -504,7 +516,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 12)
+        else if (settings.tcxoClosedLoop && (incoming == 12))
         {
             systemPrintln("The firmware will stay in STATE_GNSS_FINETIME");
             systemPrintf("until the change in the bias is less than %.3e.\r\n", settings.rxStabilityForFrequencyLock);
@@ -520,7 +532,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 13)
+        else if (settings.tcxoClosedLoop && (incoming == 13))
         {
             systemPrint("Enter the PI P term for fast ramping: ");
             double p;
@@ -534,7 +546,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 14)
+        else if (settings.tcxoClosedLoop && (incoming == 14))
         {
             systemPrint("Enter the PI I term for fast ramping: ");
             double i;
@@ -548,7 +560,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 15)
+        else if (settings.tcxoClosedLoop && (incoming == 15))
         {
             systemPrint("Enter the TCXO steering ramp rate limit in seconds per second: ");
             double dbl;
@@ -562,7 +574,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 16)
+        else if (settings.tcxoClosedLoop && (incoming == 16))
         {
             systemPrint("Enter the TCXO steering ramp step size in seconds: ");
             double dbl;
@@ -576,7 +588,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 17)
+        else if (settings.tcxoClosedLoop && (incoming == 17))
         {
             systemPrintf("The TCXO steering ramp asymmetry is currently %.3f\r\n", settings.tcxoRampAsymmetry);
             systemPrintf("This means the two ramp step sizes are %.2es and %.2es respectively\r\n",
@@ -594,7 +606,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 18)
+        else if (settings.tcxoClosedLoop && (incoming == 18))
         {
             systemPrint("Enter the steering ramp minimum repeats: ");
             int repeats = getNumber(); // Returns EXIT, TIMEOUT, or long
@@ -609,7 +621,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 19)
+        else if (settings.tcxoClosedLoop && (incoming == 19))
         {
             systemPrintln("The firmware will stay in STATE_GNSS_FREQUENCY_LOCK");
             systemPrintf("until the bias is less than %.3es.\r\n", settings.rxPhaseErrorLimit_s);
@@ -625,7 +637,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 20)
+        else if (settings.tcxoClosedLoop && (incoming == 20))
         {
             systemPrint("Enter the PI P term: ");
             double p;
@@ -639,7 +651,7 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 21)
+        else if (settings.tcxoClosedLoop && (incoming == 21))
         {
             systemPrint("Enter the PI I term: ");
             double i;
@@ -653,13 +665,13 @@ void menuOperation()
                 }
             }
         }
-        else if (incoming == 30)
+        else if (settings.tcxoClosedLoop && (incoming == 30))
         {
             settings.preferNonCompositeGPSBias ^= 1;
             if (settings.preferNonCompositeGPSBias)
                 settings.preferNonCompositeGalileoBias = false;
         }
-        else if (incoming == 31)
+        else if (settings.tcxoClosedLoop && (incoming == 31))
         {
             settings.preferNonCompositeGalileoBias ^= 1;
             if (settings.preferNonCompositeGalileoBias)

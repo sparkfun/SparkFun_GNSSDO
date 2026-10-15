@@ -20,6 +20,7 @@ typedef enum
     STATE_GNSS_ERROR_AFTER_FREQUENCY_LOCK,
     STATE_GNSS_PHASE_LOCK, // GNSS has achieved phase lock. Maintain the bias using the PLL
     STATE_GNSS_ERROR_AFTER_PHASE_LOCK,
+    STATE_OPEN_LOOP, // TCXO is running open-loop. No PI control. E.g. GNSSDO with external reference
     STATE_NOT_SET, // Must be last on list
 } SystemState;
 volatile SystemState systemState = STATE_NOT_SET;
@@ -45,6 +46,7 @@ const SystemStatesName SystemStatesNames[] = {
     { STATE_GNSS_ERROR_AFTER_FREQUENCY_LOCK, "ERROR_AFTER_FREQUENCY_LOCK" },
     { STATE_GNSS_PHASE_LOCK, "PHASE_LOCK" },
     { STATE_GNSS_ERROR_AFTER_PHASE_LOCK, "ERROR_AFTER_PHASE_LOCK" },
+    { STATE_OPEN_LOOP, "OPEN_LOOP" },
     { STATE_NOT_SET, "NOT_SET" },
 };
 
@@ -350,6 +352,8 @@ typedef struct
     double tcxoRampStepSize_s = 0.5e-9; // Ole uses 1ns/s (updated if needed by beginTCXO)
     double tcxoRampAsymmetry = 1.0; // It seems STP3593 can't heat and cool at the same rate (updated if needed by beginTCXO)
     int minimumRampRepeats = 1; // updated if needed by beginTCXO
+
+    bool tcxoClosedLoop = true; // Set to false to run the TCXO open-loop, e.g. when feeding GNSSDO with external 10MHz
 
     // Add new settings above <------------------------------------------------------------>
 

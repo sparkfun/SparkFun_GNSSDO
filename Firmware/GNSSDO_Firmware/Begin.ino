@@ -304,7 +304,9 @@ void updateErrorLED()
 
 void updateLockLED()
 {
-    digitalWrite(pin_lockLED, systemState >= STATE_GNSS_PHASE_LOCK ? HIGH : LOW);
+    digitalWrite(pin_lockLED,
+        ((systemState >= STATE_GNSS_PHASE_LOCK)
+        && (systemState <= STATE_GNSS_ERROR_AFTER_PHASE_LOCK)) ? HIGH : LOW);
 }
 
 // Depending on platform and previous power down state, set system state

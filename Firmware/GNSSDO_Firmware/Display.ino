@@ -201,8 +201,10 @@ void updateDisplay()
                 oled->print(textLine);
                 yPos += 8;
 
-                if (systemState >= STATE_GNSS_FREQUENCY_LOCK)
+                if (systemState >= STATE_GNSS_FREQUENCY_LOCK) // This covers STATE_OPEN_LOOP
                 {
+                    // |-------- 21 -------|
+                    // Bias  +123.456ms OPEN
                     if (tcxoClockBias_ms >= 1.0)
                         snprintf(textLine, sizeof(textLine), "Bias  +%.3fms",
                             (float)tcxoClockBias_ms);
@@ -221,6 +223,17 @@ void updateDisplay()
                     else
                         snprintf(textLine, sizeof(textLine), "Bias  %.3fns",
                             (float)(tcxoClockBias_ms * 1000000.0));
+
+                    if (systemState == STATE_OPEN_LOOP)
+                    {
+                        size_t strLen = strlen(textLine);
+                        if (strLen == strlen("Bias  +1.456ns"))
+                            sprintf(&textLine[strLen], "   OPEN");
+                        else if (strLen == strlen("Bias  +12.456ns"))
+                            sprintf(&textLine[strLen], "  OPEN");
+                        else if (strLen == strlen("Bias  +123.456ns"))
+                            sprintf(&textLine[strLen], " OPEN");
+                    }
                 }
                 else if (systemState >= STATE_GNSS_FINETIME)
                 {

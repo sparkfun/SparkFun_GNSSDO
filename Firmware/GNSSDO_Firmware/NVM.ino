@@ -118,6 +118,8 @@ void recordSystemSettingsToFile(File *settingsFile)
     settingsFile->printf("%s=%0.3f\r\n", "tcxoRampAsymmetry", settings.tcxoRampAsymmetry);
     settingsFile->printf("%s=%d\r\n", "minimumRampRepeats", settings.minimumRampRepeats);
 
+    settingsFile->printf("%s=%d\r\n", "tcxoClosedLoop", settings.tcxoClosedLoop);
+
     //settingsFile->printf("%s=%d\r\n", "", settings.);
 
     // Add new settings above <------------------------------------------------------------>
@@ -514,6 +516,8 @@ bool parseLine(char *theLine, Settings *settings, bool printDebug)
         settings->tcxoRampAsymmetry = d;
     else if (strcmp(settingName, "minimumRampRepeats") == 0)
         settings->minimumRampRepeats = d;
+    else if (strcmp(settingName, "tcxoClosedLoop") == 0)
+        settings->tcxoClosedLoop = d;
 
     //else if (strcmp(settingName, "") == 0)
     //    settings-> = d;

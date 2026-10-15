@@ -76,7 +76,9 @@ void updateSystemState()
 
                 if (gnssWNSet && gnssToWSet && gnssFineTime)
                 {
-                    if (presentTcxoTemperature)
+                    if (!settings.tcxoClosedLoop)
+                        changeState(STATE_OPEN_LOOP);
+                    else if (presentTcxoTemperature)
                         changeState(STATE_TCXO_WARMUP);
                     else
                         changeState(STATE_GNSS_FINETIME);
@@ -582,6 +584,27 @@ void updateSystemState()
                     // Uncomment these lines to start again - repeat the frequency locking
                     //changeState(STATE_GNSS_FINETIME); // Return to finetime (frequency locking)
                 }
+            }
+        }
+        break;
+
+        // TCXO is run open-loop, no PI control, e.g. when feeding GNSSDO with external 10MHz
+        // If the user (re)enables closed-loop control, return to STATE_GNSS_CONFIGURED
+        case (STATE_OPEN_LOOP): {
+            if (gnssPVTUpdated) // Wait for PVT to be updated
+            {
+                gnssPVTUpdated = false;
+
+                updateErrorLED();
+
+                updateTCXOClockBias(); // Update tcxoClockDrift_ppm and tcxoClockBias_ms
+
+                // Start the PPS
+                if (!ppsStarted && !gnssError && configureGNSSPPS())
+                    ppsStarted = true;
+
+                if (settings.tcxoClosedLoop) // If user has (re)enabled the loop
+                    changeState(STATE_GNSS_CONFIGURED);
             }
         }
         break;

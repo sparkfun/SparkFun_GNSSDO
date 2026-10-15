@@ -77,6 +77,20 @@
            When entering STATE_GNSS_PHASE_LOCK from STATE_GNSS_FREQUENCY_LOCK, the P and I terms
            are ramped from PkRamp and IkRamp to Pk and Ik over phaseLockPIRampTime_s (120s)
            This helps to avoid shocking the PI loop and sending the bias off for a walk...
+   3.1: Allow TCXO to run open-loop - e.g. on GNSSDO when using an external 10MHz reference
+         Adds settings.tcxoClosedLoop. Default to true. Set to false to run open loop.
+         Adds the new state STATE_OPEN_LOOP
+         Adds the External Control command parser. Based on @bobvar's fork. Thank you Bob
+           Commands are formatted according to NMEA 0183
+           Send command $R (full form: $R*52\r\n) to request a staus report
+           See ExternalControl.ino for more details
+         In STATE_OPEN_LOOP
+           The firmware displays the usual GNSS time, position and clock bias
+           The clock bias is followed by "OPEN" to indicate the TCXO is open loop
+           Send command $W (full form: $W,123456*7C\r\n) to set the TCXO control word manually
+           The Write command does not check if the control word exceeds the maximum change
+           in PPB per second. That's all on you... User beware!
+           
 */
 
 // This is passed in from compiler extra flags

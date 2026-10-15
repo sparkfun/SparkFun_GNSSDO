@@ -53,6 +53,33 @@ void systemPrintf(const char *format, ...)
     va_end(args2);
 }
 
+// Add the $, *, checksum, CR, LF
+void systemPrintfNMEA(const char *format, ...)
+{
+    va_list args;
+    va_start(args, format);
+
+    va_list args2;
+    va_copy(args2, args);
+    char buf[vsnprintf(nullptr, 0, format, args) + 1];
+
+    vsnprintf(buf, sizeof buf, format, args2);
+
+    uint8_t csum = 0;
+    char *ptr = buf;
+    while ((*ptr != '\0') && ((ptr - buf) < (sizeof buf)))
+        csum ^= *ptr++;
+
+    char buf2[(sizeof buf) + 7];
+
+    snprintf(buf2, sizeof buf2, "$%s*%02X\r\n", buf, csum);
+
+    systemPrint(buf2);
+
+    va_end(args);
+    va_end(args2);
+}
+
 // Print a string with a carriage return and linefeed
 void systemPrintln(const char *value)
 {
