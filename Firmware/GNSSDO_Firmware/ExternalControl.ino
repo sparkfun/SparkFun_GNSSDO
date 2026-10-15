@@ -80,8 +80,8 @@ static size_t readExternalControlLine(char *buf, size_t bufLen)
     return spot;
 }
 
-// Parse a signed integer from s, skipping leading separators (space, comma,
-// tab). Sets *ok false if no digits were found.
+// Parse a signed integer from s, skipping leading separators (comma).
+// Sets *ok false if no digits were found.
 static long long parseExternalControlInt(const char *s, bool *ok)
 {
     while (*s == ',') // Skip the comma
@@ -104,7 +104,7 @@ void parseExternalControlCommand()
     char *p = line;
     char cmd = *p;
 
-    // A valid command must have at least 5 chars: R*52\r\n
+    // A valid command must have at least 6 chars: R*52\r\n
     if (numChars < 6) 
     {
         systemPrintfNMEA("%c,ERR,TOO_SHORT,%d", cmd, numChars);
