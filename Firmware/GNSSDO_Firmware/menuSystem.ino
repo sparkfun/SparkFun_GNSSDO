@@ -843,7 +843,18 @@ void printCurrentConditions(bool CSV)
             systemPrint(",");
             systemPrint(ppsStarted);
 
-            systemPrintf(",%.3e", tcxoClockBias_ms / 1000.0); // Display clock bias in seconds
+            if (settings.tcxoClosedLoop)
+                systemPrintf(",%.3e", tcxoClockBias_ms / 1000.0); // Display clock bias in seconds
+            else
+            {
+                // More resolution for open-loop. Display to picoseconds
+                if ((tcxoClockBias_ms >= 1.0) || (tcxoClockBias_ms <= -1.0))
+                    systemPrintf(",%.9e", tcxoClockBias_ms / 1000.0);
+                else if ((tcxoClockBias_ms >= 0.001) || (tcxoClockBias_ms <= -0.001))
+                    systemPrintf(",%.6e", tcxoClockBias_ms / 1000.0);
+                else
+                    systemPrintf(",%.3e", tcxoClockBias_ms / 1000.0);
+            }
 
             systemPrintf(",%.3e", tcxoClockDrift_ppm); // Display clock drift in PPM
 
@@ -930,11 +941,19 @@ void printCurrentConditions(bool CSV)
             systemPrint(ppsStarted ? "On" : "Off");
 
             if ((tcxoClockBias_ms >= 1.0) || (tcxoClockBias_ms <= -1.0))
-                systemPrintf(", Bias: %.3fms",
-                    (float)tcxoClockBias_ms);
+            {
+                if (settings.tcxoClosedLoop)
+                    systemPrintf(", Bias: %.3fms", (float)tcxoClockBias_ms);
+                else
+                    systemPrintf(", Bias: %.9fms", (float)tcxoClockBias_ms); // More resolution
+            }
             else if ((tcxoClockBias_ms >= 0.001) || (tcxoClockBias_ms <= -0.001))
-                systemPrintf(", Bias: %.3fus",
-                    (float)(tcxoClockBias_ms * 1000.0));
+            {
+                if (settings.tcxoClosedLoop)
+                    systemPrintf(", Bias: %.3fus", (float)(tcxoClockBias_ms * 1000.0));
+                else
+                    systemPrintf(", Bias: %.6fus", (float)(tcxoClockBias_ms * 1000.0)); // More resolution
+            }
             else
                 systemPrintf(", Bias: %.3fns",
                     (float)(tcxoClockBias_ms * 1000000.0));
