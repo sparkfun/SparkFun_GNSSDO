@@ -9,20 +9,22 @@ Designed and manufactured in Boulder, Colorado, USA, the SparkPNT SXT GNSS Disci
 
 Under the hood, the SXT and SXT-D are based on the mosaic-T GNSS module from Septentrio, plus the Espressif ESP32-WROVER processor (16MB flash, 8MB PSRAM). The mosaic-T has USB-C connectivity (with Ethernet-over-USB), multiple UARTs and supports full Ethernet connectivity. You can connect the mosaic-T directly to your Ethernet network - our product supports Power-over-Ethernet too. The ESP32 rides shotgun: disciplining the digitally-controlled oscillator and controlling the OLED display. Remote configuration is possible, the ESP32 console can be accessed via TCP. The SXT and SXT-D have multiple power options including USB-C, PoE and 9V-36V DC, making it easy to connect them to a battery-backed supply.
 
-RTK Not Supported
---------------
-The mosaic-T is a superb GNSS module designed for highly accurate timing applications. **But it does not support RTK. It can not be used as a RTK Rover or Base. RTCM output is not supported.**
+> [!NOTE]
+> The mosaic-T is a superb GNSS module designed for highly accurate timing applications. **But it does not support RTK. It can not be used as a RTK Rover or Base. RTCM output is not supported.**
+
 
 Documentation
 --------------
 
-- **[Product Manual](http://docs.sparkfun.com/SparkFun_GNSSDO/)** - Product manual for the SXT(-D) GNSSDO(+) hosted by GitHub pages.<br>
-  [![Built with Material for MkDocs](https://img.shields.io/badge/Material_for_MkDocs-526CFE?logo=MaterialForMkDocs&logoColor=white)](https://squidfunk.github.io/mkdocs-material/) [![GitHub Pages Deploy](https://github.com/sparkfun/SparkFun_GNSSDO/actions/workflows/build_documentation.yml/badge.svg)](https://github.com/sparkfun/SparkFun_GNSSDO/actions/workflows/build_documentation.yml)
+> [!IMPORTANT]  
+> Our latest documentation is now available at: https://docs.sparkpnt.com/SXT/
 
 
-*Need to download or print our hookup guide?*
+> [!CAUTION]
+> *This product manual has been deprecated. Please refer to our latest documentation, linked above.*
+> - **[Product Manual](http://docs.sparkfun.com/SparkFun_GNSSDO/)** - Product manual for the SXT(-D) GNSSDO(+) hosted by GitHub pages.<br>
+>   [![Built with Material for MkDocs](https://img.shields.io/badge/Material_for_MkDocs-526CFE?logo=MaterialForMkDocs&logoColor=white)](https://squidfunk.github.io/mkdocs-material/) [![GitHub Pages Deploy](https://github.com/sparkfun/SparkFun_GNSSDO/actions/workflows/build_documentation.yml/badge.svg)](https://github.com/sparkfun/SparkFun_GNSSDO/actions/workflows/build_documentation.yml)
 
-- [Print *(Print to PDF)* from Single-Page View](http://docs.sparkfun.com/SparkFun_GNSSDO/print_view)
 
 Firmware Update
 -------------------
@@ -30,6 +32,7 @@ Firmware Update
 The **[/Firmware/Binaries](https://github.com/sparkfun/SparkFun_GNSSDO/tree/main/Firmware/Binaries)** folder contains the firmware binaries.
 
 You can update or reload the firmware using the [SparkFun RTK Firmware Uploader](https://github.com/sparkfun/SparkFun_RTK_Firmware_Uploader).
+
 
 Repository Contents
 -------------------
@@ -51,11 +54,13 @@ Repository Contents
 - **[/Test_Sketches](/Test_Sketches/)** - Additional code used to validate and test the SXT
 - **[/Documents](/Documents/)** - Component datasheets etc.
 
+
 Product Variants
 ----------------
 
 - [SXT](https://www.sparkpnt.com/products/sxt-gnssdo)- SXT (GNSSDO) v1.0, Initial Release
 - [SXT-D](https://www.sparkpnt.com/products/sxt-d-gnssdo)- SXT-D (GNSSDO+) v1.0, Initial Release
+
 
 Version History
 ---------------
